@@ -1,0 +1,84 @@
+1
+00:00:00,560 --> 00:00:06,920
+Now the most basic thing we need to do when we're creating our web sites is to select the elements in
+
+2
+00:00:06,920 --> 00:00:10,030
+our web page in order to manipulate it at a later date.
+
+3
+00:00:10,250 --> 00:00:17,210
+Now we saw that we can do this in Javascript by saying something like document.querySelector
+
+4
+00:00:17,900 --> 00:00:22,000
+and inside here we would add the selector that we want to select,
+
+5
+00:00:22,010 --> 00:00:22,740
+right?
+
+6
+00:00:22,790 --> 00:00:28,580
+So for example if we wanted the h1 then we can simply say querySelector("h1").
+
+7
+00:00:28,610 --> 00:00:36,020
+Now if we were to write this in jQuery then we can remove all of this part and instead only have the
+
+8
+00:00:36,020 --> 00:00:38,760
+dollar sign which is short for jQuery.
+
+9
+00:00:38,780 --> 00:00:46,540
+So now we're using a jQuery method to select our h1, and you can see how much shorter it is.
+
+10
+00:00:46,550 --> 00:00:53,750
+Now this works very similarly to querySelector in the sense that inside the parentheses we're specifying
+
+11
+00:00:53,780 --> 00:01:00,010
+the CSS selector that we would use if we were to select our elements in CSS.
+
+12
+00:01:00,170 --> 00:01:06,420
+And this is because it's the most flexible, the most adaptable, and also can be very specific.
+
+13
+00:01:06,440 --> 00:01:16,370
+So for example it allows us to say things like we want the h1 that has a class of title, or we want
+
+14
+00:01:16,460 --> 00:01:22,890
+the h1 that's nested inside a div with the id of header.
+
+15
+00:01:23,090 --> 00:01:24,860
+And that works exactly the same.
+
+16
+00:01:24,860 --> 00:01:26,180
+There's no changes there.
+
+17
+00:01:26,420 --> 00:01:33,680
+But what the querySelector allows us to do is when we're trying to select all of our buttons, if you
+
+18
+00:01:33,680 --> 00:01:41,870
+remember from previously, we had to say something like document.querySelectorAll, and then we
+
+19
+00:01:41,870 --> 00:01:44,320
+would select the button in here.
+
+20
+00:01:44,540 --> 00:01:54,050
+Now, with jQuery, the dollar sign again replaces all of this and it will select all of the buttons
+
+21
+00:01:54,320 --> 00:01:59,690
+on screen and there's no difference between selecting one or selecting many.
+

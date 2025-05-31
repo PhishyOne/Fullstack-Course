@@ -1,0 +1,852 @@
+1
+00:00:00,300 --> 00:00:00,630
+All right.
+
+2
+00:00:00,640 --> 00:00:06,240
+So we've learned quite a few things about the Motoko programming language in the process of building
+
+3
+00:00:06,240 --> 00:00:09,510
+this project to simulate the compound protocol.
+
+4
+00:00:10,050 --> 00:00:16,440
+But we haven't yet implemented the most important part, which is the actual compounding of what people
+
+5
+00:00:16,440 --> 00:00:19,170
+are putting in to the crypto pool.
+
+6
+00:00:19,710 --> 00:00:22,380
+So what exactly is compound interest?
+
+7
+00:00:22,410 --> 00:00:26,730
+This is something that we kind of have to understand if we're going to write code about it.
+
+8
+00:00:27,270 --> 00:00:30,890
+Now, if you're already financially savvy, you probably know all about this.
+
+9
+00:00:30,900 --> 00:00:32,280
+So feel free to skip ahead.
+
+10
+00:00:32,580 --> 00:00:39,570
+But for those guys who don't know, apparently Einstein said that compound interest is the most powerful
+
+11
+00:00:39,570 --> 00:00:41,730
+force in the universe.
+
+12
+00:00:42,690 --> 00:00:46,860
+I think with all these quotes, we got to take it with a grain of salt, whether he actually said it.
+
+13
+00:00:47,250 --> 00:00:53,250
+But it is indeed a really, really powerful way of getting your money to earn money for you.
+
+14
+00:00:53,730 --> 00:00:58,050
+So this is one of the fundamentals of investment, investment 101, if you will.
+
+15
+00:00:58,380 --> 00:01:01,200
+But what exactly is it and how does it work?
+
+16
+00:01:01,560 --> 00:01:08,400
+Well, the idea is you start out with some money, you invest it, say you put it into a bank and you
+
+17
+00:01:08,400 --> 00:01:10,080
+earn some interest on it.
+
+18
+00:01:10,560 --> 00:01:17,910
+Now you add the money that you've earned from the interest to the initial money, and then you continue
+
+19
+00:01:17,910 --> 00:01:22,050
+earning more interest on the increased amount of money.
+
+20
+00:01:22,560 --> 00:01:30,270
+So the idea is that you end up with more and more money to invest and hence you end up with more in
+
+21
+00:01:30,270 --> 00:01:30,780
+return.
+
+22
+00:01:31,320 --> 00:01:35,910
+So let's say that you started out with $1,000 and you earn $50 of interest on it.
+
+23
+00:01:36,030 --> 00:01:38,610
+So you add the $50 to your $1,000.
+
+24
+00:01:38,940 --> 00:01:47,200
+So you have $1,050 to now earn interest on, which means you get more money in the interest, and this
+
+25
+00:01:47,250 --> 00:01:51,840
+interest compounds on each of them, hence compound interest.
+
+26
+00:01:52,860 --> 00:01:58,260
+Now, in order to work out the compound interest, we have to use this formula, which looks a little
+
+27
+00:01:58,260 --> 00:02:01,070
+bit daunting, I must admit, but it's actually pretty simple.
+
+28
+00:02:01,080 --> 00:02:02,160
+So let's break it down.
+
+29
+00:02:02,520 --> 00:02:06,280
+So you start out with an amount of money, which is called the principal.
+
+30
+00:02:06,300 --> 00:02:07,840
+This is your starting money.
+
+31
+00:02:07,860 --> 00:02:09,690
+Let's say you had $100 to invest.
+
+32
+00:02:09,990 --> 00:02:17,160
+Then you multiply it by what's inside the bracket, and the bracket is one plus the interest rate in
+
+33
+00:02:17,160 --> 00:02:17,700
+decimal.
+
+34
+00:02:18,090 --> 00:02:24,300
+So if it was 10%, then that would be represented as 0.1 as a decimal.
+
+35
+00:02:24,630 --> 00:02:28,380
+If it was 5%, there would be 0.05.
+
+36
+00:02:28,950 --> 00:02:32,910
+And then you divide that decimal by the number of time
+
+37
+00:02:32,910 --> 00:02:35,540
+the interest is compounded per unit of time.
+
+38
+00:02:35,550 --> 00:02:42,030
+So for example, if it's the interest rate per annum, so every year you get an interest rate, which
+
+39
+00:02:42,030 --> 00:02:43,170
+is usually how banks work,
+
+40
+00:02:43,590 --> 00:02:49,500
+then you would divide it just by one. And then you would use the exponent,
+
+41
+00:02:49,500 --> 00:02:57,000
+so it's this one plus your interest rate to the power of the amount of time that you've earned your
+
+42
+00:02:57,000 --> 00:02:57,810
+interest over.
+
+43
+00:02:58,140 --> 00:03:06,450
+So maybe you are earning 1% interest every year, so then it would be 0.01 divided by one, which is
+
+44
+00:03:06,450 --> 00:03:10,950
+still 0.01, plus 1 which is 1.001.
+
+45
+00:03:11,340 --> 00:03:15,780
+And then that to the power of five years, so to the power of five.
+
+46
+00:03:16,170 --> 00:03:21,660
+And then this whole thing gets multiplied by the initial money that you were investing and this is how
+
+47
+00:03:21,660 --> 00:03:22,350
+you work it out.
+
+48
+00:03:22,980 --> 00:03:30,420
+So in our case, let's just say, for example sake, we are creating our protocol to give the users
+
+49
+00:03:30,420 --> 00:03:38,490
+who put money into it whatever is in the currentValue multiplied by 1% per second.
+
+50
+00:03:38,940 --> 00:03:43,920
+So it's a little bit crazy because we're saying that people were getting 1% interest per second, which,
+
+51
+00:03:43,920 --> 00:03:48,480
+as you'll see later on, is actually quite a lot of money over a very short period of time.
+
+52
+00:03:48,840 --> 00:03:52,230
+But because we want to demo it, so we want to be able to see the changes quickly.
+
+53
+00:03:52,860 --> 00:03:59,100
+So in this case, the 1% is represented as a decimal of 0.01.
+
+54
+00:03:59,850 --> 00:04:07,980
+We divide it by one because the compound interest is calculated once per second and then we add one
+
+55
+00:04:07,980 --> 00:04:13,800
+to it, and then we raise it to the power of the total number of seconds that have elapsed.
+
+56
+00:04:14,220 --> 00:04:19,800
+So this is our formula that we're going with and we're going to transplanted into our code right now.
+
+57
+00:04:20,010 --> 00:04:24,660
+Now, the first thing we're missing here is a way of keeping track of time.
+
+58
+00:04:24,870 --> 00:04:30,550
+Well, we want to have some sort of way where we specify a start time.
+
+59
+00:04:31,020 --> 00:04:39,390
+So the way that we track time using Motoko is done through the time module, which is in the base library
+
+60
+00:04:39,390 --> 00:04:39,900
+as well.
+
+61
+00:04:40,500 --> 00:04:46,380
+And we can use this now function just like what we did in JavaScript to get the current time.
+
+62
+00:04:46,740 --> 00:04:55,980
+And it gives us back a number in nanoseconds since this reference date, which is 1970, 1st of January.
+
+63
+00:04:56,700 --> 00:04:59,810
+So I want you to first try and see if you can implement that
+
+64
+00:05:00,270 --> 00:05:07,260
+just through using the documentation and what you know about importing modules and see if you can get
+
+65
+00:05:07,260 --> 00:05:07,860
+it to work.
+
+66
+00:05:08,250 --> 00:05:09,360
+So pause the video,
+
+67
+00:05:09,690 --> 00:05:12,930
+try and get hold of the current time in nanoseconds
+
+68
+00:05:13,230 --> 00:05:20,010
+since 1970 1st of January and print it out into the terminal. So pause the video and give that a go.
+
+69
+00:05:23,420 --> 00:05:23,800
+All right.
+
+70
+00:05:23,810 --> 00:05:31,620
+So first we know that we have to import this time module and it's from the Motoko based library as well.
+
+71
+00:05:32,270 --> 00:05:36,470
+So we're going to write base/Time.
+
+72
+00:05:37,100 --> 00:05:42,930
+So now that we've got the time module, I'm going to go and create a constant.
+
+73
+00:05:42,950 --> 00:05:44,570
+So you could have created a variable,
+
+74
+00:05:44,870 --> 00:05:50,510
+but in this case, because our startTime we're not going to change it, at least for now, we're going
+
+75
+00:05:50,510 --> 00:05:51,920
+to use a constant.
+
+76
+00:05:52,940 --> 00:06:01,190
+Now this startTime is going to be set equal to the Time.now function.
+
+77
+00:06:01,700 --> 00:06:06,890
+So this is the current time in nanoseconds since 1970 1st of January.
+
+78
+00:06:07,490 --> 00:06:10,550
+And then we want to go ahead and print this out.
+
+79
+00:06:10,550 --> 00:06:18,200
+So we'll use our debug module print and then we're going to use our debug_show because this is not a
+
+80
+00:06:18,200 --> 00:06:18,770
+text.
+
+81
+00:06:19,110 --> 00:06:21,830
+Then we're going to put startTime in there.
+
+82
+00:06:22,640 --> 00:06:26,060
+So now let's go ahead and deploy our canister.
+
+83
+00:06:26,690 --> 00:06:29,730
+And once that's done, you should see it printed in here.
+
+84
+00:06:29,750 --> 00:06:37,010
+This is how many nanoseconds have elapsed since 1970 1st of January.
+
+85
+00:06:37,550 --> 00:06:38,470
+So great.
+
+86
+00:06:38,480 --> 00:06:40,490
+Well done if you managed to get that to work.
+
+87
+00:06:40,760 --> 00:06:46,160
+Now, let's go ahead and use this to track how much time has elapsed.
+
+88
+00:06:46,670 --> 00:06:49,580
+So to do that, I'm going to create a new function.
+
+89
+00:06:49,590 --> 00:06:52,040
+So public func
+
+90
+00:06:52,280 --> 00:06:58,730
+and this is not going to be a query function because in it we're going to be updating the current value,
+
+91
+00:06:58,730 --> 00:07:03,860
+we're going to be increasing it depending on how much a compound interest has been earned.
+
+92
+00:07:04,550 --> 00:07:14,060
+So we're going to call this function compound, verb, and then we're going to write some code inside.
+
+93
+00:07:14,360 --> 00:07:20,450
+So we first have to figure out how we calculate the number of seconds that have elapsed.
+
+94
+00:07:21,200 --> 00:07:29,230
+So we can do that by getting hold of the moment when this compound interest is being calculated,
+
+95
+00:07:29,240 --> 00:07:37,580
+so you can imagine maybe we have a trigger where every month or so we calculate all the compound interest
+
+96
+00:07:37,580 --> 00:07:39,920
+and figure out how much people have earned.
+
+97
+00:07:40,310 --> 00:07:46,610
+Or maybe we could do it every single time that people withdraw funds or top-up funds.
+
+98
+00:07:47,060 --> 00:07:54,620
+So we have to have a way of figuring out what is the current moment in time when this function is being
+
+99
+00:07:54,620 --> 00:07:55,130
+called.
+
+100
+00:07:55,670 --> 00:07:57,800
+So we'll call that currentTime.
+
+101
+00:07:59,900 --> 00:08:03,010
+And that is going to be again using the time module,
+
+102
+00:08:03,050 --> 00:08:06,380
+we're going to get the Time.now method to trigger.
+
+103
+00:08:06,860 --> 00:08:10,550
+Well, next, we need to figure out how many nanoseconds have elapsed.
+
+104
+00:08:10,970 --> 00:08:15,590
+So we'll call that time elapsed in nanoseconds.
+
+105
+00:08:16,640 --> 00:08:24,830
+And this is going to be the current time, which is further away from 1970 than when we started,
+
+106
+00:08:24,860 --> 00:08:33,140
+so the start time. So currentTime - startTime and this is going to be the timeElapsedNS.
+
+107
+00:08:33,679 --> 00:08:41,659
+Now if we want to change this to time elapsed in seconds, well, then we're going to have to convert
+
+108
+00:08:41,659 --> 00:08:42,110
+this,
+
+109
+00:08:42,110 --> 00:08:42,470
+right?
+
+110
+00:08:42,710 --> 00:08:46,460
+So how do we convert nanoseconds to seconds?
+
+111
+00:08:46,820 --> 00:08:50,630
+Well, we can simply divide it by 1 billion,
+
+112
+00:08:50,630 --> 00:08:54,290
+so that's a one followed by nine zeros.
+
+113
+00:08:54,590 --> 00:08:57,200
+That's how many nanoseconds is in 1 second.
+
+114
+00:08:57,740 --> 00:09:04,100
+And now that we've, through this very convoluted way of getting our time elapsed, but it's okay because
+
+115
+00:09:04,100 --> 00:09:06,830
+I think it's better that the code is more readable for you.
+
+116
+00:09:07,010 --> 00:09:09,170
+You can always simplify it down later on.
+
+117
+00:09:09,740 --> 00:09:16,280
+Now that we've got all parts of our equation ready, we've got the amount of time that's elapsed, we've
+
+118
+00:09:16,280 --> 00:09:21,050
+got the interest rate worked out and we know what the principal is which is the currentValue,
+
+119
+00:09:21,320 --> 00:09:25,700
+we're ready to implement this function into our code.
+
+120
+00:09:26,420 --> 00:09:34,340
+So what we're going to say is we're going to say, let's replace the value that's held inside the current
+
+121
+00:09:34,340 --> 00:09:41,390
+Value which remember is done through the colon equal sign, and we're going to replace it with whatever
+
+122
+00:09:41,390 --> 00:09:49,340
+it is we calculate from this function, which is currentValue times 1.01 and then raising that to the
+
+123
+00:09:49,340 --> 00:09:52,070
+power of the number of seconds that has elapsed.
+
+124
+00:09:52,760 --> 00:10:03,860
+So we're going to say it's current value multiplied by 1.01, which is 1% interest.
+
+125
+00:10:04,250 --> 00:10:12,020
+And then in order to use the exponent or raising something to the power, in Motoko, it's two asterixes
+
+126
+00:10:12,530 --> 00:10:17,780
+and then we're going to raise it to the power of the amount of time that's elapsed in seconds.
+
+127
+00:10:19,530 --> 00:10:27,000
+Now in programming, the exponent is usually calculated before we do any multiplication or division
+
+128
+00:10:27,360 --> 00:10:28,770
+following the BODMAS rule.
+
+129
+00:10:28,890 --> 00:10:35,670
+However, if you just want to be sure, you can wrap it in some parentheses to make sure that this part
+
+130
+00:10:35,670 --> 00:10:36,570
+happens first.
+
+131
+00:10:36,840 --> 00:10:39,780
+Now, once we've written all of this, we will have an error.
+
+132
+00:10:39,930 --> 00:10:47,790
+And the error tells us that the float, which is a floating-point number, 1.01, does not have the
+
+133
+00:10:47,790 --> 00:10:49,260
+expected type of nat.
+
+134
+00:10:49,440 --> 00:10:55,470
+And the problem here is we're trying to raise a value by an exponent, but we've actually got a type
+
+135
+00:10:55,470 --> 00:10:59,940
+mismatch because time elapsed is going to be a whole number.
+
+136
+00:11:00,870 --> 00:11:03,960
+It's going to not have any decimal places.
+
+137
+00:11:04,410 --> 00:11:10,080
+And then we're trying to make it work with something that has decimal places and it's not happy with
+
+138
+00:11:10,080 --> 00:11:10,320
+that.
+
+139
+00:11:10,830 --> 00:11:18,930
+So we have to make sure that all the types in our calculations match. So we can turn this into a float,
+
+140
+00:11:19,440 --> 00:11:24,120
+and we can do that with a function from the float module.
+
+141
+00:11:24,600 --> 00:11:29,910
+So this is also from the base library and it's just called float.
+
+142
+00:11:30,240 --> 00:11:40,710
+Now we can use this function in that class which is called fromInt and we can convert our time
+
+143
+00:11:40,710 --> 00:11:49,830
+elapsed into a floating-point number, which means that this calculation will now have both sides
+
+144
+00:11:49,830 --> 00:11:52,290
+with the same data type.
+
+145
+00:11:52,680 --> 00:11:55,890
+So we've solved that one issue, but it's still not happy.
+
+146
+00:11:56,130 --> 00:12:02,880
+And the reason is because this current value has a data type of nat, it's a natural number as we declared
+
+147
+00:12:02,880 --> 00:12:11,220
+up here, but we want to multiply it by a floating-point number which is going to come out of this equation.
+
+148
+00:12:11,400 --> 00:12:19,050
+So I asked the dfinity  team and currently using Motoko, it's not easy to convert a nat to a float.
+
+149
+00:12:19,800 --> 00:12:21,450
+At least the code is not very clean.
+
+150
+00:12:22,110 --> 00:12:28,050
+But given that we're working with money, it doesn't really make that much sense to keep currentValue
+
+151
+00:12:28,050 --> 00:12:34,170
+as a natural number instead of a floating-point number which allows us to hold numbers with decimal
+
+152
+00:12:34,170 --> 00:12:38,340
+places like cents and pennies. Doesn't really make sense.
+
+153
+00:12:38,580 --> 00:12:42,120
+So actually it should be a floating point number.
+
+154
+00:12:42,570 --> 00:12:49,560
+And once we've converted this to a float and this to a float, then we've got three floats being used
+
+155
+00:12:49,560 --> 00:12:52,500
+in this equation and all the errors here go away.
+
+156
+00:12:53,010 --> 00:12:59,630
+And as the plus side, we've got a better data type to represent money in our program.
+
+157
+00:13:00,240 --> 00:13:06,540
+But there are several other places where we have different datatypes being intermingled.
+
+158
+00:13:06,870 --> 00:13:13,650
+This amount is data type Nat, which we'll have to change to float so we can top up with money that has
+
+159
+00:13:13,650 --> 00:13:14,580
+decimal places.
+
+160
+00:13:15,240 --> 00:13:19,140
+And again here we have to change that Nat to a float.
+
+161
+00:13:19,530 --> 00:13:23,700
+And finally, this tempValue, we're going to have to change to a float as well.
+
+162
+00:13:24,270 --> 00:13:28,500
+And finally, we're going to change the output here because it's outputting currentValue, which is
+
+163
+00:13:28,500 --> 00:13:28,980
+a float.
+
+164
+00:13:29,280 --> 00:13:30,870
+We're going to change that data type too.
+
+165
+00:13:31,380 --> 00:13:38,040
+So once we've done all of that, we are pretty much done with our code and we're now updating our current
+
+166
+00:13:38,040 --> 00:13:43,560
+value to whatever is before multiplied by the interest rate.
+
+167
+00:13:44,040 --> 00:13:53,940
+Now there's just one problem, because if you think about it carefully, our startTime is set and then
+
+168
+00:13:53,940 --> 00:13:55,530
+we kind of just leave it.
+
+169
+00:13:55,530 --> 00:13:56,550
+It's a constant, right?
+
+170
+00:13:56,550 --> 00:13:58,080
+We never change it ever again.
+
+171
+00:13:58,860 --> 00:14:04,650
+So that means every time we're calculating the interest rate, we're working out the amount of time
+
+172
+00:14:04,650 --> 00:14:09,780
+that's elapsed from the beginning of the program running to the current time.
+
+173
+00:14:10,440 --> 00:14:19,290
+So that means if we've compounded our money and then we wait another 5 seconds and we compound again,
+
+174
+00:14:19,710 --> 00:14:23,670
+it's actually not taking into account the previous compound.
+
+175
+00:14:24,120 --> 00:14:32,490
+So what we have to do is we have to reset this startTime to whatever value is the currentTime.
+
+176
+00:14:32,490 --> 00:14:38,940
+So that means every time that we compound, we're going to reset the startTime
+
+177
+00:14:39,180 --> 00:14:44,790
+so that the next time we compound it's calculated since the previous time that we've added the money.
+
+178
+00:14:44,790 --> 00:14:49,560
+Otherwise we're going to give people a lot more than what compound interest should give them.
+
+179
+00:14:49,980 --> 00:14:56,070
+But we have a slight problem because the startTime is declared with a let, so it's a constant,
+
+180
+00:14:56,430 --> 00:15:04,110
+so we have to change it into a var. And because we want the startTime to hold it's state, we're also
+
+181
+00:15:04,110 --> 00:15:06,630
+going to change it into a stable var.
+
+182
+00:15:07,710 --> 00:15:09,180
+So now let's hit save.
+
+183
+00:15:09,300 --> 00:15:18,270
+Let's deploy our code and let's go back to our front end and let's go ahead and check our balance.
+
+184
+00:15:18,570 --> 00:15:23,550
+So currently in my program, at least we're on something like 319.
+
+185
+00:15:24,420 --> 00:15:31,050
+And don't worry, if you see that your number has reset to 300. It might be because you've changed
+
+186
+00:15:31,050 --> 00:15:37,920
+it from the previous data type, which was a natural number to a floating-point number.
+
+187
+00:15:38,250 --> 00:15:45,060
+And when we do that, it often forces the stable variable to actually be recreated.
+
+188
+00:15:45,810 --> 00:15:53,460
+So now I'm going to reset my current value back to 300 and also reset the startTime to right now.
+
+189
+00:15:53,670 --> 00:15:59,790
+Now let's hit save, deploy our code so that the currentValue gets replaced with 300 and the start
+
+190
+00:15:59,790 --> 00:16:00,120
+Time
+
+191
+00:16:00,450 --> 00:16:02,070
+gets reset to right now.
+
+192
+00:16:02,220 --> 00:16:07,200
+And then we can comment out those two lines so that it doesn't interfere with future code.
+
+193
+00:16:07,590 --> 00:16:11,670
+And then we're going to deploy this code and refresh our frontend.
+
+194
+00:16:12,210 --> 00:16:13,440
+So now if we check balance,
+
+195
+00:16:13,440 --> 00:16:15,480
+you can see we're starting at $300.
+
+196
+00:16:15,960 --> 00:16:20,610
+Then I'm going to call the compound function to see how much we add.
+
+197
+00:16:20,940 --> 00:16:24,240
+So we've now earned $88 in those few seconds.
+
+198
+00:16:24,720 --> 00:16:26,250
+And let's compound it again.
+
+199
+00:16:26,790 --> 00:16:33,180
+And you can see that each time I do that, I'm earning more because my principal or the money that I'm
+
+200
+00:16:33,600 --> 00:16:36,780
+adding interest to is growing each time.
+
+201
+00:16:36,870 --> 00:16:44,250
+Now, I think interest rate of 1% per second is a little bit crazy, but it does go to illustrate how
+
+202
+00:16:44,250 --> 00:16:52,950
+fast compound interest can work and how we've actually managed to create a working prototype of a real-
+
+203
+00:16:52,950 --> 00:16:55,680
+life decentralized finance application.
+
+204
+00:16:55,710 --> 00:17:00,270
+Now, of course, there's a lot more that we could be doing, including building an actual front-end,
+
+205
+00:17:00,990 --> 00:17:03,810
+which we will do as we get further in this module.
+
+206
+00:17:03,810 --> 00:17:11,430
+But I hope these few lessons have been helpful to gently introduce you to the Motoku language and some
+
+207
+00:17:11,430 --> 00:17:13,560
+of the unique features of the Internet
+
+208
+00:17:13,560 --> 00:17:19,890
+Computer. Head over to the next lesson where I've got a quick quiz for you to see if you've grasped some
+
+209
+00:17:19,890 --> 00:17:22,829
+of the core central concepts that we've covered.
+
+210
+00:17:23,550 --> 00:17:30,390
+Then afterwards we're going to figure out how we can deploy to the actual live Internet computer
+
+211
+00:17:30,390 --> 00:17:30,990
+blockchain.
+
+212
+00:17:31,470 --> 00:17:32,970
+So for all of that and more,
+
+213
+00:17:33,210 --> 00:17:35,160
+see you in the next few lessons.
+

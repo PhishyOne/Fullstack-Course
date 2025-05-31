@@ -1,0 +1,520 @@
+1
+00:00:00,300 --> 00:00:07,030
+Now in previous lessons we saw how Javascript allows us to create higher order functions.
+
+2
+00:00:07,080 --> 00:00:13,830
+When we talk about higher order functions, we're referring to the function that's able to take functions
+
+3
+00:00:14,040 --> 00:00:14,980
+as inputs.
+
+4
+00:00:15,120 --> 00:00:22,440
+So in this case the addEventListener is a higher order function, as it takes the respondToKey function
+
+5
+00:00:22,830 --> 00:00:24,180
+as an input.
+
+6
+00:00:24,180 --> 00:00:30,270
+Now what about the other side? What about the function that gets passed in as an input?
+
+7
+00:00:30,570 --> 00:00:36,780
+Well this is actually called a callback function because it allows us to wait for something to finish
+
+8
+00:00:36,780 --> 00:00:37,460
+happening,
+
+9
+00:00:37,590 --> 00:00:45,100
+for example waiting for a click event, and then the callback function gets called back and executed.
+
+10
+00:00:45,330 --> 00:00:50,880
+So previously when our button detects a click it calls the callback function.
+
+11
+00:00:50,940 --> 00:00:58,410
+And in this case when the document or the entire web page detects a key press then the document will
+
+12
+00:00:58,410 --> 00:01:01,250
+call this function respondToKey.
+
+13
+00:01:01,260 --> 00:01:08,040
+Now when that happens we can get it to send us some information that it'll only know once the event
+
+14
+00:01:08,040 --> 00:01:14,040
+happens, namely say which button was clicked, or which keyboard key was pressed.
+
+15
+00:01:14,040 --> 00:01:20,820
+So if we head into our Wikipedia page again and we inspect on our Javascript object and we again gain
+
+16
+00:01:20,820 --> 00:01:24,070
+access to the h1 using the $0 sign.
+
+17
+00:01:24,240 --> 00:01:31,500
+Now we know that we can add an event listener by simply saying $0.addEventListener say click.
+
+18
+00:01:31,510 --> 00:01:39,390
+And once that does happen let's call this anonymous function and we can console.log something.
+
+19
+00:01:39,420 --> 00:01:46,950
+Now in this case all that we're doing is saying that attach this event listener to $0, which of course
+
+20
+00:01:46,950 --> 00:01:48,450
+is this h1,
+
+21
+00:01:48,990 --> 00:01:53,000
+and get it to listen for click events.
+
+22
+00:01:53,280 --> 00:01:58,960
+When it detects those click events get it to call this function.
+
+23
+00:01:58,960 --> 00:02:02,680
+Now this is a very simple form of the event listener,
+
+24
+00:02:02,760 --> 00:02:10,770
+but as we saw in the last lesson, we can also get the event that triggered this function get the event
+
+25
+00:02:10,860 --> 00:02:15,710
+that triggered this function passed back through the callback function.
+
+26
+00:02:15,720 --> 00:02:18,900
+So instead of console logging simply "I got clicked",
+
+27
+00:02:18,900 --> 00:02:23,780
+we can actually console.log the actual event that triggered the function.
+
+28
+00:02:24,390 --> 00:02:31,380
+So in this case if I hit enter and I click on this JavaScript h1, then you can see that it's console
+
+29
+00:02:31,380 --> 00:02:34,750
+logging the event that triggered the click.
+
+30
+00:02:35,040 --> 00:02:41,490
+So in this case it was a mouse click and you can see all of these properties that are associated with
+
+31
+00:02:41,490 --> 00:02:49,350
+that mouse event, for example which part of the screen did I click on, what was the type of event, and a
+
+32
+00:02:49,350 --> 00:02:50,900
+whole bunch of other things.
+
+33
+00:02:50,910 --> 00:02:56,980
+Now when you're creating this anonymous function, you can call this parameter anything you want.
+
+34
+00:02:57,030 --> 00:03:01,290
+You'll commonly see it as e or evt for event.
+
+35
+00:03:01,350 --> 00:03:03,670
+It'll work exactly the same.
+
+36
+00:03:03,690 --> 00:03:10,050
+Now the reason for this is because, say if we create a function called sayHi, and we give the name of
+
+37
+00:03:10,050 --> 00:03:16,280
+the input as to, and then we say console.log "Hello" plus whatever input we got.
+
+38
+00:03:16,290 --> 00:03:22,920
+So now we can call this function saying say hi to Tom, and it'll say "Hello, Tom".
+
+39
+00:03:22,950 --> 00:03:29,790
+Now we can also create a function sayHi, and, instead of calling our input to, we call it name.
+
+40
+00:03:29,790 --> 00:03:32,390
+So now we're saying hi to name.
+
+41
+00:03:32,640 --> 00:03:39,480
+And again it does exactly the same thing which says hello to the input that we pass in which is name.
+
+42
+00:03:39,720 --> 00:03:45,320
+So now we can again say sayHi("Tom"), and it'll still say "Hello, Tom".
+
+43
+00:03:45,330 --> 00:03:48,480
+So the name that you give the input really doesn't matter.
+
+44
+00:03:48,510 --> 00:03:55,220
+It's the same as when you create a variable called name or you create a variable called to.
+
+45
+00:03:55,350 --> 00:03:57,710
+It's completely up to you what you call it.
+
+46
+00:03:57,720 --> 00:04:04,290
+So this is why when we create an event listener and we give that input any name, say e, it will still
+
+47
+00:04:04,290 --> 00:04:09,820
+work exactly the same, passing in the event that triggered the callback function.
+
+48
+00:04:09,870 --> 00:04:18,450
+But the slightly crazy part is that this callback function is not called by us but it's called by the
+
+49
+00:04:18,450 --> 00:04:21,519
+object that experienced the click.
+
+50
+00:04:21,779 --> 00:04:29,310
+And when that happens we can get it to send us some information that it'll only know once the event
+
+51
+00:04:29,310 --> 00:04:30,080
+happens.
+
+52
+00:04:30,090 --> 00:04:34,270
+For example in our drumkit then that's which button got clicked by the user.
+
+53
+00:04:34,350 --> 00:04:39,360
+So this callback function can be a little bit confusing and a little bit mysterious.
+
+54
+00:04:39,360 --> 00:04:43,280
+So again, as before, I want to show you both sides of the coin.
+
+55
+00:04:43,470 --> 00:04:49,230
+So let's pretend to create the function addEventListener, but so that it's not confusing we'll call
+
+56
+00:04:49,230 --> 00:04:53,780
+it anotherAddEventListener.
+
+57
+00:04:54,180 --> 00:05:02,910
+And as we know it takes two inputs, the first being the type of event and the second being the callback.
+
+58
+00:05:04,350 --> 00:05:12,900
+So this addEventListener will do a number of complex things that detects when an event happens but when
+
+59
+00:05:12,900 --> 00:05:22,660
+an event does happen then it'll create an event object and let's call that object eventThatHappened,
+
+60
+00:05:22,990 --> 00:05:24,990
+just so that we're clear.
+
+61
+00:05:25,060 --> 00:05:32,530
+So let's say that we pressed a key on the keyboard. Then the event object that gets created will capture
+
+62
+00:05:32,620 --> 00:05:34,660
+a number of things about that event,
+
+63
+00:05:34,750 --> 00:05:37,670
+for example what was the event type.
+
+64
+00:05:37,780 --> 00:05:45,280
+In this case it was a key press event. And it might have another property such as, well, which key then.
+
+65
+00:05:45,850 --> 00:05:49,510
+Let's say that we pressed the p key to generate this event.
+
+66
+00:05:49,750 --> 00:05:58,180
+And it might have other things like duration of keypress, and let's say this was equal to two seconds.
+
+67
+00:05:58,260 --> 00:06:05,910
+So when the event happens, namely pressing a key on the keyboard, then this object gets created based
+
+68
+00:06:05,910 --> 00:06:06,890
+on that event.
+
+69
+00:06:07,160 --> 00:06:15,540
+And now we can pass that object back through the callback method so that the programmer, if they wish, they
+
+70
+00:06:15,540 --> 00:06:22,400
+can get the event object and use it to see what event triggered this event listener.
+
+71
+00:06:22,530 --> 00:06:27,560
+But of course we know that our callback doesn't get called for all types of events,
+
+72
+00:06:27,570 --> 00:06:28,090
+right?
+
+73
+00:06:28,320 --> 00:06:39,390
+So in fact our addEventListener might check to see if eventThatHappened.eventType is actually
+
+74
+00:06:39,390 --> 00:06:45,310
+equal to the type of event that the programmer was looking to detect,
+
+75
+00:06:45,630 --> 00:06:51,300
+and then and only then do we actually trigger the callback function.
+
+76
+00:06:51,300 --> 00:06:57,510
+So if this is our function, addEventListener, and this is the part that we can't really see, then the
+
+77
+00:06:57,510 --> 00:07:03,420
+part that we do see and the part that we write is actually just calling the addEventListener, and we
+
+78
+00:07:03,420 --> 00:07:05,580
+pass in a number of inputs, right?
+
+79
+00:07:05,640 --> 00:07:11,910
+Say we pass in that we're looking to detect the key press event, and when that happens we want it to
+
+80
+00:07:11,910 --> 00:07:16,380
+trigger an anonymous function that essentially just does some console logging.
+
+81
+00:07:16,380 --> 00:07:18,460
+So console.log.
+
+82
+00:07:18,990 --> 00:07:24,330
+And what we want to log is the event that triggered the callback.
+
+83
+00:07:24,330 --> 00:07:33,900
+So now if I hit enter then you can see that when the event gets triggered by say a key press on the
+
+84
+00:07:33,900 --> 00:07:34,750
+keyboard,
+
+85
+00:07:35,040 --> 00:07:41,940
+and if the type of event was equal to the type that we were looking for, namely key press, then we trigger
+
+86
+00:07:42,060 --> 00:07:49,680
+the callback. And the callback can send us that event object which now gets logged in our console.
+
+87
+00:07:49,710 --> 00:07:52,040
+So you can see this output looks really similar.
+
+88
+00:07:52,050 --> 00:07:58,860
+Say if we were simply using proper code, not our simplified code, and we said document.addEventListener
+
+89
+00:07:59,790 --> 00:08:07,590
+to listen for key press and once you do detect that key press then call the anonymous function passing
+
+90
+00:08:07,590 --> 00:08:14,850
+in the event that triggered the key press, and then we're simply just going to console.log that event object.
+
+91
+00:08:14,850 --> 00:08:23,070
+So now when I hit enter and I press any key on the keyboard then you can see we get back this object
+
+92
+00:08:23,070 --> 00:08:29,100
+called KeyboardEvent, and it has a number of properties including things like, for example, the key that
+
+93
+00:08:29,100 --> 00:08:31,230
+was pressed to trigger this event.
+
+94
+00:08:31,230 --> 00:08:39,299
+So again I find that it usually helps to understand what exactly is going on here by using the debugger
+
+95
+00:08:39,390 --> 00:08:41,990
+and stepping through each step of the way.
+
+96
+00:08:42,270 --> 00:08:47,890
+So let's try this again but this time we're going to use the debugger to see what's happening.
+
+97
+00:08:48,120 --> 00:08:53,640
+So again I'm going to call anotherAddEventListener, passing in the type of event that we're looking
+
+98
+00:08:53,640 --> 00:08:54,490
+to detect,
+
+99
+00:08:54,660 --> 00:08:59,310
+and also the callback that should happen when it does get detected.
+
+100
+00:08:59,490 --> 00:09:05,430
+But just above I'm also going to add the debugger keyword so that when I hit enter I enter the debug
+
+101
+00:09:05,430 --> 00:09:05,920
+mode.
+
+102
+00:09:06,210 --> 00:09:13,260
+So now I'm going to step through our function calls, and we begin by calling anotherAddEventListener,
+
+103
+00:09:13,290 --> 00:09:16,650
+passing in these two inputs.
+
+104
+00:09:16,650 --> 00:09:22,740
+So that takes us to where that function was declared and we stepped through each of the lines of code.
+
+105
+00:09:22,770 --> 00:09:26,530
+The first thing that happens is we're waiting to detect an event.
+
+106
+00:09:26,610 --> 00:09:31,110
+And this part of the code waits to detect an event.
+
+107
+00:09:31,110 --> 00:09:37,020
+Let's say that in this imaginary world I press the P key on the keyboard.
+
+108
+00:09:37,020 --> 00:09:44,700
+Now at that point then this eventThatHappened object gets created and it captures a lot of information
+
+109
+00:09:44,880 --> 00:09:46,800
+about my key press,
+
+110
+00:09:46,920 --> 00:09:53,160
+namely that the event type was of the key press type, the key that I pressed was P, and I pressed on it
+
+111
+00:09:53,160 --> 00:09:54,580
+for two seconds.
+
+112
+00:09:54,630 --> 00:10:03,030
+So now that we have this event object created after I triggered the event then our code will check if
+
+113
+00:10:03,030 --> 00:10:10,110
+the type of the event that happened is equal to the type that the program was looking for then it will
+
+114
+00:10:10,110 --> 00:10:13,060
+go ahead and trigger the callback function.
+
+115
+00:10:13,080 --> 00:10:18,930
+And if we step through then you can see that the callback function is of course this part, the function
+
+116
+00:10:18,930 --> 00:10:20,730
+that we used as an input.
+
+117
+00:10:21,030 --> 00:10:25,810
+And it goes ahead and tries to log the event object.
+
+118
+00:10:25,980 --> 00:10:29,040
+And this is when we see that event show up down here.
+
+119
+00:10:29,220 --> 00:10:33,630
+And that is how we came about getting hold of this event object.
+
+120
+00:10:33,630 --> 00:10:40,350
+Now callbacks are notoriously difficult concept to grasp, and even some developers who've been working
+
+121
+00:10:40,350 --> 00:10:44,330
+for a number of years struggle with this particular concept.
+
+122
+00:10:44,490 --> 00:10:51,390
+So don't worry if this is the first time you've come across it and it seems a little bit confusing. What
+
+123
+00:10:51,390 --> 00:10:58,850
+I encourage you to do is to recreate our addEventLlistener function and just go through the motions of
+
+124
+00:10:58,850 --> 00:11:05,660
+what I did in this lesson without having to watch the video. Play around with the code and also play
+
+125
+00:11:05,660 --> 00:11:10,160
+around with the debugger and see how the code works behind the scenes.
+
+126
+00:11:10,160 --> 00:11:16,100
+Now we're going to come back to this topic of callbacks many many more times in the coming lessons,
+
+127
+00:11:16,220 --> 00:11:19,390
+so this is not the only time that you'll come across it.
+
+128
+00:11:19,490 --> 00:11:25,820
+And for all the difficult concepts I try to sprinkle in plenty of repetition so that I make sure that
+
+129
+00:11:25,820 --> 00:11:31,640
+you really really do get it because it is a really important concept that we'll come to rely on when
+
+130
+00:11:31,640 --> 00:11:34,150
+we're creating more and more complex web apps.
+

@@ -1,0 +1,156 @@
+1
+00:00:00,110 --> 00:00:06,840
+Alright, so let's try to tackle this challenge step by step. Now, if we look at the flowchart, the first
+
+2
+00:00:06,840 --> 00:00:10,160
+question we ask is, is it cleanly divisible by 4?
+
+3
+00:00:10,770 --> 00:00:13,210
+If no, then it's definitely not a leap year.
+
+4
+00:00:13,380 --> 00:00:16,000
+If yes, then we have to ask more questions.
+
+5
+00:00:16,410 --> 00:00:19,080
+So how would we write this in terms of code?
+
+6
+00:00:19,590 --> 00:00:27,390
+Well, we'd probably use an if statement to check if the year that were being passed in here is cleanly
+
+7
+00:00:27,390 --> 00:00:28,570
+divisible by 4.
+
+8
+00:00:29,100 --> 00:00:34,710
+And remember that on a previous lesson, which I linked to here, we learned about the modulo operator
+
+9
+00:00:34,980 --> 00:00:37,270
+which gives you the remainder of a division.
+
+10
+00:00:37,650 --> 00:00:46,050
+So if the year % 4 is equal to zero, namely if there is no remainder when you divide the
+
+11
+00:00:46,050 --> 00:00:50,110
+year by 4, well in that case then it's likely to be a leap year.
+
+12
+00:00:50,700 --> 00:00:56,580
+But if it's not even divisible by four, then it's definitely not a leap year.
+
+13
+00:00:56,730 --> 00:01:00,560
+So here we could simply return 'Not leap year.'
+
+14
+00:01:01,110 --> 00:01:05,209
+So any year that is not divisible by 4, then it's definitely not a leap year.
+
+15
+00:01:05,730 --> 00:01:08,690
+But if it is divisible by 4, we still have to check
+
+16
+00:01:08,700 --> 00:01:11,510
+is it cleanly divisible by 100?
+
+17
+00:01:12,030 --> 00:01:14,690
+Because if no, then it's definitely a leap year,
+
+18
+00:01:14,970 --> 00:01:17,280
+but if yes, then we have to check further.
+
+19
+00:01:17,640 --> 00:01:24,210
+So the best way to represent that logic is to create another if statement inside this if statement.
+
+20
+00:01:24,220 --> 00:01:26,040
+So it's already divisible by 4
+
+21
+00:01:26,430 --> 00:01:29,580
+but we have to check whether if it's divisible by 100.
+
+22
+00:01:29,730 --> 00:01:37,680
+So if the year % 100 is equal to zero, well, then we have to make some further checks.
+
+23
+00:01:38,100 --> 00:01:44,550
+But if it's not, then it's definitely a leap year. So we can return leap year.
+
+24
+00:01:45,210 --> 00:01:49,350
+Now, finally, we're in the homestretch and we have to ask ourselves the last question.
+
+25
+00:01:49,740 --> 00:01:52,410
+Is it cleanly divisible by 400?
+
+26
+00:01:52,650 --> 00:01:54,400
+If no, then it's not a leap year,
+
+27
+00:01:54,510 --> 00:01:56,300
+if yes, then it is a leap year.
+
+28
+00:01:56,790 --> 00:02:02,010
+So inside this if statement, we're going to ask ourselves one further question:
+
+29
+00:02:02,040 --> 00:02:10,919
+if the year is divisible by 400 and that has no remainder, well, then it's definitely a leap year.
+
+30
+00:02:11,070 --> 00:02:15,210
+And if that's not true, then it's definitely not a leap year.
+
+31
+00:02:17,030 --> 00:02:25,340
+So this is the logic that we saw in the flowchart mapped out with JavaScript code. And going from these
+
+32
+00:02:25,340 --> 00:02:28,370
+words to code is actually quite a big jump.
+
+33
+00:02:28,700 --> 00:02:35,960
+But going via that middle ground, that flowchart, makes it so much easier to actually map out the logic
+
+34
+00:02:36,170 --> 00:02:38,210
+and then converting it into code.
+
+35
+00:02:38,600 --> 00:02:41,390
+So I hope you enjoyed that challenge and you managed to get it right.
+
+36
+00:02:41,570 --> 00:02:48,560
+And at least if you didn't, you saw how you can use flowcharts to simplify and clarify your own idea
+
+37
+00:02:48,560 --> 00:02:53,960
+of the logic, because at the end of the day, the code is easy, but the logic is the part that you
+
+38
+00:02:53,970 --> 00:02:54,950
+got to get right first.
+
+39
+00:02:55,190 --> 00:02:59,480
+So now if we check our solution, then everything should pass.
+

@@ -1,0 +1,256 @@
+1
+00:00:00,840 --> 00:00:06,750
+Hey guys. In this lesson I want to talk about something that you might have come across or will come
+
+2
+00:00:06,750 --> 00:00:10,510
+across at some point in your React development journey.
+
+3
+00:00:10,740 --> 00:00:15,250
+And it's this comparison between hooks and classes.
+
+4
+00:00:15,390 --> 00:00:21,030
+Now in order to really understand this we have to go back and to the very beginning.
+
+5
+00:00:21,030 --> 00:00:29,880
+And so once upon a time in a land far far away, there were two ways of adding state into a React app.
+
+6
+00:00:30,840 --> 00:00:36,060
+One way or what you might call functional components, look like this.
+
+7
+00:00:36,180 --> 00:00:39,150
+And you should be pretty familiar with this by now.
+
+8
+00:00:39,150 --> 00:00:46,500
+And it's a really well understood way of creating these separate React components. But you should
+
+9
+00:00:46,500 --> 00:00:53,520
+be aware that there's also another way that you can in fact create React components. Instead of splitting
+
+10
+00:00:53,520 --> 00:00:56,250
+individual components into functions,
+
+11
+00:00:56,280 --> 00:01:04,440
+you can also create a class. And the only difference is the keyword, instead of function becomes class.
+
+12
+00:01:04,440 --> 00:01:08,350
+Classes are not called, so they don't have these parentheses.
+
+13
+00:01:08,670 --> 00:01:17,070
+And this class must extend something that comes from the React module something called component.
+
+14
+00:01:17,070 --> 00:01:25,650
+And this turns your app class into a React component class. And in order to render what you want to see
+
+15
+00:01:25,680 --> 00:01:34,500
+inside this component, you have to add your code inside a render method like so. That wasn't a big deal
+
+16
+00:01:34,620 --> 00:01:40,900
+and it was just a few extra lines of code and we end up with exactly the same result.
+
+17
+00:01:41,010 --> 00:01:48,630
+Now in the past, the main reason why people converted their functional components into class components
+
+18
+00:01:49,020 --> 00:01:54,450
+was because it was required in order to have state.
+
+19
+00:01:54,480 --> 00:02:00,450
+If you take a look at some of the documentation on state and lifecycle for example which are linked
+
+20
+00:02:00,450 --> 00:02:08,789
+to, you'll see that in order to use state, it used to be that you had to convert your functions into a
+
+21
+00:02:08,789 --> 00:02:11,670
+class just like what we did just now.
+
+22
+00:02:11,670 --> 00:02:15,510
+So what does managing state using classes actually look like?
+
+23
+00:02:15,510 --> 00:02:18,660
+Let me show you a simple counter map as an example.
+
+24
+00:02:18,780 --> 00:02:26,970
+And so I've created a class component here of our counter app and all it does is it has a single button
+
+25
+00:02:27,360 --> 00:02:31,690
+which increases the number of the count.
+
+26
+00:02:31,770 --> 00:02:39,600
+So if I go ahead and replace my  with my class component, you can see that I'm using it in the same
+
+27
+00:02:39,600 --> 00:02:44,780
+way as I would with my functional Component, just adding it in as a self closing tag.
+
+28
+00:02:44,790 --> 00:02:52,430
+Now using this class component, I'm able to render a  and a button.
+
+29
+00:02:52,680 --> 00:03:00,180
+And when this button gets clicked, it calls a function called increase. And increase will then in turn call
+
+30
+00:03:00,240 --> 00:03:08,100
+a pre-built function called setState which allows us to pass over some new values to the object that
+
+31
+00:03:08,370 --> 00:03:10,870
+is stored inside this property, state.
+
+32
+00:03:11,760 --> 00:03:18,570
+Now this works exactly the same as what we would have done using hooks but you can see that involves
+
+33
+00:03:18,720 --> 00:03:24,390
+a lot more boilerplate code and it's a little bit harder to reason about especially when you've got
+
+34
+00:03:24,390 --> 00:03:26,560
+this all over the place.
+
+35
+00:03:26,640 --> 00:03:33,570
+It also requires binding and it gets pretty complicated when you want to reuse some of your state functionality
+
+36
+00:03:33,690 --> 00:03:35,490
+across different components.
+
+37
+00:03:35,520 --> 00:03:42,000
+So back in 2018, the React team set about trying to solve this problem and many others. And they came
+
+38
+00:03:42,000 --> 00:03:49,140
+up with the idea of hooks. And I strongly recommend to actually have a look at this page in the React
+
+39
+00:03:49,140 --> 00:03:56,580
+documentation just so that you can watch the video and take a look at some of their concepts around
+
+40
+00:03:56,640 --> 00:04:03,300
+why they decided to build hooks and why it's so awesome.
+
+41
+00:04:03,300 --> 00:04:10,590
+Now what the React team recommends is that if you're writing new code that you should start using hooks
+
+42
+00:04:10,950 --> 00:04:16,720
+instead of classes because this is a much easier way of managing state.
+
+43
+00:04:17,040 --> 00:04:22,060
+It just makes the code much clearer and much easier to reason about.
+
+44
+00:04:22,079 --> 00:04:27,420
+Now the thing to remember is that you can only use hooks with functional components.
+
+45
+00:04:27,420 --> 00:04:34,080
+You can't use it inside a class component. But they do say that if you already have classes written for
+
+46
+00:04:34,080 --> 00:04:38,990
+a React app, then you can use it alongside. Here
+
+47
+00:04:39,060 --> 00:04:47,910
+I've written the functional component equivalent of our counter app here and you can see that at a glance
+
+48
+00:04:47,930 --> 00:04:51,570
+firstly by using hooks, we're saving ourselves a lot of lines of code.
+
+49
+00:04:52,110 --> 00:04:57,490
+And this is because it removes a lot of the boilerplate that's required in order to use classes.
+
+50
+00:04:57,540 --> 00:05:00,910
+You'll see that there's no this keyword all over the place,
+
+51
+00:05:00,990 --> 00:05:07,830
+you can see that the state is kept together in one constant and you've got the count and set count
+
+52
+00:05:07,950 --> 00:05:10,950
+being destructed from our use state function.
+
+53
+00:05:11,100 --> 00:05:16,710
+And all we have to do to change the count is to call set count if we want to use the count then we
+
+54
+00:05:16,710 --> 00:05:24,870
+simply use it as the variable name itself. So this way we can create React apps that are entirely built
+
+55
+00:05:24,990 --> 00:05:31,050
+using functional components instead of having a mix of functional components and then occasionally having
+
+56
+00:05:31,050 --> 00:05:38,340
+to convert our functional components into class components just to be able to have a stateful app.
+
+57
+00:05:38,340 --> 00:05:43,500
+But in the wild, you will occasionally see components built using classes.
+
+58
+00:05:43,500 --> 00:05:50,070
+You will see this.state or .setState, but gradually what we're seeing is that the React community
+
+59
+00:05:50,100 --> 00:05:58,870
+is really embracing this concept of hooks and new code and future code will be written in this format.
+
+60
+00:05:59,080 --> 00:06:05,290
+So this is just a quick lesson to talk about these two different ways of managing state just so that
+
+61
+00:06:05,290 --> 00:06:09,890
+when you come across classes in the wild you're not confused about what's happening.
+
+62
+00:06:09,940 --> 00:06:17,440
+Most of the cases when people are telling you to write class component, it's to be able to use and set
+
+63
+00:06:17,530 --> 00:06:21,830
+the state of an app which you can achieve in exactly the same way
+
+64
+00:06:21,850 --> 00:06:23,590
+using this useState hook.
+

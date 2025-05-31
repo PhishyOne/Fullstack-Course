@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/41 - Create Your Own Crypto Token/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../?C=M&amp;O=A">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="001%20Tokens%20and%20Coins%20What%20are%20they%20and%20how%20are%20they%20used_en.srt" title="001 Tokens and Coins What are they and how are they used_en.srt">001 Tokens and Coins What are they and how are ..&gt;</a></td><td class="size">12.6 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="001%20Tokens%20and%20Coins%20What%20are%20they%20and%20how%20are%20they%20used.mp4" title="001 Tokens and Coins What are they and how are they used.mp4">001 Tokens and Coins What are they and how are ..&gt;</a></td><td class="size">67.4 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="002%20Curve-Finance.url" title="002 Curve-Finance.url">002 Curve-Finance.url</a></td><td class="size">41 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="002%20Download%20and%20Configure%20the%20Skeleton%20Project.mp4" title="002 Download and Configure the Skeleton Project.mp4">002 Download and Configure the Skeleton Project..&gt;</a></td><td class="size">41.2 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="003%20HashMap-Docs.url" title="003 HashMap-Docs.url">003 HashMap-Docs.url</a></td><td class="size">83 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="003%20Principal-Docs.url" title="003 Principal-Docs.url">003 Principal-Docs.url</a></td><td class="size">85 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="002%20token.zip" title="002 token.zip">002 token.zip</a></td><td class="size">252.3 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="002%20Download%20and%20Configure%20the%20Skeleton%20Project_en.srt" title="002 Download and Configure the Skeleton Project_en.srt">002 Download and Configure the Skeleton Project..&gt;</a></td><td class="size">8.2 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="003%20Option-Docs.url" title="003 Option-Docs.url">003 Option-Docs.url</a></td><td class="size">82 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="003%20Using%20Motoko%20Hashmaps%20to%20Store%20Token%20Balances_en.srt" title="003 Using Motoko Hashmaps to Store Token Balances_en.srt">003 Using Motoko Hashmaps to Store Token Balanc..&gt;</a></td><td class="size">23.6 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="003%20Using%20Motoko%20Hashmaps%20to%20Store%20Token%20Balances.mp4" title="003 Using Motoko Hashmaps to Store Token Balances.mp4">003 Using Motoko Hashmaps to Store Token Balanc..&gt;</a></td><td class="size">195.7 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="005%20Caller-Id-Docs.url" title="005 Caller-Id-Docs.url">005 Caller-Id-Docs.url</a></td><td class="size">85 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="004%20Showing%20the%20User%27s%20Token%20Balance%20on%20the%20Frontend.mp4" title="004 Showing the User's Token Balance on the Frontend.mp4">004 Showing the User's Token Balance on the Fro..&gt;</a></td><td class="size">134.7 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="004%20Showing%20the%20User%27s%20Token%20Balance%20on%20the%20Frontend_en.srt" title="004 Showing the User's Token Balance on the Frontend_en.srt">004 Showing the User's Token Balance on the Fro..&gt;</a></td><td class="size">16.0 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="005%20Shared-Keyword-Docs.url" title="005 Shared-Keyword-Docs.url">005 Shared-Keyword-Docs.url</a></td><td class="size">103 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="005%20Creating%20the%20Faucet%20Functionality%20Using%20the%20Shared%20Keyword.mp4" title="005 Creating the Faucet Functionality Using the Shared Keyword.mp4">005 Creating the Faucet Functionality Using the..&gt;</a></td><td class="size">145.1 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="005%20Creating%20the%20Faucet%20Functionality%20Using%20the%20Shared%20Keyword_en.srt" title="005 Creating the Faucet Functionality Using the Shared Keyword_en.srt">005 Creating the Faucet Functionality Using the..&gt;</a></td><td class="size">17.4 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="006%20Creating%20the%20Transfer%20Functionality_en.srt" title="006 Creating the Transfer Functionality_en.srt">006 Creating the Transfer Functionality_en.srt</a></td><td class="size">24.0 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="006%20Creating%20the%20Transfer%20Functionality.mp4" title="006 Creating the Transfer Functionality.mp4">006 Creating the Transfer Functionality.mp4</a></td><td class="size">215.6 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="008%20HashMap-Docs.url" title="008 HashMap-Docs.url">008 HashMap-Docs.url</a></td><td class="size">83 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="008%20Array-Docs.url" title="008 Array-Docs.url">008 Array-Docs.url</a></td><td class="size">81 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="007%20Using%20the%20Transfer%20Functionality%20in%20the%20Faucet_en.srt" title="007 Using the Transfer Functionality in the Faucet_en.srt">007 Using the Transfer Functionality in the Fau..&gt;</a></td><td class="size">8.5 KiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="007%20Using%20the%20Transfer%20Functionality%20in%20the%20Faucet.mp4" title="007 Using the Transfer Functionality in the Faucet.mp4">007 Using the Transfer Functionality in the Fau..&gt;</a></td><td class="size">69.5 MiB</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="008%20Iter-Docs.url" title="008 Iter-Docs.url">008 Iter-Docs.url</a></td><td class="size">80 B</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="009%20Internet-Identity-Explainer-Video.url" title="009 Internet-Identity-Explainer-Video.url">009 Internet-Identity-Explainer-Video.url</a></td><td class="size">67 B</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="008%20Upgrades-Docs.url" title="008 Upgrades-Docs.url">008 Upgrades-Docs.url</a></td><td class="size">84 B</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="008%20Persisting%20Non-Stable%20Types%20Using%20the%20Pre-%20and%20Postupgrade%20Methods.mp4" title="008 Persisting Non-Stable Types Using the Pre- and Postupgrade Methods.mp4">008 Persisting Non-Stable Types Using the Pre- ..&gt;</a></td><td class="size">145.2 MiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="008%20Persisting%20Non-Stable%20Types%20Using%20the%20Pre-%20and%20Postupgrade%20Methods_en.srt" title="008 Persisting Non-Stable Types Using the Pre- and Postupgrade Methods_en.srt">008 Persisting Non-Stable Types Using the Pre- ..&gt;</a></td><td class="size">18.3 KiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="009%20What%20is%20the%20Internet%20Identity_en.srt" title="009 What is the Internet Identity_en.srt">009 What is the Internet Identity_en.srt</a></td><td class="size">7.2 KiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="009%20What%20is%20the%20Internet%20Identity.mp4" title="009 What is the Internet Identity.mp4">009 What is the Internet Identity.mp4</a></td><td class="size">27.9 MiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="010%20Authenticating%20with%20the%20Internet%20Identity_en.srt" title="010 Authenticating with the Internet Identity_en.srt">010 Authenticating with the Internet Identity_e..&gt;</a></td><td class="size">9.7 KiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="010%20Authenticating%20with%20the%20Internet%20Identity.mp4" title="010 Authenticating with the Internet Identity.mp4">010 Authenticating with the Internet Identity.mp4</a></td><td class="size">66.7 MiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="011%20%5BOptional%5D%20Live%20Deployment%20to%20Test%20Internet%20Identity%20Authentication_en.srt" title="011 [Optional] Live Deployment to Test Internet Identity Authentication_en.srt">011 [Optional] Live Deployment to Test Internet..&gt;</a></td><td class="size">21.4 KiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="011%20%5BOptional%5D%20Live%20Deployment%20to%20Test%20Internet%20Identity%20Authentication.mp4" title="011 [Optional] Live Deployment to Test Internet Identity Authentication.mp4">011 [Optional] Live Deployment to Test Internet..&gt;</a></td><td class="size">176.1 MiB</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="%5BCourseClub.Me%5D.url" title="[CourseClub.Me].url">[CourseClub.Me].url</a></td><td class="size">122 B</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="external-links.txt" title="external-links.txt">external-links.txt</a></td><td class="size">880 B</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="%5BGigaCourse.Com%5D.url" title="[GigaCourse.Com].url">[GigaCourse.Com].url</a></td><td class="size">49 B</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="011%20token-completed.zip" title="011 token-completed.zip">011 token-completed.zip</a></td><td class="size">70.6 MiB</td><td class="date">2024-May-18 22:16</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

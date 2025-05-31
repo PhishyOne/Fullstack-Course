@@ -1,0 +1,476 @@
+1
+00:00:00,420 --> 00:00:07,170
+So now that we've seen how you would implement all of CRUD using SQL, the next thing to look at is
+
+2
+00:00:07,260 --> 00:00:10,140
+relationships in SQL.
+
+3
+00:00:10,140 --> 00:00:13,860
+So firstly I want you to add our pencil record back in
+
+4
+00:00:14,100 --> 00:00:20,100
+if you have deleted it. And if you have deleted it then you can see this as a challenge.
+
+5
+00:00:20,100 --> 00:00:26,880
+Pause the video and refer to this table to add back our record of the pencil.
+
+6
+00:00:26,970 --> 00:00:34,680
+So if you remember the key word is INSERT INTO and then the name of the table and then we specify the
+
+7
+00:00:34,680 --> 00:00:35,970
+values
+
+8
+00:00:36,510 --> 00:00:39,450
+which is going to be 2, 
+
+9
+00:00:39,670 --> 00:00:44,190
+Pencil, 0.8.
+
+10
+00:00:44,230 --> 00:00:49,980
+And now if I hit run then we now have a complete table with two records.
+
+11
+00:00:50,040 --> 00:00:55,410
+The next thing I'm going to do is I'm going to create a new table and this one is going to be called
+
+12
+00:00:55,470 --> 00:00:58,910
+orders. This orders table has
+
+13
+00:00:59,160 --> 00:01:06,420
+a number of fields. It has an id field which is going to be an integer that is not null,
+
+14
+00:01:07,050 --> 00:01:15,150
+then it'll have a order number field which is going to be an integer and that allow us to keep track of
+
+15
+00:01:15,210 --> 00:01:18,520
+all of the orders that we ever receive at our shop.
+
+16
+00:01:18,600 --> 00:01:20,740
+Now the next one is quite interesting.
+
+17
+00:01:20,760 --> 00:01:26,580
+I'm going to specify something a field called customer_id.
+
+18
+00:01:27,000 --> 00:01:28,830
+And this is going to be an integer.
+
+19
+00:01:29,130 --> 00:01:34,730
+But this is the place where I'll store the customer who made this particular order.
+
+20
+00:01:34,830 --> 00:01:42,090
+So this will be a field that will act as a foreign key to our table which will point to a particular
+
+21
+00:01:42,090 --> 00:01:45,240
+record in our customers table.
+
+22
+00:01:45,690 --> 00:01:53,300
+And I'm also going to do that with a product id as well to form a relationship with our products table.
+
+23
+00:01:53,310 --> 00:02:00,660
+Now as you saw before we can set a primary key for our current table by opening a set of parentheses
+
+24
+00:02:00,900 --> 00:02:05,380
+and putting in the name of the field that will act as the primary key,
+
+25
+00:02:05,400 --> 00:02:12,310
+so it will be the field id. But we can also specify a foreign key.
+
+26
+00:02:12,430 --> 00:02:17,560
+So the foreign key is going to be the key that's going to link all tables together.
+
+27
+00:02:17,560 --> 00:02:24,700
+This is what's going to establish the relationship. As they show you here they have customers and they
+
+28
+00:02:24,700 --> 00:02:25,790
+have orders.
+
+29
+00:02:26,040 --> 00:02:33,990
+And in the orders table if you have a person with id 3 you have a field that is the foreign key.
+
+30
+00:02:34,300 --> 00:02:42,940
+So for the orders table we know that this order was made by somebody in the persons table with an id
+
+31
+00:02:43,030 --> 00:02:44,290
+of 3.
+
+32
+00:02:44,320 --> 00:02:51,880
+So at a later point we can retrieve all of the data in that record that's associated with this order.
+
+33
+00:02:52,970 --> 00:02:57,570
+And this is how you establish relationships using SQL.
+
+34
+00:02:57,620 --> 00:03:09,260
+So in our case we can set our customer_id field as a foreign key which references the customers
+
+35
+00:03:09,320 --> 00:03:10,030
+table,
+
+36
+00:03:10,100 --> 00:03:16,880
+so this is going to be the name the table, and then inside some parentheses is going to be the name of
+
+37
+00:03:16,880 --> 00:03:19,820
+the field inside the customers table
+
+38
+00:03:19,820 --> 00:03:24,860
+that is the primary key. That's going to be the id field.
+
+39
+00:03:24,920 --> 00:03:32,390
+And finally we're going to do the same for our other field as well which is the product id field and
+
+40
+00:03:32,420 --> 00:03:41,900
+this is going to reference the products table again with its primary field which is called id. If the
+
+41
+00:03:41,900 --> 00:03:46,660
+concept of primary key and foreign key are foreign to you
+
+42
+00:03:46,880 --> 00:03:54,290
+then I recommend having a read of this documentation on w3schools to get to grips with the idea of
+
+43
+00:03:54,350 --> 00:04:00,690
+how you establish relationships using SQL via these keys.
+
+44
+00:04:00,790 --> 00:04:08,110
+So now if I hit run, I get an error and it tells me that I accidentally put in a closing curly brace
+
+45
+00:04:08,560 --> 00:04:10,640
+instead of a round bracket.
+
+46
+00:04:10,720 --> 00:04:12,050
+So now that's fixed.
+
+47
+00:04:12,070 --> 00:04:13,810
+Let's hit run again.
+
+48
+00:04:13,810 --> 00:04:16,540
+And we now have a orders table.
+
+49
+00:04:16,540 --> 00:04:23,470
+Now again orders table is completely empty but if we right click on it and we click show schema then
+
+50
+00:04:23,470 --> 00:04:26,660
+you can see it has only four fields.
+
+51
+00:04:26,680 --> 00:04:34,960
+First one the id is the primary key for this orders table and then two other fields act as foreign keys
+
+52
+00:04:35,050 --> 00:04:41,400
+which link this table orders with the customers table as well as the products table.
+
+53
+00:04:42,600 --> 00:04:49,800
+So now I'm going to create my first order record inside my orders table. It'll have an id of 1 an order
+
+54
+00:04:49,800 --> 00:04:57,120
+number of 4362 and the customer who bought it had an id in the customers table of 2
+
+55
+00:04:57,420 --> 00:04:59,970
+and the product had an id of 1.
+
+56
+00:05:00,210 --> 00:05:06,780
+If you take a look, in our customers table the customer with an id of 2 is me,
+
+57
+00:05:06,780 --> 00:05:14,580
+Angela Yu at 12 Sunset Drive and the product with an id of 1 is a Pen.
+
+58
+00:05:14,610 --> 00:05:21,300
+By establishing those relationships I can later create a much larger table where I join together all
+
+59
+00:05:21,300 --> 00:05:26,870
+of the relevant records and all of the useful columns from all three tables that I need.
+
+60
+00:05:26,880 --> 00:05:30,800
+So let me show you how that works by creating the first record.
+
+61
+00:05:30,900 --> 00:05:41,310
+So we'll use INSERT INTO the orders table and the values we want to inserts are 1 as the order id
+
+62
+00:05:42,030 --> 00:05:51,180
+the order number is 4362, the customer id is 2 and the product id is 1.
+
+63
+00:05:51,220 --> 00:05:56,570
+So now I'm going to go ahead and create my first order that's gone through.
+
+64
+00:05:56,620 --> 00:06:03,420
+So basically Angela Yu has bought a pencil that's all this represents.
+
+65
+00:06:03,550 --> 00:06:09,530
+But now we get to use something that's really powerful from SQL which is a join. So we can join our
+
+66
+00:06:09,580 --> 00:06:13,280
+tables together using the key word of join.
+
+67
+00:06:13,300 --> 00:06:17,150
+Now there's a whole bunch of different Joins left join, right join, full join.
+
+68
+00:06:17,290 --> 00:06:22,180
+But the most commonly used one is the inner join and that's the one that we're going to use.
+
+69
+00:06:22,180 --> 00:06:28,010
+We're going to join together the parts of our tables where a particular find key matches.
+
+70
+00:06:28,120 --> 00:06:30,550
+This is the syntax.
+
+71
+00:06:30,800 --> 00:06:39,410
+And if I copied over to our sqlliteonline.com, we're going to select the order number from the orders
+
+72
+00:06:39,410 --> 00:06:40,140
+table.
+
+73
+00:06:40,370 --> 00:06:45,210
+So we would say something like orders.the name of the field.
+
+74
+00:06:45,410 --> 00:06:52,870
+In our case our orders table is lowercase, orders.order_number.
+
+75
+00:06:53,120 --> 00:06:59,980
+The other field that we want is from our customers table and that's the first name, last name and address.
+
+76
+00:07:00,080 --> 00:07:11,590
+So we would write customers.first_name customers.last_name and customers
+
+77
+00:07:11,700 --> 00:07:18,670
+.address. Those are all the fields that we want to join together in a new table we're going to
+
+78
+00:07:18,670 --> 00:07:23,530
+create and it's going to be from the foreign keys inside our orders table.
+
+79
+00:07:23,530 --> 00:07:25,310
+So that's what we'll say here.
+
+80
+00:07:25,630 --> 00:07:31,520
+From the orders table is where you'll find this particular foreign key match.
+
+81
+00:07:31,540 --> 00:07:39,950
+So the next thing is inner join and the table we want to join is our customers table. And after the key
+
+82
+00:07:39,950 --> 00:07:48,430
+word on is going to be the fields that will match. It's going to be the foreign key in our orders table
+
+83
+00:07:48,490 --> 00:07:56,350
+that's called customer_id and it's going to match with the primary key on our customers
+
+84
+00:07:56,350 --> 00:07:59,920
+table which is called simply id.
+
+85
+00:07:59,920 --> 00:08:06,760
+Now if I hit run you get a join table where you've got the order number, the first name, last name, address
+
+86
+00:08:07,180 --> 00:08:10,600
+and you can see that these fields come from different tables.
+
+87
+00:08:10,660 --> 00:08:16,630
+But we've now managed to search through all of our tables and records and we've managed to match up
+
+88
+00:08:16,960 --> 00:08:22,210
+the orders and join them in a new table which is way more useful for us.
+
+89
+00:08:22,210 --> 00:08:28,060
+So for example if we wanted to dispatch order number 4362 then we'll know who is going to be sent
+
+90
+00:08:28,060 --> 00:08:30,810
+to and what their address is. Next
+
+91
+00:08:30,820 --> 00:08:33,510
+ss it going to be a challenge for you.
+
+92
+00:08:33,610 --> 00:08:39,880
+You can see that currently we only have the order joined with the customer. As a challenge
+
+93
+00:08:39,880 --> 00:08:47,200
+I want you to join the order with the product that the order is relating to. Pause the video now and
+
+94
+00:08:47,200 --> 00:08:50,330
+try to change the code so that you can complete this challenge.
+
+95
+00:08:52,820 --> 00:08:59,270
+OK so in this case we're no longer joining the orders table with the customers table.
+
+96
+00:08:59,490 --> 00:09:06,990
+Instead we're joining the orders table with the products table and the fields that we're interested
+
+97
+00:09:06,990 --> 00:09:12,780
+in is the order number as well as some of the fields from our products table.
+
+98
+00:09:12,780 --> 00:09:14,200
+What does our product table have?
+
+99
+00:09:14,200 --> 00:09:17,760
+Well it's got the name, the price and stock quantity.
+
+100
+00:09:17,820 --> 00:09:20,340
+So let's go and join those fields together.
+
+101
+00:09:20,580 --> 00:09:32,810
+It'll be products.name products.price products.stock.
+
+102
+00:09:33,230 --> 00:09:40,610
+And we're joining from the foreign keys in the orders table, we're performing a inner join and we're
+
+103
+00:09:40,610 --> 00:09:49,750
+joining it to the products table and the fields that have to match is orders.product_
+
+104
+00:09:49,760 --> 00:09:55,620
+id and in the products table the field is simply called id.
+
+105
+00:09:55,880 --> 00:09:59,790
+So products with an 's' is the name of our table
+
+106
+00:09:59,810 --> 00:10:05,870
+as you can see here and it has a field called id which will match with the foreign key in our orders
+
+107
+00:10:05,870 --> 00:10:07,960
+table called product id.
+
+108
+00:10:07,970 --> 00:10:09,350
+So now if we hit run
+
+109
+00:10:09,350 --> 00:10:15,590
+you can see we get the order number but we now join the orders table with the products table and we
+
+110
+00:10:15,590 --> 00:10:20,970
+now have a brand new table that's created based off this inner join.
+
+111
+00:10:21,110 --> 00:10:27,180
+So that is a little bit on the magic of SQL database relationships.
+
+112
+00:10:27,380 --> 00:10:33,710
+And you can see how flexible and how powerful these relationships are when you are searching through
+
+113
+00:10:33,710 --> 00:10:39,360
+your database and you're trying to assemble all of your data from various different tables.
+
+114
+00:10:40,170 --> 00:10:47,310
+Now if you had any problems following along with the tutorial so far or if you just want to have a copy
+
+115
+00:10:47,430 --> 00:10:55,140
+of this completed table then in the resources for this lesson there is a link to a SQL online version
+
+116
+00:10:55,440 --> 00:11:01,380
+where it contains everything that we've done so far including all of the data in our orders, customers
+
+117
+00:11:01,500 --> 00:11:02,960
+and products tables.
+
+118
+00:11:03,060 --> 00:11:09,900
+So you can try out different bits of code from w3schools or anywhere else on it and have a play around
+
+119
+00:11:09,990 --> 00:11:10,980
+with SQL lite.
+

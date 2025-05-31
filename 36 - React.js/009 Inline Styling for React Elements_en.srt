@@ -1,0 +1,396 @@
+1
+00:00:00,720 --> 00:00:08,260
+So in the last lesson, we looked at how we can apply CSS styling through the use of our style sheet.
+
+2
+00:00:08,340 --> 00:00:15,420
+Now in this lesson I want to show you a slightly less used but also quite a useful way of adding styling
+
+3
+00:00:16,140 --> 00:00:19,520
+and that's through the use of inline styles.
+
+4
+00:00:19,530 --> 00:00:22,220
+Now here's the starting Project.
+
+5
+00:00:22,260 --> 00:00:28,890
+So go ahead and fork it. And once you've done that let's start adding some inline styles.
+
+6
+00:00:29,040 --> 00:00:37,290
+So if this was in fact HTML, you know already that you can add styling inline just through the use
+
+7
+00:00:37,290 --> 00:00:38,700
+of the style attribute.
+
+8
+00:00:38,970 --> 00:00:43,180
+So I could say something like color is red.
+
+9
+00:00:43,300 --> 00:00:50,050
+Now unfortunately though, this is not HTML and this is something that I keep reiterating because it
+
+10
+00:00:50,050 --> 00:00:56,650
+looks so similar to HTML and it's doing so much behind the scenes for you converting this into Javascript
+
+11
+00:00:56,670 --> 00:01:01,530
+that sometimes even I forget that I'm actually inside a JSX file.
+
+12
+00:01:01,630 --> 00:01:08,350
+So when we write this code we immediately get an error telling us that the style property expects a
+
+13
+00:01:08,350 --> 00:01:13,670
+mapping from style properties to values not a string.
+
+14
+00:01:13,720 --> 00:01:16,420
+And it tells you how it wants you to write this instead.
+
+15
+00:01:17,050 --> 00:01:18,470
+So what's going on here?
+
+16
+00:01:19,030 --> 00:01:26,270
+Well in this case, we're actually providing a string as the value to the style attribute.
+
+17
+00:01:26,500 --> 00:01:28,870
+And this would work fine if this was HTML.
+
+18
+00:01:29,230 --> 00:01:38,410
+But in Javascript it wants this value for the style property as a Javascript object.
+
+19
+00:01:38,410 --> 00:01:42,010
+Let's just remind ourselves. Javascript objects look like this:
+
+20
+00:01:42,010 --> 00:01:44,250
+they exist in a set of curly braces
+
+21
+00:01:44,470 --> 00:01:47,650
+and then they have key value pairs.
+
+22
+00:01:47,650 --> 00:01:54,300
+So in this case, the key would be the word color and this would behave a bit like a variable,
+
+23
+00:01:54,310 --> 00:01:56,270
+so it's not a string.
+
+24
+00:01:56,440 --> 00:02:00,890
+Whereas the value, in terms of CSS anyways, is going to be a string.
+
+25
+00:02:00,910 --> 00:02:03,350
+So in this case, it will be red.
+
+26
+00:02:03,550 --> 00:02:11,410
+And each of these key value pairs in a Javascript object are separated by commas not semicolons as you
+
+27
+00:02:11,410 --> 00:02:12,880
+would see in the style sheet.
+
+28
+00:02:13,540 --> 00:02:19,680
+But in my case, I just want to add a single style which is to change the color to red.
+
+29
+00:02:19,780 --> 00:02:24,880
+And so I'm just going to collapse it down and see it as a simple version.
+
+30
+00:02:24,940 --> 00:02:33,580
+Now let's go ahead and delete this string and try to insert this Javascript object in as the value for
+
+31
+00:02:33,580 --> 00:02:35,740
+this style property.
+
+32
+00:02:35,740 --> 00:02:43,780
+Now remember though, whenever we want to inject some Javascript into an HTML element in JSX, we have
+
+33
+00:02:43,780 --> 00:02:46,360
+to wrap it inside a set of curly braces
+
+34
+00:02:46,360 --> 00:02:47,380
+right?
+
+35
+00:02:47,410 --> 00:02:55,720
+So now that we've got our set of curly braces then we can cut our Javascript object and paste it inside.
+
+36
+00:02:57,010 --> 00:03:03,040
+And our console finally stop screaming at us and accepts our code as valid.
+
+37
+00:03:03,880 --> 00:03:09,760
+But this does end up looking very strange with two sets of curly braces.
+
+38
+00:03:09,880 --> 00:03:19,090
+But this is all because the style property requires a value that is a Javascript object and that object
+
+39
+00:03:19,210 --> 00:03:22,770
+in order for it to be interpreted correctly inside
+
+40
+00:03:22,790 --> 00:03:30,220
+an HTML element, has to have a set of curly braces around it. Instead of a normal expression like
+
+41
+00:03:30,220 --> 00:03:32,320
+say 2 + 3,
+
+42
+00:03:32,320 --> 00:03:38,050
+in this case we're just replacing it with a Javascript object.
+
+43
+00:03:38,090 --> 00:03:41,960
+Now you might ask, well why would we do this right?
+
+44
+00:03:42,050 --> 00:03:48,830
+Because we've already learnt about class based styling and we know that the React documentation in
+
+45
+00:03:48,830 --> 00:03:56,300
+fact recommends to use class based styling using the style sheet to change the appearance of your React
+
+46
+00:03:56,360 --> 00:03:57,200
+elements.
+
+47
+00:03:57,200 --> 00:04:01,760
+So why would we ever want to do this kind of inline styling?
+
+48
+00:04:01,760 --> 00:04:08,870
+Well there are certain cases where this is pretty useful especially when you want styles for certain
+
+49
+00:04:08,870 --> 00:04:12,170
+React elements to update on the fly.
+
+50
+00:04:12,680 --> 00:04:20,390
+So while your app is up and running, if the user does something or the time changes or it's a different
+
+51
+00:04:20,390 --> 00:04:26,240
+day or it's a different hour, you might want to trigger a change in your style
+
+52
+00:04:26,270 --> 00:04:26,920
+right?
+
+53
+00:04:27,020 --> 00:04:31,040
+And you can do that really easily using inline styles.
+
+54
+00:04:31,040 --> 00:04:32,360
+Let me show you what I mean.
+
+55
+00:04:32,480 --> 00:04:37,340
+I'm going to cut my object and I'm going to save it inside a constant.
+
+56
+00:04:37,490 --> 00:04:43,330
+I'm going to call it custom style and set it to equal this object.
+
+57
+00:04:43,340 --> 00:04:45,950
+Now let's go ahead and expand it out again.
+
+58
+00:04:45,950 --> 00:04:51,560
+And while I'm here, I'm gonna add a couple more styles and I want to point out that when you're using
+
+59
+00:04:51,830 --> 00:04:59,110
+CSS properties, remember that they are kebab cased, so lowercase lowercase separated by a hyphen.
+
+60
+00:04:59,540 --> 00:05:07,910
+But in order to use these properties inside your Javascript object you have to convert those names to
+
+61
+00:05:07,970 --> 00:05:09,230
+camel case.
+
+62
+00:05:09,230 --> 00:05:14,930
+So for example, if we want to change the font size instead of writing font-size, we would write font
+
+63
+00:05:15,350 --> 00:05:22,310
+and then it's a capital S and size. And then we can change the size to say 20 pixels.
+
+64
+00:05:22,310 --> 00:05:28,250
+Remember that instead of semicolons which you might be used to when you're writing CSS, we're going to
+
+65
+00:05:28,250 --> 00:05:35,030
+be using commas because we're inside a Javascript object. And instead of simply just writing out 20 pixels
+
+66
+00:05:35,060 --> 00:05:43,970
+or red, the values for each of these key value pairs has to be a string and that includes cases where
+
+67
+00:05:43,970 --> 00:05:46,460
+you have spaces as the value.
+
+68
+00:05:46,460 --> 00:05:49,360
+So for example if I wanted to add a border
+
+69
+00:05:49,520 --> 00:05:54,310
+normally I would write say 1 pixel solid black.
+
+70
+00:05:54,680 --> 00:06:03,430
+Well in this case it's still exactly like this, but it has to be a string with each of these spaces preserved.
+
+71
+00:06:03,500 --> 00:06:13,400
+Now that I've created my custom style constant I can now insert this object inside here as the style.
+
+72
+00:06:13,400 --> 00:06:18,890
+So I've got my curly braces denoting that I'm about to write some Javascript and I'm going to insert
+
+73
+00:06:18,950 --> 00:06:21,830
+my custom style object right there.
+
+74
+00:06:22,370 --> 00:06:29,270
+And as soon as that gets compiled then you can see that we've got our h1 changing its font size,
+
+75
+00:06:29,570 --> 00:06:39,600
+having a border and changing its color all because of this custom style. Now here's the interesting part.
+
+76
+00:06:39,780 --> 00:06:46,050
+If at some point in our code something changes let's say the user did something or the day changed
+
+77
+00:06:46,050 --> 00:06:47,780
+or the time changed became
+
+78
+00:06:47,870 --> 00:06:49,070
+morning to night,
+
+79
+00:06:49,200 --> 00:06:54,330
+something happens and we wanted to change the style of our h1.
+
+80
+00:06:54,330 --> 00:06:57,930
+We don't have to touch any of our code in here.
+
+81
+00:06:58,050 --> 00:07:03,540
+All we have to do is to just update the properties of our custom style object.
+
+82
+00:07:03,990 --> 00:07:11,830
+So let's say that I decided to change its color to, instead of red, let's make it blue. And as soon as I hit
+
+83
+00:07:11,830 --> 00:07:17,730
+save, you'll see that style gets immediately updated.
+
+84
+00:07:17,740 --> 00:07:21,820
+So this means that our style can change on the go.
+
+85
+00:07:21,820 --> 00:07:27,890
+And this is one of the biggest reasons why you would want to use inline styling.
+
+86
+00:07:28,380 --> 00:07:35,730
+Now I recommend having a play around with these CSS properties. So have a look at the documentation for
+
+87
+00:07:35,790 --> 00:07:42,990
+all of the CSS properties and tried to implement some of these other ones and convert them into a format
+
+88
+00:07:43,110 --> 00:07:50,160
+that will get accepted by JSX so that you can see it rendered. And then have a play around with these
+
+89
+00:07:50,250 --> 00:07:57,720
+objects, maybe put the object back in line with the HTML elements in the JSX. Get used to that
+
+90
+00:07:57,720 --> 00:07:59,910
+double curly brace syntax.
+
+91
+00:08:00,210 --> 00:08:07,230
+And once you're happy and you're comfortable with inline properties in JSX then head over to the
+
+92
+00:08:07,230 --> 00:08:12,420
+next lesson well I've got a challenge for you where you're going to apply everything you've learned
+
+93
+00:08:12,450 --> 00:08:20,430
+so far and especially in line and class based styles. As always, this file is gonna be saved for you to
+
+94
+00:08:20,460 --> 00:08:24,420
+mess around with in the course resources if you want to.
+
+95
+00:08:24,630 --> 00:08:31,230
+And the best way of overcoming confusion or just getting used to these concepts is to just clear the slate
+
+96
+00:08:31,290 --> 00:08:33,690
+and try to achieve what we've done in the lesson
+
+97
+00:08:33,840 --> 00:08:36,570
+all by yourself and then referring back to the final code
+
+98
+00:08:36,840 --> 00:08:38,220
+if you need help.
+
+99
+00:08:38,460 --> 00:08:41,669
+So have a play around with that and I'll see you on the next lesson.
+

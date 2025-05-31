@@ -1,0 +1,652 @@
+1
+00:00:00,360 --> 00:00:06,070
+Hey guys. Iin this lesson we're going to get you up and running with your local environment.
+
+2
+00:00:06,180 --> 00:00:13,230
+So whether that be with Atom or with VS code or whichever text editor you prefer to use and get you
+
+3
+00:00:13,230 --> 00:00:17,470
+started creating apps locally on your computer.
+
+4
+00:00:17,520 --> 00:00:23,610
+This way if you prefer using a local text editor rather than using a code sandbox like what we've been
+
+5
+00:00:23,610 --> 00:00:29,430
+doing so far, you'll have all the tools you need to get started when we're creating your project,
+
+6
+00:00:29,430 --> 00:00:35,880
+the Google keeper app. If you're using a Mac you can go ahead and skip this lesson and head over to the
+
+7
+00:00:35,880 --> 00:00:39,070
+next one where I walk you through exactly the same thing
+
+8
+00:00:39,150 --> 00:00:43,890
+but for setting up on a Mac computer. Let's get started.
+
+9
+00:00:43,890 --> 00:00:50,070
+There's only four steps that are required to start creating react apps on Windows. First
+
+10
+00:00:50,220 --> 00:00:52,060
+we've already got Node installed
+
+11
+00:00:52,110 --> 00:00:57,510
+and if you've gone through the Node modules recently then your Node version is probably going to be
+
+12
+00:00:57,510 --> 00:00:58,600
+pretty up to date.
+
+13
+00:00:58,800 --> 00:01:04,019
+But just in case it's been a while since you've actually tackled the Node module of the course, then
+
+14
+00:01:04,019 --> 00:01:07,100
+it might be worthwhile just checking that its actually up to date.
+
+15
+00:01:07,170 --> 00:01:14,840
+So how do we do this? If you have to nodejs.org and you take a look at the version that's shown
+
+16
+00:01:14,840 --> 00:01:20,900
+over here on the left, as of right now when I'm recording the latest version shown to me is 12.
+
+17
+00:01:20,900 --> 00:01:23,120
+13.0.
+
+18
+00:01:23,240 --> 00:01:25,430
+And this is the version that you want to be working on.
+
+19
+00:01:25,430 --> 00:01:27,280
+This is the stable version.
+
+20
+00:01:27,620 --> 00:01:30,490
+So how do you know if you have the latest version?
+
+21
+00:01:30,560 --> 00:01:36,470
+Well to check that you've got the latest version installed go ahead and open up your hyper terminal
+
+22
+00:01:37,010 --> 00:01:44,720
+and type in the command node --version and then hit enter. And you can see that what I am getting
+
+23
+00:01:44,720 --> 00:01:50,240
+back is that I'm running version 12.13.0 which is the same as what I'm seeing
+
+24
+00:01:50,390 --> 00:01:51,800
+on the Node.js website.
+
+25
+00:01:51,950 --> 00:01:54,140
+So that means I am up to date.
+
+26
+00:01:54,140 --> 00:02:01,880
+Now if on the other hand you see a lower version or if you see something like command not found or something
+
+27
+00:02:01,880 --> 00:02:06,470
+that basically suggests that you don't have the latest version of Node installed, then I recommend just
+
+28
+00:02:06,470 --> 00:02:11,190
+clicking over here and downloading the latest installer for the Node
+
+29
+00:02:11,210 --> 00:02:16,550
+12.13.0 or whatever it may be when you're looking at this lesson.
+
+30
+00:02:16,550 --> 00:02:21,860
+Now if you don't know what the hyper terminal is, we've already gone through this in the command line
+
+31
+00:02:21,860 --> 00:02:28,160
+module and I've talked about a lot of these commands like changing directory and instructing your computer
+
+32
+00:02:28,160 --> 00:02:29,440
+to do certain things.
+
+33
+00:02:29,600 --> 00:02:31,910
+And we're going to be using the command line quite a lot.
+
+34
+00:02:32,000 --> 00:02:37,670
+So the command line module is definitely essential knowledge and I recommend completing it before you
+
+35
+00:02:37,670 --> 00:02:39,000
+proceed any further.
+
+36
+00:02:40,110 --> 00:02:46,720
+So once that's done, go ahead and open it up. And then we'll just run through the wizard very quickly
+
+37
+00:02:47,110 --> 00:02:49,960
+to accept all the licenses and get it installed.
+
+38
+00:02:53,460 --> 00:02:59,850
+And then after you've installed it, restart your computer and open up the hyperterminal again to check
+
+39
+00:02:59,850 --> 00:03:06,550
+and make sure that you've got the latest version installed. Now the reason why we need Node is because
+
+40
+00:03:06,550 --> 00:03:12,160
+we're gonna be installing packages when we're using React. As you've seen already we've been using the
+
+41
+00:03:12,160 --> 00:03:13,930
+React and ReactDOM modules.
+
+42
+00:03:14,080 --> 00:03:18,800
+And the easiest way to install those to any project is just using NPM.
+
+43
+00:03:18,820 --> 00:03:24,430
+Now if you've missed out on the Node module of the course, I strongly recommend completing that first
+
+44
+00:03:24,730 --> 00:03:26,340
+before tackling React
+
+45
+00:03:26,470 --> 00:03:31,360
+just because there's a lot of concepts that's already covered there and it might be a little bit confusing
+
+46
+00:03:31,360 --> 00:03:34,390
+if you just get started with React straightaway.
+
+47
+00:03:34,540 --> 00:03:39,940
+So now that you've made sure you've got the latest version of Node, we can now move on to step two which
+
+48
+00:03:39,940 --> 00:03:42,520
+is to install VS Code.
+
+49
+00:03:42,760 --> 00:03:47,430
+Now VS code is a free and open source code editor.
+
+50
+00:03:47,560 --> 00:03:51,200
+And it's a really popular one for using with React.
+
+51
+00:03:51,220 --> 00:03:55,600
+Now if you want to use a different one say if you want to stick with Atom or if you want to use something
+
+52
+00:03:55,600 --> 00:03:59,310
+like Sublime or whatever it is that you would prefer to use,
+
+53
+00:03:59,380 --> 00:04:00,710
+that's totally fine.
+
+54
+00:04:00,790 --> 00:04:06,190
+It doesn't actually matter. At end of the day it's just whatever makes you feel comfortable and which
+
+55
+00:04:06,230 --> 00:04:09,720
+ever styling or environment you prefer.
+
+56
+00:04:09,970 --> 00:04:15,940
+But if you have no preferences and you want to work on React locally, then I recommend giving Visual
+
+57
+00:04:15,940 --> 00:04:17,529
+Studio code a go.
+
+58
+00:04:17,529 --> 00:04:22,480
+It's pretty easy to install simply just head over to code.visualstudio.com
+
+59
+00:04:22,480 --> 00:04:27,250
+click on this button and go through the wizard to install it onto your computer.
+
+60
+00:04:28,700 --> 00:04:34,120
+And once you've got it installed and opened, it should look something like this.
+
+61
+00:04:34,250 --> 00:04:40,460
+A lot of the user interface looks very similar to what we've been working with in code sandbox. But no
+
+62
+00:04:40,460 --> 00:04:46,430
+matter which editor you choose I recommend heading over to this link here which are linked to and of course
+
+63
+00:04:46,430 --> 00:04:55,310
+resources and finding your particular editor be it Atom or Vim or Visual Studio code and install the extension
+
+64
+00:04:55,310 --> 00:04:56,700
+that they ask you to.
+
+65
+00:04:56,780 --> 00:05:01,700
+This way you'll get the correct syntax highlighting and it'll make it much easier to see what's going
+
+66
+00:05:01,700 --> 00:05:07,910
+on when you're writing JSX code that's being interpreted by Babel. In Visual Studio
+
+67
+00:05:07,910 --> 00:05:11,480
+the package is called Sublime Babel by Josh Peng.
+
+68
+00:05:11,720 --> 00:05:18,650
+And in order to install it, just head over to file, preferences, extensions or use the keyboard shortcut
+
+69
+00:05:19,190 --> 00:05:25,040
+and then once you're on this page go ahead and search for sublime babel.
+
+70
+00:05:25,310 --> 00:05:26,920
+And this is the one we want
+
+71
+00:05:26,920 --> 00:05:30,310
+so click on install and it should take a few seconds to install.
+
+72
+00:05:30,320 --> 00:05:33,730
+And this is basically the same as the Atom packages.
+
+73
+00:05:33,770 --> 00:05:40,070
+Now in addition I recommend getting the VS code icons extension and what this does is it just adds
+
+74
+00:05:40,070 --> 00:05:45,160
+the icon to any of the files that you have in your browser.
+
+75
+00:05:45,200 --> 00:05:49,430
+So that way files with different extensions are labeled with different icons.
+
+76
+00:05:49,430 --> 00:05:53,220
+And it makes it very similar to what we've been used to in code sandbox
+
+77
+00:05:53,240 --> 00:05:57,550
+and it's really easy to navigate when you're working with React apps.
+
+78
+00:05:57,830 --> 00:06:04,100
+Now that we're done with step to installing VS code or simply just adding a package that you saw in
+
+79
+00:06:04,100 --> 00:06:09,620
+the Babel website to whichever text editor you prefer, then we can move on to step three which is to
+
+80
+00:06:09,620 --> 00:06:13,760
+actually create a React app. And to do this
+
+81
+00:06:13,760 --> 00:06:16,430
+we're going to follow the instructions from the React website.
+
+82
+00:06:17,000 --> 00:06:22,310
+So again I'm going to link to this page and this is one of the easiest ways of creating a brand new
+
+83
+00:06:22,310 --> 00:06:23,530
+React app.
+
+84
+00:06:23,600 --> 00:06:25,430
+So we have to do it in the terminal
+
+85
+00:06:25,430 --> 00:06:31,420
+so go ahead and copy this instruction to create your first app.
+
+86
+00:06:31,460 --> 00:06:39,500
+Now this is the npx command which is, as they say, a package runner tool that comes with npm and it will install
+
+87
+00:06:39,500 --> 00:06:44,800
+create-react-app on your computer so that you can create new React apps from scratch.
+
+88
+00:06:45,020 --> 00:06:49,160
+And then the very last part is whatever it is that you want to name your app.
+
+89
+00:06:49,250 --> 00:06:57,690
+So let's just go ahead and copy it as it is to create a project called my-app and then simply paste
+
+90
+00:06:57,690 --> 00:07:04,840
+it in here and then hit enter for it to go ahead and run the code and you'll see that it's created a
+
+91
+00:07:04,840 --> 00:07:08,430
+new React app under this particular file path.
+
+92
+00:07:08,470 --> 00:07:12,730
+So users and then my username and then my app.
+
+93
+00:07:12,730 --> 00:07:18,460
+And now it's going to install the required packages which includes react, react-dom and react-scripts.
+
+94
+00:07:19,120 --> 00:07:20,170
+Now react-script
+
+95
+00:07:20,200 --> 00:07:26,860
+we haven't used so far but it's basically the scripts that's required to actually be able to run React
+
+96
+00:07:26,920 --> 00:07:30,540
+apps locally on your computer.
+
+97
+00:07:30,590 --> 00:07:36,500
+Now the first time that you run this command, npx create-react-app and you try to generate a new React
+
+98
+00:07:36,500 --> 00:07:36,980
+app,
+
+99
+00:07:37,100 --> 00:07:38,570
+it's going to take a while.
+
+100
+00:07:38,690 --> 00:07:46,130
+So I counted and on my Windows 10 machine, it took something like 5 minutes. But once it is done though,
+
+101
+00:07:46,190 --> 00:07:51,710
+you will get something like this: "Success! Created my-app at this location".
+
+102
+00:07:51,710 --> 00:07:59,840
+And inside that directory you can run several commands, npm start to start the server, build to build
+
+103
+00:07:59,900 --> 00:08:06,260
+the React app into a production app that you can launch and a couple of other things.
+
+104
+00:08:06,290 --> 00:08:14,240
+So now that we've completed 1, 2 and 3, all we have left is to run our app. And as the instructions
+
+105
+00:08:14,240 --> 00:08:20,990
+suggest all we have to do is to cd to over to my-app and then run npm start.
+
+106
+00:08:21,680 --> 00:08:28,580
+So let's go ahead and cd over to the location of our app and if you need reminding where that is, simply
+
+107
+00:08:28,580 --> 00:08:35,090
+scroll up to the success message and you can see that it's created in my case in the C drive in this
+
+108
+00:08:35,150 --> 00:08:36,230
+location.
+
+109
+00:08:36,230 --> 00:08:43,760
+So I'm going to navigate to this using the bash format so I'll add the cd, change directory and then
+
+110
+00:08:43,760 --> 00:08:51,440
+it's going to be a forward slash to represent the root directory then it's the C drive then it was users
+
+111
+00:08:51,500 --> 00:09:00,290
+/P.D and then it was /my-app and then hit enter and you can see we've now
+
+112
+00:09:00,440 --> 00:09:07,610
+moved into the my-app directory. And it's here where we're going to run the command npm start and hit enter.
+
+113
+00:09:10,350 --> 00:09:19,020
+And this is going to use that module react-scripts to run a script and open up the app. So you might
+
+114
+00:09:19,020 --> 00:09:25,290
+get some warnings like this from Windows Firewall just be sure to click allow access if you see any
+
+115
+00:09:25,290 --> 00:09:26,190
+of these.
+
+116
+00:09:26,430 --> 00:09:33,210
+And once it's loaded up, you'll see localhosts being open up in your browser of choice and if you get
+
+117
+00:09:33,210 --> 00:09:39,450
+stuck at any point along the way, I recommend checking out the react support page because there's a lot
+
+118
+00:09:39,450 --> 00:09:45,990
+of discussion forums especially the Reactflux online chat which is on discord which has a lot of helpful
+
+119
+00:09:45,990 --> 00:09:51,960
+people who are really really knowledgeable and they can help you if you get stuck along the way installing
+
+120
+00:09:51,960 --> 00:09:55,600
+React or trying to get it to work on your local system.
+
+121
+00:09:55,680 --> 00:10:01,470
+This is all that we have for our app at the moment and in order for it to show something else, we're
+
+122
+00:10:01,470 --> 00:10:05,910
+going to have to edit our src/App.js file.
+
+123
+00:10:05,910 --> 00:10:17,450
+So let's go into our VS code and open up that folder and navigate to it again. So here it is under the
+
+124
+00:10:17,450 --> 00:10:25,460
+C:Users/my username/my-app and then select folder to open it up inside VS code.
+
+125
+00:10:25,640 --> 00:10:29,900
+And now you can see that my-app is showing right here.
+
+126
+00:10:29,900 --> 00:10:35,070
+So let's go ahead and close the welcome screen and hide this as well
+
+127
+00:10:35,090 --> 00:10:37,910
+and now we can see our app showing up over here.
+
+128
+00:10:38,510 --> 00:10:43,820
+If we go into the src folder and the public folder you can see there's lots of files that have been
+
+129
+00:10:43,820 --> 00:10:45,890
+prepackaged in here.
+
+130
+00:10:45,890 --> 00:10:52,790
+And what I recommend is that while you're up and running and getting used to React is to actually just
+
+131
+00:10:52,790 --> 00:10:55,100
+delete everything that's not necessary.
+
+132
+00:10:55,100 --> 00:11:02,060
+All of these logos which are being used and the robot's text which is for Google Search to index your
+
+133
+00:11:02,060 --> 00:11:02,800
+website,
+
+134
+00:11:02,960 --> 00:11:07,760
+all of these things are unnecessary and they clutter up our starting file.
+
+135
+00:11:07,760 --> 00:11:14,370
+So I'm just going to select them and then just simply delete them. Inside our source folder
+
+136
+00:11:14,390 --> 00:11:18,440
+the only ones that we want to keep is the index.js.
+
+137
+00:11:18,920 --> 00:11:22,120
+And we're going to delete everything else.
+
+138
+00:11:22,220 --> 00:11:28,790
+So now we've got a very similar format to what we've seen before in our code sandbox and you can actually
+
+139
+00:11:28,790 --> 00:11:33,290
+apply everything you've learnt so far to this code.
+
+140
+00:11:33,290 --> 00:11:41,390
+So the index.html has a lot of comments and a lot of things already in here but we can actually
+
+141
+00:11:41,390 --> 00:11:49,700
+delete all of these things while we're learning like the theme color or the viewport or the icons for
+
+142
+00:11:49,700 --> 00:11:51,080
+the favicon,
+
+143
+00:11:51,080 --> 00:11:56,790
+these are nice to have when we actually deploy our website but right now we don't need a favicon.
+
+144
+00:11:56,810 --> 00:11:59,810
+We just need to learn how to use React.
+
+145
+00:11:59,810 --> 00:12:08,660
+So we've really got our div with the id of root in here and we're going to change that script to be
+
+146
+00:12:08,690 --> 00:12:11,650
+the one that we've got in our source.
+
+147
+00:12:11,690 --> 00:12:23,690
+So we're going to use the ./src/index.js. And by the way if the font is too small
+
+148
+00:12:23,690 --> 00:12:31,700
+for you, you can change it in preferences, settings and the font size here. So let's go ahead and mark
+
+149
+00:12:31,730 --> 00:12:43,280
+this script as type equals to text/jsx and let's head back into our index.js and delete
+
+150
+00:12:43,340 --> 00:12:50,360
+all of these imports other than our react and react-dom and then delete all of this code at the bottom
+
+151
+00:12:50,420 --> 00:12:51,290
+as well.
+
+152
+00:12:51,290 --> 00:12:57,040
+So we end up with what we are familiar with. Now instead of rendering a app
+
+153
+00:12:57,080 --> 00:13:01,460
+let's just test it out by rendering out an h1 from scratch,
+
+154
+00:13:01,460 --> 00:13:07,040
+a single element and let's just say "Hello world".
+
+155
+00:13:07,400 --> 00:13:14,930
+Let's hit save, go back to our localhost 3000 and you should see it updates.
+
+156
+00:13:15,120 --> 00:13:20,310
+And at this stage you should be pretty familiar with how to manipulate things using what we learned
+
+157
+00:13:20,310 --> 00:13:24,360
+in the previous lessons while we were working in the sandbox.
+
+158
+00:13:24,360 --> 00:13:30,660
+It's your choice whether if you want to use the local environment to run your app on your localhost
+
+159
+00:13:30,660 --> 00:13:37,290
+3000 or if you want to continue using the code sandbox while we create our project
+
+160
+00:13:37,290 --> 00:13:39,080
+the Google keeper app.
+
+161
+00:13:39,240 --> 00:13:44,580
+This decision I'm going to leave up to you because it's a personal preference. But in the next lesson
+
+162
+00:13:44,910 --> 00:13:48,800
+we're going to get started building out our keeper app project.
+
+163
+00:13:48,830 --> 00:13:51,660
+So for all of that and more, I'll see you there.
+

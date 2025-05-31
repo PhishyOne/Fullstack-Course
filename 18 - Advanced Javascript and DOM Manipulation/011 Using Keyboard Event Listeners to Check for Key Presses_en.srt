@@ -1,0 +1,360 @@
+1
+00:00:01,080 --> 00:00:08,880
+Now if we wanted our web site to not just detect button presses but also to detect keyboard key presses
+
+2
+00:00:09,330 --> 00:00:11,130
+to activate the relevant drum,
+
+3
+00:00:11,130 --> 00:00:17,700
+say if I press the w key then it should activate this drum and if I press j then it should activate
+
+4
+00:00:17,700 --> 00:00:18,660
+the snare,
+
+5
+00:00:19,170 --> 00:00:21,480
+then how exactly do we do that?
+
+6
+00:00:21,570 --> 00:00:29,170
+Now instead of adding an event listener to listen for clicks we can listen to a key press event instead.
+
+7
+00:00:29,190 --> 00:00:36,630
+So we would write something like addEventLlistener("keypress"), and notice that the weird thing about
+
+8
+00:00:36,630 --> 00:00:44,520
+events is that they're named all in lower case, and it's a good idea to take a look at the docs whenever
+
+9
+00:00:44,530 --> 00:00:47,680
+you're trying to type them because it's pretty counter-intuitive.
+
+10
+00:00:47,820 --> 00:00:54,240
+So we're going to try and target this keypress event, and if there was a key press, then we'll simply
+
+11
+00:00:54,630 --> 00:01:00,930
+call an anonymous function which sends an alert that says "Key was pressed".
+
+12
+00:01:01,230 --> 00:01:06,800
+So but the problem is what exactly do we add this event listener to, right?
+
+13
+00:01:06,810 --> 00:01:13,200
+Because previously we added our event listener to all of the buttons, so that when the buttons get pressed
+
+14
+00:01:13,530 --> 00:01:15,780
+then the event listener gets triggered.
+
+15
+00:01:16,020 --> 00:01:19,830
+But in this case we're kind of waiting for the keyboard keys.
+
+16
+00:01:19,830 --> 00:01:23,790
+So how do we add an event listener to the keyboard?
+
+17
+00:01:23,790 --> 00:01:25,040
+Well you don't have to.
+
+18
+00:01:25,220 --> 00:01:33,390
+You can add an event listener to the entire document, so that the entire web page starts listening for
+
+19
+00:01:33,420 --> 00:01:34,910
+keyboard strokes.
+
+20
+00:01:35,160 --> 00:01:42,390
+So now let's hit save and let's refresh our page, and if I tap on any of the keys on my keyboard then
+
+21
+00:01:42,390 --> 00:01:45,720
+I get the alert that says "Key was pressed".
+
+22
+00:01:45,720 --> 00:01:50,170
+Now the next problem is how do we figure out which key was pressed
+
+23
+00:01:50,190 --> 00:01:51,300
+exactly.
+
+24
+00:01:51,300 --> 00:02:00,540
+Now remember how we said that when we add an event listener to an element then once the event happens
+
+25
+00:02:00,960 --> 00:02:05,900
+the element will trigger the function that's in the second parameter.
+
+26
+00:02:06,090 --> 00:02:12,840
+So in this case when a key press is detected it will trigger the function that tells the browser to
+
+27
+00:02:12,840 --> 00:02:14,580
+show an alert.
+
+28
+00:02:14,580 --> 00:02:22,240
+Now when that function gets triggered, there's also the option to pass in a parameter,
+
+29
+00:02:22,680 --> 00:02:25,980
+and we can call that parameter event or e,
+
+30
+00:02:26,190 --> 00:02:34,490
+but essentially what it allows us to do is it lets us tap into the event that triggered the event listener.
+
+31
+00:02:34,650 --> 00:02:40,750
+So instead of showing an alert, let's console.log this event and see what we get back.
+
+32
+00:02:41,070 --> 00:02:48,090
+So now if we refresh our page and we press any key then you can see that what's logged in here are the
+
+33
+00:02:48,090 --> 00:02:52,560
+keyboard events that triggered the event listener.
+
+34
+00:02:52,890 --> 00:02:58,950
+So if you expand this you can see that it actually gives you a whole bunch of information including
+
+35
+00:02:58,950 --> 00:03:02,610
+the key that was pressed to trigger the event,
+
+36
+00:03:02,610 --> 00:03:07,380
+other things such as the key code, the character code, and a whole bunch of other things.
+
+37
+00:03:07,620 --> 00:03:15,200
+So you can see that whenever I press any key on the keyboard this event tells me which key was pressed.
+
+38
+00:03:15,300 --> 00:03:18,930
+And that's kind of what we need in order to get our drum kit going,
+
+39
+00:03:18,930 --> 00:03:19,510
+right?
+
+40
+00:03:19,560 --> 00:03:25,470
+And if you look in the docs for the keypress events, then you can see that they have a whole bunch of
+
+41
+00:03:25,470 --> 00:03:31,800
+properties that we saw in the Chrome Developer Tools, and you can read about what each of them do by taking
+
+42
+00:03:31,800 --> 00:03:33,720
+a look at the MDN docs.
+
+43
+00:03:33,870 --> 00:03:40,980
+Now the key that we're most interested in is this one called key and this is the key value represented
+
+44
+00:03:40,980 --> 00:03:41,830
+by the event,
+
+45
+00:03:41,850 --> 00:03:44,540
+so which key on the keyboard got tapped essentially.
+
+46
+00:03:44,730 --> 00:03:48,640
+And this is what we need in order to figure out which sound to play.
+
+47
+00:03:48,810 --> 00:03:55,680
+So notice how we already have this switch statement which checks to see which key was passed in and
+
+48
+00:03:55,680 --> 00:03:59,020
+responds by playing the relevant sound.
+
+49
+00:03:59,070 --> 00:04:04,370
+Now the problem is that this is all inside the event listener for our button clicks.
+
+50
+00:04:04,380 --> 00:04:12,930
+So as a challenge I want you to create a function that takes a character and checks it against the switch
+
+51
+00:04:12,930 --> 00:04:16,500
+statement in order to play the correct sound,
+
+52
+00:04:16,680 --> 00:04:23,010
+and then we're going to call it inside the event listener for the key press as well as the
+
+53
+00:04:23,010 --> 00:04:25,800
+event listener for our drum buttons.
+
+54
+00:04:25,800 --> 00:04:31,320
+So pause the video and see if you can complete this challenge.
+
+55
+00:04:31,390 --> 00:04:31,760
+All right.
+
+56
+00:04:31,770 --> 00:04:36,840
+So the first thing we're going to do is we're going to create this brand new function and I'm simply
+
+57
+00:04:36,840 --> 00:04:43,470
+going to call it makeSound. And it's going to take a single parameter which is going to be the key.
+
+58
+00:04:43,800 --> 00:04:49,100
+Now inside this function I'm going to relocate our switch statement.
+
+59
+00:04:49,100 --> 00:04:54,540
+So I'm just going to cut it and then I'm going to paste it inside my function makeSound. Instead of
+
+60
+00:04:54,540 --> 00:04:56,850
+switching on the buttonInnerHTML,
+
+61
+00:04:56,850 --> 00:05:05,110
+I'm going to switch on this key, and I'm going to pass in that key by calling makeSound, passing in the
+
+62
+00:05:05,200 --> 00:05:10,840
+buttonInnerHTML, which is essentially the innerHTML of the button that got pressed.
+
+63
+00:05:11,200 --> 00:05:14,430
+But I'm also going to do the same thing down here.
+
+64
+00:05:14,710 --> 00:05:19,990
+So I'm going to get rid of the console.log, and instead we're going to call makeSound, and I'm going
+
+65
+00:05:19,990 --> 00:05:23,980
+to use the event.key.
+
+66
+00:05:24,070 --> 00:05:31,780
+So now I have one section of my code which is all about detecting button press and then I have another
+
+67
+00:05:31,780 --> 00:05:40,270
+part of my code which is all about detecting keyboard press, and if a button was pressed and then I check
+
+68
+00:05:40,420 --> 00:05:46,450
+the innerHTML of the button that got pressed and send that to makeSound in order to play the relevant
+
+69
+00:05:46,450 --> 00:05:47,590
+sound,
+
+70
+00:05:47,590 --> 00:05:55,510
+and if a key press was detected instead then I send the event.key, so the key property of the event.
+
+71
+00:05:55,560 --> 00:06:04,170
+So say if I press on the w button, then it's makeSound(w), and if I press on the w key on the keyboard it's
+
+72
+00:06:04,210 --> 00:06:11,370
+also makeSound(w), and they end up in here where we switch based on that key parameter.
+
+73
+00:06:11,590 --> 00:06:16,060
+And then we play the relevant sound depending on which key was passed in.
+
+74
+00:06:16,330 --> 00:06:19,690
+So let's save this and see if it works.
+
+75
+00:06:20,140 --> 00:06:25,090
+So first I'm going to check by clicking on my buttons. Seems to work.
+
+76
+00:06:25,090 --> 00:06:29,860
+And now I'm going to try and type in the characters.
+
+77
+00:06:29,860 --> 00:06:30,910
+Awesome, right?
+
+78
+00:06:30,910 --> 00:06:37,450
+So in this lesson we learned about how you can add event listeners to detect keyboard strokes and we
+
+79
+00:06:37,450 --> 00:06:39,780
+used the same method, addEventListener,
+
+80
+00:06:39,970 --> 00:06:45,960
+but we added it to the entire document instead of a specific button or a specific element.
+
+81
+00:06:46,000 --> 00:06:52,780
+And once that was detected then this function gets called passing in the event that triggered the key
+
+82
+00:06:52,780 --> 00:07:01,570
+press, and that event contains a property called key, which tells us which keyboard key was pressed.
+
+83
+00:07:01,840 --> 00:07:07,120
+And then we send that over to our function makeSound in order to make the sound that we want for that
+
+84
+00:07:07,120 --> 00:07:08,180
+key.
+
+85
+00:07:08,200 --> 00:07:15,070
+Now in order to fully understand this part of the code we have to understand how in Javascript we can
+
+86
+00:07:15,070 --> 00:07:17,260
+pass functions as parameters.
+
+87
+00:07:17,290 --> 00:07:25,300
+We can also have functions as callbacks which include things that we get back after the event has happened.
+
+88
+00:07:25,300 --> 00:07:30,430
+So in the next lesson we're going to explore some of those concepts in more detail so that we can really
+
+89
+00:07:30,430 --> 00:07:33,560
+get to grips with what exactly it is that we're writing here.
+
+90
+00:07:33,790 --> 00:07:36,810
+So for all of that and more, I'll see you on the next lesson.
+

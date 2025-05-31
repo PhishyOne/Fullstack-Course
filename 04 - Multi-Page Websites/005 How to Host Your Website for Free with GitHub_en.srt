@@ -1,0 +1,436 @@
+1
+00:00:00,590 --> 00:00:05,900
+Hey guys, welcome to this bonus lesson on hosting your website.
+
+2
+00:00:05,900 --> 00:00:09,710
+I'm going to be teaching you a little bit about Web Hosting, how it works,
+
+3
+00:00:09,710 --> 00:00:15,320
+and by the end of the lesson, I'm going to show you how to make the website that you built in the
+
+4
+00:00:15,320 --> 00:00:21,290
+last project actually go live on the Internet so you can share it with all of your friends and family
+
+5
+00:00:21,290 --> 00:00:22,640
+and impress them all.
+
+6
+00:00:23,030 --> 00:00:23,360
+All right.
+
+7
+00:00:23,360 --> 00:00:24,590
+So let's get started,
+
+8
+00:00:24,590 --> 00:00:27,170
+what exactly is Web Hosting?
+
+9
+00:00:27,170 --> 00:00:32,600
+It's basically the process of making your websites available anywhere on the Internet.
+
+10
+00:00:32,600 --> 00:00:40,160
+So then somebody from Cuba, or somebody from America, they can all access it no matter where they are.
+
+11
+00:00:40,190 --> 00:00:41,480
+How do we do that?
+
+12
+00:00:41,480 --> 00:00:47,360
+Well, in order for it to be available to everyone, first we have to put our website and all of the
+
+13
+00:00:47,360 --> 00:00:50,300
+files and data that it consists of,
+
+14
+00:00:50,330 --> 00:00:58,700
+so our index.html, our images, et cetera, all onto what's called a web server.
+
+15
+00:00:58,730 --> 00:01:05,129
+Now what's different about a web server is that it's actually connected to the Internet.
+
+16
+00:01:05,129 --> 00:01:12,750
+So what that means is that the stuff that you put on there will be available 24/7 and ready
+
+17
+00:01:12,750 --> 00:01:17,760
+for anyone from anywhere in the world to access all of these files.
+
+18
+00:01:17,760 --> 00:01:20,550
+And that's what's required to be able to view your website.
+
+19
+00:01:20,580 --> 00:01:28,140
+Now at the moment you're able to view your website locally because all of the files are on your computer.
+
+20
+00:01:28,140 --> 00:01:28,590
+Right?
+
+21
+00:01:28,590 --> 00:01:31,200
+And this is what we call local development.
+
+22
+00:01:31,230 --> 00:01:37,950
+It means that all of the files and folders are locally available on your computer.
+
+23
+00:01:37,950 --> 00:01:41,410
+So any images and any HTML files,
+
+24
+00:01:41,430 --> 00:01:44,430
+they're all on this computer.
+
+25
+00:01:44,700 --> 00:01:51,180
+Now, what happens when somebody else say your neighbor wants to access that website?
+
+26
+00:01:51,180 --> 00:01:54,690
+Well, you would need to copy over those files to them,
+
+27
+00:01:54,690 --> 00:02:01,050
+or as we've been doing, downloading the zipped versions of those files and opening-up locally.
+
+28
+00:02:01,050 --> 00:02:05,970
+But this is not how we want to host our website,
+
+29
+00:02:05,970 --> 00:02:10,350
+instead, we want to take our website onto a web server.
+
+30
+00:02:10,350 --> 00:02:18,300
+And it's this process of taking all of the files and folders that make up your website and putting that
+
+31
+00:02:18,300 --> 00:02:22,530
+onto a web server that's hooked up to the Internet,
+
+32
+00:02:22,560 --> 00:02:26,640
+this process is what we call web hosting.
+
+33
+00:02:27,150 --> 00:02:34,740
+So now let's go ahead and take our HTML Portfolio Project, which we created in the last lesson and
+
+34
+00:02:34,740 --> 00:02:37,290
+go ahead and host it on the Internet.
+
+35
+00:02:37,710 --> 00:02:43,680
+In order to do this, the first thing I want you to do is to head over to github.com.
+
+36
+00:02:43,680 --> 00:02:50,100
+And once you're there, I want you to go ahead and sign up to a new GitHub account if you don't already
+
+37
+00:02:50,100 --> 00:02:50,850
+have one,
+
+38
+00:02:50,850 --> 00:02:53,700
+otherwise just sign in to your GitHub account.
+
+39
+00:02:53,910 --> 00:02:59,280
+Now, once you've signed up or signed in, you should see the homepage that looks something like this,
+
+40
+00:02:59,280 --> 00:03:05,010
+and I want you to go to this plus arrow on the top right and create a new repository.
+
+41
+00:03:05,310 --> 00:03:12,360
+And once you've done that, you can go ahead and name your repository html-portfolio.
+
+42
+00:03:12,630 --> 00:03:18,480
+You can go ahead and add a description for what this website is all about, but that's completely optional.
+
+43
+00:03:18,480 --> 00:03:22,380
+Now I want you to make sure that you have this as public.
+
+44
+00:03:22,380 --> 00:03:27,000
+Now you'll only see the private option if you actually pay for a GitHub account, but we want to be
+
+45
+00:03:27,000 --> 00:03:29,610
+able to host our website for everyone to see,
+
+46
+00:03:29,610 --> 00:03:33,180
+so we want to make sure that public is the one we select.
+
+47
+00:03:33,240 --> 00:03:37,350
+Then go ahead and tick this box and add a README file.
+
+48
+00:03:37,350 --> 00:03:38,730
+This is very important,
+
+49
+00:03:38,760 --> 00:03:44,310
+otherwise, it might be quite difficult for us to upload our files, and then finally go ahead and click
+
+50
+00:03:44,310 --> 00:03:45,900
+"Create Repository".
+
+51
+00:03:46,680 --> 00:03:49,740
+Now we should see a page that looks like this.
+
+52
+00:03:49,740 --> 00:03:56,010
+This is going to be the place where we're going to upload all of our websites, files and folders,
+
+53
+00:03:56,010 --> 00:04:01,110
+and we're going to do that by clicking the dropdown add file, and then we're going to select upload
+
+54
+00:04:01,110 --> 00:04:04,590
+files because we've already got them on our computer.
+
+55
+00:04:05,010 --> 00:04:12,570
+So now go ahead and navigate to the folder where you created your HTML Portfolio Project and you'll
+
+56
+00:04:12,570 --> 00:04:20,370
+see all of the associated files and you should have an index.html with all of the code that you've written.
+
+57
+00:04:20,370 --> 00:04:26,310
+So when you open it, make sure that it actually does work and it does actually contain your active
+
+58
+00:04:26,310 --> 00:04:27,030
+website.
+
+59
+00:04:27,030 --> 00:04:33,720
+Because remember when you downloaded this portfolio, the index.html was blank and only after you completed
+
+60
+00:04:33,720 --> 00:04:36,540
+the exercise does it contain all of the code.
+
+61
+00:04:36,540 --> 00:04:43,980
+And it's really important that your home page code is inside index.html because this is what GitHub
+
+62
+00:04:43,980 --> 00:04:48,090
+is going to look to in order to render your home page.
+
+63
+00:04:48,420 --> 00:04:55,530
+It's a good idea to also just check the spelling and make sure it's a lowercase "i" and its index.html
+
+64
+00:04:55,830 --> 00:04:59,310
+and you haven't renamed it something like home,
+
+65
+00:04:59,380 --> 00:05:03,250
+or me, or anything else, that is not going to work.
+
+66
+00:05:03,280 --> 00:05:07,390
+This is very, very important for this step to work.
+
+67
+00:05:07,810 --> 00:05:13,150
+Once you've verified all of that and made sure that you've got all the things that you need, for example,
+
+68
+00:05:13,150 --> 00:05:20,020
+the images folder contains all the previews, and your public folder contains all of your other HTML pages
+
+69
+00:05:20,050 --> 00:05:26,290
+then you can go ahead and take all of these files and drag it into here.
+
+70
+00:05:26,410 --> 00:05:31,630
+Now, again of note, it's important that you don't drag this entire folder in,
+
+71
+00:05:31,660 --> 00:05:32,830
+that's not going to work,
+
+72
+00:05:32,860 --> 00:05:35,980
+you want to drag in the contents of that folder.
+
+73
+00:05:36,220 --> 00:05:43,210
+Now, once that's done, you can see it has uploaded all of those files and now you can click on commit
+
+74
+00:05:43,210 --> 00:05:46,780
+changes to add those files to GitHub.
+
+75
+00:05:47,410 --> 00:05:55,540
+Once your files have processed, which can take several minutes and you might need to refresh the page
+
+76
+00:05:55,540 --> 00:05:58,600
+a few times in order to get this page up and running,
+
+77
+00:05:58,600 --> 00:06:04,800
+then I want you to first make sure that all of your folders and files are definitely listed here.
+
+78
+00:06:04,820 --> 00:06:08,960
+If they're not, then you might have to go ahead and upload them again.
+
+79
+00:06:08,990 --> 00:06:16,580
+And once you've verified that, then I want you to go into settings and inside settings
+
+80
+00:06:16,580 --> 00:06:24,830
+I want you to navigate to pages and then inside pages we're going to change this part under branch.
+
+81
+00:06:24,830 --> 00:06:32,090
+So we're going to change from none, over to the main branch, which contains our root folder and all
+
+82
+00:06:32,090 --> 00:06:33,870
+of the files that we just uploaded.
+
+83
+00:06:33,890 --> 00:06:36,710
+So go ahead and hit save for that to go through.
+
+84
+00:06:37,070 --> 00:06:42,950
+Once that's done, you should be able to refresh the page a couple of times and you should see this
+
+85
+00:06:42,950 --> 00:06:47,880
+little pop up which says that your site is live at this location.
+
+86
+00:06:47,900 --> 00:06:49,340
+Now, just another heads up,
+
+87
+00:06:49,340 --> 00:06:52,610
+this process can take anywhere between 1 to 10 minutes.
+
+88
+00:06:52,610 --> 00:06:56,510
+Sometimes I just sit here refreshing this page until I see this pop up.
+
+89
+00:06:56,510 --> 00:07:03,590
+But depending on how busy GitHub is, how many people are using it, this process can take a while,
+
+90
+00:07:03,590 --> 00:07:06,320
+so you can just have a cup of tea and come back.
+
+91
+00:07:06,530 --> 00:07:08,450
+Now this is an important point
+
+92
+00:07:08,450 --> 00:07:13,790
+sometimes you might get this error message that says, "No server is currently available," or some other
+
+93
+00:07:13,790 --> 00:07:14,840
+sort of error message,
+
+94
+00:07:14,840 --> 00:07:16,040
+don't worry about this,
+
+95
+00:07:16,040 --> 00:07:18,410
+simply just go back and try again.
+
+96
+00:07:18,620 --> 00:07:24,740
+Once you've refreshed this particular page and you see this little box here, then that means we're
+
+97
+00:07:24,740 --> 00:07:27,080
+ready to go ahead and visit our website.
+
+98
+00:07:27,080 --> 00:07:35,660
+So let's click on visit site and you can check to see all the pages work and make sure that's exactly
+
+99
+00:07:35,660 --> 00:07:37,550
+how you had it locally.
+
+100
+00:07:37,550 --> 00:07:44,150
+And once you're done, then you can actually take this URL and share it with anybody across the world
+
+101
+00:07:44,150 --> 00:07:50,840
+and they will be able to see your portfolio and of course, be sure to share it in the Q&A so that the
+
+102
+00:07:50,840 --> 00:07:56,450
+rest of us can also admire your portfolio and see the great work that you've done.
+
+103
+00:07:56,780 --> 00:08:03,080
+I hope you've had fun in this section creating your portfolio, learning about multi-page websites,
+
+104
+00:08:03,080 --> 00:08:10,640
+and finally understanding web hosting and seeing how we can host our website online using GitHub, hosting
+
+105
+00:08:10,640 --> 00:08:13,940
+it on the live World Wide Web.
+
+106
+00:08:14,510 --> 00:08:21,590
+In the next section, we're going to be learning about CSS and how to style our website so that we lift
+
+107
+00:08:21,590 --> 00:08:29,420
+our website from this '90s style simple website to something that looks incredibly beautiful.
+
+108
+00:08:29,990 --> 00:08:31,710
+For all of that and more,
+
+109
+00:08:31,730 --> 00:08:33,200
+I'll see you on the next section.
+

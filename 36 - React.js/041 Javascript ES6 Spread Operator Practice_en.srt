@@ -1,0 +1,576 @@
+1
+00:00:00,120 --> 00:00:03,930
+Alright guys, it's time for yet another challenge.
+
+2
+00:00:03,990 --> 00:00:08,640
+And in this challenge you're going to be applying a lot of things, not just the things that you learnt
+
+3
+00:00:08,640 --> 00:00:14,790
+in the last lesson, but everything up until now. And the end result is going to be this beautiful to-do
+
+4
+00:00:14,790 --> 00:00:22,020
+list where you're going to be able to add some new items say buy milk click add and it gets added to
+
+5
+00:00:22,080 --> 00:00:27,980
+a list of bullet points. And effectively this is what you're aiming for.
+
+6
+00:00:28,140 --> 00:00:34,650
+But in order to achieve this, then you might want to refer to the index.js and look at the challenge
+
+7
+00:00:34,650 --> 00:00:35,420
+text.
+
+8
+00:00:35,430 --> 00:00:40,560
+So the first step is when text is written into this input,
+
+9
+00:00:40,560 --> 00:00:47,860
+the state should somehow be changed so that we can track the state of what's in the input.
+
+10
+00:00:47,860 --> 00:00:54,810
+Next when the Add button gets pressed, whatever is currently inside the input should be saved and added
+
+11
+00:00:54,840 --> 00:00:57,550
+to an array.
+
+12
+00:00:57,580 --> 00:01:05,870
+Now finally, the  or the unordered list here, should display all of the array items as separate
+
+13
+00:01:05,960 --> 00:01:09,950
+list items. And all of these combined together
+
+14
+00:01:09,950 --> 00:01:14,030
+you should end up with this functionality.
+
+15
+00:01:14,030 --> 00:01:15,530
+Go ahead and fork
+
+16
+00:01:15,530 --> 00:01:18,440
+the starting project for this lesson.
+
+17
+00:01:18,500 --> 00:01:24,270
+Look around the app.js and the index.js to see what you've got to work with. And then pause
+
+18
+00:01:24,270 --> 00:01:29,600
+the video and try to complete the challenge. Once you're done, head back over here and I'll walk through
+
+19
+00:01:29,600 --> 00:01:39,140
+the solution with you. Have a go now.
+
+20
+00:01:39,230 --> 00:01:39,600
+All right.
+
+21
+00:01:39,620 --> 00:01:46,160
+So the first thing we're going to tackle is when new text is written into the input, it's state should
+
+22
+00:01:46,160 --> 00:01:47,060
+be saved.
+
+23
+00:01:47,060 --> 00:01:49,470
+So how can we do this?
+
+24
+00:01:49,490 --> 00:01:51,530
+Well we've done this quite a few times.
+
+25
+00:01:51,530 --> 00:01:57,990
+We are going to create a new constant in our app function and we'll give it a name that makes sense.
+
+26
+00:01:58,010 --> 00:02:04,340
+Let's call it the inputText and then maybe we'll have a function to set it called set
+
+27
+00:02:04,340 --> 00:02:05,600
+InputText.
+
+28
+00:02:05,900 --> 00:02:09,889
+And it doesn't matter what you've called yours as long as your code works it's fine.
+
+29
+00:02:10,639 --> 00:02:18,350
+And then we're going to of course invoke useState to be able to change and save the state of the input
+
+30
+00:02:18,350 --> 00:02:20,570
+text when it gets changed.
+
+31
+00:02:20,780 --> 00:02:27,350
+useState of course requires the import up here and then we get to define an initial value which I'll
+
+32
+00:02:27,350 --> 00:02:31,580
+set to just an empty string because the input is blank
+
+33
+00:02:31,580 --> 00:02:38,710
+to begin with. Now let's think about where we would want to use this input text.
+
+34
+00:02:39,520 --> 00:02:45,220
+Well in this, case we actually don't have an element onscreen where we're going to be able to see the
+
+35
+00:02:45,220 --> 00:02:47,450
+state changes for input text.
+
+36
+00:02:47,620 --> 00:02:57,760
+But what we should do though is to add a value property to our inputs and to tie it to this inputText
+
+37
+00:02:57,820 --> 00:02:58,760
+state.
+
+38
+00:02:58,870 --> 00:03:08,630
+So this way we are controlling the inputs and keeping the input value inline with the input text.
+
+39
+00:03:08,680 --> 00:03:14,710
+The next thing to do is, when do we actually want to change the input text, when do we want to call this
+
+40
+00:03:14,710 --> 00:03:15,780
+function?
+
+41
+00:03:15,790 --> 00:03:19,430
+Well it's probably going to be when this input gets changed.
+
+42
+00:03:19,510 --> 00:03:26,740
+So let's add an onChange to this input and get it to call a function which will call handleChange
+
+43
+00:03:27,730 --> 00:03:33,520
+and then let's add this function right here, handleChange, and then we get the event that's going to
+
+44
+00:03:33,520 --> 00:03:34,330
+be passed to it.
+
+45
+00:03:35,680 --> 00:03:43,660
+Now the next thing to do is to create a new constant which is going to keep hold of the new value of
+
+46
+00:03:43,660 --> 00:03:44,580
+the input.
+
+47
+00:03:44,680 --> 00:03:46,620
+So we'll just call it newValue
+
+48
+00:03:46,660 --> 00:03:51,460
+and I'm going to set it to event.target.value.
+
+49
+00:03:51,460 --> 00:03:54,150
+Now notice how in this case we've only got one input.
+
+50
+00:03:54,180 --> 00:03:59,200
+So we don't actually care about the name of the input, so we don't actually need to use destructuring
+
+51
+00:03:59,200 --> 00:04:00,090
+or anything fancy.
+
+52
+00:04:00,100 --> 00:04:05,230
+We just want to get a hold of the value of the target that triggered the event.
+
+53
+00:04:05,230 --> 00:04:14,020
+And once we've gotten that, then we can call setInputText and inside this function, we're going to
+
+54
+00:04:14,110 --> 00:04:22,060
+pass it this new value. And because in this case I'm not actually changing the inputText,
+
+55
+00:04:22,060 --> 00:04:25,260
+I'm not mutating it using setInputText,
+
+56
+00:04:25,390 --> 00:04:27,420
+I don't actually need the previous value.
+
+57
+00:04:27,430 --> 00:04:28,330
+It doesn't really matter.
+
+58
+00:04:28,330 --> 00:04:33,610
+I've got this whole new value that I want to give it which is going to correspond to whatever the user
+
+59
+00:04:33,610 --> 00:04:36,460
+is typing inside this input.
+
+60
+00:04:36,490 --> 00:04:40,540
+So now how can we confirm that this is actually working?
+
+61
+00:04:40,540 --> 00:04:47,710
+Well we can go ahead and pop it out and then use our Chrome developer tools to check the state of our
+
+62
+00:04:47,770 --> 00:04:48,590
+app.
+
+63
+00:04:48,610 --> 00:04:54,550
+So we've currently got one state being tracked and it starts out being equal to an empty string.
+
+64
+00:04:54,550 --> 00:04:55,930
+That sounds about right.
+
+65
+00:04:56,080 --> 00:05:04,180
+And as soon as I start typing, you'll see that the state updates to reflect the latest state.
+
+66
+00:05:04,180 --> 00:05:09,830
+So now that's being kept track of inside this input text.
+
+67
+00:05:09,970 --> 00:05:17,170
+So we've now achieved part 1. Part 2 involves tapping into the moment when the Add button is pressed
+
+68
+00:05:17,650 --> 00:05:22,420
+and then passing the current data in the input to an array.
+
+69
+00:05:22,480 --> 00:05:24,070
+So how can we do that?
+
+70
+00:05:24,250 --> 00:05:31,600
+Well the goal is to keep track of all of the items that the user has added inside an array. So we can create
+
+71
+00:05:31,600 --> 00:05:38,980
+a new constant which is going to hold an array of items. So we can call it items, todo items, whatever it
+
+72
+00:05:38,980 --> 00:05:40,280
+is you want to name it.
+
+73
+00:05:40,450 --> 00:05:45,040
+And then we're going to provide a name for the function which is going to set these items
+
+74
+00:05:45,040 --> 00:05:47,340
+and of course we're going to use state.
+
+75
+00:05:47,440 --> 00:05:52,840
+Now the initial value for items is just going to be an empty array.
+
+76
+00:05:53,140 --> 00:05:59,250
+It's not going to hold anything at all. And this means that when this todo list starts out we won't
+
+77
+00:05:59,250 --> 00:06:01,440
+actually see any bullet points.
+
+78
+00:06:01,440 --> 00:06:10,020
+So if we want to use this array of items to render all of the s to contain the text inside each
+
+79
+00:06:10,080 --> 00:06:17,250
+item, then we would probably have to use what we learned about the map function. So we can tap into our
+
+80
+00:06:17,250 --> 00:06:25,770
+items, call the map function and then inside the map function we can pass it an arrow function and inside
+
+81
+00:06:25,770 --> 00:06:32,790
+this arrow function we'll get access to each item or if you want to make sure that there's enough difference
+
+82
+00:06:32,790 --> 00:06:38,910
+between the array and the individual item, you call it todo item if you want. But effectively just be
+
+83
+00:06:38,910 --> 00:06:43,920
+sure that you know that this is going to be the singular form that comes from mapping through each of
+
+84
+00:06:43,920 --> 00:06:45,030
+the items.
+
+85
+00:06:45,210 --> 00:06:57,110
+And what we're going to return is an  which has the to do item as the text in the list item. Now
+
+86
+00:06:57,110 --> 00:07:02,270
+notice how this syntax is not highlighting at all. It's not giving the different colors.
+
+87
+00:07:02,270 --> 00:07:09,620
+And the reason if I hover over it is it says unexpected token. It doesn't recognize this as code.
+
+88
+00:07:09,620 --> 00:07:16,910
+So if we highlight all of this and try to add the left hand curly brace, it'll add the curly braces around
+
+89
+00:07:16,910 --> 00:07:20,610
+this code and it'll get interpreted as Javascript.
+
+90
+00:07:20,640 --> 00:07:26,960
+Now we can of course simplify this down even more because we're only returning a single item so we can
+
+91
+00:07:26,960 --> 00:07:28,860
+get rid of the return keyword,
+
+92
+00:07:28,970 --> 00:07:40,250
+the opening curly brace, the closing semicolon and the closing curly brace to end up with just this. So
+
+93
+00:07:40,310 --> 00:07:47,750
+map through all of the items for each to-do item, create an  and put the to-do item in that 
+
+94
+00:07:47,930 --> 00:07:49,620
+is what we're telling our code to do.
+
+95
+00:07:50,450 --> 00:07:56,630
+Now all we have to do is call setItems when the Add button gets pressed.
+
+96
+00:07:56,630 --> 00:08:04,850
+Now the Add button is of course this one and we can simply add a onClick to it and get it to trigger
+
+97
+00:08:04,940 --> 00:08:06,040
+a function.
+
+98
+00:08:06,260 --> 00:08:12,350
+You can either get it to trigger an inline function so you could add simply some sort of arrow function
+
+99
+00:08:12,350 --> 00:08:19,460
+here. Alternatively and what I would prefer just in case we need to reuse this functionality, I'm going
+
+100
+00:08:19,460 --> 00:08:29,970
+to call a function code addItem. And then we get to create this addItem function up here and then inside
+
+101
+00:08:29,970 --> 00:08:38,909
+this function we're going to add whatever text is inside our inputs into our items array. Now
+
+102
+00:08:38,909 --> 00:08:42,679
+to do that, we of course have to call setItems.
+
+103
+00:08:42,789 --> 00:08:44,950
+So let's call setItems
+
+104
+00:08:44,950 --> 00:08:52,870
+and inside here we want to get hold of the previous items so that we can simply add the new input at
+
+105
+00:08:52,870 --> 00:08:55,870
+the end of the array as a new item.
+
+106
+00:08:55,870 --> 00:09:03,220
+So to do that, we're going to have to create a new arrow function. Inside the input of this arrow function
+
+107
+00:09:03,220 --> 00:09:10,030
+is going to be the previous items or previous values whatever it is you want to call it.
+
+108
+00:09:10,330 --> 00:09:16,420
+And then what we're going to return is going to be a new array using the spread operator, yeah
+
+109
+00:09:16,570 --> 00:09:18,390
+that's what you learned in the last lesson.
+
+110
+00:09:18,400 --> 00:09:22,390
+You can spread arrays, you can spread objects, you can spread butter.
+
+111
+00:09:22,390 --> 00:09:24,790
+It's really really handy.
+
+112
+00:09:24,790 --> 00:09:31,510
+So let's add our spread operator, add in all of the items from our previous items and then we're going
+
+113
+00:09:31,510 --> 00:09:37,330
+to add the new item which is going to be what's currently inside are inputText.
+
+114
+00:09:38,140 --> 00:09:44,200
+So I'm going to leave my code as it is now and I'm not going to simplify it further by removing the
+
+115
+00:09:44,200 --> 00:09:49,310
+return because I think this reads much better and it's already so short anyways.
+
+116
+00:09:49,390 --> 00:09:53,740
+So now let's go ahead and give our app a spin and see if it works.
+
+117
+00:09:54,280 --> 00:09:56,560
+Let's check our state.
+
+118
+00:09:56,560 --> 00:09:57,630
+We've got two.
+
+119
+00:09:57,640 --> 00:09:59,780
+One is holding a single value,
+
+120
+00:09:59,800 --> 00:10:02,770
+the other is holding an empty array.
+
+121
+00:10:02,800 --> 00:10:10,630
+Let's go ahead and start adding some text, Buy milk. That is being held inside of value which is the input
+
+122
+00:10:10,690 --> 00:10:11,860
+text.
+
+123
+00:10:11,860 --> 00:10:18,870
+And then when I click add, you can see that our array now has a new value. At index 0
+
+124
+00:10:18,880 --> 00:10:22,530
+it's got by milk. And because the array now has a value
+
+125
+00:10:22,540 --> 00:10:28,990
+the state of it has updated which triggered the map function to create a new list item.
+
+126
+00:10:29,140 --> 00:10:36,400
+If we decide to add another item say, buy egg, then our array also gets updated and we now have this beautiful
+
+127
+00:10:36,400 --> 00:10:44,760
+functionality. So the last thing that you might want to do is just to clear the input when you click
+
+128
+00:10:44,790 --> 00:10:47,780
+the Add button ready for the next item.
+
+129
+00:10:47,820 --> 00:10:55,230
+So the place to do that is probably going to be inside addItem so that once you've sent the input text
+
+130
+00:10:55,350 --> 00:11:04,110
+to the items array then after that has completed, you probably want to set the input text to an empty
+
+131
+00:11:04,110 --> 00:11:13,100
+string again. So we can call set input text and pass in an empty string just like that. Now whenever we
+
+132
+00:11:13,100 --> 00:11:22,390
+type in something, buy milk, hit add it gets added and then it gets cleared. Pretty neat right? Now
+
+133
+00:11:22,420 --> 00:11:24,190
+did you manage to complete this challenge?
+
+134
+00:11:24,700 --> 00:11:31,450
+If not, be sure to head back to review your code and once you're happy with how everything is done, then
+
+135
+00:11:31,480 --> 00:11:38,680
+head over to the next lesson and we're going to talk about how to manage a component tree and how to
+
+136
+00:11:38,710 --> 00:11:42,370
+pass state around in our component tree.
+
+137
+00:11:42,370 --> 00:11:47,530
+Notice how at the moment we've only got one app component and that's to try and keep it simple so you
+
+138
+00:11:47,530 --> 00:11:52,570
+can see what's going on because there's enough complex things going on. But in the next lesson we're
+
+139
+00:11:52,570 --> 00:11:58,900
+going to level up even more and we're going to divide up our app into separate components so that we
+
+140
+00:11:58,900 --> 00:12:05,390
+can pass state from child components up to parent components. As you can imagine
+
+141
+00:12:05,500 --> 00:12:09,700
+I'm going to need you to really understand everything that's already been covered so that you'll be
+
+142
+00:12:09,700 --> 00:12:11,650
+comfortable in the next lesson.
+
+143
+00:12:11,740 --> 00:12:18,670
+Take a breather, take a moment to pause, have a think, go for a walk, have some food and once you're ready
+
+144
+00:12:19,150 --> 00:12:20,290
+I'll see you on the next lesson.
+

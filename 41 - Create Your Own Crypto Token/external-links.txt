@@ -1,0 +1,33 @@
+
+002 Curve-Finance
+https://curve.fi/
+
+003 Principal-Docs
+https://smartcontracts.org/docs/base-libraries/Principal.html
+
+003 HashMap-Docs
+https://smartcontracts.org/docs/base-libraries/HashMap.html
+
+003 Option-Docs
+https://smartcontracts.org/docs/base-libraries/Option.html
+
+005 Shared-Keyword-Docs
+https://smartcontracts.org/docs/language-guide/sharing.html#_the_shared_keyword
+
+005 Caller-Id-Docs
+https://smartcontracts.org/docs/language-guide/caller-id.html
+
+008 Upgrades-Docs
+https://smartcontracts.org/docs/language-guide/upgrades.html
+
+008 Array-Docs
+https://smartcontracts.org/docs/base-libraries/Array.html
+
+008 HashMap-Docs
+https://smartcontracts.org/docs/base-libraries/HashMap.html
+
+008 Iter-Docs
+https://smartcontracts.org/docs/base-libraries/Iter.html
+
+009 Internet-Identity-Explainer-Video
+https://www.youtube.com/watch?v=oxEr8UzGeBo

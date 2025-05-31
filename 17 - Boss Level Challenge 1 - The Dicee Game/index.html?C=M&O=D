@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/17 - Boss Level Challenge 1 - The Dicee Game/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../?C=M&amp;O=D">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="011%20Tip%20from%20Angela%20-%20Learning%20Before%20you%20Eat.mp4" title="011 Tip from Angela - Learning Before you Eat.mp4">011 Tip from Angela - Learning Before you Eat.mp4</a></td><td class="size">46.8 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="external-links.txt" title="external-links.txt">external-links.txt</a></td><td class="size">73 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Tip%20from%20Angela%20-%20Learning%20Before%20you%20Eat_en.srt" title="011 Tip from Angela - Learning Before you Eat_en.srt">011 Tip from Angela - Learning Before you Eat_e..&gt;</a></td><td class="size">2.5 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="010%20Course-Fixes-Report-an-Issue.url" title="010 Course-Fixes-Report-an-Issue.url">010 Course-Fixes-Report-an-Issue.url</a></td><td class="size">59 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="009%20The%20Solution%20to%20the%20Dicee%20Challenge.mp4" title="009 The Solution to the Dicee Challenge.mp4">009 The Solution to the Dicee Challenge.mp4</a></td><td class="size">66.9 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="009%20The%20Solution%20to%20the%20Dicee%20Challenge_en.srt" title="009 The Solution to the Dicee Challenge_en.srt">009 The Solution to the Dicee Challenge_en.srt</a></td><td class="size">17.5 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="010%20Download%20the%20Completed%20Website.html" title="010 Download the Completed Website.html">010 Download the Completed Website.html</a></td><td class="size">156 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="010%20Dicee-Challenge-Completed.zip" title="010 Dicee-Challenge-Completed.zip">010 Dicee-Challenge-Completed.zip</a></td><td class="size">19.3 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="006%20Dicee%20Challenge%20Step%204%20-%20Change%20the%20img%20%20to%20a%20Random%20Dice.html" title="006 Dicee Challenge Step 4 - Change the img  to a Random Dice.html">006 Dicee Challenge Step 4 - Change the img  to..&gt;</a></td><td class="size">732 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="002%20Dicee%20Challenge%20Step%200%20-%20Download%20the%20Skeleton%20Project.html" title="002 Dicee Challenge Step 0 - Download the Skeleton Project.html">002 Dicee Challenge Step 0 - Download the Skele..&gt;</a></td><td class="size">385 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="003%20Dicee%20Challenge%20Step%201%20-%20Create%20an%20External%20Javascript%20File.html" title="003 Dicee Challenge Step 1 - Create an External Javascript File.html">003 Dicee Challenge Step 1 - Create an External..&gt;</a></td><td class="size">93 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="005%20Dicee%20Challenge%20Step%203%20-%20Create%20a%20Random%20Number.html" title="005 Dicee Challenge Step 3 - Create a Random Number.html">005 Dicee Challenge Step 3 - Create a Random Nu..&gt;</a></td><td class="size">213 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="001%20Challenge%20The%20Dicee%20Challenge_en.srt" title="001 Challenge The Dicee Challenge_en.srt">001 Challenge The Dicee Challenge_en.srt</a></td><td class="size">3.2 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="004%20Dicee%20Challenge%20Step%202%20-%20Add%20Dice%20Images.html" title="004 Dicee Challenge Step 2 - Add Dice Images.html">004 Dicee Challenge Step 2 - Add Dice Images.html</a></td><td class="size">276 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="008%20Dicee%20Challenge%20Step%206%20-%20Change%20the%20Title%20to%20Display%20a%20Winner.html" title="008 Dicee Challenge Step 6 - Change the Title to Display a Winner.html">008 Dicee Challenge Step 6 - Change the Title t..&gt;</a></td><td class="size">720 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="001%20Challenge%20The%20Dicee%20Challenge.mp4" title="001 Challenge The Dicee Challenge.mp4">001 Challenge The Dicee Challenge.mp4</a></td><td class="size">8.7 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="007%20Dicee%20Challenge%20Step%205%20-%20Change%20both%20img%20Elements.html" title="007 Dicee Challenge Step 5 - Change both img Elements.html">007 Dicee Challenge Step 5 - Change both img El..&gt;</a></td><td class="size">183 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="002%20Dicee-Challenge-Starting-Files.zip" title="002 Dicee-Challenge-Starting-Files.zip">002 Dicee-Challenge-Starting-Files.zip</a></td><td class="size">18.8 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

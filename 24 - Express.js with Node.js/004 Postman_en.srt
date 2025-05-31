@@ -1,0 +1,960 @@
+1
+00:00:00,170 --> 00:00:00,740
+Hey, guys.
+
+2
+00:00:00,740 --> 00:00:07,460
+In the last lesson, we learned some of the basic vocab that's involved in computers communicating to
+
+3
+00:00:07,460 --> 00:00:10,310
+each other across the internet using HTTP,
+
+4
+00:00:10,580 --> 00:00:15,830
+but in this lesson, we're going to learn a bit more about how to make those requests, and especially
+
+5
+00:00:15,830 --> 00:00:17,920
+using a tool called Postman.
+
+6
+00:00:17,930 --> 00:00:19,820
+So let's get started.
+
+7
+00:00:20,240 --> 00:00:28,280
+Now, we already know that the purpose of our HTTP is for client computers to communicate with our server-
+
+8
+00:00:28,280 --> 00:00:28,850
+side.
+
+9
+00:00:28,880 --> 00:00:35,390
+Now, as we explained previously, the Client-Side could be anything that a user uses to access our
+
+10
+00:00:35,390 --> 00:00:36,200
+website.
+
+11
+00:00:36,200 --> 00:00:39,230
+So that could be a desktop, laptop or mobile.
+
+12
+00:00:39,230 --> 00:00:47,480
+And our Server-Side consists of everything from the computer that is running the server code to the
+
+13
+00:00:47,480 --> 00:00:54,800
+application, which in our case has been our index.js and even including a database which we have not
+
+14
+00:00:54,800 --> 00:00:57,650
+yet dived into, but we will in future modules.
+
+15
+00:00:57,800 --> 00:01:04,290
+In order to communicate between the client-side and server-side, we're making these HTTP requests that
+
+16
+00:01:04,290 --> 00:01:06,960
+come from the client to the server.
+
+17
+00:01:06,990 --> 00:01:13,890
+Now in the last lesson you've seen that we can also return a response from the server,
+
+18
+00:01:13,890 --> 00:01:22,230
+so here is our request going from left to right and here is our response going from right to left or
+
+19
+00:01:22,230 --> 00:01:23,580
+server to client.
+
+20
+00:01:23,700 --> 00:01:32,380
+And we've already seen that we can send text, we can send HTML, but we can also send a response.
+
+21
+00:01:32,400 --> 00:01:34,500
+Now, what kind of response?
+
+22
+00:01:34,500 --> 00:01:40,890
+Well, they're usually coded responses you might have already heard and probably come across the very
+
+23
+00:01:40,890 --> 00:01:43,150
+famous "404 response".
+
+24
+00:01:43,170 --> 00:01:46,710
+Now, what does 404 even mean and why is it a number?
+
+25
+00:01:46,710 --> 00:01:47,790
+Is it a post code?
+
+26
+00:01:47,820 --> 00:01:49,080
+Is it a zip code?
+
+27
+00:01:49,080 --> 00:01:50,280
+Is it a phone number?
+
+28
+00:01:50,280 --> 00:01:51,090
+What does it mean?
+
+29
+00:01:51,090 --> 00:01:52,680
+It's not any of those things.
+
+30
+00:01:52,680 --> 00:01:57,270
+It's in fact a HTTP Standard Status Response Code.
+
+31
+00:01:57,420 --> 00:02:05,430
+The response codes in HTTP are normally grouped into five categories, and this is from MDN Docs,
+
+32
+00:02:05,430 --> 00:02:12,120
+and it tells you that the numbers between 100 and 199 are usually informational.
+
+33
+00:02:12,210 --> 00:02:15,900
+The 200 are usually telling you that something went successfully.
+
+34
+00:02:15,900 --> 00:02:22,500
+The 300 are usually a redirection of the website where the server is redirecting you to a different
+
+35
+00:02:22,500 --> 00:02:25,110
+location for the thing that you're requesting.
+
+36
+00:02:25,110 --> 00:02:30,750
+The 400, including that famous 404, comes from client error responses.
+
+37
+00:02:30,750 --> 00:02:38,970
+So it means that the client has requested or done something that is not right and the 500 are the server-
+
+38
+00:02:38,970 --> 00:02:40,110
+side error responses.
+
+39
+00:02:40,110 --> 00:02:46,620
+So the server-side computer or the server-side application has something wrong with it and is not working
+
+40
+00:02:46,620 --> 00:02:47,620
+as a result.
+
+41
+00:02:47,640 --> 00:02:54,120
+So you can see all of these in more detail by going to developer.mozilla.org/docs/Web/HTTP/Status
+
+42
+00:02:54,120 --> 00:02:57,720
+and
+
+43
+00:02:57,990 --> 00:03:05,790
+if you scroll down here, you'll actually see a detailed breakdown of each of the HTTP status codes.
+
+44
+00:03:05,910 --> 00:03:12,570
+Now, for our purposes, the most common one we're going to be sending and using is the 201, which
+
+45
+00:03:12,570 --> 00:03:15,540
+basically just means that everything went okay.
+
+46
+00:03:15,540 --> 00:03:17,640
+So it doesn't matter what the request was.
+
+47
+00:03:17,640 --> 00:03:21,030
+It could have been a GET request trying to get some sort of resource,
+
+48
+00:03:21,030 --> 00:03:27,120
+then 200 means that the resource has been fetched and transmitted in the message body back to the client,
+
+49
+00:03:27,120 --> 00:03:32,430
+or the request could be a PUT, or POST, or PATCH, or even DELETE,
+
+50
+00:03:32,430 --> 00:03:39,540
+and all of these basically, went successfully and that's why the server is sending back the code of 200.
+
+51
+00:03:39,750 --> 00:03:45,600
+As you scroll down, there'll be other codes as well, for example, the 201 Created, which is when
+
+52
+00:03:45,600 --> 00:03:52,650
+you send a POST or PUT request and instead of returning something in the message body, sending something
+
+53
+00:03:52,650 --> 00:03:58,290
+back to the client, if nothing is sent back and everything was just posted successfully, then you can
+
+54
+00:03:58,290 --> 00:04:02,550
+in fact see a 201 code with your POST requests from the server.
+
+55
+00:04:02,550 --> 00:04:08,700
+In addition, there are other ones that are really specific to the type of request that you make,
+
+56
+00:04:08,700 --> 00:04:15,930
+for example, we know that the 404 is when the server cannot find the requested resource, which usually
+
+57
+00:04:15,930 --> 00:04:18,540
+means that you've typed in a wrong URL.
+
+58
+00:04:18,540 --> 00:04:24,960
+So instead of typing in google.com, you've typed in googl.com, although I think they've actually
+
+59
+00:04:24,960 --> 00:04:30,110
+bought all of the related domains just to make sure that you get redirected when that happens.
+
+60
+00:04:30,120 --> 00:04:32,100
+Actually I'm going to try it out.
+
+61
+00:04:33,280 --> 00:04:34,420
+Yeah, exactly.
+
+62
+00:04:34,420 --> 00:04:41,590
+So that was actually a redirect and no, it's a redirect because I typed in Google without the E, and
+
+63
+00:04:41,590 --> 00:04:49,930
+I got sent back to Google and we can actually log this in our Network tab of our Console making sure
+
+64
+00:04:49,930 --> 00:04:56,770
+that you've got Preserve log checked and that down here in the filter you've got All selected.
+
+65
+00:04:56,770 --> 00:04:58,150
+So let me just repeat that again.
+
+66
+00:04:58,150 --> 00:05:04,210
+I'm going to type in googl without the e.com, hit Enter and you can see a whole bunch of things happen,
+
+67
+00:05:04,210 --> 00:05:08,050
+but the first thing that happened was a 301.
+
+68
+00:05:08,050 --> 00:05:11,070
+So let's go back and check in the 300.
+
+69
+00:05:11,080 --> 00:05:12,220
+What does a 301
+
+70
+00:05:12,220 --> 00:05:12,700
+mean?
+
+71
+00:05:12,700 --> 00:05:21,550
+It means that, "The URL of the requested resource has been changed permanently. The new URL is given
+
+72
+00:05:21,550 --> 00:05:27,880
+in the response," and you are redirected to the new location, which is kind of cool,
+
+73
+00:05:27,880 --> 00:05:28,210
+actually.
+
+74
+00:05:28,210 --> 00:05:35,540
+This is HTTP Status Codes in real life, but as I was saying if you're finding it difficult to remember
+
+75
+00:05:35,540 --> 00:05:43,850
+what each of the category of status codes means, there is this slide from Sander Hoogendoorn who gave
+
+76
+00:05:43,850 --> 00:05:49,160
+this keynote, and I kind of tend to think of HTTP Status Codes as his categories.
+
+77
+00:05:49,160 --> 00:05:54,920
+So in the 100's, it means, hold on, something's happening or I'm giving you some information.
+
+78
+00:05:54,920 --> 00:05:56,990
+In the 200's, it's success.
+
+79
+00:05:56,990 --> 00:05:57,560
+Here you go.
+
+80
+00:05:57,560 --> 00:05:58,760
+Here's what you wanted.
+
+81
+00:05:58,790 --> 00:05:59,930
+Here, have it.
+
+82
+00:05:59,960 --> 00:06:04,490
+300's is go away, which is in our case, redirect.
+
+83
+00:06:04,490 --> 00:06:15,230
+So we went to googl.com and it said go away and go instead to here, which is the URL that it returned
+
+84
+00:06:15,230 --> 00:06:17,990
+to us and also redirected there.
+
+85
+00:06:18,350 --> 00:06:25,850
+The 400 means that you have screwed up, you as in the client-side, the person making the request and
+
+86
+00:06:25,850 --> 00:06:32,420
+the 500 means that I have screwed up, which means that I as in the server side, there is some sort
+
+87
+00:06:32,420 --> 00:06:37,340
+of resource that's missing or there's a bug in my code on the server application.
+
+88
+00:06:37,370 --> 00:06:40,040
+These are all valid 500 responses.
+
+89
+00:06:40,940 --> 00:06:46,880
+I find this a lot easier to remember than the official one, but it's also worth checking the MDN Docs when
+
+90
+00:06:46,880 --> 00:06:50,210
+you get a specific code and you need to look up what it means.
+
+91
+00:06:50,240 --> 00:06:50,690
+Now,
+
+92
+00:06:50,690 --> 00:06:58,490
+previously we learned about these HTTP request methods and we learned about how to use the GET request
+
+93
+00:06:58,490 --> 00:07:05,450
+to start fetching things from our server to handle multiple endpoints, to send back different types
+
+94
+00:07:05,450 --> 00:07:08,750
+of things such as text or HTML,
+
+95
+00:07:08,750 --> 00:07:15,170
+but now I want to dive into some of the other requests that we can make, such as POST, PUT, PATCH
+
+96
+00:07:15,170 --> 00:07:16,580
+and DELETE.
+
+97
+00:07:17,360 --> 00:07:27,050
+A POST request is usually made from some form of HTML form, and this includes things such as, for example,
+
+98
+00:07:27,050 --> 00:07:32,150
+a sign-up page where you need to put in your name, your username, email address, etcetera.
+
+99
+00:07:32,150 --> 00:07:41,180
+And that request goes to our server via a POST request so that data is sent along with that request
+
+100
+00:07:41,180 --> 00:07:48,560
+and hopefully the server will do something with that request, maybe putting it into a database, maybe
+
+101
+00:07:48,560 --> 00:07:54,140
+validating it, maybe doing whatever it may be, and then once it's done, it'll send back either a
+
+102
+00:07:54,170 --> 00:08:00,080
+200 with some piece of information or a 201 response where there's no information being passed back
+
+103
+00:08:00,080 --> 00:08:03,260
+and actually, everything was just successfully posted.
+
+104
+00:08:03,800 --> 00:08:10,490
+If we don't want to create the front-end for the POST, PUT PATCH and DELETE response, which very often
+
+105
+00:08:10,490 --> 00:08:14,810
+when you're creating APIs, when you're creating back-ends, you don't actually have the time to do,
+
+106
+00:08:14,840 --> 00:08:20,240
+you just want to write the code first and get it tested so that the front-end team can do all the rest
+
+107
+00:08:20,240 --> 00:08:21,110
+of the stuff.
+
+108
+00:08:21,260 --> 00:08:22,540
+What do you do in that case?
+
+109
+00:08:22,550 --> 00:08:28,280
+Well, there's a really great tool that professional developers love to use, which is called Postman.
+
+110
+00:08:28,460 --> 00:08:34,130
+Postman can be downloaded for free at postman.com/downloads.
+
+111
+00:08:34,280 --> 00:08:39,330
+And once you've downloaded it and have it running, it looks something like this.
+
+112
+00:08:39,350 --> 00:08:48,110
+You can target a specific URL or an endpoint and you can also specify the type of request you want to
+
+113
+00:08:48,110 --> 00:08:48,440
+make.
+
+114
+00:08:48,470 --> 00:08:53,060
+For example, I've got several tabs here open with different requests that I'm testing.
+
+115
+00:08:53,060 --> 00:08:58,490
+This is a POST, this is a GET, this is a PUT and you can see in the dropdown when you make these
+
+116
+00:08:58,490 --> 00:09:04,770
+requests, you can specify which if any of the different types of methods you want to use,
+
+117
+00:09:04,770 --> 00:09:09,180
+and then you can add in your URL, add in your endpoints, etcetera.
+
+118
+00:09:09,180 --> 00:09:12,900
+And then you can also add values to the body.
+
+119
+00:09:12,900 --> 00:09:21,300
+So for example, if I want to create a new POST request to my local host, I can change this to POST
+
+120
+00:09:21,300 --> 00:09:27,030
+and I can go into the body and add in some URL encoded form-data.
+
+121
+00:09:27,030 --> 00:09:33,510
+So I could say, well, in this field, the key is called name and the value that I've entered is my name.
+
+122
+00:09:33,630 --> 00:09:39,060
+I've also got another field called email, in which case I want the testing data to be this,
+
+123
+00:09:39,090 --> 00:09:40,590
+etcetera, and so on and so forth.
+
+124
+00:09:40,590 --> 00:09:46,740
+So without needing to do any of the front-end hard work, we can already start testing by sending these
+
+125
+00:09:46,740 --> 00:09:49,130
+requests to a particular location.
+
+126
+00:09:49,140 --> 00:09:51,000
+Now we're getting an error connection
+
+127
+00:09:51,000 --> 00:09:54,720
+refused because I don't have a port open on 3000.
+
+128
+00:09:54,750 --> 00:10:02,040
+I don't have my localhost up and running with my server and I don't yet have any of the code written.
+
+129
+00:10:02,050 --> 00:10:08,610
+The code is pretty straightforward as we saw previously, there are different methods for each of the
+
+130
+00:10:08,610 --> 00:10:11,220
+HTTP requests that comes from Express.
+
+131
+00:10:11,250 --> 00:10:18,990
+They've vastly simplified this code compared to using just straight up Node, and this is why most Node
+
+132
+00:10:18,990 --> 00:10:21,960
+developers will use Express along with Node.
+
+133
+00:10:22,020 --> 00:10:25,050
+So previously we saw how to write the GET method.
+
+134
+00:10:25,050 --> 00:10:32,910
+We add in the endpoint, we have our anonymous function, including a request and response parameter,
+
+135
+00:10:32,910 --> 00:10:37,050
+and then we can send back in the response whatever it is we want
+
+136
+00:10:37,080 --> 00:10:40,590
+in response to this particular request.
+
+137
+00:10:40,680 --> 00:10:48,030
+The POST request is simply using the post method. The PUT, the PATCH, the DELETE, all work very, very
+
+138
+00:10:48,030 --> 00:10:55,620
+similarly and we can use the res.sendStatus to actually send back a status code instead of a piece
+
+139
+00:10:55,620 --> 00:10:58,020
+of text or HTML as well.
+
+140
+00:10:58,140 --> 00:11:04,620
+Now when we run this particular website and get the server up and running, the only one that's really
+
+141
+00:11:04,620 --> 00:11:12,030
+going to work in the browser is our app.get and it's going to send back this HTML of the Home Page.
+
+142
+00:11:12,030 --> 00:11:17,700
+The rest of them are, in our case, not sending back anything other than a status code.
+
+143
+00:11:17,700 --> 00:11:23,970
+So it's best that we actually test this inside Postman and because we're testing everything inside
+
+144
+00:11:23,970 --> 00:11:29,550
+Postman, we don't even need to send the client-side anything other than a status code.
+
+145
+00:11:30,030 --> 00:11:38,940
+Let's go ahead and try an exercise and I want you to download the zipped file 3.3 Postman from this current
+
+146
+00:11:38,940 --> 00:11:39,600
+lesson.
+
+147
+00:11:39,600 --> 00:11:47,130
+And once you've extracted all the files, you'll see I've included all of the different HTTP methods
+
+148
+00:11:47,130 --> 00:11:55,710
+that we spoke about just now, and this is mimicking a website where we have a registration route where
+
+149
+00:11:55,710 --> 00:12:03,300
+we can POST data from an HTML form and then we're going to do something fancy in here like save the data
+
+150
+00:12:03,300 --> 00:12:04,680
+or do something with it,
+
+151
+00:12:04,680 --> 00:12:11,520
+but basically, we're simply just going to send back a success response in this case because I want to
+
+152
+00:12:11,520 --> 00:12:16,980
+show you how to use Postman and hit up all of these different routes on our server.
+
+153
+00:12:17,160 --> 00:12:23,790
+Now, one thing to remember whenever you download Node projects from the Internet is usually they will
+
+154
+00:12:23,790 --> 00:12:30,060
+not come packaged with the actual node_modules because there's a lot of dependencies and the dependencies
+
+155
+00:12:30,060 --> 00:12:31,020
+on dependencies.
+
+156
+00:12:31,020 --> 00:12:33,630
+So it can get very, very large basically.
+
+157
+00:12:33,630 --> 00:12:36,330
+So people normally don't ship that,
+
+158
+00:12:36,330 --> 00:12:42,270
+and instead what you want to do is you want to cd over to the project that you downloaded, such as
+
+159
+00:12:42,270 --> 00:12:50,370
+in your case, and then you simply run, "npm install" without any names of any NPM packages and this command
+
+160
+00:12:50,370 --> 00:12:53,400
+will simply go through the package.json,
+
+161
+00:12:53,400 --> 00:12:59,220
+look at all the dependencies that are listed, in which case there is only one currently, express, but
+
+162
+00:12:59,220 --> 00:13:03,360
+in most projects there will be several and then it will go through and do the
+
+163
+00:13:03,520 --> 00:13:07,480
+necessary installations and add your node modules folder.
+
+164
+00:13:07,960 --> 00:13:12,750
+Once you've done that, we can go ahead and use Nodemon to start our server.
+
+165
+00:13:12,760 --> 00:13:19,420
+And I want you to open up Postman and go ahead and test out each of the routes.
+
+166
+00:13:19,570 --> 00:13:29,290
+Take a look at what the endpoints are and make sure that you get the relevant and correct status code
+
+167
+00:13:29,290 --> 00:13:39,910
+sent back to, you know, 404 or 500 or any of that and see if you can create a Tab for each of the
+
+168
+00:13:39,910 --> 00:13:41,410
+five requests here.
+
+169
+00:13:41,440 --> 00:13:44,050
+GET, POST, PUT, PATCH and DELETE.
+
+170
+00:13:44,080 --> 00:13:51,940
+Make sure you hit up the right endpoints and send those requests to get back a successful response status
+
+171
+00:13:51,940 --> 00:13:52,550
+code.
+
+172
+00:13:52,570 --> 00:13:55,870
+So pause the video now and complete this challenge.
+
+173
+00:13:59,190 --> 00:14:01,530
+All right, so we need a five tabs.
+
+174
+00:14:01,530 --> 00:14:02,910
+Let's start with the first one.
+
+175
+00:14:02,910 --> 00:14:08,160
+We want to make a GET request to our localhost:
+
+176
+00:14:08,160 --> 00:14:09,720
+3000.
+
+177
+00:14:09,870 --> 00:14:14,970
+Now, if we check our endpoint, you can see the get is to the root route.
+
+178
+00:14:14,970 --> 00:14:17,790
+So we can either add that forward slash or we can leave it out.
+
+179
+00:14:17,790 --> 00:14:18,930
+It doesn't really matter.
+
+180
+00:14:18,930 --> 00:14:20,940
+It goes to the same place anyways.
+
+181
+00:14:20,940 --> 00:14:27,510
+Now we can go ahead and click Send to send this request and hopefully, if our server is up and running
+
+182
+00:14:27,510 --> 00:14:33,090
+as it is here, then we get back our h1, which is what we wanted to send back,
+
+183
+00:14:33,090 --> 00:14:38,670
+and also we can see the status code is 200, which means that everything went okay.
+
+184
+00:14:40,060 --> 00:14:41,590
+Let's go ahead and do the next one.
+
+185
+00:14:41,590 --> 00:14:45,970
+So this is going to be a POST request also to localhost:3000.
+
+186
+00:14:45,970 --> 00:14:49,480
+And this time, though, we have a different endpoint.
+
+187
+00:14:49,510 --> 00:14:55,540
+We want to hit up the register endpoint because you can imagine if you have a complex website and you
+
+188
+00:14:55,540 --> 00:15:02,500
+need to do multiple POST and GET or PUT requests, you want to make sure that you're routing those requests
+
+189
+00:15:02,500 --> 00:15:04,480
+to the right endpoints.
+
+190
+00:15:04,480 --> 00:15:10,840
+So if we wanted to sign up a new user, then we might need to have some form data.
+
+191
+00:15:10,870 --> 00:15:15,580
+Now we're not really too bothered about this at the moment because I'm not actually handling it on the
+
+192
+00:15:15,580 --> 00:15:16,810
+server side at all,
+
+193
+00:15:16,810 --> 00:15:22,900
+I just wanted to make sure that you knew how to send a post request to the right address.
+
+194
+00:15:22,900 --> 00:15:29,440
+So we've actually got all of the required parts and if I just hit Send, it should come back with 201
+
+195
+00:15:29,440 --> 00:15:35,140
+Created and if you hover over it, it tells you the meaning of that code, which is, "The request has
+
+196
+00:15:35,140 --> 00:15:39,590
+been fulfilled and resulted in a new resource being created."
+
+197
+00:15:39,740 --> 00:15:40,640
+Perfect.
+
+198
+00:15:41,510 --> 00:15:46,520
+The next one is a PUT request to this particular endpoint.
+
+199
+00:15:46,550 --> 00:15:54,260
+Now we can choose our PUT request and then add our localhost:3000/user/angela.
+
+200
+00:15:54,260 --> 00:15:54,950
+The
+
+201
+00:15:54,980 --> 00:16:02,210
+situation that we are mimicking in this case is let's say you have a particular user and they have
+
+202
+00:16:02,210 --> 00:16:03,470
+a username,
+
+203
+00:16:03,470 --> 00:16:09,620
+if you wanted to update some piece of information for this user, say their email address or their password,
+
+204
+00:16:09,650 --> 00:16:16,430
+then you're probably going to use a PUT request to be able to tell the server which user you want to
+
+205
+00:16:16,430 --> 00:16:17,270
+change.
+
+206
+00:16:18,080 --> 00:16:22,310
+I'm not going to add anything more to the body.
+
+207
+00:16:22,310 --> 00:16:29,450
+In reality, it might be like the new email that I want to update it to instead of angela@gmail.com,
+
+208
+00:16:29,450 --> 00:16:31,940
+maybe I want to change the email.
+
+209
+00:16:31,940 --> 00:16:40,670
+Now let's hit Send and we get back status 200, which means everything went okay. Because this is a PUT request
+
+210
+00:16:40,670 --> 00:16:45,350
+which means we're replacing everything about a particular resource,
+
+211
+00:16:45,350 --> 00:16:49,520
+then normally you are actually going to send all of the entire data.
+
+212
+00:16:49,520 --> 00:16:53,030
+So you would maybe GET all of the data for your user.
+
+213
+00:16:53,030 --> 00:17:01,340
+So their email, their first name, their last name, their address, whatever it is that you've stored
+
+214
+00:17:01,370 --> 00:17:08,180
+on your database for that particular user, you would fetch it first and then you would send back all
+
+215
+00:17:08,180 --> 00:17:11,569
+of the new values and completely replace that resource.
+
+216
+00:17:11,839 --> 00:17:19,700
+However, a PATCH request which we've also got here in our server works a little bit differently where
+
+217
+00:17:19,700 --> 00:17:25,190
+again hitting up localhost:3000, patching this user with the username of Angela.
+
+218
+00:17:25,190 --> 00:17:29,300
+In this case we can actually simply just change one thing.
+
+219
+00:17:29,300 --> 00:17:32,990
+So maybe we want to change their first name instead of Angela,
+
+220
+00:17:33,440 --> 00:17:37,790
+I'm going to call myself Angla, whatever it may be.
+
+221
+00:17:37,910 --> 00:17:44,260
+And now when we hit Send, you can see our PATCH route is also working.
+
+222
+00:17:44,270 --> 00:17:48,050
+Finally is our DELETE request, which is the easiest of all.
+
+223
+00:17:48,050 --> 00:17:54,350
+It doesn't require anything to be sent other than making sure we hit up the right path, which in this
+
+224
+00:17:54,350 --> 00:17:59,690
+case is probably a path that's going to DELETE that user with that particular username.
+
+225
+00:17:59,690 --> 00:18:03,500
+So we'll do some code magic on our back-end,
+
+226
+00:18:03,500 --> 00:18:12,710
+And then hopefully once this is sent, we get back the status 200, which means that it was successful
+
+227
+00:18:12,710 --> 00:18:15,890
+and we managed to successfully delete that user.
+
+228
+00:18:16,640 --> 00:18:25,640
+So of course all of that server code for deleting user or updating user, or whatever has to be written.
+
+229
+00:18:25,790 --> 00:18:30,830
+Now in this case, we're simply just sending back the status code, but in reality it would be a case
+
+230
+00:18:30,830 --> 00:18:32,090
+of deleting the user.
+
+231
+00:18:32,090 --> 00:18:35,120
+If everything went successfully, we would send back 200.
+
+232
+00:18:35,150 --> 00:18:38,990
+If there was some other sort of issue, we might send back a different status code.
+
+233
+00:18:38,990 --> 00:18:48,140
+But this is a really good point to introduce you to HTTP Status Codes as the response and also the different
+
+234
+00:18:48,140 --> 00:18:49,370
+HTTP methods,
+
+235
+00:18:49,370 --> 00:18:55,490
+and hopefully, you've seen how you can test those super easily and quickly using Postman.
+
+236
+00:18:56,630 --> 00:18:58,730
+That's all for this lesson.
+
+237
+00:18:58,730 --> 00:19:04,550
+In the next lesson, we're going to learn more about Express Middleware and we're going to see how we
+
+238
+00:19:04,550 --> 00:19:11,000
+can actually tap into these values that we're sending over in our requests and how we can get hold of
+
+239
+00:19:11,000 --> 00:19:12,440
+it on our back-end.
+
+240
+00:19:12,440 --> 00:19:15,620
+So for all of that and more, I'll see you in the next lesson.
+

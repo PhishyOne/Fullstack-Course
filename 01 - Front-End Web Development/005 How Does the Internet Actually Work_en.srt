@@ -1,0 +1,292 @@
+1
+00:00:00,210 --> 00:00:02,760
+Hey guys, it's Angela from the App Brewery.
+
+2
+00:00:02,760 --> 00:00:08,480
+And in this lesson, we're going to deep dive into how exactly does the Internet work?
+
+3
+00:00:08,490 --> 00:00:11,010
+So what exactly is the Internet?
+
+4
+00:00:11,190 --> 00:00:15,530
+A lot of people think it's a cloud, something that's hanging around in the sky,
+
+5
+00:00:15,540 --> 00:00:20,340
+it's super complex, super difficult to understand, but actually, that's not it at all.
+
+6
+00:00:20,370 --> 00:00:22,860
+The Internet is pretty simple.
+
+7
+00:00:23,040 --> 00:00:26,520
+All it is is just a long piece of wire,
+
+8
+00:00:26,700 --> 00:00:29,640
+and wire connects different computers to each other.
+
+9
+00:00:29,640 --> 00:00:35,160
+So you might have one computer that's in London and another one that's in Seattle, and they can talk
+
+10
+00:00:35,160 --> 00:00:38,490
+to each other and transfer data through this giant wire.
+
+11
+00:00:38,520 --> 00:00:42,630
+Now, some of these computers attached the Internet have a very special job.
+
+12
+00:00:42,630 --> 00:00:49,110
+They have to be online 24 seven, ready to serve you all the data and files that you are requesting
+
+13
+00:00:49,110 --> 00:00:51,150
+when you try to access a website,
+
+14
+00:00:51,480 --> 00:00:54,300
+and these are called servers.
+
+15
+00:00:54,300 --> 00:01:00,810
+And what they do is they serve you all the data and files you need to be able to access and interact
+
+16
+00:01:00,810 --> 00:01:02,250
+with certain websites.
+
+17
+00:01:02,250 --> 00:01:08,820
+So these computers are called servers, and any computer that a user would use to access the Internet
+
+18
+00:01:08,820 --> 00:01:10,210
+is called a client.
+
+19
+00:01:10,230 --> 00:01:16,590
+Now, you can imagine a web server as a giant library that's open 24 seven, and you can go in there
+
+20
+00:01:16,590 --> 00:01:22,200
+at any hour of the day and say, I want to see Google's home page or I want to see the latest posts
+
+21
+00:01:22,200 --> 00:01:27,600
+on TechCrunch and would be able to serve you with all the files and data you would need to be able to
+
+22
+00:01:27,600 --> 00:01:29,380
+view whatever website you want.
+
+23
+00:01:29,400 --> 00:01:35,070
+Now, as you can imagine, if there's a library that's big enough to house all of these websites, then
+
+24
+00:01:35,070 --> 00:01:41,370
+it's going to be pretty difficult to quickly locate the thing that you want out of this giant library,
+
+25
+00:01:41,370 --> 00:01:41,940
+right?
+
+26
+00:01:41,940 --> 00:01:44,550
+So how is this problem solved on the Internet?
+
+27
+00:01:45,210 --> 00:01:50,490
+Well, let's say that you're sitting at home on your computer and you type in Google.com because you
+
+28
+00:01:50,490 --> 00:01:52,980
+want to head over to the main Google home page.
+
+29
+00:01:53,250 --> 00:02:01,470
+Well, what happens behind the scenes is that your browser will send that message to your ISP or your
+
+30
+00:02:01,470 --> 00:02:03,140
+Internet service provider.
+
+31
+00:02:03,150 --> 00:02:06,690
+So these are the people who you pay to be able to access the Internet.
+
+32
+00:02:07,020 --> 00:02:10,830
+If you live in the US, that will be AT&T or Comcast,
+
+33
+00:02:10,830 --> 00:02:14,490
+and if you're in the UK, that would be something like BT or TalkTalk.
+
+34
+00:02:14,700 --> 00:02:21,690
+Now the message that you're sending the ISP is I want to see Google.com and the ISP will then relay
+
+35
+00:02:21,690 --> 00:02:28,710
+that message to something called a DNS server, which stands for a domain name system server.
+
+36
+00:02:28,710 --> 00:02:33,180
+And a DNS server is essentially just a souped up phone book.
+
+37
+00:02:33,330 --> 00:02:39,060
+And what happens when you make that request through your browser is the DNS server will look up in its
+
+38
+00:02:39,060 --> 00:02:44,940
+database to find the exact IP address of that website that you're trying to access.
+
+39
+00:02:45,060 --> 00:02:50,270
+And every single computer that's connected to the Internet has an IP address.
+
+40
+00:02:50,280 --> 00:02:55,740
+It's kind of like a postal code for your computer so that when people need to send and receive files
+
+41
+00:02:55,740 --> 00:03:02,940
+on the Internet, each computer can be located and contacted using their unique IP address.
+
+42
+00:03:02,940 --> 00:03:09,930
+And once the DNS server finds that IP address, it will send it back to your browser through the ISP,
+
+43
+00:03:09,930 --> 00:03:11,160
+over the internet.
+
+44
+00:03:11,280 --> 00:03:15,090
+Then you can make a direct request to that address.
+
+45
+00:03:15,210 --> 00:03:21,180
+And what lives at that IP address is of course the Google servers, and they'll be able to send you
+
+46
+00:03:21,180 --> 00:03:27,090
+back all the files and data you need to be able to view the Google home page.
+
+47
+00:03:27,180 --> 00:03:33,300
+Now you can try this for yourself to look up the IP address of the Google home page. Head over to this
+
+48
+00:03:33,300 --> 00:03:41,520
+website, nslookup.io and type in Google.com and they should show you the exact IP address of the Google
+
+49
+00:03:41,520 --> 00:03:43,470
+servers that you can access.
+
+50
+00:03:43,470 --> 00:03:49,920
+So if you copy it and paste it into a new tab, then you'll be able to replicate that process and see
+
+51
+00:03:49,920 --> 00:03:51,510
+the Google home page show up.
+
+52
+00:03:51,720 --> 00:03:59,670
+So to summarize, the Internet is just a bunch of wires that connects up different computers, but it's
+
+53
+00:03:59,670 --> 00:04:04,290
+just on a much bigger scale connecting up all the computers in the world.
+
+54
+00:04:04,320 --> 00:04:05,820
+But what about the oceans?
+
+55
+00:04:05,820 --> 00:04:06,950
+I hear you ask.
+
+56
+00:04:06,960 --> 00:04:09,450
+Well, that's one of the coolest things.
+
+57
+00:04:09,450 --> 00:04:14,790
+There are these massive undersea cables connecting all the continents on Earth.
+
+58
+00:04:14,880 --> 00:04:21,570
+And if you head over to submarinecablemap.com, you can see all of these cables and see the ones
+
+59
+00:04:21,570 --> 00:04:23,700
+that connect you up to the Internet.
+
+60
+00:04:23,700 --> 00:04:30,360
+And these undersea cables are massive, consisting of hundreds of fiber optic fibers, each of them
+
+61
+00:04:30,360 --> 00:04:35,310
+using lasers to transmit up to 400 gigabytes of data per second.
+
+62
+00:04:35,310 --> 00:04:38,970
+This is a cross-section of one of the cables that runs to New Zealand.
+
+63
+00:04:39,000 --> 00:04:44,880
+It's an absolute marvel of modern technology, and it looks really beautiful, don't you think?
+
+64
+00:04:44,880 --> 00:04:50,580
+And to think that every single time we load up a web page or click on a button on a website, behind
+
+65
+00:04:50,580 --> 00:04:56,910
+the scenes was sending signals that navigates all of this crazy underwater and above water wires
+
+66
+00:04:56,910 --> 00:04:59,820
+and all I need is just an IP address.
+
+67
+00:05:00,000 --> 00:05:05,220
+And through tiny electric signals, traveling at the speed of light through the oceans and halfway around
+
+68
+00:05:05,220 --> 00:05:05,880
+the world,
+
+69
+00:05:05,880 --> 00:05:12,720
+in a matter of milliseconds, I get to view my favorite websites, and that is how awesome the Internet
+
+70
+00:05:12,720 --> 00:05:13,290
+is.
+
+71
+00:05:13,440 --> 00:05:17,880
+And we're gonna be taking it to build our own websites and web apps.
+
+72
+00:05:17,880 --> 00:05:23,400
+And to be able to do that, we first have to understand how exactly do websites work.
+
+73
+00:05:23,520 --> 00:05:27,000
+So for all of that and more, I'll see you on the next lesson.
+

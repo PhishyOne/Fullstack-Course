@@ -1,0 +1,136 @@
+1
+00:00:04,390 --> 00:00:08,860
+Hello and welcome to the world's best web development course.
+
+2
+00:00:09,460 --> 00:00:10,630
+My name is Angela,
+
+3
+00:00:10,870 --> 00:00:17,980
+I'm a senior developer and the lead instructor at the London App Brewery, London's highest-rated programming
+
+4
+00:00:17,980 --> 00:00:18,550
+bootcamp.
+
+5
+00:00:18,790 --> 00:00:25,540
+To date, I've taught over a million students worldwide, in-person and online.
+
+6
+00:00:26,140 --> 00:00:31,330
+And today I'm so excited that I have the privilege to be your instructor on this course.
+
+7
+00:00:31,690 --> 00:00:36,850
+You're going to get access to over 55 hours of HD video content,
+
+8
+00:00:37,540 --> 00:00:44,170
+step by step tutorials, interactive coding exercises, quizzes and much, much more.
+
+9
+00:00:44,680 --> 00:00:52,450
+This course is created with the same curriculum as our 12-week in-person programming BootCamp. So that
+
+10
+00:00:52,450 --> 00:01:00,220
+means you can look forward to the same professional level content covering every aspect of web development
+
+11
+00:01:00,580 --> 00:01:02,560
+from HTML to React.
+
+12
+00:01:02,650 --> 00:01:11,110
+This is the only course you need to become a professional, full-stack web developer. And the best part,
+
+13
+00:01:11,770 --> 00:01:17,320
+the course is completely project-based, so that means you're going to learn everything you need to
+
+14
+00:01:17,320 --> 00:01:22,780
+know while building beautiful real-world websites and web applications.
+
+15
+00:01:23,080 --> 00:01:28,480
+You'll build a beautiful product website using HTML, CSS and bootstrap.
+
+16
+00:01:28,840 --> 00:01:32,050
+You'll build games and musical apps like this drum kit.
+
+17
+00:01:32,500 --> 00:01:38,710
+You'll learn about Node, React and the MERN stack to build classic developer projects like a to-do list
+
+18
+00:01:38,710 --> 00:01:44,140
+app and a project manager that's perfect for showing off at your next interview.
+
+19
+00:01:44,620 --> 00:01:49,240
+If you're curious, take a look at the downloadable curriculum to learn more.
+
+20
+00:01:49,540 --> 00:01:54,520
+Now, this course assumes absolutely no prior programming experience.
+
+21
+00:01:54,970 --> 00:02:01,900
+So if you're a complete beginner, I'll be there every step of the way, taking you from programming
+
+22
+00:02:01,900 --> 00:02:06,850
+fundamentals all the way through to intermediate and more advanced concepts.
+
+23
+00:02:07,030 --> 00:02:12,520
+Now, if you're an advanced developer, then take a look at the curriculum and start at the level that
+
+24
+00:02:12,520 --> 00:02:13,390
+suits you best.
+
+25
+00:02:13,630 --> 00:02:21,100
+So instead of spending $12,000 on an in-person Bootcamp and having to take time off work, you're going
+
+26
+00:02:21,100 --> 00:02:27,490
+to get access to exactly the same curriculum that has years of design and testing behind it.
+
+27
+00:02:28,090 --> 00:02:32,260
+So you won't just know what to do, but also why you're doing it.
+
+28
+00:02:32,980 --> 00:02:35,080
+Now, don't just take my word for it.
+
+29
+00:02:35,530 --> 00:02:38,440
+Check out what my past students had to say about the course.
+
+30
+00:02:43,930 --> 00:02:45,340
+Your time is precious.
+
+31
+00:02:45,640 --> 00:02:49,030
+That's why you deserve the best course money can buy.
+
+32
+00:02:49,720 --> 00:02:51,670
+So what are you still waiting for?
+
+33
+00:02:52,030 --> 00:02:57,980
+Join the course today and find out why over a million students have rated my courses
+
+34
+00:02:58,000 --> 00:03:03,100
+five-stars and see what you can do by mastering web development.
+

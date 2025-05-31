@@ -1,0 +1,2024 @@
+1
+00:00:01,170 --> 00:00:03,210
+Hey, guys, how y'all doing?
+
+2
+00:00:03,690 --> 00:00:11,340
+This is our second AMA to date, and it seems like the last one you guys were quite fond of.
+
+3
+00:00:12,120 --> 00:00:20,070
+I got lots of messages on Twitter about how many push-ups you're doing, trying to beat my record, which
+
+4
+00:00:20,070 --> 00:00:21,690
+is not that hard to do, to be honest.
+
+5
+00:00:21,690 --> 00:00:27,900
+But I'm glad that my ranting into the camera is helping somebody out there.
+
+6
+00:00:27,900 --> 00:00:33,030
+As long as it's useful for one person, then I'm happy to keep doing this.
+
+7
+00:00:33,180 --> 00:00:42,450
+So it's another month and another AMA and lots of exciting things have happened between last month
+
+8
+00:00:42,450 --> 00:00:43,170
+and this month.
+
+9
+00:00:43,410 --> 00:00:51,240
+So I was invited by the Cape Town government to go and give a talk about the sharing economy and how
+
+10
+00:00:51,240 --> 00:00:53,970
+technology can be used to improve adoption.
+
+11
+00:00:54,270 --> 00:00:58,260
+It was a really, really interesting event, actually full of really cool people.
+
+12
+00:00:59,220 --> 00:01:03,510
+But more importantly, Cape Town is incredible.
+
+13
+00:01:05,220 --> 00:01:07,880
+It's just such a beautiful city.
+
+14
+00:01:07,920 --> 00:01:09,390
+I was really shocked.
+
+15
+00:01:09,390 --> 00:01:14,520
+Like literally everywhere I look was just stunning.
+
+16
+00:01:14,520 --> 00:01:18,870
+And I'm so jealous of you guys who live in Cape Town.
+
+17
+00:01:18,870 --> 00:01:23,070
+And from the stats, I can see that there's quite a few Udemy students who are from South Africa.
+
+18
+00:01:23,370 --> 00:01:30,400
+So big shout out to you guys because you guys live in, like, one of the most beautiful places ever.
+
+19
+00:01:30,720 --> 00:01:33,660
+I mean, I know there's problems, but there's problems everywhere.
+
+20
+00:01:33,660 --> 00:01:36,830
+And to be honest, it's not really that safe in London either.
+
+21
+00:01:36,960 --> 00:01:40,350
+And even though I'm thinking about moving somewhere else,
+
+22
+00:01:40,800 --> 00:01:47,420
+I don't know yet where. If you have any good pointers, any good locations that you're fond of,
+
+23
+00:01:47,790 --> 00:01:52,210
+be sure to hit me up on Twitter @yu_angela.
+
+24
+00:01:52,350 --> 00:01:52,770
+All right.
+
+25
+00:01:52,770 --> 00:01:54,600
+So enough about me.
+
+26
+00:01:54,600 --> 00:01:57,900
+Let's talk more about AMA questions.
+
+27
+00:01:58,170 --> 00:02:07,140
+So you guys have been really active on the AMA questions and the team has sorted through a whole bunch
+
+28
+00:02:07,140 --> 00:02:08,940
+of new questions for me to answer.
+
+29
+00:02:08,940 --> 00:02:12,900
+And so the rest of my team are playing Portal two today.
+
+30
+00:02:12,900 --> 00:02:16,260
+They're just having a bit of afterwork fun.
+
+31
+00:02:16,260 --> 00:02:17,760
+But this is also pretty fun for me.
+
+32
+00:02:17,760 --> 00:02:19,020
+So let's get started.
+
+33
+00:02:19,950 --> 00:02:24,840
+So the first question comes from Victor Mameshyn.
+
+34
+00:02:25,740 --> 00:02:32,880
+Yeah, I'm glad that in the last AMA I didn't get called out by anybody whose name that I mispronounced
+
+35
+00:02:32,880 --> 00:02:35,000
+and mangled in a horrible way.
+
+36
+00:02:35,520 --> 00:02:42,600
+So if I do get your name wrong, I'm really sorry, but the good British way is just to keep going and
+
+37
+00:02:42,600 --> 00:02:44,240
+carry on, which is what I'm going to do.
+
+38
+00:02:44,580 --> 00:02:46,710
+So Victor has asked.
+
+39
+00:02:47,040 --> 00:02:47,640
+Hi, Angela.
+
+40
+00:02:47,640 --> 00:02:51,370
+Thanks for your efforts a lot in keeping us moving forwards on.
+
+41
+00:02:51,390 --> 00:02:58,710
+In your opinion, how many hours should a developer spend weekly working or learning to become a successful
+
+42
+00:02:58,710 --> 00:03:06,930
+developer and be acquainted with the latest technologies in the field, e.g. 35 hours working or 5 
+
+43
+00:03:06,930 --> 00:03:07,980
+hours learning?
+
+44
+00:03:09,240 --> 00:03:13,470
+OK, so this is something that I have a really, really strong opinion about.
+
+45
+00:03:13,470 --> 00:03:21,780
+So in my experience, you need to spend about an hour a day at the minimum to keep up with new developments,
+
+46
+00:03:21,780 --> 00:03:30,030
+new technologies, you know, web developer guys, you know how many new frameworks gets released every
+
+47
+00:03:30,030 --> 00:03:31,260
+week, every month.
+
+48
+00:03:31,410 --> 00:03:33,780
+And it's really tough keeping on top of things.
+
+49
+00:03:33,810 --> 00:03:41,100
+And based on the experience of my friends who work in large tech companies, you know, you do get time
+
+50
+00:03:41,100 --> 00:03:46,500
+for sort of R&D and learning, but it's kind of in your own time.
+
+51
+00:03:46,500 --> 00:03:52,170
+And even if you're learning stuff or if the company is paying for it, then it's usually something that
+
+52
+00:03:52,170 --> 00:03:58,290
+has to be related or directly related to what you're doing in your day to day job.
+
+53
+00:03:58,710 --> 00:04:05,910
+And this is something that we thought about really carefully when we set up our company, when we started
+
+54
+00:04:05,910 --> 00:04:11,340
+employing people, because it's really, really important to get the company culture right from the
+
+55
+00:04:11,340 --> 00:04:11,820
+beginning.
+
+56
+00:04:12,270 --> 00:04:22,290
+And it was my decision that everybody who works at our company is entitled to one hour and not just
+
+57
+00:04:22,290 --> 00:04:24,570
+any one hour, but your best one hour.
+
+58
+00:04:24,580 --> 00:04:28,080
+So that's first thing in the morning from nine o'clock to ten o'clock.
+
+59
+00:04:28,350 --> 00:04:31,650
+That hour is blocked out for learning.
+
+60
+00:04:31,650 --> 00:04:33,480
+And it doesn't matter what you want to learn.
+
+61
+00:04:33,780 --> 00:04:37,950
+You know, if you're an iOS developer, you can learn about developing for the blockchain.
+
+62
+00:04:38,310 --> 00:04:43,290
+If you're a machine learning guy, you can learn about Augmented Reality.
+
+63
+00:04:43,290 --> 00:04:47,790
+It really doesn't matter as long as it's something that you want to learn
+
+64
+00:04:47,790 --> 00:04:54,360
+and, you know, you can dedicate that one hour of prime brain time to it.
+
+65
+00:04:54,600 --> 00:04:59,510
+And, you know, I think a lot of running a company is about finding
+
+66
+00:04:59,690 --> 00:05:05,420
+really smart people who want to work for you and keeping those smart people around. And smart people
+
+67
+00:05:05,420 --> 00:05:09,890
+tend to have a need to learn stuff and you know, you guys included,
+
+68
+00:05:09,890 --> 00:05:10,180
+right?
+
+69
+00:05:10,190 --> 00:05:11,900
+Why are you enrolled on this course?
+
+70
+00:05:11,900 --> 00:05:14,250
+You know, and it's because you're curious and you're intelligent.
+
+71
+00:05:14,280 --> 00:05:22,760
+You want to further your own knowledge, right? Further the breadth or the depth of your own, your own
+
+72
+00:05:22,760 --> 00:05:23,310
+skill set.
+
+73
+00:05:23,870 --> 00:05:31,150
+So this is something that's really, really fundamental and important to our company at the App Brewery.
+
+74
+00:05:31,190 --> 00:05:38,560
+And, you know, every employee, no matter how important or how senior they are, get this privilege.
+
+75
+00:05:38,570 --> 00:05:40,640
+And it's something that's really fundamental.
+
+76
+00:05:40,650 --> 00:05:46,010
+It's been there from the beginning and it's something that I'm certainly going to continue going forward.
+
+77
+00:05:47,210 --> 00:05:57,500
+So what I recommend for you, if you can, try to spend an hour of your best brain time, at least an hour
+
+78
+00:05:57,500 --> 00:06:04,070
+every day, to learn something new. And it doesn't even have to be programming related.
+
+79
+00:06:04,070 --> 00:06:05,450
+It can be design,
+
+80
+00:06:05,450 --> 00:06:07,730
+it can be what are the latest growth hacks.
+
+81
+00:06:08,060 --> 00:06:17,000
+But, you know, the main point, I guess, is to pick and choose when you learn. Because your hour
+
+82
+00:06:17,030 --> 00:06:26,420
+after work, after dinner at maybe 9 PM is not going to be as effective as your one hour, you
+
+83
+00:06:26,420 --> 00:06:28,910
+know, in the morning after you've just woken up.
+
+84
+00:06:29,060 --> 00:06:35,330
+And if you have the ability to dictate your own time, then I would recommend somewhere between 9
+
+85
+00:06:35,330 --> 00:06:38,420
+and 10, 9 and 11, to do your learning.
+
+86
+00:06:38,420 --> 00:06:45,290
+But if you don't have the ability to do that, if you work from 9:00 to 5:00 or whenever, then you
+
+87
+00:06:45,290 --> 00:06:52,310
+kind of have to have the discipline to be able to wake up earlier and allocate your time wisely so that
+
+88
+00:06:52,310 --> 00:06:58,970
+you actually dedicate your good brain, still functioning brain, to learning rather than, you know,
+
+89
+00:06:58,970 --> 00:07:02,030
+at the end of the day when it's all kind of gone to mush.
+
+90
+00:07:02,810 --> 00:07:04,390
+That's the way with me anyways.
+
+91
+00:07:04,400 --> 00:07:14,150
+And so what I try to do in my day is that, you know, I have a threshold for work, say if I'm able
+
+92
+00:07:14,150 --> 00:07:20,870
+to operate at above 80% efficiency, I know I sound like a robot by saying this, but if I'm
+
+93
+00:07:20,870 --> 00:07:28,370
+able to operate my brain at more than 80% efficiency, then I will dedicate it to creative work,
+
+94
+00:07:29,360 --> 00:07:35,090
+such as creating new course content for you guys or, you know, learning new technologies.
+
+95
+00:07:35,990 --> 00:07:43,130
+If I'm able to achieve brain efficiency above 50%, then I'll do some more mundane tasks like
+
+96
+00:07:43,730 --> 00:07:51,770
+answering emails and more signing this and that, kind of more boring stuff that doesn't require so
+
+97
+00:07:51,770 --> 00:07:52,640
+much thinking.
+
+98
+00:07:52,970 --> 00:08:00,230
+If I'm at brain efficiency like less than 50% where I don't feel like I'm productive at all,
+
+99
+00:08:00,620 --> 00:08:02,540
+I won't actually work.
+
+100
+00:08:02,750 --> 00:08:08,810
+And that doesn't mean I'll go on Facebook or go on Instagram or procrastinate, because that also takes
+
+101
+00:08:08,810 --> 00:08:19,280
+a lot of energy to kind of hunt and gather to go to these, like, endless swipe apps where you're actually
+
+102
+00:08:19,280 --> 00:08:24,680
+using a lot of attention just to hunt for that next exciting thing.
+
+103
+00:08:24,980 --> 00:08:29,060
+And it's kind of weird, but it takes up a lot of effort
+
+104
+00:08:29,060 --> 00:08:36,080
+if you actually think about it, you don't feel relaxed after you scroll through Facebook for 20 minutes.
+
+105
+00:08:36,710 --> 00:08:42,940
+You don't feel refreshed after going through Reddit for 20 minutes.
+
+106
+00:08:42,950 --> 00:08:49,130
+So if I'm at low brain efficiency, I would rather rest.
+
+107
+00:08:49,130 --> 00:08:57,320
+So that could be anything from going for a walk outside or going to the gym or meditating, basically
+
+108
+00:08:57,320 --> 00:09:01,160
+something that doesn't require any part of my logical brain.
+
+109
+00:09:01,160 --> 00:09:05,990
+It's more physical activity and I find that helps me to reset.
+
+110
+00:09:06,770 --> 00:09:09,170
+So it's a bit like shutting down and restarting
+
+111
+00:09:10,040 --> 00:09:11,990
+and I find that helps me a lot.
+
+112
+00:09:12,440 --> 00:09:20,000
+So what I would say is it's really important not just to think about how many hours you're learning
+
+113
+00:09:20,000 --> 00:09:26,480
+or how many hours you're working on something, but to also make it more granular and think about what
+
+114
+00:09:26,480 --> 00:09:30,170
+kind of time am I dedicating to my learning?
+
+115
+00:09:30,200 --> 00:09:35,780
+Am I dedicating my effective brain time or am I dedicating my crappy brain time?
+
+116
+00:09:36,110 --> 00:09:42,710
+And to answer the other part of your question regarding how long should you work on programming problems
+
+117
+00:09:42,710 --> 00:09:46,640
+in order to become a better programmer, it's also not as straightforward.
+
+118
+00:09:46,790 --> 00:09:55,400
+I have friends who, you know, work at large corporates as developers or SaaS ops or basically anything
+
+119
+00:09:55,400 --> 00:09:59,480
+technical, essentially, and some people have
+
+120
+00:09:59,920 --> 00:10:09,820
+incredibly creative and logically tasking jobs where they're being stretched and they're being challenged
+
+121
+00:10:09,820 --> 00:10:15,250
+on a daily basis, but other people, especially the more senior ones, they kind of can probably do
+
+122
+00:10:15,280 --> 00:10:17,590
+what they're doing at their work with their eyes closed.
+
+123
+00:10:18,040 --> 00:10:25,630
+And so, you know, when you're talking about how many hours would you work on programming in order
+
+124
+00:10:25,630 --> 00:10:32,230
+to get more efficient, then you have to work at problems or things that really stretch you,
+
+125
+00:10:32,240 --> 00:10:32,600
+right?
+
+126
+00:10:32,950 --> 00:10:39,010
+I mean, it's like you have to constantly try and chase that curve, that sweet spot that's just a little
+
+127
+00:10:39,010 --> 00:10:46,390
+bit above your competence and still having a little bit of challenge so that you're not bored and you're
+
+128
+00:10:46,390 --> 00:10:48,130
+constantly learning and growing.
+
+129
+00:10:48,460 --> 00:10:48,760
+All right.
+
+130
+00:10:48,760 --> 00:10:51,270
+So let's move on to the next one.
+
+131
+00:10:51,280 --> 00:10:55,650
+So this is from Simon Fitch and he says, Hi, Angela
+
+132
+00:10:55,660 --> 00:10:56,970
+I got a quick AMA for you.
+
+133
+00:10:56,980 --> 00:11:04,190
+Can you recommend a website where we can practice beginner to intermediate Swift coding examples challenges?
+
+134
+00:11:04,480 --> 00:11:05,210
+OK, cool.
+
+135
+00:11:05,240 --> 00:11:12,130
+So for Simon and anybody else who has this question, so I've seen this question come up a few times
+
+136
+00:11:12,130 --> 00:11:13,830
+in the Q&A as well.
+
+137
+00:11:14,200 --> 00:11:17,590
+And it's a really, really good question because it's true.
+
+138
+00:11:17,590 --> 00:11:22,360
+You know, whenever you learn about programming, the instructors tend to always recommend, you know,
+
+139
+00:11:22,360 --> 00:11:23,770
+learn a little bit every day
+
+140
+00:11:23,770 --> 00:11:29,740
+and, you know, the effects will compound and you'll eventually become, you know, a programming ninja,
+
+141
+00:11:29,740 --> 00:11:30,050
+right?
+
+142
+00:11:30,340 --> 00:11:33,340
+But what exactly do you do every day?
+
+143
+00:11:34,150 --> 00:11:39,070
+How do you find these programming challenges that you can practice?
+
+144
+00:11:39,730 --> 00:11:43,710
+So I've got a few of my favorite resources.
+
+145
+00:11:44,050 --> 00:11:46,590
+So one is a Project Euler.
+
+146
+00:11:47,080 --> 00:11:53,890
+So this is a website where you can browse a whole bunch of different questions and you can sort them
+
+147
+00:11:53,890 --> 00:11:55,860
+by how many people have solved it.
+
+148
+00:11:56,230 --> 00:11:59,590
+So it's kind of like how difficult it is, right?
+
+149
+00:11:59,650 --> 00:12:04,110
+So the more people who've solved it, then it's probably a good one to get started with.
+
+150
+00:12:04,120 --> 00:12:10,600
+And then if you look at the ones that are the most difficult, where only a handful or 100 people have
+
+151
+00:12:10,600 --> 00:12:13,870
+actually solved it, then that's really going to be a real challenge for you.
+
+152
+00:12:14,380 --> 00:12:20,110
+And the beauty of these problems is that they're more algorithm orientated.
+
+153
+00:12:20,380 --> 00:12:26,170
+So, you know, you could pretty much answer these or solve them using any programming language you
+
+154
+00:12:26,170 --> 00:12:32,520
+like as long as, you know, basically the fundamentals are all the same,
+
+155
+00:12:32,530 --> 00:12:32,830
+right?
+
+156
+00:12:33,280 --> 00:12:34,510
+So that's one thing.
+
+157
+00:12:34,510 --> 00:12:35,850
+Check out Project Euler.
+
+158
+00:12:36,160 --> 00:12:39,460
+The other one that I really recommend is something called CodeFights.
+
+159
+00:12:39,970 --> 00:12:47,020
+And what you can do is you can sign up for an account and select your language.
+
+160
+00:12:47,170 --> 00:12:53,530
+Now I know it says Swift 3, but the changes between Swift 3 and Swift 4 are so minimal
+
+161
+00:12:53,530 --> 00:12:56,140
+that this is really not going to affect you.
+
+162
+00:12:57,040 --> 00:13:01,300
+So just choose a swift 3 until they update to
+
+163
+00:13:01,300 --> 00:13:01,720
+Swift 4
+
+164
+00:13:01,720 --> 00:13:02,110
+I guess.
+
+165
+00:13:02,620 --> 00:13:09,580
+And then you can browse through the arcade where you've got some relatively simple problems.
+
+166
+00:13:09,940 --> 00:13:13,380
+And the beauty of this website is that they have a whole bunch of tests.
+
+167
+00:13:13,690 --> 00:13:21,670
+So it's kind of like test-driven development, but it's more about the algorithms that you can create.
+
+168
+00:13:22,600 --> 00:13:28,990
+So what I recommend is that if you're more or less a beginner/intermediate to start with their
+
+169
+00:13:28,990 --> 00:13:36,490
+arcade and work upwards. And then once you get a little bit better and more familiar with algorithms
+
+170
+00:13:36,490 --> 00:13:44,710
+to go for their challenges, and you can sort the challenges by difficulty and you can also view the
+
+171
+00:13:44,710 --> 00:13:47,600
+solutions after you've attempted it as well.
+
+172
+00:13:48,400 --> 00:13:56,140
+So this is a really nice way of practicing daily, weekly, monthly and getting better at, you know,
+
+173
+00:13:56,140 --> 00:13:59,930
+not just algorithms, but also things like UI and front-end.
+
+174
+00:14:00,580 --> 00:14:06,400
+Now, the final thing and probably the most important thing is, of course, to make apps.
+
+175
+00:14:06,700 --> 00:14:09,340
+You guys are on an app making course.
+
+176
+00:14:10,120 --> 00:14:17,170
+It's really important that you take these skills that you learn and you actually apply it to a problem
+
+177
+00:14:17,170 --> 00:14:24,250
+where I'm not specifically laying out, you know, the pathway, because this is essentially what you
+
+178
+00:14:24,250 --> 00:14:29,740
+have to do, whether if you become an independent developer, if you want to start a business or if
+
+179
+00:14:29,740 --> 00:14:35,320
+you're going to work at a startup or work in a tech company, you have to be able to figure things out
+
+180
+00:14:35,320 --> 00:14:40,300
+by yourself. And throughout the course I've been laying down some of these fundamentals, like how do
+
+181
+00:14:40,300 --> 00:14:42,010
+you get to the iOS docs?
+
+182
+00:14:42,220 --> 00:14:43,360
+How do you read them?
+
+183
+00:14:43,360 --> 00:14:44,470
+How do you interpret them?
+
+184
+00:14:44,470 --> 00:14:46,270
+How can you find example code?
+
+185
+00:14:46,510 --> 00:14:51,400
+How can you find open source libraries and how do you go through Stack Overflow?
+
+186
+00:14:52,180 --> 00:14:55,870
+And, you know, you don't have to make anything difficult.
+
+187
+00:14:55,870 --> 00:14:59,380
+Just try and build something that we haven't built before,
+
+188
+00:14:59,460 --> 00:15:06,520
+right? Maybe build a time up like an egg timer or maybe build something that you need specifically.
+
+189
+00:15:06,600 --> 00:15:15,510
+So recently I've been reading a book by Ray Dalio who is at the helm of one of the biggest and
+
+190
+00:15:15,510 --> 00:15:17,490
+most successful hedge funds.
+
+191
+00:15:17,760 --> 00:15:25,080
+And he was saying about how at Bridgewater they have this app, internal app called The Pain Button.
+
+192
+00:15:25,320 --> 00:15:31,980
+And what you do is that whenever you experience pain, be it emotional, intellectual or, you know,
+
+193
+00:15:31,980 --> 00:15:40,260
+or frustration, just to take out the app and log what that pain point was about so that you can come
+
+194
+00:15:40,260 --> 00:15:47,940
+back to it and develop processes or solutions or give feedback, basically catching those pain points
+
+195
+00:15:47,940 --> 00:15:50,830
+in the moment so that you can deal with them later.
+
+196
+00:15:51,660 --> 00:15:53,880
+And I thought this is a really, really good idea.
+
+197
+00:15:53,880 --> 00:15:59,040
+And I was browsing on the App Store and nobody seemed to have made this externally.
+
+198
+00:15:59,510 --> 00:16:05,070
+I know it's available to Bridgewater employees, but, you know, it seems pretty useful for everybody
+
+199
+00:16:05,070 --> 00:16:05,610
+else as well.
+
+200
+00:16:05,850 --> 00:16:10,190
+So if anybody is looking for an easy app to make, then this is pretty feasible.
+
+201
+00:16:10,680 --> 00:16:12,050
+I would recommend it.
+
+202
+00:16:12,330 --> 00:16:16,210
+And once you do make it, let me know because I will be downloading it.
+
+203
+00:16:16,230 --> 00:16:19,590
+So look for pains or ways of scratching your own itch.
+
+204
+00:16:20,040 --> 00:16:26,240
+Any small problem that you have, you can turn it into an app for practice. There's a really great website
+
+205
+00:16:26,240 --> 00:16:31,860
+that I'll link to in this AMA that's called, I think 365 projects.
+
+206
+00:16:32,250 --> 00:16:40,260
+And it was created by this lady who decided to make a new website every single day as practice to get
+
+207
+00:16:40,260 --> 00:16:42,060
+better at Web development.
+
+208
+00:16:42,750 --> 00:16:46,980
+And I think this is a really good idea for app developers as well.
+
+209
+00:16:46,990 --> 00:16:51,570
+You know, make a new app that takes maybe less than two hours.
+
+210
+00:16:51,690 --> 00:16:59,220
+Definitely feasible, by the way. Any sort of simple app that you can think of and make a new one every
+
+211
+00:16:59,220 --> 00:16:59,790
+single day,
+
+212
+00:16:59,800 --> 00:17:00,120
+right?
+
+213
+00:17:00,120 --> 00:17:03,210
+So you can look at her website for examples.
+
+214
+00:17:03,210 --> 00:17:11,359
+But some good ones are things like story cubes or a notepad or like a meditation music player.
+
+215
+00:17:11,760 --> 00:17:18,750
+And these are all really, really feasible and definitely within your abilities as a beginner to intermediate
+
+216
+00:17:19,050 --> 00:17:20,160
+iOS developer.
+
+217
+00:17:20,579 --> 00:17:20,910
+All right.
+
+218
+00:17:20,910 --> 00:17:24,780
+So next question from Alberto Martinez.
+
+219
+00:17:25,079 --> 00:17:26,810
+So thanks for the video.
+
+220
+00:17:26,819 --> 00:17:28,610
+Angela is very nice to see you on screen.
+
+221
+00:17:28,620 --> 00:17:29,020
+Hello.
+
+222
+00:17:29,040 --> 00:17:29,850
+Here I am again.
+
+223
+00:17:31,950 --> 00:17:34,820
+AMA question, how many languages do you speak?
+
+224
+00:17:34,830 --> 00:17:38,890
+I mean, both kinds of programming languages and real languages.
+
+225
+00:17:39,480 --> 00:17:40,310
+OK, cool.
+
+226
+00:17:40,320 --> 00:17:44,250
+So start with real languages is more tangible.
+
+227
+00:17:44,550 --> 00:17:51,570
+So I speak English obviously, and I speak Mandarin Chinese fluently.
+
+228
+00:17:51,570 --> 00:17:56,610
+I can read and write in both languages pretty effectively.
+
+229
+00:17:56,850 --> 00:18:03,780
+So the crazy thing that people tend to ask me on Twitter is where my accent is from.
+
+230
+00:18:03,930 --> 00:18:13,170
+And I know that it has distinct elements of an Australian accent, but I have actually sadly never been
+
+231
+00:18:13,170 --> 00:18:14,070
+to Australia.
+
+232
+00:18:14,550 --> 00:18:26,400
+So what I reckon is the deal is that sometimes when I watch something or when I talk to somebody extensively,
+
+233
+00:18:26,400 --> 00:18:33,090
+then I tend to pick up on their accent and that's just something that happens to me.
+
+234
+00:18:33,090 --> 00:18:33,930
+I don't know why.
+
+235
+00:18:34,260 --> 00:18:42,720
+And I think part of the problem or the solution is that when I first moved to the UK, when I was about
+
+236
+00:18:42,720 --> 00:18:51,300
+10 years old, I moved with my parents here and they didn't really think about teaching me any English
+
+237
+00:18:51,300 --> 00:18:52,380
+before then.
+
+238
+00:18:52,770 --> 00:18:56,820
+So I was kind of just dropped into this unfamiliar world.
+
+239
+00:18:57,270 --> 00:19:02,850
+And, you know, I think you guys who've been on the course for long enough know that I'm incredibly
+
+240
+00:19:02,850 --> 00:19:07,680
+sociable and I love talking to people and I love interacting with humans.
+
+241
+00:19:07,980 --> 00:19:14,340
+But here I am in this brand new country and I don't speak a single word, not even hello.
+
+242
+00:19:14,340 --> 00:19:16,200
+I didn't even know how to say that much.
+
+243
+00:19:16,650 --> 00:19:18,930
+So it was pretty painful.
+
+244
+00:19:18,930 --> 00:19:21,990
+But it was actually pretty fast, I would say
+
+245
+00:19:21,990 --> 00:19:27,450
+I picked up the language in less than six months because you're young and because you know...
+
+246
+00:19:27,720 --> 00:19:30,060
+and because you don't really have anything else to do,
+
+247
+00:19:30,060 --> 00:19:30,450
+right?
+
+248
+00:19:30,450 --> 00:19:35,400
+You just try to talk to people with sign language or when they point to a table and they said table,
+
+249
+00:19:35,640 --> 00:19:37,270
+you assume that's what they mean.
+
+250
+00:19:38,580 --> 00:19:45,000
+So I think that's probably one of the reasons why my accent is so fluid, because I was never really
+
+251
+00:19:45,000 --> 00:19:51,540
+taught English properly, mostly by feel like how a child would pick it up, although they say that
+
+252
+00:19:51,540 --> 00:19:56,430
+I was quite old at age 10 or 11 to pick up a new language.
+
+253
+00:19:56,430 --> 00:19:57,680
+But here we are.
+
+254
+00:19:57,690 --> 00:19:58,230
+So.
+
+255
+00:19:59,140 --> 00:20:02,980
+And now I'm kind of sad that my parents didn't, you know, move, why don't you move to Spain?
+
+256
+00:20:02,980 --> 00:20:08,130
+Why don't you move to, you know, Paris and then go to Germany, move to a different place every year?
+
+257
+00:20:08,140 --> 00:20:14,470
+I could speak five languages, but, hey, you know, they decide to go to a really dreary country and
+
+258
+00:20:14,470 --> 00:20:15,040
+here I am.
+
+259
+00:20:15,400 --> 00:20:22,900
+So, again, if you have any suggestions for better places for Angela to move to, please hit me up
+
+260
+00:20:22,900 --> 00:20:23,500
+on Twitter.
+
+261
+00:20:23,500 --> 00:20:26,170
+I'm looking to crowdsource this solution.
+
+262
+00:20:26,410 --> 00:20:31,210
+And, you know, I do a lot of flying around already to talk at conferences so it doesn't really matter
+
+263
+00:20:31,210 --> 00:20:32,270
+where I live anyways.
+
+264
+00:20:32,650 --> 00:20:38,040
+OK, so other than English and Chinese, I could also speak French and German.
+
+265
+00:20:38,440 --> 00:20:44,380
+I've been learning it for four or five years, but they're still not really all that great or as good
+
+266
+00:20:44,380 --> 00:20:45,970
+as like I'd like them to be.
+
+267
+00:20:46,690 --> 00:20:47,350
+So,
+
+268
+00:20:47,860 --> 00:20:54,700
+so unfortunately, I'm nowhere near being able to do AMAs in French or German anytime soon, but I'm
+
+269
+00:20:54,700 --> 00:20:55,480
+working on it.
+
+270
+00:20:55,480 --> 00:20:58,130
+So rest assured it's going to happen one day.
+
+271
+00:20:58,750 --> 00:21:00,830
+So what about programming languages?
+
+272
+00:21:00,910 --> 00:21:07,630
+So the first language that I learned was visual basic using the very friendly-looking visual studio,
+
+273
+00:21:08,110 --> 00:21:12,550
+and I think that was pretty easy to pick up on.
+
+274
+00:21:13,510 --> 00:21:21,250
+I think I had a really logical mind as a child and also a strangely I think I was strangely disciplined
+
+275
+00:21:21,250 --> 00:21:22,090
+as a child.
+
+276
+00:21:22,960 --> 00:21:30,100
+I mean, like the 11-year-old Angela was not outside playing around. She was like trying to build
+
+277
+00:21:30,100 --> 00:21:32,500
+a video game for like five hours a day.
+
+278
+00:21:32,860 --> 00:21:36,370
+So that's what I did during my summer holidays.
+
+279
+00:21:36,370 --> 00:21:37,980
+And, you know, here we are.
+
+280
+00:21:37,990 --> 00:21:39,430
+So I can't complain.
+
+281
+00:21:39,740 --> 00:21:46,150
+So after visual basic, I moved on to C because somebody told me that was a good foundation and that
+
+282
+00:21:46,150 --> 00:21:48,400
+person is probably just evil.
+
+283
+00:21:49,060 --> 00:21:57,490
+I don't know how many of you guys have learnt C, but for a 12-year-old, it is really hard, you know,
+
+284
+00:21:57,490 --> 00:21:58,570
+with pointers and everything.
+
+285
+00:21:58,600 --> 00:22:02,020
+I'm glad that I did it because it's like trial by fire.
+
+286
+00:22:02,230 --> 00:22:08,080
+And it gives you a really good basis for understanding every other language because it's quite low level,
+
+287
+00:22:08,080 --> 00:22:09,550
+it's quite close to the metal.
+
+288
+00:22:11,500 --> 00:22:19,900
+So after C was C++, because I wanted to be able to build real video games, not just like Brick
+
+289
+00:22:19,900 --> 00:22:20,470
+Breaker.
+
+290
+00:22:21,370 --> 00:22:29,380
+And then after that was Objective C, so when I wanted to build iOS apps and of course then it was Swift
+
+291
+00:22:29,590 --> 00:22:35,350
+and then we launched this company and then some clients wanted to be able to have a website with their
+
+292
+00:22:35,350 --> 00:22:35,800
+apps.
+
+293
+00:22:35,800 --> 00:22:39,760
+So I had to pick up JavaScript including a whole bunch of frameworks.
+
+294
+00:22:40,060 --> 00:22:46,990
+And I think, you know, in my experience, learning one real language, like knowing English and then
+
+295
+00:22:46,990 --> 00:22:54,760
+being able to speak German, it's a far bigger jump than, say, knowing an object-oriented language
+
+296
+00:22:54,760 --> 00:22:57,940
+like a Swift and then being able to jump to Java.
+
+297
+00:22:58,210 --> 00:23:04,030
+It's way, way easier because all the concepts are exactly the same.
+
+298
+00:23:04,030 --> 00:23:07,200
+And when you're programming, you're not talking right?
+
+299
+00:23:07,210 --> 00:23:08,920
+You don't have to...
+
+300
+00:23:08,980 --> 00:23:14,620
+you don't have to be able to, you don't have to convey your code in real-time to somebody that that's
+
+301
+00:23:14,620 --> 00:23:15,610
+just crazy.
+
+302
+00:23:15,760 --> 00:23:20,800
+So you can look up things like, you know what are delegates and protocols in Java? Oh, they're
+
+303
+00:23:20,830 --> 00:23:22,870
+similar to these things called interfaces.
+
+304
+00:23:23,080 --> 00:23:24,400
+And this is how you write it.
+
+305
+00:23:24,400 --> 00:23:25,420
+This is the syntax.
+
+306
+00:23:25,750 --> 00:23:27,610
+And oh, that looks really awesome.
+
+307
+00:23:27,820 --> 00:23:35,950
+And because you already know how it works and the abstract concept behind it, then you're pretty much
+
+308
+00:23:35,950 --> 00:23:36,610
+good to go.
+
+309
+00:23:36,610 --> 00:23:44,050
+And it's just changing a bracket here, substituting a semicolon for a space or, you know, it's really,
+
+310
+00:23:44,050 --> 00:23:48,030
+really way easier learning new programming languages.
+
+311
+00:23:48,040 --> 00:23:54,190
+And I hope that if Swift is your first programming language and it's really, really well suited to
+
+312
+00:23:54,190 --> 00:23:59,350
+be a first programming language. If it is indeed the first thing that you've learned in programming,
+
+313
+00:24:00,040 --> 00:24:08,020
+I do hope that you will go on to pick up other languages and be able to develop apps or websites or
+
+314
+00:24:08,020 --> 00:24:10,300
+programs in a whole bunch of different languages.
+
+315
+00:24:10,300 --> 00:24:16,300
+And you'll find that once you've mastered one language, it's really not that hard jumping to anything
+
+316
+00:24:16,300 --> 00:24:16,660
+else.
+
+317
+00:24:17,560 --> 00:24:22,630
+I mean, obviously, conceptually, programming languages can be placed into different camps.
+
+318
+00:24:23,350 --> 00:24:29,500
+So you've got a procedural, object-orientated and you know, some of these newer languages which are pretty
+
+319
+00:24:29,500 --> 00:24:31,360
+fancy but a little bit different.
+
+320
+00:24:32,260 --> 00:24:40,150
+At the end of the day, all you're trying to do is use the machine's processing power efficiently,
+
+321
+00:24:40,150 --> 00:24:47,860
+being able to communicate with the ones and zeros and get it to add, subtract, divide and do essentially
+
+322
+00:24:47,860 --> 00:24:48,640
+the same things.
+
+323
+00:24:48,790 --> 00:24:54,070
+So I remember there was this really good post on imager where it says if programming languages were
+
+324
+00:24:54,070 --> 00:24:56,320
+weapons, I'm definitely anti-gun.
+
+325
+00:24:56,320 --> 00:24:58,930
+But this is actually a really good post that sumarises
+
+326
+00:24:59,000 --> 00:25:02,480
+what each programming language would be if they were a gun.
+
+327
+00:25:02,780 --> 00:25:06,890
+So, for example, C would be a Garand issue rifle, old but reliable.
+
+328
+00:25:07,970 --> 00:25:14,270
+C++ is a set of nunchucks, powerful and impressive when wielded, but takes many years of pain to master.
+
+329
+00:25:14,270 --> 00:25:16,400
+And often you probably wish you were using something else.
+
+330
+00:25:17,210 --> 00:25:21,740
+So I don't know if you guys have ever played around with nunchucks, but my god, how many times you have
+
+331
+00:25:21,740 --> 00:25:24,230
+to hurt yourself before you actually understand how to use this thing.
+
+332
+00:25:25,460 --> 00:25:32,120
+C++ is always very similar. Perl is a Molotov cocktail is probably useful once, but a few people use it now.
+
+333
+00:25:33,350 --> 00:25:40,640
+Java is a belt-fed 240G automatic weapon where sometimes the belt has round, sometimes it doesn't.
+
+334
+00:25:40,640 --> 00:25:43,940
+And when it doesn't, during firing you get a null pointer exception.
+
+335
+00:25:44,210 --> 00:25:45,790
+The gun explodes and you die.
+
+336
+00:25:46,160 --> 00:25:46,490
+We don't...
+
+337
+00:25:46,520 --> 00:25:52,030
+So we don't have that problem as badly in Swift because of course we have optional rules.
+
+338
+00:25:52,340 --> 00:25:56,150
+So if you're good with optionals, then you shouldn't be getting this problem.
+
+339
+00:25:57,080 --> 00:26:02,510
+Scala is a variant of the two for e.g. Java, except the training manual is written in incomprehensible
+
+340
+00:26:02,510 --> 00:26:05,060
+dialect, which many suspect is just gibberish.
+
+341
+00:26:05,390 --> 00:26:06,100
+Totally true.
+
+342
+00:26:06,620 --> 00:26:07,760
+I tried to get into it once,
+
+343
+00:26:07,760 --> 00:26:09,120
+not quite sure what happened there.
+
+344
+00:26:10,190 --> 00:26:12,710
+JavaScript is a sword without hilt.
+
+345
+00:26:13,100 --> 00:26:13,730
+Oh my god,
+
+346
+00:26:13,730 --> 00:26:20,900
+if you go to JavaScript from Swift, I can assure you that you will feel scared like 50% of the
+
+347
+00:26:20,900 --> 00:26:21,320
+time.
+
+348
+00:26:21,740 --> 00:26:27,790
+You're like, wait, I can, I can do what? That's allowed?
+
+349
+00:26:28,160 --> 00:26:28,700
+Wait a second.
+
+350
+00:26:28,700 --> 00:26:33,730
+I can go outside of my array and it doesn't break and it doesn't let me know? What?
+
+351
+00:26:34,640 --> 00:26:35,600
+What the hell?
+
+352
+00:26:36,200 --> 00:26:36,980
+So yeah.
+
+353
+00:26:36,980 --> 00:26:44,870
+JavaScript. Scary, I think, is the is the word.
+
+354
+00:26:44,870 --> 00:26:49,670
+Bash is a cursed hammer, when welded everything looks like a nail, especially your thumb.
+
+355
+00:26:50,450 --> 00:26:54,650
+So if you guys have worked with the terminal and bash it's totally true.
+
+356
+00:26:55,070 --> 00:26:57,320
+Ruby is a ruby encrusted sword.
+
+357
+00:26:57,320 --> 00:27:00,140
+It's usually only used because of how shiny it is.
+
+358
+00:27:01,100 --> 00:27:02,360
+That's the impression I get as well.
+
+359
+00:27:02,870 --> 00:27:07,400
+C# is a powerful laser rifle strapped to a donkey, when taken off the donkey,
+
+360
+00:27:07,400 --> 00:27:09,800
+the laser doesn't seem to work as well.
+
+361
+00:27:11,470 --> 00:27:15,050
+And Lisp is a shiv, which comes in many forms.
+
+362
+00:27:15,070 --> 00:27:19,410
+Anyone who uses this is probably crazy and dangerous and I concur.
+
+363
+00:27:19,420 --> 00:27:25,150
+Everyone who I've met who uses Lisp as their main language, pretty crazy. And another really good one
+
+364
+00:27:25,150 --> 00:27:30,780
+that I came across at some point was GIT the princess! how to save the princess using 8 programming languages.
+
+365
+00:27:31,150 --> 00:27:35,920
+So, for example, you have JavaScript, you spent hours picking libraries, setting up node and building
+
+366
+00:27:35,920 --> 00:27:37,120
+up a framework for the castle.
+
+367
+00:27:37,480 --> 00:27:41,710
+By the time you're finished with the framework, the fort has been abandoned and the princess has moved
+
+368
+00:27:41,710 --> 00:27:42,640
+to another castle.
+
+369
+00:27:43,150 --> 00:27:50,140
+And the best part is when you get to the end. You have PHP. You have to rescue the princess in PHP and you
+
+370
+00:27:50,140 --> 00:27:51,640
+basically just give up and hang yourself.
+
+371
+00:27:52,210 --> 00:27:59,140
+So it's pretty funny. I'll link to all of these things if you guys want to have a bit of programming
+
+372
+00:27:59,140 --> 00:28:01,370
+humor to lighten your day.
+
+373
+00:28:01,750 --> 00:28:07,990
+So that was a pretty long answer to a really short question, but I hope I've clarified a few things.
+
+374
+00:28:08,740 --> 00:28:16,090
+So next question, Sinead. So completely random, but as a former doctor I would love to know how you manage,
+
+375
+00:28:16,090 --> 00:28:19,000
+how you eat when you're working long periods of time.
+
+376
+00:28:19,870 --> 00:28:22,030
+OK, so here's an interesting story.
+
+377
+00:28:22,060 --> 00:28:24,750
+I was really drawn to the idea of Soylent.
+
+378
+00:28:24,760 --> 00:28:33,130
+So for those of you guys who don't know, it's meant to be a nutritionally complete milk protein powder
+
+379
+00:28:33,130 --> 00:28:34,420
+shake, basically.
+
+380
+00:28:34,750 --> 00:28:37,060
+And it was a really, really cool idea.
+
+381
+00:28:37,060 --> 00:28:44,800
+You know, like what if I could just sit there and code for 12 hours straight without having to, you
+
+382
+00:28:44,800 --> 00:28:48,610
+know, spend half an hour on making or securing food?
+
+383
+00:28:48,820 --> 00:28:54,220
+What if I could just, like, shake something up and do this for a week and build some grand project
+
+384
+00:28:54,220 --> 00:28:58,120
+and I'll make, like, you know, the Angela blockchain by the end of it or something.
+
+385
+00:28:59,650 --> 00:29:06,010
+But the problem with it, if anybody tried it, is that it tastes horrible.
+
+386
+00:29:06,430 --> 00:29:09,610
+It tastes like this is the best way I can describe it.
+
+387
+00:29:09,610 --> 00:29:17,440
+It tastes like somebody took a cardboard box, soaked it in some old bath water and then got a Vita
+
+388
+00:29:17,440 --> 00:29:19,390
+mix and then blended it into a smoothie.
+
+389
+00:29:19,810 --> 00:29:22,800
+It tastes like it basically tastes like that.
+
+390
+00:29:23,440 --> 00:29:29,440
+I've heard that they've improved their formulas, but I just... I couldn't... I had to check all of the ones
+
+391
+00:29:29,440 --> 00:29:30,250
+I bought before
+
+392
+00:29:30,250 --> 00:29:34,570
+and it was it was just it was just awful, like it was completely unpalatable.
+
+393
+00:29:35,620 --> 00:29:38,380
+So I have no association with them.
+
+394
+00:29:38,380 --> 00:29:42,310
+I'm not advertising or not advertising, although I don't think that would be a very good advert.
+
+395
+00:29:43,300 --> 00:29:45,240
+But I thought it was awful.
+
+396
+00:29:45,250 --> 00:29:49,020
+So what else can you do?
+
+397
+00:29:49,060 --> 00:29:53,140
+What else can you eat to when you're working long periods of time?
+
+398
+00:29:53,140 --> 00:30:02,590
+So I am the proponent of high protein and low carbohydrate intake just because I find that carbs give
+
+399
+00:30:02,590 --> 00:30:10,330
+me carb coma and I can't concentrate as well and I can't work efficiently for long periods of time.
+
+400
+00:30:11,200 --> 00:30:16,930
+So very often in the morning, I tend to just start off my day with a can of sardines and throughout the
+
+401
+00:30:16,930 --> 00:30:18,520
+day I might have some protein shakes.
+
+402
+00:30:19,300 --> 00:30:22,300
+I'll probably end up having a proper lunch and a proper dinner.
+
+403
+00:30:22,570 --> 00:30:28,210
+But if I'm doing like a programming stint, like where some project has to be finished or has been done,
+
+404
+00:30:28,510 --> 00:30:34,540
+then I tend to do it during the night and I find that when it's dark, I need to eat less.
+
+405
+00:30:35,050 --> 00:30:37,120
+I don't know if that's true for everybody.
+
+406
+00:30:37,810 --> 00:30:42,940
+And I tend to just stick to protein shakes, which is probably not going to be terrible for a week,
+
+407
+00:30:42,940 --> 00:30:46,000
+but it's probably a bad idea if you do it any longer than that.
+
+408
+00:30:46,540 --> 00:30:50,670
+But again, I am not going to dish out any medical advice over the Internet.
+
+409
+00:30:51,040 --> 00:30:52,450
+Don't trust me on anything.
+
+410
+00:30:52,450 --> 00:30:55,320
+Always check your sources and ask your doctor.
+
+411
+00:30:55,660 --> 00:31:03,100
+But I think one of my biggest takeaways from this current year 2017, one of my most successful
+
+412
+00:31:03,430 --> 00:31:08,590
+body hack experiments has actually been quitting sugar.
+
+413
+00:31:08,590 --> 00:31:14,500
+So I came across this article I remember what it was called, and it seemed to present some really interesting
+
+414
+00:31:14,740 --> 00:31:15,820
+facts and findings.
+
+415
+00:31:15,820 --> 00:31:22,840
+And so I then went on to PubMed, did some research on my own and seemed and it seemed like this idea
+
+416
+00:31:22,840 --> 00:31:28,360
+of being off, not just refined sugar, but most sources of sugar is probably quite good for you in
+
+417
+00:31:28,360 --> 00:31:30,250
+terms of inflammation and everything else.
+
+418
+00:31:30,610 --> 00:31:38,200
+So for the last, I don't know, like four or five months now, I've been off sugar.
+
+419
+00:31:38,350 --> 00:31:45,610
+So I know it sounds really crazy, but sugar is a drug.
+
+420
+00:31:45,610 --> 00:31:50,320
+And I realized this when I first tried to get off it.
+
+421
+00:31:50,860 --> 00:31:56,320
+So previously I think I would probably have a granola in the morning, which I thought was really healthy,
+
+422
+00:31:56,710 --> 00:32:02,440
+and then I would probably have some chocolate around 11 o'clock, some more chocolate around 3:00,
+
+423
+00:32:02,470 --> 00:32:07,270
+and then I probably have dinner with some dessert, like a chocolate pudding.
+
+424
+00:32:07,360 --> 00:32:09,190
+You know, some of those things are my favorites.
+
+425
+00:32:10,620 --> 00:32:19,260
+And then one day I decided to just go cold turkey, basically just nothing, no refined sugar, no glucose,
+
+426
+00:32:19,260 --> 00:32:23,550
+dextrose, fructose, lactose, everything was off the table.
+
+427
+00:32:23,550 --> 00:32:27,960
+Anything that ended in an ozair sugar was off the menu.
+
+428
+00:32:29,250 --> 00:32:36,300
+And quite honestly, for the first two days, I had physical symptoms, like I felt fluey and I felt
+
+429
+00:32:36,300 --> 00:32:37,260
+like really crap.
+
+430
+00:32:38,670 --> 00:32:43,080
+And, you know, I was just like really nervous for no reason.
+
+431
+00:32:44,010 --> 00:32:51,300
+I mean, of course, there is a reason because, you know, I've been used to dosing myself
+
+432
+00:32:51,300 --> 00:32:54,450
+with sugar on like a six hourly basis.
+
+433
+00:32:54,450 --> 00:32:56,700
+And now I'm not eating sweet fruits,
+
+434
+00:32:56,700 --> 00:32:59,370
+I'm not eating anything with refined sugar
+
+435
+00:33:00,330 --> 00:33:02,070
+and it was a pretty big jump, I have to say.
+
+436
+00:33:02,070 --> 00:33:06,900
+But so I would say for the first week, the first two days were the worst.
+
+437
+00:33:06,930 --> 00:33:14,640
+They were they actually made me want to just to go back to normal and then three, four or five were
+
+438
+00:33:14,640 --> 00:33:15,730
+kind of meh.
+
+439
+00:33:16,140 --> 00:33:19,950
+But then on the seventh day was when
+
+440
+00:33:21,230 --> 00:33:30,650
+I woke up and I felt like as if these clouds in my head had just cleared and I felt mentally sharp and
+
+441
+00:33:30,650 --> 00:33:38,600
+I felt really, really productive and just like a level of mental clarity that I didn't have while I
+
+442
+00:33:38,600 --> 00:33:45,440
+was on sugar, I think, or had very infrequently. Previously what I used to think was just, you
+
+443
+00:33:45,440 --> 00:33:50,740
+know, tired or or stressed or irritated
+
+444
+00:33:50,750 --> 00:33:53,270
+it was actually all sugar cravings that were doing it.
+
+445
+00:33:53,270 --> 00:34:00,560
+And I now recognize it because, you know, if I have any sugar, you know, a significant amount of
+
+446
+00:34:00,560 --> 00:34:00,740
+it
+
+447
+00:34:01,160 --> 00:34:09,560
+and then after about five or six hours, predictably, I would feel nervous because I'm ready for my
+
+448
+00:34:09,560 --> 00:34:10,460
+next dose.
+
+449
+00:34:10,670 --> 00:34:12,020
+And it is that crazy.
+
+450
+00:34:12,020 --> 00:34:13,610
+It's like it's cocaine or heroin.
+
+451
+00:34:13,610 --> 00:34:15,860
+It's probably more addictive than both.
+
+452
+00:34:17,090 --> 00:34:23,449
+But that has been my experiment sort of body hack-wise last year, this year.
+
+453
+00:34:23,900 --> 00:34:33,530
+And it has been pretty dramatic, I can say, like I feel I feel more mentally alert.
+
+454
+00:34:33,530 --> 00:34:35,449
+I feel like I have more energy.
+
+455
+00:34:36,620 --> 00:34:46,159
+And I just generally feel like I'm performing at a higher level than I used to when I was
+
+456
+00:34:46,159 --> 00:34:47,830
+like full time on sugar.
+
+457
+00:34:48,320 --> 00:34:54,980
+So obviously, this is not, you know, medical advice or anything, but, you know, do your own research.
+
+458
+00:34:54,980 --> 00:35:00,740
+But I would say that it's it's an experiment that's well worth conducting, even if you don't, you
+
+459
+00:35:00,740 --> 00:35:03,380
+know, don't cut out fruits or don't cut out milk,
+
+460
+00:35:03,380 --> 00:35:10,280
+but if you just cut out refined sugar for like two weeks, you know, and you can stick to it, it's
+
+461
+00:35:10,320 --> 00:35:11,450
+it's pretty interesting.
+
+462
+00:35:11,450 --> 00:35:13,850
+The results, I would say it's worth a try.
+
+463
+00:35:14,030 --> 00:35:17,090
+OK, so we seem to be stuck on the food theme here.
+
+464
+00:35:17,420 --> 00:35:20,420
+But this is from Jonas Elholm.
+
+465
+00:35:21,200 --> 00:35:23,330
+Hey, Angela, I'm in.
+
+466
+00:35:23,360 --> 00:35:30,500
+My only question is how many cups of coffee in a row can a person handle a day? Five or ten
+
+467
+00:35:30,500 --> 00:35:34,430
+cups from a doctor's point of view, thanks for great setup
+
+468
+00:35:34,430 --> 00:35:40,550
+and UI. OK, cool, so I can't give medical advice over the Internet, speak to your own doctor.
+
+469
+00:35:40,790 --> 00:35:50,300
+But when I've had to make targets that are pretty much unrealistic and I'm doing these crazy coding
+
+470
+00:35:50,300 --> 00:36:01,010
+stunts and I need coffee, not really to stay awake, but more like liquid motivation because it was
+
+471
+00:36:01,010 --> 00:36:04,190
+just too daunting a task without it.
+
+472
+00:36:05,780 --> 00:36:10,340
+I've relied on an app that is called Caffeine Zone.
+
+473
+00:36:10,790 --> 00:36:14,210
+It looks really, really unappealing in terms of UI.
+
+474
+00:36:14,900 --> 00:36:22,250
+They obviously have not done the design modules in my course, but it was created by some professors
+
+475
+00:36:22,250 --> 00:36:26,780
+at Penn State University and it has a solid scientific backing to it.
+
+476
+00:36:27,290 --> 00:36:33,920
+So the way that it works is that you input how much caffeine you're consuming and they kind of estimate it
+
+477
+00:36:33,920 --> 00:36:36,890
+based on your drink and your drink size.
+
+478
+00:36:37,250 --> 00:36:45,200
+And then you input some personal details like how much do you weigh, etc. and they chart the halflife
+
+479
+00:36:45,200 --> 00:36:52,850
+decay of caffeine in your system so that once it falls below a certain threshold, they can actually
+
+480
+00:36:52,850 --> 00:37:00,530
+notify you and tell you to drink more coffee so that you will stay within that productive zone of caffeination,
+
+481
+00:37:00,720 --> 00:37:02,330
+whatever it may be for you.
+
+482
+00:37:02,840 --> 00:37:06,230
+And I've played around with this app quite a while.
+
+483
+00:37:06,230 --> 00:37:17,270
+I started using it back, way back, in med school, actually, and it has been quite an interesting experiment
+
+484
+00:37:17,270 --> 00:37:23,360
+and journey to keep yourself within a certain band of caffeine for a day at a time.
+
+485
+00:37:23,360 --> 00:37:27,800
+Obviously, you had to sleep at some point and your caffeine is going to get out of your blood.
+
+486
+00:37:29,150 --> 00:37:31,670
+But this was a cool experiment.
+
+487
+00:37:32,150 --> 00:37:35,600
+I think they have a free version with ads so you can check it out.
+
+488
+00:37:35,600 --> 00:37:43,220
+And if anybody wants to make this take on this project and build a better version with better UX and
+
+489
+00:37:43,220 --> 00:37:47,420
+better UI, then I will be your first downloader.
+
+490
+00:37:47,840 --> 00:37:51,830
+It is really useful for me, but I just can't get over how ugly it looks.
+
+491
+00:37:52,370 --> 00:37:59,510
+So if anybody's looking for project, here's one to not copy but be inspired by.
+
+492
+00:38:00,950 --> 00:38:01,730
+All right, cool.
+
+493
+00:38:01,730 --> 00:38:09,230
+So it is now getting dark in London and my team all look like they're ready to go to the pub.
+
+494
+00:38:09,740 --> 00:38:13,730
+So I think this is probably what we're going to call it a day for this month.
+
+495
+00:38:14,000 --> 00:38:20,720
+So next month, I have a secret surprise for all of you guys
+
+496
+00:38:20,770 --> 00:38:28,240
+who are on the course and it's going to be pretty awesome, and I know that it's going to make quite
+
+497
+00:38:28,240 --> 00:38:29,690
+a few of you quite happy.
+
+498
+00:38:29,890 --> 00:38:35,800
+So keep your eyes out for an email some point mid-December.
+
+499
+00:38:37,840 --> 00:38:40,150
+I won't give any more away than that.
+
+500
+00:38:40,150 --> 00:38:44,170
+But it has been good chatting with you guys.
+
+501
+00:38:44,530 --> 00:38:54,850
+As always, send your AMA questions in so you can comment below the announcement that I made for
+
+502
+00:38:54,850 --> 00:38:55,550
+this video,
+
+503
+00:38:56,050 --> 00:39:01,860
+or you can simply just add your question to the Q&A for this AMA lesson.
+
+504
+00:39:02,260 --> 00:39:03,790
+So that's all from me,
+
+505
+00:39:03,820 --> 00:39:06,260
+and I will hopefully see you next month.
+
+506
+00:39:06,880 --> 00:39:07,720
+Bye, guys.
+

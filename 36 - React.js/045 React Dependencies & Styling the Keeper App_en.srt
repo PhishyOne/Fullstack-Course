@@ -1,0 +1,756 @@
+1
+00:00:00,120 --> 00:00:00,460
+All right.
+
+2
+00:00:00,490 --> 00:00:07,140
+So now that we've got most of our functionality down, the next step is to tidy things up and try to make
+
+3
+00:00:07,140 --> 00:00:10,570
+the appearance of our app look a little bit better. Now
+
+4
+00:00:10,590 --> 00:00:15,900
+the end result that we're aiming for after all of our styling etc. is something like this.
+
+5
+00:00:15,900 --> 00:00:17,880
+We've got icons in place,
+
+6
+00:00:17,880 --> 00:00:22,050
+we've got expanding features for our inputs,
+
+7
+00:00:22,050 --> 00:00:28,830
+notice how this button also has a hover effect and also in our background we've got a little pattern
+
+8
+00:00:28,830 --> 00:00:30,320
+going on as well.
+
+9
+00:00:30,470 --> 00:00:36,540
+And in order to create these effects, we're going to be using some pre-built components by adding some
+
+10
+00:00:36,540 --> 00:00:38,070
+dependencies.
+
+11
+00:00:38,220 --> 00:00:44,250
+And even if you're working on your own local copy or on a previous version of the app, I recommend to
+
+12
+00:00:44,250 --> 00:00:51,430
+use this starting project or to download a fresh copy if you're working on your local environment.
+
+13
+00:00:51,510 --> 00:00:57,570
+And the reason being is that in the styles.css we've got a couple of changes and in the create
+
+14
+00:00:57,630 --> 00:01:00,870
+Area I've added a class name to our form.
+
+15
+00:01:00,990 --> 00:01:06,420
+So if you don't have the same one you might end up with weird looking UI that doesn't look the same
+
+16
+00:01:06,420 --> 00:01:07,320
+as the video.
+
+17
+00:01:07,380 --> 00:01:12,860
+So I recommend starting with the same sandbox and just forking a copy of it.
+
+18
+00:01:12,900 --> 00:01:14,460
+So go ahead and fork
+
+19
+00:01:14,460 --> 00:01:22,030
+the starting project. And the first thing that we're going to add is something called material UI.
+
+20
+00:01:22,080 --> 00:01:27,330
+So go ahead and click on the ad dependency button and search for material UI
+
+21
+00:01:27,690 --> 00:01:31,630
+and we're going to need the core component as well as the icons component.
+
+22
+00:01:31,650 --> 00:01:33,810
+So let's click on both of these,
+
+23
+00:01:36,420 --> 00:01:41,100
+material-ui/icons and material-ui/core.
+
+24
+00:01:41,100 --> 00:01:46,160
+Now if you're doing this locally then you can install both of these using npm.
+
+25
+00:01:46,320 --> 00:01:51,100
+And if you go over to the documentation for these pages you'll see how to do that
+
+26
+00:01:51,120 --> 00:01:52,380
+exactly.
+
+27
+00:01:52,380 --> 00:01:59,790
+Now material-ui are basically React components that have been pre-built so that we can simply just customize
+
+28
+00:02:00,150 --> 00:02:06,210
+and get hold of some of the functionality as well as modify some of the appearance so that we can create
+
+29
+00:02:06,240 --> 00:02:12,880
+our own apps much faster using Google's design concept which is called Material Design.
+
+30
+00:02:13,020 --> 00:02:21,390
+Now to start with let's go ahead and go to the components list and we're going to get hold of some icons.
+
+31
+00:02:21,390 --> 00:02:28,260
+So remember how we already installed material-ui/icons  and also material-ui/core then we
+
+32
+00:02:28,260 --> 00:02:34,520
+can simply just import the icons and go ahead and use them.
+
+33
+00:02:34,530 --> 00:02:41,640
+So if you take a look at the code here, it's as simple as importing an icon say for example the delete
+
+34
+00:02:41,640 --> 00:02:50,010
+forever icon from material-ui/icons/DeleteForever and then you get to simply use it as just
+
+35
+00:02:50,100 --> 00:02:52,110
+any other React component.
+
+36
+00:02:52,110 --> 00:02:55,620
+So let's try that out on our site.
+
+37
+00:02:55,900 --> 00:03:04,900
+The first thing I want to do is to simply change the delete button here from just the words delete which
+
+38
+00:03:04,900 --> 00:03:12,820
+is added inside this button to use an actual delete icon that comes from this material UI library.
+
+39
+00:03:12,820 --> 00:03:19,420
+We can find the full list of icons in their search page and I'm going to search for something to do
+
+40
+00:03:19,420 --> 00:03:20,750
+with delete.
+
+41
+00:03:20,770 --> 00:03:23,280
+So I think this will trash bin looks pretty good.
+
+42
+00:03:23,290 --> 00:03:29,670
+So that's the one that I want to use and I'm going to go ahead and just copy this line of code.
+
+43
+00:03:29,890 --> 00:03:37,720
+Now going back over to my note.jsx I can paste in this import statement and I can now use it
+
+44
+00:03:37,990 --> 00:03:40,410
+instead of my hardcoded text.
+
+45
+00:03:40,480 --> 00:03:46,650
+So I'm going to add a delete icon which is a self closing tag.
+
+46
+00:03:46,750 --> 00:03:52,380
+And now if I create a new note, you'll see that it has a little trash bin.
+
+47
+00:03:52,420 --> 00:04:00,280
+This is just how easy it is to actually use these components. And the benefit of using React Components
+
+48
+00:04:00,370 --> 00:04:08,070
+over other things such as bootstrap or fav icons is that in React we have our Javascript,
+
+49
+00:04:08,120 --> 00:04:13,170
+CSS and HTML pretty much all combined into one in each of these components.
+
+50
+00:04:13,600 --> 00:04:19,950
+So we can even add components that actually have functionality that we didn't even have to code up.
+
+51
+00:04:20,230 --> 00:04:27,640
+For example I want to change this Add button so that instead of saying the word add I want to use a
+
+52
+00:04:27,760 --> 00:04:30,370
+add icon from material icons.
+
+53
+00:04:30,520 --> 00:04:38,860
+See if you can pause the video and find an appropriate add icon that you can replace this word add with.
+
+54
+00:04:39,200 --> 00:04:44,480
+Pause the video now and give that a go.
+
+55
+00:04:44,530 --> 00:04:44,870
+All right.
+
+56
+00:04:44,890 --> 00:04:47,360
+So let's try and search for something.
+
+57
+00:04:48,340 --> 00:04:55,120
+Now I'm just going to choose this very simple add icon here and I'm going to copy the import statement
+
+58
+00:04:55,210 --> 00:04:58,220
+and add it to my createarea.
+
+59
+00:04:58,240 --> 00:05:05,260
+So now instead of this word add I'm going to use the add icon component.
+
+60
+00:05:05,530 --> 00:05:11,520
+And now when this refreshes, you can see we've got a big add sign in here.
+
+61
+00:05:11,560 --> 00:05:16,320
+Now if I had just used the plus sign you can see how it's very very tiny.
+
+62
+00:05:16,480 --> 00:05:21,460
+But instead I'm using the icon which should scale up.
+
+63
+00:05:21,460 --> 00:05:27,570
+Now notice how in the final version this add is a lot fancier, namely when I roll over it
+
+64
+00:05:27,610 --> 00:05:35,740
+it actually changes color but also when I actually click to expand this area it actually pops up with
+
+65
+00:05:35,740 --> 00:05:37,490
+a little animation.
+
+66
+00:05:37,630 --> 00:05:47,580
+So how can we do this? Well instead of using our own button which is a standard HTML button, we can
+
+67
+00:05:47,580 --> 00:05:54,930
+use it something called a floating aaction button that comes from the material UI package.
+
+68
+00:05:54,930 --> 00:06:00,900
+So if you go ahead and look through the inputs and buttons section you can see there's lots of different
+
+69
+00:06:00,900 --> 00:06:02,260
+types of buttons.
+
+70
+00:06:02,490 --> 00:06:08,130
+And the one that we want are these circular floating action buttons.
+
+71
+00:06:08,130 --> 00:06:15,810
+And in order to use it all we have to do is to import the floating action button which is called a fab
+
+72
+00:06:16,560 --> 00:06:25,610
+and let's go ahead and drop it into our create area component. And now instead of using a button I'm
+
+73
+00:06:25,620 --> 00:06:28,710
+simply going to change this component to a Fab.
+
+74
+00:06:28,740 --> 00:06:34,250
+So it was lowercase a and b an uppercase F which we imported here.
+
+75
+00:06:34,560 --> 00:06:40,170
+And you'll notice that there shouldn't be all that much change here other than the fact that when you
+
+76
+00:06:40,170 --> 00:06:43,110
+hover over it it's only changing color.
+
+77
+00:06:43,320 --> 00:06:50,430
+And this is because now instead of using our own buttons we're using a fab component from the material
+
+78
+00:06:50,430 --> 00:06:52,350
+UI library.
+
+79
+00:06:52,350 --> 00:06:59,720
+Now if in your case you don't actually see a yellow icon that's positioned here
+
+80
+00:06:59,910 --> 00:07:03,330
+then it might be that you've actually got a different stylesheet to me.
+
+81
+00:07:03,570 --> 00:07:10,020
+Remember in the beginning of the lesson I recommended to actually fork the starting version of this
+
+82
+00:07:10,080 --> 00:07:16,750
+project and it's because there were a couple of changes in the style sheets and in the create app where
+
+83
+00:07:16,770 --> 00:07:19,410
+I added a class name to the form.
+
+84
+00:07:19,410 --> 00:07:25,200
+So if you're seeing a grey button instead and it's positioned out of place then just simply go ahead and
+
+85
+00:07:25,200 --> 00:07:32,340
+copy this style sheet from these starting project and then go into the create area and update the form
+
+86
+00:07:32,400 --> 00:07:35,490
+so that you apply the class name to the form.
+
+87
+00:07:35,490 --> 00:07:40,980
+And this way we can actually apply the same styling to everything inside the form just as before.
+
+88
+00:07:41,520 --> 00:07:45,630
+But if you started out with the starting project then you shouldn't have any problems at all with the
+
+89
+00:07:45,630 --> 00:07:50,460
+styling. Go down on the material UI component.
+
+90
+00:07:50,460 --> 00:07:57,210
+You'll see a section which talks about the floating action button animating onto the screen as an expanding
+
+91
+00:07:57,210 --> 00:07:58,920
+piece of material.
+
+92
+00:07:58,920 --> 00:08:00,270
+And we can do this,
+
+93
+00:08:00,270 --> 00:08:02,790
+they say, using a zoom transition.
+
+94
+00:08:02,790 --> 00:08:09,900
+So if we take a peek at the code you can see that all that they've done is just wrapped that fab inside
+
+95
+00:08:09,960 --> 00:08:11,300
+a zoom component.
+
+96
+00:08:12,540 --> 00:08:15,270
+So if we search for a zoom component,
+
+97
+00:08:18,440 --> 00:08:20,450
+then we can learn how to use it.
+
+98
+00:08:20,450 --> 00:08:29,630
+So first let's go ahead and import it and put it at the top. And then we can go ahead and simply use
+
+99
+00:08:29,630 --> 00:08:32,350
+it with this in prop.
+
+100
+00:08:32,450 --> 00:08:34,840
+And this is a true or false boolean.
+
+101
+00:08:34,880 --> 00:08:39,490
+So if it's true the component will transition in, if it's false then it won't.
+
+102
+00:08:39,500 --> 00:08:43,250
+So let's go ahead and apply our zoom component here.
+
+103
+00:08:47,390 --> 00:08:56,830
+And place the closing tag around our fab and then we'll add that prop in to make it true.
+
+104
+00:08:56,900 --> 00:09:05,330
+Now whenever you refresh the app you can see that the fab actually will zoom in and in an animated way.
+
+105
+00:09:05,930 --> 00:09:12,320
+But it would be so much better if we can actually change our app so that we have the content input showing
+
+106
+00:09:12,320 --> 00:09:13,370
+by default
+
+107
+00:09:13,430 --> 00:09:22,250
+but when we click in the content input then do we actually show our title input and also let the button
+
+108
+00:09:22,280 --> 00:09:29,380
+zoom in. So this is something that we could do with conditional rendering and you already have enough
+
+109
+00:09:29,380 --> 00:09:37,510
+skills to be able to create this effect where the title input only shows if a particular state is set
+
+110
+00:09:37,510 --> 00:09:43,880
+to true and the button also only zooms in when that state is set to true.
+
+111
+00:09:43,900 --> 00:09:48,970
+So there's a couple of things that you have to think about in order to complete this challenge.
+
+112
+00:09:48,970 --> 00:09:58,630
+Firstly is that our content area is a text area and to begin with we want it to be a little bit smaller
+
+113
+00:09:58,630 --> 00:10:03,270
+than it is. So we can set this depending on the number of rows.
+
+114
+00:10:03,310 --> 00:10:05,650
+So we start out with a single row
+
+115
+00:10:05,650 --> 00:10:12,030
+then it becomes very small, but once it's expanded we wanted to take up three rows.
+
+116
+00:10:12,040 --> 00:10:18,010
+Now the other thing to think about is we want to get rid of this input area when this create area is
+
+117
+00:10:18,010 --> 00:10:19,370
+not expanded.
+
+118
+00:10:19,570 --> 00:10:23,880
+And only when it should expand do we actually insert the input back in.
+
+119
+00:10:24,550 --> 00:10:31,240
+So you'll have to conditionally check for some sort of state and render this input depending on that.
+
+120
+00:10:31,270 --> 00:10:37,450
+The final thing is we're going to also make this zoom in conditionally.
+
+121
+00:10:37,450 --> 00:10:42,620
+So to start off we won't have the fab and then only when it's zoomed in
+
+122
+00:10:42,670 --> 00:10:44,130
+do we set this to true
+
+123
+00:10:44,350 --> 00:10:51,220
+and we actually render the fab. So have to think about some of those things and take a look at this
+
+124
+00:10:51,280 --> 00:10:54,240
+behavior of expansion.
+
+125
+00:10:54,280 --> 00:11:00,910
+So starting out with just the text area, a single line and then when you click on it, it shows the title
+
+126
+00:11:00,910 --> 00:11:07,210
+input and the fab zooms in. Pause the video and see if you can complete this challenge using what you know
+
+127
+00:11:07,270 --> 00:11:12,410
+about conditional rendering.
+
+128
+00:11:12,610 --> 00:11:13,100
+All right.
+
+129
+00:11:13,140 --> 00:11:19,170
+So to solve this challenge the first thing we need to do is something that holds the state of whether
+
+130
+00:11:19,170 --> 00:11:21,390
+if I create area is expanded.
+
+131
+00:11:21,570 --> 00:11:27,600
+So let's create a constant and I'll call it isExpanded and I'll provide a function called set
+
+132
+00:11:27,600 --> 00:11:31,920
+Expanded and set that to use state.
+
+133
+00:11:31,950 --> 00:11:33,060
+Now to begin with
+
+134
+00:11:33,090 --> 00:11:40,440
+I want my isExpanded constant to be set to false because I don't want it to be expanded and it's only
+
+135
+00:11:40,770 --> 00:11:43,370
+when the textArea gets clicked on,
+
+136
+00:11:43,410 --> 00:11:45,810
+so let's add an onClick here,
+
+137
+00:11:46,050 --> 00:11:50,310
+then do we actually want to expand that area.
+
+138
+00:11:50,310 --> 00:11:59,480
+So I'll call a method called expand and I'll define that method just below here.
+
+139
+00:11:59,490 --> 00:12:06,250
+Now when this method is called, we're going to set the expanded too true.
+
+140
+00:12:06,440 --> 00:12:07,490
+So let's call set
+
+141
+00:12:07,490 --> 00:12:12,260
+Expanded and pass in true as the value.
+
+142
+00:12:12,380 --> 00:12:19,460
+Now when we click on the textArea isExpanded becomes true and we can now listen for that in order
+
+143
+00:12:19,460 --> 00:12:20,890
+to render the input.
+
+144
+00:12:20,930 --> 00:12:24,380
+So let's cut this out and add a set of curly braces.
+
+145
+00:12:24,680 --> 00:12:29,260
+If the isExpanded is true then we'll render the input,
+
+146
+00:12:29,720 --> 00:12:31,370
+otherwise we'll render nothing.
+
+147
+00:12:31,820 --> 00:12:38,150
+Now alternatively, you can use the syntax where we just have the double Ampersand and it does exactly
+
+148
+00:12:38,150 --> 00:12:44,370
+the same thing showing the input only when we click on this textArea.
+
+149
+00:12:44,390 --> 00:12:51,260
+Now the second thing we mentioned is that we want to change this rows to one to start off with and only
+
+150
+00:12:51,260 --> 00:12:56,450
+turn it to three when it's expanded. so let's check for is expanded.
+
+151
+00:12:56,450 --> 00:12:59,330
+If it's true then we'll render three rows
+
+152
+00:12:59,330 --> 00:13:01,310
+and if it's false will render one row.
+
+153
+00:13:01,760 --> 00:13:04,040
+So now it starts out being very compact
+
+154
+00:13:04,040 --> 00:13:06,650
+and when we click on it it expands.
+
+155
+00:13:06,650 --> 00:13:09,770
+The final thing to address is our fab button.
+
+156
+00:13:09,770 --> 00:13:15,600
+We only want it to show up and zoom in when it shows up only when it's expanded.
+
+157
+00:13:15,770 --> 00:13:21,380
+So instead of hard coding this is true, we're going to again use that isExpanded property.
+
+158
+00:13:21,530 --> 00:13:30,180
+So now we click on it and everything shows up like so. Did you manage to get that? If not be sure to review
+
+159
+00:13:30,180 --> 00:13:36,880
+the section on rendering components conditionally. Now at the very last icon
+
+160
+00:13:36,900 --> 00:13:40,560
+I want to add is to my keeper title up here.
+
+161
+00:13:41,160 --> 00:13:45,990
+So I want to use the highlight component that looks like this.
+
+162
+00:13:46,080 --> 00:13:55,240
+And so I'm just going to copy that and paste it into my header and use it inside this .
+
+163
+00:13:55,290 --> 00:14:05,520
+So let's go ahead and add it in here as a highlight icon and now we should be able to see the icon
+
+164
+00:14:05,700 --> 00:14:13,320
+alongside our title like so. The very final thing that you might notice that's different between this
+
+165
+00:14:13,320 --> 00:14:21,270
+version and our version is it's actually got a background image. To achieve this effect
+
+166
+00:14:21,270 --> 00:14:29,550
+you can use a website called transparenttextures.com and you can scroll through all of these textures to
+
+167
+00:14:29,550 --> 00:14:37,710
+find one that you like. And the one that I decided upon was this sort of boxy looking one that looks
+
+168
+00:14:37,710 --> 00:14:38,880
+like this.
+
+169
+00:14:38,940 --> 00:14:42,430
+It's called cubes and it's made by Sander Ottens.
+
+170
+00:14:42,690 --> 00:14:51,040
+And in order to use it, we can simply click on it and now we have that pattern saved as a URL.
+
+171
+00:14:51,390 --> 00:14:59,550
+If we go ahead and copy this entire URL where we set our background image then we can go into the
+
+172
+00:14:59,660 --> 00:15:04,630
+CSS and go ahead and add it to the body.
+
+173
+00:15:04,690 --> 00:15:12,470
+So in addition to having a background, it's also got a background image with a particular URL
+
+174
+00:15:12,550 --> 00:15:16,540
+and then let's just make sure we cap the end with a semicolon.
+
+175
+00:15:16,540 --> 00:15:22,990
+And once we hit save on our styles.css and refresh then you'll see that background image show up.
+
+176
+00:15:23,830 --> 00:15:30,190
+So now we have functionality as well as style. Now
+
+177
+00:15:30,240 --> 00:15:38,940
+you might notice that if you add a couple of notes and you go ahead and refresh the page, your notes
+
+178
+00:15:39,000 --> 00:15:40,440
+will disappear.
+
+179
+00:15:40,440 --> 00:15:46,090
+And the reason is because React as we mentioned is a front-end library.
+
+180
+00:15:46,230 --> 00:15:52,830
+It's responsible for creating these components, creating the functionality and the styling but it's not
+
+181
+00:15:52,890 --> 00:15:55,180
+responsible for saving your data.
+
+182
+00:15:55,200 --> 00:16:01,810
+So if you do want these things to be persisted then you'll have to review what you learned in our backend
+
+183
+00:16:01,880 --> 00:16:09,600
+modules with Node and with MongoDB if you wanted to be able to have a backend to your frontend
+
+184
+00:16:09,630 --> 00:16:17,120
+application. I hope you enjoyed building this project with me and you'll use what you've learned about
+
+185
+00:16:17,120 --> 00:16:22,350
+React in order to build even more awesome projects of your own.
+
+186
+00:16:22,370 --> 00:16:27,290
+I would love to see whatever it is that you build and congratulate you on your work.
+
+187
+00:16:27,800 --> 00:16:29,640
+So if you create something
+
+188
+00:16:29,780 --> 00:16:36,530
+be sure to let me know either via Twitter @yu_angela or in the Q/A section of the
+
+189
+00:16:36,530 --> 00:16:37,100
+lessons.
+

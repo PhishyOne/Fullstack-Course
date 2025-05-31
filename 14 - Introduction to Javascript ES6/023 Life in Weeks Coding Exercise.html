@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Assignment</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p, ul, ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      .code-snippet {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .code-block {
+        background-color: #fff;
+        color: #b4690e;
+        font-size: 90%;
+      }
+      .black-block {
+        color: #000000;
+      }
+      .italic-text {
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <h1 id="coding-title"></h1>
+    <div>
+      <h2>Instructions</h2>
+      <div id="coding-instructions"></div>
+    </div>
+    <div>
+      <h2>Test(s)</h2>
+      <div id="coding-tests"></div>
+    </div>
+    <div>
+      <h2>Solution(s)</h2>
+      <div id="coding-solutions"></div>
+    </div>
+
+    <script>
+      const quizData = {"title": "023 Life in Weeks Coding Exercise", "hasInstructions": true, "hasTests": true, "hasSolutions": true, "instructions": "<p>I was reading this article by <a href=\"https://waitbutwhy.com/2014/05/life-weeks.html\">Tim Urban - Your Life in Weeks</a> and realised just how little time we actually have.</p><p>In this challenge, you are going to create a function that tells us how many days, weeks and months we have left if we live until 90 years old.</p><p><br></p><p>It will take your current age as the input and console.logs a message with our time left in this format:</p><p><em>You have x days, y weeks, and z months left.</em></p><p>Where x, y and z are replaced with the actual calculated numbers.</p><p><br></p><p>For this challenge, assume there are <strong>365</strong> days in a year, <strong>52</strong> weeks in a year and <strong>12</strong> months in a year.</p><p><br></p><p><strong>IMPORTANT</strong> your<strong> console.log</strong> output should match the Example Output format exactly, even the positions of the commas and full stops.</p><p><strong>Example Input</strong></p><p>e.g. If you are 56 years old:</p><pre class=\"prettyprint linenums\">lifeInWeeks(56)</pre><p><strong>Example Output</strong></p><pre class=\"prettyprint linenums\">You have 12410 days, 1768 weeks, and 408 months left.</pre><p><strong>Hint</strong></p><ol><li><p>Try using <a href=\"https://repl.it/@appbrewery/Age-In-Weeks-Challenge\">this Repl.it playground</a> to test your code and see if the output is what you expect it to be. </p></li><li><p>Make sure your console.log output matches the example output precisely. The same capitalisation, the same spaces, commas and full stops.</p></li></ol>", "tests": [{"file_name": "evaluate.js", "content": "describe('lifeInWeeks()', function() {\n\n  it('Problem! The correct solution should be \"You have 14235 days, 2028 weeks, and 468 months left.\" When age is 51.', function() {\n    var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n    \n    lifeInWeeks(51);\n    \n    expect(stdout).toMatch(\"You have 14235 days, 2028 weeks, and 468 months left.\");\n\n  });\n\n  it('Problem! The correct solution should be \"You have 22630 days, 3224 weeks, and 744 months left.\" When age is 28.', function() {\n\n    var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n    \n     lifeInWeeks(28);\n    expect(stdout).toMatch(\"You have 22630 days, 3224 weeks, and 744 months left.\");\n  });\n\n  it('Problem! The correct solution should be \"You have 16425 days, 2340 weeks, and 540 months left.\" When age is 45.', function() {\n    var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n\n    lifeInWeeks(45);\n\n    expect(stdout).toMatch(\"You have 16425 days, 2340 weeks, and 540 months left.\");\n  });\n});\n", "key": 0.6676938378861754}], "solutions": [{"file_name": "index.js", "content": "function lifeInWeeks(age) {\n    \n    var remainingYears = 90 - age;\n    var months = remainingYears * 12;\n    var weeks = remainingYears * 52;\n    var days = remainingYears * 365;\n    \n    console.log(\"You have \" + days + \" days, \" + weeks + \" weeks, and \" + months + \" months left.\");\n}\n\n", "key": 0.1223514305238067}]};
+
+      function renderCodeList(rootElement, codeList, className, titlePrefix) {
+        for (var i = 0; i < codeList.length; i++) {
+          var elem = codeList[i];
+          var jsElem = document.createElement("div");
+          jsElem.className = className;
+          var jsElemTitle = document.createElement("h3");
+          jsElemTitle.innerHTML = titlePrefix + " " + (i + 1);
+          var jsElemBody = document.createElement("code");
+          jsElemBody.className = "code-block black-block";
+          jsElemBody.innerHTML = "<pre>" + elem.content + "</pre>";
+          jsElem.appendChild(jsElemTitle);
+          jsElem.appendChild(jsElemBody);
+          rootElement.appendChild(jsElem);
+        }
+      }
+      
+      function main() {
+        // display the assignment
+        var codingTitle = document.getElementById("coding-title");
+        codingTitle.innerHTML = quizData.title;
+        
+        var codingInstructions = document.getElementById("coding-instructions");
+        if (quizData.hasInstructions) {
+          codingInstructions.innerHTML = quizData.instructions;
+        } else {
+          codingInstructions.innerHTML = "<span class=\"italic-text\">" + quizData.instructions
+            + "</span>";
+        }
+
+        // display the test(s)
+        var codingTests = document.getElementById("coding-tests");
+        if (!quizData.hasTests) {
+          codingTests.innerHTML = "<span class=\"italic-text\">" + quizData.tests + "</span>";
+        } else {
+          renderCodeList(codingTests, quizData.tests, "coding-test", "Test");
+        }
+        
+
+        // display the solution(s)
+        var codingSolutions = document.getElementById("coding-solutions");
+        if (!quizData.hasSolutions) {
+          codingSolutions.innerHTML = "<span class=\"italic-text\">" + quizData.solutions + "</span>";
+        } else {
+          renderCodeList(codingSolutions, quizData.solutions, "coding-solution", "Solution");
+        }
+      }
+    </script>
+  </body>
+</html>

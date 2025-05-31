@@ -1,0 +1,648 @@
+1
+00:00:00,360 --> 00:00:03,700
+All right so the first thing is let's be on the same page.
+
+2
+00:00:03,750 --> 00:00:08,460
+If you head over to the course resources you'll find a link under this lesson.
+
+3
+00:00:08,460 --> 00:00:15,890
+And if you paste that link into your browser you'll be able to access this introduction to JSX sandbox.
+
+4
+00:00:15,900 --> 00:00:22,470
+Now when you're here, if you want to save your work that you do here then go ahead and fork it and log
+
+5
+00:00:22,470 --> 00:00:23,860
+in with GitHub.
+
+6
+00:00:23,970 --> 00:00:28,800
+If you don't have a GitHub account it's free to sign up and it's pretty useful as a developer
+
+7
+00:00:28,800 --> 00:00:31,650
+so I would recommend doing that anyways.
+
+8
+00:00:31,650 --> 00:00:39,420
+Now once you've done that the next step is to head over here inside Explorer so that you can see the
+
+9
+00:00:39,480 --> 00:00:41,850
+public and the source folders.
+
+10
+00:00:41,850 --> 00:00:49,950
+Notice how inside here we've already got three files. a blank index.js, a index.html
+
+11
+00:00:50,160 --> 00:00:53,230
+and a blank style.css.
+
+12
+00:00:53,250 --> 00:00:56,850
+So this should be pretty familiar to you by now.
+
+13
+00:00:56,850 --> 00:01:02,070
+If you look at the files the only one that has code in it is the index.html,
+
+14
+00:01:02,100 --> 00:01:04,519
+so this is our entry point. Here
+
+15
+00:01:04,530 --> 00:01:11,820
+all that we've created is just a really simple HTML backbone with a head section that links to the styles
+
+16
+00:01:11,820 --> 00:01:19,560
+.css file and a body section with a single div that has an id of route.
+
+17
+00:01:19,560 --> 00:01:26,520
+Now you're going to see this in pretty much any React app and by convention, we always create a div html
+
+18
+00:01:26,760 --> 00:01:29,010
+element that has an id of root.
+
+19
+00:01:29,100 --> 00:01:33,270
+And this is basically the root of your React application.
+
+20
+00:01:33,270 --> 00:01:39,330
+So everything that we create using React is going to be inserted inside this div.
+
+21
+00:01:39,330 --> 00:01:47,430
+Now at the very bottom just before our body ends we've got a script that links to our index.js
+
+22
+00:01:47,580 --> 00:01:53,800
+JavaScript file. And notice how at the moment our website doesn't really do anything yet.
+
+23
+00:01:53,820 --> 00:02:00,780
+And if you go ahead and open it up inside a new window, then you'll be able to see your website in all
+
+24
+00:02:00,780 --> 00:02:03,150
+of its glory or not.
+
+25
+00:02:03,150 --> 00:02:08,669
+The only thing that we've actually modified is the title which says React app.
+
+26
+00:02:08,669 --> 00:02:15,660
+So I want you to go ahead and update that title to say JSX which is gonna be the topic of today's
+
+27
+00:02:15,660 --> 00:02:21,940
+lesson. And once we refresh we'll see it updated over here.
+
+28
+00:02:21,940 --> 00:02:28,090
+I recommend collapsing this browser part because we're gonna be using this tab instead.
+
+29
+00:02:28,210 --> 00:02:34,750
+And we're going to give ourselves a little bit more extra space for coding by reducing the size of some
+
+30
+00:02:34,750 --> 00:02:41,450
+of these left and right hand panes. And the code that we're going to be writing is not within the index
+
+31
+00:02:41,450 --> 00:02:42,460
+.html,
+
+32
+00:02:42,520 --> 00:02:49,300
+we're not going to touch this HTML file ever again in fact. And all of our code is going to be written
+
+33
+00:02:49,420 --> 00:02:51,790
+in JavaScript using React.
+
+34
+00:02:51,790 --> 00:02:59,170
+So head over to the index.js file and the very first thing we're going to do is we're going to
+
+35
+00:02:59,260 --> 00:03:03,910
+require the React and the React dom modules.
+
+36
+00:03:04,510 --> 00:03:10,660
+So normally when we've been working with node as you've seen in the previous lessons, we've always had
+
+37
+00:03:10,660 --> 00:03:16,210
+to manually use the hyper terminal to install these dependencies.
+
+38
+00:03:16,210 --> 00:03:23,680
+But in code sandbox, it is as simple as simply searching for a dependency and then just clicking on it
+
+39
+00:03:23,770 --> 00:03:26,230
+for it to install into your project.
+
+40
+00:03:26,350 --> 00:03:29,470
+Once we've installed our dependencies, that's not enough.
+
+41
+00:03:29,470 --> 00:03:34,090
+We also have to require it inside the files that we need to use it in
+
+42
+00:03:34,090 --> 00:03:34,450
+right?
+
+43
+00:03:34,900 --> 00:03:38,350
+So let's go ahead and require these two dependencies.
+
+44
+00:03:38,350 --> 00:03:42,310
+The first one I'm going to create a variable called React
+
+45
+00:03:42,520 --> 00:03:51,560
+and this is going to be set equal to require. And we're simply going to specify that React module right
+
+46
+00:03:51,560 --> 00:03:58,430
+here that's been installed as the module that we're going to require and we're going to bind it to this
+
+47
+00:03:58,520 --> 00:04:00,750
+React keyword.
+
+48
+00:04:00,800 --> 00:04:05,980
+Now in addition I'm also going to do the same with our ReactDOM.
+
+49
+00:04:06,080 --> 00:04:16,760
+So require react-dom, all lowercase, and now we're able to actually use these two packages. In order
+
+50
+00:04:16,760 --> 00:04:21,440
+to use React to actually create something on screen,
+
+51
+00:04:21,500 --> 00:04:23,630
+we're going to use the render function.
+
+52
+00:04:23,780 --> 00:04:30,440
+So we're going to tap into this ReactDOM that we've created up here which of course gives us access
+
+53
+00:04:30,440 --> 00:04:38,940
+to the React dom module that comes from Facebook right here, and we're going to tap into its render function.
+
+54
+00:04:39,020 --> 00:04:48,680
+Now this render function as you can see takes three inputs. The first input is "WHAT TO SHOW".
+
+55
+00:04:48,680 --> 00:04:50,440
+And this is obviously not real code
+
+56
+00:04:50,450 --> 00:04:51,710
+I'm just showing you.
+
+57
+00:04:51,710 --> 00:04:54,190
+We're going to be fixing this a little bit later on.
+
+58
+00:04:54,470 --> 00:04:56,780
+Now after the comma
+
+59
+00:04:56,780 --> 00:05:05,510
+The next thing that we can add as an input to this render function is "WHERE TO SHOW IT". And finally we
+
+60
+00:05:05,510 --> 00:05:12,020
+can also add a optional callback to tell us when that render function has completed.
+
+61
+00:05:12,020 --> 00:05:17,360
+Now we don't need that functionality so we're gonna leave that third one out. But we do have to fix this
+
+62
+00:05:17,360 --> 00:05:23,930
+code because as you can see over here I'm getting problems after problems and basically the browser
+
+63
+00:05:23,930 --> 00:05:28,790
+is shouting at me as well telling me that there's a syntax error, but of course that's all because we've
+
+64
+00:05:28,790 --> 00:05:33,830
+got some pseudocode in here. So let's first think about what do we want to show.
+
+65
+00:05:33,860 --> 00:05:37,450
+Well at the moment our website is completely blank,
+
+66
+00:05:37,460 --> 00:05:39,140
+there's really nothing here.
+
+67
+00:05:39,230 --> 00:05:47,690
+So how about starting out with a simple h1 that just says the prerequisite Hello World.
+
+68
+00:05:47,720 --> 00:05:51,800
+Now the next thing is to specify where to show it.
+
+69
+00:05:52,220 --> 00:05:59,300
+So the location is going to be a particular HTML element that we're going to target inside our index
+
+70
+00:05:59,390 --> 00:06:00,690
+.html.
+
+71
+00:06:00,800 --> 00:06:06,320
+And if you've guessed this particular div as that target then you would have guessed right.
+
+72
+00:06:06,320 --> 00:06:13,280
+So let's go ahead and grab a reference to this div with the id of root. And can you remember how to
+
+73
+00:06:13,280 --> 00:06:14,210
+do that?
+
+74
+00:06:14,270 --> 00:06:20,210
+I know it's been a while since we've been writing plain old vanilla JavaScript, but see if you can remember
+
+75
+00:06:20,210 --> 00:06:26,710
+how to get access to that particular element using JavaScript.
+
+76
+00:06:26,880 --> 00:06:27,790
+All right.
+
+77
+00:06:27,800 --> 00:06:32,200
+Remember we have to tap in to the dom using that document keyword.
+
+78
+00:06:32,480 --> 00:06:40,280
+And then we use the method GetElementById and then inside a set of parentheses we get to specify
+
+79
+00:06:40,400 --> 00:06:48,950
+a element id, which of course is root. So let's go ahead and put that in there as a string.
+
+80
+00:06:49,470 --> 00:06:57,540
+And now if we take a look at our preview or at our website over here, you can see we've now injected
+
+81
+00:06:57,660 --> 00:07:05,010
+HTML into our web site even though we have not touched our HTML file at all.
+
+82
+00:07:05,010 --> 00:07:10,110
+And so already you've written a line of React code right here.
+
+83
+00:07:10,110 --> 00:07:20,910
+We've used the ReactDOM module's render method in order to display a h1 inside that root div.
+
+84
+00:07:21,120 --> 00:07:28,110
+And the really remarkable thing right here is that if you think about it, we're inside a JavaScript file
+
+85
+00:07:28,560 --> 00:07:38,730
+and we're able to write plain HTML without any sort of fancy angle brackets or for example the EJS
+
+86
+00:07:38,740 --> 00:07:44,550
+brackets or anything to denote that this is somehow not Javascript.
+
+87
+00:07:44,580 --> 00:07:47,190
+So what exactly is this magic?
+
+88
+00:07:47,190 --> 00:07:56,630
+Well this is what JSX does. React works by creating these JSX files, so files where we've got 
+
+89
+00:07:56,640 --> 00:08:05,670
+HTML right in the body of a JavaScript file. And what happened behind the scenes is that our HTML
+
+90
+00:08:05,820 --> 00:08:16,500
+is picked up by a compiler and it gets converted or compiled down to actual JavaScript. And the compiler
+
+91
+00:08:16,530 --> 00:08:20,690
+comes from including this React module right here.
+
+92
+00:08:21,090 --> 00:08:26,610
+So you can see that if I go ahead and comment this out then we're going to be getting some major problems
+
+93
+00:08:26,610 --> 00:08:27,560
+right here.
+
+94
+00:08:27,560 --> 00:08:33,690
+React is not defined and we no longer get our h1 being rendered.
+
+95
+00:08:33,690 --> 00:08:43,440
+So inside the React module, there is something called Babel. And Babel, as they tell you, is a JavaScript 
+
+96
+00:08:43,590 --> 00:08:54,510
+compiler. So it's able to take next generation JavaScript like ES 6, 7, 8 and compile it down
+
+97
+00:08:54,510 --> 00:08:58,920
+to a version of JavaScript that every browser can understand.
+
+98
+00:08:59,310 --> 00:09:05,240
+And this includes compiling JSX down to plain old JavaScript.
+
+99
+00:09:05,400 --> 00:09:11,130
+So if we head over to this section where it says 'Try it out', you actually get a side by side comparison
+
+100
+00:09:11,310 --> 00:09:18,690
+and we can write some next generation crazy code over here and through the use of Babel it gets converted
+
+101
+00:09:18,690 --> 00:09:24,270
+down into a version of JavaScript that can be read by every single browser,
+
+102
+00:09:24,270 --> 00:09:27,630
+even good old Internet Explorer.
+
+103
+00:09:27,690 --> 00:09:33,880
+So for example if I go ahead and just copy this line of code that I've written on line 4 and I paste
+
+104
+00:09:33,880 --> 00:09:42,180
+it in here on the left, you can see that once Babel is done its job it converts this into an actual line
+
+105
+00:09:42,270 --> 00:09:50,040
+of JavaScript code and it's able to create this h1 on the screen by using that create element method
+
+106
+00:09:50,070 --> 00:09:56,370
+that comes from vanilla JavaScript which we've already seen before in the MDN docs.
+
+107
+00:09:56,760 --> 00:10:08,130
+That means instead of having to write something like var h1 = document.createElement.
+
+108
+00:10:08,760 --> 00:10:14,730
+And then the element that we're going to create is of course an h1 and then we write something
+
+109
+00:10:14,730 --> 00:10:23,070
+like h1.innerHTML and set the content to be "Hello World!" as a string
+
+110
+00:10:23,070 --> 00:10:31,800
+and then finally we do something like document.getElementById and we specify the one with the
+
+111
+00:10:31,800 --> 00:10:39,060
+id of root and we go ahead and do that appendChild the method and we add in this h1 that
+
+112
+00:10:39,060 --> 00:10:40,560
+we've created just now.
+
+113
+00:10:40,590 --> 00:10:46,800
+So let's go ahead and comment this out and you can see that I've now got a 'Hello World'. And if I comment
+
+114
+00:10:46,800 --> 00:10:54,450
+it back in, you can see that I achieve the same result create an h1 with the word 'Hello World' in it with
+
+115
+00:10:54,450 --> 00:11:02,790
+the same outcome but one of these ways is very easily readable because we've got HTML embedded
+
+116
+00:11:02,880 --> 00:11:09,750
+inside some JavaScript and the other way is pure JavaScript but it takes three times as many lines to
+
+117
+00:11:09,750 --> 00:11:17,020
+write and it's a lot less easy to understand what's actually going on here, versus this right?
+
+118
+00:11:17,430 --> 00:11:25,410
+So we've already started seeing the beauty of React but Babel actually goes a lot further than just
+
+119
+00:11:25,470 --> 00:11:32,390
+rendering JSX, It allows us to use some next generation JavaScript,
+
+120
+00:11:32,430 --> 00:11:40,020
+so for example ES6 OR ES 2015. And we can use some of the new constructs that are available through
+
+121
+00:11:40,020 --> 00:11:47,560
+these new versions of JavaScript and it's able to compile it down into bog standard normal JavaScript.
+
+122
+00:11:48,380 --> 00:11:55,040
+So for example on the home page here where they're using that map function, the arrow function, all of
+
+123
+00:11:55,040 --> 00:12:03,260
+this gets converted down into browser compatible JavaScript so that every single browser is able to
+
+124
+00:12:03,260 --> 00:12:03,800
+render it.
+
+125
+00:12:05,060 --> 00:12:13,310
+So now when we're writing our code with the React module in place, we can write ES6 code without worrying
+
+126
+00:12:13,310 --> 00:12:19,370
+about whether if our grandma who has Internet Explorer 5 will actually be able to see our hard work
+
+127
+00:12:19,400 --> 00:12:24,050
+rendered, Babel and react will take care of all of that for us.
+
+128
+00:12:24,110 --> 00:12:31,720
+So that's why in this module, I'm going to be teaching you a lot more of the latest features of JavaScript
+
+129
+00:12:31,730 --> 00:12:39,560
+ES6 because we're actually able to be sure that it's not going to break because we've got all of
+
+130
+00:12:39,560 --> 00:12:45,140
+these modules in place that's going to take care of the rendering and compiling for us.
+
+131
+00:12:45,500 --> 00:12:51,170
+And one of the latest features to come to JavaScript is the import keyword.
+
+132
+00:12:51,170 --> 00:12:59,450
+So instead of requiring the React module and setting it to a variable and doing all of this, the new
+
+133
+00:12:59,450 --> 00:13:07,470
+way of doing it is to simply just import React from a particular module or a particular location,
+
+134
+00:13:07,490 --> 00:13:11,600
+so in our case it's still the React module right here.
+
+135
+00:13:11,600 --> 00:13:14,270
+We can do the same thing for our ReactDOM
+
+136
+00:13:14,270 --> 00:13:26,870
+so import ReactDOM from react-dom. By using import and the export keywords, we're able to modularise these
+
+137
+00:13:27,050 --> 00:13:32,220
+dependencies far better. We end up with code that's better organized.
+
+138
+00:13:32,390 --> 00:13:39,510
+And if you look through the curriculum now inside this React module, there's a dedicated JavaScript ES
+
+139
+00:13:39,520 --> 00:13:41,600
+6 lesson on this topic.
+
+140
+00:13:41,780 --> 00:13:46,540
+So I recommend continuing the lessons in the order that they're created in the curriculum.
+
+141
+00:13:46,640 --> 00:13:49,480
+But if you just can't wait to learn more about this
+
+142
+00:13:49,490 --> 00:13:55,910
+ES6 feature importing and exporting, then feel free to jump over there and head back over here once
+
+143
+00:13:55,910 --> 00:13:56,580
+you're done.
+
+144
+00:13:57,980 --> 00:14:07,310
+So now that we've used the ReactDOM render method to render this piece of HTML into our root div,
+
+145
+00:14:07,850 --> 00:14:18,350
+what if you had tried to add another HTML element like, 'This is a paragraph'? Well your code would crash
+
+146
+00:14:18,470 --> 00:14:20,920
+and you would have a lot of problems.
+
+147
+00:14:21,530 --> 00:14:23,330
+So what's the problem here?
+
+148
+00:14:23,990 --> 00:14:34,230
+Well the reason is that when we use this render method it can only take a single HTML element.
+
+149
+00:14:34,400 --> 00:14:41,020
+That means if you have two HTML elements back to back, then this is not going to work,
+
+150
+00:14:41,030 --> 00:14:50,210
+It's not going to be accepted. But we know that there's a really easy way of turning these two HTML elements
+
+151
+00:14:50,480 --> 00:14:59,130
+into one. Pause for a moment and have a think if you know how you might be able to do this. Well the solution
+
+152
+00:14:59,130 --> 00:15:01,300
+is actually really simple.
+
+153
+00:15:01,340 --> 00:15:12,260
+All we need to do is just simply to embed these two HTML  elements inside a single div element.
+
+154
+00:15:12,260 --> 00:15:18,950
+So if I go ahead and move this closing div bracket to the end of that closing paragraph bracket you
+
+155
+00:15:18,950 --> 00:15:25,270
+can see that now again we have one single HTML element right?
+
+156
+00:15:25,400 --> 00:15:31,510
+And anything that goes inside a div still counts as a single HTML  element.
+
+157
+00:15:31,520 --> 00:15:39,290
+So now we're able to render our h1 and our paragraph as well as as many elements as we want to cram
+
+158
+00:15:39,290 --> 00:15:48,600
+in here because we've now wrapped it inside a single div. That's how easy it is to start using React
+
+159
+00:15:48,840 --> 00:15:57,210
+to create our web pages to inject HTML inside JavaScript code and for it to be as easily readable
+
+160
+00:15:57,540 --> 00:16:01,370
+as any other HTML file. In the next lesson
+
+161
+00:16:01,380 --> 00:16:08,040
+I've got a challenge for you. Head over there and see if you can complete this challenge using what you've
+
+162
+00:16:08,040 --> 00:16:11,940
+learnt from this lesson. So for all of that and more, I'll see you there.
+

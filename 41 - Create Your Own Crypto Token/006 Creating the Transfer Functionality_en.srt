@@ -1,0 +1,944 @@
+1
+00:00:00,360 --> 00:00:08,730
+We've already managed to tackle two-thirds of our website, the faucetting, the ability to check for
+
+2
+00:00:08,730 --> 00:00:09,330
+balance.
+
+3
+00:00:09,870 --> 00:00:18,330
+The final section we want to tackle is to transfer some sort of amount from our account, so the user
+
+4
+00:00:18,330 --> 00:00:22,890
+who's either logged in or using the website, to another account.
+
+5
+00:00:23,520 --> 00:00:30,390
+And that's what we're going to be doing in this lesson. Heading back into our main.mo,
+
+6
+00:00:30,750 --> 00:00:35,820
+we're going to create a new public function and this one is going to be called transfer.
+
+7
+00:00:36,690 --> 00:00:42,000
+Again, let's make sure that we cap off the previous functions with any semicolons that we need.
+
+8
+00:00:42,390 --> 00:00:50,430
+And the first thing I want to show you within this is a bit of a demo, because we know that when we
+
+9
+00:00:50,430 --> 00:00:56,700
+use that shared message, we can get hold of the caller of the function.
+
+10
+00:00:57,300 --> 00:01:03,540
+But who is the caller when a function is being called from another function?
+
+11
+00:01:04,470 --> 00:01:12,060
+If I go ahead and just comment out all of this apart from a single return so that it doesn't get angry
+
+12
+00:01:12,060 --> 00:01:20,790
+at me, and I'm going to debug print who the message caller is in this case. From the transfer function,
+
+13
+00:01:20,790 --> 00:01:23,250
+I'm going to call the payout function.
+
+14
+00:01:23,760 --> 00:01:25,270
+What do you think will happen?
+
+15
+00:01:25,290 --> 00:01:27,120
+What do you think will actually get printed?
+
+16
+00:01:27,600 --> 00:01:28,560
+Let's hit save.
+
+17
+00:01:28,680 --> 00:01:30,840
+Let's deploy our canister.
+
+18
+00:01:31,380 --> 00:01:38,430
+And let's go ahead and check out what we're going to get printed in the console from our payOut function.
+
+19
+00:01:39,150 --> 00:01:46,290
+As we saw previously, we could call that function from the command line, in which case the msg.
+
+20
+00:01:46,290 --> 00:01:50,070
+caller is going to be our user principal ID.
+
+21
+00:01:50,670 --> 00:01:52,040
+So let's try that again.
+
+22
+00:01:52,050 --> 00:01:58,770
+I'm going to call dfx canister call token payOut.
+
+23
+00:01:59,580 --> 00:02:05,790
+And again, notice that you've got the correct spelling for your method.
+
+24
+00:02:06,570 --> 00:02:09,509
+In my case, I have a capital 'O' here for payOut.
+
+25
+00:02:09,990 --> 00:02:17,280
+So when I go ahead and hit enter, it's going to call this function and that msg.caller is going
+
+26
+00:02:17,280 --> 00:02:18,150
+to be logged here.
+
+27
+00:02:18,720 --> 00:02:23,100
+And as you can see, that is my user principal.
+
+28
+00:02:23,100 --> 00:02:28,740
+This is my principal ID for the user that controls this command line.
+
+29
+00:02:29,610 --> 00:02:35,700
+Now, the other way we saw that we could call this function was from our frontend.
+
+30
+00:02:36,330 --> 00:02:38,580
+We could go ahead and click on this button,
+
+31
+00:02:39,060 --> 00:02:42,300
+and when that's pressed, this function also gets triggered
+
+32
+00:02:42,480 --> 00:02:51,900
+but the caller in this case is the user that is using this frontend website, which is this ID.
+
+33
+00:02:52,980 --> 00:02:55,200
+So now we've got the final one.
+
+34
+00:02:55,200 --> 00:03:00,750
+What if we call this transfer method, which then calls the payOut method?
+
+35
+00:03:01,230 --> 00:03:04,830
+So in this case, who is the message caller?
+
+36
+00:03:05,340 --> 00:03:06,600
+Well, let's try that here.
+
+37
+00:03:06,600 --> 00:03:12,480
+So we're going to say dfx canister call token, which is the name of our canister, and then we're going
+
+38
+00:03:12,480 --> 00:03:15,540
+to call the name of the method, which is transfer.
+
+39
+00:03:16,620 --> 00:03:21,570
+Now when I go ahead and hit enter, it's going to trigger this function which is going to trigger
+
+40
+00:03:21,570 --> 00:03:24,810
+this function, which is going to print out the message
+
+41
+00:03:24,810 --> 00:03:25,410
+caller.
+
+42
+00:03:25,740 --> 00:03:30,290
+Now, I want you to just think for a moment, what is it going to print?
+
+43
+00:03:30,300 --> 00:03:32,100
+Who will be the caller?
+
+44
+00:03:32,880 --> 00:03:35,070
+Let's go ahead and hit enter and find out.
+
+45
+00:03:36,690 --> 00:03:43,650
+Well, you can see that this ID is neither the frontend principal ID when we clicked the button to call
+
+46
+00:03:43,650 --> 00:03:51,120
+that method, nor is it the user principal that we called previously from our command line.
+
+47
+00:03:51,930 --> 00:04:00,120
+Instead, it's this. And you might be a little bit familiar with this because every time we do dfx deploy,
+
+48
+00:04:00,570 --> 00:04:01,350
+you'll see it.
+
+49
+00:04:01,560 --> 00:04:05,610
+It says deploying all canisters. All canisters have been created.
+
+50
+00:04:06,120 --> 00:04:15,000
+And then it says something about upgrading code for canister token with the canister ID, and there it
+
+51
+00:04:15,000 --> 00:04:15,270
+is.
+
+52
+00:04:15,270 --> 00:04:16,920
+It matches this.
+
+53
+00:04:17,760 --> 00:04:26,130
+Essentially what's happening here is when you call a method from another method, it's this canister
+
+54
+00:04:26,400 --> 00:04:28,290
+that's actually calling this method.
+
+55
+00:04:28,740 --> 00:04:34,950
+So in this case, the msg.caller is this entire actor, this token canister.
+
+56
+00:04:35,820 --> 00:04:39,060
+That's why we get that canister ID being printed here.
+
+57
+00:04:39,810 --> 00:04:44,730
+This is really important in order for us to make our transfer function work.
+
+58
+00:04:45,390 --> 00:04:54,180
+Let's go ahead and restore some of this code for our faucet function and let's work on our transfer
+
+59
+00:04:54,180 --> 00:04:56,400
+function for real this time.
+
+60
+00:04:56,760 --> 00:04:59,610
+Firstly, we're also going to make this a public
+
+61
+00:04:59,770 --> 00:05:02,860
+shared function with the parameter msg.
+
+62
+00:05:03,580 --> 00:05:11,020
+And we're also going to give it a async return, which is going to be a piece of text similar to before.
+
+63
+00:05:12,040 --> 00:05:17,950
+Now, what do we want to do when we transfer some token from one account to another?
+
+64
+00:05:18,730 --> 00:05:27,310
+Well, we want to subtract the amount that they want to transfer from the account that's being transferred
+
+65
+00:05:27,310 --> 00:05:27,790
+from,
+
+66
+00:05:28,180 --> 00:05:32,500
+and then we want to add that amount to the account that's being transferred to.
+
+67
+00:05:33,190 --> 00:05:35,840
+Let's delete this line which we don't need.
+
+68
+00:05:35,890 --> 00:05:37,370
+That was just for testing
+
+69
+00:05:37,390 --> 00:05:43,780
+to show you what actually happens. In this transfer function, we need to add two parameters and that
+
+70
+00:05:43,780 --> 00:05:45,760
+is the to,
+
+71
+00:05:45,970 --> 00:05:51,250
+so who are we going to transfer to, which is going to be a principal ID type,
+
+72
+00:05:51,850 --> 00:05:58,510
+and then we also need to have the amount which is going to be the amount that we're going to transfer
+
+73
+00:05:58,840 --> 00:06:00,490
+to that particular account.
+
+74
+00:06:00,670 --> 00:06:05,410
+Now you'll notice that I don't have the transfer from in this function.
+
+75
+00:06:05,440 --> 00:06:06,340
+Why is that?
+
+76
+00:06:06,760 --> 00:06:09,580
+Well, the transfer from is going to be the message
+
+77
+00:06:09,580 --> 00:06:10,120
+caller.
+
+78
+00:06:10,450 --> 00:06:16,990
+So whoever triggers this function is going to be the one where the money is going to be taken from.
+
+79
+00:06:17,410 --> 00:06:23,140
+Because if you think about it, when we called this method from the frontend, when we clicked on that
+
+80
+00:06:23,140 --> 00:06:33,340
+button, the debug_show showed us that the msg.caller is the principal ID of the frontend user.
+
+81
+00:06:34,240 --> 00:06:40,000
+When we do that here, when we click on this button, it's also going to take the from account as the
+
+82
+00:06:40,000 --> 00:06:47,380
+principal of the person using the website and then they're going to provide the principal ID of the
+
+83
+00:06:47,380 --> 00:06:51,610
+account they want to transfer to, and the amount they want to transfer.
+
+84
+00:06:52,300 --> 00:06:55,060
+So then it's just a matter of a little bit of math.
+
+85
+00:06:55,300 --> 00:06:59,170
+The first thing we can figure out is what is the from balance?
+
+86
+00:06:59,290 --> 00:07:03,110
+So the person who is going to be doing the transfer.
+
+87
+00:07:03,550 --> 00:07:11,500
+Well, we can work that out by using our balanceOf method and we can pass in the msg.caller
+
+88
+00:07:11,500 --> 00:07:13,000
+as the principal.
+
+89
+00:07:13,300 --> 00:07:19,000
+Now, if you're worried about these error messages, it's because we're expecting a return here of type
+
+90
+00:07:19,000 --> 00:07:19,540
+text.
+
+91
+00:07:20,050 --> 00:07:27,640
+If we just add a return success at the very bottom, then we can actually write our code in peace.
+
+92
+00:07:29,230 --> 00:07:35,170
+Once we've gotten hold of the balance of the account we're transferring from, well then we can do
+
+93
+00:07:35,170 --> 00:07:43,780
+a quick check to see if the from balance is greater than the amount that we want to transfer because
+
+94
+00:07:43,780 --> 00:07:47,020
+otherwise we can't really do the transfer, right?
+
+95
+00:07:47,590 --> 00:07:50,980
+If they have enough money, we're going to return success.
+
+96
+00:07:51,400 --> 00:07:55,090
+But otherwise we're going to return insufficient funds.
+
+97
+00:07:58,460 --> 00:08:02,660
+And remember that this balanceOf returns asynchronously.
+
+98
+00:08:02,990 --> 00:08:08,690
+So in order to fix this error, we have to make sure we have the await in front here.
+
+99
+00:08:09,290 --> 00:08:16,220
+What we're doing here is we're going to get the balance of the caller of this transfer method, and we're
+
+100
+00:08:16,220 --> 00:08:18,200
+going to wait for it until it's done.
+
+101
+00:08:18,470 --> 00:08:23,450
+And then we're going to check to see if they actually have enough money, if they have more money than
+
+102
+00:08:23,450 --> 00:08:24,800
+they want to transfer.
+
+103
+00:08:25,580 --> 00:08:30,710
+And if they do, then we're going to actually make the transfer go through.
+
+104
+00:08:31,160 --> 00:08:33,650
+So what does that actually mean in terms of math?
+
+105
+00:08:33,679 --> 00:08:40,490
+Well, we're going to subtract this amount from their balance and add this amount to the person they
+
+106
+00:08:40,490 --> 00:08:41,750
+want to transfer to.
+
+107
+00:08:42,530 --> 00:08:43,309
+It's pretty simple.
+
+108
+00:08:43,309 --> 00:08:45,200
+Just a bit of addition and subtraction.
+
+109
+00:08:45,470 --> 00:08:47,090
+So let's create a new constant.
+
+110
+00:08:47,120 --> 00:08:55,400
+Let newFromBalance = fromBbalance - the amount.
+
+111
+00:08:55,790 --> 00:09:02,210
+And because Motoko thinks that this can go below zero, even though we definitely know it can't, we
+
+112
+00:09:02,210 --> 00:09:07,910
+have to add a data type explicitly here and that will make that warning go away.
+
+113
+00:09:08,810 --> 00:09:14,990
+Now, once we figured out the new balance of the account that we're transferring from, then we can
+
+114
+00:09:14,990 --> 00:09:23,210
+update our ledger of balances to this new amount for this user, which is msg.caller.
+
+115
+00:09:23,450 --> 00:09:30,740
+So we can say balances.put, and we're basically going to replace the entry here.
+
+116
+00:09:30,740 --> 00:09:37,430
+So we're going to put in the msg.caller's ID and then this is the key.
+
+117
+00:09:37,430 --> 00:09:42,740
+And then for them we're going to update their value to the newFromBalance.
+
+118
+00:09:43,550 --> 00:09:48,320
+And this basically just does the subtraction from the account.
+
+119
+00:09:49,040 --> 00:09:54,650
+The other aspect is to add the amount to the account that is being transferred to.
+
+120
+00:09:55,370 --> 00:10:03,260
+Let's first figure out what is the balance of the owner that we're transferring the money to. So we can
+
+121
+00:10:03,260 --> 00:10:12,560
+say let toBalance equal balanceOf, and then we pass in the principal ID, which comes from this to
+
+122
+00:10:12,560 --> 00:10:20,240
+here, which basically the user is actually going to type in or paste in. And it's going to be the long
+
+123
+00:10:20,240 --> 00:10:24,440
+form sort of principal ID of the account that they want to transfer to.
+
+124
+00:10:25,190 --> 00:10:32,390
+Now, once we figured out their balance and you'll notice that in our balanceOf method, we've already
+
+125
+00:10:32,390 --> 00:10:35,930
+taken care of the case where that user doesn't actually exist.
+
+126
+00:10:36,410 --> 00:10:39,650
+Then we're actually just going to assign them a balance of zero.
+
+127
+00:10:42,040 --> 00:10:48,150
+Once we've done that, the next step is to add the amount that we want to transfer,
+
+128
+00:10:48,160 --> 00:10:56,110
+so the new toBalance, which is the toBalance + the amount that we want to transfer.
+
+129
+00:10:56,590 --> 00:11:03,670
+And again, we have to await for the results of balanceOf before we can execute this line,
+
+130
+00:11:03,680 --> 00:11:07,270
+so adding the await keyword before the balanceOf.
+
+131
+00:11:07,960 --> 00:11:13,570
+And finally, we're going to put into our HashMap the new updated balance.
+
+132
+00:11:14,200 --> 00:11:24,880
+The key is the principal ID of the to account, and the value is the new toBalance. In those few lines
+
+133
+00:11:24,880 --> 00:11:25,580
+of code
+
+134
+00:11:25,600 --> 00:11:27,540
+we've just done a little bit of simple math.
+
+135
+00:11:27,550 --> 00:11:37,330
+We've subtracted the amount from the balance of the sender, and we have added the amount to the balance
+
+136
+00:11:37,720 --> 00:11:39,320
+of the recipient.
+
+137
+00:11:39,700 --> 00:11:46,920
+And then we've basically updated our ledger with this new information. And then we returned success
+
+138
+00:11:46,930 --> 00:11:53,740
+if they had enough balance, which means all of this should succeed, but otherwise we return insufficient
+
+139
+00:11:53,740 --> 00:11:54,160
+funds.
+
+140
+00:11:54,940 --> 00:12:02,380
+So now let's make sure that we hook this up with our frontend and that we actually call that method
+
+141
+00:12:02,380 --> 00:12:07,240
+in our handleClick. When the user presses the transfer button,
+
+142
+00:12:07,660 --> 00:12:14,830
+we want to call that method in our token canister, so let's import our token canister.
+
+143
+00:12:16,940 --> 00:12:21,410
+So ../ three of them /declarations/token.
+
+144
+00:12:22,130 --> 00:12:33,800
+And then we can call await token.transfer and I believe it is spelt lowercase. And then we have
+
+145
+00:12:33,800 --> 00:12:36,740
+to provide the two inputs that are required.
+
+146
+00:12:37,340 --> 00:12:46,610
+So the first one is the to. That is going to come from the first input field where we've got the transfer
+
+147
+00:12:46,610 --> 00:12:54,590
+to, which is this one here, and we're going to do this in the same way that we did for our balance
+
+148
+00:12:54,590 --> 00:12:55,190
+checking.
+
+149
+00:12:55,640 --> 00:12:59,150
+So we had a value and then we had an onChange listener.
+
+150
+00:12:59,720 --> 00:13:06,770
+So the first thing we need to use our useState hook in order to hook up our input so that it has a value
+
+151
+00:13:07,160 --> 00:13:09,350
+and it has an onChange listener.
+
+152
+00:13:10,640 --> 00:13:17,240
+The value is going to be tied to a constant, which I'm going to call the recipient
+
+153
+00:13:18,970 --> 00:13:19,170
+Id
+
+154
+00:13:20,290 --> 00:13:22,990
+and I'm going to have a setter called setId.
+
+155
+00:13:24,610 --> 00:13:27,520
+And this is going to of course, useState.
+
+156
+00:13:28,750 --> 00:13:32,760
+And we're going to set it to an initial value of an empty string.
+
+157
+00:13:33,700 --> 00:13:38,860
+So now we can set this value to the recipientId constant,
+
+158
+00:13:39,190 --> 00:13:47,920
+and when that gets changed, we're going to use that event listener to update the ID by using our set
+
+159
+00:13:47,920 --> 00:13:48,790
+Id setter.
+
+160
+00:13:49,270 --> 00:13:57,670
+And we're going to set it to the e.target.value, which will basically give us the value
+
+161
+00:13:57,970 --> 00:14:01,990
+of the input at the moment when it changes.
+
+162
+00:14:02,470 --> 00:14:04,700
+It's going to keep updating this recipientId
+
+163
+00:14:05,290 --> 00:14:13,750
+and then in the moment when we click on the button, then we'll be able to take the final value of the
+
+164
+00:14:13,750 --> 00:14:18,160
+recipientId and pass it over to that token.transfer method.
+
+165
+00:14:19,030 --> 00:14:22,030
+The other thing that we need to set up is the amount.
+
+166
+00:14:22,150 --> 00:14:23,980
+We're going to do something pretty similar.
+
+167
+00:14:24,010 --> 00:14:27,820
+We're going to have our value and we're going to have our onChange.
+
+168
+00:14:31,850 --> 00:14:35,090
+That means that we again have to set up a new constant.
+
+169
+00:14:35,180 --> 00:14:38,540
+So I'm going to call that the amount and setAmount.
+
+170
+00:14:41,300 --> 00:14:46,070
+And it's going to start off with a value of, again, an empty string.
+
+171
+00:14:46,550 --> 00:14:51,860
+And we can update this in here in the same way that we've done before.
+
+172
+00:14:55,570 --> 00:15:04,080
+And I've just noticed that I've misspelt my amount, so I have to make sure it's correct in both places,
+
+173
+00:15:04,090 --> 00:15:05,220
+otherwise it won't work.
+
+174
+00:15:11,130 --> 00:15:11,460
+All right.
+
+175
+00:15:11,460 --> 00:15:18,180
+So now we should be able to bring the values inside these inputs in, and I should be able to get hold
+
+176
+00:15:18,180 --> 00:15:21,570
+of it here and use it in my transfer function.
+
+177
+00:15:22,480 --> 00:15:29,020
+Now there's a couple of problems with using the recipientId or the amount straight from the inputs.
+
+178
+00:15:29,410 --> 00:15:36,130
+And this is because the amount is going to come in as a piece of text and we call the transfer function.
+
+179
+00:15:36,130 --> 00:15:38,200
+We actually need it to be a number.
+
+180
+00:15:38,650 --> 00:15:45,190
+And similarly, the recipientId needs to be a valid Principal type rather than a simple piece of text.
+
+181
+00:15:45,760 --> 00:15:49,930
+Let's go ahead and fix that by importing the Principal data type.
+
+182
+00:15:59,480 --> 00:16:07,280
+And let's go ahead and create the recipient as the Principal.fromText.
+
+183
+00:16:07,880 --> 00:16:12,680
+And then we're going to pass in the recipientId that we got from our state hook.
+
+184
+00:16:14,530 --> 00:16:23,500
+And similarly, we're going to convert our amount as a new constant amountToTransfer, and we're going
+
+185
+00:16:23,500 --> 00:16:27,580
+to convert it into a number from the string.
+
+186
+00:16:28,900 --> 00:16:36,310
+So now we can replace this recipientId with our new recipient const and the amount with our new amount
+
+187
+00:16:36,340 --> 00:16:37,720
+ToTransfer const.
+
+188
+00:16:38,170 --> 00:16:41,590
+And now, finally, we can test our code.
+
+189
+00:16:42,130 --> 00:16:44,020
+Make sure you run dfx deploy.
+
+190
+00:16:45,100 --> 00:16:47,500
+Let's copy the principal ID of the frontend.
+
+191
+00:16:49,060 --> 00:16:54,570
+If I first check my sender balance, you can see I've got zero DANG because we did dfx deploy
+
+192
+00:16:55,130 --> 00:16:56,670
+so the ledge has been reset.
+
+193
+00:16:56,680 --> 00:16:58,930
+So let's just reclaim it from the faucet.
+
+194
+00:16:59,290 --> 00:17:07,150
+And now if we check it, you can see we have 10,000 DANG. And I'm going to transfer it to my user's principal
+
+195
+00:17:07,150 --> 00:17:10,390
+ID and I'm going to transfer 50 DANG.
+
+196
+00:17:11,020 --> 00:17:19,089
+Now if I click transfer and if I check my balance again, you can see 50 has now been subtracted and
+
+197
+00:17:19,089 --> 00:17:24,730
+if I check the balance of the recipient, you can see that 50 has been added to its balance.
+
+198
+00:17:25,569 --> 00:17:28,240
+So our transfer method finally works.
+
+199
+00:17:29,080 --> 00:17:34,000
+Now that we've got the functionality down, let's go ahead and add some of the user experience touches
+
+200
+00:17:34,000 --> 00:17:36,160
+that'll improve the way that our website works.
+
+201
+00:17:36,730 --> 00:17:42,190
+Now the first thing we're going to do is we're going to make this button disabled when the transfer
+
+202
+00:17:42,190 --> 00:17:46,600
+is happening. And once we get the results back, then we can enable it again.
+
+203
+00:17:46,810 --> 00:17:51,100
+So we'll go ahead and set the disabled attribute to a new constant.
+
+204
+00:17:51,100 --> 00:17:56,230
+We'll call it isDisabled and we can create our constant up here.
+
+205
+00:17:59,020 --> 00:18:02,230
+And we'll also add a setter for setDisable.
+
+206
+00:18:06,600 --> 00:18:13,530
+And we'll start it out with false so that we can actually tap on the button, and then as soon as the button
+
+207
+00:18:13,530 --> 00:18:16,480
+gets clicked, we'll set it to true.
+
+208
+00:18:17,190 --> 00:18:23,160
+And once the process has completed, then we can set it back to false again.
+
+209
+00:18:24,720 --> 00:18:31,710
+In addition, when we call our token transfer, we actually get a result that comes back in the form
+
+210
+00:18:31,710 --> 00:18:32,400
+of text.
+
+211
+00:18:32,790 --> 00:18:37,170
+And if you remember, it can either be success or it can be insufficient funds.
+
+212
+00:18:37,650 --> 00:18:39,590
+Now we want to go ahead and capture that.
+
+213
+00:18:39,600 --> 00:18:47,610
+So let me create a const called result and set it equal to the result or the output of this transfer
+
+214
+00:18:47,610 --> 00:18:48,330
+function call.
+
+215
+00:18:48,600 --> 00:18:51,510
+Now we want to display that in a paragraph element.
+
+216
+00:18:51,690 --> 00:18:55,980
+So just above the last two divs, let's go ahead and add a paragraph element.
+
+217
+00:18:56,280 --> 00:19:00,150
+And inside this paragraph, we're going to add some feedback.
+
+218
+00:19:00,750 --> 00:19:03,840
+Now, this feedback is going to be a new constant,
+
+219
+00:19:13,600 --> 00:19:15,760
+starting out with an empty string.
+
+220
+00:19:15,880 --> 00:19:22,540
+But then as soon as we get the results back from our token.transfer, then we're going to set the feedback
+
+221
+00:19:22,540 --> 00:19:24,310
+to whatever that result is.
+
+222
+00:19:24,730 --> 00:19:31,450
+This feedback probably shouldn't exist to begin with, so we can create another const, which is called
+
+223
+00:19:31,450 --> 00:19:38,770
+isHidden, and we can use the setHidden setter to hide that paragraph element.
+
+224
+00:19:41,370 --> 00:19:43,680
+And it's going to start out with true.
+
+225
+00:19:44,190 --> 00:19:51,900
+So we're going to start out by having this paragraph element have a hidden attribute set to the constant
+
+226
+00:19:51,900 --> 00:19:53,160
+we've got isHidden.
+
+227
+00:19:54,000 --> 00:20:02,130
+And then as soon as we get our result back and we set our feedback, then we can go ahead and set the
+
+228
+00:20:02,130 --> 00:20:03,840
+hidden to false.
+
+229
+00:20:06,250 --> 00:20:12,310
+And the next time the user clicks on the button, we're going to set the hidden to true again.
+
+230
+00:20:14,930 --> 00:20:21,050
+So we can copy our principal ID, go back and try to make another transfer.
+
+231
+00:20:25,770 --> 00:20:32,940
+Click Transfer and you can see this time the transfer button goes gray and becomes disabled when that
+
+232
+00:20:32,940 --> 00:20:34,530
+process is going through.
+
+233
+00:20:34,920 --> 00:20:37,720
+And once it's done, it gives us success.
+
+234
+00:20:38,250 --> 00:20:43,920
+And if I try to transfer some amount that my account doesn't have, because remember, I only have 10,000
+
+235
+00:20:44,190 --> 00:20:50,010
+and I try to transfer, say, 100,000, then it's going to think a little bit and then it's going to tell
+
+236
+00:20:50,010 --> 00:20:51,270
+me insufficient funds.
+

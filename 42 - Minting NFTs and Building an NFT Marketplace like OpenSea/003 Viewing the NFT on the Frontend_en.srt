@@ -1,0 +1,920 @@
+1
+00:00:00,300 --> 00:00:07,710
+Now in the previous lesson, we created our NFT actor class and we saw that we were able to mint brand
+
+2
+00:00:07,710 --> 00:00:17,320
+new NFTs simply by passing in data for the name, the owner and the actual image data to this canister.
+
+3
+00:00:17,790 --> 00:00:23,550
+But of course, when we called these methods on the command line and when we got the results back,
+
+4
+00:00:23,880 --> 00:00:26,930
+the name and the owner are easy enough to read.
+
+5
+00:00:27,270 --> 00:00:33,150
+But the actual image, unless we're some sort of human computer, this is completely not understandable.
+
+6
+00:00:33,720 --> 00:00:39,120
+Let's try and get this to render on our frontend and to be displayed on our website.
+
+7
+00:00:39,780 --> 00:00:45,430
+So far we haven't really activated our frontend; we haven't actually seen what it looks like first.
+
+8
+00:00:45,480 --> 00:00:46,740
+Let's go ahead and do that.
+
+9
+00:00:47,100 --> 00:00:49,200
+We need to run our npm server.
+
+10
+00:00:49,440 --> 00:00:51,660
+So let's go ahead and do npm start.
+
+11
+00:00:53,360 --> 00:00:58,130
+And once that's up, we should be able to head over to localhost 8080
+
+12
+00:00:58,190 --> 00:01:00,500
+and it should show us our homepage.
+
+13
+00:01:01,040 --> 00:01:06,800
+So here we've got a header, we've got a footer, and we've got this image as our main homepage background
+
+14
+00:01:07,310 --> 00:01:12,260
+with all of the crypto dunks that I've created for you for this project.
+
+15
+00:01:13,070 --> 00:01:18,500
+If we go ahead and click on anything on the website, nothing is working right now.
+
+16
+00:01:18,950 --> 00:01:26,270
+So what we want to do, first of all, is to replace this home image with the image that we actually
+
+17
+00:01:26,270 --> 00:01:33,470
+uploaded when we used the command line code in our read me to deploy and mint this NFT.
+
+18
+00:01:33,800 --> 00:01:36,470
+So we want to see what this image actually looks like.
+
+19
+00:01:37,220 --> 00:01:43,430
+So to do that, we're going to head into our app component and we're going to comment out our home image
+
+20
+00:01:43,790 --> 00:01:47,660
+and replace it with the item component.
+
+21
+00:01:48,110 --> 00:01:52,640
+And as you type, it should start auto-suggesting this item component.
+
+22
+00:01:52,970 --> 00:01:58,220
+And if you select it and hit enter, it will automatically add the imports for you, which will save
+
+23
+00:01:58,220 --> 00:02:01,970
+you a little bit of headache and a little bit of potential for spelling mistakes.
+
+24
+00:02:02,360 --> 00:02:08,539
+Once we've done that, then we're going to head over into our item component and just quickly take a
+
+25
+00:02:08,539 --> 00:02:09,199
+look at it.
+
+26
+00:02:09,740 --> 00:02:12,140
+And I've kept the HTML relatively simple.
+
+27
+00:02:12,470 --> 00:02:16,310
+It's just going to display the image, the name and the owner.
+
+28
+00:02:16,820 --> 00:02:20,960
+And all of this is formatted in a cardlike structure.
+
+29
+00:02:21,380 --> 00:02:28,490
+So if we hit save and go over to our local host and hit refresh, you should be able to see it rendered
+
+30
+00:02:28,490 --> 00:02:29,270
+onscreen.
+
+31
+00:02:29,750 --> 00:02:31,220
+Now, don't worry about the layout and the centering.
+
+32
+00:02:31,750 --> 00:02:34,070
+We're going to deal with that a little bit later on.
+
+33
+00:02:34,310 --> 00:02:40,310
+But right now, what we're interested in is to replace these pieces of hardcoded data, including the
+
+34
+00:02:40,310 --> 00:02:50,420
+image which currently is just pulling our logo to the actual image and name and owner that we passed
+
+35
+00:02:50,420 --> 00:02:54,230
+in when we created and minted our NFT,
+
+36
+00:02:54,470 --> 00:03:03,980
+so all of this. In order to do that, we're going to pass in the ID of our canister as a prop to
+
+37
+00:03:03,980 --> 00:03:04,880
+this component.
+
+38
+00:03:05,420 --> 00:03:13,220
+If you go ahead and split off another terminal and run dfx canister ID and then the name of our canister,
+
+39
+00:03:13,220 --> 00:03:18,860
+which is called nft, then it will output the ID of our canister.
+
+40
+00:03:19,430 --> 00:03:26,240
+Once we've done that, let's go ahead and copy it and we're going to paste it into our app component.
+
+41
+00:03:26,750 --> 00:03:35,240
+So here I'm going to create a new constant which I'll call the NFTID. and I'm going to set it as
+
+42
+00:03:35,240 --> 00:03:38,330
+that string that I just copied from the command line.
+
+43
+00:03:38,960 --> 00:03:42,260
+Now I'm going to pass that in as the prop.
+
+44
+00:03:42,530 --> 00:03:50,360
+So I'm going to call this simply just the id and then I'm going to pass in this NFID as the prop.
+
+45
+00:03:51,200 --> 00:03:59,210
+That means over here in our item, we can tap into our props and we can get hold of our id by simply
+
+46
+00:03:59,480 --> 00:04:00,980
+calling props.id.
+
+47
+00:04:02,240 --> 00:04:08,270
+Now, we're going to use that a little bit later on in order to access that canister and to call the
+
+48
+00:04:08,270 --> 00:04:12,890
+methods on that canister, including getName, getOwner and getAsset.
+
+49
+00:04:13,430 --> 00:04:22,250
+But in order to be able to access that canister, we have to run a HTTP command to use hypertext transfer
+
+50
+00:04:22,250 --> 00:04:27,230
+protocol to fetch that canister on the Internet computer, blockchain.
+
+51
+00:04:27,740 --> 00:04:31,420
+In terms of working locally, that will be our local dfx.
+
+52
+00:04:32,030 --> 00:04:39,830
+So let's set this up by creating a new const which I'll call localHost, and I'm going to set
+
+53
+00:04:39,830 --> 00:04:43,940
+this up as the URL of our local host.
+
+54
+00:04:44,000 --> 00:04:52,190
+So I'll just copy and paste it in here. And then we're going to create a new HTTP agent, so we'll just
+
+55
+00:04:52,190 --> 00:04:53,270
+call it agent.
+
+56
+00:04:53,600 --> 00:05:01,400
+And this comes from an agent package that we installed when we initialized our project.
+
+57
+00:05:01,550 --> 00:05:08,600
+So this comes from Dfinity and it's there to help us run HTTP requests in order to get hold of canisters.
+
+58
+00:05:09,290 --> 00:05:20,240
+So the class is called HttpAgent and it's a capital H and lowercase ttp and then it's Agent.
+
+59
+00:05:20,750 --> 00:05:27,410
+And in order to use this, we, of course, have to import. The import statement...
+
+60
+00:05:27,650 --> 00:05:32,630
+be really careful not to make any typos because it's really, really easy.
+
+61
+00:05:32,990 --> 00:05:35,540
+Just take a look at what I'm writing.
+
+62
+00:05:36,140 --> 00:05:45,050
+It's again, capital H capital A; HttpAgent and from is going to be from @dfinity.
+
+63
+00:05:45,500 --> 00:05:48,500
+Again, another big potential for error.
+
+64
+00:05:48,620 --> 00:05:52,280
+So it's d-f-i-n-i-t y and then
+
+65
+00:05:52,390 --> 00:05:53,890
+/agent.
+
+66
+00:05:55,690 --> 00:05:59,650
+Now we can use that to create a new agent.
+
+67
+00:05:59,920 --> 00:06:06,310
+So the syntax is const agent = new HttpAgent.
+
+68
+00:06:07,540 --> 00:06:13,420
+And then we have to provide some initializes in the form of a JavaScript object.
+
+69
+00:06:13,990 --> 00:06:21,490
+And this is where we're going to pass our localhost that we constructed earlier on as the host property.
+
+70
+00:06:22,270 --> 00:06:26,050
+Basically, we're going to create a new HTTP agent which is going to make requests
+
+71
+00:06:26,470 --> 00:06:28,990
+and it's going to use the localhost.
+
+72
+00:06:32,370 --> 00:06:39,330
+Now the next thing we're going to do is to use this agent to fetch our nameOwner image. In order to
+
+73
+00:06:39,330 --> 00:06:44,910
+call the methods on our canister because they all return asynchronously,
+
+74
+00:06:45,210 --> 00:06:50,010
+that means we have to make these method calls inside an async function as well.
+
+75
+00:06:50,490 --> 00:06:56,280
+So I'm going to create a new async function, which I'm going to call loadNFT.
+
+76
+00:06:58,330 --> 00:07:06,400
+And inside this method, I'm going to use the agent to get hold of our NFT canister, which if you remember
+
+77
+00:07:06,400 --> 00:07:07,420
+is called an actor.
+
+78
+00:07:08,080 --> 00:07:16,780
+So let's create a const called NFTActor and this is going to be created through using an await
+
+79
+00:07:17,650 --> 00:07:21,880
+and the actor class from the dfinity agent.
+
+80
+00:07:22,210 --> 00:07:24,430
+So it's await Actor
+
+81
+00:07:25,240 --> 00:07:27,190
+.createActor.
+
+82
+00:07:29,070 --> 00:07:33,240
+And inside here we have to pass in two inputs.
+
+83
+00:07:34,080 --> 00:07:37,740
+The first input is going to be an idl factory.
+
+84
+00:07:38,280 --> 00:07:45,090
+So the idl factory lives inside the declarations folder. And we want to pass over the idl  factory
+
+85
+00:07:45,090 --> 00:07:47,010
+for our NFT canister.
+
+86
+00:07:47,640 --> 00:07:52,920
+If you take a look inside nft.did.js, you can see that here
+
+87
+00:07:53,070 --> 00:07:56,100
+the idlFactory is being created and exported.
+
+88
+00:07:56,700 --> 00:08:05,130
+And what it basically does is it gives our frontend a translated version of our Motoko backend so that
+
+89
+00:08:05,130 --> 00:08:11,310
+our JavaScript will know which method can be called in our NFT canister.
+
+90
+00:08:11,610 --> 00:08:18,030
+There's getAsset, getName and getOwner. And also what inputs are expected and what outputs will be
+
+91
+00:08:18,030 --> 00:08:18,660
+returned.
+
+92
+00:08:19,110 --> 00:08:24,060
+It's basically like a translator between our Motoko code and our JavaScript code.
+
+93
+00:08:24,780 --> 00:08:29,550
+We need to import this idlFactory and pass it in when we create our actor.
+
+94
+00:08:30,470 --> 00:08:31,970
+We're going to say import
+
+95
+00:08:33,929 --> 00:08:35,490
+idlFactory 
+
+96
+00:08:36,120 --> 00:08:36,870
+from...
+
+97
+00:08:37,169 --> 00:08:39,659
+And then we have to go up a few steps...
+
+98
+00:08:40,049 --> 00:08:47,420
+so ../ and then go to declarations and then go to the NFT declarations like
+
+99
+00:08:47,430 --> 00:08:47,970
+so.
+
+100
+00:08:49,210 --> 00:08:53,020
+And let's just check to make sure that we haven't made any typos.
+
+101
+00:08:54,130 --> 00:08:57,970
+It is in capital F, but lowercase idl.
+
+102
+00:08:58,750 --> 00:08:59,110
+Okay.
+
+103
+00:08:59,200 --> 00:09:05,230
+So now that we've got that, let's go ahead and create our actor by passing in that idlFactory.
+
+104
+00:09:05,890 --> 00:09:09,730
+And then the second input here will be any options,
+
+105
+00:09:09,970 --> 00:09:16,630
+so the agentOptions and the actorOptions. We're going to pass in the agent as the agent that we constructed
+
+106
+00:09:16,630 --> 00:09:23,040
+up here, our new HttpAgent, and then we're going to pass in our canister ID
+
+107
+00:09:24,720 --> 00:09:27,420
+as the one that we got from our props.
+
+108
+00:09:27,420 --> 00:09:33,990
+So we got it right here. Now because this is a piece of plain text, as you can see here, that's just
+
+109
+00:09:33,990 --> 00:09:35,010
+was passed over,
+
+110
+00:09:35,520 --> 00:09:38,250
+we have to turn this into an actual principal type.
+
+111
+00:09:38,610 --> 00:09:40,770
+So we've done this plenty of times before.
+
+112
+00:09:41,490 --> 00:09:49,170
+We have to first import the principal type from the dfinity module that we installed, and then we
+
+113
+00:09:49,170 --> 00:09:58,440
+use the principal.fromText method and wrap our props.id into that method.
+
+114
+00:09:58,800 --> 00:10:04,920
+And if there are no typos, then we should be able to pass that in as our canisterID.
+
+115
+00:10:07,090 --> 00:10:10,710
+So now is a question of when do we actually load our NFT?
+
+116
+00:10:10,720 --> 00:10:12,400
+When do we want to call this method?
+
+117
+00:10:13,030 --> 00:10:18,130
+Well, if you think about it, we only really want to call this once, and that's the first time this
+
+118
+00:10:18,130 --> 00:10:20,260
+item component gets rendered.
+
+119
+00:10:20,770 --> 00:10:22,900
+So that should ring some bells.
+
+120
+00:10:23,320 --> 00:10:26,920
+And the reason why I say that is because we've used this before.
+
+121
+00:10:27,370 --> 00:10:34,750
+We want to use the useEffect hook to pass in a JavaScript fat arrow function.
+
+122
+00:10:35,380 --> 00:10:36,440
+That's all it is,
+
+123
+00:10:36,460 --> 00:10:36,820
+right?
+
+124
+00:10:36,850 --> 00:10:39,880
+So inputs, fat arrow and then the body.
+
+125
+00:10:40,660 --> 00:10:48,460
+And then we want to add a comma after that first input, and add our second input, which is going to
+
+126
+00:10:48,490 --> 00:10:56,530
+be a empty array because this is what's monitored to see how many times the function in useEffect should
+
+127
+00:10:56,530 --> 00:10:57,100
+be called.
+
+128
+00:10:57,370 --> 00:11:01,870
+And if we leave it empty, then that means it's only going to be called the first time this component
+
+129
+00:11:01,870 --> 00:11:02,620
+gets rendered.
+
+130
+00:11:03,370 --> 00:11:07,270
+So now let's think about what to put inside this function.
+
+131
+00:11:07,720 --> 00:11:14,440
+And in our case, it's going to be to call the loadNFT method that we created right here.
+
+132
+00:11:17,100 --> 00:11:23,850
+Now that we've got pretty much all the setup done, the next step is to actually grab hold of the pieces
+
+133
+00:11:23,850 --> 00:11:27,540
+of data that we want from this NFT canister.
+
+134
+00:11:28,260 --> 00:11:36,540
+If we go ahead and say NFTActor., then we can call any of the methods that's inside this NFTActor.
+
+135
+00:11:36,990 --> 00:11:39,270
+So we can call, getName, getOwner and getAsset.
+
+136
+00:11:39,460 --> 00:11:40,770
+So I'm going to start from the top.
+
+137
+00:11:40,770 --> 00:11:43,080
+I'm going to call the getName method.
+
+138
+00:11:43,740 --> 00:11:48,960
+And remember because this is asynchronous, we have to use the await keyword in front of it.
+
+139
+00:11:49,530 --> 00:11:53,100
+And then I'm going to save it inside a const called name.
+
+140
+00:11:54,900 --> 00:12:03,690
+Once this name comes back, I want to use it to update my HTML so that instead of this hard-coded text
+
+141
+00:12:03,690 --> 00:12:09,510
+here, I want to be able to pass it in as a React state variable.
+
+142
+00:12:10,170 --> 00:12:15,090
+So I'm going to call it the name and it's crossed out because it doesn't exist right now.
+
+143
+00:12:15,390 --> 00:12:17,040
+So let's go ahead and create it.
+
+144
+00:12:17,430 --> 00:12:21,690
+And we're going to be using our use hooks that you've seen plenty of times now.
+
+145
+00:12:22,200 --> 00:12:27,860
+So it's going to be name and setName and it's going to useState.
+
+146
+00:12:27,870 --> 00:12:34,290
+And if we select it and hit enter, then it will automatically import it to this line here.
+
+147
+00:12:34,710 --> 00:12:38,850
+And we're going to say that the starting state will just be nothing.
+
+148
+00:12:38,880 --> 00:12:39,960
+It'll be undefined.
+
+149
+00:12:41,400 --> 00:12:48,230
+Once we've got this from NFTActor.getName, then let's go ahead and call setName and pass i
+
+150
+00:12:48,240 --> 00:12:50,340
+the result of this method call.
+
+151
+00:12:51,180 --> 00:12:58,650
+Now let's go ahead and hit save and take a look at our front-end and you should find that our name has
+
+152
+00:12:58,650 --> 00:13:04,440
+now been replaced from the previous, which I think was 321, to now 123,
+
+153
+00:13:04,740 --> 00:13:11,100
+which comes from that line in our read me when we initialized this new crypto dunk.
+
+154
+00:13:12,240 --> 00:13:17,950
+Now I want you to go ahead and try to do the same thing for the user ID.
+
+155
+00:13:18,720 --> 00:13:24,900
+Remember though, that in order for it to go in here, it should be in text format.
+
+156
+00:13:25,440 --> 00:13:31,770
+Whereas what you will receive from the NFT canister will be the principal format.
+
+157
+00:13:31,920 --> 00:13:37,410
+So just keep in mind that fact while you complete this challenge.
+
+158
+00:13:37,920 --> 00:13:42,450
+So try to do everything that we did for the name of the NFT,
+
+159
+00:13:42,810 --> 00:13:45,000
+but do it this time for the owner.
+
+160
+00:13:45,540 --> 00:13:52,110
+Pause the video and try to make this owner update to the actual owner ID of the NFT.
+
+161
+00:13:55,310 --> 00:13:55,650
+All right.
+
+162
+00:13:55,670 --> 00:14:00,920
+As we did before, we're going to create a new const which I'll call owner, and then we're going
+
+163
+00:14:00,920 --> 00:14:07,460
+to use await to call on our NFTActor and call the method getOwner.
+
+164
+00:14:07,670 --> 00:14:09,800
+At least I think that's what it's called.
+
+165
+00:14:10,130 --> 00:14:16,490
+Let's just make sure that we didn't make any typos here because the IDE tooling for Motoko is not that great.
+
+166
+00:14:16,490 --> 00:14:19,250
+It's not going to auto-suggest it or auto-fill it for us.
+
+167
+00:14:19,790 --> 00:14:27,590
+But once we got hold of that, we're going to call on a method that doesn't exist yet called setOwner
+
+168
+00:14:27,590 --> 00:14:32,270
+and pass in the owner. So it doesn't exist because we haven't created it.
+
+169
+00:14:32,900 --> 00:14:34,550
+I'm going to create it right here.
+
+170
+00:14:34,610 --> 00:14:36,680
+So owner and setOwner.
+
+171
+00:14:39,680 --> 00:14:43,160
+And again, I'm going to start off with an undefined state.
+
+172
+00:14:44,660 --> 00:14:49,790
+So now let's replace this part with what's inside our owner.
+
+173
+00:14:50,390 --> 00:14:56,570
+And as I said, remember that this will come back as a principal data type.
+
+174
+00:14:56,960 --> 00:15:03,620
+So in order to get it into an actual text format when we want to set it, what you have to do is to
+
+175
+00:15:03,620 --> 00:15:08,840
+use the method toText, which comes from that principal input.
+
+176
+00:15:08,990 --> 00:15:10,280
+And we've done this before.
+
+177
+00:15:10,340 --> 00:15:11,960
+So you should have seen this already.
+
+178
+00:15:12,260 --> 00:15:17,300
+But it's going to convert that principal data type into a text data type, which can then be used
+
+179
+00:15:17,300 --> 00:15:19,220
+by JavaScript to insert in here.
+
+180
+00:15:19,700 --> 00:15:22,310
+So let's hit save and let's check it out.
+
+181
+00:15:22,400 --> 00:15:28,730
+And if yours is as long as mine, then it probably means that you've got it set up correctly.
+
+182
+00:15:29,480 --> 00:15:33,430
+Now, the last thing we have to update is the image, which is a little bit tricky.
+
+183
+00:15:33,440 --> 00:15:34,640
+So we're going to do it together.
+
+184
+00:15:35,300 --> 00:15:42,770
+And in order to get the image to display, we have to convert that imageBytes, which currently is in
+
+185
+00:15:42,770 --> 00:15:53,330
+a format of an array of eight-bit numbers, into something that can be read as a URL by our image element
+
+186
+00:15:53,330 --> 00:15:53,690
+here.
+
+187
+00:15:54,260 --> 00:15:55,940
+So we have to set the source here.
+
+188
+00:15:57,630 --> 00:16:02,250
+The first thing we're going to do is we're going to create a new constant, which I'm going to call
+
+189
+00:16:02,580 --> 00:16:03,720
+imageData.
+
+190
+00:16:04,680 --> 00:16:11,340
+And this is going to come from our await NFTActor.getAsset
+
+191
+00:16:18,070 --> 00:16:23,560
+And that's going to call this method here, returning to us this array of eight-bit numbers.
+
+192
+00:16:24,370 --> 00:16:31,120
+And in order to get that to be recognizable by JavaScript, we have to convert it into what's called
+
+193
+00:16:31,120 --> 00:16:33,910
+a UInt8Array.
+
+194
+00:16:34,660 --> 00:16:42,070
+We can do that through using the new UInt8Array, and I'm not going to type it.
+
+195
+00:16:42,070 --> 00:16:46,690
+I'm just going to hit enter and get to auto-insert just to make sure I don't make any typos there.
+
+196
+00:16:47,110 --> 00:16:53,290
+And I'm going to pass in our image data that we got back from our back end in order to convert it into
+
+197
+00:16:53,290 --> 00:16:55,630
+this format that can be read by JavaScript.
+
+198
+00:16:56,080 --> 00:17:00,430
+So save that into another constant, which I'll call imageContent.
+
+199
+00:17:02,720 --> 00:17:07,609
+And finally, we're going to turn that imageContent into an actual URL.
+
+200
+00:17:08,240 --> 00:17:15,050
+So let's create a new const which I'll call image, and we're going to use the URL.createObject
+
+201
+00:17:15,050 --> 00:17:23,630
+URL in order to convert our imageContent into an actual object URL that can be used on the frontend.
+
+202
+00:17:24,410 --> 00:17:33,530
+This is going to be URL.createObjectURL and we're going to pass in our imageContent as
+
+203
+00:17:33,530 --> 00:17:35,270
+a blob data type.
+
+204
+00:17:35,990 --> 00:17:44,270
+The blob objects are this kind of really easy data type that can be converted from many different
+
+205
+00:17:44,270 --> 00:17:44,930
+formats.
+
+206
+00:17:45,350 --> 00:17:51,350
+We're actually converting an array of Nat eight numbers from our back end that's stored on the internet
+
+207
+00:17:51,350 --> 00:17:55,580
+computer blockchain into something that can be read by JavaScript.
+
+208
+00:17:56,210 --> 00:17:59,210
+Now here we need to create a new blob.
+
+209
+00:18:00,230 --> 00:18:08,450
+The syntax for creating a blob is to simply pass in an array, and optionally you can pass in some options,
+
+210
+00:18:08,450 --> 00:18:11,510
+such as the the data type that's stored in the blob.
+
+211
+00:18:12,200 --> 00:18:17,660
+And there are some examples on how to create a blob on the Mozilla developer docs.
+
+212
+00:18:18,230 --> 00:18:22,490
+So let's go ahead and try to use this format to create our blob.
+
+213
+00:18:23,270 --> 00:18:30,410
+So we're going to say new blob and then we're going to pass in an array, so open up some square brackets.
+
+214
+00:18:30,800 --> 00:18:38,870
+We're going to pass another imageContent and we're going to use .buffer to turn it into a array
+
+215
+00:18:38,870 --> 00:18:39,310
+buffer.
+
+216
+00:18:39,830 --> 00:18:42,980
+And then we're going to pass in some options.
+
+217
+00:18:43,580 --> 00:18:50,930
+We're going to open up some curly braces and use the type key to specify that these are going to be
+
+218
+00:18:51,410 --> 00:18:53,510
+image/png.
+
+219
+00:18:54,440 --> 00:18:59,120
+So now let's hit save and let's go ahead and set our image.
+
+220
+00:18:59,180 --> 00:19:05,570
+So setImage to image and let's add that up here.
+
+221
+00:19:05,990 --> 00:19:11,360
+So const image setImage = useState.
+
+222
+00:19:11,780 --> 00:19:13,790
+And again, setting it to empty.
+
+223
+00:19:14,390 --> 00:19:21,500
+And now down here in our image HTML, we'll replace our logo with that image that we created.
+
+224
+00:19:21,740 --> 00:19:31,130
+So let's hit save and let's go over to our OpenD and you can see here is our entire NFT item and for the
+
+225
+00:19:31,130 --> 00:19:35,540
+first time you can actually visualize the NFT as an image.
+
+226
+00:19:36,600 --> 00:19:37,250
+That's pretty cool.
+
+227
+00:19:37,260 --> 00:19:42,780
+We've got our name, we've got our owner, and we've got the image displayed on screen.
+
+228
+00:19:43,710 --> 00:19:51,480
+So now that we've seen how we can mint an NFT and display our NFT, the next step is to be able to allow
+
+229
+00:19:51,480 --> 00:19:57,960
+our users to mint their NFTs by uploading an image to our OpenD website.
+
+230
+00:19:58,500 --> 00:20:01,590
+So for all of that and more, I'll see you on the next lesson.
+

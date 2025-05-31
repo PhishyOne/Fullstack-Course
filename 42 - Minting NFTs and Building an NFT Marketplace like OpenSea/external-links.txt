@@ -1,0 +1,57 @@
+
+001 OpenSea
+https://opensea.io
+
+001 Demo-Bored-Ape-Contract-Address
+https://etherscan.io/address/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d
+
+001 IPFS
+https://ipfs.io
+
+001 Pixel-Art-Painter
+https://www.pixilart.com/
+
+002 Actor-Classes-Docs
+https://smartcontracts.org/docs/language-guide/actor-classes.html#actor_classes
+
+003 createObjectURL-Docs
+https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+
+003 Blob-Docs
+https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob
+
+003 useEffect-Hook-Docs
+https://reactjs.org/docs/hooks-effect.html
+
+004 react-hook-form-Docs
+https://react-hook-form.com/
+
+004 Array-Buffer-Docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
+
+004 Blob.arrayBuffer-Docs
+https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer
+
+004 Experimental-Cycles-Docs
+https://smartcontracts.org/docs/base-libraries/ExperimentalCycles.html
+
+005 Option-Docs
+https://smartcontracts.org/docs/base-libraries/Option.html
+
+006 Principal-Docs
+https://smartcontracts.org/docs/base-libraries/Principal.html
+
+006 Agent-rootKey-Docs
+https://erxue-5aaaa-aaaab-qaagq-cai.raw.ic0.app/agent/interfaces/Agent.html#rootKey
+
+007 Principal-Docs
+https://smartcontracts.org/docs/base-libraries/Principal.html
+
+009 HashMap-Docs
+https://smartcontracts.org/docs/base-libraries/HashMap.html
+
+009 List-Docs
+https://smartcontracts.org/docs/base-libraries/List.html
+
+009 Dfinity-Grants
+https://dfinity.org/grants/

@@ -1,0 +1,112 @@
+1
+00:00:00,590 --> 00:00:07,040
+Up till now we've seen that we can change the text inside the selected HTML element using this thing
+
+2
+00:00:07,040 --> 00:00:12,280
+called innerHTML, but there's actually another property that you can tap into,
+
+3
+00:00:12,440 --> 00:00:20,510
+and it's called the textContent. And it might seem at first glance that they do exactly the same thing,
+
+4
+00:00:20,630 --> 00:00:24,850
+they basically just change the text of whichever element that we select,
+
+5
+00:00:24,860 --> 00:00:25,260
+right?
+
+6
+00:00:25,340 --> 00:00:32,509
+But actually it's slightly different because the innerHTML does exactly what it says on the tin,
+
+7
+00:00:32,509 --> 00:00:37,420
+it actually gives you the HTML that's in between the element tags.
+
+8
+00:00:37,430 --> 00:00:42,860
+So for example if I tried to get the current value of the HTML, it's Hello.
+
+9
+00:00:43,250 --> 00:00:53,750
+But let's go into our code and if I add a strong tag around the word Hello, then I also get the strong
+
+10
+00:00:53,750 --> 00:00:59,990
+tags. But if I tried the same thing with textContent, then that's kind of exactly what it is,
+
+11
+00:00:59,990 --> 00:01:00,200
+right?
+
+12
+00:01:00,200 --> 00:01:02,980
+It just gives you the text content.
+
+13
+00:01:02,990 --> 00:01:11,450
+So what this means is that if you select the h1 element and then use innerHTML, then it will literally
+
+14
+00:01:11,750 --> 00:01:20,360
+give you all of the HTML that is inside that element tags, including any other HTML tags.
+
+15
+00:01:20,360 --> 00:01:26,490
+So this means that if you use innerHTML, you can also add HTML code on the fly.
+
+16
+00:01:26,720 --> 00:01:34,030
+So, for example, if we wanted our Hello to not only change its text to Good Bye,
+
+17
+00:01:34,190 --> 00:01:37,960
+but we also wanted that word to be emphasized,
+
+18
+00:01:38,030 --> 00:01:44,640
+so to be italicized effectively, then we can assign an em tag around the word,
+
+19
+00:01:44,630 --> 00:01:51,650
+and that goes into the innerHTML of the h1, and you can see that we changed the text and we also
+
+20
+00:01:51,650 --> 00:01:54,710
+applied that HTML element to the text.
+
+21
+00:01:54,710 --> 00:02:02,510
+But remember that when you're writing code like this, the HTML also has to go into quotation marks, because
+
+22
+00:02:02,510 --> 00:02:08,690
+the value has to be a string, because otherwise it's going to think it's Javascript code, and this is
+
+23
+00:02:08,690 --> 00:02:11,550
+certainly not Javascript code, right?
+
+24
+00:02:11,840 --> 00:02:15,550
+So remember that when you're changing this, be it innerHTML 
+
+25
+00:02:15,590 --> 00:02:19,990
+or the style value, you always have to specify it as a string.
+
+26
+00:02:20,210 --> 00:02:27,210
+So have a play around with that and see if that makes sense, and apply some HTML using your Javascript.
+
+27
+00:02:27,500 --> 00:02:32,540
+And in the next lesson we're going to talk about the last thing that we can manipulate which is the
+
+28
+00:02:32,660 --> 00:02:34,970
+attributes of each element.
+

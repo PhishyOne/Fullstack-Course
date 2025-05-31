@@ -1,0 +1,748 @@
+1
+00:00:00,390 --> 00:00:08,039
+So now that we've managed to create our new Internet computer decentralised app and we've managed to
+
+2
+00:00:08,039 --> 00:00:15,150
+get the frontend linked up and working, then it's time to actually make sure that we can persist the
+
+3
+00:00:15,150 --> 00:00:21,480
+data that the user types in and figure out how we're going to do our backend using Motoko.
+
+4
+00:00:22,020 --> 00:00:25,890
+Now if you didn't manage to get this working, don't continue.
+
+5
+00:00:25,920 --> 00:00:31,440
+Make sure that you go back to the previous lesson and get it actually up and running because none of
+
+6
+00:00:31,440 --> 00:00:34,740
+the things that we're going to be doing now is going to help this.
+
+7
+00:00:35,220 --> 00:00:40,350
+So if you don't see this running on your local host, go back to the previous lesson and try again from
+
+8
+00:00:40,350 --> 00:00:40,830
+the beginning.
+
+9
+00:00:40,830 --> 00:00:45,210
+You might have missed out something somewhere that's actually causing your problem.
+
+10
+00:00:46,140 --> 00:00:52,500
+But if you're seeing what I'm seeing and you managed to get the keeper app running on local host with
+
+11
+00:00:52,500 --> 00:00:57,030
+the frontend actually functioning, then we can proceed to the next step.
+
+12
+00:00:57,360 --> 00:01:06,460
+Coming back to our code, we're going to close down some of these files and go into our main.mo.
+
+13
+00:01:07,640 --> 00:01:13,290
+Now inside this, you've got the Hello world code, which is just there from the template, so we can
+
+14
+00:01:13,560 --> 00:01:14,970
+delete it entirely.
+
+15
+00:01:15,180 --> 00:01:21,060
+And let's go ahead and create our actor, which is our canister, again from scratch.
+
+16
+00:01:21,480 --> 00:01:23,550
+So I'm going to call dkeeper.
+
+17
+00:01:24,060 --> 00:01:29,520
+I'm just adding D to all the decentralized apps that we're creating, but keep the naming that I've
+
+18
+00:01:29,520 --> 00:01:34,050
+got just so that when we do issue commands and stuff, we're all using the same thing and we're not
+
+19
+00:01:34,050 --> 00:01:36,450
+getting confused by some of these naming things.
+
+20
+00:01:36,750 --> 00:01:40,740
+When you create your own custom projects later on, feel free to name it whatever you want.
+
+21
+00:01:41,010 --> 00:01:47,550
+But for now, just continue and use the terrible names I come up with. Inside our new actor
+
+22
+00:01:47,910 --> 00:01:51,630
+we're going to create a new data type.
+
+23
+00:01:52,290 --> 00:01:59,730
+This data type is going to be of type Note and this is basically the way that we create a new data type
+
+24
+00:01:59,730 --> 00:02:05,880
+to represent the kind of data that will be stored in each of these notes.
+
+25
+00:02:06,450 --> 00:02:10,139
+And as you can see, it's just the title and some content.
+
+26
+00:02:10,560 --> 00:02:14,670
+So this data type is going to be pretty simple as well.
+
+27
+00:02:15,120 --> 00:02:20,310
+So you're going to write the type keyword and then Note, and then we're going to use an equal sign
+
+28
+00:02:20,400 --> 00:02:22,980
+and open up a set of curly braces.
+
+29
+00:02:23,670 --> 00:02:26,910
+Now we'll get to add the components that make up a note.
+
+30
+00:02:27,060 --> 00:02:36,330
+So it's going to be a title, which is going to be of type text and some content, which is also going
+
+31
+00:02:36,330 --> 00:02:37,740
+to be of type text.
+
+32
+00:02:38,430 --> 00:02:44,640
+Cut those off with some semicolons and now we've got a new data type created in Motoko.
+
+33
+00:02:45,150 --> 00:02:47,250
+The syntax can be a little weird.
+
+34
+00:02:47,790 --> 00:02:53,250
+It's a little bit different from JavaScript how we would create new objects, but it's not too big a
+
+35
+00:02:53,250 --> 00:02:59,130
+difference and you can pretty much see what's going on here because we need to access this type from
+
+36
+00:02:59,130 --> 00:03:00,750
+the JavaScript side as well,
+
+37
+00:03:01,140 --> 00:03:05,550
+it's a good idea to add the public keyword to the front of it.
+
+38
+00:03:05,850 --> 00:03:11,910
+This way when we're writing our code in our index.js or inside our components, then we'll actually
+
+39
+00:03:11,910 --> 00:03:15,390
+be able to see this data type and be able to use it there as well.
+
+40
+00:03:15,570 --> 00:03:21,360
+Now next, we're going to create our new variable, which is going to be called notes.
+
+41
+00:03:22,140 --> 00:03:32,340
+And this variable is going to have a data type of a list, which is kind of similar to the arrays that
+
+42
+00:03:32,340 --> 00:03:36,030
+we've been working with in JavaScript, but also a little bit different.
+
+43
+00:03:36,030 --> 00:03:38,520
+And I'll point out the differences later on.
+
+44
+00:03:39,270 --> 00:03:43,590
+Now the list is going to contain note type.
+
+45
+00:03:44,250 --> 00:03:51,360
+So to specify that in this data type, we have to write a list, .list, and then open up some angle
+
+46
+00:03:51,360 --> 00:03:56,610
+brackets and say that it will contain note objects inside this list.
+
+47
+00:03:57,810 --> 00:04:01,350
+Now we're going to start it off as a empty list for now,
+
+48
+00:04:01,350 --> 00:04:09,360
+so we'll just say List.nil and again, specify that it is going to be nil, but it's a nil note
+
+49
+00:04:09,360 --> 00:04:15,690
+object and then we add a set of parentheses and this will create a new list object.
+
+50
+00:04:16,290 --> 00:04:20,550
+Now you'll see a red underline here saying unbound variable list
+
+51
+00:04:20,550 --> 00:04:24,840
+and this is because in order to use some of its functionality,
+
+52
+00:04:24,840 --> 00:04:31,500
+so if we use list dot something, we're no longer using it as a type, but we're using some of its methods.
+
+53
+00:04:31,500 --> 00:04:33,540
+So we have to import it basically.
+
+54
+00:04:34,080 --> 00:04:46,020
+So we can just copy that and then say import list from the Motoko base library and the list module and
+
+55
+00:04:46,020 --> 00:04:48,300
+now you can see those errors disappear.
+
+56
+00:04:49,080 --> 00:04:57,150
+So here we've basically created the equivalent of an array of note objects, but in this case, it's
+
+57
+00:04:57,150 --> 00:04:59,850
+actually a list that contains objects
+
+58
+00:04:59,970 --> 00:05:01,410
+of type note.
+
+59
+00:05:02,100 --> 00:05:09,330
+Now we're going to create our public function and our function is going to be called createNote and
+
+60
+00:05:09,330 --> 00:05:17,250
+it's going to allow us to send over some titleText from the JavaScript side when the user enters it
+
+61
+00:05:17,250 --> 00:05:21,570
+into the text field and also send over some contentText.
+
+62
+00:05:22,770 --> 00:05:30,990
+And once we've gotten hold of that, then we can create a new note so we can say let new note be of
+
+63
+00:05:30,990 --> 00:05:32,340
+type note.
+
+64
+00:05:33,610 --> 00:05:38,200
+And we can use the equal = { to set it.
+
+65
+00:05:38,680 --> 00:05:42,880
+So we're going to set the title attribute to equal,
+
+66
+00:05:43,150 --> 00:05:46,540
+so notice here we've got equal when we're creating the new note.
+
+67
+00:05:46,840 --> 00:05:52,070
+And here when we're declaring the type, we've got the semicolon to specify the data type.
+
+68
+00:05:52,090 --> 00:05:53,240
+So a little bit different,
+
+69
+00:05:53,260 --> 00:05:54,010
+just be careful.
+
+70
+00:05:54,220 --> 00:05:58,210
+And we're going to set the title attribute to the titleText that was sent over
+
+71
+00:05:58,870 --> 00:06:05,470
+and the content attribute is going to equal the contentText that gets sent over.
+
+72
+00:06:06,160 --> 00:06:13,660
+And now here we've created our new note from whatever data was added to the input when this method was
+
+73
+00:06:13,660 --> 00:06:16,900
+called from the JavaScript side.
+
+74
+00:06:17,170 --> 00:06:23,470
+And finally, what we have to do is to add this new note to this list of notes.
+
+75
+00:06:23,650 --> 00:06:30,280
+And if we take a look in the dfinity documentation and we go to this list type, you can see that
+
+76
+00:06:30,280 --> 00:06:33,250
+we've used the nil to create an empty list.
+
+77
+00:06:33,730 --> 00:06:41,050
+And we're now going to use the push to add the new note to the list.
+
+78
+00:06:41,290 --> 00:06:44,350
+And you can see it happens by pre-pending a value.
+
+79
+00:06:44,350 --> 00:06:47,320
+So it's going to get added to the beginning of the list.
+
+80
+00:06:47,440 --> 00:06:52,270
+And this is a little bit different from how we add to arrays normally where we normally append it,
+
+81
+00:06:52,270 --> 00:06:53,880
+so we add it to the end.
+
+82
+00:06:53,890 --> 00:07:00,160
+And this is going to come in as very important a little bit later on when we try to organize our various
+
+83
+00:07:00,280 --> 00:07:02,200
+notes inside the keeper app.
+
+84
+00:07:02,590 --> 00:07:09,340
+So we're using this push and in order to push an item onto the list, we have to specify two things.
+
+85
+00:07:09,640 --> 00:07:16,480
+One is the item that is going to be pushed into the list, and second is the list that you want to push
+
+86
+00:07:16,480 --> 00:07:16,840
+it on.
+
+87
+00:07:17,380 --> 00:07:23,080
+So this is actually a function from the list module. In order to call it
+
+88
+00:07:23,260 --> 00:07:32,350
+we have to first tap into the list module and then use .push and then open up our parentheses and
+
+89
+00:07:32,350 --> 00:07:34,310
+add the first item.
+
+90
+00:07:34,330 --> 00:07:38,830
+The new note is going to be pushed onto the list and then comma,
+
+91
+00:07:39,640 --> 00:07:44,020
+and the list that we want to push it into is the notes list.
+
+92
+00:07:44,530 --> 00:07:48,910
+And let's just add some semicolons so that we make these errors go away.
+
+93
+00:07:49,090 --> 00:07:55,540
+Now, in this case, what we've done with this line of code is we've basically created a new list that
+
+94
+00:07:55,540 --> 00:07:59,620
+adds this new note to the beginning of the list of notes.
+
+95
+00:08:00,130 --> 00:08:02,950
+We haven't actually amended this list at all.
+
+96
+00:08:03,310 --> 00:08:10,690
+So in order to actually set this as the value, the new value of this list of notes, we have to use
+
+97
+00:08:10,690 --> 00:08:12,090
+that assign operator.
+
+98
+00:08:12,100 --> 00:08:21,460
+So we have to say notes colon equals the new list that's created from this function.
+
+99
+00:08:21,610 --> 00:08:26,510
+And once we've done that, let's go ahead and add a debug into this.
+
+100
+00:08:26,530 --> 00:08:28,570
+So let's import the debug library.
+
+101
+00:08:37,390 --> 00:08:45,730
+And use debug.print and then debug_show in order to print out what the notes list actually looks
+
+102
+00:08:45,730 --> 00:08:46,780
+like at this point.
+
+103
+00:08:47,590 --> 00:08:54,310
+So this is all that we have to do in our main.mo file in order to create a new note.
+
+104
+00:08:54,880 --> 00:08:57,400
+So notice we're basically doing CRUD here, right?
+
+105
+00:08:57,400 --> 00:09:00,280
+Create, read, update and delete.
+
+106
+00:09:00,550 --> 00:09:06,430
+And we were doing this whenever we built backends using MongoDB, adding new items to the database,
+
+107
+00:09:06,430 --> 00:09:08,290
+reading from the database and all of that.
+
+108
+00:09:08,740 --> 00:09:14,830
+So this is a really, really good example to get your head around how CRUD works using Motoko on the
+
+109
+00:09:14,830 --> 00:09:16,300
+ICP Blockchain.
+
+110
+00:09:16,600 --> 00:09:23,740
+So we've created it our Motoko file, but we have to link it up with our JavaScript. And where most of
+
+111
+00:09:23,740 --> 00:09:28,300
+the action is happening on the JavaScript side is inside the app.jsx.
+
+112
+00:09:28,990 --> 00:09:35,440
+So if you open it up, you can see there's a function called addNote which gets triggered every time
+
+113
+00:09:35,440 --> 00:09:37,480
+the user presses this add button.
+
+114
+00:09:37,900 --> 00:09:44,290
+And that's because we created that component called CreateArea, which is basically this area,
+
+115
+00:09:44,770 --> 00:09:52,150
+and we have an event listener on that add button so that when that happens, we trigger this function add
+
+116
+00:09:52,150 --> 00:09:52,450
+note.
+
+117
+00:09:52,900 --> 00:09:56,980
+And we went into this in a lot of detail when we learned about React.
+
+118
+00:09:56,980 --> 00:09:58,780
+So I'm not going to go into this too much.
+
+119
+00:09:59,290 --> 00:10:05,560
+If you want a quick review, I again really strongly recommend that you take the React module before
+
+120
+00:10:05,560 --> 00:10:08,230
+you proceed so that everything makes more sense.
+
+121
+00:10:09,040 --> 00:10:12,670
+But if you have done the React module, then let's just plow on.
+
+122
+00:10:13,420 --> 00:10:21,280
+So this function is what we're going to have to modify a little bit in order to get this createNote
+
+123
+00:10:21,280 --> 00:10:24,730
+to be triggered and to pass it the things that it needs.
+
+124
+00:10:25,000 --> 00:10:32,770
+So in order to get hold of anything in the main.mo file, we have to import it into our jsx file.
+
+125
+00:10:33,280 --> 00:10:38,200
+So I'm going to say import, and then it's going to be a set of curly brackets,
+
+126
+00:10:38,680 --> 00:10:46,150
+and inside these curly brackets, I'm going to refer to the name of my canister which is going to
+
+127
+00:10:46,150 --> 00:10:52,090
+be to dkeeper. The canister name is specified in the dfx.json.
+
+128
+00:10:52,570 --> 00:10:58,750
+And because we created a new project called keeper, both the main folder and the canister are called 
+
+129
+00:10:58,750 --> 00:11:06,910
+dkeeper. And the location is going to be from and then it's going to be ../..
+
+130
+00:11:06,910 --> 00:11:12,870
+/../ declarations, and then it's going to be dkeeper folder.
+
+131
+00:11:12,880 --> 00:11:17,650
+And this relative path corresponds to-- every ../ is an exit,
+
+132
+00:11:17,660 --> 00:11:19,510
+so going up one level.
+
+133
+00:11:19,720 --> 00:11:22,240
+So here we've got three of these
+
+134
+00:11:22,390 --> 00:11:24,150
+so we're going up three levels.
+
+135
+00:11:24,160 --> 00:11:32,440
+So from the app.jsx into the source folder, from the source folder into the dkeeper assets and then
+
+136
+00:11:32,440 --> 00:11:39,610
+from here into this final level so that we're here. And then we go into the declarations folder and we
+
+137
+00:11:39,610 --> 00:11:47,380
+go into the dkeeper folder so that we can get access to all the things which are public in our main.mo.
+
+138
+00:11:47,920 --> 00:11:55,240
+Now at the moment, you'll only see the previous function from when we built this brand new Hello World
+
+139
+00:11:55,240 --> 00:11:57,190
+app, which contained that greet function.
+
+140
+00:11:57,370 --> 00:12:05,740
+But if we go ahead and run a dfx deploy, it will be able to create the required bridge to allow our
+
+141
+00:12:05,740 --> 00:12:10,270
+JavaScript code to call these Motoko functions.
+
+142
+00:12:10,510 --> 00:12:11,740
+And you can see that here.
+
+143
+00:12:11,740 --> 00:12:16,840
+We've now got our createNote that takes two text inputs and returns nothing.
+
+144
+00:12:17,140 --> 00:12:21,190
+So coming back here, we can then access it using our module name.
+
+145
+00:12:21,550 --> 00:12:27,940
+So inside the addNotes function, when we're triggering set notes basically to update the state of
+
+146
+00:12:27,940 --> 00:12:29,080
+our notes constant,
+
+147
+00:12:29,560 --> 00:12:34,310
+just before we return, we're going to call that function.
+
+148
+00:12:34,330 --> 00:12:42,070
+So we're going to say dkeeper.t and we're going to tap into that method name and it doesn't always
+
+149
+00:12:42,070 --> 00:12:43,030
+load it up for you.
+
+150
+00:12:43,040 --> 00:12:49,300
+So it might be worth just actually copying it from here or from here,
+
+151
+00:12:49,300 --> 00:12:53,200
+it doesn't really matter as long as you've got it spelt correctly.
+
+152
+00:12:53,740 --> 00:12:57,490
+And then we have to provide two arguments which both have to be strings.
+
+153
+00:12:58,060 --> 00:13:04,960
+And in JavaScript, we're going to have to make sure that the order that we add in the arguments matches
+
+154
+00:13:04,960 --> 00:13:08,080
+with the order that we created in our Motoko side.
+
+155
+00:13:08,470 --> 00:13:11,860
+So the first thing we add is the title and the next is the content.
+
+156
+00:13:12,550 --> 00:13:17,440
+So in here we're going to tap into this new note that's created on the frontend.
+
+157
+00:13:19,130 --> 00:13:23,000
+And we're going to tap into, firstly, its title,
+
+158
+00:13:23,660 --> 00:13:28,400
+and secondly, it's going to be the newNote.content.
+
+159
+00:13:29,490 --> 00:13:35,880
+And the reason why they have these attribute names is because in our createArea, we've defined how
+
+160
+00:13:35,880 --> 00:13:42,510
+the notes are structured and they've got two attributes: title and content.
+
+161
+00:13:43,020 --> 00:13:46,440
+So I'm just keeping it the same everywhere for consistency sake.
+
+162
+00:13:47,250 --> 00:13:53,760
+So in this case, we're tapping into the title and the content that gets created on the frontend, and
+
+163
+00:13:53,760 --> 00:14:00,750
+I'm sending that over via the createNote back over here so that we can create a new note on our back
+
+164
+00:14:00,750 --> 00:14:01,020
+end.
+
+165
+00:14:01,740 --> 00:14:07,200
+And with just those few lines of code, we should have now be able to get this to work.
+
+166
+00:14:07,620 --> 00:14:14,100
+What I'm expecting to happen is when I create a new note and I click add, not only does the frontend
+
+167
+00:14:14,130 --> 00:14:21,570
+update because I'm using the used state to update the notes constant to include the new note that was
+
+168
+00:14:21,570 --> 00:14:22,230
+created,
+
+169
+00:14:22,770 --> 00:14:30,510
+but also I'm expecting a print statement to occur somewhere in here to show that that new note has actually
+
+170
+00:14:30,510 --> 00:14:34,920
+been created on the back end and this list of notes has been updated.
+
+171
+00:14:35,430 --> 00:14:37,080
+So let's try it out.
+
+172
+00:14:37,110 --> 00:14:42,900
+So if you haven't already dfx deployed, go ahead and do that, because that's going to be really important
+
+173
+00:14:43,200 --> 00:14:45,450
+to make sure this code actually can be reachable.
+
+174
+00:14:46,380 --> 00:14:49,110
+And once you've done that, let's refresh our
+
+175
+00:14:49,110 --> 00:14:54,030
+Keeper app and let's write a new note, which I'll call Note1.
+
+176
+00:14:54,660 --> 00:15:00,330
+Let's hit add and you can see the frontend updates immediately because that's happening through React.
+
+177
+00:15:00,690 --> 00:15:06,000
+But the most important thing is to make sure our backend actually registered correctly and that this
+
+178
+00:15:06,000 --> 00:15:08,520
+debug statement actually got called.
+
+179
+00:15:09,030 --> 00:15:15,780
+And if you look in here, the terminal where you had the dfx start running, you should see that the canister,
+
+180
+00:15:15,780 --> 00:15:24,660
+so this to dbank canister, sent the message where it printed out what is currently inside this notes list
+
+181
+00:15:25,290 --> 00:15:32,580
+and it has the content of this and the title of this which matches exactly with what we typed in there.
+
+182
+00:15:33,690 --> 00:15:41,970
+Now we've managed to actually get our backend to work and to complete the C aspect of the CRUD, be
+
+183
+00:15:41,970 --> 00:15:48,450
+able to create new items on our back end and store that inside our list, which is called Notes.
+
+184
+00:15:49,260 --> 00:15:53,060
+Now in the next lesson, we're going to move on to the R of CRUD.
+
+185
+00:15:53,070 --> 00:15:59,910
+So we're going to be able to read from these notes and update them in here so that when we refresh it,
+
+186
+00:16:00,150 --> 00:16:01,110
+they don't disappear.
+
+187
+00:16:01,890 --> 00:16:04,620
+So for all of that and more, we'll see on the next lesson.
+

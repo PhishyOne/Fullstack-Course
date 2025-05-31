@@ -1,0 +1,380 @@
+1
+00:00:00,600 --> 00:00:06,330
+Now let's see how we can implement the Internet identity within our project and use the Internet identity
+
+2
+00:00:06,330 --> 00:00:08,130
+to authenticate our users.
+
+3
+00:00:08,460 --> 00:00:13,080
+Now we're going to be writing the log-in code inside our index.jsx.
+
+4
+00:00:13,590 --> 00:00:16,050
+And at the moment it's pretty simple.
+
+5
+00:00:16,079 --> 00:00:23,460
+All it does is when it gets initialized, it's going to render our app component and it's going to put
+
+6
+00:00:23,460 --> 00:00:24,300
+it at the root.
+
+7
+00:00:24,690 --> 00:00:30,090
+And our app component consists of our header, faucet, balance and transfer components.
+
+8
+00:00:30,480 --> 00:00:33,060
+So pretty simple bit of React code in here.
+
+9
+00:00:33,510 --> 00:00:40,680
+Now what we're going to do is we're going to use a package from the Internet computer called the auth
+
+10
+00:00:40,680 --> 00:00:41,190
+client.
+
+11
+00:00:41,370 --> 00:00:49,800
+And these two npm packages basically allow us to have a ready-made frontend that looks identical to
+
+12
+00:00:49,800 --> 00:00:55,050
+what you see when you use any of the Internet computer applications all currently available.
+
+13
+00:00:55,290 --> 00:01:00,480
+So thanks to those packages, we don't actually have to code up the frontend, but what we do need to
+
+14
+00:01:00,480 --> 00:01:02,670
+do is to actually import them.
+
+15
+00:01:03,120 --> 00:01:09,810
+We're going to need to import the AuthClient class from the auth client module.
+
+16
+00:01:11,920 --> 00:01:18,940
+And once we've got that class, we can then use it to log in or user or to trigger that frontend log
+
+17
+00:01:18,940 --> 00:01:19,120
+in.
+
+18
+00:01:19,390 --> 00:01:26,080
+Inside our initializer, we're going to create a new constant which I'm just going to call auth client,
+
+19
+00:01:26,680 --> 00:01:34,150
+and this is going to be a new object created using the AuthClient  class and it has a method called
+
+20
+00:01:34,240 --> 00:01:35,020
+create.
+
+21
+00:01:36,430 --> 00:01:41,800
+If we call that, we should create a new AuthClient object, which then we're going to use to log in
+
+22
+00:01:41,800 --> 00:01:42,520
+our user.
+
+23
+00:01:42,940 --> 00:01:48,010
+Now the method is asynchronous, so we're going to have to use await on it
+
+24
+00:01:48,010 --> 00:01:56,410
+again. We have to call authClient.login. And here we're going to pass in a JavaScript object that
+
+25
+00:01:56,410 --> 00:01:59,830
+describes who the identityProvider is.
+
+26
+00:02:01,870 --> 00:02:09,759
+And the identityProvider in this case is going to be a URL that points to the identity service on the
+
+27
+00:02:09,759 --> 00:02:16,210
+Internet computer, which is basically going to provide the frontend for our login purposes so that
+
+28
+00:02:16,210 --> 00:02:17,510
+we don't have to create it ourselves.
+
+29
+00:02:18,010 --> 00:02:24,760
+In addition to the identity provider, we're also going to provide a value for the onSuccess callback.
+
+30
+00:02:25,570 --> 00:02:32,000
+This is going to be what should happen once the log in was successful, and I'm going to use the fat
+
+31
+00:02:32,020 --> 00:02:37,690
+arrow notation to open up a set of curly braces to describe what should happen.
+
+32
+00:02:38,080 --> 00:02:43,480
+Because at the moment, all that we want to happen is once they have been successfully authenticated,
+
+33
+00:02:43,810 --> 00:02:47,560
+is just to take the user to our main app,
+
+34
+00:02:47,680 --> 00:02:49,330
+so to render the app.
+
+35
+00:02:49,330 --> 00:02:53,200
+So I'm going to move that line into this callback.
+
+36
+00:02:53,830 --> 00:02:56,230
+And once that's done, we can go ahead and test it out.
+
+37
+00:02:56,230 --> 00:02:57,860
+So let's reload.
+
+38
+00:02:58,030 --> 00:03:00,450
+And you can see in my case, it says pop up blocked.
+
+39
+00:03:00,460 --> 00:03:07,060
+So make sure that you allow pop ups from localhost which is going to allow us to actually see the
+
+40
+00:03:07,060 --> 00:03:07,780
+login page.
+
+41
+00:03:08,320 --> 00:03:15,670
+And once you've allowed it, hit refresh and it should now allow the pop-up which takes us to this familiar
+
+42
+00:03:15,670 --> 00:03:19,810
+page allowing us to authenticate with our Internet identity.
+
+43
+00:03:20,590 --> 00:03:29,200
+Once I click authenticate, it's going to take me to my device, which I can use touch ID to authenticate
+
+44
+00:03:29,200 --> 00:03:29,470
+on.
+
+45
+00:03:30,250 --> 00:03:35,080
+And because I don't have a recovery mechanism, it's giving me that prompt.
+
+46
+00:03:35,410 --> 00:03:37,600
+But I'm just going to say add recovery later.
+
+47
+00:03:40,020 --> 00:03:43,710
+And once that's done, I'm allowed to proceed
+
+48
+00:03:43,710 --> 00:03:50,070
+and it shows me which website is asking for the authentication and who I'm actually authenticating with,
+
+49
+00:03:50,370 --> 00:03:51,570
+which is quite important.
+
+50
+00:03:52,140 --> 00:03:59,250
+And once I hit proceed, it will take me back to my initial website that requested the authentication.
+
+51
+00:03:59,850 --> 00:04:01,740
+Now, there's still just one more problem.
+
+52
+00:04:01,740 --> 00:04:10,380
+When we hit refresh, you'll notice that every time the init is called, so when our JavaScript frontend
+
+53
+00:04:10,380 --> 00:04:15,630
+loads up, it's going to call this log-in method and it's going to trigger this
+
+54
+00:04:16,019 --> 00:04:23,280
+and no matter how many times we authenticate ourselves and log in, it's still going to repeat this
+
+55
+00:04:23,280 --> 00:04:23,910
+process.
+
+56
+00:04:24,660 --> 00:04:28,500
+So how can we make sure that we check whether if we're already logged in?
+
+57
+00:04:28,710 --> 00:04:33,210
+And in that case, we actually bypass the login process.
+
+58
+00:04:33,840 --> 00:04:40,170
+Well, underneath here, one of the things that we can check for is we can use an await to wait
+
+59
+00:04:40,170 --> 00:04:45,030
+and check to see if the authClient is authenticated.
+
+60
+00:04:47,610 --> 00:04:51,930
+And this method, of course, comes from the authClient class.
+
+61
+00:04:52,440 --> 00:04:59,100
+And once we've checked that, we can go ahead and just console.log and say, logged in.
+
+62
+00:05:00,030 --> 00:05:01,620
+Let's check and see if that works.
+
+63
+00:05:01,980 --> 00:05:09,420
+So let's pull up our console and you can see even without going through the login process, we're currently
+
+64
+00:05:09,420 --> 00:05:14,910
+already logged in and this is because the login is cached.
+
+65
+00:05:15,270 --> 00:05:21,030
+So just as when you log on to Facebook or Gmail, you don't have to log on repeatedly every single time
+
+66
+00:05:21,030 --> 00:05:22,020
+you try to access it,
+
+67
+00:05:22,500 --> 00:05:29,430
+there's a memory that stores whether if you have already been logged in. And if within eight days you
+
+68
+00:05:29,430 --> 00:05:34,440
+come back to the website, it should know that you have logged in before and won't force you to go
+
+69
+00:05:34,440 --> 00:05:35,370
+through the process.
+
+70
+00:05:36,060 --> 00:05:40,500
+Now we know that we can check to see if we're already authenticated,
+
+71
+00:05:40,890 --> 00:05:48,690
+that means that we can simply navigate the user to our app element instead of having to go through the
+
+72
+00:05:48,690 --> 00:05:50,100
+login process to do that.
+
+73
+00:05:50,460 --> 00:06:00,150
+In that case, let me go ahead and create just below this init definition an async function which
+
+74
+00:06:00,150 --> 00:06:02,580
+we'll call handleAuthenticated.
+
+75
+00:06:05,410 --> 00:06:14,230
+And we're going to pass in the authClient as an input to this function. And inside this function
+
+76
+00:06:14,230 --> 00:06:21,700
+for now, all that's going to happen is we're going to render the app component and we're going to do
+
+77
+00:06:21,700 --> 00:06:25,570
+that on the success callback of our login method.
+
+78
+00:06:25,720 --> 00:06:33,760
+So handle authentication parsing in the authClient, but we're also going to do that if we check that
+
+79
+00:06:33,760 --> 00:06:38,410
+we're already logged in and we can bypass the login process.
+
+80
+00:06:40,540 --> 00:06:47,440
+And now we can finally add the else statement to say if they're not authenticated,
+
+81
+00:06:47,860 --> 00:06:51,790
+well, in that case, let's go ahead and force them to log in.
+
+82
+00:06:52,570 --> 00:06:53,530
+Now that's done.
+
+83
+00:06:53,560 --> 00:07:00,100
+Let's go ahead and hit save and test it out. So that we can close down our Internet identity tab.
+
+84
+00:07:00,290 --> 00:07:02,440
+And let's go ahead and refresh this page.
+
+85
+00:07:02,920 --> 00:07:09,460
+And because we're already logged in, we're not forced to log in through the Internet identity again.
+
+86
+00:07:10,300 --> 00:07:18,830
+Now, theoretically, once we've got our account authenticated, then that will be the user on the frontend.
+
+87
+00:07:18,850 --> 00:07:24,730
+So it means when you click on 'Gimme Gimme' the faucet should be distributing the DANG tokens to the logged
+
+88
+00:07:24,730 --> 00:07:26,320
+in user's account.
+
+89
+00:07:26,770 --> 00:07:32,320
+But as you can see right now, if I click on this, it's still going to tell me already claimed because
+
+90
+00:07:32,320 --> 00:07:37,580
+this method call is still going through an unauthenticated msg.caller.
+
+91
+00:07:38,170 --> 00:07:48,640
+So how do we get our method calls here from payOut or transfer to tap into the authenticated user instead
+
+92
+00:07:48,640 --> 00:07:50,620
+of a anonymous user?
+
+93
+00:07:51,430 --> 00:07:53,770
+Well, that is what we're going to do in the next lesson.
+
+94
+00:07:54,430 --> 00:07:55,570
+So for all that and more,
+
+95
+00:07:55,600 --> 00:07:56,200
+I'll see you there.
+

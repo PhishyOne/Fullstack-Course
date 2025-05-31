@@ -1,0 +1,480 @@
+1
+00:00:00,700 --> 00:00:07,320
+There's no better way of proving that you've understood what you've learned than doing it all from scratch
+
+2
+00:00:07,320 --> 00:00:08,340
+yourself.
+
+3
+00:00:08,340 --> 00:00:10,710
+So here's the challenge for you.
+
+4
+00:00:11,370 --> 00:00:19,410
+I want you to create a new React app that shows a single h1 element and that h1 is going
+
+5
+00:00:19,410 --> 00:00:22,390
+to show different pieces of text.
+
+6
+00:00:22,590 --> 00:00:25,000
+So it's going to say "Good morning"
+
+7
+00:00:25,020 --> 00:00:31,470
+if the current time is between midnight and 12 PM so midday, it's gonna say "Good afternoon"
+
+8
+00:00:31,500 --> 00:00:36,840
+if it's currently between midday and 6:00 PM, and it's going to say good evening if it's between 6:00
+
+9
+00:00:36,840 --> 00:00:38,250
+PM and midnight.
+
+10
+00:00:38,760 --> 00:00:45,500
+So you're gonna be using some logic to render a different piece of text in that h1 showing on
+
+11
+00:00:45,500 --> 00:00:46,050
+screen
+
+12
+00:00:46,140 --> 00:00:55,470
+depending on your local time. And then I want you to apply the style which is under a class style called
+
+13
+00:00:55,470 --> 00:00:57,800
+heading to that h1.
+
+14
+00:00:58,170 --> 00:01:04,340
+So I've already created this style for you and I just want you to be able to apply it onto that h
+
+15
+00:01:04,349 --> 00:01:06,990
+1 using what you've learnt before.
+
+16
+00:01:06,990 --> 00:01:14,130
+Now the final thing I want you to do is to dynamically change the color of the h1 using inline
+
+17
+00:01:14,220 --> 00:01:15,170
+styles.
+
+18
+00:01:15,420 --> 00:01:19,700
+If currently it says "Good morning" then the text should show up as red,
+
+19
+00:01:19,830 --> 00:01:25,750
+if it says "Good afternoon" it should show up as green, if it's night it should show up as blue.
+
+20
+00:01:25,920 --> 00:01:32,010
+This is what it looks like in the end as the current time is 16:55.
+
+21
+00:01:32,070 --> 00:01:34,970
+It says Good afternoon and it's green.
+
+22
+00:01:35,040 --> 00:01:44,280
+If I change the date to let's say, let's say, it's now 10:00 AM It says Good morning,
+
+23
+00:01:44,280 --> 00:01:52,050
+and if I change this to 16 in the afternoon 4:00 pm in the afternoon and maybe 7 o'clock in the
+
+24
+00:01:52,050 --> 00:01:53,310
+evening.
+
+25
+00:01:53,310 --> 00:01:56,530
+This is going to apply everything that you've learned so far
+
+26
+00:01:56,640 --> 00:02:02,730
+and you might need to review some of those previous lessons or the previous code in the sandboxes.
+
+27
+00:02:02,730 --> 00:02:08,610
+But I trust that you're going to do a great job and you're going to be able to take yourself even further
+
+28
+00:02:09,000 --> 00:02:11,790
+after you struggle a little bit and get it to work.
+
+29
+00:02:11,820 --> 00:02:18,540
+Pause the video now and see if you can build this functionality using everything that you've learnt and
+
+30
+00:02:18,540 --> 00:02:21,620
+then come back and we'll go through the solution together.
+
+31
+00:02:21,670 --> 00:02:23,280
+So pause the video now
+
+32
+00:02:23,340 --> 00:02:27,900
+and good luck.
+
+33
+00:02:28,090 --> 00:02:28,440
+All right.
+
+34
+00:02:28,450 --> 00:02:31,120
+So I hope you gave that a real good go.
+
+35
+00:02:31,240 --> 00:02:37,060
+And if you got stuck that you actually tried to struggle through it and search for solutions online
+
+36
+00:02:37,330 --> 00:02:42,610
+rather than just coming straight to the solution video, because it really is through the struggle and
+
+37
+00:02:42,670 --> 00:02:48,610
+through debugging your code and through trial and error and lots of time spent messing with the code
+
+38
+00:02:48,880 --> 00:02:50,540
+that you actually really level up.
+
+39
+00:02:50,680 --> 00:02:54,700
+So don't worry I'll still be here waiting for you if you need more time.
+
+40
+00:02:54,700 --> 00:02:56,640
+Go ahead and give it a real go.
+
+41
+00:02:56,680 --> 00:03:03,100
+But if you've already completed it or if you just need a few hints or tips and see if you can get over
+
+42
+00:03:03,100 --> 00:03:07,220
+some hurdles then let's go through the solution together.
+
+43
+00:03:07,310 --> 00:03:07,650
+All right.
+
+44
+00:03:07,670 --> 00:03:09,430
+The first part is easy.
+
+45
+00:03:09,440 --> 00:03:14,260
+We've done this a few times now so I'm just going to go through it quickly.
+
+46
+00:03:14,300 --> 00:03:16,900
+So now we've got to render step.
+
+47
+00:03:17,240 --> 00:03:21,670
+And it says that we have to create a single h1.
+
+48
+00:03:21,710 --> 00:03:26,360
+So in this case because we're just creating a single h1, I'm not going to bother putting it inside
+
+49
+00:03:26,390 --> 00:03:29,960
+a div and I'm just going to render it as it is.
+
+50
+00:03:29,960 --> 00:03:33,720
+And then of course we're going to put it into our root div.
+
+51
+00:03:34,370 --> 00:03:37,490
+And now we've gotten h1 that doesn't say anything yet,
+
+52
+00:03:37,550 --> 00:03:39,910
+so it's not very useful right now.
+
+53
+00:03:39,920 --> 00:03:46,640
+Now what we want is depending on the current time for it to say "Good morning" or "Good afternoon" or "Good
+
+54
+00:03:46,760 --> 00:03:47,840
+evening".
+
+55
+00:03:47,840 --> 00:03:52,400
+So that means we're probably going to need to inject some Javascript in there right?
+
+56
+00:03:53,090 --> 00:03:58,650
+So we already know that we can get hold of the current date and time from a previous lesson.
+
+57
+00:03:58,760 --> 00:04:07,370
+So let's create a const called date and let's set it to a new Date object. And then let's create another
+
+58
+00:04:07,370 --> 00:04:16,899
+constant called currentTime and we'll set that to the date.getHours. And of course this is a method
+
+59
+00:04:16,910 --> 00:04:20,760
+so it requires those parentheses at the end.
+
+60
+00:04:20,880 --> 00:04:28,620
+Now we can get hold of our current time and you can see that in my console I'm already getting 17, so
+
+61
+00:04:28,650 --> 00:04:30,500
+5 PM printed here.
+
+62
+00:04:30,520 --> 00:04:36,600
+Now we're rest assured that that definitely works and we can use that number to start figuring out what the
+
+63
+00:04:36,600 --> 00:04:38,000
+current time is.
+
+64
+00:04:38,160 --> 00:04:43,290
+If you've been stuck on this step then head back to your code and see if you can fix it and solve the
+
+65
+00:04:43,290 --> 00:04:50,560
+rest of the challenge and then come back and we'll continue. But otherwise let's continue.
+
+66
+00:04:50,600 --> 00:04:58,370
+So we've got this current time which we can use an IF statement to check whether if it's between midnight
+
+67
+00:04:58,460 --> 00:05:08,760
+and 12 PM. So if currentTime is less than 12:00 then we'll say that in this case, it should be morning.
+
+68
+00:05:08,780 --> 00:05:16,320
+So let's create a variable called greeting and we're going to leave it blank to begin with.
+
+69
+00:05:16,420 --> 00:05:22,780
+Now if the current time was less than 12:00 namely it's morning, then we're going to change greeting
+
+70
+00:05:22,810 --> 00:05:31,060
+to say "Good morning". But else if the currentTime is greater than 12:00
+
+71
+00:05:31,540 --> 00:05:40,510
+but it's less than 6 PM which remember is actually 18:00, then in this case we'll set the greeting to
+
+72
+00:05:40,510 --> 00:05:41,230
+equal
+
+73
+00:05:41,350 --> 00:05:50,020
+"Good afternoon". And finally in all other cases that's left out of the 24 hours, we're going to set the
+
+74
+00:05:50,020 --> 00:05:52,930
+greeting to equal "Good night".
+
+75
+00:05:54,520 --> 00:06:01,210
+So now we've got this greeting which is going to hold some different pieces of data depending on the
+
+76
+00:06:01,210 --> 00:06:02,050
+current time.
+
+77
+00:06:02,620 --> 00:06:10,480
+And then we can insert that variable greeting inside our h1, of course through the use of curly
+
+78
+00:06:10,480 --> 00:06:11,440
+brackets.
+
+79
+00:06:11,440 --> 00:06:19,000
+So inside here we'll put that variable name in here and bam! We've got that h1 populated with some
+
+80
+00:06:19,000 --> 00:06:19,870
+text.
+
+81
+00:06:19,870 --> 00:06:23,950
+So because right now it's 5:00 PM, It's going to say good afternoon.
+
+82
+00:06:23,950 --> 00:06:32,620
+And if we change the date to a custom date, so 2019 January the 1st at 10:00 AM, then it says Good
+
+83
+00:06:32,620 --> 00:06:35,000
+morning. At 19:00
+
+84
+00:06:35,020 --> 00:06:36,390
+it says Good night
+
+85
+00:06:36,400 --> 00:06:39,850
+and at 14:00 it says Good afternoon.
+
+86
+00:06:39,850 --> 00:06:42,390
+So it's working perfectly.
+
+87
+00:06:42,430 --> 00:06:44,120
+So let's delete that.
+
+88
+00:06:44,260 --> 00:06:50,080
+Now the next part asked us to apply the heading style in the styles.css.
+
+89
+00:06:50,230 --> 00:06:57,670
+So in our stylesheet I already created some styles under a class style name of heading.
+
+90
+00:06:57,670 --> 00:07:01,980
+So all we have to do is to apply it to our h1.
+
+91
+00:07:02,170 --> 00:07:08,930
+And if you remember that attribute name or the property name is called class name in JSX.
+
+92
+00:07:09,220 --> 00:07:11,420
+And then we simply add it as a string, so
+
+93
+00:07:11,430 --> 00:07:17,820
+it was called heading.Aand now our heading style gets applied to our text.
+
+94
+00:07:17,920 --> 00:07:23,790
+It's much bigger, it's bolder and it's got a line at the bottom.
+
+95
+00:07:24,180 --> 00:07:30,810
+So now we're ready to tackle the very last part of the challenge which is to dynamically change the
+
+96
+00:07:30,810 --> 00:07:35,740
+color of the h1 using what we learned about inline CSS styles.
+
+97
+00:07:36,390 --> 00:07:39,450
+So how do we add an inline CSS style?
+
+98
+00:07:39,900 --> 00:07:48,000
+Well we use the style property, and we're going to set it equal to a Javascript object which is going
+
+99
+00:07:48,000 --> 00:07:50,080
+to be a custom style.
+
+100
+00:07:50,160 --> 00:07:51,840
+So let's create that up here.
+
+101
+00:07:52,020 --> 00:08:02,760
+Let's create a constant called custom style and let's make it a Javascript object with a color key which
+
+102
+00:08:02,820 --> 00:08:07,080
+we're going to set at some point in our code.
+
+103
+00:08:07,080 --> 00:08:13,870
+So this color key is going to be red in the morning, green in the afternoon and blue in the night.
+
+104
+00:08:13,890 --> 00:08:21,930
+So that means that when our current time is less than 12, in addition to sending the greeting we're also
+
+105
+00:08:21,930 --> 00:08:29,000
+going to set the custom style object's color property to equal red.
+
+106
+00:08:29,340 --> 00:08:36,720
+And when it's afternoon, that color property is going to be green.
+
+107
+00:08:37,110 --> 00:08:41,730
+And when it's nighttime, it's going to be blue.
+
+108
+00:08:44,910 --> 00:08:54,870
+And now when we go into here, we can apply that style inside the style property by adding in the name
+
+109
+00:08:54,900 --> 00:08:58,990
+of that object which was called custom style.
+
+110
+00:08:59,010 --> 00:09:05,790
+Now all our errors go away and if we take a look at our website, you can see that afternoon is green
+
+111
+00:09:06,270 --> 00:09:06,870
+but
+
+112
+00:09:09,700 --> 00:09:17,860
+10 AM is morning and 19:00 is night.
+
+113
+00:09:17,860 --> 00:09:25,180
+So did you manage to solve this challenge? And if not, be sure to get back to your code and try and apply
+
+114
+00:09:25,210 --> 00:09:30,510
+what you've learned in this video to see if you can manage to do it after we've gone through the solution.
+
+115
+00:09:31,980 --> 00:09:35,750
+So of course I'm going to add this sandbox as a link in the course resources
+
+116
+00:09:35,910 --> 00:09:41,730
+so you'll have the code here to refer to if you need it. But make sure that you've had enough practice
+
+117
+00:09:41,730 --> 00:09:47,760
+with the code and had enough time to play around with it to understand it before you continue to the
+
+118
+00:09:47,760 --> 00:09:49,510
+next lesson.
+
+119
+00:09:49,620 --> 00:09:56,730
+But once you are done then head over to the next lesson and we'll learn more about React components.
+
+120
+00:09:56,730 --> 00:09:59,280
+So for all of that and more, I'll see you there.
+

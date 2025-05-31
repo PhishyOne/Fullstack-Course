@@ -1,0 +1,832 @@
+1
+00:00:00,360 --> 00:00:07,320
+Now that we've managed to get our login authentication working, the next step is to be able to use
+
+2
+00:00:07,320 --> 00:00:16,410
+the authenticated account to claim from the faucet and to be able to use that principal ID as the msg.
+
+3
+00:00:16,410 --> 00:00:17,280
+caller.
+
+4
+00:00:17,730 --> 00:00:24,630
+So in the case where we've got our faucet.jsx here, we should be able to call instead of token.
+
+5
+00:00:24,840 --> 00:00:25,410
+payOut,
+
+6
+00:00:25,710 --> 00:00:33,120
+we should be able to call the authenticated canister and call the payOut method on that canister.
+
+7
+00:00:33,810 --> 00:00:37,500
+In order to do this, we have to write a little bit more code.
+
+8
+00:00:37,890 --> 00:00:46,200
+The first thing we're going to do is we're going to import our authClient class from the Dfinity auth client
+
+9
+00:00:46,200 --> 00:00:46,890
+module.
+
+10
+00:00:49,700 --> 00:00:55,430
+And in addition, we're going to import some other elements from our declarations.
+
+11
+00:00:55,820 --> 00:01:03,830
+In addition to token, we're going to need the canister ID and also the create actor method.
+
+12
+00:01:05,830 --> 00:01:09,270
+And these come from our declarations.
+
+13
+00:01:09,280 --> 00:01:15,550
+And if you look inside the index.js, you can see that we created our blank internet computer project,
+
+14
+00:01:15,820 --> 00:01:18,820
+these methods have already been created for us.
+
+15
+00:01:19,210 --> 00:01:26,530
+The create actor method, which basically creates the canister, and the canister id is basically just
+
+16
+00:01:26,530 --> 00:01:35,200
+a environment variable that is replaced at runtime. Coming back to our faucet.jsx, now that we've
+
+17
+00:01:35,200 --> 00:01:37,540
+got all the necessary imports,
+
+18
+00:01:38,140 --> 00:01:42,200
+the next thing that we can do when the click happens,
+
+19
+00:01:42,200 --> 00:01:49,240
+so when the faucet is being clicked on, once we've disabled the button, the next thing we can do is
+
+20
+00:01:49,240 --> 00:01:55,000
+we can create a authentication client in the same way that we did in our index.jsx.
+
+21
+00:01:55,480 --> 00:02:03,610
+So we have to await for this process and we're going to use the AuthClient.create method.
+
+22
+00:02:04,690 --> 00:02:12,160
+And once it's been created and we've gotten this auth client back, then we can use it to get the identity
+
+23
+00:02:12,160 --> 00:02:14,080
+of the authenticated user.
+
+24
+00:02:14,470 --> 00:02:20,980
+We can again use our await and we're going to do authClient.getIdentity.
+
+25
+00:02:22,510 --> 00:02:29,740
+Make sure that you don't make any typos and that you've got both of these awaits in there.
+
+26
+00:02:31,030 --> 00:02:36,790
+Now, we can use this identity that we get back to create a actor.
+
+27
+00:02:37,360 --> 00:02:39,760
+So, as I mentioned, createActor,
+
+28
+00:02:39,910 --> 00:02:47,500
+you can see it inside the declarations, and it's going to take the canister id, which is a environment
+
+29
+00:02:47,500 --> 00:02:51,280
+variable that contains the principal id of the canister.
+
+30
+00:02:51,910 --> 00:02:59,350
+And in addition, this createActor can take some agent options where we can supply the identity of
+
+31
+00:02:59,350 --> 00:03:01,060
+the authenticated user.
+
+32
+00:03:01,660 --> 00:03:10,720
+So I'm going to create a authenticatedCanister constant, and I'm going to call the createActor method
+
+33
+00:03:11,260 --> 00:03:17,920
+and I'm going to supply both the canister ID, by using this environment variable here,
+
+34
+00:03:18,430 --> 00:03:22,360
+and in addition, I'm going to supply an object.
+
+35
+00:03:22,990 --> 00:03:28,330
+These are going to be the options for creating this actor or canister.
+
+36
+00:03:29,110 --> 00:03:33,220
+And the options I'm going to set are the agent options.
+
+37
+00:03:35,400 --> 00:03:37,380
+Which is again going to take a
+
+38
+00:03:37,530 --> 00:03:38,220
+object,
+
+39
+00:03:38,430 --> 00:03:45,870
+so curly braces, and I'm going to parse in the identity that we got back from the authentication process.
+
+40
+00:03:46,650 --> 00:03:53,700
+And let's add our commas and semicolons, and just check that you've spelt everything correctly.
+
+41
+00:03:53,730 --> 00:04:01,650
+For example, createActor or getIdentity and that you've got all the semicolons and curly braces in
+
+42
+00:04:01,650 --> 00:04:02,640
+the right places.
+
+43
+00:04:03,510 --> 00:04:10,830
+So now, it's with this authenticatedCanister that we're going to call the payOut method on, because
+
+44
+00:04:10,830 --> 00:04:18,000
+what that's going to mean is when it gets back to this payOut method, the msg.caller will then
+
+45
+00:04:18,029 --> 00:04:25,800
+be the principal ID of the authenticated user. And it's that authenticated user who's going to be getting
+
+46
+00:04:25,800 --> 00:04:27,210
+the token transfer.
+
+47
+00:04:28,080 --> 00:04:35,490
+Unfortunately, though, even if our code works and it's correct, we can't actually test it at the moment
+
+48
+00:04:35,910 --> 00:04:42,840
+because if I go ahead and click on 'Gimme, Gimme' in the faucet, you'll see 403 error code.
+
+49
+00:04:43,440 --> 00:04:50,430
+And the reason is because we're running a local version of dfx, which is a simulation basically
+
+50
+00:04:50,760 --> 00:04:52,680
+allowing us to test and debug.
+
+51
+00:04:53,310 --> 00:05:01,830
+But in order to have the sign off and to get the authenticated session, we need to deploy our project
+
+52
+00:05:01,980 --> 00:05:05,310
+onto the live Internet computer blockchain.
+
+53
+00:05:06,180 --> 00:05:07,620
+That's what I'm going to do right now.
+
+54
+00:05:08,400 --> 00:05:13,500
+A caveat to this is, of course, you need to have enough tokens for it to work.
+
+55
+00:05:13,680 --> 00:05:20,220
+So if you're low on cycles, then you might need to transfer and convert some ICP tokens into cycles
+
+56
+00:05:20,640 --> 00:05:27,180
+as I've shown you before. But once you're done, deploy it onto the live network, which you've done
+
+57
+00:05:27,180 --> 00:05:27,810
+before.
+
+58
+00:05:28,290 --> 00:05:33,960
+But just in case you wanted to be reminded of the command line command, you can take a look inside
+
+59
+00:05:33,960 --> 00:05:40,140
+the read me and under the section deploy the project to the live IC network,
+
+60
+00:05:40,140 --> 00:05:42,510
+you can see step by step how we're going to do this.
+
+61
+00:05:43,050 --> 00:05:48,180
+Instead of writing out the commands which is super prone to error, I want you to simply copy it step
+
+62
+00:05:48,180 --> 00:05:48,810
+by step.
+
+63
+00:05:49,200 --> 00:05:53,460
+The first thing we're going to do is we're just going to do dfx deploy --network
+
+64
+00:05:53,460 --> 00:05:54,120
+ic.
+
+65
+00:05:54,600 --> 00:05:59,430
+And as long as you got enough tokens, this should go through in a couple of minutes.
+
+66
+00:06:02,070 --> 00:06:04,670
+Once all the canisters have been deployed,
+
+67
+00:06:04,680 --> 00:06:11,190
+the other thing that we needed to do, if you remember, was to transfer some tokens into the canister
+
+68
+00:06:11,490 --> 00:06:17,160
+so the canister actually holds on to half the tokens and the owner yourself will hold onto the other
+
+69
+00:06:17,160 --> 00:06:17,490
+half.
+
+70
+00:06:17,880 --> 00:06:24,780
+And the half a million that the canister has is going to be used to distribute through the faucet.
+
+71
+00:06:25,110 --> 00:06:27,810
+There's a couple steps that we need to go through to do this.
+
+72
+00:06:28,080 --> 00:06:34,710
+Firstly, we need to check the live canister's ID because it will be different from the one that you
+
+73
+00:06:34,710 --> 00:06:36,270
+have been running locally.
+
+74
+00:06:36,930 --> 00:06:43,290
+Once you've managed to get hold of that, you can see that we're going to put that command inside another
+
+75
+00:06:43,290 --> 00:06:51,000
+command in order to embed the output into a new variable, which we'll call the live canister key.
+
+76
+00:06:51,780 --> 00:06:58,440
+And once we've done that, let's just check that it actually worked by echoing the variable back out.
+
+77
+00:06:58,800 --> 00:07:04,110
+And you can see that we've now got the correct format in order to assign a principal ID.
+
+78
+00:07:05,010 --> 00:07:13,500
+So finally, we can call the transfer function on our live canister and transfer half a billion tokens
+
+79
+00:07:13,500 --> 00:07:14,070
+into it.
+
+80
+00:07:16,320 --> 00:07:20,100
+And once that's done, you should get success back.
+
+81
+00:07:20,880 --> 00:07:27,720
+Now, once you've successfully done that, then we want to be able to get hold of our live deployed canister
+
+82
+00:07:27,720 --> 00:07:28,500
+front-end 
+
+83
+00:07:28,530 --> 00:07:36,360
+ID. Remember that in our project we've actually got two canisters: one which is token that contains
+
+84
+00:07:36,360 --> 00:07:37,710
+our main.mo file,
+
+85
+00:07:37,740 --> 00:07:39,120
+that's our business logic,
+
+86
+00:07:39,130 --> 00:07:40,500
+that's our backend
+
+87
+00:07:40,500 --> 00:07:42,090
+that's going to talk to the blockchain.
+
+88
+00:07:42,480 --> 00:07:48,750
+We've also got another canister which is our token_assets which contains our frontend, all of that
+
+89
+00:07:48,750 --> 00:07:50,430
+React and JavaScript goodness.
+
+90
+00:07:50,910 --> 00:07:58,710
+So this is the access point that we want to get to from a browser and to find out its ID, we have to
+
+91
+00:07:58,770 --> 00:08:01,320
+call this command in the command line.
+
+92
+00:08:01,320 --> 00:08:05,420
+So it's dfx canister --network ic id
+
+93
+00:08:06,090 --> 00:08:10,530
+and then we pass in our canister, which is token_assets.
+
+94
+00:08:11,220 --> 00:08:22,710
+And once we get that ID, then we combine it with the suffix .raw.ic0.app and that will take us to the live
+
+95
+00:08:22,740 --> 00:08:25,440
+version of our faucet application.
+
+96
+00:08:26,820 --> 00:08:32,780
+Again, we've got our pop-ups blocked, so let's make sure that's unblocked and let's refresh.
+
+97
+00:08:32,789 --> 00:08:39,360
+And because this is first time that we're accessing this website, we need to authenticate ourselves.
+
+98
+00:08:46,570 --> 00:08:51,880
+And you can see this time we're now proceeding to authenticate on our live website.
+
+99
+00:08:55,380 --> 00:08:56,280
+Coming back here,
+
+100
+00:08:56,280 --> 00:09:01,290
+we're going to repeat that test that we did before, which is where we try to use our faucet.
+
+101
+00:09:02,290 --> 00:09:07,570
+And because we're running on the live network, you might notice that for that success to pop-up,
+
+102
+00:09:07,570 --> 00:09:13,060
+it might take a little bit longer than it would when you're testing locally because it depends on
+
+103
+00:09:13,060 --> 00:09:14,680
+how busy the network is.
+
+104
+00:09:15,370 --> 00:09:22,990
+Now, once that's successful, that means that our authentication actually worked. Because that worked
+
+105
+00:09:22,990 --> 00:09:27,910
+instead of giving us a error like what happened previously,
+
+106
+00:09:28,300 --> 00:09:34,480
+that means our authentication code is actually working and we're using the authenticatedCanister with
+
+107
+00:09:34,570 --> 00:09:40,630
+the identity that's authenticated to pay out into that id's account.
+
+108
+00:09:41,140 --> 00:09:47,500
+Unfortunately, because we're not running this locally, our debug print don't actually come out in
+
+109
+00:09:47,500 --> 00:09:51,330
+our terminal. But we don't have to print it out here.
+
+110
+00:09:51,340 --> 00:09:58,780
+We can actually get hold of it on our frontend. As soon as we've authenticated ourselves or if we're
+
+111
+00:09:58,780 --> 00:10:02,920
+already authenticated, then we get access to this auth client here.
+
+112
+00:10:03,490 --> 00:10:08,890
+So let's go ahead and console.log the identity from our auth client.
+
+113
+00:10:09,430 --> 00:10:11,710
+So getIdentity,
+
+114
+00:10:11,740 --> 00:10:14,110
+make sure that you haven't made any typos.
+
+115
+00:10:14,590 --> 00:10:19,240
+And once you've got that, go ahead and deploy to the network again.
+
+116
+00:10:19,600 --> 00:10:22,300
+Now, once that's done, let's go ahead and hit refresh.
+
+117
+00:10:23,260 --> 00:10:31,780
+And if we take a look inside the console, then you'll see that what's being printed is that authClient
+
+118
+00:10:31,810 --> 00:10:33,490
+.getIdentity.
+
+119
+00:10:34,060 --> 00:10:40,750
+It's the same identity that we used in our faucet to create our authenticated canister.
+
+120
+00:10:41,710 --> 00:10:48,490
+Now this identity contains four really important things, but what we're interested in is getting hold
+
+121
+00:10:48,490 --> 00:10:54,310
+of this principal which exists under the property _principal.
+
+122
+00:10:55,090 --> 00:11:02,080
+So that means that we can actually get hold of the principal of the logged in user simply through this
+
+123
+00:11:02,080 --> 00:11:03,010
+identity.
+
+124
+00:11:03,580 --> 00:11:05,710
+Let's save this into a constant.
+
+125
+00:11:09,520 --> 00:11:12,160
+And we actually should put an await here
+
+126
+00:11:12,370 --> 00:11:21,370
+so the line reads const identity = await authClient.get identity. And I'm going to use that
+
+127
+00:11:21,370 --> 00:11:30,100
+to get hold of the userPrincipal, which is the identity._principal.
+
+128
+00:11:30,100 --> 00:11:32,260
+So I'm just going to copy that piece in here.
+
+129
+00:11:32,560 --> 00:11:37,600
+Now remember that at this stage it's still looking somewhat like this, right?
+
+130
+00:11:38,020 --> 00:11:46,210
+And we have to use the two string method in order to convert it into a string so that we can actually
+
+131
+00:11:46,210 --> 00:11:46,750
+read it.
+
+132
+00:11:48,250 --> 00:11:54,100
+And once we've got that, I'm going to firstly console.log this userPrincipal.
+
+133
+00:11:54,460 --> 00:11:58,930
+So now let's hit save and let's redeploy our changes.
+
+134
+00:12:00,140 --> 00:12:04,070
+And once that's done, let's go ahead and hit refresh again.
+
+135
+00:12:04,400 --> 00:12:08,630
+And now we've got our familiar format of principal IDs.
+
+136
+00:12:09,320 --> 00:12:16,280
+If I take that principal ID of the, remember this is my authenticated user's principal ID that we got
+
+137
+00:12:16,280 --> 00:12:18,950
+hold of through all of that convoluted process,
+
+138
+00:12:19,340 --> 00:12:24,290
+if I check its balance, you'll see that this account has the 10,000
+
+139
+00:12:24,290 --> 00:12:28,310
+DANG that I fauceted out earlier when we tested the faucet.
+
+140
+00:12:28,730 --> 00:12:37,490
+So that means our authentication works and it's actually the authenticated user who is logged in and it's
+
+141
+00:12:37,490 --> 00:12:41,600
+with that identity that we called the payOut method.
+
+142
+00:12:41,990 --> 00:12:48,200
+Now, just for convenience sake, it would be really nice if I could actually see my principal ID here.
+
+143
+00:12:48,590 --> 00:12:54,080
+So I'm going to use a feature of React to bring it onto the frontend so that we don't have to console.log
+
+144
+00:12:54,080 --> 00:12:54,770
+it each time.
+
+145
+00:12:55,580 --> 00:12:58,610
+And the way we're going to do this is through props.
+
+146
+00:12:59,000 --> 00:13:09,440
+So I'm going to call my prop loggedInPrincipal and I'm going to pass it the userPrincipal that we
+
+147
+00:13:09,440 --> 00:13:11,060
+got hold of right here.
+
+148
+00:13:11,450 --> 00:13:17,090
+So it's the name of the prop = {the name of whatever you want to pass through.}
+
+149
+00:13:17,780 --> 00:13:24,380
+Now I can go into my app and I can get hold of the props in here.
+
+150
+00:13:24,800 --> 00:13:26,990
+And I'm going to pass it over to the faucet.
+
+151
+00:13:27,560 --> 00:13:37,790
+The faucet here is going to have a userPrincipal prop, and it's going to be equal to the props.--
+
+152
+00:13:38,210 --> 00:13:42,230
+and then it was the name of whatever I gave it here, loggedInPrincipal.
+
+153
+00:13:42,680 --> 00:13:44,630
+So let's go ahead and add that there.
+
+154
+00:13:45,260 --> 00:13:52,760
+And now I can go into my faucet and go ahead and get hold of the props that get passed in.
+
+155
+00:13:53,210 --> 00:13:55,490
+I sort of typed it wrong. Not pops.
+
+156
+00:13:56,210 --> 00:14:04,130
+And once I have got hold of that, I'm going to add the props into this label here.
+
+157
+00:14:05,130 --> 00:14:09,720
+Instead of to your account, I'm going to add in the props right here.
+
+158
+00:14:09,720 --> 00:14:16,110
+So it's props, and then the name that I gave it, which is userPrincipal.
+
+159
+00:14:16,710 --> 00:14:17,880
+So let's put that here.
+
+160
+00:14:18,360 --> 00:14:23,460
+Let's hit save and let's again deploy and make sure that that worked.
+
+161
+00:14:23,880 --> 00:14:29,100
+So now when we hit refresh, you can see instead of saying to your account, it's actually printing
+
+162
+00:14:29,100 --> 00:14:35,130
+out our authenticated user's principal ID which is really really neat.
+
+163
+00:14:35,700 --> 00:14:42,060
+So now all that's left for us to do is to do the same thing in our transfer.jsx.
+
+164
+00:14:42,540 --> 00:14:51,090
+So instead of calling the token.transfer here, we want to use the authenticatedCanister through
+
+165
+00:14:51,090 --> 00:14:53,490
+the same process that we did with faucet.
+
+166
+00:14:53,730 --> 00:14:58,920
+So I'm going to set this to you as a challenge, and I want you to pause the video and try to get this
+
+167
+00:14:58,920 --> 00:15:04,020
+to work so that when you transfer to a particular account,
+
+168
+00:15:04,050 --> 00:15:10,470
+so if I use this previous anonymous account's principal ID, I should be able to put it here and then
+
+169
+00:15:10,470 --> 00:15:16,290
+transfer something over coming from my authenticated account.
+
+170
+00:15:16,890 --> 00:15:23,700
+At the moment it doesn't work because this transfer function is not hooked up to use the authenticated
+
+171
+00:15:23,700 --> 00:15:24,330
+Canister.
+
+172
+00:15:24,660 --> 00:15:29,670
+I want you to fix this and make it work using what you learned about authentication previously.
+
+173
+00:15:29,880 --> 00:15:30,870
+Pause the video now.
+
+174
+00:15:35,010 --> 00:15:35,370
+All right.
+
+175
+00:15:35,370 --> 00:15:39,000
+So the first thing we got to do is to add our import.
+
+176
+00:15:39,630 --> 00:15:45,660
+So I'm just going to copy and paste that over here, and I'm going to need the canister ID and the create
+
+177
+00:15:45,660 --> 00:15:46,230
+Actor.
+
+178
+00:15:46,710 --> 00:15:52,770
+We don't actually need this token anymore, so you can take it away if you don't want it there.
+
+179
+00:15:53,340 --> 00:15:58,620
+And we're going to add the canister ID and createActor into our transfer.
+
+180
+00:15:59,040 --> 00:16:07,410
+Now here, just before we call our token.transfer is where we're going to create our authClient
+
+181
+00:16:07,770 --> 00:16:14,400
+and we're going to need to call the await AuthClient.create method.
+
+182
+00:16:16,580 --> 00:16:20,570
+And with that, we're going to then create the identity.
+
+183
+00:16:23,810 --> 00:16:29,780
+Again using await and then using the authClient.getIdentity method.
+
+184
+00:16:31,310 --> 00:16:32,540
+Identity--
+
+185
+00:16:32,570 --> 00:16:32,860
+Yep.
+
+186
+00:16:32,870 --> 00:16:34,580
+Make sure you spell that right.
+
+187
+00:16:35,000 --> 00:16:42,470
+And then finally, we can use the identity to create the authenticatedCanister, which is, of course
+
+188
+00:16:42,590 --> 00:16:46,310
+done through the imported createActor method.
+
+189
+00:16:46,670 --> 00:16:49,100
+And we're going to pass in the canister ID
+
+190
+00:16:49,820 --> 00:16:51,320
+and some options.
+
+191
+00:16:51,710 --> 00:17:01,340
+So the agentOptions is going to be another object, which is going to contain the identity that we
+
+192
+00:17:01,340 --> 00:17:05,359
+got hold of just now of our authenticated user.
+
+193
+00:17:06,020 --> 00:17:12,859
+So now instead of calling token.transfer, we're going to replace that token with the authenticated
+
+194
+00:17:12,859 --> 00:17:14,780
+Canister.transfer.
+
+195
+00:17:15,170 --> 00:17:20,390
+But still transferring to the recipient that the user typed in and the amount they wanted to transfer.
+
+196
+00:17:20,839 --> 00:17:24,710
+Now let's go ahead and hit, save and deploy our changes.
+
+197
+00:17:25,609 --> 00:17:32,240
+And once that's done, we can try this again by refreshing and then putting in the same information,
+
+198
+00:17:32,570 --> 00:17:33,950
+click transfer
+
+199
+00:17:34,430 --> 00:17:41,120
+and now, after a really long wait, we've got success instead of insufficient funds.
+
+200
+00:17:41,630 --> 00:17:50,480
+And if we check the funds for our current logged-in user, you can see it's 200 less.
+
+201
+00:17:51,050 --> 00:17:57,200
+And if we check the account that we transferred to, you can see it's successfully received the tokens.
+
+202
+00:17:57,980 --> 00:18:05,990
+So now we're able to authenticate ourselves using the Internet identity, and using the authenticated
+
+203
+00:18:06,020 --> 00:18:06,620
+user
+
+204
+00:18:06,860 --> 00:18:12,050
+we're able to create a canister and call methods using that identity.
+
+205
+00:18:12,530 --> 00:18:16,790
+Now, we've achieved a lot in this one project, so I hope you really enjoyed it.
+
+206
+00:18:16,940 --> 00:18:21,950
+And in the next project, we're going to be building an NFT marketplace.
+
+207
+00:18:22,160 --> 00:18:23,930
+So I hope you're excited.
+
+208
+00:18:24,260 --> 00:18:26,660
+And I'll see you on the next project.
+

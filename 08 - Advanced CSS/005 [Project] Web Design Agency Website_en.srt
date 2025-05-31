@@ -1,0 +1,372 @@
+1
+00:00:00,290 --> 00:00:00,710
+All right.
+
+2
+00:00:00,710 --> 00:00:02,750
+It's time for the project, for this section.
+
+3
+00:00:02,750 --> 00:00:09,710
+And in this project, we're going to be creating a beautiful website for a Web Design Agency.
+
+4
+00:00:09,980 --> 00:00:15,350
+Usually with web design agencies, you'll see them demonstrating their best work, but their websites
+
+5
+00:00:15,350 --> 00:00:16,850
+are usually quite simple.
+
+6
+00:00:16,850 --> 00:00:24,770
+So something with a big block of text telling people what they do and then just simple clean design.
+
+7
+00:00:24,950 --> 00:00:26,930
+This is what we're going to be creating.
+
+8
+00:00:26,930 --> 00:00:35,060
+We're going to be a Creative Design Agency at dev.com and we've got two little blocks of text that describes
+
+9
+00:00:35,060 --> 00:00:36,530
+a little bit about our work,
+
+10
+00:00:36,530 --> 00:00:42,380
+and finally, at the bottom, we've got a footer with our company motto, "Create, Develop Design."
+
+11
+00:00:42,380 --> 00:00:46,790
+But more importantly, our website actually scales responsively.
+
+12
+00:00:46,790 --> 00:00:51,830
+So when we create our website, we're going to make sure that when it's displayed on a smaller screen,
+
+13
+00:00:52,400 --> 00:01:03,210
+namely an iPhone, that our blocks now change and are centered and are responsive to make better use
+
+14
+00:01:03,210 --> 00:01:04,650
+of the screen real estate.
+
+15
+00:01:04,650 --> 00:01:11,490
+So instead of having it side by side such as here, where we've got one block here and then one block
+
+16
+00:01:11,490 --> 00:01:18,270
+here, when the screen size is a certain size, they actually stack on top of each other.
+
+17
+00:01:18,270 --> 00:01:24,000
+So this is going to require a little bit of the knowledge that you learned in this lesson about the Display
+
+18
+00:01:24,000 --> 00:01:27,840
+Property, Floats and also Responsiveness.
+
+19
+00:01:28,320 --> 00:01:30,810
+Go ahead and download the starting project.
+
+20
+00:01:30,840 --> 00:01:37,590
+The first thing I want you to do is to go ahead and open up the index.html and take a look at the code
+
+21
+00:01:37,590 --> 00:01:39,990
+that we've already put in here for you.
+
+22
+00:01:40,140 --> 00:01:46,170
+You can, of course, design everything completely from scratch, but I think it's important that we
+
+23
+00:01:46,170 --> 00:01:51,240
+actually have a good pace of learning and we're practicing the things that we've actually just learned
+
+24
+00:01:51,240 --> 00:01:56,160
+about, rather than doing everything from scratch and not focusing on the important things.
+
+25
+00:01:56,340 --> 00:01:59,430
+Go ahead and show it as a preview on the right.
+
+26
+00:01:59,430 --> 00:02:05,250
+And if you want to see it better, just copy that URL and put it into your browser.
+
+27
+00:02:05,340 --> 00:02:10,020
+Now, you can see this is basically just kind of like plain HTML, right?
+
+28
+00:02:10,020 --> 00:02:14,190
+We've got some nice fonts in here, we've got some images, we've got some text,
+
+29
+00:02:14,190 --> 00:02:20,580
+but essentially it hasn't really been designed for layout and that's what we learn all about in this
+
+30
+00:02:20,580 --> 00:02:21,360
+section.
+
+31
+00:02:21,360 --> 00:02:28,080
+So now I want you to right-click on the solution.html, show preview, take this URL and put it up
+
+32
+00:02:28,080 --> 00:02:29,310
+side by side.
+
+33
+00:02:29,550 --> 00:02:37,170
+Now one way you can solve this project is to simply aim for this exact same layout.
+
+34
+00:02:37,500 --> 00:02:40,950
+I'm not going to give you too many clues about how to achieve this layout.
+
+35
+00:02:40,950 --> 00:02:45,630
+I think it's time that you actually figure out how to break down a problem and see if you can create
+
+36
+00:02:45,630 --> 00:02:46,740
+something similar.
+
+37
+00:02:46,740 --> 00:02:48,810
+It doesn't have to be exactly the same,
+
+38
+00:02:48,810 --> 00:02:50,910
+you could just aim for similar.
+
+39
+00:02:50,910 --> 00:02:55,830
+But the important thing to remember is look at how this is laid out,
+
+40
+00:02:55,830 --> 00:02:59,640
+you've got an image, you've got text that's floating next to it,
+
+41
+00:02:59,640 --> 00:03:03,960
+you've got these two different sections are completely separate from each other
+
+42
+00:03:03,960 --> 00:03:10,560
+and then when you change the dimensions, when you hit a certain break point, this is pretty much for
+
+43
+00:03:10,560 --> 00:03:14,040
+mobile around sort of 600-ish,
+
+44
+00:03:14,040 --> 00:03:17,370
+then it actually stacks on top of each other.
+
+45
+00:03:17,670 --> 00:03:24,180
+Using what you've learned in this section, you should be perfectly able to add the modifications to
+
+46
+00:03:24,180 --> 00:03:28,290
+the index.html to create this look and feel.
+
+47
+00:03:28,650 --> 00:03:30,540
+Now I want to leave this up to you.
+
+48
+00:03:30,540 --> 00:03:34,410
+You can actually create an entirely different website if you want to
+
+49
+00:03:34,410 --> 00:03:40,440
+by modifying this starting file. You could lay it out however you like, using whichever methods you've
+
+50
+00:03:40,440 --> 00:03:41,010
+learned.
+
+51
+00:03:41,100 --> 00:03:44,940
+It doesn't have to end up looking like this, as long as it looks beautiful to your eyes,
+
+52
+00:03:44,940 --> 00:03:46,020
+I'm happy with it.
+
+53
+00:03:46,020 --> 00:03:51,930
+But remember, I want you to try out putting in responsiveness and try out some of the things you learned
+
+54
+00:03:51,930 --> 00:03:55,770
+in this section, such as block and inline-block and floats.
+
+55
+00:03:55,770 --> 00:04:02,270
+Just put some of those things into the CSS so that you have some practice doing these things.
+
+56
+00:04:02,270 --> 00:04:09,710
+Once you're done, you can take a look at the solution code to see how I achieved this particular layout.
+
+57
+00:04:09,710 --> 00:04:14,780
+And you can look back at some of the previous lessons if you're not quite sure how I achieved it in
+
+58
+00:04:14,780 --> 00:04:20,600
+the solution code, but I recommend don't look at the solution code until you're happy with your creation.
+
+59
+00:04:20,600 --> 00:04:27,380
+So now go ahead, download the starting files, modify the layout, and if you've created something completely
+
+60
+00:04:27,380 --> 00:04:32,840
+different from the solution and you think it's amazing, you want to show off to everybody, then go
+
+61
+00:04:32,840 --> 00:04:37,850
+ahead and include a screenshot in the Q&A so that we can all admire your hard work.
+
+62
+00:04:37,970 --> 00:04:45,830
+So now it's time for you to shine and for you to design and use CSS to your heart's content to create
+
+63
+00:04:45,830 --> 00:04:48,080
+a beautiful website of your own making.
+
+64
+00:04:48,080 --> 00:04:50,180
+So have a go at that now.
+
+65
+00:04:52,060 --> 00:04:55,660
+I hope that was fun for you and you managed to create something really beautiful.
+
+66
+00:04:56,110 --> 00:05:01,480
+I want to quickly point out some of the things in my solution code that I want to draw your attention
+
+67
+00:05:01,480 --> 00:05:06,160
+to in case you got stuck on how to recreate the layout that I had in the solution.
+
+68
+00:05:06,190 --> 00:05:12,120
+So the first thing I want you to notice is here I've created a span giving it a different class.
+
+69
+00:05:12,130 --> 00:05:18,100
+That means that in the solution I can target that particular class ".creative" and give it a different
+
+70
+00:05:18,100 --> 00:05:18,640
+color.
+
+71
+00:05:18,670 --> 00:05:24,850
+That's how I managed to have this part be blue rather than having it all the same color,
+
+72
+00:05:24,850 --> 00:05:31,600
+but layout-wise, it's completely within the same flow because it's simply an inline element that slots
+
+73
+00:05:31,600 --> 00:05:32,050
+in.
+
+74
+00:05:32,500 --> 00:05:35,080
+That's the first thing I want to draw your attention to.
+
+75
+00:05:35,110 --> 00:05:41,740
+The second thing is notice how I've got a media query targeting 680px and below,
+
+76
+00:05:41,770 --> 00:05:47,080
+if you remember from previously, this is going to give us access to a lot of the smaller devices where
+
+77
+00:05:47,080 --> 00:05:51,340
+maybe our two sided sort of blocks won't work,
+
+78
+00:05:51,340 --> 00:05:55,160
+so that we get that responsiveness where they stack on top of each other.
+
+79
+00:05:55,160 --> 00:06:02,000
+And the way that I've made them stack on top of each other is by simply changing the cards to have a
+
+80
+00:06:02,000 --> 00:06:05,720
+display of block so that they occupy the full width.
+
+81
+00:06:05,720 --> 00:06:11,630
+And then I've changed the width to 100% so that they go from edge to edge, changed the text to justify,
+
+82
+00:06:11,630 --> 00:06:18,620
+so that instead of being left-aligned, as you see here, they actually try to occupy the full-width
+
+83
+00:06:18,620 --> 00:06:24,140
+and the spaces get stretched out so that we have these clean lines, on either side of the paragraphs.
+
+84
+00:06:24,740 --> 00:06:30,020
+And of course, the way that we've managed to get these cards to go to the left and the right is using
+
+85
+00:06:30,020 --> 00:06:33,200
+what we learned about float, float-left and float-right.
+
+86
+00:06:33,200 --> 00:06:37,580
+So all in all, the solution should be easy enough to understand.
+
+87
+00:06:37,610 --> 00:06:41,540
+The only thing you might have never seen before is this "object-fit".
+
+88
+00:06:41,540 --> 00:06:46,820
+And what I want you to do if you're not quite sure about some code that you see in the solution code
+
+89
+00:06:46,820 --> 00:06:53,330
+is to simply Google for that property on MDN Developer Docs and read up on it because it's usually
+
+90
+00:06:53,330 --> 00:06:57,110
+something simple enough to simply understand by using the docs.
+
+91
+00:06:57,110 --> 00:07:02,540
+And this is an important workflow in any professional web developers life, so it's important to get
+
+92
+00:07:02,540 --> 00:07:03,260
+used to it.
+
+93
+00:07:03,410 --> 00:07:06,920
+I hope you had fun in this project and I'll see you in the next section.
+

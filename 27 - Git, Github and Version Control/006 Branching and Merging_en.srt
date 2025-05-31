@@ -1,0 +1,536 @@
+1
+00:00:00,140 --> 00:00:05,120
+Now, in the last lesson, we spoke about some of the more basic variants of version control.
+
+2
+00:00:05,150 --> 00:00:09,110
+In this lesson, I want to talk about Branches and Branching.
+
+3
+00:00:09,140 --> 00:00:11,580
+Now let's start off with a simple example.
+
+4
+00:00:11,600 --> 00:00:14,990
+Say if we had Version 1 and 2.
+
+5
+00:00:15,020 --> 00:00:18,800
+So two commits that were made to our local repository,
+
+6
+00:00:18,800 --> 00:00:25,610
+and at this point, we realize that we want to maybe try out something different, maybe build a new feature,
+
+7
+00:00:25,610 --> 00:00:28,730
+or just to mess around with a new idea or concept.
+
+8
+00:00:28,760 --> 00:00:35,690
+What we can do is instead of continuing to commit to the main branch that you see here, we can also
+
+9
+00:00:35,690 --> 00:00:39,470
+create a side branch. After the second commit,
+
+10
+00:00:39,500 --> 00:00:46,880
+we create a new branch and we start committing to this new branch or this experimental branch.
+
+11
+00:00:46,910 --> 00:00:50,150
+We add some features and we write some code.
+
+12
+00:00:50,330 --> 00:00:56,810
+Simultaneously, we can continue working on the main branch, putting out all those essential updates
+
+13
+00:00:56,810 --> 00:01:01,860
+or bits of code that are maintaining our main project,
+
+14
+00:01:01,860 --> 00:01:08,520
+but at the same time we can continue to update and work on this experimental branch trying things out
+
+15
+00:01:08,520 --> 00:01:11,840
+and committing our experiments to this experimental branch.
+
+16
+00:01:11,850 --> 00:01:18,610
+So now we have two branches that are parallel to each other and they can be developed simultaneously.
+
+17
+00:01:18,630 --> 00:01:24,900
+If at some point in the future that we decide that that experiment was really fruitful and the feature
+
+18
+00:01:24,900 --> 00:01:30,930
+that we built in it was really, really great and we'd like to merge it back to the main branch or
+
+19
+00:01:30,930 --> 00:01:37,350
+to the main project, then that can be done really easily as well by simply placing a merge request
+
+20
+00:01:37,350 --> 00:01:44,370
+in. And we can bring all of those changes that we experimented with, that we messed around with, back to
+
+21
+00:01:44,370 --> 00:01:49,200
+the main project and check to see if there's any conflict with the main branch code
+
+22
+00:01:49,200 --> 00:01:55,740
+and if not, or if after a little bit of editing, then we can bring all of those changes into the main
+
+23
+00:01:55,740 --> 00:02:03,870
+working branch. And then we can continue working from here onto to the next commit or we can make more
+
+24
+00:02:03,870 --> 00:02:04,620
+branches.
+
+25
+00:02:04,620 --> 00:02:10,650
+And very often what you see in practice is that there'll be multiple branches being worked on at the
+
+26
+00:02:10,650 --> 00:02:13,350
+same time for any given large project.
+
+27
+00:02:13,350 --> 00:02:19,950
+And the reason is because sometimes you're developing new features, sometimes you are fixing bugs and
+
+28
+00:02:19,950 --> 00:02:25,350
+all of these things may break your main project, so you don't want to do it on the main branch.
+
+29
+00:02:25,350 --> 00:02:28,230
+You only want to put it onto the main branch
+
+30
+00:02:28,230 --> 00:02:35,130
+once you know that everything is working fine, and then you can bring your code back to the working copy
+
+31
+00:02:35,130 --> 00:02:37,410
+ready for shipment and deployment.
+
+32
+00:02:37,530 --> 00:02:41,370
+Let's take a look at how this would work in reality.
+
+33
+00:02:41,400 --> 00:02:49,890
+Now let's say we navigate back to our Story directory, and inside here we've still got our previous
+
+34
+00:02:49,890 --> 00:02:53,430
+three chapters and they are under version control.
+
+35
+00:02:53,430 --> 00:02:59,880
+So if we just have a look at "git log", you can see that this is currently the most recent commit and
+
+36
+00:02:59,880 --> 00:03:02,580
+it's also mirrored in our remote.
+
+37
+00:03:03,470 --> 00:03:06,260
+Let's try and do this locally first.
+
+38
+00:03:06,410 --> 00:03:14,120
+If I decided that I want to create a new branch, you can simply just write "git branch" and specify the
+
+39
+00:03:14,120 --> 00:03:16,050
+name of your new branch.
+
+40
+00:03:16,070 --> 00:03:25,580
+I'm going to add a space-related plot to my story, so let's call our branch, "alien-plot."
+
+41
+00:03:27,000 --> 00:03:27,840
+Hit Enter.
+
+42
+00:03:27,840 --> 00:03:34,710
+And now you can check out what branches you have by just writing "git branch" without the name and you
+
+43
+00:03:34,710 --> 00:03:40,440
+can see that you've got one branch called, alien-plot and another one called main, and the asterisks (*)
+
+44
+00:03:40,440 --> 00:03:43,470
+shows you which branch you are currently on.
+
+45
+00:03:43,470 --> 00:03:45,330
+So we're currently on the main branch.
+
+46
+00:03:45,360 --> 00:03:50,940
+We can switch to the alien-plot by simply writing "git checkout
+
+47
+00:03:51,780 --> 00:03:53,700
+alien-plot".
+
+48
+00:03:56,580 --> 00:03:57,110
+Okay.
+
+49
+00:03:57,120 --> 00:04:01,200
+As it says, we have now switched to the branch called, alien-plot.
+
+50
+00:04:01,350 --> 00:04:07,290
+Now, it is inside this branch that I'm going to make some changes to my chapters.
+
+51
+00:04:07,470 --> 00:04:14,730
+Now I'm going to make some completely nonsensical modification to my files.
+
+52
+00:04:14,730 --> 00:04:16,680
+So let's change chapter 1.
+
+53
+00:04:16,680 --> 00:04:19,860
+Let's change chapter2.
+
+54
+00:04:26,520 --> 00:04:27,690
+Okay.
+
+55
+00:04:27,870 --> 00:04:28,540
+There we go.
+
+56
+00:04:28,560 --> 00:04:34,770
+Okay, so we've made some modifications to chapter1 and chapter2, and we've decided to change some
+
+57
+00:04:34,770 --> 00:04:41,070
+of the pre-existing written text to integrate a space-themed or alien-themed plot.
+
+58
+00:04:42,030 --> 00:04:44,220
+Let's go ahead and commit that.
+
+59
+00:04:44,220 --> 00:04:55,500
+So remember, we have to do "git add ." and then "git commit -m..." and our message is going to be "modify
+
+60
+00:04:56,010 --> 00:04:57,390
+chapter 1
+
+61
+00:04:58,830 --> 00:05:04,950
+and 2 to have alien theme".
+
+62
+00:05:06,490 --> 00:05:10,870
+Okay, now hit Enter and we've made our commits.
+
+63
+00:05:11,020 --> 00:05:18,790
+Now if we do a "git log", we can see that we have two commits made on the main branch and we have one
+
+64
+00:05:18,790 --> 00:05:21,970
+commit made on the alien plot-branch.
+
+65
+00:05:22,120 --> 00:05:25,890
+So now let's say that we go back onto our main branch.
+
+66
+00:05:25,900 --> 00:05:32,170
+Whenever you're confused where you are, you can always do a "git branch" to check and see where the asterisks
+
+67
+00:05:32,170 --> 00:05:32,410
+is.
+
+68
+00:05:32,410 --> 00:05:35,200
+And the asterisks is obviously where you are.
+
+69
+00:05:35,230 --> 00:05:43,810
+So let's do a "git checkout main" to go back to the main branch. So you can see that our main branch is
+
+70
+00:05:43,810 --> 00:05:44,740
+unchanged
+
+71
+00:05:44,740 --> 00:05:48,790
+with respect to the space or alien plot that we did just now.
+
+72
+00:05:48,790 --> 00:05:51,040
+Nothing has changed over here.
+
+73
+00:05:51,040 --> 00:05:54,700
+So while on the main branch, I'm going to create a new file,
+
+74
+00:05:54,700 --> 00:05:56,440
+I'm going to call it chapter4.txt.
+
+75
+00:05:58,040 --> 00:06:03,690
+And inside chapter four,
+
+76
+00:06:03,710 --> 00:06:05,300
+let's add something.
+
+77
+00:06:09,640 --> 00:06:10,090
+Okay.
+
+78
+00:06:10,090 --> 00:06:11,920
+And hit, Enter and Save.
+
+79
+00:06:11,950 --> 00:06:13,600
+By the way, I have no idea what I'm typing.
+
+80
+00:06:13,600 --> 00:06:18,600
+I'm now making up and destroying, probably in the process a masterpiece, but it's okay.
+
+81
+00:06:18,610 --> 00:06:25,060
+So we now have a chapter4 on our main branch and I'm going to go ahead and do a "git add ." and "git
+
+82
+00:06:25,060 --> 00:06:26,110
+commit".
+
+83
+00:06:26,830 --> 00:06:32,230
+Now there's ways of combining add and commit together in the same command, but I think if you're new
+
+84
+00:06:32,230 --> 00:06:36,070
+to git, it's always good to really know in your head exactly what's going on.
+
+85
+00:06:36,070 --> 00:06:39,370
+So I recommend actually separating those two bits out.
+
+86
+00:06:39,400 --> 00:06:42,340
+Let's go ahead and give it a commit message.
+
+87
+00:06:42,520 --> 00:06:45,130
+"add chapter 4."
+
+88
+00:06:45,970 --> 00:06:47,760
+Okay, so "git log".
+
+89
+00:06:47,770 --> 00:06:48,400
+Let's see,
+
+90
+00:06:48,400 --> 00:06:49,240
+what have we got?
+
+91
+00:06:49,270 --> 00:06:53,470
+We are currently only looking at the main branch and we have three commits.
+
+92
+00:06:53,500 --> 00:06:57,250
+This is the position of our remote.
+
+93
+00:06:57,250 --> 00:07:02,650
+So on our GitHub repository, this was the latest commit that it could see.
+
+94
+00:07:02,650 --> 00:07:08,410
+But on our local git repository, this is in fact the latest commit, the one that we just made where
+
+95
+00:07:08,410 --> 00:07:09,920
+we added chapter4.
+
+96
+00:07:09,920 --> 00:07:16,640
+And you can see that if I switch between the branches, say, if I go over to alien-plot branch and hit
+
+97
+00:07:16,640 --> 00:07:22,120
+Enter, you can see that our local files actually changed as I switched branches.
+
+98
+00:07:22,130 --> 00:07:29,030
+Let's just say that I'm quite happy with the changes that I've made in terms of my alien-plot addition
+
+99
+00:07:29,030 --> 00:07:33,920
+and I would like to merge these changes back into my main branch.
+
+100
+00:07:33,920 --> 00:07:37,550
+So I've done a little bit of experimentation on a separate branch,
+
+101
+00:07:37,550 --> 00:07:42,050
+I've, you know, messed with a few things and I think it was a great experiment.
+
+102
+00:07:42,050 --> 00:07:46,130
+So I'm going to put it back into our main branch.
+
+103
+00:07:46,220 --> 00:07:50,870
+In order to do that, what you have to do is go back to the main branch.
+
+104
+00:07:50,870 --> 00:07:59,000
+So "git checkout main" and while we're on the main branch we're going to merge the changes inside the
+
+105
+00:07:59,000 --> 00:08:00,260
+alien-plot branch.
+
+106
+00:08:00,260 --> 00:08:09,890
+So we use the command "git merge" and we're going to specify the branch name which was, "alien-plot" hit
+
+107
+00:08:09,890 --> 00:08:10,400
+Enter.
+
+108
+00:08:10,400 --> 00:08:16,550
+And this opens up Vim, which is a text editor, and this allows you to add a merge message if you wish.
+
+109
+00:08:16,550 --> 00:08:20,810
+And alternatively, as we're going to do here, we're just going to leave it empty and you're going
+
+110
+00:08:20,810 --> 00:08:24,500
+to write, ":q!" to save and quit.
+
+111
+00:08:25,380 --> 00:08:31,440
+And you can see now I've actually absorbed those changes from the alien plot.
+
+112
+00:08:31,530 --> 00:08:37,799
+And you can see that because if I do "git branch", I am on the main branch.
+
+113
+00:08:37,799 --> 00:08:39,600
+The alien plot branch still exists
+
+114
+00:08:39,600 --> 00:08:45,480
+by the way. If you have a look at "git log", you can see that I've got some of the previous commits,
+
+115
+00:08:45,480 --> 00:08:51,180
+but I've also got this merge branch alien-plot which was my most recent commit.
+
+116
+00:08:51,210 --> 00:09:00,960
+Now at this point let's do a "git push" to our "origin main" and remember to add the "-u" flag.
+
+117
+00:09:02,090 --> 00:09:03,110
+That's completed.
+
+118
+00:09:03,110 --> 00:09:05,110
+And let's check it out online.
+
+119
+00:09:05,120 --> 00:09:10,760
+If we go over to our story repository, you can see that there's now five commits.
+
+120
+00:09:11,000 --> 00:09:13,010
+We modified Chapter 1 and 2.
+
+121
+00:09:13,040 --> 00:09:17,150
+We added chapter 4 and we merged the alien-plot branch.
+
+122
+00:09:17,150 --> 00:09:24,290
+So if you go into insights and go to Network now, if I zoom in on this Network graph, then you can
+
+123
+00:09:24,290 --> 00:09:27,590
+see this is the process that we've gone through.
+
+124
+00:09:27,770 --> 00:09:32,030
+This is the main branch where we did chapter 1 and chapter 2
+
+125
+00:09:32,030 --> 00:09:39,200
+and then at this point, after I created chapter 2 and 3, I created a new branch.
+
+126
+00:09:39,200 --> 00:09:45,380
+And while inside this branch I made a commit that modified chapter 1 and 2 to have an alien theme.
+
+127
+00:09:45,380 --> 00:09:51,350
+And then on the main branch, I continued developing the main branch, adding a chapter 4,
+
+128
+00:09:51,350 --> 00:10:00,800
+but subsequently, I realized that I did a great job adding alien themes to our storyline and I decided
+
+129
+00:10:00,800 --> 00:10:04,410
+to merge it back into the main branch.
+
+130
+00:10:04,410 --> 00:10:08,850
+This is basically a graphical representation of what's been going on.
+
+131
+00:10:09,000 --> 00:10:12,750
+So that was us creating a branch and merging it.
+
+132
+00:10:12,780 --> 00:10:19,590
+Now why don't you go ahead and have a go and create your own repository both locally as well as on GitHub
+
+133
+00:10:19,590 --> 00:10:27,420
+and, you know, write a story or write a poem, anything you like and check out the amazingness that
+
+134
+00:10:27,420 --> 00:10:29,640
+is Branching using git.
+

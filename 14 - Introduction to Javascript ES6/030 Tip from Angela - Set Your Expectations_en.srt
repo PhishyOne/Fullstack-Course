@@ -1,0 +1,156 @@
+1
+00:00:00,560 --> 00:00:05,750
+Now, one of the things you often hear from people is, “Oh, programming is easy.
+
+2
+00:00:05,760 --> 00:00:07,830
+Every beginner, everybody can do it.
+
+3
+00:00:07,850 --> 00:00:14,070
+If you're an 8 year old, if you're a 60 year old, everybody can learn to code and it's super easy.”
+
+4
+00:00:14,380 --> 00:00:23,930
+And my response to that is that it's really really irresponsible for people to say this because, quite
+
+5
+00:00:23,990 --> 00:00:26,560
+honestly, programming is hard.
+
+6
+00:00:26,640 --> 00:00:31,260
+Like, don't fool yourself, and don't listen to people who say like, “Oh yeah,
+
+7
+00:00:31,290 --> 00:00:32,030
+so easy.”
+
+8
+00:00:32,060 --> 00:00:33,440
+Yeah maybe like the first part,
+
+9
+00:00:33,440 --> 00:00:39,320
+like, you know, when you just create like a variable and you add 2 to it.
+
+10
+00:00:39,350 --> 00:00:40,170
+Yeah that's easy.
+
+11
+00:00:40,190 --> 00:00:42,220
+But it's hard
+
+12
+00:00:42,230 --> 00:00:45,260
+like actually being able to master code.
+
+13
+00:00:45,460 --> 00:00:46,660
+It's not easy.
+
+14
+00:00:46,660 --> 00:00:48,760
+It's definitely not easy.
+
+15
+00:00:48,760 --> 00:00:56,230
+And, you know, you can't think like, “Oh, why is it that everybody's saying it's so easy,
+
+16
+00:00:56,230 --> 00:00:57,780
+but like I'm finding it so hard?
+
+17
+00:00:57,790 --> 00:00:59,340
+Does that mean I'm dumb?”
+
+18
+00:01:00,070 --> 00:01:01,270
+It's not true.
+
+19
+00:01:01,300 --> 00:01:03,310
+It's a hard thing that you're doing.
+
+20
+00:01:03,490 --> 00:01:08,110
+And just by getting this far you've really shown what you're made of.
+
+21
+00:01:08,260 --> 00:01:11,420
+And you've already learned so much.
+
+22
+00:01:12,010 --> 00:01:18,570
+But, you know, the other sort of side where people flip to you as well is like, “Programming’s impossible.
+
+23
+00:01:18,620 --> 00:01:22,830
+Like you either have to be like a genius or you're not going to get it.”
+
+24
+00:01:22,960 --> 00:01:31,480
+And that's not true either, because, you know, very often like I look at like, you know, people, students
+
+25
+00:01:31,480 --> 00:01:39,770
+who say like, “Oh, you know, like you're so great, like, I can't be like you.” But like, there is nothing,
+
+26
+00:01:39,830 --> 00:01:43,160
+there is nothing that anybody has on you.
+
+27
+00:01:43,160 --> 00:01:48,840
+Like if you go on YouTube and you look at all the developers who talk about, like, a day in the life of
+
+28
+00:01:48,840 --> 00:01:52,280
+the developer, or, you know, I am a developer.
+
+29
+00:01:52,280 --> 00:01:57,980
+Like, if you look at those people, or me, like there is no difference between these developers and these
+
+30
+00:01:57,980 --> 00:02:03,100
+people who have learned it and you. Like nobody is better than anybody.
+
+31
+00:02:03,140 --> 00:02:07,250
+It's just the amount of work that somebody has put in.
+
+32
+00:02:07,460 --> 00:02:09,860
+If you put in more work you end up with more results.
+
+33
+00:02:09,860 --> 00:02:10,850
+That's all it is.
+
+34
+00:02:10,850 --> 00:02:17,870
+So what I want to say is that, don't be fooled by these two things people say: programming is easy or
+
+35
+00:02:17,870 --> 00:02:25,370
+programming is really hard and impossible. They’re both not true. Programming is hard, but it's doable, and
+
+36
+00:02:25,370 --> 00:02:29,690
+it's doable by you as long as you keep going like you have been.
+
+37
+00:02:30,020 --> 00:02:31,010
+Then you're going to get there.
+
+38
+00:02:31,120 --> 00:02:31,990
+And I believe in you.
+
+39
+00:02:32,240 --> 00:02:34,960
+So keep going and we're going to do great.
+

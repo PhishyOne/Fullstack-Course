@@ -1,0 +1,588 @@
+1
+00:00:00,240 --> 00:00:00,630
+All right.
+
+2
+00:00:00,690 --> 00:00:06,180
+It's now time to put all of your knowledge that you've learned so far into practice.
+
+3
+00:00:06,180 --> 00:00:11,910
+So in this lesson you're going to be completing a number of challenges in order to create a contact
+
+4
+00:00:11,910 --> 00:00:12,970
+list app.
+
+5
+00:00:12,990 --> 00:00:16,620
+Now as you can see from the preview, it's not looking quite right.
+
+6
+00:00:16,650 --> 00:00:22,350
+So there's a couple of things that you have to do first in order to fix the CSS styles.
+
+7
+00:00:22,350 --> 00:00:28,080
+This will involve going into the App.jsx and applying the necessary class names.
+
+8
+00:00:28,200 --> 00:00:34,830
+Be sure to look through the styles.css file and looking at the class names that are available and
+
+9
+00:00:34,830 --> 00:00:41,940
+then you can compare your current app against the completed one at this address here. And through that
+
+10
+00:00:41,940 --> 00:00:47,400
+comparison hopefully you can figure out the right CSS styles to apply in order to get them to look the
+
+11
+00:00:47,400 --> 00:00:48,190
+same.
+
+12
+00:00:48,210 --> 00:00:53,880
+The next step is to extract the contact card as a reusable card component.
+
+13
+00:00:54,090 --> 00:00:57,760
+The contact card currently lives inside the App.
+
+14
+00:00:57,810 --> 00:01:03,480
+jsx file and that's basically everything that's inside this card div.
+
+15
+00:01:03,690 --> 00:01:08,970
+And once you've gotten it as a reusable card component, you're going to be using what you learned about
+
+16
+00:01:08,970 --> 00:01:12,900
+props in order to render the default Beyonce card.
+
+17
+00:01:12,900 --> 00:01:20,140
+So deleting all of these hard coded bits of information and instead passing it over from the App.
+
+18
+00:01:20,160 --> 00:01:28,170
+.jsx as the properties to that custom card component. Finally you're going to use the contacts.js
+
+19
+00:01:28,170 --> 00:01:34,440
+file that we've got here which has all of these details pre populated for you including some images
+
+20
+00:01:34,830 --> 00:01:37,820
+of these people I found on Google.
+
+21
+00:01:38,040 --> 00:01:41,700
+So feel free to switch it up with your own information if you wish
+
+22
+00:01:41,700 --> 00:01:48,780
+and by the end you should have a contact app that looks like this, with three cards each with a different
+
+23
+00:01:48,780 --> 00:01:57,120
+contact but effectively repeating the same element which were going to create using React. Pause the
+
+24
+00:01:57,120 --> 00:02:03,630
+video now, fork sandbox or download it as a zip file to use your local editor and give this challenge
+
+25
+00:02:03,630 --> 00:02:09,470
+a go now.
+
+26
+00:02:09,639 --> 00:02:10,070
+All right.
+
+27
+00:02:10,070 --> 00:02:10,850
+How did you get on.
+
+28
+00:02:11,000 --> 00:02:13,460
+Let's walk through the solution together.
+
+29
+00:02:13,460 --> 00:02:20,810
+The first step was to apply the CSF styles to the app dot Jess x component so it starts looking a bit
+
+30
+00:02:20,810 --> 00:02:25,630
+more like this as you can see we've got a little way to go.
+
+31
+00:02:25,820 --> 00:02:32,810
+And the first thing you'll notice is that the name of beyond say it looks very different even in terms
+
+32
+00:02:32,840 --> 00:02:35,640
+of color and also location.
+
+33
+00:02:35,660 --> 00:02:37,240
+So let's take a look inside.
+
+34
+00:02:37,260 --> 00:02:42,900
+Ah see ISIS file to see if there's something that might help us with that.
+
+35
+00:02:42,950 --> 00:02:50,600
+So you'll find a class called name which changes the font size and changes the color and gives it some
+
+36
+00:02:50,600 --> 00:02:53,020
+margin away from other components.
+
+37
+00:02:53,060 --> 00:03:02,050
+So let's try applying this to r abduct Jess and we're going to add it as a class name to this H2.
+
+38
+00:03:02,120 --> 00:03:03,560
+So it was called name.
+
+39
+00:03:03,920 --> 00:03:08,900
+So there we go it's now much bigger the different color and it's now no longer touching the edge of
+
+40
+00:03:08,900 --> 00:03:10,130
+the card.
+
+41
+00:03:10,220 --> 00:03:13,450
+The next thing we want to fix is probably this image right.
+
+42
+00:03:13,460 --> 00:03:14,510
+This is circular.
+
+43
+00:03:14,540 --> 00:03:17,200
+It's got a nice border around it.
+
+44
+00:03:17,360 --> 00:03:22,620
+The component that will probably want to add that class to is our image component here.
+
+45
+00:03:22,820 --> 00:03:29,960
+And the class name we want to add is going to be something related to an image.
+
+46
+00:03:30,080 --> 00:03:32,770
+So it could either be this one or it could be this one.
+
+47
+00:03:32,900 --> 00:03:39,340
+But notice how this one is actually just targeting all the child images that are associated with a card
+
+48
+00:03:39,350 --> 00:03:40,220
+class.
+
+49
+00:03:40,280 --> 00:03:48,320
+So this is actually already applied by default because we have our card div that contains an image element.
+
+50
+00:03:48,320 --> 00:03:53,580
+And so it's already getting those margins applied which is why it's being positioned where it is.
+
+51
+00:03:53,750 --> 00:03:59,930
+But this circle image however seems to change the porter radius making it round which is 50 percent
+
+52
+00:04:00,290 --> 00:04:06,560
+adding a whiteboard etc. So that seems like the one that we should apply to this image element.
+
+53
+00:04:06,860 --> 00:04:10,590
+So let's add a circle image, hit save and refresh.
+
+54
+00:04:11,060 --> 00:04:15,530
+And now we've got this nice circular avatar image.
+
+55
+00:04:15,530 --> 00:04:22,310
+The final thing we want to do is probably to update these two lines because as you can see over here
+
+56
+00:04:22,310 --> 00:04:28,100
+they have a different color and they're positioned a little bit differently. Again
+
+57
+00:04:28,100 --> 00:04:31,000
+let's go on our journey of discovery through our styles.
+
+58
+00:04:31,010 --> 00:04:32,030
+css
+
+59
+00:04:32,060 --> 00:04:37,440
+and we've got this class called info which changes the color and adds a little bit of margin.
+
+60
+00:04:37,520 --> 00:04:42,810
+So that is probably what we want to add to these two paragraph elements.
+
+61
+00:04:42,830 --> 00:04:49,670
+So I'm going to hold down OPTION and click on these two places and let's add the class name of info.
+
+62
+00:04:50,630 --> 00:04:57,440
+And once that refreshes you'll see that our card component now looks exactly the same as the completed
+
+63
+00:04:57,440 --> 00:05:01,960
+version. So that's step 1 out of the way.
+
+64
+00:05:01,970 --> 00:05:08,390
+Now step 2 is to extract the contact card as a reusable card component.
+
+65
+00:05:08,390 --> 00:05:15,650
+So this is what React is all about, extracting components and simplifying them into smaller and smaller
+
+66
+00:05:15,650 --> 00:05:23,660
+blocks. Everything that's inside this div with a class name of card corresponds to the card that's being
+
+67
+00:05:23,660 --> 00:05:24,460
+rendered.
+
+68
+00:05:24,500 --> 00:05:30,270
+The only thing that's left is this parent div and the h1 which is our heading over here.
+
+69
+00:05:30,710 --> 00:05:37,670
+So let's go ahead and extract this div and let's create a new file inside our components folder which
+
+70
+00:05:37,670 --> 00:05:47,030
+I'll call card.jsx. Inside here we'll have to do all the usual things, create a new card component
+
+71
+00:05:47,180 --> 00:05:52,440
+and return the thing that we copied over just now.
+
+72
+00:05:52,700 --> 00:06:00,320
+And finally let's go ahead and export this as the default export and it was called card.
+
+73
+00:06:00,350 --> 00:06:09,920
+So now let's hit save and go back into our App.js and import our card component from ./card.
+
+74
+00:06:10,960 --> 00:06:18,490
+And now we can add it in here as a custom React component with the Pascal casing and a self closing
+
+75
+00:06:18,490 --> 00:06:19,570
+tag.
+
+76
+00:06:19,570 --> 00:06:28,530
+And we've now got Beyonce tag back in here just as before. Now we're on to step 3 which is to
+
+77
+00:06:28,530 --> 00:06:34,500
+use what we learned about props in order to render the default Beyonce contact card.
+
+78
+00:06:34,680 --> 00:06:42,400
+And this will allow us to make our card component reusable so it doesn't always create a Beyonce card.
+
+79
+00:06:42,480 --> 00:06:48,660
+So I'm gonna go ahead and review this card component looking for the parts which are custom to each
+
+80
+00:06:48,660 --> 00:06:49,630
+contact.
+
+81
+00:06:49,860 --> 00:06:58,860
+For example, the name or the image source or the telephone number and email, and I'm going to create them
+
+82
+00:06:58,950 --> 00:07:02,430
+as properties on my card component.
+
+83
+00:07:02,430 --> 00:07:09,360
+So I have a name and it's going to be equal to what we have here which is Beyonce. So let's paste
+
+84
+00:07:09,360 --> 00:07:15,960
+that in there. And then I'll probably have an image which is going to be the image source that I've got
+
+85
+00:07:15,960 --> 00:07:23,150
+over here. And then we've got a telephone number which will just copy over.
+
+86
+00:07:26,520 --> 00:07:29,360
+And finally we've got a email.
+
+87
+00:07:29,370 --> 00:07:34,710
+And remember that even though it seems like we're creating a new object and it does function as if we're
+
+88
+00:07:34,710 --> 00:07:43,020
+passing this object over to create this card component as the input, the syntax is more like the HTML 
+
+89
+00:07:43,050 --> 00:07:50,800
+attributes where you have the key, equals sign and then a value. So let's copy over that last piece of
+
+90
+00:07:50,800 --> 00:07:52,030
+information
+
+91
+00:07:52,150 --> 00:08:00,340
+and now we can delete all the parts of our card component which are custom to each contact.
+
+92
+00:08:00,370 --> 00:08:04,530
+So this way this card component can be completely reusable.
+
+93
+00:08:04,720 --> 00:08:10,870
+But in order for it to actually work instead of giving us lots of syntax errors, we'll need to get a
+
+94
+00:08:10,870 --> 00:08:18,100
+hold of all of these inputs being sent over to our card component. And we of course do that through the
+
+95
+00:08:18,100 --> 00:08:20,030
+input called props.
+
+96
+00:08:20,020 --> 00:08:24,970
+Now remember that you can name this whatever it is you want and it will still work because it's just
+
+97
+00:08:24,970 --> 00:08:32,049
+going to be assigned as if it was a variable to this object that it contains all of these properties.
+
+98
+00:08:32,230 --> 00:08:38,919
+But by convention in all of the React apps you'll see that people use the word props. So the places
+
+99
+00:08:38,919 --> 00:08:44,710
+where we want to use those props or properties is firstly the name of the contact,
+
+100
+00:08:44,740 --> 00:08:50,650
+so that's going to be a props.name. And you can refer back to over here where you created the card
+
+101
+00:08:51,040 --> 00:08:53,380
+and passed over all of these properties
+
+102
+00:08:53,470 --> 00:09:00,760
+if you forget what each of these names are. And you of course have to enclose these inside a set of curly
+
+103
+00:09:00,760 --> 00:09:01,630
+braces
+
+104
+00:09:01,630 --> 00:09:07,990
+so it actually recognizes this as Javascript instead of you just trying to create an h2 that says props
+
+105
+00:09:07,990 --> 00:09:09,470
+.name.
+
+106
+00:09:09,610 --> 00:09:12,310
+So the next one is our image source.
+
+107
+00:09:12,430 --> 00:09:19,900
+So this is going to be props.image and then we've got our first info paragraph and this is going
+
+108
+00:09:19,900 --> 00:09:28,480
+to be props.tel and as well as props.email.
+
+109
+00:09:28,510 --> 00:09:36,250
+Now we are entirely using our properties that are passed over, properties which can contain custom values
+
+110
+00:09:36,250 --> 00:09:43,330
+for name, image, telephone and email and it just so happens that we are creating a Beyonce contact
+
+111
+00:09:43,330 --> 00:09:49,810
+card from our App.js. That's step 3 out of the way.
+
+112
+00:09:50,030 --> 00:09:57,800
+And the final step is to use this file contacts.js to create the card components instead of typing
+
+113
+00:09:57,800 --> 00:10:03,860
+it out by hand. In order to save you time from finding image URLs and telephone and emails whichever
+
+114
+00:10:03,860 --> 00:10:06,520
+you want and making up a telephone and email,
+
+115
+00:10:06,530 --> 00:10:10,090
+we created this contacts.js file.
+
+116
+00:10:10,100 --> 00:10:13,440
+Now let's first take a look at the structure of this.
+
+117
+00:10:13,490 --> 00:10:16,670
+Notice how it's inside a set of square brackets.
+
+118
+00:10:16,730 --> 00:10:22,250
+So this is an array and it's an array of Javascript objects.
+
+119
+00:10:22,250 --> 00:10:29,480
+Each of these objects have a number of properties such as name, image URL, phone, email. And these correspond
+
+120
+00:10:29,480 --> 00:10:37,190
+to all the things that we need to fill each contact card. If we want to use this contacts constant inside
+
+121
+00:10:37,190 --> 00:10:37,780
+our App.
+
+122
+00:10:37,790 --> 00:10:43,800
+.js, you might have remembered our previous lessons on importing and exporting.
+
+123
+00:10:43,880 --> 00:10:52,760
+So let's go ahead and export our contacts constant as the default from this file and inside our App.
+
+124
+00:10:52,770 --> 00:11:01,700
+.js we can go ahead and import that constant contacts and we can specify the location.
+
+125
+00:11:01,700 --> 00:11:12,260
+So it was ../contacts. And now we actually have access to that contacts constant and you can
+
+126
+00:11:12,260 --> 00:11:14,150
+even log it if you want to.
+
+127
+00:11:17,150 --> 00:11:25,080
+And you'll see it printed in here as an array with three objects each with all of these properties.
+
+128
+00:11:25,160 --> 00:11:31,490
+So now we can go ahead and use these contacts to create each of our cards.
+
+129
+00:11:31,500 --> 00:11:38,500
+So the first one will be contacts at position 0 .name
+
+130
+00:11:38,670 --> 00:11:40,790
+and of course this is Javascript code
+
+131
+00:11:40,890 --> 00:11:49,840
+so it needs to go inside a set of curly braces. And we can do the same with the rest of our contacts.
+
+132
+00:11:52,530 --> 00:12:04,730
+And then we can simply just copy these cards and change the index of the item that we want.
+
+133
+00:12:04,870 --> 00:12:11,020
+And now if you take a look at our app you'll see that we've got all of our contacts added in each in
+
+134
+00:12:11,020 --> 00:12:13,210
+their own individual litttle cards
+
+135
+00:12:13,210 --> 00:12:17,780
+and we've got all of the details filled in for each of the cards.
+
+136
+00:12:17,830 --> 00:12:24,280
+Now we've saved ourselves a lot of effort by creating these custom components using React.
+
+137
+00:12:24,280 --> 00:12:31,270
+But it does get a little bit tedious adding in contacts[0].name, contacts[0].imgURL
+
+138
+00:12:31,540 --> 00:12:34,010
+and then going on through that array.
+
+139
+00:12:34,210 --> 00:12:39,220
+Don't worry we have lots of fancy ways of dealing with this and you'll be discovering that in the coming
+
+140
+00:12:39,220 --> 00:12:42,280
+lessons where we learn about map, filter and reduce.
+
+141
+00:12:42,310 --> 00:12:48,370
+But for now I want you to be really comfortable with this idea of props and passing them over when you
+
+142
+00:12:48,370 --> 00:12:54,850
+create your custom components and then receiving them through the input called props and accessing each
+
+143
+00:12:54,850 --> 00:13:03,870
+of those properties inside in order to render a completely customized version of your component. In the
+
+144
+00:13:03,870 --> 00:13:04,730
+next lesson,
+
+145
+00:13:04,740 --> 00:13:09,990
+we're going to be looking at some React development tools that will help you see the structure of your
+
+146
+00:13:09,990 --> 00:13:15,830
+app a little bit better as well as being able to see the current values of each of these properties.
+
+147
+00:13:15,840 --> 00:13:18,780
+So for all of that and more, I'll see you on the next lesson.
+

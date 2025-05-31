@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/28 - Application Programming Interfaces (APIs)/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="001%20Introduction%20to%20APIs.mp4" title="001 Introduction to APIs.mp4">001 Introduction to APIs.mp4</a></td><td class="size">137.2 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="001%20Introduction%20to%20APIs_en.srt" title="001 Introduction to APIs_en.srt">001 Introduction to APIs_en.srt</a></td><td class="size">24.5 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="002%20Structuring%20API%20Requests.mp4" title="002 Structuring API Requests.mp4">002 Structuring API Requests.mp4</a></td><td class="size">97.8 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="002%20Structuring%20API%20Requests_en.srt" title="002 Structuring API Requests_en.srt">002 Structuring API Requests_en.srt</a></td><td class="size">17.6 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="003%205.2-JSON.zip" title="003 5.2-JSON.zip">003 5.2-JSON.zip</a></td><td class="size">15.8 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="003%20What%20is%20JSON.mp4" title="003 What is JSON.mp4">003 What is JSON.mp4</a></td><td class="size">157.7 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="003%20What%20is%20JSON_en.srt" title="003 What is JSON_en.srt">003 What is JSON_en.srt</a></td><td class="size">22.0 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="004%205.3-Axios.zip" title="004 5.3-Axios.zip">004 5.3-Axios.zip</a></td><td class="size">13.6 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="004%20Making%20Server-Side%20API%20Requests%20with%20Axios.mp4" title="004 Making Server-Side API Requests with Axios.mp4">004 Making Server-Side API Requests with Axios.mp4</a></td><td class="size">136.3 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="004%20Making%20Server-Side%20API%20Requests%20with%20Axios_en.srt" title="004 Making Server-Side API Requests with Axios_en.srt">004 Making Server-Side API Requests with Axios_..&gt;</a></td><td class="size">21.5 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="005%205.4-API-Authentication.zip" title="005 5.4-API-Authentication.zip">005 5.4-API-Authentication.zip</a></td><td class="size">11.9 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="005%20API%20Authentication.mp4" title="005 API Authentication.mp4">005 API Authentication.mp4</a></td><td class="size">263.4 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="005%20API%20Authentication_en.srt" title="005 API Authentication_en.srt">005 API Authentication_en.srt</a></td><td class="size">46.8 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="006%205.5-REST-APIs.zip" title="006 5.5-REST-APIs.zip">006 5.5-REST-APIs.zip</a></td><td class="size">12.2 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="006%20REST%20APIs.mp4" title="006 REST APIs.mp4">006 REST APIs.mp4</a></td><td class="size">199.0 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="006%20REST%20APIs_en.srt" title="006 REST APIs_en.srt">006 REST APIs_en.srt</a></td><td class="size">31.1 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="007%205.6-Secrets-Project.zip" title="007 5.6-Secrets-Project.zip">007 5.6-Secrets-Project.zip</a></td><td class="size">279.5 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="007%20Secrets%20Project.mp4" title="007 Secrets Project.mp4">007 Secrets Project.mp4</a></td><td class="size">123.2 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="007%20Secrets%20Project_en.srt" title="007 Secrets Project_en.srt">007 Secrets Project_en.srt</a></td><td class="size">14.9 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="008%20Tip%20from%20Angela%20-%20Use%20Accountability%20in%20your%20Favour.mp4" title="008 Tip from Angela - Use Accountability in your Favour.mp4">008 Tip from Angela - Use Accountability in you..&gt;</a></td><td class="size">64.0 MiB</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="008%20Tip%20from%20Angela%20-%20Use%20Accountability%20in%20your%20Favour_en.srt" title="008 Tip from Angela - Use Accountability in your Favour_en.srt">008 Tip from Angela - Use Accountability in you..&gt;</a></td><td class="size">3.7 KiB</td><td class="date">2024-May-18 22:09</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/18 - Advanced Javascript and DOM Manipulation/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../?C=S&amp;O=A">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="014%20Course-Fixes-Report-an-Issue.url" title="014 Course-Fixes-Report-an-Issue.url">014 Course-Fixes-Report-an-Issue.url</a></td><td class="size">59 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="012%20Javascript-Wikipedia.url" title="012 Javascript-Wikipedia.url">012 Javascript-Wikipedia.url</a></td><td class="size">64 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="004%20Javascript-Wikipedia.url" title="004 Javascript-Wikipedia.url">004 Javascript-Wikipedia.url</a></td><td class="size">64 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Events-and-Event-Listeners.url" title="011 Events-and-Event-Listeners.url">011 Events-and-Event-Listeners.url</a></td><td class="size">75 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="003%20Events-and-Event-Listeners.url" title="003 Events-and-Event-Listeners.url">003 Events-and-Event-Listeners.url</a></td><td class="size">75 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="013%20Javascript-Timeout-Function.url" title="013 Javascript-Timeout-Function.url">013 Javascript-Timeout-Function.url</a></td><td class="size">78 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="006%20Playing-Audio-With-Javascript-Stackoverflow.url" title="006 Playing-Audio-With-Javascript-Stackoverflow.url">006 Playing-Audio-With-Javascript-Stackoverflow..&gt;</a></td><td class="size">85 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="006%20HTML-Audio-Element.url" title="006 HTML-Audio-Element.url">006 HTML-Audio-Element.url</a></td><td class="size">89 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Keypress-Event.url" title="011 Keypress-Event.url">011 Keypress-Event.url</a></td><td class="size">95 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="013%20W3schools-SetTimeout-Demo.url" title="013 W3schools-SetTimeout-Demo.url">013 W3schools-SetTimeout-Demo.url</a></td><td class="size">99 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="003%20Adding-Event-Listeners.url" title="003 Adding-Event-Listeners.url">003 Adding-Event-Listeners.url</a></td><td class="size">101 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Creating-and-Triggering-Events.url" title="011 Creating-and-Triggering-Events.url">011 Creating-and-Triggering-Events.url</a></td><td class="size">106 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="005%20Higher%20Order%20Function%20Challenge%20Solution.html" title="005 Higher Order Function Challenge Solution.html">005 Higher Order Function Challenge Solution.html</a></td><td class="size">356 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="014%20Download%20the%20Completed%20Website.html" title="014 Download the Completed Website.html">014 Download the Completed Website.html</a></td><td class="size">363 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="002%20Download%20the%20Starting%20Files.html" title="002 Download the Starting Files.html">002 Download the Starting Files.html</a></td><td class="size">371 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="010%20A%20Quick%20Note%20About%20the%20Next%20Lesson.html" title="010 A Quick Note About the Next Lesson.html">010 A Quick Note About the Next Lesson.html</a></td><td class="size">413 B</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="external-links.txt" title="external-links.txt">external-links.txt</a></td><td class="size">1.1 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="001%20What%20We%27ll%20Make%20Drum%20Kit_en.srt" title="001 What We'll Make Drum Kit_en.srt">001 What We'll Make Drum Kit_en.srt</a></td><td class="size">1.9 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="015%20Tip%20from%20Angela%20-%20Dealing%20with%20Lack%20of%20Progress_en.srt" title="015 Tip from Angela - Dealing with Lack of Progress_en.srt">015 Tip from Angela - Dealing with Lack of Prog..&gt;</a></td><td class="size">4.1 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="008%20How%20to%20Use%20Switch%20Statements%20in%20Javascript_en.srt" title="008 How to Use Switch Statements in Javascript_en.srt">008 How to Use Switch Statements in Javascript_..&gt;</a></td><td class="size">6.9 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="009%20Objects%2C%20their%20Methods%20and%20the%20Dot%20Notation_en.srt" title="009 Objects, their Methods and the Dot Notation_en.srt">009 Objects, their Methods and the Dot Notation..&gt;</a></td><td class="size">8.8 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Using%20Keyboard%20Event%20Listeners%20to%20Check%20for%20Key%20Presses_en.srt" title="011 Using Keyboard Event Listeners to Check for Key Presses_en.srt">011 Using Keyboard Event Listeners to Check for..&gt;</a></td><td class="size">9.6 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="013%20Adding%20Animation%20to%20Websites_en.srt" title="013 Adding Animation to Websites_en.srt">013 Adding Animation to Websites_en.srt</a></td><td class="size">10.6 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="012%20Understanding%20Callbacks%20and%20How%20to%20Respond%20to%20Events_en.srt" title="012 Understanding Callbacks and How to Respond to Events_en.srt">012 Understanding Callbacks and How to Respond ..&gt;</a></td><td class="size">14.2 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="006%20How%20to%20Play%20Sounds%20on%20a%20Website_en.srt" title="006 How to Play Sounds on a Website_en.srt">006 How to Play Sounds on a Website_en.srt</a></td><td class="size">14.2 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="004%20Higher%20Order%20Functions%20and%20Passing%20Functions%20as%20Arguments_en.srt" title="004 Higher Order Functions and Passing Functions as Arguments_en.srt">004 Higher Order Functions and Passing Function..&gt;</a></td><td class="size">15.8 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="007%20A%20Deeper%20Understanding%20of%20Javascript%20Objects_en.srt" title="007 A Deeper Understanding of Javascript Objects_en.srt">007 A Deeper Understanding of Javascript Object..&gt;</a></td><td class="size">16.9 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="003%20Adding%20Event%20Listeners%20to%20a%20Button_en.srt" title="003 Adding Event Listeners to a Button_en.srt">003 Adding Event Listeners to a Button_en.srt</a></td><td class="size">18.9 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="002%20Drum-Kit-Starting-Files.zip" title="002 Drum-Kit-Starting-Files.zip">002 Drum-Kit-Starting-Files.zip</a></td><td class="size">371.8 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="014%20Drum-Kit-Completed.zip" title="014 Drum-Kit-Completed.zip">014 Drum-Kit-Completed.zip</a></td><td class="size">371.9 KiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="001%20What%20We%27ll%20Make%20Drum%20Kit.mp4" title="001 What We'll Make Drum Kit.mp4">001 What We'll Make Drum Kit.mp4</a></td><td class="size">5.8 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="008%20How%20to%20Use%20Switch%20Statements%20in%20Javascript.mp4" title="008 How to Use Switch Statements in Javascript.mp4">008 How to Use Switch Statements in Javascript.mp4</a></td><td class="size">31.3 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="009%20Objects%2C%20their%20Methods%20and%20the%20Dot%20Notation.mp4" title="009 Objects, their Methods and the Dot Notation.mp4">009 Objects, their Methods and the Dot Notation..&gt;</a></td><td class="size">39.4 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="013%20Adding%20Animation%20to%20Websites.mp4" title="013 Adding Animation to Websites.mp4">013 Adding Animation to Websites.mp4</a></td><td class="size">52.9 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="011%20Using%20Keyboard%20Event%20Listeners%20to%20Check%20for%20Key%20Presses.mp4" title="011 Using Keyboard Event Listeners to Check for Key Presses.mp4">011 Using Keyboard Event Listeners to Check for..&gt;</a></td><td class="size">54.9 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="012%20Understanding%20Callbacks%20and%20How%20to%20Respond%20to%20Events.mp4" title="012 Understanding Callbacks and How to Respond to Events.mp4">012 Understanding Callbacks and How to Respond ..&gt;</a></td><td class="size">58.0 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="004%20Higher%20Order%20Functions%20and%20Passing%20Functions%20as%20Arguments.mp4" title="004 Higher Order Functions and Passing Functions as Arguments.mp4">004 Higher Order Functions and Passing Function..&gt;</a></td><td class="size">63.6 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="006%20How%20to%20Play%20Sounds%20on%20a%20Website.mp4" title="006 How to Play Sounds on a Website.mp4">006 How to Play Sounds on a Website.mp4</a></td><td class="size">67.2 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="003%20Adding%20Event%20Listeners%20to%20a%20Button.mp4" title="003 Adding Event Listeners to a Button.mp4">003 Adding Event Listeners to a Button.mp4</a></td><td class="size">69.1 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="015%20Tip%20from%20Angela%20-%20Dealing%20with%20Lack%20of%20Progress.mp4" title="015 Tip from Angela - Dealing with Lack of Progress.mp4">015 Tip from Angela - Dealing with Lack of Prog..&gt;</a></td><td class="size">69.9 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="007%20A%20Deeper%20Understanding%20of%20Javascript%20Objects.mp4" title="007 A Deeper Understanding of Javascript Objects.mp4">007 A Deeper Understanding of Javascript Object..&gt;</a></td><td class="size">79.9 MiB</td><td class="date">2024-May-18 22:06</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

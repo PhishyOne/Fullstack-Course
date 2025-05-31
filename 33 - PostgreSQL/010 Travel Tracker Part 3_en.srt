@@ -1,0 +1,612 @@
+1
+00:00:00,140 --> 00:00:03,500
+Now, what are some of the last two files you see?
+
+2
+00:00:03,530 --> 00:00:05,210
+Solution three and solution four.
+
+3
+00:00:05,240 --> 00:00:07,310
+Well, these are optional.
+
+4
+00:00:07,310 --> 00:00:13,040
+And there are ways that we can improve upon our app to address some of the edge cases.
+
+5
+00:00:13,040 --> 00:00:15,020
+So what's one edge case?
+
+6
+00:00:15,020 --> 00:00:20,660
+Well, one edge case is what if the user types in a country that doesn't exist and they click add?
+
+7
+00:00:20,660 --> 00:00:26,460
+Well right now our app either hangs or it crashes, which is not what we want.
+
+8
+00:00:26,480 --> 00:00:29,930
+Instead, we want the error to be handled.
+
+9
+00:00:29,930 --> 00:00:37,280
+And for us to get a update in the placeholder of this input, instead of saying enter country name,
+
+10
+00:00:37,460 --> 00:00:41,360
+we want it to say country name does not exist, try again.
+
+11
+00:00:41,630 --> 00:00:46,220
+And equally, if we tried to add a country if we've already added.
+
+12
+00:00:46,220 --> 00:00:49,490
+So for example, you can see Colombia has already been added.
+
+13
+00:00:49,490 --> 00:00:51,260
+Let's try adding it again.
+
+14
+00:00:51,260 --> 00:00:53,240
+Well what should happen in this case?
+
+15
+00:00:53,240 --> 00:00:57,980
+Well, if we click add we want to get an error that says country has already been added.
+
+16
+00:00:58,010 --> 00:00:59,210
+Try again.
+
+17
+00:00:59,510 --> 00:01:03,860
+This is going to involve us to modify our code a little bit.
+
+18
+00:01:03,860 --> 00:01:07,340
+And as I said before, this is completely optional.
+
+19
+00:01:07,340 --> 00:01:15,230
+If you want to end this application right here, then that's the main point of this lesson completed.
+
+20
+00:01:15,230 --> 00:01:17,690
+But here's some optional improvements.
+
+21
+00:01:17,930 --> 00:01:23,960
+What we want to do is we want to add a try catch block around some of these queries.
+
+22
+00:01:23,960 --> 00:01:32,900
+This query says look for the country code from the countries table that matches the user input.
+
+23
+00:01:32,930 --> 00:01:35,120
+Well, if that doesn't work.
+
+24
+00:01:35,120 --> 00:01:43,070
+So if we caught the error in this case, then that should take the user back to the home page.
+
+25
+00:01:43,070 --> 00:01:50,990
+But instead of using redirect back to the original home page, we can simply do a dot render and pass
+
+26
+00:01:50,990 --> 00:01:53,510
+over an error as well.
+
+27
+00:01:53,540 --> 00:01:58,280
+Because if you take a look inside the index.js, you can see that in the input.
+
+28
+00:01:58,280 --> 00:02:02,180
+I've got the placeholder set with some JS to display.
+
+29
+00:02:02,180 --> 00:02:08,690
+Either enter the country name or if there is an error that's being passed over using JS, then display
+
+30
+00:02:08,690 --> 00:02:09,440
+the error.
+
+31
+00:02:09,440 --> 00:02:13,940
+So that means we can send that over from our back end.
+
+32
+00:02:13,970 --> 00:02:17,930
+Now the other try catch could wrap around this block.
+
+33
+00:02:17,960 --> 00:02:26,240
+In this case, if we try to insert into our visited countries and it error out, it's probably because
+
+34
+00:02:26,240 --> 00:02:29,510
+the value that we inserted already exists in there.
+
+35
+00:02:29,510 --> 00:02:36,980
+And remember, when we set up this table, we said that the country code has to be a unique and a non
+
+36
+00:02:36,980 --> 00:02:38,780
+null value.
+
+37
+00:02:38,810 --> 00:02:47,690
+If this one has an error that's caught, then we can send a different message and rerender the index.js
+
+38
+00:02:47,690 --> 00:02:48,350
+page.
+
+39
+00:02:48,590 --> 00:02:54,080
+Now if you don't want to try this and you just want to take a look at the way that I've done it, then
+
+40
+00:02:54,080 --> 00:02:57,110
+you can simply head over to solution three.js.
+
+41
+00:02:57,110 --> 00:03:04,730
+And I've got the try catch blocks wrapped around giving us the error catching that you've seen here.
+
+42
+00:03:05,060 --> 00:03:11,660
+Error catching is kind of like a long and tedious process, but it does make your application more rounded
+
+43
+00:03:11,660 --> 00:03:14,540
+and a little bit better in terms of user experience.
+
+44
+00:03:14,540 --> 00:03:16,230
+So if you want to give it a go.
+
+45
+00:03:16,250 --> 00:03:17,090
+Pause the video.
+
+46
+00:03:17,090 --> 00:03:22,490
+Now, if you don't, then continue with me and I'll walk through the solution together.
+
+47
+00:03:24,960 --> 00:03:25,350
+All right.
+
+48
+00:03:25,350 --> 00:03:30,030
+So let's take a look at the solution in solution three.js.
+
+49
+00:03:30,360 --> 00:03:38,640
+Remember that I had already split out the function here that checks for all of the countries in our
+
+50
+00:03:38,640 --> 00:03:40,110
+visited countries.
+
+51
+00:03:40,110 --> 00:03:43,830
+And this is useful because we're going to use it very soon.
+
+52
+00:03:43,860 --> 00:03:48,720
+So the first try catch block wraps around this query.
+
+53
+00:03:48,810 --> 00:03:56,430
+Look for a country name that matches what the user put into the input.
+
+54
+00:03:56,460 --> 00:04:02,600
+If this fails, it's going to go into the catch block and we want to log that error.
+
+55
+00:04:02,610 --> 00:04:08,080
+But also we're going to grab hold of all the countries that are already visited.
+
+56
+00:04:08,100 --> 00:04:11,430
+We're going to rerender the index.js.
+
+57
+00:04:11,430 --> 00:04:16,440
+But this time, in addition to passing over the countries and countries dot length, we're also going
+
+58
+00:04:16,440 --> 00:04:18,240
+to pass over an error message.
+
+59
+00:04:18,240 --> 00:04:19,890
+Country has already been added.
+
+60
+00:04:19,920 --> 00:04:21,120
+Try again.
+
+61
+00:04:22,100 --> 00:04:22,580
+Now.
+
+62
+00:04:22,580 --> 00:04:31,580
+If this try block fails, then it's going to be caught all the way down here in this catch block.
+
+63
+00:04:31,610 --> 00:04:34,010
+You can see how we handle that error.
+
+64
+00:04:34,040 --> 00:04:39,460
+So firstly we go ahead and log the error so that we can see as developers.
+
+65
+00:04:39,470 --> 00:04:46,520
+And then we go ahead and use that check visited function to grab hold of all the countries that have
+
+66
+00:04:46,520 --> 00:04:47,790
+already been visited.
+
+67
+00:04:47,810 --> 00:04:55,850
+Then we rerender the index.js passing over not only the countries data, but also an error string.
+
+68
+00:04:56,210 --> 00:04:59,360
+And we're telling user that the country name does not exist.
+
+69
+00:04:59,390 --> 00:05:00,200
+Try again.
+
+70
+00:05:00,230 --> 00:05:01,440
+Maybe they made an error.
+
+71
+00:05:01,460 --> 00:05:02,930
+Maybe they made a typo.
+
+72
+00:05:02,930 --> 00:05:08,960
+But either way, we get that error message into the placeholder of the input.
+
+73
+00:05:09,500 --> 00:05:17,330
+The other try catch block that I've added is around this other query, where we try to insert into our
+
+74
+00:05:17,330 --> 00:05:19,100
+visited countries table.
+
+75
+00:05:19,130 --> 00:05:24,020
+Now, you might remember that when we set up the table, country code has to be unique.
+
+76
+00:05:24,020 --> 00:05:30,260
+So if this already exists, this code that we're trying to insert, then we're going to catch the error
+
+77
+00:05:30,260 --> 00:05:31,040
+in here.
+
+78
+00:05:31,040 --> 00:05:39,590
+So we log the error and we again rerender index.js passing over a different error message that alerts
+
+79
+00:05:39,590 --> 00:05:41,660
+the user to the issue.
+
+80
+00:05:42,650 --> 00:05:45,380
+So that's our error catching and improvement.
+
+81
+00:05:45,470 --> 00:05:52,850
+Now one final improvement that I made is when you look into this countries table, you can see that
+
+82
+00:05:52,850 --> 00:05:56,300
+some of the countries have really really long name.
+
+83
+00:05:56,300 --> 00:05:56,660
+Right.
+
+84
+00:05:56,660 --> 00:06:02,380
+So for example Tanzania is not stored in here as just Tanzania.
+
+85
+00:06:02,390 --> 00:06:06,230
+It's actually stored as the United Republic of Tanzania.
+
+86
+00:06:06,230 --> 00:06:10,460
+And that is the only way we can get hold of that country code.
+
+87
+00:06:10,670 --> 00:06:18,080
+What are the chances that your user is going to know that in order to get Tanzania, it is Tanzania,
+
+88
+00:06:18,110 --> 00:06:18,940
+comma.
+
+89
+00:06:19,010 --> 00:06:20,060
+ET cetera, et cetera.
+
+90
+00:06:20,060 --> 00:06:20,750
+Well they're not.
+
+91
+00:06:20,750 --> 00:06:23,180
+So they're just going to add it as Tanzania.
+
+92
+00:06:23,180 --> 00:06:27,200
+But in this case we get the error that we added earlier.
+
+93
+00:06:27,200 --> 00:06:28,540
+Country name does not exist.
+
+94
+00:06:28,550 --> 00:06:30,350
+Well it obviously does exist.
+
+95
+00:06:30,380 --> 00:06:33,290
+It's a beautiful country and you can hike a really beautiful mountain.
+
+96
+00:06:33,290 --> 00:06:39,560
+But if we want to address this, we're going to have to think back to something that we learned in the
+
+97
+00:06:39,560 --> 00:06:43,370
+last lesson, which is the where like pattern.
+
+98
+00:06:43,490 --> 00:06:53,900
+In this case, we can use where like in order to match a particular word or string in a column in a
+
+99
+00:06:53,900 --> 00:06:54,920
+fuzzy way.
+
+100
+00:06:55,100 --> 00:07:00,500
+If you don't remember this, I recommend heading back and reviewing this part of the lesson.
+
+101
+00:07:00,620 --> 00:07:05,420
+But if you're still following along with me with these challenges, see if you can figure out how you
+
+102
+00:07:05,420 --> 00:07:14,390
+can use this type of SQL query to be able to match just one part of the string.
+
+103
+00:07:14,900 --> 00:07:22,070
+We want to be able to allow the user to insert something like Tanzania, and even if there's something
+
+104
+00:07:22,070 --> 00:07:28,880
+in front of it, even if there's something after it, as long as that word exists in our country name,
+
+105
+00:07:28,880 --> 00:07:34,640
+then we'll check that as a match and give them the country code to work with.
+
+106
+00:07:34,820 --> 00:07:35,780
+Pause the video.
+
+107
+00:07:35,810 --> 00:07:38,120
+Afterwards, I'll run through the solution together.
+
+108
+00:07:41,370 --> 00:07:49,740
+Now the only modification that we really had to make in order to allow this to work is the SQL query.
+
+109
+00:07:50,040 --> 00:07:58,260
+You might remember from previously, we can use the where like commands in order to loosely match a
+
+110
+00:07:58,260 --> 00:08:02,010
+particular column to a particular value.
+
+111
+00:08:02,250 --> 00:08:07,770
+The pattern here that we've got is we've got a wild card.
+
+112
+00:08:07,800 --> 00:08:08,880
+A wild card.
+
+113
+00:08:08,880 --> 00:08:13,920
+And in between we've got some concatenation, some concatenation.
+
+114
+00:08:13,920 --> 00:08:16,120
+And then we've got the input.
+
+115
+00:08:16,140 --> 00:08:18,260
+So what does all of this mean.
+
+116
+00:08:18,270 --> 00:08:21,660
+Let's say that the input is Tanzania.
+
+117
+00:08:22,890 --> 00:08:30,480
+This part of the code is going to merge a percentage sign to the front of it a percentage sign to the
+
+118
+00:08:30,480 --> 00:08:31,080
+back of it.
+
+119
+00:08:31,080 --> 00:08:33,539
+That's what these double pipe signs do.
+
+120
+00:08:33,840 --> 00:08:34,919
+It's not 11.
+
+121
+00:08:34,950 --> 00:08:36,120
+It's not two I's.
+
+122
+00:08:36,150 --> 00:08:38,580
+It's actually a pipe symbol.
+
+123
+00:08:38,850 --> 00:08:44,250
+And this gets interpreted by SQL as as you can have any text in front of the word Tanzania.
+
+124
+00:08:44,280 --> 00:08:52,170
+You have any text behind the word of Tanzania, as long as Tanzania exists somewhere in that value,
+
+125
+00:08:52,170 --> 00:08:54,150
+then will provide a match.
+
+126
+00:08:54,150 --> 00:08:58,740
+And we're going to give you the country code that matches that record.
+
+127
+00:08:58,770 --> 00:09:06,060
+Now, the other part of the code you might have noticed is I've got one more modification, which is
+
+128
+00:09:06,060 --> 00:09:13,380
+I'm changing the input to lowercase by using the to lowercase method from JavaScript.
+
+129
+00:09:13,380 --> 00:09:21,000
+And this means that when the user types in Tanzania, it's going to be converted into all lowercase.
+
+130
+00:09:21,210 --> 00:09:29,460
+And then over here I looked up the SQL command to change text to lowercase, which is wrapping it inside
+
+131
+00:09:29,460 --> 00:09:37,650
+this lower command so that the original, which is Tanzania, Republic of et Cetera all gets lowercase
+
+132
+00:09:37,650 --> 00:09:38,510
+as well.
+
+133
+00:09:38,520 --> 00:09:48,300
+And what this helps us with is in case the user typed in a lowercase country, then it's going to match
+
+134
+00:09:48,300 --> 00:09:52,350
+the country name even if the casing is not correct.
+
+135
+00:09:52,740 --> 00:10:00,570
+And that means if we now go ahead and run solution Forge's our final version.
+
+136
+00:10:00,870 --> 00:10:08,640
+And we type in a country like Tanzania in here, even though we know in our table it's trying to match
+
+137
+00:10:08,670 --> 00:10:09,960
+against Tanzania.
+
+138
+00:10:09,960 --> 00:10:15,480
+Republic of if I hit add, you can see it gets added without a problem.
+
+139
+00:10:16,170 --> 00:10:22,320
+These are just some small edge cases that you can think of, and you can discover while you're testing
+
+140
+00:10:22,320 --> 00:10:22,920
+your app.
+
+141
+00:10:22,920 --> 00:10:31,710
+And you can address them one by one by making your SQL more precise or handling your SQL errors in a
+
+142
+00:10:31,710 --> 00:10:32,580
+better way.
+
+143
+00:10:32,730 --> 00:10:37,770
+Now, you'll probably discover tons of other edge cases that you want to fix as well.
+
+144
+00:10:37,770 --> 00:10:45,390
+But this is just a process of software development where we identify edge cases, identify bugs, identify
+
+145
+00:10:45,390 --> 00:10:53,790
+user experience snags, and then try to use our code, in this case improving our SQL code to address
+
+146
+00:10:53,790 --> 00:10:55,320
+it in a better way.
+
+147
+00:10:55,890 --> 00:10:59,220
+So I hope you had fun building this world tracker with me.
+
+148
+00:10:59,220 --> 00:11:06,000
+And if you've been to a ton of places and you want to share a picture of your world tracker that's got,
+
+149
+00:11:06,000 --> 00:11:11,760
+I don't know, maybe you've been to 200 countries or something crazy, then do that in the Q&A section.
+
+150
+00:11:11,760 --> 00:11:16,050
+I look forward to seeing places you've been to in the next lesson.
+
+151
+00:11:16,050 --> 00:11:22,470
+We're going to continue with PostgreSQL, and we're going to dive deep into establishing relationships
+
+152
+00:11:22,470 --> 00:11:23,490
+with Postgres.
+
+153
+00:11:23,490 --> 00:11:25,770
+So for all of that and more, I'll see you there.
+

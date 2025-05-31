@@ -1,0 +1,416 @@
+1
+00:00:00,740 --> 00:00:07,140
+Now jQuery also makes it really easy to implement some common animations that you might want to do when
+
+2
+00:00:07,140 --> 00:00:08,480
+you're creating your web site.
+
+3
+00:00:08,670 --> 00:00:12,930
+So let's head into Atom, and inside our index.js at the moment
+
+4
+00:00:12,930 --> 00:00:19,250
+we’ve got a click listener on all of our buttons that changes our h1 CSS to the color purple.
+
+5
+00:00:19,260 --> 00:00:25,620
+Now if we were to delete this method, so instead of using .css we use something like .hide,
+
+6
+00:00:26,120 --> 00:00:30,690
+and this method is an animation that will hide the selected element.
+
+7
+00:00:30,870 --> 00:00:35,410
+So when we click any button in our web page it should try and hide the h1.
+
+8
+00:00:35,490 --> 00:00:37,080
+So let's see what that looks like.
+
+9
+00:00:37,200 --> 00:00:43,130
+Let's refresh the page and you can see that our h1 disappears when I click on any of the buttons.
+
+10
+00:00:43,140 --> 00:00:51,340
+Now if we wanted to show that h1 instead, we would have to select our h1 and say .show.
+
+11
+00:00:51,840 --> 00:00:55,340
+And that will make it reappear.
+
+12
+00:00:55,350 --> 00:01:03,930
+Now if instead of only making our h1 hide and disappear forever, we wanted to toggle the hide and show,
+
+13
+00:01:04,140 --> 00:01:06,000
+then we can simply say toggle.
+
+14
+00:01:06,000 --> 00:01:09,410
+So now when I click on any button it'll hide my h1.
+
+15
+00:01:09,630 --> 00:01:14,760
+And then when I click on any other button it will show my h1. And I can toggle it's appearance 
+
+16
+00:01:14,820 --> 00:01:17,350
+by clicking on my buttons.
+
+17
+00:01:17,370 --> 00:01:19,850
+Now hiding is a very sudden kind of event.
+
+18
+00:01:19,860 --> 00:01:26,480
+It disappears and the element gets removed from the flow of our HTML, so everything else moves up.
+
+19
+00:01:26,670 --> 00:01:30,860
+And this is a very sudden sort of disappearance and appearance.
+
+20
+00:01:30,870 --> 00:01:37,290
+Now if we wanted that to be a little bit more progressive then we can use something called fadeOut instead.
+
+21
+00:01:37,530 --> 00:01:44,130
+And you can see that when I click now it’ll reduce the opacity of my selected element, and then it
+
+22
+00:01:44,130 --> 00:01:45,130
+will hide it.
+
+23
+00:01:45,300 --> 00:01:53,400
+And of course fadeOut has its related opposite which is fadeIn, and that will make our h1 appear
+
+24
+00:01:53,460 --> 00:01:56,520
+and also fade into full opacity.
+
+25
+00:01:56,550 --> 00:02:03,780
+Now all of these methods come with a toggle option, so fadeToggle will allow our buttons to fade out, then
+
+26
+00:02:03,780 --> 00:02:05,900
+fade in, then fade out.
+
+27
+00:02:05,910 --> 00:02:08,240
+I can do this all day long.
+
+28
+00:02:08,610 --> 00:02:08,919
+All right.
+
+29
+00:02:08,940 --> 00:02:16,080
+So in addition to fading and hiding you can also use a slideUp and slideDown.
+
+30
+00:02:16,140 --> 00:02:23,080
+And what this does is it kind of just collapses our element that was selected, and slide down
+
+31
+00:02:23,220 --> 00:02:30,140
+will just uncollapse that element. And again slideUp comes with slideToggle.
+
+32
+00:02:30,450 --> 00:02:38,220
+So this will just slide up, slide down, slide up, slide down, and this can be really useful if you have
+
+33
+00:02:38,220 --> 00:02:41,670
+something like a drop down menu for example.
+
+34
+00:02:41,670 --> 00:02:48,120
+Now if you wanted more fine grained control over your animations then instead of using these pre-built
+
+35
+00:02:48,120 --> 00:02:50,610
+ones you can use something called .animate.
+
+36
+00:02:50,790 --> 00:02:53,720
+And this allows you to define some custom
+
+37
+00:02:53,790 --> 00:03:01,620
+CSS that you want to gradually animate towards. So inside the parentheses we can insert a set of curly
+
+38
+00:03:01,620 --> 00:03:08,430
+braces, and inside the curly braces we're going to add our new CSS rule that we're going to animate to.
+
+39
+00:03:08,670 --> 00:03:15,380
+So, for example, I can change the opacity of my selected element to only 0.5,
+
+40
+00:03:15,390 --> 00:03:18,250
+so 50 percent of its previous value.
+
+41
+00:03:18,570 --> 00:03:25,290
+So now if we hit save and refresh and I click on one of these buttons you can see that my element just
+
+42
+00:03:25,290 --> 00:03:30,810
+got a lot more transparent, and it might be a little bit easier if I changed the color to something a bit
+
+43
+00:03:30,810 --> 00:03:33,260
+more easy to see like say purple.
+
+44
+00:03:33,300 --> 00:03:37,860
+You can see that clearly makes the opacity much much lower.
+
+45
+00:03:37,860 --> 00:03:43,110
+Now the thing to remember about the animate method is that in between the curly braces you can only
+
+46
+00:03:43,110 --> 00:03:47,180
+add the CSS rules that have a numeric value.
+
+47
+00:03:47,220 --> 00:03:51,770
+So that means that you can’t animate to something like a color,
+
+48
+00:03:51,780 --> 00:03:52,050
+right?
+
+49
+00:03:52,050 --> 00:03:54,580
+You can't change the color to red.
+
+50
+00:03:54,630 --> 00:03:57,050
+And when I run this you can see that we get an error.
+
+51
+00:03:57,240 --> 00:03:58,440
+Red is not defined.
+
+52
+00:03:58,500 --> 00:04:04,920
+And this is because it's very difficult to create that kind of tween animation that gradually progresses
+
+53
+00:04:04,980 --> 00:04:09,380
+from one style to another using the animate method.
+
+54
+00:04:09,420 --> 00:04:13,560
+So you have to stick to things that have a numeric value.
+
+55
+00:04:13,590 --> 00:04:18,149
+For example a margin of 20 pixels, that it can do.
+
+56
+00:04:18,510 --> 00:04:23,320
+Or if you wanted to make it a percentage, then you can include it as a string.
+
+57
+00:04:23,400 --> 00:04:27,580
+So 20 percent margin which makes it much bigger.
+
+58
+00:04:27,810 --> 00:04:34,580
+But essentially make sure that this second value in the CSS that you're trying to animate to is a number
+
+59
+00:04:34,590 --> 00:04:35,550
+value.
+
+60
+00:04:35,550 --> 00:04:42,530
+Now if you wanted to have more than one of these animations happening then you can chain them together.
+
+61
+00:04:42,570 --> 00:04:44,130
+So what do I mean by chaining?
+
+62
+00:04:44,310 --> 00:04:50,040
+So for example if we wanted our h1 to slide up,
+
+63
+00:04:50,550 --> 00:04:59,070
+but then after it slid up, I then want it to slide down, and after it slid down I want to change the CSS 
+
+64
+00:04:59,070 --> 00:05:03,060
+to have an opacity of 0.5,
+
+65
+00:05:03,060 --> 00:05:04,300
+so 50 percent.
+
+66
+00:05:04,530 --> 00:05:07,110
+So essentially what we've done here is chained
+
+67
+00:05:07,140 --> 00:05:14,580
+three methods together so that we target our h1 and first get it to slide up, then slide down, then
+
+68
+00:05:14,640 --> 00:05:15,450
+animate.
+
+69
+00:05:15,690 --> 00:05:22,410
+Now remember that if this is all targeting the same thing it can't slide up and slide down at the same
+
+70
+00:05:22,410 --> 00:05:22,960
+time.
+
+71
+00:05:23,130 --> 00:05:25,490
+So it will do it in order.
+
+72
+00:05:25,620 --> 00:05:27,800
+So let's check it out.
+
+73
+00:05:27,990 --> 00:05:31,120
+Slide up, down and change opacity.
+
+74
+00:05:31,230 --> 00:05:32,730
+So that's pretty cool, right?
+
+75
+00:05:32,820 --> 00:05:38,220
+And if you're worried right now that you can't remember what all of these methods are called or how
+
+76
+00:05:38,220 --> 00:05:40,290
+to use them then don't worry.
+
+77
+00:05:40,330 --> 00:05:44,200
+As programmers we try to save the sacred space that is our brain.
+
+78
+00:05:44,400 --> 00:05:47,570
+So never try to remember or memorize anything.
+
+79
+00:05:47,580 --> 00:05:49,430
+That's not what it's about.
+
+80
+00:05:49,530 --> 00:05:55,980
+Essentially for me programming is basically like an open book exam, and nobody memorizes things for open
+
+81
+00:05:55,980 --> 00:05:57,260
+book exams, right?
+
+82
+00:05:57,270 --> 00:06:04,050
+You just try to understand what's going on because remember that there is always the documentation and
+
+83
+00:06:04,050 --> 00:06:10,920
+the whole world wide web out there to help you in the exact moment that you need the information. You
+
+84
+00:06:10,920 --> 00:06:16,260
+just need to know that they exist and roughly what they were called or what they're able to do.
+
+85
+00:06:16,590 --> 00:06:21,260
+So for example if we couldn't remember how to use slideUp, then we could search for something like,
+
+86
+00:06:21,260 --> 00:06:23,020
+so we know it's about jQuery,
+
+87
+00:06:23,330 --> 00:06:30,710
+and we know that it was an animation, and we know that we needed to slide something, right?
+
+88
+00:06:30,900 --> 00:06:32,510
+So let's hit enter.
+
+89
+00:06:32,550 --> 00:06:37,370
+And you can see that we've already got access to our slideDown event.
+
+90
+00:06:37,500 --> 00:06:45,690
+And if we looked a little bit further upstream than we can see all of our effects: animate, delay, fadeIn,
+
+91
+00:06:45,690 --> 00:06:47,390
+fadeOut, fadeTo.
+
+92
+00:06:47,640 --> 00:06:54,120
+And this is the jQuery documentation which is searchable on here, on jquery.com, but it's actually
+
+93
+00:06:54,120 --> 00:06:59,490
+much easier to just search through Google, because it gives you the most relevant results, and it might
+
+94
+00:06:59,490 --> 00:07:02,190
+give you the W3 Schools or the MDN,
+
+95
+00:07:02,400 --> 00:07:05,510
+but jQuery is extensively documented.
+
+96
+00:07:05,610 --> 00:07:10,900
+And even if it's not in the documentation, somebody would have already asked a question on Stack Overflow,
+
+97
+00:07:11,190 --> 00:07:15,410
+or somebody will be able to help you on Stack Overflow with your questions.
+
+98
+00:07:15,780 --> 00:07:17,530
+So never memorize.
+
+99
+00:07:17,550 --> 00:07:22,500
+Always remember that all the resources that you need are just a few keystrokes away.
+
+100
+00:07:22,920 --> 00:07:27,470
+Now I hope you're ready for a challenge because I've got a big challenge for you.
+
+101
+00:07:27,630 --> 00:07:29,900
+This is definitely a boss level
+
+102
+00:07:29,930 --> 00:07:37,380
+fight. Now we're going to create a game using jQuery, and in the process you'll be able to consolidate
+
+103
+00:07:37,440 --> 00:07:44,400
+what we've learned in this module and reassure yourself that you've absorbed all of this information.
+
+104
+00:07:44,400 --> 00:07:46,470
+So once you’re ready, head over to the next module.
+

@@ -1,0 +1,428 @@
+1
+00:00:00,580 --> 00:00:08,310
+All right guys so far we've learned how to build components using React, extract those components into
+
+2
+00:00:08,370 --> 00:00:15,690
+smaller pieces and pass properties to those components so we can customize and reuse them.
+
+3
+00:00:15,690 --> 00:00:22,620
+But the one thing that we haven't yet looked at is how do we make our apps more interactive?
+
+4
+00:00:22,620 --> 00:00:28,210
+And the reason is because in order to do that we have to understand the concept of state.
+
+5
+00:00:28,320 --> 00:00:32,689
+And this is a really central concept to how React does things.
+
+6
+00:00:32,850 --> 00:00:37,180
+And I think it's best summarized in this kind of equation.
+
+7
+00:00:37,230 --> 00:00:45,510
+So the idea is that the UI or the user interface that somebody's looking at your website sees is a
+
+8
+00:00:45,510 --> 00:00:49,780
+function of the state of your app.
+
+9
+00:00:49,800 --> 00:00:52,640
+Let me explain this a little bit further using an analogy.
+
+10
+00:00:53,580 --> 00:00:56,310
+Let's think about the difference between ice and water.
+
+11
+00:00:56,310 --> 00:00:58,300
+They're basically the same thing right?
+
+12
+00:00:58,320 --> 00:01:05,280
+You could think of them as the same React component but they will change their appearance depending
+
+13
+00:01:05,280 --> 00:01:08,790
+on the state of temperature.
+
+14
+00:01:08,790 --> 00:01:12,480
+So if the temperature goes up, then ice turns into water.
+
+15
+00:01:12,480 --> 00:01:16,890
+If the temperature goes down then water turns back into ice.
+
+16
+00:01:16,890 --> 00:01:20,630
+So in this case you could think of the ice as the user interface.
+
+17
+00:01:20,820 --> 00:01:28,080
+And depending on what the value of that state is, if the temperature was minus 10 degrees both in 
+
+18
+00:01:28,080 --> 00:01:31,320
+fahrenheit and Celsius, then you're going to be seeing ice.
+
+19
+00:01:31,320 --> 00:01:39,810
+But if we change the state and we change the temperature to say 60 degrees, then our ice is going to
+
+20
+00:01:39,810 --> 00:01:41,320
+turn into water.
+
+21
+00:01:41,700 --> 00:01:48,190
+So user interface changes are reflecting the changes in state.
+
+22
+00:01:48,240 --> 00:01:51,060
+Now how is this actually done with code?
+
+23
+00:01:51,060 --> 00:01:58,830
+Well we would probably keep track of a variable, let's say temperature, and we would define how our user
+
+24
+00:01:58,830 --> 00:02:04,560
+interface would more often change depending on different values of that variable.
+
+25
+00:02:04,710 --> 00:02:07,490
+Let's say that we created a to-do list app
+
+26
+00:02:07,500 --> 00:02:07,850
+right?
+
+27
+00:02:07,860 --> 00:02:14,640
+And this is a very simple example. We've just got an app component inside, we've got a list item component
+
+28
+00:02:15,090 --> 00:02:19,600
+and the list item just hosts a single paragraph of text.
+
+29
+00:02:19,590 --> 00:02:29,370
+Now let's say that what we wanted to happen is when we click on this list item then we want the text
+
+30
+00:02:29,400 --> 00:02:33,360
+inside to have a line through or a strikeout.
+
+31
+00:02:33,360 --> 00:02:38,790
+So in this case we might have a state variable called isDone.
+
+32
+00:02:38,790 --> 00:02:47,130
+And initially it's set to false. But when the user clicks on the to-do list then we switch the value of
+
+33
+00:02:47,130 --> 00:02:50,070
+that variable from false to true.
+
+34
+00:02:50,070 --> 00:03:00,060
+And what we want our paragraph elements to do is to change its appearance in the UI to reflect this
+
+35
+00:03:00,210 --> 00:03:03,850
+and to have that strikethrough styling.
+
+36
+00:03:03,870 --> 00:03:08,040
+Let's take a look at how we would do this in a code sandbox.
+
+37
+00:03:08,280 --> 00:03:15,480
+Here I've got a simple app component which literally just has a single paragraph element in it and it
+
+38
+00:03:15,480 --> 00:03:17,790
+just shows the words 'Buy milk'.
+
+39
+00:03:17,790 --> 00:03:20,800
+Now we've already learned about conditional rendering.
+
+40
+00:03:21,000 --> 00:03:29,760
+So we know that if we had a variable called isDone and we set it to false, we can then use it to change
+
+41
+00:03:29,820 --> 00:03:36,570
+the appearance of our React component. For example inside this  element
+
+42
+00:03:36,720 --> 00:03:45,630
+I can add a style property and I can set it to equal a new Javascript object which is going to have
+
+43
+00:03:45,630 --> 00:03:48,320
+textDecoration as the key.
+
+44
+00:03:48,810 --> 00:03:57,100
+And then as the value, it's going to be line-through. And as soon as that gets rendered you can see this
+
+45
+00:03:57,100 --> 00:04:00,140
+is the styling for how you would create a line through.
+
+46
+00:04:00,490 --> 00:04:04,390
+But of course we don't want a line through our text always to be there.
+
+47
+00:04:04,570 --> 00:04:13,870
+Instead we want this particular style to be rendered when this variable is turned to true.
+
+48
+00:04:13,870 --> 00:04:20,149
+Let me go ahead and extract this Javascript object to make our code a little bit easier to understand.
+
+49
+00:04:20,170 --> 00:04:26,530
+So I'm going to create a const called strikeThrough and I'm going to set it to equal
+
+50
+00:04:26,560 --> 00:04:30,540
+this particular Javascript object which is the styling.
+
+51
+00:04:30,730 --> 00:04:35,830
+Now I'm going to be applying that style when the variable isDone
+
+52
+00:04:35,830 --> 00:04:38,750
+happens to be true. All right.
+
+53
+00:04:38,770 --> 00:04:45,440
+So you've learned about ternary operators. All that we have to do inside these curly braces is check the
+
+54
+00:04:45,440 --> 00:04:47,120
+value of isDone.
+
+55
+00:04:47,150 --> 00:04:55,310
+So with that question mark and then if it's true, we're going to apply the strikethrough styling. But
+
+56
+00:04:55,310 --> 00:05:03,580
+if it's not true, then we're going to apply null. So now when my isDone property, which is the state that
+
+57
+00:05:03,580 --> 00:05:05,890
+we're tracking, is false
+
+58
+00:05:05,890 --> 00:05:12,250
+I get normal text but as soon as that switches to true then the strike through styling gets applied
+
+59
+00:05:12,670 --> 00:05:18,340
+and my user interface updates to reflect the update in the state.
+
+60
+00:05:18,400 --> 00:05:21,350
+Now alternatively you can of course do it like this.
+
+61
+00:05:21,370 --> 00:05:23,620
+It does exactly the same thing.
+
+62
+00:05:23,830 --> 00:05:33,310
+But the important thing here is that we have a user interface that is dependent upon the value of a
+
+63
+00:05:33,310 --> 00:05:43,310
+state variable. And this kind of programming is often known as declarative programming. We're declaring
+
+64
+00:05:43,310 --> 00:05:50,510
+when we're writing our code how our user interface should look under different conditions dependent
+
+65
+00:05:50,600 --> 00:05:52,410
+upon the state.
+
+66
+00:05:52,730 --> 00:05:57,220
+The other style of programming would be called imperative programming.
+
+67
+00:05:57,410 --> 00:05:59,680
+And this is what we've been doing all along
+
+68
+00:05:59,690 --> 00:06:07,010
+using Javascript. When we say document.getElementById and then we tap into its properties and then
+
+69
+00:06:07,010 --> 00:06:09,430
+we set it equal to something,
+
+70
+00:06:09,470 --> 00:06:15,370
+this is us imperative early telling this element to do something different.
+
+71
+00:06:15,980 --> 00:06:20,020
+And you can achieve exactly the same results.
+
+72
+00:06:20,030 --> 00:06:27,830
+So if I was to go and delete all of this code that we had before while keeping my single paragraph element,
+
+73
+00:06:28,340 --> 00:06:35,090
+I can go into my index.js, tap into the document in the DOM and get element by id.
+
+74
+00:06:35,150 --> 00:06:43,970
+I'm just gonna get the entire root div and I'm going to set it's style, namely the text decoration property,
+
+75
+00:06:44,480 --> 00:06:47,690
+to equal to line-through.
+
+76
+00:06:47,690 --> 00:06:53,380
+And when this line of code gets executed, you can see that that is exactly what happened.
+
+77
+00:06:53,690 --> 00:07:00,290
+And very often what we've been doing is effectively creating some sort of listener.
+
+78
+00:07:00,290 --> 00:07:11,360
+So let's say that we had a button here and it says change to strike through and then we would have an
+
+79
+00:07:11,420 --> 00:07:15,310
+onClick listener and then we would pass it maybe a function
+
+80
+00:07:15,320 --> 00:07:16,040
+right?
+
+81
+00:07:16,460 --> 00:07:22,680
+And we can have a function called strike and we can call it in our onClick.
+
+82
+00:07:23,240 --> 00:07:31,160
+And when this happens then what we do is we go ahead and apply the styling, so the same code as we had
+
+83
+00:07:31,160 --> 00:07:32,040
+before
+
+84
+00:07:32,150 --> 00:07:37,250
+document.getElementById and change the text decoration to line-through.
+
+85
+00:07:37,730 --> 00:07:46,790
+So now when I click this button it activates this function and I manually change the appearance to a
+
+86
+00:07:46,790 --> 00:07:48,490
+new value.
+
+87
+00:07:48,650 --> 00:07:57,120
+And if we wanted to change it back then we probably would have a different button called unStrike maybe.
+
+88
+00:07:57,230 --> 00:08:02,650
+And in this case, we would simply change the text decoration back to null.
+
+89
+00:08:02,660 --> 00:08:05,360
+So in this case when I click this it strikes it through,
+
+90
+00:08:05,390 --> 00:08:08,520
+when I click this it changes it back.
+
+91
+00:08:08,540 --> 00:08:11,110
+This is very imperative.
+
+92
+00:08:11,120 --> 00:08:17,270
+This is getting hold of an item and setting its property to a new value
+
+93
+00:08:17,270 --> 00:08:19,910
+each time we want this change to happen.
+
+94
+00:08:19,910 --> 00:08:25,970
+Now if we instead go back to our previous declarative style of code where we were tracking that variable
+
+95
+00:08:26,090 --> 00:08:33,950
+isDone, then instead of having to get the element and update its properties, you can simply change is
+
+96
+00:08:33,950 --> 00:08:37,940
+Done to true or is done to false.
+
+97
+00:08:40,809 --> 00:08:47,050
+But even though you might think this code should theoretically work, it doesn't.
+
+98
+00:08:47,050 --> 00:08:54,680
+And the reason is because these elements are being rendered and they are not changeable.
+
+99
+00:08:54,820 --> 00:09:00,760
+They have to be re-rendered onto the screen in order for the changes in their properties, such as their
+
+100
+00:09:00,760 --> 00:09:05,150
+style property, to be seen. And to do that
+
+101
+00:09:05,230 --> 00:09:12,520
+we have to learn about something called hooks. Hooks is a relatively new React concept but it's a really
+
+102
+00:09:12,520 --> 00:09:13,990
+powerful one.
+
+103
+00:09:14,050 --> 00:09:22,690
+Effectively they are functions that allow us to hook into the state of our app and read or modify it.
+
+104
+00:09:23,740 --> 00:09:25,260
+In the next lesson,
+
+105
+00:09:25,270 --> 00:09:27,330
+that's what we're going to be introducing.
+
+106
+00:09:27,400 --> 00:09:34,460
+And you're going to be seeing one of the most commonly used React hooks which is the use state hook.
+
+107
+00:09:34,480 --> 00:09:37,840
+So for all of that and more, I'll you on the next lesson.
+

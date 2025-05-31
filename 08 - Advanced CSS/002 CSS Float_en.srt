@@ -1,0 +1,548 @@
+1
+00:00:00,590 --> 00:00:06,110
+Okay, so now that we've looked at the CSS Display Property, I want to cover another CSS property that's
+
+2
+00:00:06,110 --> 00:00:10,460
+really important for layout and that is the Float.
+
+3
+00:00:10,520 --> 00:00:17,210
+And the main thing that this allows us to do is to wrap text around a particular element.
+
+4
+00:00:17,600 --> 00:00:20,150
+What exactly does this allow us to do?
+
+5
+00:00:20,270 --> 00:00:27,680
+So we've seen previously that by changing the display, we could, for example, make our blocks go
+
+6
+00:00:27,680 --> 00:00:29,390
+on to the same line.
+
+7
+00:00:29,390 --> 00:00:33,320
+So maybe there's one here and there's another inline-block here.
+
+8
+00:00:33,320 --> 00:00:39,320
+There could be another inline-block here, and we could use three inline-blocks to achieve this layout.
+
+9
+00:00:39,410 --> 00:00:48,140
+But if we wanted our text to be able to wrap around another element, such as in this case where it's
+
+10
+00:00:48,140 --> 00:00:54,980
+kind of this misshapen l, then this is going to require us to use the Float Property.
+
+11
+00:00:55,520 --> 00:00:59,330
+The web really is an extension of print.
+
+12
+00:00:59,360 --> 00:01:05,880
+Previously we used to have these newspapers, and the way we lay out images and text is kind of what
+
+13
+00:01:05,880 --> 00:01:09,510
+we've borrowed in order to create the websites that we see these days.
+
+14
+00:01:09,540 --> 00:01:15,780
+You realize very often in the world how so many things get reused in different ways and getting good
+
+15
+00:01:15,780 --> 00:01:19,260
+at a particular thing, like laying out newspapers,
+
+16
+00:01:19,260 --> 00:01:24,060
+even if this skill dies, it still usually gets transferred into something else.
+
+17
+00:01:24,870 --> 00:01:27,470
+How do we use the float property?
+
+18
+00:01:27,480 --> 00:01:30,720
+So here, let's say that we have an image tag.
+
+19
+00:01:30,840 --> 00:01:36,270
+I don't have the full content of the image or the text just so that we can save some space here and
+
+20
+00:01:36,270 --> 00:01:38,520
+understand what's going on in the CSS.
+
+21
+00:01:38,520 --> 00:01:45,060
+But you can imagine this is an image element with the source, with an alt tag, and this is a text
+
+22
+00:01:45,060 --> 00:01:52,950
+with some Lorem ipsum that's about a paragraph long and it looks something like this. In the style.css,
+
+23
+00:01:52,980 --> 00:01:57,490
+let's go ahead and target the image and make it float: left.
+
+24
+00:01:57,510 --> 00:02:03,780
+Float is the name of the property and left is the value that we're setting that property to.
+
+25
+00:02:03,780 --> 00:02:13,020
+And as soon as this CSS is applied, then what you'll see is that our text will now begin to wrap around
+
+26
+00:02:13,050 --> 00:02:14,070
+our image.
+
+27
+00:02:14,070 --> 00:02:17,340
+So it fits around the image.
+
+28
+00:02:17,340 --> 00:02:21,930
+And we've done this by making this image float to the left.
+
+29
+00:02:22,410 --> 00:02:25,770
+We're not actually setting anything on the text here.
+
+30
+00:02:26,430 --> 00:02:32,460
+We can also change that float to right to make the image go to the right of the page and for the text
+
+31
+00:02:32,460 --> 00:02:34,440
+to wrap on the left.
+
+32
+00:02:34,800 --> 00:02:39,060
+And those are probably the only two values we're going to be using on the float property.
+
+33
+00:02:39,480 --> 00:02:48,300
+Essentially, if we had a normal HTML file with respecting the normal flow, then images by default
+
+34
+00:02:48,330 --> 00:02:49,830
+have display block.
+
+35
+00:02:49,830 --> 00:02:54,330
+So they're going to take up the full width even if they don't need to.
+
+36
+00:02:54,330 --> 00:02:57,600
+And then paragraph elements also are display blocks.
+
+37
+00:02:57,600 --> 00:03:00,840
+So will take up the full width and then so on and so forth.
+
+38
+00:03:00,840 --> 00:03:08,070
+But if we wanted the text to wrap around the images, then we can simply take the image and set this
+
+39
+00:03:08,070 --> 00:03:16,170
+one to float: left and this other one to float: right.
+
+40
+00:03:18,040 --> 00:03:27,460
+And now these two elements are now taken out of the normal HTML flow and they're actually floating around
+
+41
+00:03:27,460 --> 00:03:28,360
+the text.
+
+42
+00:03:29,140 --> 00:03:35,620
+Now, sometimes, though, you might not want the text to wrap around the floated element.
+
+43
+00:03:35,770 --> 00:03:41,980
+Previously we saw if we had an image and then we had two paragraph elements, then we would want the
+
+44
+00:03:41,980 --> 00:03:48,550
+image to be floated left so that the paragraph text can flow around it.
+
+45
+00:03:48,880 --> 00:03:55,540
+However, if instead of having two paragraph elements, we actually had a footer here, then we actually
+
+46
+00:03:55,540 --> 00:04:03,490
+want the footer to be down here occupying the full width and not squished in to be wrapped around the
+
+47
+00:04:03,490 --> 00:04:04,870
+image right here.
+
+48
+00:04:05,500 --> 00:04:07,210
+So how do we achieve this?
+
+49
+00:04:07,210 --> 00:04:15,370
+Because as I mentioned, the float property is set onto the image and not onto the paragraph, whereas
+
+50
+00:04:15,370 --> 00:04:19,130
+the behavior that you can see occurs in the paragraph.
+
+51
+00:04:19,130 --> 00:04:25,670
+So the paragraph is the one that's actually wrapping around the image. In order to fix this and allow
+
+52
+00:04:25,670 --> 00:04:33,680
+the footer to be free of this floating image, then we need to use a related property which is called
+
+53
+00:04:33,680 --> 00:04:34,190
+"clear".
+
+54
+00:04:34,520 --> 00:04:41,840
+So here I've got an example where we've got an image element, a paragraph element, and finally we've
+
+55
+00:04:41,840 --> 00:04:42,830
+got a footer.
+
+56
+00:04:42,830 --> 00:04:47,390
+So normally in the footer you'll see something like copyright and then the name of the company.
+
+57
+00:04:47,570 --> 00:04:51,260
+It looks very weird having it placed here.
+
+58
+00:04:51,740 --> 00:04:59,960
+Instead we want it placed down here like any normal footer, but unfortunately because our image is
+
+59
+00:04:59,960 --> 00:05:04,360
+floated to the left, then everything else is trying to wrap around it.
+
+60
+00:05:04,370 --> 00:05:13,220
+So we have to change our CSS, we have to target the footer using the selector for that element and
+
+61
+00:05:13,220 --> 00:05:15,440
+then we have to set a property called clear.
+
+62
+00:05:15,830 --> 00:05:23,540
+And what this clear does is it clears any responsibility to wrap around things that are floating.
+
+63
+00:05:23,690 --> 00:05:34,070
+This footer is now cleared of the left float and that means it can go into its normal position and ignore
+
+64
+00:05:34,070 --> 00:05:36,080
+anything that's floating around it.
+
+65
+00:05:36,320 --> 00:05:39,770
+And this will end up looking something like this.
+
+66
+00:05:40,730 --> 00:05:49,400
+If we look at this layout of a web page here, you can see you might achieve this by having a block
+
+67
+00:05:49,400 --> 00:05:59,060
+over here, which is float: left and another section here, which is float: right,
+
+68
+00:05:59,060 --> 00:06:03,980
+and this will give us this kind of separation of these two.
+
+69
+00:06:03,980 --> 00:06:05,720
+Probably they're going to be divs, right?
+
+70
+00:06:05,720 --> 00:06:07,490
+Probably two squares.
+
+71
+00:06:07,490 --> 00:06:11,540
+And it allows them to line up side by side like this.
+
+72
+00:06:11,720 --> 00:06:17,120
+Now for the footer to be cleared of both of these.
+
+73
+00:06:17,120 --> 00:06:22,190
+So above it there's a float: left and there's something floating right that we need to set that clear
+
+74
+00:06:22,190 --> 00:06:27,920
+property to "both", and this means it's not going to wrap the thing on the right and it's not going to
+
+75
+00:06:27,920 --> 00:06:29,210
+wrap the thing on the left.
+
+76
+00:06:29,630 --> 00:06:36,650
+So now let's try an exercise and see if we can apply what we learned into writing our own code and setting
+
+77
+00:06:36,650 --> 00:06:37,730
+the float property.
+
+78
+00:06:38,390 --> 00:06:45,780
+If you download and extract the 8.1 CSS Float starting files and open up the index.html, you should
+
+79
+00:06:45,780 --> 00:06:50,340
+see that we've got a bunch of code that's already written for you.
+
+80
+00:06:50,370 --> 00:06:55,640
+If you look at the preview, you can see we've got cats and we've got dogs.
+
+81
+00:06:55,650 --> 00:07:03,090
+If we take a look at the goal image, then you can see what we're trying to achieve is to get a block
+
+82
+00:07:03,120 --> 00:07:08,910
+that floats to the left of the page and another one that floats to the right of the page,
+
+83
+00:07:08,910 --> 00:07:14,100
+and then to have a footer right below those two floating blocks.
+
+84
+00:07:14,220 --> 00:07:21,060
+Whereas at the moment what we've got is we've got two blocks that are stuck next to each other and we've
+
+85
+00:07:21,060 --> 00:07:28,080
+got a footer at the bottom, and the text in our blocks don't actually wrap around the image either.
+
+86
+00:07:28,500 --> 00:07:36,510
+So I want you to use what you've learned about float to modify the code in the style element of the
+
+87
+00:07:36,510 --> 00:07:40,350
+index.html to achieve this goal
+
+88
+00:07:40,350 --> 00:07:40,890
+look.
+
+89
+00:07:40,890 --> 00:07:47,040
+So you're going to need to think about how you can float this text around this image.
+
+90
+00:07:47,160 --> 00:07:51,630
+You're going to need to think about how you can do the same over here.
+
+91
+00:07:52,890 --> 00:07:58,140
+And then you need to think about how you can make this block go to the right, this block, go to the
+
+92
+00:07:58,140 --> 00:08:02,550
+left and have the footer go below both of those things.
+
+93
+00:08:02,760 --> 00:08:07,290
+It's going to need you to apply what you learned about floats and clear.
+
+94
+00:08:07,710 --> 00:08:10,290
+Pause the video and give that a go now.
+
+95
+00:08:12,390 --> 00:08:12,810
+All right.
+
+96
+00:08:12,810 --> 00:08:18,660
+So let's do the easiest thing first, which is to wrap our text around our images.
+
+97
+00:08:18,870 --> 00:08:25,230
+If we take a look at the structure of our text, you can see we've got two images.
+
+98
+00:08:25,230 --> 00:08:31,950
+And if we make both of these images float left, then we can probably get the text wrap to work.
+
+99
+00:08:31,950 --> 00:08:36,210
+So let's target the image element and then set float to left.
+
+100
+00:08:36,210 --> 00:08:43,110
+So if we look at the preview now, you can see that both of these images, once their is enough width,
+
+101
+00:08:43,140 --> 00:08:48,120
+maybe we can view it here in a full browser.
+
+102
+00:08:48,120 --> 00:08:55,050
+Once there's enough width, you can see that both of these paragraphs are now wrapping around our images.
+
+103
+00:08:55,320 --> 00:08:57,300
+So that's the first part checked.
+
+104
+00:08:57,420 --> 00:09:03,630
+Next thing we want to do is to make the cat-block float to the left so this aquamarine block, go to
+
+105
+00:09:03,630 --> 00:09:09,720
+the left and the dog-block, go to the right so that we can have this kind of layout.
+
+106
+00:09:09,900 --> 00:09:12,630
+To do that, we're going to use the float again.
+
+107
+00:09:12,630 --> 00:09:18,750
+And if we look at our code and see how it's formatted, you can see these blocks are just simply made
+
+108
+00:09:18,750 --> 00:09:19,650
+up of divs.
+
+109
+00:09:19,680 --> 00:09:26,220
+There's a cat div and there's a dog div and you can see we're already targeting those divs by changing
+
+110
+00:09:26,220 --> 00:09:28,620
+their background color to have them different.
+
+111
+00:09:28,650 --> 00:09:38,190
+Let's go ahead and make this cat div float to the left and make the dog div float to the right.
+
+112
+00:09:38,640 --> 00:09:44,760
+Now if we look at our website, you can see it's achieved that the cat block is on the left and the
+
+113
+00:09:44,760 --> 00:09:45,810
+dog block is on the right.
+
+114
+00:09:45,810 --> 00:09:52,290
+But our copyright has also gone all the way up to the top because these two things are floating.
+
+115
+00:09:52,290 --> 00:09:58,350
+So this footer is trying to wrap around both of them and the only space that's available is right here
+
+116
+00:09:58,350 --> 00:09:59,490
+in the center.
+
+117
+00:09:59,790 --> 00:10:01,650
+So we're going to have to use that trick
+
+118
+00:10:01,650 --> 00:10:09,960
+we learned about the clear property if we go into our footer and change the clear property so that it
+
+119
+00:10:09,960 --> 00:10:16,680
+clears both sides of the floats, then it now behaves properly and goes down right to the bottom.
+
+120
+00:10:17,040 --> 00:10:22,080
+And now we have our layout looking more or less like the goal image.
+
+121
+00:10:22,260 --> 00:10:24,690
+Don't worry if you have this little gap here.
+
+122
+00:10:24,720 --> 00:10:32,040
+That's because the height of the divs are not the same, because there's different amounts of words
+
+123
+00:10:32,040 --> 00:10:33,540
+in these paragraphs.
+
+124
+00:10:34,050 --> 00:10:40,140
+And this brings me on to an important point about using float as we're doing here for layout.
+
+125
+00:10:40,390 --> 00:10:47,170
+In the past, a lot of developers have used float extensively and sort of wrangled it to create these
+
+126
+00:10:47,170 --> 00:10:48,820
+kind of complex layouts.
+
+127
+00:10:48,850 --> 00:10:52,630
+Now I'm showing you this layout so you can use the clear property.
+
+128
+00:10:52,630 --> 00:10:59,140
+But in modern web development and web design, we don't actually use the float property to achieve these
+
+129
+00:10:59,140 --> 00:11:05,560
+kind of designs because there are much better tools for us like Flexbox, Grid, Bootstrap, whole load
+
+130
+00:11:05,560 --> 00:11:11,050
+of other things that is a lot less complicated to use and to understand than using float.
+
+131
+00:11:11,050 --> 00:11:17,290
+To achieve this, there can be very unexpected results if you're trying to achieve complex layouts using
+
+132
+00:11:17,290 --> 00:11:17,860
+float.
+
+133
+00:11:17,860 --> 00:11:23,500
+So I recommend to only use float when you want to wrap text around an image,
+
+134
+00:11:23,500 --> 00:11:27,940
+and in modern web design, this is what you're going to see most people doing as well.
+
+135
+00:11:27,940 --> 00:11:34,960
+So it's an important concept to learn and understand, but try to not use it on everything that you
+
+136
+00:11:34,960 --> 00:11:35,530
+see.
+
+137
+00:11:35,560 --> 00:11:39,040
+We've got better techniques, which I'll teach you very shortly.
+

@@ -1,0 +1,524 @@
+1
+00:00:00,240 --> 00:00:08,370
+Now in the previous lesson, we saw how we were able to render this sell button and allow the user who
+
+2
+00:00:08,370 --> 00:00:14,310
+owns this NFT to put in a price and to list their NFT for sale.
+
+3
+00:00:14,910 --> 00:00:20,610
+Now, at the moment, it works, but if you're looking at it from the frontend as a user, you would
+
+4
+00:00:20,610 --> 00:00:24,600
+never know that it works because none of the user interface updates.
+
+5
+00:00:24,930 --> 00:00:31,560
+And we also want to be able to click on the Discover page to see all of the NFTs listed for sale.
+
+6
+00:00:31,980 --> 00:00:34,890
+So that's what we're going to be tackling in this lesson.
+
+7
+00:00:35,520 --> 00:00:42,600
+Now, the first thing we're going to do is to set up our loaders. Similar to previously inside our minter
+
+8
+00:00:42,960 --> 00:00:47,790
+where we got our loader to show up when the minting is happening,
+
+9
+00:00:48,150 --> 00:00:53,580
+we're also going to get our loader to show up when we are listing and transferring our NFT.
+
+10
+00:00:54,120 --> 00:01:01,650
+If you want, you can copy either the loader code from the minter or even better yet, copy it from the
+
+11
+00:01:01,650 --> 00:01:02,250
+read me.
+
+12
+00:01:04,519 --> 00:01:11,750
+And going into the item.jsx, we're going to paste it just below our image here.
+
+13
+00:01:13,350 --> 00:01:21,990
+Now we're going to add the hidden attribute in here and we're going to use the loaderHidden.
+
+14
+00:01:22,770 --> 00:01:25,650
+And we're going to add that up here, of course.
+
+15
+00:01:32,730 --> 00:01:38,190
+And we're going to set the initial state to true so that our loader is hidden in the beginning.
+
+16
+00:01:38,400 --> 00:01:45,510
+Now the time when we want our loader to start loading is once the user has clicked on the confirm button,
+
+17
+00:01:45,810 --> 00:01:49,080
+which triggers the sellItem function right here.
+
+18
+00:01:49,560 --> 00:01:57,000
+So we're going to set the loader hidden to false now, and then once all of our listing is completed and
+
+19
+00:01:57,000 --> 00:01:58,890
+our transfer is completed,
+
+20
+00:01:59,250 --> 00:02:06,150
+so if we go ahead and add another statement, the transferResult is equal to success,
+
+21
+00:02:06,840 --> 00:02:13,720
+then in this case, we're going to go ahead and set our loader to be hidden again.
+
+22
+00:02:13,740 --> 00:02:14,910
+So set it to true.
+
+23
+00:02:16,530 --> 00:02:21,540
+So now let's go ahead and hit save and take a look inside our NFTs.
+
+24
+00:02:21,600 --> 00:02:27,630
+If you see nothing here, then you might have to mint some because they disappear when we deploy.
+
+25
+00:02:27,930 --> 00:02:30,390
+But let's try selling one of these NFTs.
+
+26
+00:02:31,080 --> 00:02:37,920
+You can see that as soon as I click confirm, my loader starts up and going through listing and transfer,
+
+27
+00:02:37,920 --> 00:02:43,830
+it still continues until the transfer is successful, at which point the loader disappears, which is
+
+28
+00:02:43,830 --> 00:02:45,210
+exactly what we would want.
+
+29
+00:02:45,690 --> 00:02:52,890
+Now, the other thing that we want to disappear once the transfer is completed are the button and also
+
+30
+00:02:52,890 --> 00:02:53,940
+this price input.
+
+31
+00:02:54,690 --> 00:03:00,720
+So we can use our setButton and setPriceInput to make them disappear here as well,
+
+32
+00:03:07,570 --> 00:03:08,620
+like so.
+
+33
+00:03:08,890 --> 00:03:14,380
+And if we try that again, making sure that we actually pick the one that we can sell, and if you don't
+
+34
+00:03:14,380 --> 00:03:18,490
+have any others that you can sell, then you have to mint some.
+
+35
+00:03:18,520 --> 00:03:24,040
+And the reason why they can't sell is because this one's been transferred over to OpenD, so we actually
+
+36
+00:03:24,040 --> 00:03:26,560
+don't have the right to sell it again.
+
+37
+00:03:26,920 --> 00:03:31,780
+We're going to address this a little bit later on, but let's try it with this one or another one that
+
+38
+00:03:31,780 --> 00:03:32,350
+you mint.
+
+39
+00:03:35,620 --> 00:03:41,050
+So once that's done, all of those pieces of the UI disappear, which is brilliant,
+
+40
+00:03:41,080 --> 00:03:46,960
+but we now need to update the owner because the owner is now the OpenD canister.
+
+41
+00:03:47,290 --> 00:03:52,450
+And rather than just pulling in this principal which doesn't mean anything to the user, I'm going
+
+42
+00:03:52,450 --> 00:03:54,090
+to change that to just say OpenD.
+
+43
+00:03:54,340 --> 00:04:01,770
+So over here, I'm going to set the owner to a piece of text that's just going to be OpenD.
+
+44
+00:04:01,810 --> 00:04:08,170
+And that way, the user who's looking at this will know that it has been listed and the ownership temporarily
+
+45
+00:04:08,170 --> 00:04:09,770
+transferred to OpenD.
+
+46
+00:04:10,330 --> 00:04:16,480
+Now the final thing I'd like to do is to be able to blur the image once we've listed it, because it's
+
+47
+00:04:16,480 --> 00:04:21,399
+sort of transferred over in terms of ownership to OpenD, it's listed. It's not something that you should
+
+48
+00:04:21,399 --> 00:04:25,000
+be able to sell again or to be able to interact with that much.
+
+49
+00:04:25,240 --> 00:04:34,270
+So we're going to add a style to our image here and the style is going to be set equal to something
+
+50
+00:04:34,270 --> 00:04:35,410
+that we're going to call blur.
+
+51
+00:04:36,540 --> 00:04:39,240
+And blur, of course, needs to be set up here.
+
+52
+00:04:41,180 --> 00:04:43,880
+So it's going to be blur and setBlur.
+
+53
+00:04:48,720 --> 00:04:51,030
+And it's going to start out with nothing.
+
+54
+00:04:51,300 --> 00:04:56,850
+Now, the point where we actually setBlur is at the beginning of our sell item,
+
+55
+00:04:57,300 --> 00:04:58,980
+so we're going to call setBlur.
+
+56
+00:04:59,430 --> 00:05:07,320
+And what we're going to do is we're basically going to add some CSS to the styling of that image
+
+57
+00:05:07,320 --> 00:05:07,860
+element.
+
+58
+00:05:08,700 --> 00:05:13,170
+Basically, we add it on the fly and the CSS attribute is called a filter
+
+59
+00:05:13,590 --> 00:05:16,980
+and we're going to set it to a string that's called blur.
+
+60
+00:05:17,460 --> 00:05:21,510
+And then we get to determine how much blur inside a set of parentheses.
+
+61
+00:05:21,870 --> 00:05:23,550
+And I'm going to set it to a minimal amount,
+
+62
+00:05:23,550 --> 00:05:30,390
+so 4px. You'll still be able to see the actual image behind it, but it will be sufficiently
+
+63
+00:05:30,390 --> 00:05:32,130
+blurry that you'll notice a difference.
+
+64
+00:05:32,340 --> 00:05:37,320
+Let's go ahead and hit save and mint a new NFT to try it out.
+
+65
+00:05:37,740 --> 00:05:40,410
+Let's go ahead and sell this new NFT.
+
+66
+00:05:41,220 --> 00:05:42,210
+Click confirm.
+
+67
+00:05:42,750 --> 00:05:44,100
+Our blur shows up,
+
+68
+00:05:44,220 --> 00:05:45,630
+our loader shows up
+
+69
+00:05:46,200 --> 00:05:47,430
+Our blur doesn't go away
+
+70
+00:05:47,430 --> 00:05:50,910
+because that way we know that we don't actually quite own it anymore
+
+71
+00:05:50,910 --> 00:05:52,440
+and it's listed for sale.
+
+72
+00:05:52,780 --> 00:05:58,230
+And we've got quite a lot of feedback to tell us that, in fact, this has been successfully listed
+
+73
+00:05:58,230 --> 00:05:58,800
+for sale.
+
+74
+00:05:59,820 --> 00:06:06,930
+Now, the only thing is, when we actually refresh our site, you'll notice that the owner OpenD and
+
+75
+00:06:06,930 --> 00:06:10,860
+the button and the blur will not obey what we told it to do.
+
+76
+00:06:11,310 --> 00:06:17,450
+And this is because when we load up an item, when we refresh it, it goes into load NFT.
+
+77
+00:06:18,090 --> 00:06:26,100
+So we need a way to check to see if this particular item with this particular ID is actually listed
+
+78
+00:06:26,100 --> 00:06:26,730
+for sale.
+
+79
+00:06:27,360 --> 00:06:30,630
+To do that, we can go into our main.
+
+80
+00:06:30,630 --> 00:06:31,290
+mo
+
+81
+00:06:32,710 --> 00:06:34,990
+and create a new function.
+
+82
+00:06:35,830 --> 00:06:45,490
+The new function is simply going to be a public query func and it's going to be called is
+
+83
+00:06:45,520 --> 00:06:53,860
+Listed, and we get to pass in the id of a NFT and we're going to return a boolean,
+
+84
+00:06:53,860 --> 00:06:57,910
+so true or false, and that will reflect whether or not it's listed.
+
+85
+00:06:58,450 --> 00:07:08,080
+Let's add a semicolon at the top and we're going to use an if statement to check that out of our map
+
+86
+00:07:08,080 --> 00:07:09,250
+of listings.
+
+87
+00:07:12,250 --> 00:07:21,850
+If we run a get using this id that's passed in, if it equals null, well then that means that NFT
+
+88
+00:07:21,850 --> 00:07:22,780
+is not listed,
+
+89
+00:07:22,780 --> 00:07:25,000
+right? Because it's not in our map of listings.
+
+90
+00:07:25,360 --> 00:07:27,490
+So we're going to return false.
+
+91
+00:07:28,150 --> 00:07:37,000
+But otherwise, then it means it exists and it's not equal to null, in which case we will return
+
+92
+00:07:37,120 --> 00:07:37,540
+true.
+
+93
+00:07:40,920 --> 00:07:44,610
+Let's go ahead and call this function from our frontend here.
+
+94
+00:07:45,180 --> 00:07:53,310
+And just before we set our buttons, I'm going to create a new constant called nftIsListed
+
+95
+00:07:54,090 --> 00:08:02,360
+and it's going to be using the await OpenD.IsListed function that we just created and we're
+
+96
+00:08:02,360 --> 00:08:04,710
+going to pass in the props.id.
+
+97
+00:08:05,910 --> 00:08:08,790
+So now we can use that constant,
+
+98
+00:08:09,630 --> 00:08:19,820
+if the nftIsListed, then we're going to set the owner to again OpenD.
+
+99
+00:08:21,340 --> 00:08:24,970
+And we're going to set the blur as well.
+
+100
+00:08:25,360 --> 00:08:29,020
+So I'm just going to copy and paste that line of code that I had down here.
+
+101
+00:08:34,179 --> 00:08:41,380
+And if it's not listed, so in the else statement, then it will actually set the button to say, sell.
+
+102
+00:08:41,830 --> 00:08:44,540
+Now, by default, the button is nothing.
+
+103
+00:08:44,560 --> 00:08:48,460
+So that means unless it's listed, it won't have that sell button.
+
+104
+00:08:48,610 --> 00:08:53,260
+And if it is listed, then the owner is OpenD and the image is blurred out.
+
+105
+00:08:53,440 --> 00:09:00,160
+And now all we have to do is go ahead and redeploy all of our canisters
+
+106
+00:09:00,310 --> 00:09:09,460
+making sure in our did files for the OpenD that that new isListed method actually is added.
+
+107
+00:09:10,210 --> 00:09:16,510
+And once it is, we can hit save, we'll lose our NFT when we refresh.
+
+108
+00:09:16,720 --> 00:09:19,570
+But when we go ahead and click sell
+
+109
+00:09:19,570 --> 00:09:22,390
+this time, we'll get the blurring,
+
+110
+00:09:22,390 --> 00:09:23,740
+we'll get the loading
+
+111
+00:09:26,180 --> 00:09:30,050
+and we'll get all of those things disappearing once it's all done.
+
+112
+00:09:30,560 --> 00:09:37,910
+And even when we refresh the page, all of those properties will stay as they are because it knows that
+
+113
+00:09:37,910 --> 00:09:39,230
+it's already been listed.
+
+114
+00:09:40,130 --> 00:09:47,120
+Now, one final frontend thing that I would like to add is at the very bottom of item.jsx, you'll
+
+115
+00:09:47,120 --> 00:09:49,300
+see a section that says purple-text.
+
+116
+00:09:49,310 --> 00:09:55,430
+And this is a span that I put in there. And it'd be really nice if we could just get it to say listed
+
+117
+00:09:55,760 --> 00:10:02,480
+or rather space and then listed just so that will know at a glance that it's been listed and we'll know
+
+118
+00:10:02,480 --> 00:10:03,770
+that's why it's blurry.
+
+119
+00:10:04,250 --> 00:10:07,460
+So let's go ahead and add this as a constant.
+
+120
+00:10:07,760 --> 00:10:15,140
+And remember, if you want that space, just add a space before the curly braces. And I'm going to set
+
+121
+00:10:15,140 --> 00:10:17,420
+this to sellStatus
+
+122
+00:10:21,030 --> 00:10:23,160
+and add it as a constant.
+
+123
+00:10:30,820 --> 00:10:33,280
+And initialize it as an empty string.
+
+124
+00:10:33,670 --> 00:10:40,570
+But when the NFT is listed, we're going to set the sellStatus to say listed.
+
+125
+00:10:42,410 --> 00:10:47,660
+And similarly, once our selling is completed, we're going to set the same thing,
+
+126
+00:10:48,530 --> 00:10:51,590
+so sellStatus to a Listed.
+
+127
+00:10:55,290 --> 00:10:56,070
+And there you have it.
+
+128
+00:10:56,490 --> 00:10:59,160
+That's our styling done for all the listing.
+
+129
+00:10:59,220 --> 00:11:06,960
+Now, the next thing we'd like to do is to grab hold of all the listed NFTs and display it on the Discover
+
+130
+00:11:06,960 --> 00:11:12,420
+page so that you can see all of the NFTs that are being offered for sale on OpenD.
+
+131
+00:11:12,930 --> 00:11:16,170
+So for all of that and more, I'll see you on the next lesson.
+

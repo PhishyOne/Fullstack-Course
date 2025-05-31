@@ -1,0 +1,200 @@
+1
+00:00:00,560 --> 00:00:09,110
+Now let's get started by learning a little bit more about HTML, what exactly is it? And how do we use it to
+
+2
+00:00:09,110 --> 00:00:10,340
+create websites?
+
+3
+00:00:10,370 --> 00:00:18,050
+Now, no matter what browser you like to use, Chrome or Safari or Brave, even all of these applications
+
+4
+00:00:18,050 --> 00:00:19,230
+do the same thing.
+
+5
+00:00:19,250 --> 00:00:27,110
+They take different files such as HTML, CSS and JavaScript, and they render them into a website.
+
+6
+00:00:27,260 --> 00:00:34,100
+But even though most modern websites are created using these three different file types combined together,
+
+7
+00:00:34,100 --> 00:00:39,540
+you can't create a website with just a CSS file or just a JavaScript file.
+
+8
+00:00:39,560 --> 00:00:43,490
+However, you can have just an HTML file.
+
+9
+00:00:43,490 --> 00:00:48,800
+And in fact, that's exactly what the first websites were created with, HTML.
+
+10
+00:00:48,830 --> 00:00:53,390
+Now HTML defines the content and structure of the website.
+
+11
+00:00:53,390 --> 00:01:00,960
+So for example in this case, all that my HTML file does, is it renders a heading that says my website.
+
+12
+00:01:00,990 --> 00:01:08,640
+And when this file is opened by the browser, it will display that heading saying my website.
+
+13
+00:01:08,730 --> 00:01:11,490
+Now what exactly is HTML?
+
+14
+00:01:11,520 --> 00:01:12,690
+Let's break it down.
+
+15
+00:01:12,690 --> 00:01:16,950
+So HTML stands for hypertext markup language.
+
+16
+00:01:16,980 --> 00:01:20,940
+If we look at the first part, hypertext, what does that mean?
+
+17
+00:01:21,420 --> 00:01:28,600
+Well, it refers to the pieces of text which can link to other documents in the website.
+
+18
+00:01:28,620 --> 00:01:37,830
+So these pieces of text are hypertext or hyperlinks, and they are the foundation of how an HTML website
+
+19
+00:01:37,830 --> 00:01:38,580
+works.
+
+20
+00:01:38,610 --> 00:01:46,560
+Now, if we take a look at the world's first website created by Sir Tim Berners-Lee, who also happens
+
+21
+00:01:46,560 --> 00:01:52,040
+to be the inventor of the Internet, then you can see it's filled with these hyperlinks marked in blue.
+
+22
+00:01:52,050 --> 00:01:54,600
+And exactly as you would expect,
+
+23
+00:01:54,600 --> 00:02:01,710
+if you click on any of these hyperlinks, it takes you to another document, another HTML file.
+
+24
+00:02:01,740 --> 00:02:06,600
+So if we go back, you can see that we were on Project.html.
+
+25
+00:02:06,600 --> 00:02:14,880
+And if I click on one of the hyperlinks like, "How can I help?" it will take me to another HTML file and
+
+26
+00:02:14,880 --> 00:02:16,650
+this is how hypertext works.
+
+27
+00:02:16,650 --> 00:02:22,260
+And there's even a link on this website explaining exactly what hypertext is.
+
+28
+00:02:22,290 --> 00:02:28,080
+So now that we know what hypertext is, what about the other part, the markup language?
+
+29
+00:02:28,080 --> 00:02:29,910
+What is a markup language?
+
+30
+00:02:30,300 --> 00:02:36,870
+Now, if you look at the English language, we often see little bits that function very similar to markup,
+
+31
+00:02:36,960 --> 00:02:38,970
+like these double quotes.
+
+32
+00:02:39,000 --> 00:02:45,690
+The presence of these quotation marks is what tells a reader that this part is a quotation.
+
+33
+00:02:45,690 --> 00:02:54,480
+And as you'll find, this is going to be really similar to what you see in the editor's review of manuscript.
+
+34
+00:02:54,480 --> 00:03:01,830
+So used to mark them up and show different things, such as, for example, which parts need to be bold
+
+35
+00:03:01,850 --> 00:03:09,830
+by adding a squiggly line underneath it and which parts need to be underlined by adding a straight line
+
+36
+00:03:09,830 --> 00:03:10,490
+through it.
+
+37
+00:03:11,060 --> 00:03:15,230
+So how do you do markup with HTML?
+
+38
+00:03:15,260 --> 00:03:19,670
+Well, it's done through what's called HTML tags.
+
+39
+00:03:19,700 --> 00:03:25,040
+Now, in the early days of the Internet, there were only very few HTML tags.
+
+40
+00:03:25,160 --> 00:03:31,310
+These days there are loads more, but realistically, you're only going to be using some of the most
+
+41
+00:03:31,310 --> 00:03:38,700
+important ones such as headings, H1 through to H6, or the paragraph tag, the P tag.
+
+42
+00:03:38,720 --> 00:03:44,570
+So here you can see all of the HTML tags, but when we narrow it down to the ones that you actually
+
+43
+00:03:44,570 --> 00:03:47,810
+need to know, then it makes it a lot more approachable.
+
+44
+00:03:47,930 --> 00:03:52,610
+And in the rest of the course we're going to be covering some of the most essential tags,
+
+45
+00:03:52,610 --> 00:03:55,400
+and so don't worry about learning them.
+
+46
+00:03:55,400 --> 00:03:58,950
+So don't worry about memorizing all of them or learning them.
+
+47
+00:03:58,970 --> 00:04:03,690
+We're going to cover them as we need them in our projects and in our exercises.
+
+48
+00:04:03,870 --> 00:04:11,610
+So in the next lesson, we're going to get started by learning about the heading tag, one of the most
+
+49
+00:04:11,640 --> 00:04:14,940
+OG HTML tags that ever existed.
+
+50
+00:04:14,940 --> 00:04:18,360
+So for all of that and more, I'll see you on the next lesson.
+

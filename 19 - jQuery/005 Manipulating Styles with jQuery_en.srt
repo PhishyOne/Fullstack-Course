@@ -1,0 +1,224 @@
+1
+00:00:00,720 --> 00:00:09,360
+Now previously we briefly saw that we can manipulate the CSS style of a selected element by simply
+
+2
+00:00:09,420 --> 00:00:13,850
+using the .css method from jQuery.
+
+3
+00:00:14,130 --> 00:00:22,120
+So for example we can select our h1 and we can say .css, and we can add the CSS property that
+
+4
+00:00:22,140 --> 00:00:23,120
+we want to change,
+
+5
+00:00:23,130 --> 00:00:24,720
+so for example the color.
+
+6
+00:00:25,140 --> 00:00:28,900
+And our second input is the value for that property.
+
+7
+00:00:28,920 --> 00:00:32,229
+So we're going to change it to green this time.
+
+8
+00:00:32,229 --> 00:00:39,870
+And now if I hit save and refresh then I can see h1 has been selected and the CSS color property has
+
+9
+00:00:39,870 --> 00:00:41,450
+been changed to green.
+
+10
+00:00:41,450 --> 00:00:43,970
+Now this method is really flexible.
+
+11
+00:00:43,980 --> 00:00:51,060
+For example you can get the current value of the CSS property by simply having the name of the property
+
+12
+00:00:51,210 --> 00:00:54,890
+in some quotation marks as a string inside the method.
+
+13
+00:00:54,910 --> 00:00:59,280
+And now we can console.log the value of this.
+
+14
+00:00:59,280 --> 00:01:05,580
+And when we refresh our web site you'll see that we get the rgb, the red green black value, of our 
+
+15
+00:01:05,580 --> 00:01:07,840
+h1's color, which is black.
+
+16
+00:01:07,950 --> 00:01:15,420
+And if we wanted something like say font size and refresh then you can see that the current h1 has a
+
+17
+00:01:15,420 --> 00:01:17,200
+font size of 32.
+
+18
+00:01:17,460 --> 00:01:22,090
+And we're getting that by using the .css method.
+
+19
+00:01:22,620 --> 00:01:28,470
+So remember with this method that if you have a single property in it then you're getting the value
+
+20
+00:01:28,470 --> 00:01:29,080
+of it.
+
+21
+00:01:29,250 --> 00:01:35,040
+And if you have two properties in it then you're setting the value.
+
+22
+00:01:35,190 --> 00:01:42,840
+Now as we said before, changing something that's related to the style inside our Javascript code is not
+
+23
+00:01:42,840 --> 00:01:43,530
+that great.
+
+24
+00:01:43,530 --> 00:01:50,760
+It feels a little bit dirty and that's because we need to separate our concerns, keep our Javascript
+
+25
+00:01:50,790 --> 00:01:58,080
+code all about behavior, keep our style code all about the appearance, and keep our HTML all about
+
+26
+00:01:58,140 --> 00:01:59,400
+content.
+
+27
+00:01:59,400 --> 00:02:01,020
+So how can we do that?
+
+28
+00:02:01,230 --> 00:02:10,530
+Well what if instead of adding our CSS by using the css method, we had a class inside our stylesheet, let's
+
+29
+00:02:10,530 --> 00:02:12,820
+call it big-title,
+
+30
+00:02:13,140 --> 00:02:21,870
+and this is going to have a font size of 10rem, and it's also going to have a color of yellow,
+
+31
+00:02:22,080 --> 00:02:26,770
+and finally we're going to make the font family cursive.
+
+32
+00:02:27,000 --> 00:02:36,600
+All right. So now that we've got this class inside our style sheet, we can use jQuery to add that class
+
+33
+00:02:36,960 --> 00:02:39,240
+to our selected element.
+
+34
+00:02:39,420 --> 00:02:47,790
+So we're selecting our h1, and by writing .addClass, and then inside the parentheses we’ll add
+
+35
+00:02:47,790 --> 00:02:56,010
+the name of the class, which let's just remind ourselves was called big-title, big-title.
+
+36
+00:02:57,240 --> 00:03:05,470
+And now if we hit save and refresh then you can see that we've added all of those awful looking CSS 
+
+37
+00:03:05,570 --> 00:03:07,170
+to our h1.
+
+38
+00:03:07,560 --> 00:03:14,190
+And this is a much better way of separating our behavior from our styles.
+
+39
+00:03:14,400 --> 00:03:18,430
+Now just as you can add class you can also remove class.
+
+40
+00:03:18,510 --> 00:03:26,490
+So now that we've added this horrendous yellow color we can select our h1 and use the .removeClass
+
+41
+00:03:26,550 --> 00:03:36,450
+method to remove this big-title class from our h1, and you can see once I run that then all of
+
+42
+00:03:36,450 --> 00:03:41,880
+those styles that belong to the big-title CSS rule disappear.
+
+43
+00:03:41,880 --> 00:03:50,280
+Now if you wanted to add or remove multiple classes, let's say we add another one called margin-50,
+
+44
+00:03:50,490 --> 00:04:00,810
+and in this one we simply add a margin of 50 pixels, hit save, and now inside our index.js, in order
+
+45
+00:04:01,090 --> 00:04:08,310
+to add multiple classes, all we need to do is just to include them inside the same set of quotation marks
+
+46
+00:04:08,310 --> 00:04:10,240
+but with a space in between.
+
+47
+00:04:10,350 --> 00:04:20,779
+So our second class was called margin-50, and now we're selecting our h1 and we’re adding all of the classes,
+
+48
+00:04:20,790 --> 00:04:23,760
+so that's big-title as well as margin-50.
+
+49
+00:04:24,000 --> 00:04:30,710
+So if we hit save and refresh you can see that we're getting both classes applied to our h1.
+
+50
+00:04:30,780 --> 00:04:39,420
+Now another really useful method from jQuery is we can see whether or not if our element has a particular
+
+51
+00:04:39,420 --> 00:04:45,040
+class. So we can select our h1,  and then we can say .hasClass.
+
+52
+00:04:45,240 --> 00:04:50,180
+And we're going to query for the margin-50 class.
+
+53
+00:04:50,580 --> 00:04:57,570
+And now if we hit enter then you can see that it'll give you a true or false Boolean depending on whether
+
+54
+00:04:57,570 --> 00:05:03,710
+or not the element does indeed have that class applied. Now in the next lesson we're going to look at how
+
+55
+00:05:03,710 --> 00:05:09,650
+we can use jQuery to manipulate not just styles but also text.
+
+56
+00:05:09,680 --> 00:05:12,860
+So for all of that and more, I'll see you on the next lesson.
+

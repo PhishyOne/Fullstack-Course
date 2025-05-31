@@ -1,0 +1,400 @@
+1
+00:00:00,150 --> 00:00:00,510
+All right.
+
+2
+00:00:00,540 --> 00:00:04,200
+So it's time to practice what you've learned so far.
+
+3
+00:00:04,230 --> 00:00:10,260
+Go ahead and head over to the course resources, get the link for this practice session and then open
+
+4
+00:00:10,290 --> 00:00:11,760
+up in your browser.
+
+5
+00:00:11,970 --> 00:00:18,030
+And then of course fork it so that you have your own copy of it in your sandbox and then go ahead and
+
+6
+00:00:18,120 --> 00:00:21,740
+look through these comments and try to complete this challenge.
+
+7
+00:00:21,780 --> 00:00:25,200
+We're going to be creating a React app from scratch again.
+
+8
+00:00:25,440 --> 00:00:29,260
+It should display two paragraph HTML elements.
+
+9
+00:00:29,370 --> 00:00:36,180
+The first paragraph should say, "Created by..." and then we're going to add in a constant with your name, and then
+
+10
+00:00:36,180 --> 00:00:38,580
+the second one is a little bit harder.
+
+11
+00:00:38,730 --> 00:00:43,520
+It should say the copyright of your website and the current year.
+
+12
+00:00:43,650 --> 00:00:49,230
+I have a bit of a pet peeve of websites which have the copyright which is hard coded.
+
+13
+00:00:49,380 --> 00:00:56,340
+So I really want you guys to dig through your knowledge of JavaScript and if you've dug and you can't
+
+14
+00:00:56,340 --> 00:01:03,510
+find anything then head over to Google and try to see if you can figure out how to get this copyright
+
+15
+00:01:03,630 --> 00:01:06,690
+to be a dynamic date.
+
+16
+00:01:06,690 --> 00:01:15,840
+So instead of having it hard coded as 2019 when we enter 2020 or 2021 whichever year it may be right now,
+
+17
+00:01:16,200 --> 00:01:22,860
+the copyright should actually be updated using your Javascript code.
+
+18
+00:01:22,950 --> 00:01:27,690
+So there's a bit of React challenge in here, there's a bit of JSX Challenge and there's also a bit
+
+19
+00:01:27,750 --> 00:01:31,440
+of plain vanilla Javascript challenge for you.
+
+20
+00:01:31,440 --> 00:01:37,430
+I hope you'll give it a go. Pause the video and then come back here and we'll go through the solution together.
+
+21
+00:01:42,840 --> 00:01:43,140
+All right.
+
+22
+00:01:43,170 --> 00:01:50,230
+So we're getting quite a lot of practice creating React apps from scratch and there's good reason behind
+
+23
+00:01:50,230 --> 00:01:55,340
+this because it means that when you create it yourself, it's going to be a lot easier and it's going
+
+24
+00:01:55,340 --> 00:01:56,560
+to be like second nature.
+
+25
+00:01:56,980 --> 00:02:03,730
+So I've just imported React and ReactDOM from our two modules over here and then I'm gonna go ahead
+
+26
+00:02:03,790 --> 00:02:09,330
+and use our ReactDOM to render some HTML.
+
+27
+00:02:09,460 --> 00:02:12,490
+So we're gonna display two paragraph elements.
+
+28
+00:02:12,490 --> 00:02:17,580
+So we've got the first one and we've got the second one.
+
+29
+00:02:18,010 --> 00:02:25,480
+So the first one should say something like, "Created by..." and then we're going to put your name or my name
+
+30
+00:02:25,480 --> 00:02:34,450
+in my case. And then we got a copyright and we're going to somehow add in the current year.
+
+31
+00:02:34,450 --> 00:02:35,800
+That's what we're after.
+
+32
+00:02:36,100 --> 00:02:40,000
+And of course we can't render more than one HTML element
+
+33
+00:02:40,000 --> 00:02:43,880
+so I'm going to wrap it inside a div.
+
+34
+00:02:44,120 --> 00:02:44,430
+All right.
+
+35
+00:02:44,460 --> 00:02:47,150
+So now that we've gone what to render
+
+36
+00:02:47,430 --> 00:02:57,600
+let's go ahead and get our document, getElementById and fetch that root div in order to render this
+
+37
+00:02:57,750 --> 00:02:59,600
+inside this.
+
+38
+00:02:59,610 --> 00:03:07,050
+So now we can see our Created by YOURNAME, Copyright CURRENTYEAR which is not very exciting but let's
+
+39
+00:03:07,050 --> 00:03:11,070
+go ahead and insert some javascript into our HTML.
+
+40
+00:03:11,550 --> 00:03:15,810
+So the first constant I'm going to create is going to be a name constant.
+
+41
+00:03:16,350 --> 00:03:18,350
+And it's going to be my name.
+
+42
+00:03:18,570 --> 00:03:23,970
+And then the second constant is going to be a year constant.
+
+43
+00:03:23,970 --> 00:03:29,730
+And for now I'm just going to hardcoded as 2019 so that we can see it inserted in here.
+
+44
+00:03:30,330 --> 00:03:36,210
+So our paragraph is going to get a set of curly braces. In the set of curly braces
+
+45
+00:03:36,210 --> 00:03:39,300
+I'm going to specify the name of my constant right here.
+
+46
+00:03:39,780 --> 00:03:41,100
+So that goes in there.
+
+47
+00:03:41,100 --> 00:03:42,210
+Created by Angela.
+
+48
+00:03:42,660 --> 00:03:46,050
+And then the copyright is going to have the current year.
+
+49
+00:03:46,440 --> 00:03:49,330
+So let's insert that year constant into here.
+
+50
+00:03:49,620 --> 00:03:51,390
+So this is what it should look like.
+
+51
+00:03:51,690 --> 00:03:54,690
+But here comes the slightly more challenging part right?
+
+52
+00:03:54,720 --> 00:03:58,110
+We said we don't want this to be hard coded.
+
+53
+00:03:58,320 --> 00:04:05,310
+So we want to be able to use Javascript to fetch the current year rather than hard coding it in like
+
+54
+00:04:05,310 --> 00:04:06,330
+this.
+
+55
+00:04:06,330 --> 00:04:08,980
+So how can we do that?
+
+56
+00:04:09,030 --> 00:04:14,040
+So if you don't know how to do this or you've forgotten which is perfectly likely when I switch around
+
+57
+00:04:14,040 --> 00:04:17,010
+between different languages I get confused too sometimes.
+
+58
+00:04:17,010 --> 00:04:22,120
+And it's good to know that Google and Stack Overflow are always there for you.
+
+59
+00:04:22,140 --> 00:04:24,840
+So here's a question, get the current year in JavaScript.
+
+60
+00:04:24,840 --> 00:04:26,970
+Sounds pretty much like what we want to do.
+
+61
+00:04:27,030 --> 00:04:33,090
+So we're gonna have to create a new date object and then we call the method getFullYear and they've
+
+62
+00:04:33,180 --> 00:04:40,590
+even very helpfully linked to the Mozilla developer docs here so we can learn a bit more about it before
+
+63
+00:04:40,590 --> 00:04:42,200
+we use it.
+
+64
+00:04:42,210 --> 00:04:48,840
+So this method is supposed to return the year of the specified date and of course you can either create
+
+65
+00:04:48,840 --> 00:04:57,060
+the date yourself or in our case we're going to be using new date and this gives us the current date
+
+66
+00:04:57,090 --> 00:04:58,350
+right now.
+
+67
+00:04:58,350 --> 00:05:05,610
+So if we go back over here and we create a new constant, which is the current date, and we set it equal
+
+68
+00:05:05,610 --> 00:05:07,130
+new Date.
+
+69
+00:05:07,130 --> 00:05:13,100
+So this object should now equal the current date when I am recording right now.
+
+70
+00:05:13,110 --> 00:05:21,900
+So if I go ahead and just log the value of current date and then go ahead and hit save and check in
+
+71
+00:05:21,900 --> 00:05:30,150
+our console you can see that it's Friday November the 8th 2019 and that's this time and I'm on Greenwich
+
+72
+00:05:30,150 --> 00:05:37,070
+Mean Time right now because I'm recording in London. Now that we've got hold of the current date we can
+
+73
+00:05:37,250 --> 00:05:46,820
+get the current year by using that date and calling that method getFullYear. And now because it is a method
+
+74
+00:05:46,820 --> 00:05:53,300
+we of course have to add the parentheses at the end so that we can confirm and check that the year that
+
+75
+00:05:53,300 --> 00:05:58,260
+we've got hold of is indeed 20 19 which is indeed the current year.
+
+76
+00:05:58,820 --> 00:06:06,950
+So now let's go ahead and delete that and instead of console logging it, it's going to be inserted into
+
+77
+00:06:07,040 --> 00:06:09,020
+our paragraph element.
+
+78
+00:06:09,020 --> 00:06:22,550
+And when the date changes say it's now 2022, June the 1st, then we're going to get 2022 inserted into
+
+79
+00:06:22,550 --> 00:06:29,300
+our year because it's going to be dynamically calculated based on the current date.
+
+80
+00:06:29,300 --> 00:06:30,530
+So there you go.
+
+81
+00:06:30,530 --> 00:06:32,630
+Did you manage to get that right?
+
+82
+00:06:32,660 --> 00:06:40,070
+If not, have a play around with the code as you have it here and a link to it as a completed sandbox
+
+83
+00:06:40,400 --> 00:06:43,040
+in the course resources for this lesson.
+
+84
+00:06:43,040 --> 00:06:49,580
+Now one common mistake that students make is they forget these parentheses and what happens in this
+
+85
+00:06:49,580 --> 00:06:57,230
+case is it's not going to work because this is a method. But even worse if we actually tried to put that
+
+86
+00:06:57,230 --> 00:07:04,130
+in here instead of creating that year constant then we actually get a warning from the console saying
+
+87
+00:07:04,520 --> 00:07:07,790
+functions are not valid as a React child.
+
+88
+00:07:07,790 --> 00:07:12,560
+So what this is saying is getFullYear is a function.
+
+89
+00:07:12,860 --> 00:07:20,270
+And if we don't add the parentheses at the end, it's as if we're trying to pass in a function as the
+
+90
+00:07:20,270 --> 00:07:27,980
+value which of course doesn't work because unless we execute the function and call it which is denoted
+
+91
+00:07:27,980 --> 00:07:34,460
+by these parentheses, then it's not going to give us the value that we want. You can of course insert
+
+92
+00:07:34,720 --> 00:07:44,060
+the code inside here as a Javascript expression because it evaluates to a value the 2019 in this case
+
+93
+00:07:44,930 --> 00:07:51,380
+or you can create a constant as we did before where you work it out, assign it to a constant and then
+
+94
+00:07:51,380 --> 00:07:59,720
+put the constant into our HTML element. Either of these ways work and if you want to take a look
+
+95
+00:07:59,840 --> 00:08:07,700
+at this completed code, I've included this sandbox inside the course resources for this lesson in this
+
+96
+00:08:07,700 --> 00:08:09,290
+current completed state.
+
+97
+00:08:09,290 --> 00:08:15,140
+So if there's anything that you're not sure about, have a  play around with it and try changing things
+
+98
+00:08:15,140 --> 00:08:20,420
+around until you're comfortable with the code and the JSX and the Javascript that we've covered
+
+99
+00:08:20,510 --> 00:08:27,680
+in this lesson. And then we can head over to the next lesson and we can start learning more about styling
+
+100
+00:08:28,070 --> 00:08:34,010
+our HTML elements using React. So for all of that and more, I'll see you on the next lesson.
+

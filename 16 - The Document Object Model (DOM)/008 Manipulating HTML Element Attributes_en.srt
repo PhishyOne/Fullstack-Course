@@ -1,0 +1,128 @@
+1
+00:00:00,720 --> 00:00:07,320
+So now that we've seen how you can manipulate the style and the text of an HTML element, the last thing
+
+2
+00:00:07,320 --> 00:00:12,220
+I want to show you how to manipulate are the attributes of any element.
+
+3
+00:00:12,300 --> 00:00:17,790
+So, just a reminder, the attributes are all the things that get colored in orange in Atom,
+
+4
+00:00:17,820 --> 00:00:24,330
+so for example, class is an attribute, or the href for an anchor tag is the attribute, or the src for
+
+5
+00:00:24,330 --> 00:00:32,020
+an image. They’re all attributes. Everything that goes inside the tag, other than the tag name itself, are attributes.
+
+6
+00:00:32,100 --> 00:00:35,250
+So we have a link up here that points towards Google,
+
+7
+00:00:35,260 --> 00:00:35,520
+right?
+
+8
+00:00:35,520 --> 00:00:37,730
+It takes us to the Google search page.
+
+9
+00:00:37,980 --> 00:00:42,910
+Now what if we've gone crazy and we decided to point people towards Bing instead?
+
+10
+00:00:43,260 --> 00:00:50,790
+Well, we can get a list of attributes that are attached to the element by saying document.querySelector
+
+11
+00:00:51,030 --> 00:00:56,080
+(“a”), and that of course gets us our first anchor tag which points towards Google.
+
+12
+00:00:56,140 --> 00:01:03,030
+And now if we say .attributes, then that will give us a list of all the attributes that are currently
+
+13
+00:01:03,030 --> 00:01:05,760
+attached to this HTML element.
+
+14
+00:01:05,790 --> 00:01:09,620
+And as you can see there's only one and that is the href.
+
+15
+00:01:09,660 --> 00:01:16,220
+So we can now retrieve the current value of that attribute by saying .getAttribute,
+
+16
+00:01:16,410 --> 00:01:19,710
+and notice how this is singular and not plural,
+
+17
+00:01:19,740 --> 00:01:25,380
+so we're only getting back the value of a single attribute, and we have to specify the name of the attribute
+
+18
+00:01:25,380 --> 00:01:26,400
+that we want.
+
+19
+00:01:26,400 --> 00:01:32,370
+So in this case it's the href, and you can see that we get back that currently it's pointing towards
+
+20
+00:01:32,490 --> 00:01:34,160
+google.com.
+
+21
+00:01:34,170 --> 00:01:41,190
+So now if we wanted to change this then instead of saying getAttribute, we can say setAttribute, but
+
+22
+00:01:41,190 --> 00:01:45,220
+this method takes two parameters, two inputs essentially.
+
+23
+00:01:45,390 --> 00:01:48,070
+One is which attribute do you want to change,
+
+24
+00:01:48,180 --> 00:01:53,460
+and the second one after the comma is what do you want to change it to,
+
+25
+00:01:54,090 --> 00:01:58,350
+and we're going to say www.bing.com.
+
+26
+00:01:58,350 --> 00:02:00,910
+Wow, I've never typed that in my life before.
+
+27
+00:02:01,200 --> 00:02:08,039
+All right. So now if I click on this link, even though it still says Google, because the innerHTML is Google,
+
+28
+00:02:08,610 --> 00:02:14,400
+if I click on it, you can see it takes me to this wonderful web site that nobody has ever used in their
+
+29
+00:02:14,400 --> 00:02:16,360
+lives before.
+
+30
+00:02:16,360 --> 00:02:17,140
+All right. Cool.
+
+31
+00:02:17,190 --> 00:02:24,570
+So this is a really quick and easy way of getting, setting, and seeing what the attributes are for any
+
+32
+00:02:24,570 --> 00:02:26,640
+element you select in the DOM.
+

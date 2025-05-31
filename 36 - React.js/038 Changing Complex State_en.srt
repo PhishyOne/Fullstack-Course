@@ -1,0 +1,800 @@
+1
+00:00:00,120 --> 00:00:07,140
+Hey guys. In this lesson I want to talk about ways of managing more complex state. And what do I mean
+
+2
+00:00:07,140 --> 00:00:15,960
+by complex? I mean managing the state of Javascript objects where you might have to retrieve the previous
+
+3
+00:00:15,960 --> 00:00:21,400
+value of the object. For example of added an input to the website
+
+4
+00:00:21,540 --> 00:00:27,600
+and I want to be able to greet the user using both of these pieces of information so that when they
+
+5
+00:00:27,600 --> 00:00:33,040
+type their first name, it says hello and then adds the first name to the 
+
+6
+00:00:33,270 --> 00:00:39,190
+and then when they add their last name, the first name is still there and it's still stateful.
+
+7
+00:00:39,350 --> 00:00:44,050
+And the last name also updates and is independent from the first name.
+
+8
+00:00:44,070 --> 00:00:46,080
+Let's think about how we might do this.
+
+9
+00:00:46,080 --> 00:00:53,670
+And I want you to go ahead and fork the starting sandbox. And notice how we've got a very simple form
+
+10
+00:00:53,700 --> 00:00:57,300
+with two inputs and a submit button.
+
+11
+00:00:57,300 --> 00:01:03,030
+I want you to have a think about how you might, using the knowledge that you currently have, achieve this
+
+12
+00:01:03,030 --> 00:01:03,920
+result.
+
+13
+00:01:04,050 --> 00:01:09,000
+Pause the video, give it a go and then come back and we'll go through it together. And then I'll show you
+
+14
+00:01:09,000 --> 00:01:12,770
+some other ways of doing it too.
+
+15
+00:01:13,230 --> 00:01:13,460
+All right.
+
+16
+00:01:13,460 --> 00:01:18,220
+So I hope you took this opportunity as a little bit of extra practice because this is the only way that
+
+17
+00:01:18,220 --> 00:01:23,010
+you gonna get familiar with it and start turning it into your own muscle memory.
+
+18
+00:01:23,120 --> 00:01:29,180
+The first thing I need is some sort of variable that can hold the value that's being typed into both
+
+19
+00:01:29,180 --> 00:01:30,190
+of these inputs.
+
+20
+00:01:30,740 --> 00:01:37,100
+So I'm going to create a stateful constant which I'll call fName for first name. And then I'm going
+
+21
+00:01:37,100 --> 00:01:41,570
+to name a method that I'm gonna use to set this first name constant
+
+22
+00:01:41,870 --> 00:01:50,540
+so call it setFName. And then of course I have to call the useState method in order to make this constant
+
+23
+00:01:50,660 --> 00:01:53,120
+change and update and be stateful.
+
+24
+00:01:53,180 --> 00:01:55,660
+And remember this of course comes from the React modules
+
+25
+00:01:55,670 --> 00:01:57,080
+so we have to import it too.
+
+26
+00:01:57,920 --> 00:02:03,170
+And then when I call this useState method I get to provide an initial state.
+
+27
+00:02:03,230 --> 00:02:11,370
+So I'm gonna set it to just be an empty string because I'm going to use that as the value of my input.
+
+28
+00:02:11,540 --> 00:02:16,170
+And this is of course going to correspond to that constant fName.
+
+29
+00:02:16,370 --> 00:02:19,950
+And I'm also going to add it to the end of my ,
+
+30
+00:02:19,970 --> 00:02:27,080
+so fName is also gonna be used here. And then I'm just gonna repeat this process for my last name.
+
+31
+00:02:27,080 --> 00:02:34,820
+So change this to lName, setLName and the initial states also are going to be an empty string.
+
+32
+00:02:35,060 --> 00:02:43,210
+And then we're going to use that to control this inputs so that the value matches up with our state.
+
+33
+00:02:43,220 --> 00:02:47,860
+And I'm also going to add it to the end of my .
+
+34
+00:02:48,210 --> 00:02:55,030
+So now all I have to do is to call setFName and setLName when they change.
+
+35
+00:02:55,080 --> 00:03:04,200
+So let's go ahead and add the onChange prop to our inputs and we're going to make it call a function
+
+36
+00:03:04,860 --> 00:03:15,830
+and we call this updateFName and get hold of the event and then call it here.
+
+37
+00:03:18,650 --> 00:03:22,330
+And when this gets triggered we get past the event,
+
+38
+00:03:22,400 --> 00:03:29,570
+so whatever happened to this input. And we can create a new constant which is going to be called first
+
+39
+00:03:29,570 --> 00:03:37,490
+Name and we're going to set it to the event.target.value. And then we're going to update our
+
+40
+00:03:37,490 --> 00:03:47,850
+fName constant using these setFName method and we're going to pass it this new value.
+
+41
+00:03:48,090 --> 00:03:53,600
+So now when I go ahead and write my first name in here, you can see it update.
+
+42
+00:03:53,820 --> 00:04:03,550
+And if I copy this and just update it for my last name, change it in all the places and also add the
+
+43
+00:04:03,550 --> 00:04:12,190
+onChange to my input, now you can see that when I type my first name it adds the first name.
+
+44
+00:04:12,230 --> 00:04:17,880
+When I type my last name it has the last name. And that's the solution to the challenge.
+
+45
+00:04:18,050 --> 00:04:24,200
+But you might have noticed through this experience while it's great practice, it's a little bit painful
+
+46
+00:04:24,340 --> 00:04:24,990
+right?
+
+47
+00:04:25,040 --> 00:04:29,790
+We have so many functions and we have two separate constants.
+
+48
+00:04:29,990 --> 00:04:35,270
+Even though if you think about it when you create a Contact app or when you create some sort of input
+
+49
+00:04:35,270 --> 00:04:40,910
+form, these pieces of information probably should be associated with each other
+
+50
+00:04:40,940 --> 00:04:41,230
+right?
+
+51
+00:04:41,240 --> 00:04:47,660
+The first name and the last name probably should belong inside the same Javascript object.
+
+52
+00:04:47,660 --> 00:04:49,430
+So how can we do that?
+
+53
+00:04:49,430 --> 00:04:53,990
+How do we manage a more complex piece of state?
+
+54
+00:04:53,990 --> 00:05:02,420
+Well we can simply use useState but instead of storing a simple value, we can actually get it to store
+
+55
+00:05:02,540 --> 00:05:04,610
+an object as well.
+
+56
+00:05:04,670 --> 00:05:10,080
+Let's go ahead and delete all of the duplicated bits of code for the last name.
+
+57
+00:05:10,430 --> 00:05:17,350
+And then I'm going to change this constant to just be called fullName. And then we're going to change
+
+58
+00:05:17,350 --> 00:05:24,650
+this to setFullName and then we get to specify the initial state. The initial state is going to be
+
+59
+00:05:24,740 --> 00:05:25,750
+a object
+
+60
+00:05:25,850 --> 00:05:32,270
+and the first key is going to be fName with the value being nothing, an empty string.
+
+61
+00:05:32,270 --> 00:05:35,540
+The second key is going to be the last name with
+
+62
+00:05:35,540 --> 00:05:38,460
+again nothing as the value.
+
+63
+00:05:38,480 --> 00:05:43,460
+So now our full name is storing a object.
+
+64
+00:05:43,640 --> 00:05:50,070
+And when we call setFullName ideally, we want to set this to a new object.
+
+65
+00:05:50,240 --> 00:05:56,120
+So let's get rid of this function and also update the code in our return statement.
+
+66
+00:05:56,120 --> 00:06:03,890
+So instead of fName, this is going to become a fullName.fName and the same is going to happen
+
+67
+00:06:03,950 --> 00:06:09,290
+with our last name because we're fetching it out of this object now. And then we're going to do the same
+
+68
+00:06:09,350 --> 00:06:12,220
+for values here as well.
+
+69
+00:06:12,440 --> 00:06:18,080
+And then on the onChange instead of calling two separate methods, I'm going to get it call the same
+
+70
+00:06:18,080 --> 00:06:27,850
+method which we'll call handleChange. And I'm going to call that both here and here.
+
+71
+00:06:27,850 --> 00:06:34,180
+So the idea is that when either of these inputs are changed, they're going to call the same function
+
+72
+00:06:34,510 --> 00:06:42,670
+passing over the event that calls this change. And then inside this function, we're going to get hold
+
+73
+00:06:42,760 --> 00:06:50,470
+of the new value which we'll just call newValue, and I'm gonna set it to event.target.value.
+
+74
+00:06:51,790 --> 00:06:57,850
+But then I want to somehow be able to get hold of the previous value of the full name,
+
+75
+00:06:57,880 --> 00:07:04,360
+so this object essentially, so that I can add to it the parts that have been changed.
+
+76
+00:07:04,420 --> 00:07:12,340
+So if this input changes, then I only want to update the value of the fName and if this input changes
+
+77
+00:07:12,400 --> 00:07:14,450
+I only want to update the lName.
+
+78
+00:07:14,620 --> 00:07:23,530
+The other part should stay as it was so. Sow could we know which input actually triggered the handle
+
+79
+00:07:23,530 --> 00:07:25,000
+Change?
+
+80
+00:07:25,000 --> 00:07:31,840
+Well notice how inside our inputs, we've got the property or attribute called name
+
+81
+00:07:32,320 --> 00:07:39,040
+and this sets it to a particular value that we can check for when we get hold of the events in our handle
+
+82
+00:07:39,040 --> 00:07:40,030
+change.
+
+83
+00:07:40,030 --> 00:07:47,970
+So I could create a constant called inputName and set it to event.target.name.
+
+84
+00:07:48,790 --> 00:07:58,110
+So now if we go ahead and log these things, the new value and also log our input name
+
+85
+00:07:58,540 --> 00:08:07,480
+and now if I start typing in my first name, you can see that the input name is logged as fName which
+
+86
+00:08:07,480 --> 00:08:13,990
+corresponds to the name of the input that triggered the event and the new value is equal to whatever
+
+87
+00:08:13,990 --> 00:08:16,360
+it is that I typed inside.
+
+88
+00:08:16,360 --> 00:08:18,970
+But if I type something in the last name
+
+89
+00:08:19,060 --> 00:08:21,910
+notice how the input name changes
+
+90
+00:08:21,910 --> 00:08:23,980
+and it also logs what I typed.
+
+91
+00:08:24,340 --> 00:08:29,500
+But notice how these inputs are not actually showing what I'm typing
+
+92
+00:08:29,500 --> 00:08:35,370
+even though you can hear that I'm definitely typing in earnest. What's going on here?
+
+93
+00:08:35,690 --> 00:08:41,350
+Well remember that these are controlled components. So their value,
+
+94
+00:08:41,360 --> 00:08:47,290
+so what they're showing inside here, is set to the fullName.fName.
+
+95
+00:08:47,480 --> 00:08:51,470
+And we haven't actually got a way of setting that full name yet.
+
+96
+00:08:51,500 --> 00:08:56,690
+So it's always showing the initial value which is just the empty string.
+
+97
+00:08:56,720 --> 00:09:04,010
+So while we're testing, I'm just gonna go ahead and comment out these two lines so that we turn this into
+
+98
+00:09:04,100 --> 00:09:06,500
+an uncontrolled component.
+
+99
+00:09:06,620 --> 00:09:12,620
+And if you're really curious, you can actually Google for what the difference is with React controlled
+
+100
+00:09:12,740 --> 00:09:15,050
+and uncontrolled components.
+
+101
+00:09:15,050 --> 00:09:18,080
+In this case in the end we definitely want a controlled component.
+
+102
+00:09:18,080 --> 00:09:25,460
+We want the value and the state to all be equal to the same thing. But just for now while we're testing
+
+103
+00:09:25,460 --> 00:09:33,590
+notice how now I get to actually write stuff and the thing that I type in here, say Angela, is going to
+
+104
+00:09:33,590 --> 00:09:35,600
+be the final new value
+
+105
+00:09:35,600 --> 00:09:43,190
+once I'm done typing. And the fName corresponds the input where it came from. So I can use these two
+
+106
+00:09:43,190 --> 00:09:47,050
+pieces of information to create my new object.
+
+107
+00:09:47,050 --> 00:10:00,450
+right? And you might think that it's as simple as saying well, if the inputName is equal to fName well
+
+108
+00:10:00,450 --> 00:10:06,210
+in this case then this new value is going to correspond to what the user typed in here.
+
+109
+00:10:06,930 --> 00:10:16,890
+So in that case I'm going to call setFullName and inside here I'm going to pass over the key as f
+
+110
+00:10:16,890 --> 00:10:28,020
+Name and the value as the new value. And then else if the the input name was equal to lName well then
+
+111
+00:10:28,020 --> 00:10:34,350
+that means they must have typed something in here and in that case I'm going to set full name to equal
+
+112
+00:10:34,350 --> 00:10:38,190
+to a new object with lName
+
+113
+00:10:38,190 --> 00:10:44,780
+and then the value being the new value. And then we're just missing one equal sign there.
+
+114
+00:10:45,000 --> 00:10:52,470
+So you might think that this would work but some of you might realize what will happen if I do this.
+
+115
+00:10:52,650 --> 00:10:57,860
+Let's see what happens. If I start typing in the first name field,
+
+116
+00:10:57,930 --> 00:11:03,110
+you can see that this fName is being rendered inside here in our .
+
+117
+00:11:03,390 --> 00:11:07,290
+But watch what happens when I start typing in my lName.
+
+118
+00:11:07,530 --> 00:11:13,470
+You can see that it's deleted the previous value of the first name in my object.
+
+119
+00:11:13,980 --> 00:11:15,580
+So what's actually going on here?
+
+120
+00:11:15,870 --> 00:11:23,220
+Well this is another good opportunity to use the React dev tools. The dev tools inside code sandbox does
+
+121
+00:11:23,220 --> 00:11:28,590
+work but it can take a little while to load, and sometimes it doesn't want to.
+
+122
+00:11:28,590 --> 00:11:34,260
+So what I recommend to do instead is to pop it out in a new window and open up your Chrome developer
+
+123
+00:11:34,260 --> 00:11:37,470
+tools and then go to the React section.
+
+124
+00:11:37,470 --> 00:11:45,330
+So now if we select the app, you can see in addition to props we can also see our hooks. And if we expand
+
+125
+00:11:45,390 --> 00:11:52,380
+the state of our object, you can see it starts out with fName equal empty string, lName equal empty
+
+126
+00:11:52,380 --> 00:11:53,180
+string.
+
+127
+00:11:53,280 --> 00:12:01,860
+But when I start typing here, you can see that it's deleted the lName key and value out of this object
+
+128
+00:12:01,950 --> 00:12:04,660
+and it's only kept the fName.
+
+129
+00:12:04,800 --> 00:12:10,650
+And then when I do the same with my last name, you can see it's deleted the first name property and it's
+
+130
+00:12:10,650 --> 00:12:12,330
+only kept the last name.
+
+131
+00:12:13,680 --> 00:12:20,460
+Essentially what we're doing is each time we're calling setFullName, we're replacing this entire object
+
+132
+00:12:20,760 --> 00:12:26,260
+with an object that only has one property, either the fName or the lName.
+
+133
+00:12:26,430 --> 00:12:33,780
+And this is not what we want. What we want to do instead is we want to get hold of the previous value
+
+134
+00:12:34,200 --> 00:12:42,570
+of this full name object and then only add to it the parts which have been changed. In order to do this
+
+135
+00:12:42,690 --> 00:12:48,750
+instead of just calling setFullName or whatever it is that you decided to name the function that's
+
+136
+00:12:48,750 --> 00:12:58,260
+going to update or change this full name, instead of simply just adding the new value inside these parentheses,
+
+137
+00:12:58,260 --> 00:13:06,520
+we can also pass it a function. And I'm going to use a arrow function in this case.
+
+138
+00:13:07,000 --> 00:13:14,020
+And when setFullName is called, it can get access to the previous value.
+
+139
+00:13:14,020 --> 00:13:20,740
+And if I simply just log this previous value in here you'll see what it's actually doing.
+
+140
+00:13:20,770 --> 00:13:27,720
+So whenever I start editing my first name input, it's going to call handleChange.
+
+141
+00:13:27,730 --> 00:13:31,900
+It's gonna pass the event that led to this change.
+
+142
+00:13:32,020 --> 00:13:35,650
+I'm gonna have a new value and I'm gonna have an input name.
+
+143
+00:13:35,650 --> 00:13:43,870
+Now when this happens I call setFullName and when setFullName gets called, I'm passing in a function.
+
+144
+00:13:44,530 --> 00:13:49,490
+That function is gonna get hold of the previous value of full name.
+
+145
+00:13:49,630 --> 00:13:58,390
+So as soon as I do this, you can see that it prints an object with fName empty, lName empty.
+
+146
+00:13:58,390 --> 00:14:08,230
+And this is really the key. As we type into our inputs, React will re-render our app component. But our
+
+147
+00:14:08,230 --> 00:14:16,360
+app has state right? In the form of the full name Javascript object. And React remembers the value of
+
+148
+00:14:16,360 --> 00:14:17,860
+this object.
+
+149
+00:14:17,860 --> 00:14:24,340
+This means that we can make use of this remembered value as we're updating our first name or our last
+
+150
+00:14:24,340 --> 00:14:25,360
+name.
+
+151
+00:14:25,360 --> 00:14:31,690
+So then the question really becomes, well how can we use a function that gives a different output depending
+
+152
+00:14:31,690 --> 00:14:34,070
+on the previous value?
+
+153
+00:14:34,120 --> 00:14:43,690
+Well we could say if the inputName, so the name of the input element, was equal to fName
+
+154
+00:14:43,690 --> 00:14:52,270
+well in this case we're going to return a new object where the fName is corresponding to the new value
+
+155
+00:14:53,230 --> 00:15:00,580
+and then the lName is corresponding to the previous value's lName.
+
+156
+00:15:00,580 --> 00:15:09,160
+And this way we create a new object and only update the part that has been updated by the user.
+
+157
+00:15:09,160 --> 00:15:19,130
+And we can complete this by adding an else if input name is equal to lName and make sure that we actually
+
+158
+00:15:19,130 --> 00:15:23,760
+spell this exactly the same as the names in our inputs here.
+
+159
+00:15:24,710 --> 00:15:31,520
+Well in this case that means the user must have edited this field and I'm going to return a different
+
+160
+00:15:31,550 --> 00:15:41,150
+object. The fName in this case is going to be using the previous values fName. And the lName is going
+
+161
+00:15:41,150 --> 00:15:44,240
+to be using the new value.
+
+162
+00:15:44,430 --> 00:15:53,880
+So now if we go over to our app and I start typing my first name and we look at our app component, you
+
+163
+00:15:53,880 --> 00:15:59,270
+can see this object has its first name property replaced with whatever I typed here.
+
+164
+00:15:59,850 --> 00:16:06,790
+And if I edit my last name, it's now replacing the previous value of last name with my new value.
+
+165
+00:16:06,990 --> 00:16:14,110
+But it's using the previous value for the first name. The last thing to remember to do is just do uncomment
+
+166
+00:16:14,140 --> 00:16:22,540
+these lines so that the values of our inputs can correspond to the latest state so that we control this
+
+167
+00:16:22,540 --> 00:16:31,210
+input using our state. Now I've tried to keep this code as expressive as possible so that you can actually
+
+168
+00:16:31,210 --> 00:16:32,620
+see what's going on.
+
+169
+00:16:32,620 --> 00:16:39,970
+But in reality we could probably write this code in a much simpler way. To start with instead of using
+
+170
+00:16:40,150 --> 00:16:48,070
+our constant newValue equals event.target.value input name being event.target.name we could
+
+171
+00:16:48,070 --> 00:16:56,740
+in fact use our object destructuring. So we could create a new constant open up a set of curly braces
+
+172
+00:16:56,860 --> 00:17:03,850
+to create a new object literal where we tap into the value property and the name property and we set
+
+173
+00:17:03,850 --> 00:17:15,770
+it to equal event.target. And this will replace both of these things and we now get to use name, name,
+
+174
+00:17:17,470 --> 00:17:20,790
+value and value.
+
+175
+00:17:21,780 --> 00:17:26,069
+And that makes it already a lot simpler looking right? Now
+
+176
+00:17:26,250 --> 00:17:28,700
+just as a word of warning
+
+177
+00:17:28,770 --> 00:17:35,280
+make sure that in the future when you're creating your own apps or in any of the exercises or challenges
+
+178
+00:17:35,970 --> 00:17:43,670
+don't try to access the event or anything related to the event inside a stateful setter.
+
+179
+00:17:43,680 --> 00:17:50,760
+So when we set fullName we're trying to update the state of this constant fullName. And inside here
+
+180
+00:17:50,760 --> 00:17:57,990
+if you try to access event, let's say instead of getting the name we actually try to get event.target
+
+181
+00:17:58,260 --> 00:18:05,160
+.name even though this seems like valid code, what's actually going to happen is you're going to get
+
+182
+00:18:05,310 --> 00:18:13,390
+an error inside the console and it's going to warn you about synthetic events being reused.
+
+183
+00:18:13,440 --> 00:18:19,830
+Now if you're curious I'd recommend heading over to the React docs and having a read about these synthetic
+
+184
+00:18:19,830 --> 00:18:27,960
+events. But essentially what it boils down to is the fact that when these inputs are passing an event
+
+185
+00:18:28,080 --> 00:18:34,140
+through these event listeners, the event that you actually get hold of is not a real event. It's a synthetic
+
+186
+00:18:34,140 --> 00:18:41,130
+event that React has created. And you must never try to access those events when you're trying to use
+
+187
+00:18:41,160 --> 00:18:43,440
+one of these stateful setters.
+
+188
+00:18:43,470 --> 00:18:48,300
+So inside here, you should not ever use event.
+
+189
+00:18:48,300 --> 00:18:54,840
+You should always have it outside somewhere over here for example and I recommend just getting used
+
+190
+00:18:54,840 --> 00:19:04,350
+to using destructuring like this when you're trying to access the new value or the name of the inputs.
+
+191
+00:19:04,370 --> 00:19:10,160
+Now we've covered quite a lot of things in this one lesson and there's a lot of complex topics being
+
+192
+00:19:10,160 --> 00:19:11,770
+thrown around here.
+
+193
+00:19:11,930 --> 00:19:17,200
+So if it's at all confusing, I really recommend to just delete everything
+
+194
+00:19:17,210 --> 00:19:23,420
+go back to the starting version of the sandbox and try to see if you can get this behavior created by
+
+195
+00:19:23,420 --> 00:19:24,620
+yourself.
+
+196
+00:19:24,620 --> 00:19:30,320
+That way you might encounter some problems and you might have to debug some issues but at least you'll
+
+197
+00:19:30,320 --> 00:19:32,960
+be able to make this knowledge your own.
+
+198
+00:19:33,340 --> 00:19:36,460
+Now in the next lesson, I've got a challenge for you.
+
+199
+00:19:36,500 --> 00:19:41,660
+So once you're ready and you're happy that you understand what's going on in this lesson, then head over
+
+200
+00:19:41,660 --> 00:19:43,510
+there and complete the challenge.
+

@@ -1,0 +1,120 @@
+1
+00:00:00,570 --> 00:00:07,260
+Right. So now that we've seen how we can select and manipulate elements in our web site on the fly using
+
+2
+00:00:07,350 --> 00:00:11,540
+this great thing called the DOM, then it's time to take it to the next level.
+
+3
+00:00:11,580 --> 00:00:16,770
+We're going to be using all of that knowledge that we learned about the DOM and Javascript to create our
+
+4
+00:00:16,770 --> 00:00:18,460
+very own dice game.
+
+5
+00:00:18,480 --> 00:00:21,110
+And this is what it will look like once we're done.
+
+6
+00:00:21,120 --> 00:00:27,870
+So it's a paint with a h1 with a title that says Refresh Me, and then it's got Player 1 dice and
+
+7
+00:00:27,870 --> 00:00:29,150
+Player 2 dice.
+
+8
+00:00:29,190 --> 00:00:34,830
+And when we refresh our web site then our dice get thrown randomly,
+
+9
+00:00:34,830 --> 00:00:36,830
+so that player 1 and player 2
+
+10
+00:00:36,840 --> 00:00:42,300
+both have their own dice values, and our web site will announce a winner depending on whose dice value
+
+11
+00:00:42,330 --> 00:00:43,610
+was higher.
+
+12
+00:00:43,710 --> 00:00:49,260
+So you can see that this will be a really neat web site and you can use this web site to settle all
+
+13
+00:00:49,260 --> 00:00:55,410
+your family arguments and any sort of disputes just by logging on to your own web site and trying to
+
+14
+00:00:55,410 --> 00:00:57,150
+figure out who won.
+
+15
+00:00:57,150 --> 00:00:59,510
+So it's a really quick and simple web site
+
+16
+00:00:59,670 --> 00:01:05,670
+that I want you to create by yourself as a challenge, and this is so that you make all of that knowledge
+
+17
+00:01:05,670 --> 00:01:12,030
+that you picked up in the previous lessons and make it your own by applying it on a real world project.
+
+18
+00:01:12,030 --> 00:01:17,760
+So in the next lesson you'll find the starting code with the HTML and CSS already written for you,
+
+19
+00:01:17,850 --> 00:01:22,800
+and this is so that you can get started practicing the parts that we learned in this module.
+
+20
+00:01:22,860 --> 00:01:28,950
+Now if you'd prefer to get extra practice by building the HTML and CSS parts from scratch yourself,
+
+21
+00:01:29,280 --> 00:01:35,970
+then you can. Just simply download the skeleton project and open up Dicee.html in order to see it
+
+22
+00:01:36,030 --> 00:01:37,500
+inside the Chrome browser,
+
+23
+00:01:37,560 --> 00:01:43,500
+and based on this appearance you can write your own HTML and CSS to get it to look the same. And you'll
+
+24
+00:01:43,500 --> 00:01:48,470
+find all of the image assets inside that zip file that you're going to be downloading.
+
+25
+00:01:48,480 --> 00:01:54,330
+So I personally recommend to focus on one new thing at a time,
+
+26
+00:01:54,420 --> 00:01:59,510
+so that's why we provided the skeleton project, so you can focus on what we're learning in this module,
+
+27
+00:01:59,820 --> 00:02:02,410
+but it's completely up to you what you want to do.
+
+28
+00:02:02,520 --> 00:02:04,310
+I'll support you every step of the way.
+
+29
+00:02:04,440 --> 00:02:11,100
+So once you're ready get started and work on your first web site that you're going to build all by yourself
+
+30
+00:02:11,190 --> 00:02:13,320
+and I'll see you on the other side.
+

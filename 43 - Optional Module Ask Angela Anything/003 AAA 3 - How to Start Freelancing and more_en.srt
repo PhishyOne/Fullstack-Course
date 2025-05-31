@@ -1,0 +1,1432 @@
+1
+00:00:00,480 --> 00:00:07,620
+Hello, everyone, and welcome to yet another episode of Ask Angela Anything, and you guys have spoken
+
+2
+00:00:07,620 --> 00:00:12,660
+and my team have selected some pretty choice questions, I would say, and I'm really excited to be
+
+3
+00:00:12,660 --> 00:00:14,680
+able to answer them in today's episode.
+
+4
+00:00:15,060 --> 00:00:22,770
+So, as you may notice, today is a very special episode because I am hailing from Nairobi in Kenya.
+
+5
+00:00:23,070 --> 00:00:26,400
+And as you can see, it is absolutely beautiful out here
+
+6
+00:00:26,400 --> 00:00:29,070
+and there's just birdsong and monkeys running around.
+
+7
+00:00:29,610 --> 00:00:34,590
+So gone are the traffic sounds and the usual London pollution of my office.
+
+8
+00:00:34,920 --> 00:00:38,000
+I hope today will be a scenic change to brighten your day.
+
+9
+00:00:38,280 --> 00:00:40,440
+So once you're ready, let's get started.
+
+10
+00:00:41,280 --> 00:00:45,250
+Now, the first question is from Virak Ngauv.
+
+11
+00:00:46,080 --> 00:00:48,150
+This shouldn't be called Ask Angela Anything.
+
+12
+00:00:48,150 --> 00:00:51,300
+It should be called Angela murdering people's names.
+
+13
+00:00:51,630 --> 00:00:56,680
+So Virak asks, do you have any advice for somebody who's looking to start freelancing?
+
+14
+00:00:57,180 --> 00:00:57,630
+All right.
+
+15
+00:00:57,630 --> 00:01:01,230
+So you may or may not know, but I learned how to code when I was younger,
+
+16
+00:01:01,230 --> 00:01:04,590
+and I have been programming on the site for many, many years.
+
+17
+00:01:04,860 --> 00:01:07,830
+But I actually trained to be a medical doctor.
+
+18
+00:01:08,070 --> 00:01:12,510
+So during that time and during med school, I spent a lot of time freelancing.
+
+19
+00:01:12,600 --> 00:01:16,380
+So I hope I'm more than qualified to answer this question for you Virak.
+
+20
+00:01:17,670 --> 00:01:21,420
+The first thing I would say is that don't jump in.
+
+21
+00:01:21,430 --> 00:01:27,000
+Don't, you know, despite what people say, don't just dive into freelancing, quit your job, tell your
+
+22
+00:01:27,000 --> 00:01:32,790
+boss that he's a dick and then just go and, you know, try and find a job. That's really bad.
+
+23
+00:01:33,240 --> 00:01:37,680
+Even though the traditional image of an entrepreneur is someone who likes to take risks, that's actually
+
+24
+00:01:37,680 --> 00:01:38,610
+really not true.
+
+25
+00:01:38,760 --> 00:01:44,430
+If you think about Richard Branson when he started Virgin Atlantic, he didn't just go out and, you
+
+26
+00:01:44,430 --> 00:01:46,040
+know, buy lots of planes.
+
+27
+00:01:46,050 --> 00:01:51,060
+In fact, he actually leased a plane from Boeing to get started.
+
+28
+00:01:51,390 --> 00:01:55,710
+And that meant that if it was successful, then great, he could continue doing this.
+
+29
+00:01:55,710 --> 00:02:01,040
+But if it failed, then he could just give it back and his investment wouldn't suffer.
+
+30
+00:02:01,350 --> 00:02:03,530
+So don't quit your job straight away.
+
+31
+00:02:03,540 --> 00:02:10,169
+Instead, what you should do is try to figure out what spare time you have during the week and try to
+
+32
+00:02:10,169 --> 00:02:17,230
+carve out about 15 hours per week that you're going to dedicate to building a pet project.
+
+33
+00:02:17,580 --> 00:02:21,840
+Now, the important thing about this pet project, it doesn't really matter what you build, but what
+
+34
+00:02:21,840 --> 00:02:27,810
+matters is that it has to be useful to at least one person so that one person can be you,
+
+35
+00:02:28,020 --> 00:02:30,420
+it can be your wife, it can be your pet.
+
+36
+00:02:30,420 --> 00:02:32,790
+It doesn't matter, but it has to be useful.
+
+37
+00:02:32,790 --> 00:02:38,880
+It can't just be a hello world application or something that you used to learn about a particular API,
+
+38
+00:02:38,880 --> 00:02:39,520
+for example.
+
+39
+00:02:39,780 --> 00:02:45,090
+Now, once you've done that and you've deployed it onto either the Web or if you're building an app,
+
+40
+00:02:45,090 --> 00:02:49,860
+then obviously onto the app stores, then you've started building a portfolio.
+
+41
+00:02:50,010 --> 00:02:56,100
+And this is going to be a great thing that you can show everybody, potential employers or potential
+
+42
+00:02:56,100 --> 00:02:58,930
+clients, that this is what you're capable of.
+
+43
+00:02:58,950 --> 00:03:00,690
+So this is the beginning.
+
+44
+00:03:00,970 --> 00:03:05,490
+So now at this stage, you are spending 15 hours a week building your pet project.
+
+45
+00:03:05,730 --> 00:03:11,400
+And once you've started doing this, the next step is to carve out another 12 to 15 hours.
+
+46
+00:03:11,400 --> 00:03:13,500
+Now, nobody said that this was going to be easy.
+
+47
+00:03:13,500 --> 00:03:15,830
+Freelancing is not easy.
+
+48
+00:03:15,900 --> 00:03:17,220
+Nothing that's worth doing
+
+49
+00:03:17,220 --> 00:03:17,790
+is easy
+
+50
+00:03:17,790 --> 00:03:24,540
+in fact. Now you're on to step two and you're carving out 15 hours per week, which you're going to
+
+51
+00:03:24,540 --> 00:03:27,330
+spend working on other people's projects.
+
+52
+00:03:27,330 --> 00:03:30,720
+So you're going to be freelancing on small gigs.
+
+53
+00:03:31,050 --> 00:03:36,840
+So the best place to start, I recommend, is a website called Fiverr, and I'll include the links in
+
+54
+00:03:36,840 --> 00:03:39,600
+the resources section of this episode.
+
+55
+00:03:40,290 --> 00:03:45,870
+But basically it's a website where somebody can get a job done for maybe $5-$20 dollars.
+
+56
+00:03:46,380 --> 00:03:49,830
+Now, the important thing here is that you're not here to make money.
+
+57
+00:03:50,070 --> 00:03:55,920
+You're here to get skills, and you're here to learn about the world of freelancing. Just as you probably
+
+58
+00:03:55,920 --> 00:04:02,280
+wouldn't let a surgeon operate on you if they haven't had any experience before, as a freelancer or as
+
+59
+00:04:02,280 --> 00:04:04,270
+a web developer or an app developer,
+
+60
+00:04:04,650 --> 00:04:09,540
+people need to be able to see what you've done in the past, how you were able to work with clients
+
+61
+00:04:09,540 --> 00:04:12,930
+and have people who can give you good testimonials.
+
+62
+00:04:13,200 --> 00:04:18,250
+That kind of stuff is really, really important in your career as a freelancer.
+
+63
+00:04:18,630 --> 00:04:25,170
+So the first step I recommend is getting started with small things on Fiverr and don't take on projects
+
+64
+00:04:25,170 --> 00:04:28,200
+that will take you any longer than a week, to start with.
+
+65
+00:04:28,470 --> 00:04:32,340
+And another place you can look at is a place called oDesk and Upwork.
+
+66
+00:04:32,670 --> 00:04:39,150
+And you could start building up your profiles on those websites and start answering to some of the requests.
+
+67
+00:04:39,150 --> 00:04:44,310
+And again, don't go for something ambitious. Even though, you know, the larger projects obviously
+
+68
+00:04:44,310 --> 00:04:45,090
+pay more,
+
+69
+00:04:45,450 --> 00:04:48,330
+the important thing here is still about getting experience.
+
+70
+00:04:48,330 --> 00:04:55,110
+So you're looking for projects that basically larger freelancing firms or agencies don't really want
+
+71
+00:04:55,110 --> 00:04:55,830
+to take up.
+
+72
+00:04:56,040 --> 00:04:59,850
+So these are things like bug fixes or things like updates
+
+73
+00:05:00,530 --> 00:05:06,740
+or maintenance or small improvements, not going to make you a millionaire, but it will start earning
+
+74
+00:05:06,740 --> 00:05:12,250
+money and along the way you will gain really, really valuable experience.
+
+75
+00:05:13,100 --> 00:05:14,360
+So that's what it's all about.
+
+76
+00:05:14,640 --> 00:05:19,190
+Now, once you've been working with a couple of clients, some of them, if they enjoyed working with
+
+77
+00:05:19,190 --> 00:05:25,460
+you because you are communicative and I can't stress enough how important it is to be able to communicate
+
+78
+00:05:25,460 --> 00:05:31,130
+well with your clients as a freelancer. It's probably the one thing that will make or break your career.
+
+79
+00:05:31,340 --> 00:05:37,250
+Give your clients regular updates to show them what you've done and explain what it is that you're doing.
+
+80
+00:05:37,280 --> 00:05:42,860
+It's really important that they understand how much work you're doing and also how you're trying to
+
+81
+00:05:42,860 --> 00:05:44,700
+do a really great job for them.
+
+82
+00:05:45,170 --> 00:05:51,980
+So as you do this, you will start to build up a client list, people who will ask you for other things
+
+83
+00:05:51,980 --> 00:05:55,010
+that they want done as well, and you will get word of mouth.
+
+84
+00:05:55,130 --> 00:06:00,350
+And as this goes along, you'll end up with a list of clients who will give you jobs, who will give
+
+85
+00:06:00,350 --> 00:06:06,890
+you good reviews or testimonials, or be able to act as a reference for you for future jobs. And with
+
+86
+00:06:06,890 --> 00:06:07,780
+your portfolio,
+
+87
+00:06:07,790 --> 00:06:12,680
+remember those 15 hours a week that's going towards those pet projects? That's going to be building your
+
+88
+00:06:12,680 --> 00:06:17,300
+portfolio and with the experience that you're getting with your clients, and that's going to help you
+
+89
+00:06:17,300 --> 00:06:21,350
+network and getting more people interested in getting you to work for them.
+
+90
+00:06:21,590 --> 00:06:24,350
+And now, at this stage, congratulations.
+
+91
+00:06:24,350 --> 00:06:25,550
+You're a freelancer.
+
+92
+00:06:25,560 --> 00:06:26,420
+You've made it.
+
+93
+00:06:26,640 --> 00:06:32,120
+And from this point onward, you're going to start to work on larger and larger projects, perhaps collaborate
+
+94
+00:06:32,120 --> 00:06:33,980
+on some projects with other programmers.
+
+95
+00:06:34,100 --> 00:06:36,440
+But as always, the first part is hardest.
+
+96
+00:06:36,440 --> 00:06:42,200
+And once you've gotten over those hurdles, you will be on your way to becoming a fully-fledged and
+
+97
+00:06:42,200 --> 00:06:47,310
+hopefully a really, really in demand, a freelance web developer or app developer.
+
+98
+00:06:47,750 --> 00:06:53,280
+So I wish you the best of luck Virak, and I hope you have an awesome time as a freelance developer.
+
+99
+00:06:54,110 --> 00:06:54,470
+All right.
+
+100
+00:06:54,470 --> 00:06:57,290
+So on to the next question.
+
+101
+00:06:57,500 --> 00:07:04,000
+This is a question from Amit Singh and he asks, What does your daily schedule look like?
+
+102
+00:07:04,370 --> 00:07:11,640
+OK, so the first thing I'm going to say is that what I'm about to tell you is probably an ideal day.
+
+103
+00:07:12,710 --> 00:07:15,380
+I travel a lot because I give talks.
+
+104
+00:07:15,390 --> 00:07:18,560
+So, for example, right now I'm in Nairobi because I'm giving a talk.
+
+105
+00:07:18,710 --> 00:07:26,690
+So this is the daily schedule of a day where I'm based in London and I don't have anything special planned
+
+106
+00:07:26,930 --> 00:07:27,820
+for the day.
+
+107
+00:07:28,190 --> 00:07:30,470
+So I think in one of the the previous AMAs
+
+108
+00:07:30,470 --> 00:07:34,070
+I talked about my morning routine, so I'm not going to cover that part.
+
+109
+00:07:34,070 --> 00:07:39,590
+If you're interested, have a look at one of the previous ones and you'll find the answer there.
+
+110
+00:07:39,860 --> 00:07:43,970
+But I'm going to start from about 9 o'clock, which is where I tend to start work.
+
+111
+00:07:44,210 --> 00:07:51,240
+So for the first hour and a half of the day, so 9:00 until 10:30, I spend on learning stuff.
+
+112
+00:07:51,500 --> 00:07:55,010
+Now this sometimes becomes one hour, sometimes it's two hours.
+
+113
+00:07:55,010 --> 00:07:56,980
+It's really dependent on what I'm trying to do.
+
+114
+00:07:57,290 --> 00:08:01,040
+I want to be able to have enough time so that I haven't just gotten started
+
+115
+00:08:01,040 --> 00:08:02,690
+and I have to switch to another task.
+
+116
+00:08:02,840 --> 00:08:04,850
+But I'm more of a morning person.
+
+117
+00:08:04,850 --> 00:08:10,460
+I'm very alert during the mornings
+
+118
+00:08:10,460 --> 00:08:14,890
+and I'm capable of doing the most creative work during that time.
+
+119
+00:08:15,200 --> 00:08:19,320
+So that's the time period that I tend to allocate to learning new things.
+
+120
+00:08:19,340 --> 00:08:25,910
+So, for example, this morning I spent learning and digging more into Selenium Webdriver because
+
+121
+00:08:26,360 --> 00:08:33,770
+I had written a postscript from God knows how long ago, which basically I'm not even sure I should
+
+122
+00:08:33,770 --> 00:08:39,500
+share this with you, but it's a script that basically renews my library books automatically.
+
+123
+00:08:39,500 --> 00:08:46,790
+So once it gets to two days before the due date, then it will renew my books without me having to do
+
+124
+00:08:46,790 --> 00:08:50,230
+it because I'm terrible at remembering things unless it's in my calendar.
+
+125
+00:08:50,240 --> 00:08:53,780
+So that was a hack that I wrote a while ago.
+
+126
+00:08:53,870 --> 00:08:56,690
+But there's a lot of people who've been asking me how to do it,
+
+127
+00:08:56,690 --> 00:09:02,690
+and rather than teaching them Pearl, which is just like torture, I thought it might be a good idea
+
+128
+00:09:02,690 --> 00:09:05,390
+to teach people how to use Selenium Webdriver.
+
+129
+00:09:05,750 --> 00:09:13,790
+So, for example, I'm using it to book the gym classes that I tend to go to and also I'm trying to
+
+130
+00:09:13,790 --> 00:09:17,540
+get it to renew the books that I have in the library.
+
+131
+00:09:17,840 --> 00:09:19,280
+So that's what I was doing this morning,
+
+132
+00:09:19,280 --> 00:09:21,950
+but it could be anything really.
+
+133
+00:09:21,950 --> 00:09:27,230
+It's basically something new that you want to learn and you should dedicate a block of time when you
+
+134
+00:09:27,230 --> 00:09:28,990
+are at your best to do it.
+
+135
+00:09:29,000 --> 00:09:33,470
+Now, that tends to be the morning for most people, but I know that there's a lot of night owls.
+
+136
+00:09:33,470 --> 00:09:38,300
+So it could be that for you, maybe that's, you know, 12:00 midday, but basically spend an hour and
+
+137
+00:09:38,300 --> 00:09:41,330
+a half during your best time to learn something.
+
+138
+00:09:41,330 --> 00:09:43,360
+I think that's really, really worthwhile.
+
+139
+00:09:43,940 --> 00:09:48,740
+Now, after that block, I tend to do more creative work.
+
+140
+00:09:48,740 --> 00:09:50,270
+So high again,
+
+141
+00:09:50,270 --> 00:09:50,750
+high
+
+142
+00:09:50,750 --> 00:09:52,280
+brain demand kind of work.
+
+143
+00:09:52,460 --> 00:09:59,480
+So that includes things like developing new lesson plans for you guys and 
+
+144
+00:09:59,980 --> 00:10:06,490
+also working on a new curriculum or working on a development project. Those are things that require
+
+145
+00:10:06,490 --> 00:10:12,430
+high cognitive function, which I tend to have less and less of as I go towards the end of the day.
+
+146
+00:10:12,760 --> 00:10:14,820
+So that's the morning basically done.
+
+147
+00:10:15,220 --> 00:10:20,560
+And then maybe I'll spend about half an hour on lunch, try to eat and trying to eat something that's
+
+148
+00:10:20,560 --> 00:10:23,890
+not so carb-heavy so that I can stay awake during the afternoon.
+
+149
+00:10:24,130 --> 00:10:28,630
+And then I would normally go for a walk for maybe 30 minutes to an hour.
+
+150
+00:10:28,870 --> 00:10:32,380
+And very often in our company, we tend to do walking meetings.
+
+151
+00:10:32,650 --> 00:10:40,420
+So we'll just take the whole team and we'd walk and talk and hash things out, because I find that when
+
+152
+00:10:40,420 --> 00:10:43,750
+people are sat down in a meeting room, everything is very slow.
+
+153
+00:10:43,780 --> 00:10:47,170
+And I think when you're walking, I have long legs and I tend to set the pace.
+
+154
+00:10:47,450 --> 00:10:53,290
+So I think when everybody's walking really fast, they seem to get out of breath and need to talk really
+
+155
+00:10:53,290 --> 00:10:55,090
+fast, which I really like.
+
+156
+00:10:55,300 --> 00:10:59,260
+So trying to mold your environment to suit your highest productivity.
+
+157
+00:10:59,590 --> 00:11:05,620
+Then after the walk, I tend to work on some slightly less cognitively demanding tasks, for example,
+
+158
+00:11:05,620 --> 00:11:09,850
+video editing or meetings with clients and those kind of things.
+
+159
+00:11:09,970 --> 00:11:13,270
+And then finally, from four o'clock to five o'clock is my email time
+
+160
+00:11:13,270 --> 00:11:17,200
+and that's the only time during the day when I check my email.
+
+161
+00:11:17,200 --> 00:11:21,430
+So I find that with notifications, it's very much a pulling process.
+
+162
+00:11:21,430 --> 00:11:27,420
+You're being pulled by the world into whatever needs they have or whatever demands they have.
+
+163
+00:11:27,430 --> 00:11:35,170
+But it's much better for you to decide when you want to check email or when you want to address issues
+
+164
+00:11:35,170 --> 00:11:36,160
+from other people.
+
+165
+00:11:36,460 --> 00:11:40,480
+So essentially you can protect yourself just by switching off notifications.
+
+166
+00:11:41,260 --> 00:11:46,210
+And in fact, my phone probably stays in airplane mode for a good...
+
+167
+00:11:46,510 --> 00:11:54,160
+so I usually switch off airplane mode at 1 PM, and I tend to switch it back on around 6:30 PM or
+
+168
+00:11:54,160 --> 00:12:00,310
+7 PM. So I'm not even really testing the battery life of the iPhone because it's only being switched
+
+169
+00:12:00,310 --> 00:12:02,320
+on for maybe six hours a day.
+
+170
+00:12:04,060 --> 00:12:08,080
+But it does help me get a lot of -- done, which is the important part,
+
+171
+00:12:08,080 --> 00:12:08,360
+right?
+
+172
+00:12:08,710 --> 00:12:14,350
+So after about 5 PM, I tend to wind down or, you know, finish off the things I need to finish
+
+173
+00:12:14,350 --> 00:12:20,010
+off and just see if anybody else in the team needs any help or anything like that.
+
+174
+00:12:20,020 --> 00:12:23,050
+And then I would probably have dinner around 7:00, I guess.
+
+175
+00:12:23,050 --> 00:12:28,440
+And then after dinner, what I do depends on, again, my cognitive abilities.
+
+176
+00:12:28,450 --> 00:12:38,320
+So when I have basically no cognitive abilities, then I would maybe play video games or watch something.
+
+177
+00:12:38,320 --> 00:12:45,940
+You know, how like you have HP, this is when like HP is or mental points are at like minimum.
+
+178
+00:12:46,270 --> 00:12:50,980
+One of my favorite games I'm playing at the moment is called SUPERHOT.
+
+179
+00:12:51,430 --> 00:12:56,820
+And the idea is basically that as you move, time moves with you.
+
+180
+00:12:57,250 --> 00:13:00,640
+So I can't really do it justice.
+
+181
+00:13:01,000 --> 00:13:04,570
+I recommend just checking it out on YouTube, but it's a really cool game.
+
+182
+00:13:04,890 --> 00:13:05,860
+I'm really enjoying it.
+
+183
+00:13:06,190 --> 00:13:11,920
+If I have slightly more cognitive capabilities, then I'll probably read a book, usually non-fiction
+
+184
+00:13:11,920 --> 00:13:15,820
+up to about nine o'clock and then after nine o'clock, it's only fiction.
+
+185
+00:13:15,820 --> 00:13:21,220
+And if I have a lot of brain power left, then I like to play a game of go.
+
+186
+00:13:22,090 --> 00:13:25,480
+I don't know how many of guys have ever played this game.
+
+187
+00:13:25,810 --> 00:13:30,070
+I think it's called Baduk in Korean and it's called Weichi in Chinese.
+
+188
+00:13:30,970 --> 00:13:38,620
+But it's a fantastic game and it's so simple in terms of the rules, and yet it's so complex in terms
+
+189
+00:13:38,620 --> 00:13:41,110
+of all of the moves that you can make.
+
+190
+00:13:41,410 --> 00:13:43,900
+So that's something that I recommend.
+
+191
+00:13:44,140 --> 00:13:50,590
+So I know that this whole answer has been pretty much centered around how much cognitive capability
+
+192
+00:13:50,590 --> 00:13:51,220
+I have.
+
+193
+00:13:51,520 --> 00:13:56,470
+I think I'm making myself sound a lot like a robot: "if battery life
+
+194
+00:13:56,480 --> 00:13:57,070
+high,
+
+195
+00:13:57,310 --> 00:13:58,270
+do this.
+
+196
+00:13:58,270 --> 00:14:03,160
+If RAM low, do that." I hope I don't come across as a robot.
+
+197
+00:14:03,160 --> 00:14:06,790
+But yeah, so that's pretty much my daily schedule.
+
+198
+00:14:06,910 --> 00:14:11,860
+If you have any productivity hacks or, you know, something that you do in your daily schedule that
+
+199
+00:14:11,860 --> 00:14:18,340
+you think is really awesome has really helped you, then please do either hit me up on Twitter so 
+
+200
+00:14:18,340 --> 00:14:27,100
+@yu_angela or comment below or in the Q&A section and let me know. I'm always open to new
+
+201
+00:14:27,100 --> 00:14:27,550
+ideas.
+
+202
+00:14:27,910 --> 00:14:28,240
+All right.
+
+203
+00:14:28,240 --> 00:14:31,630
+So the next question comes from Pascal Heimlicher.
+
+204
+00:14:31,810 --> 00:14:34,030
+I really hope that was a good enough pronunciation.
+
+205
+00:14:34,060 --> 00:14:41,050
+I tried really hard. And he asks, What do you think about cross-platform versus native app development?
+
+206
+00:14:41,560 --> 00:14:47,350
+I have a lot of ideas on this because I get asked this question pretty much on a daily basis from students.
+
+207
+00:14:48,220 --> 00:14:53,890
+But it's a really good question because there's a point in time where I would have said, "Don't even think
+
+208
+00:14:53,890 --> 00:14:54,970
+about cross-platform.
+
+209
+00:14:54,970 --> 00:14:56,650
+It's just not worth it.
+
+210
+00:14:56,650 --> 00:14:59,650
+Just stick to native development and your golden."
+
+211
+00:15:00,080 --> 00:15:05,750
+But actually, you know, more and more so these days, especially with new technology, new frameworks
+
+212
+00:15:05,750 --> 00:15:10,980
+like React native, it's actually not so bad.
+
+213
+00:15:11,660 --> 00:15:14,880
+Now, let's just talk about some of the pros and cons, OK?
+
+214
+00:15:14,960 --> 00:15:19,510
+So the pros of native app development is that it's the gold standard.
+
+215
+00:15:19,790 --> 00:15:24,940
+Basically, if you're a large company flush with cash, you're going to be going down the native route.
+
+216
+00:15:25,100 --> 00:15:26,020
+No question asked.
+
+217
+00:15:26,030 --> 00:15:28,340
+It is the best still hands down.
+
+218
+00:15:28,560 --> 00:15:30,740
+Other pros include that it's fast.
+
+219
+00:15:30,740 --> 00:15:37,490
+If you need animations, if you have graphics in your app, then you probably should stick to Native.
+
+220
+00:15:37,490 --> 00:15:40,550
+When you're using something that's really graphics intensive
+
+221
+00:15:40,910 --> 00:15:47,240
+then the cross-platform apps do show. Other things are things like you have access to exclusive APIs,
+
+222
+00:15:47,240 --> 00:15:53,660
+for example, things like push notification, or if you want to tap into a health kit on the iPhone,
+
+223
+00:15:53,810 --> 00:15:59,270
+then those modules are generally not available, at least not easily through cross-platform means.
+
+224
+00:15:59,480 --> 00:16:03,980
+And the other thing is that if you're watching this video, then you're probably taking my iOS Swift
+
+225
+00:16:03,980 --> 00:16:11,520
+course and you would know that there's a lot more resources for native development than for cross-platform.
+
+226
+00:16:11,810 --> 00:16:16,430
+There are more people who are able to answer your questions on Stack Overflow, more results for your
+
+227
+00:16:16,430 --> 00:16:17,630
+queries on Google,
+
+228
+00:16:17,870 --> 00:16:21,250
+and there's even the Apple developer forum to help you.
+
+229
+00:16:21,260 --> 00:16:27,260
+So there's a lot of help out there if you are going down the native route compared to cross-platform.
+
+230
+00:16:27,470 --> 00:16:32,870
+Now, the biggest con for going down the native route is that if you want an Android app, you need
+
+231
+00:16:32,870 --> 00:16:33,890
+a complete rewrite.
+
+232
+00:16:33,980 --> 00:16:39,530
+There is basically zero reusability of your code and of your UI designs.
+
+233
+00:16:39,770 --> 00:16:43,250
+So it's painful, it's expensive and it's time consuming.
+
+234
+00:16:43,250 --> 00:16:48,920
+And you'll notice that most apps will launch on iOS first before they go down the Android route.
+
+235
+00:16:49,190 --> 00:16:53,960
+And even if they are on both platforms, new features tend to come out on iOS first.
+
+236
+00:16:53,990 --> 00:16:58,990
+It's just a resource constraint that most people have, even large companies like Snapchat.
+
+237
+00:16:59,000 --> 00:17:01,640
+You'll see that features come to iOS first.
+
+238
+00:17:02,780 --> 00:17:10,849
+So it's expensive because time equals money and it's and you need a lot more developers, a large development
+
+239
+00:17:10,849 --> 00:17:13,450
+team, more people to manage, more people to pay.
+
+240
+00:17:13,880 --> 00:17:15,230
+It's just more expensive.
+
+241
+00:17:15,410 --> 00:17:21,619
+And the other thing is that if you yourself already have a good command of a particular language that's
+
+242
+00:17:21,829 --> 00:17:28,610
+not Swift or Java, say you are a web developer and you know JavaScript or say your .Net guy and
+
+243
+00:17:28,610 --> 00:17:29,990
+you know all about C#.
+
+244
+00:17:30,170 --> 00:17:37,370
+If you're using cross-platform tools, for example, PhoneGap, Accelerator or Córdova, then you can
+
+245
+00:17:37,370 --> 00:17:39,590
+use those existing skills that you have.
+
+246
+00:17:39,590 --> 00:17:42,860
+And all you need to know is learn about the modules, the frameworks, the APIs.
+
+247
+00:17:43,190 --> 00:17:49,280
+And that's a lot less painful than picking up a new language from scratch.
+
+248
+00:17:50,060 --> 00:17:56,480
+Although I would argue that, you know, as developers, we've basically signed up to lifelong learning.
+
+249
+00:17:57,470 --> 00:18:02,000
+There's probably a new JavaScript framework every single week, as far as I can tell.
+
+250
+00:18:02,870 --> 00:18:03,800
+And it's cool,
+
+251
+00:18:03,800 --> 00:18:04,460
+it's fun.
+
+252
+00:18:04,940 --> 00:18:07,250
+I really enjoy learning new things.
+
+253
+00:18:07,520 --> 00:18:12,920
+But if you don't, then that can also be quite a big downside of native.
+
+254
+00:18:13,070 --> 00:18:19,220
+Now, the sort of halfway point or in between is something like React native, which is a framework that's
+
+255
+00:18:19,220 --> 00:18:24,730
+open-source, but it has a dodgy licensing and it was created by Facebook.
+
+256
+00:18:25,310 --> 00:18:31,280
+Now, the great thing about React native is that it offers a lot of the native features and it allows
+
+257
+00:18:31,280 --> 00:18:35,840
+you to use the language that you're familiar with to code both Android and iOS.
+
+258
+00:18:35,840 --> 00:18:41,180
+It has a whole bunch of modules that cuts down your development time because you can use them across
+
+259
+00:18:41,180 --> 00:18:42,160
+Android and iOS.
+
+260
+00:18:42,200 --> 00:18:50,420
+Now, it's not completely developed once and deploy everywhere because it has that native aspect, but
+
+261
+00:18:50,420 --> 00:18:52,010
+it gets pretty close to it. Now
+
+262
+00:18:52,080 --> 00:18:58,280
+the downside of React native, probably the biggest one, is that there are some really essential features that
+
+263
+00:18:58,280 --> 00:19:00,950
+I think their modules lack.
+
+264
+00:19:00,950 --> 00:19:06,140
+Like, for example, if you want to do something that's actually pretty standard on native iOS, I found
+
+265
+00:19:06,140 --> 00:19:12,590
+that you actually can't do it very easily without creating custom code, which means that you need to
+
+266
+00:19:12,590 --> 00:19:14,800
+know about Swift and you know about native development
+
+267
+00:19:14,810 --> 00:19:22,220
+anyways. The way that I see React native is that if you are an existing iOS Swift developer
+
+268
+00:19:22,790 --> 00:19:29,470
+who wants to build apps both for Android and iOS, you can use React native and do it more quickly.
+
+269
+00:19:29,900 --> 00:19:36,410
+It's not really the use case for somebody who doesn't really know anything about Swift or iOS to just
+
+270
+00:19:36,410 --> 00:19:39,350
+pick up and be able to develop for Android and iOS.
+
+271
+00:19:41,030 --> 00:19:45,950
+The other thing to remember is that because it's developed by Facebook and it has this weird license,
+
+272
+00:19:46,280 --> 00:19:50,870
+so you guys might have noticed that the most permissive license is the MIT license.
+
+273
+00:19:50,870 --> 00:19:53,480
+That's basically just do whatever you want with this code.
+
+274
+00:19:53,870 --> 00:19:57,950
+But Facebook has a weird licensing on both React and React native.
+
+275
+00:19:58,310 --> 00:19:59,630
+And what it means is that
+
+276
+00:20:00,120 --> 00:20:07,230
+if at some point in the future, your company that uses React or React native decides to sue Facebook,
+
+277
+00:20:08,690 --> 00:20:15,770
+they can revoke your license to use their framework. So in most cases, none of us have to worry about
+
+278
+00:20:15,770 --> 00:20:16,810
+suing Facebook.
+
+279
+00:20:16,820 --> 00:20:21,360
+It's just that's just the level of success that we don't need to worry about until we get there.
+
+280
+00:20:21,800 --> 00:20:27,080
+But if you are cautious and you know, especially with everything that's been going around about Facebook
+
+281
+00:20:27,080 --> 00:20:28,690
+lately, I don't know.
+
+282
+00:20:28,820 --> 00:20:31,280
+It's I think it's definitely a con for me anyways.
+
+283
+00:20:31,430 --> 00:20:39,230
+But in conclusion, I would say that it really depends on the project that you want to build, whether
+
+284
+00:20:39,230 --> 00:20:42,320
+if you should choose cross-platform or native development.
+
+285
+00:20:42,680 --> 00:20:48,920
+And, you know, you really have to assess in a case by case scenario. It's really, there's no blanket
+
+286
+00:20:48,920 --> 00:20:49,210
+rule.
+
+287
+00:20:49,400 --> 00:20:53,810
+There have been projects where I've used React native to quickly create Android and iOS apps,
+
+288
+00:20:54,560 --> 00:20:59,360
+there have been times where I've stayed very, very far away from any sort of cross-platform and stuck
+
+289
+00:20:59,360 --> 00:21:01,340
+to good old native development.
+
+290
+00:21:01,550 --> 00:21:07,760
+Figure out what the project is all about and look at the pros and cons of both and assess on which one
+
+291
+00:21:07,760 --> 00:21:08,960
+will be better that way.
+
+292
+00:21:09,530 --> 00:21:16,430
+So a tagged on question from Pascal is, "Are there any helpful tools that you use that makes a developer's
+
+293
+00:21:16,430 --> 00:21:17,300
+life easier?"
+
+294
+00:21:17,310 --> 00:21:22,550
+And yes, I'm all about the tools, all about the tools, bout the tools.
+
+295
+00:21:23,540 --> 00:21:31,130
+This also should answer your third question, which is when can we expect new music videos from myself
+
+296
+00:21:31,130 --> 00:21:32,240
+or the London App brewery?
+
+297
+00:21:32,540 --> 00:21:39,950
+And that is never. I am never, ever, ever again making a music video. For those guys who don't know,
+
+298
+00:21:40,010 --> 00:21:40,580
+great!
+
+299
+00:21:40,790 --> 00:21:48,260
+For those guys who do know and have watched my rap music video about app development, I apologize for
+
+300
+00:21:48,260 --> 00:21:49,880
+polluting your eyes.
+
+301
+00:21:50,990 --> 00:21:57,530
+It was such a bad attempt and anybody who knows me knows that I can't sing for --, so I'm sorry.
+
+302
+00:21:57,530 --> 00:21:59,180
+And it's never going to happen again.
+
+303
+00:22:00,440 --> 00:22:03,380
+So but I do have helpful tools.
+
+304
+00:22:03,800 --> 00:22:09,890
+One of my favorite websites is Product Hunt, and that's probably the first place that I go to for inspiration
+
+305
+00:22:09,890 --> 00:22:11,230
+to see what new products there are.
+
+306
+00:22:11,240 --> 00:22:12,620
+If you haven't seen it, check it out.
+
+307
+00:22:12,620 --> 00:22:13,910
+It's absolutely awesome.
+
+308
+00:22:14,840 --> 00:22:21,530
+But out of my top tools, I've selected four. First one is an app called Duet.
+
+309
+00:22:21,710 --> 00:22:28,970
+And what it allows you to do is it allows you to set up a separate screen for your laptop or desktop
+
+310
+00:22:29,300 --> 00:22:32,060
+using your iPad or even your iPhone.
+
+311
+00:22:32,810 --> 00:22:37,670
+And that basically allows you to have a dual-screen or in my case, a triple screen.
+
+312
+00:22:37,670 --> 00:22:42,410
+And once you have experienced the joys of dual screening, you will never go back again.
+
+313
+00:22:42,410 --> 00:22:43,220
+I promise you.
+
+314
+00:22:43,370 --> 00:22:48,860
+And this is probably the cheapest way of giving it a go, you can reuse your existing hardware, basically.
+
+315
+00:22:49,160 --> 00:22:51,350
+And it's just an amazing experience.
+
+316
+00:22:51,350 --> 00:22:53,630
+It's a really good app and I really, really recommend it.
+
+317
+00:22:54,560 --> 00:23:00,020
+The next one is Alfred and many of you guys, especially if been watching if you've been watching my
+
+318
+00:23:00,020 --> 00:23:04,670
+tutorials for a long time, you would have noticed that I use Alfred pretty much religiously.
+
+319
+00:23:04,820 --> 00:23:07,670
+And a lot of you ask me why not just use Spotlight?
+
+320
+00:23:07,670 --> 00:23:08,690
+It does the same thing, right?
+
+321
+00:23:08,750 --> 00:23:09,320
+It doesn't.
+
+322
+00:23:09,320 --> 00:23:10,220
+It really doesn't.
+
+323
+00:23:10,220 --> 00:23:16,760
+It's firstly much, much faster at indexing because it's selective indexing and it doesn't go through
+
+324
+00:23:16,760 --> 00:23:17,840
+your entire Mac.
+
+325
+00:23:18,680 --> 00:23:21,680
+And the other thing is that it tends to pull up more relevant results.
+
+326
+00:23:21,800 --> 00:23:28,940
+You have queries that you can put in there, like Find, which opens the folder or open, which opens
+
+327
+00:23:28,940 --> 00:23:30,290
+a particular file that you have.
+
+328
+00:23:30,350 --> 00:23:32,810
+But give it a go and you will never look back.
+
+329
+00:23:32,810 --> 00:23:33,800
+I promise you as well.
+
+330
+00:23:34,580 --> 00:23:36,440
+The next one is momento.
+
+331
+00:23:36,440 --> 00:23:38,900
+So you might have seen it again in my videos.
+
+332
+00:23:38,900 --> 00:23:44,510
+It's a Chrome plugin that I have which shows a new beautiful image of somewhere in the world that I
+
+333
+00:23:44,510 --> 00:23:48,380
+should probably be traveling to every time you open a new tab.
+
+334
+00:23:48,680 --> 00:23:50,640
+But it also has a to-do list built-in,
+
+335
+00:23:50,640 --> 00:23:56,240
+it also has the weather, the time and allows you to focus on one particular task for the day, which
+
+336
+00:23:56,240 --> 00:23:57,290
+I find really helpful.
+
+337
+00:23:57,590 --> 00:23:58,820
+So it's a free plug in.
+
+338
+00:23:58,820 --> 00:24:01,940
+Just, you know, try give it a go and see if you like it.
+
+339
+00:24:02,180 --> 00:24:06,590
+And the last thing I'm going to talk about is something called Cheat Sheet,
+
+340
+00:24:06,830 --> 00:24:13,640
+which is this amazing piece of software that gives you a cheat sheet of all the shortcuts in whichever
+
+341
+00:24:13,640 --> 00:24:15,050
+application you are in.
+
+342
+00:24:15,050 --> 00:24:20,360
+So if you hold down the command button, it will just show you a list of cheat sheets wherever you are.
+
+343
+00:24:20,690 --> 00:24:21,940
+And it's really, really cool.
+
+344
+00:24:22,070 --> 00:24:26,480
+Now, the last one I'm going to talk about is not really a good tool, but it's just something I found
+
+345
+00:24:26,480 --> 00:24:28,400
+on Product Hunt that I thought was hilarious.
+
+346
+00:24:28,670 --> 00:24:32,600
+It's called canned emails and it has canned breakup emails,
+
+347
+00:24:32,600 --> 00:24:33,230
+it has emails
+
+348
+00:24:33,230 --> 00:24:33,830
+for clients.
+
+349
+00:24:34,850 --> 00:24:40,430
+I've never yet sent one of these because I'm just too scared that somebody else has seen this website.
+
+350
+00:24:40,790 --> 00:24:43,550
+But it's pretty hilarious and I recommend you checking it out.
+
+351
+00:24:43,820 --> 00:24:46,550
+So the sun is starting to go down around here.
+
+352
+00:24:46,550 --> 00:24:52,730
+And I'm probably going to go and grab something to eat because I haven't eaten for a whole two hours
+
+353
+00:24:52,730 --> 00:24:53,000
+now.
+
+354
+00:24:54,620 --> 00:25:01,400
+But I hope you guys had fun with me in Nairobi in this episode of Ask Angela Anything.
+
+355
+00:25:01,670 --> 00:25:07,250
+And if you have any questions for the next episode, then be sure to leave it below this video
+
+356
+00:25:07,750 --> 00:25:13,810
+or on one of the new announcements that I make on a regular basis. So I hope you guys are having
+
+357
+00:25:13,810 --> 00:25:17,000
+a great time wherever you are, and that's all from me.
+
+358
+00:25:17,020 --> 00:25:19,150
+I'll see you next time. Ciao.
+

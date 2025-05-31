@@ -1,0 +1,372 @@
+1
+00:00:00,270 --> 00:00:00,660
+All right.
+
+2
+00:00:00,670 --> 00:00:07,350
+So in order to progress in our knowledge of how to work with the Internet computer, the next big topic
+
+3
+00:00:07,350 --> 00:00:10,570
+that we need to tackle is this concept of cycles.
+
+4
+00:00:11,070 --> 00:00:18,120
+And this is what's going to enable us to actually deploy our creations onto the live Internet computer
+
+5
+00:00:18,120 --> 00:00:18,630
+network.
+
+6
+00:00:19,470 --> 00:00:21,210
+So what have we been doing so far?
+
+7
+00:00:21,240 --> 00:00:28,260
+Well, we've been doing local development on local host, and we're using a simulated version of the
+
+8
+00:00:28,260 --> 00:00:32,970
+Internet computer in order to get a good idea of lag times.
+
+9
+00:00:32,970 --> 00:00:36,090
+And also whether if the things we're building actually work.
+
+10
+00:00:36,390 --> 00:00:38,010
+So we're doing testing, basically.
+
+11
+00:00:38,370 --> 00:00:44,820
+Now, once we're done, what we want to be able to do is to deploy our apps onto the live network.
+
+12
+00:00:45,210 --> 00:00:48,210
+So then it's accessible by anyone across the Internet
+
+13
+00:00:48,510 --> 00:00:54,900
+and it's also going to be on the ICP blockchain with all of the benefits that it entails.
+
+14
+00:00:55,440 --> 00:00:57,420
+But how do we actually get there?
+
+15
+00:00:57,570 --> 00:01:00,750
+How do we actually deploy our app onto the network?
+
+16
+00:01:00,960 --> 00:01:07,680
+Well, once our app is live on the network, then it will start consuming computational resources from
+
+17
+00:01:07,680 --> 00:01:09,270
+these data centers across the world.
+
+18
+00:01:09,510 --> 00:01:13,590
+So there has to be a way for us to be able to pay to use those resources.
+
+19
+00:01:13,800 --> 00:01:18,450
+And the most common way is to get hold of some of these ICP tokens.
+
+20
+00:01:19,050 --> 00:01:25,950
+So these are the Internet computer tokens, and this is a tradable token that can be obtained in a number
+
+21
+00:01:25,950 --> 00:01:26,550
+of ways.
+
+22
+00:01:27,240 --> 00:01:34,380
+The easiest and probably the most straightforward is to simply purchase them or exchange another cryptocurrency
+
+23
+00:01:34,590 --> 00:01:36,300
+for your ICP tokens.
+
+24
+00:01:36,630 --> 00:01:43,260
+So, for example, if you go to a large exchange like Coinbase, then you can buy these tokens or you
+
+25
+00:01:43,260 --> 00:01:48,300
+can exchange your Bitcoin or Ethereum for these tokens and get hold of some of these.
+
+26
+00:01:48,810 --> 00:01:50,370
+So that's probably the most straightforward.
+
+27
+00:01:50,490 --> 00:01:52,800
+But in addition, there's a number of other ways.
+
+28
+00:01:53,160 --> 00:01:59,010
+And one that's quite interesting is through what's called the Network Nervous System. The internet
+
+29
+00:01:59,010 --> 00:02:04,110
+computer is controlled by what's called a Network Nervous System or the NNS.
+
+30
+00:02:04,770 --> 00:02:11,280
+And this is basically a governing system that controls all aspects of the Internet computer. That allows
+
+31
+00:02:11,280 --> 00:02:17,580
+you to basically time-log your existing ICP tokens and create what's called a neuron.
+
+32
+00:02:18,180 --> 00:02:22,380
+And then you can earn rewards by voting on the proposals.
+
+33
+00:02:22,890 --> 00:02:28,260
+So then you have direct control over what happens to the future of the Internet computer,
+
+34
+00:02:28,590 --> 00:02:33,840
+and in order to reward you for your participation, you earn ICP tokens.
+
+35
+00:02:33,990 --> 00:02:38,220
+The third way is to get a grant from the Dfinity Foundation.
+
+36
+00:02:38,760 --> 00:02:41,070
+So they've set aside a whole bunch of money,
+
+37
+00:02:41,130 --> 00:02:49,890
+and as a developer, you can submit a proposal in order to apply for anywhere between $25,000 to $100,000
+
+38
+00:02:50,220 --> 00:02:54,090
+in ICP tokens to help you develop your next creation.
+
+39
+00:02:54,390 --> 00:02:56,460
+And that doesn't come with any sort of caveats.
+
+40
+00:02:56,490 --> 00:02:59,150
+They don't get a percentage of your company or anything.
+
+41
+00:02:59,160 --> 00:03:01,140
+It's just a straightforward grant.
+
+42
+00:03:01,290 --> 00:03:07,020
+And the final way to earn ICP tokens is by acting as a data center.
+
+43
+00:03:07,530 --> 00:03:12,990
+So as we mentioned, Dfinity links together a whole bunch of independent data centers across the world
+
+44
+00:03:13,260 --> 00:03:15,690
+to create a virtual shared computer.
+
+45
+00:03:16,290 --> 00:03:22,290
+So that means anybody with the infrastructure or who can purchase the infrastructure and supplies the
+
+46
+00:03:22,290 --> 00:03:28,230
+electricity in order to keep these data centers running, will be able to run a node within the Internet
+
+47
+00:03:28,230 --> 00:03:35,190
+computer and they'll get rewarded in ICP tokens for keeping these servers up and live available for
+
+48
+00:03:35,190 --> 00:03:36,000
+people to use.
+
+49
+00:03:36,150 --> 00:03:40,870
+So through all of these methods, what you end up with is this ICP token.
+
+50
+00:03:41,610 --> 00:03:49,290
+And once you got hold of some ICP tokens, then you can actually burn these tokens and exchange them
+
+51
+00:03:49,590 --> 00:03:52,740
+for computation cycles in your canisters.
+
+52
+00:03:53,370 --> 00:03:59,340
+So essentially you're turning something that is publicly tradable, that can be exchanged, can be bought
+
+53
+00:03:59,340 --> 00:04:06,120
+into something that cannot be traded but has value because it keeps your canisters up and running or
+
+54
+00:04:06,120 --> 00:04:11,370
+allows you to store data or allows you to perform computations in your web application.
+
+55
+00:04:11,640 --> 00:04:18,510
+And you basically preload your canisters with this computation potential, which is called cycles.
+
+56
+00:04:18,510 --> 00:04:18,779
+right?
+
+57
+00:04:19,019 --> 00:04:24,390
+And as long as you've got enough cycles for the canister to continue performing its computation, then
+
+58
+00:04:24,390 --> 00:04:25,200
+it will stay up.
+
+59
+00:04:25,800 --> 00:04:32,070
+So it's kind of a similar analogy to say if you have gas heaters or gas burners at home and you need
+
+60
+00:04:32,070 --> 00:04:38,670
+to go and buy some propane in these cans and you store them at home so that you can use them as you
+
+61
+00:04:38,670 --> 00:04:39,180
+need them.
+
+62
+00:04:39,510 --> 00:04:42,690
+But then every so often you might run low and you have to top it up.
+
+63
+00:04:43,110 --> 00:04:49,260
+So how are we going to be able to get hold of some of these cycles so that we can actually get our website
+
+64
+00:04:49,290 --> 00:04:52,800
+up and running on the live Internet computer network?
+
+65
+00:04:53,100 --> 00:04:56,370
+Well, there's actually a way that we can do this for free.
+
+66
+00:04:56,910 --> 00:04:59,940
+The dfinity foundation offers a cycles faucet.
+
+67
+00:05:00,870 --> 00:05:04,950
+They're giving you free cycles in order to build on the Internet computer.
+
+68
+00:05:05,310 --> 00:05:13,380
+Anyone who has a GitHub account that is over 90 days old can get access to a free $20 worth of cycles,
+
+69
+00:05:13,380 --> 00:05:18,930
+which allows you to start deploying your canister smart contracts, to build your web3 applications and
+
+70
+00:05:18,930 --> 00:05:20,730
+to get a taste for how to work with it.
+
+71
+00:05:21,120 --> 00:05:27,150
+So these free cycles are what we're going to be using in order to deploy our web applications in this
+
+72
+00:05:27,150 --> 00:05:27,600
+course.
+
+73
+00:05:28,200 --> 00:05:31,620
+But there is a huge, huge warning that comes along with it.
+
+74
+00:05:32,190 --> 00:05:35,200
+Remember that these are treated like money.
+
+75
+00:05:35,220 --> 00:05:42,270
+Once you deplete your $20 worth of cycles, then you won't be able to recharge it unless you decide
+
+76
+00:05:42,270 --> 00:05:45,870
+to buy some ICP tokens and convert it into cycles.
+
+77
+00:05:46,320 --> 00:05:53,340
+So as we're going along the tutorial, I want you to be super careful, especially with deploying to
+
+78
+00:05:53,340 --> 00:05:59,370
+the live network, because the different types of computation on the Internet computer come with different
+
+79
+00:05:59,370 --> 00:05:59,910
+costs.
+
+80
+00:06:00,240 --> 00:06:07,460
+And you can see by far the most costly action you can do is to create a canister on the Internet computer,
+
+81
+00:06:07,680 --> 00:06:13,110
+which is basically when we first called deploy and put our canister onto the network.
+
+82
+00:06:13,530 --> 00:06:20,850
+Now, on July 26, 2021, it costs about 0.1 terra cycles to deploy a canister.
+
+83
+00:06:21,420 --> 00:06:25,510
+These days I've tested it out and it costs a little bit more than that.
+
+84
+00:06:26,040 --> 00:06:32,130
+So we have to be really, really careful when we use that dfx deploy method when we're putting it onto
+
+85
+00:06:32,130 --> 00:06:32,700
+the network.
+
+86
+00:06:33,090 --> 00:06:39,420
+And if you don't want to deplete your cycles prematurely and get stuck with no cycles or having to buy
+
+87
+00:06:39,420 --> 00:06:46,080
+ICP tokens to convert it to cycles, I want you to watch the videos carefully and maybe finish watching
+
+88
+00:06:46,080 --> 00:06:49,200
+the videos before you actually complete the actions.
+
+89
+00:06:49,620 --> 00:06:54,630
+That way we can try and conserve the cycles that we've got and use the cycles efficiently.
+
+90
+00:06:54,990 --> 00:07:00,960
+So now that I've put that warning out there, it's time to head over back to our project and deploy
+
+91
+00:07:00,960 --> 00:07:04,110
+it to the live Internet computer network.
+
+92
+00:07:04,770 --> 00:07:06,150
+So for all of that and more,
+
+93
+00:07:06,180 --> 00:07:07,290
+I'll see you on the next lesson.
+

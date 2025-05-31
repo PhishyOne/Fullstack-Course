@@ -1,0 +1,224 @@
+1
+00:00:01,040 --> 00:00:01,490
+All right.
+
+2
+00:00:01,490 --> 00:00:07,060
+It's time to put everything we've learned so far together and create a project.
+
+3
+00:00:07,070 --> 00:00:13,760
+In this project, we're going to create a website for your next party to help you invite all your guests,
+
+4
+00:00:13,760 --> 00:00:19,880
+because paper invites and WhatsApp invites are only for people who can't create websites.
+
+5
+00:00:20,420 --> 00:00:21,230
+Am I right?
+
+6
+00:00:21,710 --> 00:00:23,540
+We can do it better.
+
+7
+00:00:23,570 --> 00:00:25,400
+This is what we're aiming for.
+
+8
+00:00:25,430 --> 00:00:31,970
+We're aiming for a retro 90s look website because we haven't learned about styling websites yet, which
+
+9
+00:00:31,970 --> 00:00:34,970
+is yet to come, but this is already pretty nice.
+
+10
+00:00:34,970 --> 00:00:41,630
+We're going to create a website to tell people that it's our birthday, which day it is, and we're
+
+11
+00:00:41,630 --> 00:00:43,460
+going to add some images.
+
+12
+00:00:43,490 --> 00:00:46,790
+We're going to tell people what to bring using lists.
+
+13
+00:00:46,790 --> 00:00:51,140
+And also we're going to add an anchor tag to show people where they need to go.
+
+14
+00:00:51,320 --> 00:00:55,970
+Hopefully, we're going to combine a lot of the things that you've learned in previous lessons.
+
+15
+00:00:55,970 --> 00:01:01,290
+And once you're ready, head over to the course resources for this lesson.
+
+16
+00:01:01,290 --> 00:01:05,160
+Download and extract the zip file in order to get started.
+
+17
+00:01:05,190 --> 00:01:12,900
+When you take a look at the index.html, you can see I've provided an example image URL and an example
+
+18
+00:01:12,930 --> 00:01:14,040
+Google Maps link.
+
+19
+00:01:14,040 --> 00:01:19,650
+So if you take a look inside the goal, you can see what the example image will take you to.
+
+20
+00:01:19,650 --> 00:01:25,230
+And if you're ready for an Easter egg/mini surprise, you can head over to the Google map link
+
+21
+00:01:25,230 --> 00:01:27,990
+and see where it's located as well.
+
+22
+00:01:28,440 --> 00:01:32,580
+So this is a project and it's not a coding exercise.
+
+23
+00:01:32,580 --> 00:01:35,520
+It's not something that I'm testing you on.
+
+24
+00:01:35,550 --> 00:01:36,780
+Everything I'm saying,
+
+25
+00:01:36,780 --> 00:01:38,430
+it's just a guideline.
+
+26
+00:01:38,430 --> 00:01:47,610
+I want you to at minimum, have an image in there, have a list in there, and also have an anchor tag
+
+27
+00:01:47,610 --> 00:01:48,360
+in there.
+
+28
+00:01:48,660 --> 00:01:51,120
+Everything else is totally up to you.
+
+29
+00:01:51,120 --> 00:01:56,010
+You can mess around with it as much as you like or change as much as you like, or keep it as simple
+
+30
+00:01:56,010 --> 00:01:56,550
+as you like.
+
+31
+00:01:56,550 --> 00:01:58,110
+It doesn't really matter.
+
+32
+00:01:58,140 --> 00:02:05,760
+Pause the video and give this project a go, and happy birthday if it is your birthday today.
+
+33
+00:02:09,050 --> 00:02:09,500
+All right.
+
+34
+00:02:09,500 --> 00:02:13,190
+So want to walk through one possible solution?
+
+35
+00:02:13,490 --> 00:02:16,430
+I just want to say this is just one possibility.
+
+36
+00:02:16,460 --> 00:02:18,680
+You can change it as much as you like.
+
+37
+00:02:18,680 --> 00:02:20,900
+There is no right or wrong in the project,
+
+38
+00:02:20,930 --> 00:02:24,970
+i's all about practice and also your own personal style.
+
+39
+00:02:24,980 --> 00:02:30,590
+So in my case, I created an h1 for the top-level heading, which is the most important thing,
+
+40
+00:02:30,590 --> 00:02:36,170
+it's my birthday. And then I've got some h2's and some h3's,
+
+41
+00:02:36,200 --> 00:02:42,110
+so for what to bring and where you need to go. In the image tag
+
+42
+00:02:42,110 --> 00:02:50,000
+I've added a source to that image I provided in the starting code, and also I provided an alternative
+
+43
+00:02:50,000 --> 00:02:53,840
+text to show people what this image is all about.
+
+44
+00:02:54,560 --> 00:03:01,370
+If you managed to get the image source and the alternative text and your image shows up, then congratulations.
+
+45
+00:03:01,370 --> 00:03:02,600
+You did a great job.
+
+46
+00:03:02,630 --> 00:03:09,720
+Now the next part I've got is an unordered list to tell people what they should bring with each item
+
+47
+00:03:09,720 --> 00:03:12,660
+in its own list item element.
+
+48
+00:03:12,660 --> 00:03:17,790
+And finally, I created an anchor tag to tell people where they need to go.
+
+49
+00:03:17,790 --> 00:03:25,470
+So I've added an href attribute and I used the link that I supplied in the starting code and I told
+
+50
+00:03:25,470 --> 00:03:33,660
+people that the link text is a Google map link, which hopefully will take them to where they need to
+
+51
+00:03:33,660 --> 00:03:38,400
+go, which is somewhere in Tokyo where all the pigeon people meet, apparently.
+
+52
+00:03:39,300 --> 00:03:42,660
+So if you found that Easter egg, then congratulations.
+
+53
+00:03:43,020 --> 00:03:48,270
+But if you're really proud of what you managed to do for your project, then be sure to take a screenshot
+
+54
+00:03:48,300 --> 00:03:51,810
+of it and post it in the Q&A to share it with the rest of us.
+
+55
+00:03:51,810 --> 00:03:56,640
+I would love to see what you came up with, but that's all from me for this section.
+
+56
+00:03:56,640 --> 00:04:01,710
+I hope you enjoyed learning more about HTML elements and I'll see you soon.
+

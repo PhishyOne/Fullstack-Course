@@ -1,0 +1,544 @@
+1
+00:00:00,570 --> 00:00:07,510
+Now in the last lesson we figured out how we could add an event listener to all of our buttons.
+
+2
+00:00:07,980 --> 00:00:13,170
+In this lesson we're going to take it a step further and instead of showing an alert we're going to
+
+3
+00:00:13,170 --> 00:00:19,030
+play the sound of a drum. So playing sound is super easy using Javascript,
+
+4
+00:00:19,260 --> 00:00:21,830
+but let's see if we can find out how to do it
+
+5
+00:00:21,870 --> 00:00:28,350
+if we didn't know. So let's say something like play sound javascript.
+
+6
+00:00:28,890 --> 00:00:29,900
+Let's see what we get.
+
+7
+00:00:30,090 --> 00:00:36,030
+So the first result that we get back is a Stack Overflow post where somebody is asking how you can play
+
+8
+00:00:36,120 --> 00:00:38,320
+audio using Javascript.
+
+9
+00:00:38,640 --> 00:00:47,010
+And the first answer says that you can do it by creating a new audio object by saying new Audio, and
+
+10
+00:00:47,010 --> 00:00:53,100
+you give it the name of the file that you want to play and then you simply call the method play on your
+
+11
+00:00:53,100 --> 00:00:55,500
+new audio object.
+
+12
+00:00:55,560 --> 00:00:57,270
+So that seems pretty easy.
+
+13
+00:00:57,510 --> 00:00:58,940
+Well let's test it out.
+
+14
+00:01:00,300 --> 00:01:01,900
+Inside our event listener,
+
+15
+00:01:02,160 --> 00:01:08,010
+let's get rid of the alert and let's instead try to play our sound.
+
+16
+00:01:08,010 --> 00:01:12,990
+Now notice that all of our sounds are located inside the sounds folder,
+
+17
+00:01:13,200 --> 00:01:18,940
+so you'll have to specify the folder when you try to locate the sound that you're trying to play.
+
+18
+00:01:19,380 --> 00:01:26,910
+So as a challenge I want you to try and implement this code inside our function here,
+
+19
+00:01:27,210 --> 00:01:31,590
+and I want you to play the tom 1 drum that we've got here.
+
+20
+00:01:31,590 --> 00:01:33,120
+So it's called tom-1.mp3.
+
+21
+00:01:33,190 --> 00:01:39,720
+And if you do succeed, then pressing on each of these buttons no longer generates an alert but
+
+22
+00:01:39,720 --> 00:01:43,020
+instead plays the sound of the drum.
+
+23
+00:01:43,020 --> 00:01:46,890
+So pause the video now and see if you can make that code work.
+
+24
+00:01:48,420 --> 00:01:48,840
+All right.
+
+25
+00:01:48,850 --> 00:01:55,280
+So let's move this code over here and see if we can figure out what it's trying to do.
+
+26
+00:01:56,360 --> 00:02:03,530
+So the first thing it does is create a new variable and then it seems to create some sort of new audio
+
+27
+00:02:03,530 --> 00:02:08,250
+object and it specifies the name of the sound file.
+
+28
+00:02:08,270 --> 00:02:11,870
+So in our case our sound file is called tom-1.
+
+29
+00:02:11,900 --> 00:02:19,160
+So in order to navigate to it we will have to say sounds, which is the folder that it's in, and then it's
+
+30
+00:02:19,160 --> 00:02:21,800
+called tom-1.mp3.
+
+31
+00:02:21,960 --> 00:02:30,320
+And then with this new object created, we're going to call play on it, which seems to be a method
+
+32
+00:02:30,560 --> 00:02:32,180
+that will play the sound.
+
+33
+00:02:32,180 --> 00:02:37,940
+So let's hit save and refresh our web site and see if that worked.
+
+34
+00:02:40,290 --> 00:02:41,730
+Cool. Nice, right?
+
+35
+00:02:41,820 --> 00:02:43,200
+Now that was pretty easy,
+
+36
+00:02:43,260 --> 00:02:47,050
+but what exactly are we doing with this line of code?
+
+37
+00:02:47,370 --> 00:02:53,910
+And very often when you're trying to do something you will come across code snippets that helpful programmers
+
+38
+00:02:53,910 --> 00:02:56,000
+have provided in Stack Overflow,
+
+39
+00:02:56,340 --> 00:03:01,650
+but it's really important that if you're going to implement it in your own code, to find out what the
+
+40
+00:03:01,650 --> 00:03:04,420
+code is doing and how it works.
+
+41
+00:03:04,440 --> 00:03:06,010
+So let's do that now.
+
+42
+00:03:06,150 --> 00:03:12,390
+Now if we search in Google for new Audio() javascript, which is basically the part of the code that we
+
+43
+00:03:12,390 --> 00:03:19,950
+used when we created a new audio object, then you can see that the first thing that pops up is our ever
+
+44
+00:03:19,950 --> 00:03:26,550
+so helpful MDN web docs, and it shows us what we're trying to create. By writing that line of code,
+
+45
+00:03:26,580 --> 00:03:32,980
+we're essentially creating an HTMLAudioElement, and you can see this is exactly the same syntax.
+
+46
+00:03:33,210 --> 00:03:39,480
+So you're creating a variable that stores this new object by writing new Audio,
+
+47
+00:03:39,690 --> 00:03:44,170
+and then here you've got the URL or the location of that audio.
+
+48
+00:03:44,490 --> 00:03:52,380
+And what this line of code will do behind the scenes is it will actually construct an HTMLAudioElement.
+
+49
+00:03:52,380 --> 00:03:57,420
+Now this HTMLMediaElement that we create has a whole bunch of properties.
+
+50
+00:03:57,570 --> 00:04:01,310
+So for example you can set the current time that you want to play,
+
+51
+00:04:01,440 --> 00:04:07,530
+or you can see whether it's been played or if it's paused, but it's also got a whole bunch of methods,
+
+52
+00:04:07,560 --> 00:04:10,240
+so things that you can make that object do.
+
+53
+00:04:10,380 --> 00:04:16,250
+And that includes the play method which basically plays back our media.
+
+54
+00:04:16,470 --> 00:04:23,940
+Now at the moment no matter which button we press we always get the same sound which is of course the
+
+55
+00:04:23,940 --> 00:04:26,670
+tom 1 drum that we specified here.
+
+56
+00:04:27,000 --> 00:04:34,200
+But if you take a look inside our images we've got all of these different images of different drums
+
+57
+00:04:34,350 --> 00:04:35,450
+that we can play.
+
+58
+00:04:35,550 --> 00:04:41,770
+And each of the images correspond to a different sound sample that corresponds to those images.
+
+59
+00:04:42,720 --> 00:04:50,840
+So let's go ahead and assign each of these buttons a background image using our CSS.
+
+60
+00:04:50,940 --> 00:04:52,740
+So here's a challenge for you.
+
+61
+00:04:53,040 --> 00:05:02,030
+I want you to take a look inside the styles.css and assign a background image to each of these buttons.
+
+62
+00:05:02,040 --> 00:05:05,420
+Now you can order your buttons in whichever way you like.
+
+63
+00:05:05,610 --> 00:05:10,980
+So if you want the tom drums to begin with, then you might do tom 1 through 4, or you might begin
+
+64
+00:05:10,980 --> 00:05:15,170
+with the snare and end with the kick drum. It's completely up to you.
+
+65
+00:05:15,300 --> 00:05:16,950
+But by the end of this,
+
+66
+00:05:17,040 --> 00:05:23,580
+each button should have a background image that's going to give the user a hint as to which sound it
+
+67
+00:05:23,580 --> 00:05:24,520
+will make.
+
+68
+00:05:24,810 --> 00:05:29,280
+So you might need to take a look at the documentation or Stack Overflow in order to figure out how to
+
+69
+00:05:29,280 --> 00:05:33,930
+do this. But pause the video now and see if you can complete this challenge.
+
+70
+00:05:35,210 --> 00:05:43,280
+Now I've decided to have the four tom drums, so tom 1, 2, 3, 4, for the first four buttons, and
+
+71
+00:05:43,280 --> 00:05:46,940
+the last three to be the snare, the crash and the kick drum.
+
+72
+00:05:46,980 --> 00:05:54,110
+So, remember we're now writing CSS, and the property that we want to tap into is the background-image, and
+
+73
+00:05:54,110 --> 00:05:56,110
+we're going to set it to a image
+
+74
+00:05:56,120 --> 00:06:02,270
+URL, so this is going to be the source or the location of our image, which is going to be a string
+
+75
+00:06:02,330 --> 00:06:03,540
+that's images,
+
+76
+00:06:03,560 --> 00:06:05,900
+so that's the folder that contains the image,
+
+77
+00:06:06,140 --> 00:06:09,830
+and then we're going to start off at tom1.png.
+
+78
+00:06:10,010 --> 00:06:17,240
+And now if we hit save and refresh and you can see we've assigned an image to the background of our first
+
+79
+00:06:17,240 --> 00:06:18,380
+button.
+
+80
+00:06:18,380 --> 00:06:23,530
+And I've gone through this to assign the images in the order that I want it to show up.
+
+81
+00:06:23,540 --> 00:06:28,580
+Now if you created this in a different order from me, then that's completely fine, but just remember to
+
+82
+00:06:28,580 --> 00:06:34,160
+check back your images to remember which one is that which button so that you can assign the correct
+
+83
+00:06:34,160 --> 00:06:35,180
+sounds.
+
+84
+00:06:35,180 --> 00:06:41,870
+So now we have to solve the next problem which is how do we get each of these buttons to play the sound
+
+85
+00:06:41,900 --> 00:06:44,210
+of the corresponding drum image.
+
+86
+00:06:44,440 --> 00:06:51,710
+Well if you think back to our lessons in the introduction to the DOM modules we know that we can grab
+
+87
+00:06:51,890 --> 00:06:59,240
+the innerHTML or the text content of any of these buttons, and you can see that they all have a different
+
+88
+00:06:59,240 --> 00:07:02,330
+character associated with each drum.
+
+89
+00:07:02,330 --> 00:07:09,710
+So what if we use that to differentiate the buttons so that when a user presses on a button we get the
+
+90
+00:07:09,710 --> 00:07:15,380
+character that the button contains and then we use that to determine which sound we're going to play
+
+91
+00:07:15,380 --> 00:07:18,380
+them? So that seems easy enough.
+
+92
+00:07:18,490 --> 00:07:24,460
+So I'm going to put our sound code down at the bottom and I'm going to comment it out so that we can
+
+93
+00:07:24,460 --> 00:07:28,570
+focus on one thing at a time without this code distracting us.
+
+94
+00:07:28,600 --> 00:07:37,300
+So now we need this function to be called when a button detects a click and we need to know which button
+
+95
+00:07:37,300 --> 00:07:41,290
+got clicked so that we can play the right sound.
+
+96
+00:07:41,290 --> 00:07:47,020
+So essentially we just need to know which button triggered the event.
+
+97
+00:07:47,500 --> 00:07:54,610
+So at the moment we've attached a listener to our button and when the user clicks on the button the
+
+98
+00:07:54,610 --> 00:08:00,250
+listener gets triggered, and the function that was linked to the event listener gets called.
+
+99
+00:08:00,250 --> 00:08:05,950
+Now we can figure out the identity of the button that triggered the event by tapping into something
+
+100
+00:08:05,950 --> 00:08:08,190
+called this.
+
+101
+00:08:08,440 --> 00:08:15,680
+And this is basically the identity of the button that triggered the event listener.
+
+102
+00:08:16,120 --> 00:08:21,180
+So let me show this to you by logging it in the console.
+
+103
+00:08:21,500 --> 00:08:26,090
+So let's console.log this, and let's refresh our web site.
+
+104
+00:08:26,570 --> 00:08:33,710
+So now if I click on one of these buttons you can see I'm actually getting the button object that triggered
+
+105
+00:08:34,039 --> 00:08:37,909
+the event by simply console logging this.
+
+106
+00:08:38,010 --> 00:08:41,980
+And I can do this with all of the different buttons.
+
+107
+00:08:42,230 --> 00:08:48,590
+And now, if I have access to this object, then I can use properties such as innerHTML, which we've
+
+108
+00:08:48,590 --> 00:08:50,070
+seen before.
+
+109
+00:08:50,660 --> 00:08:57,030
+So now it will print out the innerHTML of the button that triggered the click event
+
+110
+00:08:57,320 --> 00:09:00,140
+every single time I click on a new button.
+
+111
+00:09:00,200 --> 00:09:02,720
+Now there's quite a few lines of code that we've just written,
+
+112
+00:09:02,720 --> 00:09:05,780
+so let's break it down so we can understand what's going on.
+
+113
+00:09:05,780 --> 00:09:11,720
+So inside the loop the first thing that we do is we look through the document and we try to grab all
+
+114
+00:09:11,720 --> 00:09:18,860
+of the elements that have a class of drum. So that basically gets us all of those buttons that have
+
+115
+00:09:18,860 --> 00:09:21,200
+that class of drum.
+
+116
+00:09:21,320 --> 00:09:29,680
+Now the next thing we do is we loop through all of those elements starting from when i is equal to zero,
+
+117
+00:09:29,930 --> 00:09:36,880
+and we add an event listener to it. And the next time we loop through, then the i becomes 1,
+
+118
+00:09:36,980 --> 00:09:41,120
+and now we add the event listener to the second button.
+
+119
+00:09:41,120 --> 00:09:47,360
+So essentially our code will go through all of the buttons in turn, selecting them and adding the event
+
+120
+00:09:47,360 --> 00:09:47,930
+listener,
+
+121
+00:09:48,080 --> 00:09:51,730
+until we've gotten to the end of all of our buttons.
+
+122
+00:09:51,860 --> 00:09:56,010
+So now that all of our buttons have an event listener attached to it,
+
+123
+00:09:56,300 --> 00:10:03,560
+what happens when we click on the first button? Then that button's event listener will trigger the function
+
+124
+00:10:03,620 --> 00:10:05,580
+that was attached to the event listener.
+
+125
+00:10:05,870 --> 00:10:12,830
+And in this case that's simply to just console.log(this), which is simply the button that triggered the
+
+126
+00:10:12,830 --> 00:10:13,550
+event.
+
+127
+00:10:13,550 --> 00:10:18,150
+Now we're not simply limited to console logging the identity of the button.
+
+128
+00:10:18,290 --> 00:10:22,840
+We can also use its identity to change its style.
+
+129
+00:10:23,180 --> 00:10:30,470
+So as a challenge can you see how you can modify this code to change the text color of the button that
+
+130
+00:10:30,470 --> 00:10:33,220
+got clicked to the color white?
+
+131
+00:10:33,560 --> 00:10:36,800
+Pause the video and see if you can complete this challenge.
+
+132
+00:10:38,680 --> 00:10:45,670
+So if we already know the identity of the button that got clicked then we can simply say this.style
+
+133
+00:10:46,250 --> 00:10:53,870
+.color = "white". And instead of console logging it, we're just going to run this line of code.
+
+134
+00:10:53,950 --> 00:10:58,990
+So now if I refreshed the web site with that new code, then you can see that whenever I click on a button
+
+135
+00:10:59,320 --> 00:11:06,730
+I change the text color to white because we're able to get the identity of the button that triggered
+
+136
+00:11:06,820 --> 00:11:10,900
+the event and we can change its style and color to white.
+

@@ -1,0 +1,292 @@
+1
+00:00:00,570 --> 00:00:07,590
+In order to get up and running straight away, I want to introduce you to a tool called CodeSandbox. And
+
+2
+00:00:07,590 --> 00:00:14,190
+this is a browser based development environment that was initially created with React element in
+
+3
+00:00:14,190 --> 00:00:15,140
+mind.
+
+4
+00:00:15,210 --> 00:00:21,150
+It takes care of a lot of the grunt work and setup and it makes it easy to install dependencies with
+
+5
+00:00:21,180 --> 00:00:22,650
+NPM support,
+
+6
+00:00:22,650 --> 00:00:29,250
+so every package that we've used previously using NPM install we can use it inside CodeSandbox.
+
+7
+00:00:29,250 --> 00:00:33,630
+It can be embedded into Medium blog posts and web pages,
+
+8
+00:00:33,660 --> 00:00:41,040
+it allows you to build and deploy within the same application and a whole bunch of other things including
+
+9
+00:00:41,040 --> 00:00:44,830
+really good syntax highlighting and linting as well.
+
+10
+00:00:45,450 --> 00:00:51,990
+Throughout this module, we're going to be using CodeSandbox to introduce you to new skills in React.
+
+11
+00:00:52,320 --> 00:00:54,180
+And after you've learnt the skill
+
+12
+00:00:54,180 --> 00:01:00,720
+then we'll practice those skills in a separate sandbox and it's through this skill practice skill practice
+
+13
+00:01:00,780 --> 00:01:04,480
+that you're going to build up and level up your skills in React.
+
+14
+00:01:04,739 --> 00:01:10,740
+And then at some point once you've acquired enough skills, I'm going to introduce you to a part of the
+
+15
+00:01:10,740 --> 00:01:11,810
+final project,
+
+16
+00:01:11,850 --> 00:01:17,520
+the Keeper app that we're going to be building. And we're going to break down the large Keeper app project
+
+17
+00:01:17,580 --> 00:01:23,160
+into several parts so that you'll be able to apply all of the skills that you learned previously
+
+18
+00:01:23,160 --> 00:01:29,670
+to complete each of these parts. And hopefully you're going to find that this process of using CodeSandbox
+
+19
+00:01:29,910 --> 00:01:36,480
+to learn and practice your skills help you learn React that much quicker and establish a solid foundation
+
+20
+00:01:36,480 --> 00:01:37,770
+of knowledge.
+
+21
+00:01:37,860 --> 00:01:43,290
+Now later on when I introduce you to the first part of the Keeper project, I'm also gonna show you how
+
+22
+00:01:43,290 --> 00:01:50,070
+to set up your local environment using Atom or using the VS code to create React apps. But to begin
+
+23
+00:01:50,070 --> 00:01:55,500
+with, I want to start out just using CodeSandbox so that you'll be at to use the same starting project
+
+24
+00:01:55,560 --> 00:01:58,240
+as me in a really really easy way.
+
+25
+00:01:58,260 --> 00:02:03,420
+So throughout this course, I'll be sharing with you these sandboxes, so that ensures that we're working
+
+26
+00:02:03,420 --> 00:02:11,160
+from the same file and it should minimize any headaches around the setup and configuration. In each lesson
+
+27
+00:02:11,160 --> 00:02:16,110
+where I'm explaining a concept through a use of a sandbox,
+
+28
+00:02:16,170 --> 00:02:21,570
+I will be sharing with you a link to that particular sandbox and this is what you'll see when you open
+
+29
+00:02:21,570 --> 00:02:23,850
+up the link in your browser.
+
+30
+00:02:23,850 --> 00:02:30,420
+You'll be able to see the files that are included and a preview of the website as it is, as well as be
+
+31
+00:02:30,420 --> 00:02:34,260
+able to view any of the existing files that I've created.
+
+32
+00:02:34,260 --> 00:02:38,510
+Now if you want to just get started straight away you can just start editing the project.
+
+33
+00:02:38,520 --> 00:02:45,630
+It's already live and working in your browser. But if you want to be a save your work, you can sign in using
+
+34
+00:02:45,630 --> 00:02:53,610
+GitHub and you'll be able to fork or create your own copy of the sandbox so that you can save it under
+
+35
+00:02:53,610 --> 00:02:54,450
+your own account
+
+36
+00:02:54,450 --> 00:02:56,580
+for you to review later on.
+
+37
+00:02:57,060 --> 00:03:02,580
+Now there's four main sections I want to talk about and the first section is this left hand pane here
+
+38
+00:03:02,640 --> 00:03:06,420
+which you can collapse by clicking on these elements over on the left.
+
+39
+00:03:06,540 --> 00:03:12,360
+If any of you have used VS code, this layout will look quite similar because it's heavily inspired by
+
+40
+00:03:12,380 --> 00:03:17,620
+VS code and a lot of the structure looks a bit like that particular application as well.
+
+41
+00:03:17,790 --> 00:03:24,360
+So all of our files are under the explorer tab and you can collapse or uncollapse by clicking on each
+
+42
+00:03:24,360 --> 00:03:28,180
+of these folders to view the files that are inside.
+
+43
+00:03:28,290 --> 00:03:30,780
+Now we've got our dependencies listed here.
+
+44
+00:03:30,780 --> 00:03:36,920
+So for example if you wanted to add MongoDB or Mongoose or any of those dependencies which you've
+
+45
+00:03:36,920 --> 00:03:38,250
+worked with before,
+
+46
+00:03:38,430 --> 00:03:46,060
+it's as simple as adding a dependency and searching for it from NPM. Now in the middle pane is our code
+
+47
+00:03:46,060 --> 00:03:46,660
+editor.
+
+48
+00:03:46,780 --> 00:03:49,590
+And this is where we're gonna be doing most of our work,
+
+49
+00:03:49,630 --> 00:03:55,720
+so for the majority of time, I'll ask you to collapse or reduce the size of all of the other panes so
+
+50
+00:03:55,720 --> 00:03:58,720
+that you can focus on the coding part.
+
+51
+00:03:58,720 --> 00:04:05,440
+And if you want to, you can change your preferences for your sandbox here to change the font size for
+
+52
+00:04:05,440 --> 00:04:06,270
+example.
+
+53
+00:04:06,310 --> 00:04:08,650
+So I tend to prefer a little bit larger.
+
+54
+00:04:08,680 --> 00:04:13,220
+Or you can even change other things such as the theme or the colors.
+
+55
+00:04:13,390 --> 00:04:19,390
+But this is the middle pane and then on the right here we've got a live preview.
+
+56
+00:04:19,779 --> 00:04:27,820
+So that means if you had a say an h1 tag in here that says 'Hello', it's going to automatically refresh this
+
+57
+00:04:27,820 --> 00:04:34,690
+page to show you the most up to date version of your web app without you needing to start or stop your
+
+58
+00:04:34,690 --> 00:04:35,140
+server.
+
+59
+00:04:35,140 --> 00:04:40,600
+It's going to do that for you automatically in the background. And right at the bottom here you've got
+
+60
+00:04:40,600 --> 00:04:42,280
+the console.
+
+61
+00:04:42,310 --> 00:04:48,520
+So this is the same as the Chrome development tool console that we've been using previously and it's
+
+62
+00:04:48,520 --> 00:04:52,300
+just a small version for the website that you are creating.
+
+63
+00:04:52,300 --> 00:04:57,760
+Now if this is too small, you can always pop it out in a new window so that you can see it in its full
+
+64
+00:04:57,760 --> 00:05:04,110
+glory and you can use the Chrome developer tools if you prefer to stick with these tools as well.
+
+65
+00:05:05,550 --> 00:05:09,420
+Now over here there's also a problems tab which is really useful.
+
+66
+00:05:09,420 --> 00:05:14,460
+So it means that if you make some typos or you have some errors, all of your linting errors is going to
+
+67
+00:05:14,460 --> 00:05:15,880
+go into the problems tab
+
+68
+00:05:15,900 --> 00:05:20,910
+so you can review each of them and try to debug your code.
+
+69
+00:05:20,910 --> 00:05:27,000
+Now if you wanted to share your code say in the Q/A or with your friends, it's
+
+70
+00:05:27,000 --> 00:05:35,010
+as simple as clicking on share and just copying the editor URL. As you can see it's pretty simple
+
+71
+00:05:35,340 --> 00:05:38,660
+and it just works. In the next lesson
+
+72
+00:05:38,670 --> 00:05:47,130
+I'm going to introduce you to JSX, which is a core component of React. So head over there and let's
+
+73
+00:05:47,130 --> 00:05:49,170
+get started writing some React code.
+

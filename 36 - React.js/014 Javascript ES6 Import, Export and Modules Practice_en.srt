@@ -1,0 +1,204 @@
+1
+00:00:00,300 --> 00:00:06,780
+Alright guys, it's time to put into practice what you learned in the last lesson, namely how to use
+
+2
+00:00:06,780 --> 00:00:12,960
+these import and export keywords and how to work with different files and different modules.
+
+3
+00:00:12,960 --> 00:00:21,270
+In this challenge, I want you to import the functions that live in this calculator.js file and
+
+4
+00:00:21,450 --> 00:00:28,160
+once you've imported it, it's going to be used in each of these lis to calculate a number to go on
+
+5
+00:00:28,200 --> 00:00:29,500
+to the website.
+
+6
+00:00:29,500 --> 00:00:36,660
+Now the results that you're aiming for is the same as this Final.png file. Four bullet points each
+
+7
+00:00:36,660 --> 00:00:41,310
+with a number which is calculated from each of these methods.
+
+8
+00:00:41,310 --> 00:00:47,420
+And all you need to do is figure out how to import those methods so that they can be used inside our
+
+9
+00:00:47,420 --> 00:00:48,860
+EJS here.
+
+10
+00:00:48,870 --> 00:00:53,250
+Now when you start out, you're going to get a lot of errors and a lot of warnings. Things like add is
+
+11
+00:00:53,250 --> 00:00:59,400
+not defined, multiply's not defined. It basically doesn't know any of these methods until you actually
+
+12
+00:00:59,400 --> 00:01:02,440
+figure out the code and import the correct functions.
+
+13
+00:01:02,460 --> 00:01:06,230
+So go ahead and fork this sandbox and try to solve this challenge.
+
+14
+00:01:06,510 --> 00:01:08,520
+And once you're done we can walk through it together.
+
+15
+00:01:11,990 --> 00:01:12,310
+All right.
+
+16
+00:01:12,310 --> 00:01:18,870
+So the first thing we're going to do is go into our calculator.js because we need to export all
+
+17
+00:01:18,870 --> 00:01:22,470
+of the functions that we want to be accessible from other files.
+
+18
+00:01:22,470 --> 00:01:28,980
+So in this case I have no default thing that I want to export. I actually want to export all of these
+
+19
+00:01:28,980 --> 00:01:30,180
+functions separately.
+
+20
+00:01:30,690 --> 00:01:38,020
+So I'm going to add the add function, the multiply, subtract and divide.
+
+21
+00:01:38,020 --> 00:01:42,700
+Now remember that at this stage you don't want to add any parentheses to these functions.
+
+22
+00:01:42,720 --> 00:01:49,890
+We're just exporting the function as it is without activating or calling it. Once I've exported all of
+
+23
+00:01:49,890 --> 00:01:50,670
+these functions
+
+24
+00:01:50,700 --> 00:01:57,540
+I can now go back to my index.js and I can import all of the ones that I want from that file.
+
+25
+00:01:57,570 --> 00:02:03,930
+So at this stage I've got two options really. I could either use a wildcard form where I input everything
+
+26
+00:02:03,960 --> 00:02:13,140
+packaged under one name, or I can import each of them separately. So I can go ahead and say add, subtract,
+
+27
+00:02:13,200 --> 00:02:15,450
+multiply and divide.
+
+28
+00:02:15,480 --> 00:02:22,500
+Now notice the order in which you import these methods don't have to be the same as the order that you
+
+29
+00:02:22,500 --> 00:02:23,550
+export it
+
+30
+00:02:23,730 --> 00:02:33,450
+as long as the names match precisely, so like what I've got here. Now next I have to specify where or which
+
+31
+00:02:33,450 --> 00:02:35,820
+file I'm importing from.
+
+32
+00:02:36,060 --> 00:02:41,580
+And in my case I'm gonna use a relative path to my calculator.js file.
+
+33
+00:02:41,580 --> 00:02:48,510
+So now that we've imported all of these functions our errors have gone away and our website is now working
+
+34
+00:02:48,900 --> 00:02:54,780
+and looking exactly the same as what we've got in the sample, the final.png.
+
+35
+00:02:54,990 --> 00:02:56,930
+This is one way of solving it.
+
+36
+00:02:57,120 --> 00:03:00,750
+Another way that you could have done this is to use the wildcard
+
+37
+00:03:00,810 --> 00:03:01,320
+right?
+
+38
+00:03:01,320 --> 00:03:07,500
+So you could've added an asterix and you could've given that particular module a name, so we could call it
+
+39
+00:03:07,500 --> 00:03:08,480
+calculator.
+
+40
+00:03:09,030 --> 00:03:15,480
+And then down here instead of just writing add or multiply, what we have to do instead is we have to
+
+41
+00:03:15,480 --> 00:03:23,670
+add calculator.add, because this calculator is the object and it contains a whole bunch of functions
+
+42
+00:03:23,880 --> 00:03:27,110
+that corresponds to the ones that we exported.
+
+43
+00:03:27,120 --> 00:03:33,200
+So now I could add calculator.add or .multiplied, .subtract and .divide.
+
+44
+00:03:33,210 --> 00:03:35,960
+And this now works perfectly as well.
+
+45
+00:03:36,030 --> 00:03:41,910
+So you have lots and lots of options and it's important that you understand that both of these methods
+
+46
+00:03:41,910 --> 00:03:46,530
+work so that when you come across them in the wild you won't be confused and you'll understand what
+
+47
+00:03:46,530 --> 00:03:47,820
+it does.
+
+48
+00:03:47,850 --> 00:03:53,340
+So have a play around with this file if there's anything that you're still unsure about. And once
+
+49
+00:03:53,340 --> 00:03:58,770
+you're already come and join us back on the next lesson where we're going to learn about how to set up
+
+50
+00:03:58,910 --> 00:04:02,180
+our local environment for React development.
+
+51
+00:04:02,220 --> 00:04:04,650
+So for all of that and more, I'll see there.
+

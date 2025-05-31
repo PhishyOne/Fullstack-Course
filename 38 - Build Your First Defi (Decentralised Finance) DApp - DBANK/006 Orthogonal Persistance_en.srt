@@ -1,0 +1,388 @@
+1
+00:00:00,510 --> 00:00:07,320
+So in this lesson, I want to cover a pretty important topic in terms of developing on the ICP, which
+
+2
+00:00:07,320 --> 00:00:09,630
+is this idea of orthogonal persistance.
+
+3
+00:00:10,020 --> 00:00:18,120
+The idea of persistance is being able to hold on to state over many different cycles and updates.
+
+4
+00:00:18,600 --> 00:00:27,030
+So, for example, if we had our canister and we created a variable, let's call it a and set it equal to
+
+5
+00:00:27,030 --> 00:00:30,090
+42, which is the meaning of life and everything.
+
+6
+00:00:30,540 --> 00:00:35,670
+Now if then I decide to increment a by 5,
+
+7
+00:00:36,120 --> 00:00:42,660
+so at this point, the state that's held inside the container a is equal to 47.
+
+8
+00:00:43,290 --> 00:00:44,910
+Now this is the state.
+
+9
+00:00:45,330 --> 00:00:53,430
+But what happens once I update the code and I rerun the canister or I redeploy it?
+
+10
+00:00:53,940 --> 00:01:02,100
+Well, in a normal situation, unless we explicitly tell it to add 5 to a again, the variable
+
+11
+00:01:02,100 --> 00:01:05,850
+a is going to be reset to its original state.
+
+12
+00:01:06,300 --> 00:01:14,340
+Now in a canister on ICP, that doesn't have to happen and instead, it actually can hold on to the state
+
+13
+00:01:14,340 --> 00:01:19,920
+of your variables, your collections, your objects, basically the entire state of your container.
+
+14
+00:01:20,550 --> 00:01:25,590
+And the reason why it's called orthogonal is because we as a developer don't even have to think about
+
+15
+00:01:25,590 --> 00:01:25,700
+it.
+
+16
+00:01:25,710 --> 00:01:32,910
+It can happen just behind the scenes as a function of the way that the Internet computer is created.
+
+17
+00:01:33,240 --> 00:01:36,410
+So I want to show you this in a normal situation.
+
+18
+00:01:36,420 --> 00:01:41,160
+So here I've got a code sandbox up and I'm just writing some JavaScript code.
+
+19
+00:01:41,490 --> 00:01:45,840
+So again, we're going to say var a equals, let's call it 15.
+
+20
+00:01:46,440 --> 00:01:49,410
+And now if I decide to console.log it,
+
+21
+00:01:53,140 --> 00:02:02,110
+you can see that the state of a is 15. Our console.log is basically a way for us to just expose the
+
+22
+00:02:02,110 --> 00:02:07,840
+state to be able to be printed out so that we can actually see it because we are not the computer,
+
+23
+00:02:07,840 --> 00:02:09,190
+we're not inside the box.
+
+24
+00:02:09,910 --> 00:02:16,810
+So now again, as I said, I'm going to plus equals, so I'm going to increment a by five.
+
+25
+00:02:17,350 --> 00:02:22,840
+So now the state of a at line 9 is no longer 15,
+
+26
+00:02:22,840 --> 00:02:27,940
+and if I go ahead and just copy this line of code here, you can see at this point it's now 20.
+
+27
+00:02:28,360 --> 00:02:30,280
+We've added 5 to it.
+
+28
+00:02:31,510 --> 00:02:32,950
+Now, here's the interesting thing.
+
+29
+00:02:33,100 --> 00:02:41,470
+If I go ahead and get rid of this add a 5 and reload our sandbox, then you can see that the state
+
+30
+00:02:41,860 --> 00:02:45,280
+of a has been completely restored to the beginning.
+
+31
+00:02:45,370 --> 00:02:50,170
+It is not held on to the fact that it turned 20 and instead goes back to being 15.
+
+32
+00:02:50,650 --> 00:02:54,940
+This is how normal programs work and this is something that we're used to.
+
+33
+00:02:55,330 --> 00:03:02,260
+So in order to hold on to state in between these cycles, we actually have to use data persistence, and
+
+34
+00:03:02,260 --> 00:03:08,050
+that will involve databases and putting things in databases, taking things out of databases, etc.
+
+35
+00:03:08,650 --> 00:03:12,520
+But let me show you what we can do using orthogonal persistence.
+
+36
+00:03:13,900 --> 00:03:23,560
+Firstly here you can see that we've got our currentValue set to 300 and I'm going to go ahead and comment
+
+37
+00:03:23,560 --> 00:03:30,190
+out this line of code, because this line of code says currentValue should be set to a new value of
+
+38
+00:03:30,190 --> 00:03:32,230
+100, which we don't want.
+
+39
+00:03:32,230 --> 00:03:37,360
+We actually just want to create a new variable that holds the number 300.
+
+40
+00:03:38,110 --> 00:03:47,740
+Now, if I go ahead and hit save and deploy and go over to my Candid UI and we can use our previous
+
+41
+00:03:47,740 --> 00:03:54,940
+checkBalance method to quickly query what is the value of the currentValue, which is 300.
+
+42
+00:03:55,420 --> 00:03:55,780
+Okay.
+
+43
+00:03:55,780 --> 00:03:56,860
+So nothing special there.
+
+44
+00:03:57,490 --> 00:04:07,810
+Now, if we go back and I go ahead and top up the value, so let's go ahead and add 100 to that, hit
+
+45
+00:04:07,840 --> 00:04:08,410
+call.
+
+46
+00:04:08,980 --> 00:04:11,580
+And then once that's done, we hit query.
+
+47
+00:04:11,590 --> 00:04:14,530
+You can see it is now increased by 100 to 400.
+
+48
+00:04:14,980 --> 00:04:16,570
+So 300 to 400.
+
+49
+00:04:16,720 --> 00:04:23,650
+Now, at this point, if I go ahead and just change some minor thing in my code, let's say we added
+
+50
+00:04:23,650 --> 00:04:24,340
+a new line,
+
+51
+00:04:24,370 --> 00:04:29,920
+Debug.print, doesn't really matter what you do as long as it's something that actually requires the
+
+52
+00:04:29,920 --> 00:04:34,300
+container to update and then we deploy our canister again.
+
+53
+00:04:34,510 --> 00:04:40,570
+If we come back and we hit query again, you can see that it gets reset back to 300.
+
+54
+00:04:40,900 --> 00:04:45,450
+So this is the normal behavior that we saw with other programming languages as well.
+
+55
+00:04:45,460 --> 00:04:50,560
+But we can actually add in persistance to our code with just a single keyword.
+
+56
+00:04:51,160 --> 00:04:59,530
+We can add the word stable in front of the var, and this turns as variable into a persisted variable.
+
+57
+00:04:59,680 --> 00:05:01,480
+So it's a stable variable
+
+58
+00:05:01,480 --> 00:05:06,820
+now. Previously without the stable keyword, this was what they call a flexible variable.
+
+59
+00:05:07,390 --> 00:05:14,410
+So because in normal programming, it's not very usual for state to be persisted across update cycles
+
+60
+00:05:14,410 --> 00:05:19,840
+etc., the default is still a normal variable that you would get on any other programming language.
+
+61
+00:05:20,230 --> 00:05:26,920
+But adding in the stable keyword now upgrades our variable to a orthogonally persisted variable.
+
+62
+00:05:27,640 --> 00:05:28,840
+So let's hit save,
+
+63
+00:05:29,170 --> 00:05:31,540
+let's go ahead and hit deploy again.
+
+64
+00:05:31,900 --> 00:05:35,590
+Let's go back to our Candid UI and let's see what happens this time.
+
+65
+00:05:35,920 --> 00:05:38,200
+So query starts out at 300.
+
+66
+00:05:38,800 --> 00:05:41,710
+Now let's go ahead and top it up by 100.
+
+67
+00:05:42,190 --> 00:05:45,160
+So now it's up to 400, right?
+
+68
+00:05:45,160 --> 00:05:46,030
+Remember that number?
+
+69
+00:05:46,030 --> 00:05:48,400
+That's the state of this variable.
+
+70
+00:05:49,090 --> 00:05:57,970
+Now, let's again go ahead and change some line of code and then go ahead and force our container to
+
+71
+00:05:58,060 --> 00:06:00,730
+deploy again to update the container.
+
+72
+00:06:00,730 --> 00:06:03,100
+So we hit save and we deploy again.
+
+73
+00:06:03,850 --> 00:06:11,500
+So this is basically the same as hitting refresh on our code sandbox or simply getting the process to
+
+74
+00:06:11,500 --> 00:06:12,610
+stop and restart.
+
+75
+00:06:12,670 --> 00:06:17,800
+So now that we've deployed our canister, if I go ahead and hit query, see what happens.
+
+76
+00:06:19,030 --> 00:06:23,260
+It's held on to the state of that variable.
+
+77
+00:06:23,290 --> 00:06:33,190
+It still knows that it should be 400, which means that this state can now be used across all update
+
+78
+00:06:33,190 --> 00:06:33,760
+cycles.
+
+79
+00:06:33,790 --> 00:06:35,940
+I don't have to worry about databases,
+
+80
+00:06:35,950 --> 00:06:40,480
+I don't have to think about how am I going to get this number in or how am I going to get it out?
+
+81
+00:06:40,900 --> 00:06:47,470
+I just have to keep programming and with my stable variable it will be persisted across any sort of
+
+82
+00:06:47,470 --> 00:06:50,160
+update, any sort of downtime.
+
+83
+00:06:50,170 --> 00:06:53,590
+If the electricity goes out, it's going to restore it to the previous state.
+
+84
+00:06:53,920 --> 00:06:59,230
+Now, if you're wondering why it is I've commented out this line of code, well, this is because this
+
+85
+00:06:59,230 --> 00:07:01,630
+operator is a replace operator.
+
+86
+00:07:02,080 --> 00:07:08,260
+So whenever this code runs here, it doesn't matter what is the state of currentValue.
+
+87
+00:07:08,860 --> 00:07:15,490
+It will actually go ahead and update it to whatever is on the right-hand side of the equals sign.
+
+88
+00:07:16,390 --> 00:07:22,120
+So our stable variable, when we declare it, we can declare with an initial state.
+
+89
+00:07:22,690 --> 00:07:27,490
+But the next time the code runs and it hits this, it's not going to do what other programming languages
+
+90
+00:07:27,490 --> 00:07:30,880
+do, which is to reset it to the initial value.
+
+91
+00:07:31,090 --> 00:07:35,410
+But if it does encounter this operator, it will set it to whatever this value is.
+
+92
+00:07:35,860 --> 00:07:40,360
+So that means we have to comment it out in order to see the stable variable in action.
+
+93
+00:07:40,480 --> 00:07:45,280
+And this is a really, really magical way of programming applications, which we're going to see more
+
+94
+00:07:45,280 --> 00:07:47,410
+and more in the coming lessons.
+
+95
+00:07:47,680 --> 00:07:53,470
+But this was just a little taster, and I really want you to try it out for yourself, mess around with
+
+96
+00:07:53,470 --> 00:07:59,110
+it and see if you can get it to work for yourself and really wrap your head around it by tweaking it,
+
+97
+00:07:59,110 --> 00:08:02,980
+changing it, and seeing it for yourself with your own eyes.
+

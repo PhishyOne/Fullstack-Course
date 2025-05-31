@@ -1,0 +1,984 @@
+1
+00:00:00,360 --> 00:00:08,250
+In the last lesson, we focused on styling our listed NFTs, checking to see whether an NFT is listed
+
+2
+00:00:08,580 --> 00:00:16,079
+and generally handling a lot of the UI updates to improve the user experience of the listing and selling
+
+3
+00:00:16,079 --> 00:00:17,790
+of NFTs on our website.
+
+4
+00:00:18,360 --> 00:00:24,180
+Now in this lesson, I want to focus on getting this Discover page to work so that all the listed NFTs
+
+5
+00:00:24,180 --> 00:00:29,370
+can show up in here in a tile fashion similar to what we had in My NFTs.
+
+6
+00:00:30,030 --> 00:00:36,060
+That basically means that we're going to be reusing this gallery component and passing it some different
+
+7
+00:00:36,060 --> 00:00:37,470
+IDs as props.
+
+8
+00:00:38,220 --> 00:00:43,440
+To begin, we're going to have to look inside our header because this is the point where we actually
+
+9
+00:00:43,440 --> 00:00:50,910
+have diverging paths because when we head over to the collection route, we're going to pass over the
+
+10
+00:00:50,910 --> 00:00:58,560
+user owned gallery, which is a gallery that we've set up with the NFT IDs from the current users owned
+
+11
+00:00:58,570 --> 00:00:59,310
+NFTs.
+
+12
+00:01:00,120 --> 00:01:05,220
+Now at the moment for the Discover path, all it has is just an H1.
+
+13
+00:01:05,610 --> 00:01:10,680
+So we're going to delete that and we're going to replace it with the listingGallery.
+
+14
+00:01:11,580 --> 00:01:14,820
+And again, we'll need to add a constant up here.
+
+15
+00:01:19,370 --> 00:01:24,320
+And we're going to update it inside all getNFTs function.
+
+16
+00:01:24,950 --> 00:01:29,810
+So we're going to create a constant called the listedNFTIds.
+
+17
+00:01:30,740 --> 00:01:34,550
+And at the moment, we don't actually have a function in our main.
+
+18
+00:01:34,550 --> 00:01:34,940
+mo,
+
+19
+00:01:34,970 --> 00:01:39,740
+our OpenD, that handles grabbing hold of all the listed NFT IDs.
+
+20
+00:01:40,160 --> 00:01:42,080
+So let's go ahead and do that right now.
+
+21
+00:01:42,090 --> 00:01:43,700
+Heading to the main.
+
+22
+00:01:43,700 --> 00:01:44,120
+mo,
+
+23
+00:01:44,570 --> 00:01:50,840
+and I'm going to scroll up to find a section that's sort of somewhat related where we've got the getOwned
+
+24
+00:01:50,850 --> 00:01:52,520
+NFTs, and below it
+
+25
+00:01:52,730 --> 00:01:56,120
+I'm going to add a function that will get our listed NFTs.
+
+26
+00:01:56,960 --> 00:02:00,560
+Let's create a new public query func.
+
+27
+00:02:01,870 --> 00:02:11,230
+And it's going to be called getListedNFTs and it's going to not take any inputs, but it is going
+
+28
+00:02:11,230 --> 00:02:18,010
+to return an array of principal IDs, which will be the principals of all the
+
+29
+00:02:18,010 --> 00:02:24,800
+NFTs that are listed. Now, we're going to be looking through our map of listings and we're going to
+
+30
+00:02:24,820 --> 00:02:32,410
+be using a function in the HashMap which is called keys, which basically returns us an Iter which
+
+31
+00:02:32,410 --> 00:02:36,640
+is a Motoko data type of all the keys in this HashMap.
+
+32
+00:02:37,360 --> 00:02:43,930
+So we're going to say mapOfListings.keys and then parentheses.
+
+33
+00:02:44,260 --> 00:02:51,760
+And with these keys, we're going to turn it into an array using the Iter data type.
+
+34
+00:02:52,000 --> 00:02:54,760
+So we first have to import it in order to use it.
+
+35
+00:02:56,320 --> 00:03:02,980
+And we already worked with the Iter previously when we looked at how to persist HashMaps.
+
+36
+00:03:03,430 --> 00:03:11,020
+So now we're going to use again that really handy method from Iter which is called toArray and we're
+
+37
+00:03:11,020 --> 00:03:17,320
+going to pass in this thing that's iteratable, which is all keys from our map listings.
+
+38
+00:03:17,800 --> 00:03:22,360
+And I'm going to set this to a constant which I'll call ids,
+
+39
+00:03:24,090 --> 00:03:27,750
+and that is what we're going to be returning from this method.
+
+40
+00:03:31,380 --> 00:03:39,390
+So now with this new method getListedNFTs, we can go back to our header.jsx, call await opend
+
+41
+00:03:39,390 --> 00:03:43,740
+. and then paste in the name of that method call.
+
+42
+00:03:44,100 --> 00:03:52,170
+It doesn't take any inputs, so we can just cap it off like this, and then we can console.log these IDs
+
+43
+00:03:52,500 --> 00:03:55,380
+just to make sure that it actually does work.
+
+44
+00:03:58,180 --> 00:04:04,960
+And finally, we're going to set our gallery, setListingGallery not ownedGallery anymore, and
+
+45
+00:04:04,960 --> 00:04:10,570
+we're going to set it to a new gallery component and we're going to pass in some props.
+
+46
+00:04:10,990 --> 00:04:21,250
+So the title is going to be equal to Discover, the ids is going to be equal to our listedNFTIds,
+
+47
+00:04:21,730 --> 00:04:28,660
+and then finally, we can add our /> to close off our gallery component.
+
+48
+00:04:29,080 --> 00:04:33,490
+This basically passes the buck over to our gallery.
+
+49
+00:04:33,910 --> 00:04:37,330
+And if we go ahead and just deploy our canister again,
+
+50
+00:04:37,330 --> 00:04:43,120
+remember, you can find the code in the read me and simply just copy and paste it.
+
+51
+00:04:47,210 --> 00:04:51,320
+I'm always a little bit paranoid about the methods not updating, so
+
+52
+00:04:51,500 --> 00:04:53,600
+always watching this opend did
+
+53
+00:04:54,200 --> 00:05:00,620
+to make sure that the new update which is that new method we created, getListedNFTs, actually gets added
+
+54
+00:05:00,890 --> 00:05:01,490
+which it did.
+
+55
+00:05:01,500 --> 00:05:03,170
+So that worked successfully.
+
+56
+00:05:03,620 --> 00:05:07,490
+Now once that's all done, then we can go and mint a new NFT.
+
+57
+00:05:13,530 --> 00:05:15,600
+Which we're going to list for sale.
+
+58
+00:05:18,340 --> 00:05:23,680
+And if we now head over to our Discover Page, you can see that listed NFT showing up.
+
+59
+00:05:24,100 --> 00:05:29,770
+And just to make sure that it's actually correctly working, I'm going to mint yet another NFT.
+
+60
+00:05:34,440 --> 00:05:36,120
+Which I won't list for sale
+
+61
+00:05:36,120 --> 00:05:40,140
+and you can see the difference between My NFTs and Discover.
+
+62
+00:05:41,190 --> 00:05:44,040
+So if you get this, that means our code is working correctly.
+
+63
+00:05:47,200 --> 00:05:53,740
+So we're able to view our listed NFTs but we want to change the item a little bit because we don't want
+
+64
+00:05:53,740 --> 00:05:56,830
+it to be blurred when it's being shown on the Discover page.
+
+65
+00:05:56,840 --> 00:06:01,990
+We actually want people to buy it, to be able to see it, and we also want to add a buy button.
+
+66
+00:06:02,230 --> 00:06:08,950
+So we need some sort of way of identifying when the Discover page is being rendered and when the collection
+
+67
+00:06:08,950 --> 00:06:10,120
+page is being rendered.
+
+68
+00:06:11,050 --> 00:06:13,710
+Let's go ahead and add another prop
+
+69
+00:06:13,900 --> 00:06:18,040
+when we create a gallery component and this I'm going to call role.
+
+70
+00:06:18,490 --> 00:06:27,910
+So the first role for the My NFTs I'm going to pass as the collection, and the second role I'm going
+
+71
+00:06:27,910 --> 00:06:29,920
+to set as Discover.
+
+72
+00:06:32,300 --> 00:06:37,110
+And now in our gallery, we can simply just pass those props over.
+
+73
+00:06:37,130 --> 00:06:41,750
+So role = props.role 
+
+74
+00:06:42,110 --> 00:06:47,210
+and that's going to pass them straight over to our item, which is where we're actually going to care
+
+75
+00:06:47,210 --> 00:06:48,560
+a bit more about this.
+
+76
+00:06:49,400 --> 00:06:55,910
+Now, everything we've done here so far below where we've set the image, set the owner, set name, is pretty
+
+77
+00:06:55,910 --> 00:06:59,720
+much only for our My NFTs page.
+
+78
+00:07:00,140 --> 00:07:08,090
+So we can say if the props.role is equal to collection, and make sure that you don't have any typos
+
+79
+00:07:08,090 --> 00:07:11,570
+between here and where you set it in the header.
+
+80
+00:07:12,920 --> 00:07:26,960
+Then we're going to perform all of these functions like so. But else if our props.role is equal to
+
+81
+00:07:27,500 --> 00:07:28,340
+Discover,
+
+82
+00:07:29,150 --> 00:07:32,390
+well, in that case, we're going to do something a little bit different.
+
+83
+00:07:32,570 --> 00:07:40,010
+And what we want to do here is we want to set the button to say Buy instead, because that's the purpose
+
+84
+00:07:40,010 --> 00:07:41,210
+of the Discover page.
+
+85
+00:07:41,330 --> 00:07:43,460
+So we're going to change the text to buy.
+
+86
+00:07:43,700 --> 00:07:48,890
+And it says, passing over a method called handleSell, we're going to pass over a method called handle
+
+87
+00:07:48,890 --> 00:07:52,160
+Buy which means we have to create it as well.
+
+88
+00:07:52,190 --> 00:07:55,010
+So let's create our async function
+
+89
+00:07:56,980 --> 00:08:07,450
+handleBuy, and simply just console.log that Buy was triggered.
+
+90
+00:08:10,660 --> 00:08:11,410
+Like this.
+
+91
+00:08:12,910 --> 00:08:13,180
+Now
+
+92
+00:08:13,180 --> 00:08:15,430
+let's check to see if it actually works.
+
+93
+00:08:15,520 --> 00:08:23,290
+You can see on the Discover page, we've got our item and it says buy. On our My NFTs page,
+
+94
+00:08:23,620 --> 00:08:28,060
+if there's an item that can be sold, it has the sell button.
+
+95
+00:08:28,060 --> 00:08:33,039
+If it has an item that's already listed, then it doesn't have a sell button because it's already been
+
+96
+00:08:33,039 --> 00:08:33,940
+sold and listed.
+
+97
+00:08:34,630 --> 00:08:41,070
+So notice here, it's actually showing us the buy button for an item that we listed ourselves,
+
+98
+00:08:41,080 --> 00:08:41,380
+right?
+
+99
+00:08:41,380 --> 00:08:47,260
+So we're actually the original owner of this NFT, but because we had to temporarily transfer it over
+
+100
+00:08:47,260 --> 00:08:53,500
+to OpenD to be able to list it, we should not be able to buy our own NFT back.
+
+101
+00:08:53,500 --> 00:08:56,380
+That makes no sense in terms of the logic.
+
+102
+00:08:56,830 --> 00:09:03,610
+So we're going to have to do some checks and balances in our Discover section here. And what we're most interested
+
+103
+00:09:03,610 --> 00:09:07,120
+in is actually the original owner.
+
+104
+00:09:08,890 --> 00:09:15,700
+So not the current owner, which is going to be OpenD's canister ID, but the actual original owner,
+
+105
+00:09:15,700 --> 00:09:18,220
+which we know is ourselves.
+
+106
+00:09:18,220 --> 00:09:23,470
+And we can do this by creating a method in our main.mo.
+
+107
+00:09:24,510 --> 00:09:30,450
+So it's going to be a public query func and I'm going to call it getOriginal
+
+108
+00:09:31,930 --> 00:09:41,710
+Owner, and it's going to require us to pass in the principal ID of the actual NFT, and we're going to
+
+109
+00:09:41,710 --> 00:09:47,500
+return the principal ID of the original owner of the NFT.
+
+110
+00:09:48,250 --> 00:09:54,550
+Remember that previously when we added items into our map of listings, it was a HashMap with keys
+
+111
+00:09:54,550 --> 00:09:57,490
+made up of the principal ID of the NFT,
+
+112
+00:09:57,850 --> 00:10:04,630
+and then values were these listing types which contains the item owner's principal and the item price.
+
+113
+00:10:05,200 --> 00:10:16,060
+So we can tap into that by getting hold of the actual listing by passing over the item ID. Similar to
+
+114
+00:10:16,120 --> 00:10:21,940
+previously when we were working with Optionals, we're going to have to use the switch statement to unwrap
+
+115
+00:10:21,940 --> 00:10:22,090
+it.
+
+116
+00:10:22,510 --> 00:10:30,400
+So I'm going to create a var for getting hold of the listing, which is going to be of data type Listing.
+
+117
+00:10:31,300 --> 00:10:42,730
+And I'm going to switch on the mapOfListings and calling the get on the ID that's passed in here.
+
+118
+00:10:43,720 --> 00:10:50,650
+And once I've got my switch statement, I've got the case null, which means that this particular ID
+
+119
+00:10:50,950 --> 00:10:55,850
+which we found in our mapOfListings doesn't actually correspond to any NFTs,
+
+120
+00:10:55,960 --> 00:11:01,030
+well, then we're going to simply return a empty principal.
+
+121
+00:11:06,620 --> 00:11:14,210
+But otherwise we're going to unwrap the result. And then we're going to return the listing
+
+122
+00:11:15,410 --> 00:11:16,910
+.itemOwner.
+
+123
+00:11:18,320 --> 00:11:28,080
+So now coming back to our frontend, we can check to see who the original owner is by doing await opend
+
+124
+00:11:28,100 --> 00:11:39,830
+. and then the name of our method which is getOriginalOwner passing in props.id, the id of
+
+125
+00:11:39,830 --> 00:11:41,330
+the current NFT.
+
+126
+00:11:43,950 --> 00:11:48,720
+Now we're going to check if the original owner's principal,
+
+127
+00:11:49,110 --> 00:11:57,510
+once it's converted to text is not equal to the current logged in user, which remember we're exporting
+
+128
+00:11:57,510 --> 00:12:00,930
+and keeping hold of in here in our index.jsx.
+
+129
+00:12:01,320 --> 00:12:05,130
+That way we don't have to deploy a canister and we don't have to deal with log in flow.
+
+130
+00:12:05,640 --> 00:12:11,070
+So we have to import that over to our item.jsx right here.
+
+131
+00:12:11,430 --> 00:12:18,270
+So if you start typing CURRENT_USER_ID, let's hit enter, then it should import it for you.
+
+132
+00:12:18,810 --> 00:12:22,500
+And we're going to again turn that into text.
+
+133
+00:12:22,560 --> 00:12:26,700
+So we're going to use toText to compare like with like.
+
+134
+00:12:27,300 --> 00:12:34,470
+And if it is the case that the original owner is not the current owner, then we should be able to see
+
+135
+00:12:34,470 --> 00:12:35,430
+the buy button.
+
+136
+00:12:35,700 --> 00:12:41,970
+So let's go ahead and make sure that we save our main.mo file so that it goes from the italic
+
+137
+00:12:41,970 --> 00:12:43,590
+to non-italic font.
+
+138
+00:12:44,010 --> 00:12:52,230
+And then we're going to deploy our canister again using our long-winded deployment code from our read
+
+139
+00:12:52,230 --> 00:12:57,390
+me just so that all our latest updates are reflected.
+
+140
+00:13:03,000 --> 00:13:08,580
+Now, once our canisters are all deployed, we want to be able to test it out on the front end.
+
+141
+00:13:08,760 --> 00:13:14,970
+But we have a problem here because we're only able to mint NFTs from the front end as ourselves.
+
+142
+00:13:15,330 --> 00:13:21,510
+So we will never be able to see that buy button because the original owner of the NFT is always going
+
+143
+00:13:21,510 --> 00:13:23,400
+to be ourselves, the user.
+
+144
+00:13:23,550 --> 00:13:24,840
+So how do we get around that?
+
+145
+00:13:25,260 --> 00:13:29,460
+Well, that's why we have the command line. In order to test this,
+
+146
+00:13:29,820 --> 00:13:32,460
+I want you to head over to the read me.
+
+147
+00:13:32,490 --> 00:13:39,360
+And if you scroll down, you'll see a section called Creating NFT for Testing.
+
+148
+00:13:39,930 --> 00:13:45,720
+Here, we're going to mint an NFT on the command line to get into the mapOfNFTs.
+
+149
+00:13:48,100 --> 00:13:57,370
+And once that comes back, it'll come back with a ID of the newly minted NFT.
+
+150
+00:13:57,760 --> 00:14:01,090
+So we're going to copy everything that's in between the double-quotes,
+
+151
+00:14:01,450 --> 00:14:08,980
+and I want you to replace what it says here on step #2: list the item into mapOfListings with that
+
+152
+00:14:08,980 --> 00:14:10,300
+ID that you got back.
+
+153
+00:14:10,300 --> 00:14:15,910
+So make sure that you remove the angle brackets and all you're left with is just something that looks
+
+154
+00:14:15,910 --> 00:14:16,480
+like this.
+
+155
+00:14:17,080 --> 00:14:19,120
+Now, go ahead and copy it.
+
+156
+00:14:19,270 --> 00:14:23,770
+Copy it on the preview if you don't want to accidentally copy these back strokes.
+
+157
+00:14:24,130 --> 00:14:26,770
+So let's copy that and paste it in here.
+
+158
+00:14:27,760 --> 00:14:32,020
+And once we list the item and it comes back success as well,
+
+159
+00:14:32,260 --> 00:14:38,940
+and then we're going to go to step 3. where we get hold of OpenD's canister ID by calling dfx canister
+
+160
+00:14:38,980 --> 00:14:46,510
+id opend, and then we're going to copy the canister id of opend and go into step 4. and replace
+
+161
+00:14:46,510 --> 00:14:52,120
+everything that's in between the angle brackets, including the angle brackets, where it says replace
+
+162
+00:14:52,120 --> 00:14:53,890
+with opend canister id.
+
+163
+00:14:54,640 --> 00:14:59,980
+And then finally, we're going to get hold of the canister ID from the previous step here,
+
+164
+00:15:00,340 --> 00:15:06,010
+that's the id of the NFT, and we're going to replace it in here.
+
+165
+00:15:06,040 --> 00:15:11,350
+And notice that this time it doesn't have any double-quotes around this part so that we're calling
+
+166
+00:15:11,350 --> 00:15:17,380
+that canister's transferOwnership method and transferring that NFT to the OpenD.
+
+167
+00:15:17,680 --> 00:15:22,300
+So we're basically doing everything that we normally do on the frontend, but this time using the command
+
+168
+00:15:22,300 --> 00:15:24,670
+line and doing it from the backend.
+
+169
+00:15:25,240 --> 00:15:30,430
+And hopefully that comes back as  success. If it doesn't or if any of the steps don't work,
+
+170
+00:15:30,700 --> 00:15:36,100
+just make sure that you haven't got any apparent angle brackets or any double-quotes.
+
+171
+00:15:36,460 --> 00:15:39,520
+The double quotes are meant to be here, but not here,
+
+172
+00:15:39,520 --> 00:15:41,440
+so just be careful there.
+
+173
+00:15:41,740 --> 00:15:48,760
+So now if we refresh our Discover page, you'll see our newly minted NFT that came from the command
+
+174
+00:15:48,760 --> 00:15:49,120
+line.
+
+175
+00:15:49,510 --> 00:15:55,120
+And because we created it from the command line, the original owner is not the same as the one that
+
+176
+00:15:55,120 --> 00:15:57,820
+we would have when we mint it on the frontend.
+
+177
+00:15:58,450 --> 00:16:03,310
+So what this means is that we should be able to get our buy button to show up.
+
+178
+00:16:03,640 --> 00:16:05,740
+And that's exactly what happens.
+
+179
+00:16:05,830 --> 00:16:07,540
+Now, just for you to be able to compare,
+
+180
+00:16:07,750 --> 00:16:14,170
+I'm going to speed through the minting and selling process just to show you the difference.
+
+181
+00:16:14,200 --> 00:16:15,910
+So this is sped up in the editing.
+
+182
+00:16:15,910 --> 00:16:17,500
+Don't worry, I'm not that fast.
+
+183
+00:16:17,710 --> 00:16:25,810
+And now if we head back over to the Discover page, you can see both listed NFTs on display, but only
+
+184
+00:16:25,810 --> 00:16:32,740
+the one where the original owner is not ourselves is available to buy. And the one that we minted ourselves
+
+185
+00:16:32,740 --> 00:16:37,730
+which we still own, even though we listed for sale, we still can't buy it.
+
+186
+00:16:37,750 --> 00:16:39,640
+So that button is not there.
+
+187
+00:16:40,150 --> 00:16:46,270
+Now, the final thing I want to do before we wrap up this lesson is to display the prices of our NFTs
+
+188
+00:16:46,270 --> 00:16:47,650
+that are listed for sale.
+
+189
+00:16:48,040 --> 00:16:52,330
+Because after all, how can people make a buy decision if they don't know how much things cost?
+
+190
+00:16:52,780 --> 00:16:53,980
+In our read me
+
+191
+00:16:53,980 --> 00:16:59,170
+if you scroll up a little bit, you should see a price label HTML.
+
+192
+00:16:59,680 --> 00:17:06,880
+And if you simply copy it and we're going to create a new component which we're going to call Price
+
+193
+00:17:06,880 --> 00:17:09,460
+Label.jsx.
+
+194
+00:17:10,030 --> 00:17:14,000
+And inside here, we're going to create this component.
+
+195
+00:17:14,319 --> 00:17:20,200
+So I'm just going to copy what I had in the button component so I don't have to rewrite a lot of this
+
+196
+00:17:20,200 --> 00:17:20,710
+code.
+
+197
+00:17:21,160 --> 00:17:28,420
+So import React from react. Function, this is called the PriceLabel, capital P, capital L. It's going
+
+198
+00:17:28,420 --> 00:17:31,660
+to receive some props and then it's going to return.
+
+199
+00:17:32,050 --> 00:17:39,880
+And then we've got our HTML and then we're going to close off the function and we're going to do export
+
+200
+00:17:39,880 --> 00:17:42,430
+default PriceLabel.
+
+201
+00:17:44,550 --> 00:17:46,650
+So now we can use this PriceLabel.
+
+202
+00:17:46,830 --> 00:17:49,880
+And to start with, I just want to show you what it looks like.
+
+203
+00:17:49,920 --> 00:17:55,830
+So just above the H2, I want you to go ahead and insert that PriceLabel component.
+
+204
+00:17:59,910 --> 00:18:03,120
+So hopefully that has imported by itself.
+
+205
+00:18:03,450 --> 00:18:07,590
+And now if we go on to the frontend, you can see the price label showing up.
+
+206
+00:18:08,160 --> 00:18:14,040
+Now, we don't want it to always say 23, so we're going to pass this number in as a prop.
+
+207
+00:18:14,190 --> 00:18:23,280
+So we're going to put the props.sellPrice and coming back to item, we're going to turn this
+
+208
+00:18:23,640 --> 00:18:29,370
+into a priceLabel state stateful constant.
+
+209
+00:18:30,000 --> 00:18:34,320
+So it was called priceLabel, setPriceLabel.
+
+210
+00:18:40,700 --> 00:18:48,560
+Now the point where we want to set our price label is when we are in our Discover section.
+
+211
+00:18:48,860 --> 00:18:56,930
+So just below where we've done our if statement, we're going to check the price of the NFT.
+
+212
+00:18:57,680 --> 00:19:04,490
+So that's going to involve a little bit more code in our main.mo where we get hold of the item
+
+213
+00:19:04,490 --> 00:19:05,120
+price.
+
+214
+00:19:06,380 --> 00:19:09,710
+So let's bring up our main.mo
+
+215
+00:19:11,160 --> 00:19:17,310
+and create a new public query function which is called get
+
+216
+00:19:18,550 --> 00:19:29,110
+ListedNFTPrice passing in the id of the NFT and returning a natural number.
+
+217
+00:19:31,910 --> 00:19:34,490
+So add the semicolons where you need to
+
+218
+00:19:34,610 --> 00:19:42,110
+and we're going to get hold of the listing in a very similar way to before. I'm going to create a variable
+
+219
+00:19:42,110 --> 00:19:45,770
+called listing, which is of type Listing.
+
+220
+00:19:47,090 --> 00:19:55,730
+And it's going to use a switch statement to check our mapOfListings to get hold of the one with this
+
+221
+00:19:55,730 --> 00:20:03,890
+ID that's passed in. In the case where it's null in this case, we're simply going to return zero as
+
+222
+00:20:03,890 --> 00:20:04,850
+the price.
+
+223
+00:20:05,240 --> 00:20:13,940
+But in the case where it does exist as an optional, then we're going to use that result and finally
+
+224
+00:20:13,940 --> 00:20:18,890
+return the listing.itemPrice.
+
+225
+00:20:21,030 --> 00:20:23,100
+And now we can call this method,
+
+226
+00:20:23,110 --> 00:20:26,820
+I'm just going to copy it so that I can paste it in here.
+
+227
+00:20:27,000 --> 00:20:35,130
+So I'm going to create a new const to called price and it's going to be set to equal await opend.
+
+228
+00:20:35,430 --> 00:20:42,300
+paste in my method name and then use the props.id.
+
+229
+00:20:42,690 --> 00:20:55,290
+And now using my sell price, I can set my price label to be a new PriceLabel component and I'm going
+
+230
+00:20:55,290 --> 00:21:04,200
+to give it the prop of the sellPrice and then setting our sellPrice to price, but not just the price.
+
+231
+00:21:04,380 --> 00:21:10,860
+We have to use the toString method to change it into an actual string because that's what the span
+
+232
+00:21:10,860 --> 00:21:13,560
+wants to see and is able to display.
+
+233
+00:21:14,700 --> 00:21:20,640
+So making sure that you've got the toString and the parentheses after that method call to make that
+
+234
+00:21:20,640 --> 00:21:21,540
+conversion.
+
+235
+00:21:22,020 --> 00:21:29,130
+So now all we have to do is hit save and redeploy because we've made some changes to our backend.
+
+236
+00:21:33,390 --> 00:21:39,210
+And then once that's done, we have to mint a new NFT and put it up for sale.
+
+237
+00:21:39,870 --> 00:21:46,470
+And once it's listed, on the Discover page, you'll be able to see its price being listed.
+
+238
+00:21:47,130 --> 00:21:47,880
+There you have it.
+
+239
+00:21:48,090 --> 00:21:56,400
+We've managed to style our Discover page to display all of the NFTs that are available for sale.
+
+240
+00:21:56,730 --> 00:22:03,720
+We've managed to get the button to only show up when the NFT is put up for sale by somebody other than
+
+241
+00:22:03,720 --> 00:22:04,530
+ourselves.
+
+242
+00:22:04,950 --> 00:22:13,410
+We've got the price label set up and we've now got a pretty good-looking digital marketplace for NFTs.
+
+243
+00:22:14,070 --> 00:22:21,480
+In the next lesson, we've got the very last aspect of this website to complete, which is the buying
+
+244
+00:22:21,480 --> 00:22:28,560
+of NFTs. So that we can come along, transfer our DANG tokens using that token that we created in the
+
+245
+00:22:28,560 --> 00:22:33,660
+previous module and to be able to purchase actual NFTs and transfer the ownership.
+
+246
+00:22:34,110 --> 00:22:36,890
+So for all of that and more, I'll see you on the next lesson.
+

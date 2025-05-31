@@ -1,0 +1,688 @@
+1
+00:00:00,140 --> 00:00:04,910
+Now, in the previous lesson, we learned a little bit about ordered and unordered lists.
+
+2
+00:00:04,939 --> 00:00:08,510
+Now in this lesson, we're going to take that concept a little bit further.
+
+3
+00:00:08,550 --> 00:00:12,180
+I want to show you how you can nest things inside others.
+
+4
+00:00:12,200 --> 00:00:21,020
+For example, we saw that we could already nest the list elements inside an unordered list and you would
+
+5
+00:00:21,020 --> 00:00:23,110
+see it indented like this.
+
+6
+00:00:23,120 --> 00:00:29,810
+But, we can actually go a step further and we can actually nest a list inside another list.
+
+7
+00:00:29,840 --> 00:00:37,520
+So in this case, what you see is we've got the first unordered list that starts here, and this is
+
+8
+00:00:37,520 --> 00:00:39,260
+where it ends,
+
+9
+00:00:39,470 --> 00:00:42,890
+but we've also got another unordered list here.
+
+10
+00:00:42,890 --> 00:00:48,050
+And this is where the second one begins and where it ends.
+
+11
+00:00:48,140 --> 00:00:51,950
+When this is rendered in a website, this is what you'll see.
+
+12
+00:00:51,980 --> 00:00:55,010
+You'll see it's looking like this.
+
+13
+00:00:55,010 --> 00:00:59,970
+So you've got the first list that is this entire part.
+
+14
+00:00:59,970 --> 00:01:04,830
+And then inside the first list, we've got a separate list
+
+15
+00:01:04,950 --> 00:01:07,530
+under this particular bullet point.
+
+16
+00:01:07,950 --> 00:01:10,190
+Now, how does the code look?
+
+17
+00:01:10,200 --> 00:01:12,380
+Well, it looks quite simple.
+
+18
+00:01:12,390 --> 00:01:17,010
+All you have to do is, inside a list item
+
+19
+00:01:17,010 --> 00:01:20,520
+you see how the starting list item is right here,
+
+20
+00:01:20,520 --> 00:01:27,450
+and the end list item is down here. Inside this list item
+
+21
+00:01:27,450 --> 00:01:34,620
+instead of simply just having a single line of text such as what we've got up here, instead, we've
+
+22
+00:01:34,620 --> 00:01:38,080
+actually embedded an entire unordered list.
+
+23
+00:01:38,100 --> 00:01:46,290
+So first we'll write the text for the list item, and then after the text we embed our unordered list,
+
+24
+00:01:46,290 --> 00:01:49,890
+just as you would see in any other normal list.
+
+25
+00:01:50,820 --> 00:01:55,770
+And then we end up with what's called a nested list.
+
+26
+00:01:56,410 --> 00:02:04,690
+This is the part where indentation of your code becomes super important, because imagine the code looked
+
+27
+00:02:04,690 --> 00:02:07,990
+like this and not like this.
+
+28
+00:02:08,020 --> 00:02:16,360
+When you look at this code at a glance, it's a lot harder to see that you've got a list embedded inside
+
+29
+00:02:16,360 --> 00:02:17,410
+another list,
+
+30
+00:02:17,410 --> 00:02:17,980
+right?
+
+31
+00:02:18,070 --> 00:02:24,490
+Because you have to actually read what each of these tags are instead of using the clues that's offered
+
+32
+00:02:24,490 --> 00:02:26,560
+by that indentation.
+
+33
+00:02:27,100 --> 00:02:34,260
+And as you can imagine, we can have even crazier nested lists like what I've got right here.
+
+34
+00:02:34,270 --> 00:02:37,480
+So there's actually three lists here.
+
+35
+00:02:37,510 --> 00:02:39,550
+One is up here.
+
+36
+00:02:39,580 --> 00:02:41,860
+This is the first list.
+
+37
+00:02:41,950 --> 00:02:44,530
+This is an unordered list.
+
+38
+00:02:44,680 --> 00:02:51,400
+And then we've got a second list right here, which is again, an unordered list.
+
+39
+00:02:51,400 --> 00:02:56,200
+And that's embedded under the list item for "B".
+
+40
+00:02:56,200 --> 00:03:05,170
+And then to complicate things, I've added a third ordered list that's listed under this second item
+
+41
+00:03:05,170 --> 00:03:06,310
+right here.
+
+42
+00:03:06,550 --> 00:03:12,700
+This amount of craziness starts to really highlight the issues that you're going to have reading this
+
+43
+00:03:12,700 --> 00:03:13,240
+code.
+
+44
+00:03:13,270 --> 00:03:18,310
+Imagine somebody else gave you this code and you had to figure out without looking at the right hand
+
+45
+00:03:18,340 --> 00:03:21,400
+side, what is going on right here.
+
+46
+00:03:21,580 --> 00:03:30,760
+It's a lot easier if we have it indented, right?  Because we can clearly see one unordered list, the
+
+47
+00:03:30,760 --> 00:03:39,670
+second unordered list and the third ordered list because they're all nicely indented and is a lot easier
+
+48
+00:03:39,670 --> 00:03:42,380
+visually for when we're reading code.
+
+49
+00:03:42,400 --> 00:03:48,310
+So when you're writing code, you also are thinking about how other people are going to find reading
+
+50
+00:03:48,310 --> 00:03:49,120
+your code.
+
+51
+00:03:49,660 --> 00:03:53,380
+Now let's try an exercise to really drill this home.
+
+52
+00:03:53,920 --> 00:03:59,840
+I want you to download "The Nesting and Indentation zip file," from this current lesson, and I want you
+
+53
+00:03:59,840 --> 00:04:04,010
+to open up inside VS Code as you have done previously.
+
+54
+00:04:04,100 --> 00:04:10,760
+Now, in this case, if we take a look at our goal is to create a super complex nested list.
+
+55
+00:04:10,880 --> 00:04:17,120
+In the last lesson you already saw how you can create simple list elements, whether it's unordered
+
+56
+00:04:17,120 --> 00:04:19,370
+lists or it's ordered lists,
+
+57
+00:04:19,399 --> 00:04:23,740
+it's pretty simple to create just a list with some list items.
+
+58
+00:04:23,750 --> 00:04:29,460
+But in this challenge, I want you to create something a lot more complicated.
+
+59
+00:04:29,480 --> 00:04:30,980
+Let me walk you through it.
+
+60
+00:04:30,980 --> 00:04:40,010
+So firstly, we've got an unordered list that has just three list items A, B and C, but under item
+
+61
+00:04:40,040 --> 00:04:44,720
+B, notice here we've got an ordered list.
+
+62
+00:04:45,050 --> 00:04:55,850
+This ordered list also has three items and under item B2, the second item, we've got yet another unordered
+
+63
+00:04:55,850 --> 00:04:56,510
+list.
+
+64
+00:04:56,750 --> 00:05:01,220
+And inside the first item we've nested another unordered list.
+
+65
+00:05:01,220 --> 00:05:06,380
+And inside the third item we've embedded another ordered list.
+
+66
+00:05:06,710 --> 00:05:12,590
+This is a little bit complicated and in order to really understand it, you need to take a look at this
+
+67
+00:05:12,590 --> 00:05:20,930
+part of the video because here I've got the code that will create this simpler structure.
+
+68
+00:05:20,930 --> 00:05:28,280
+And the important thing to notice is that whereas normally you would probably have a list item that
+
+69
+00:05:28,280 --> 00:05:33,920
+starts like this and then you would have it closed like this.
+
+70
+00:05:35,340 --> 00:05:44,370
+In the case when we're embedding a list, that closing tag does not go here, but instead it goes all
+
+71
+00:05:44,370 --> 00:05:49,590
+the way at the end of the nested list.
+
+72
+00:05:49,680 --> 00:05:57,000
+Once we're done nesting, this unordered list right here, then do we close that list item?
+
+73
+00:05:57,000 --> 00:06:00,710
+So this is a really important thing to take notice of.
+
+74
+00:06:00,720 --> 00:06:08,340
+And then I want you to just study this page a little bit to see how I created this list using this code
+
+75
+00:06:08,340 --> 00:06:14,910
+and then take this and apply it to the challenge in the coding exercise.
+
+76
+00:06:15,300 --> 00:06:16,800
+Have a good think about it.
+
+77
+00:06:16,800 --> 00:06:19,440
+Take some time to try and complete this challenge.
+
+78
+00:06:19,470 --> 00:06:25,170
+I for one, believe that you can do this if you just spend some time thinking and trying it.
+
+79
+00:06:25,170 --> 00:06:32,100
+And as always, remember you can use the preview feature to see how your code is turning out and shaping
+
+80
+00:06:32,100 --> 00:06:34,140
+up while you're writing it.
+
+81
+00:06:34,140 --> 00:06:36,160
+And I think that will help you quite a lot.
+
+82
+00:06:36,250 --> 00:06:39,310
+Pause the video now and give that coding exercise a go.
+
+83
+00:06:40,800 --> 00:06:41,280
+All right.
+
+84
+00:06:41,280 --> 00:06:42,330
+So how did that go?
+
+85
+00:06:42,330 --> 00:06:45,630
+Now, if you didn't give that a go, I want you to stop the video now,
+
+86
+00:06:45,660 --> 00:06:47,280
+make sure that you've tried it.
+
+87
+00:06:47,280 --> 00:06:50,250
+You're not going to learn coding through just watching me code.
+
+88
+00:06:50,280 --> 00:06:54,540
+You're only going to learn programming by actually doing it.
+
+89
+00:06:54,540 --> 00:06:59,010
+Solving challenges, feeling stupid, sometimes feeling like you're not good enough,
+
+90
+00:06:59,010 --> 00:07:03,750
+but at the end, when you do get it, when you do succeed, it's going to feel amazing.
+
+91
+00:07:03,750 --> 00:07:07,860
+And I promise you it was the same for everybody who's gone through this journey.
+
+92
+00:07:08,040 --> 00:07:13,980
+So what I'm going to do is I'm going to run through the solution and I'm going to drag my goal up over
+
+93
+00:07:13,980 --> 00:07:19,020
+here so I can compare it to the preview as I go along.
+
+94
+00:07:19,020 --> 00:07:28,200
+So the first step is creating the first unordered list with three items: A, B and C. That should be pretty
+
+95
+00:07:28,200 --> 00:07:29,190
+easy to do.
+
+96
+00:07:29,190 --> 00:07:32,580
+And let's go ahead and create that.
+
+97
+00:07:35,850 --> 00:07:41,670
+All right, so now we've got the top of our nest, which is our A, B and C.
+
+98
+00:07:41,850 --> 00:07:44,940
+If we take a look at our goal, compare it,
+
+99
+00:07:44,970 --> 00:07:48,690
+we've got A, B, C. Inside the bullet
+
+100
+00:07:48,720 --> 00:07:53,760
+B, we're going to embed right here, an ordered list.
+
+101
+00:07:53,760 --> 00:07:58,860
+So it's again going to have three items B1, B2 and B3,
+
+102
+00:07:58,860 --> 00:08:04,050
+and we know it's an ordered list because it starts off with the numbers one, two and three.
+
+103
+00:08:04,920 --> 00:08:10,760
+Let's go ahead and embed that inside this second B list item.
+
+104
+00:08:10,770 --> 00:08:16,830
+Remember what I said? When you embed a list in another one, you find the list item you want to embed
+
+105
+00:08:16,830 --> 00:08:17,340
+it in,
+
+106
+00:08:17,340 --> 00:08:25,260
+and after the content of the list item, which is of course, this B right here, then we go ahead and
+
+107
+00:08:25,260 --> 00:08:29,820
+hit enter and that is where we create our list.
+
+108
+00:08:29,850 --> 00:08:36,280
+We're going to create an ordered list in this case and it's going to have three items.
+
+109
+00:08:36,280 --> 00:08:42,520
+The first one is going to be B1 and then B2 and B3.
+
+110
+00:08:43,030 --> 00:08:45,880
+Now let's again compare and contrast.
+
+111
+00:08:45,910 --> 00:08:52,750
+We've got our B1, B2, B3, but take a look inside this B2 item.
+
+112
+00:08:52,750 --> 00:09:01,240
+Again, we're going to nest another list and here we've got an unordered list B2a B2b and B2c.
+
+113
+00:09:01,390 --> 00:09:03,460
+Let's go ahead and do that.
+
+114
+00:09:06,400 --> 00:09:14,020
+Right here inside the B2 list item, we're going to create our unordered list, our ul, and we're going
+
+115
+00:09:14,020 --> 00:09:19,720
+to have B2a B2b and B2c.
+
+116
+00:09:21,100 --> 00:09:22,180
+Let's compare.
+
+117
+00:09:22,180 --> 00:09:26,650
+We've got B2b, B2b, B2c, so we've already got most of the parts done.
+
+118
+00:09:26,740 --> 00:09:35,140
+The final nest in this big long chain is under B2a, we need to add an unordered list, B2aa and
+
+119
+00:09:35,140 --> 00:09:36,010
+B2ab.
+
+120
+00:09:36,430 --> 00:09:40,630
+Now, the way that I've named each of these hopefully should help you with the nesting.
+
+121
+00:09:40,630 --> 00:09:46,000
+If it doesn't, then you just have to compare against the goal and try matching it visually.
+
+122
+00:09:46,240 --> 00:09:51,910
+In this case instead of under the second item, it's actually nested under the first item.
+
+123
+00:09:51,910 --> 00:10:03,700
+And again, it's an unordered list with just two list items B2aa and B2ab.
+
+124
+00:10:05,140 --> 00:10:10,180
+Now we've got pretty much all of this part sorted,
+
+125
+00:10:10,300 --> 00:10:19,030
+all we need to do now is just to add the final ordered list embed under the B3 list item.
+
+126
+00:10:19,600 --> 00:10:22,010
+Let's find our B3 list item.
+
+127
+00:10:22,010 --> 00:10:27,560
+After the text, let's hit enter to create a new line and then we're going to create an ordered list
+
+128
+00:10:27,560 --> 00:10:38,540
+like this and we're going to add our two list items B31 and B32.
+
+129
+00:10:39,020 --> 00:10:45,650
+So now if we compare our goal and what we've got in the preview, you should see it's completely identical,
+
+130
+00:10:45,650 --> 00:10:50,210
+and through this process, hopefully you've learned a little bit more about nesting.
+
+131
+00:10:50,300 --> 00:10:58,370
+And one of the nice things about Visual Studio Code is that it will automatically indent things as you
+
+132
+00:10:58,370 --> 00:10:59,570
+write your code.
+
+133
+00:10:59,600 --> 00:11:04,190
+It knows, for example, list items, go inside a list.
+
+134
+00:11:04,190 --> 00:11:12,590
+So whether if it's a ul or an ol, when you go to file and save, or use the shortcut command here, in
+
+135
+00:11:12,590 --> 00:11:14,810
+my case on a mac, it's command+S.
+
+136
+00:11:14,840 --> 00:11:17,420
+If you're on a windows, it's probably Ctrl+S.
+
+137
+00:11:17,450 --> 00:11:21,800
+When you do that, it automatically re-indents everything.
+
+138
+00:11:21,800 --> 00:11:29,270
+So even if you kind of mess things up in a big way as you type like I've got here and you've made all
+
+139
+00:11:29,270 --> 00:11:31,520
+of the structure look very weird,
+
+140
+00:11:31,760 --> 00:11:40,280
+if you save Visual Studio Code will re-indent everything for you. So you don't have to necessarily indent
+
+141
+00:11:40,310 --> 00:11:43,910
+things, but it's important you understand what the indentation means.
+
+142
+00:11:43,910 --> 00:11:52,430
+So here you see a line right here and it links the opening ul to the matching closing ul tag, and then
+
+143
+00:11:52,430 --> 00:12:02,150
+it has indented these two list items over so that you can see these two items probably belong to this
+
+144
+00:12:02,180 --> 00:12:03,650
+unordered list.
+
+145
+00:12:04,070 --> 00:12:09,140
+And very often in HTML you will have matching tags.
+
+146
+00:12:09,140 --> 00:12:15,110
+If there's an open tag, there's probably a closing tag and all of these things on screen such as these
+
+147
+00:12:15,110 --> 00:12:15,800
+lines
+
+148
+00:12:15,800 --> 00:12:22,490
+and the indentation, is here to help you to understand how your code looks so that if you actually have
+
+149
+00:12:22,490 --> 00:12:29,540
+an error, such as, for example, if you had forgotten to close this ol and when you see your code
+
+150
+00:12:29,540 --> 00:12:36,020
+doing weird things like for example, in this case, why is my C in an ordered list when it should be
+
+151
+00:12:36,020 --> 00:12:38,960
+at the top level with the other unordered list?
+
+152
+00:12:38,990 --> 00:12:40,700
+What is going on here?
+
+153
+00:12:40,910 --> 00:12:44,420
+Well, I can then follow these indentations.
+
+154
+00:12:44,750 --> 00:12:52,580
+I can see that this ul obviously matches along this line down to this closing one.
+
+155
+00:12:52,580 --> 00:12:55,880
+And then this next one is a list item.
+
+156
+00:12:55,880 --> 00:13:04,940
+So these two are on one line, they're matched and then this next list item is matched up with this
+
+157
+00:13:04,940 --> 00:13:05,300
+one.
+
+158
+00:13:05,300 --> 00:13:07,720
+But then wait a minute, what's going on here?
+
+159
+00:13:07,730 --> 00:13:13,670
+Why is this ol matched to a list item?
+
+160
+00:13:13,670 --> 00:13:17,330
+Or maybe there's something missing right here?
+
+161
+00:13:17,330 --> 00:13:21,560
+Well, it is, of course, the missing closing tag.
+
+162
+00:13:21,560 --> 00:13:25,730
+So this way I can start to figure out where my errors come from.
+
+163
+00:13:25,730 --> 00:13:31,070
+So we're going to do a lot more of this kind of error checking and mistake correction, which we call
+
+164
+00:13:31,100 --> 00:13:33,110
+debugging, in future lessons.
+
+165
+00:13:33,110 --> 00:13:39,860
+But this is just a taster in this lesson for how you can use some of the tools to help you make sure
+
+166
+00:13:39,860 --> 00:13:43,010
+that your code is working and that you're writing the correct things.
+
+167
+00:13:43,010 --> 00:13:50,750
+And when you do make a mistake, as we all do, you can use the nesting in indentation in order to diagnose
+
+168
+00:13:50,750 --> 00:13:54,290
+what's wrong with your code and help you fix it.
+
+169
+00:13:55,100 --> 00:13:58,400
+So that's all for nesting and indentation.
+
+170
+00:13:58,400 --> 00:14:05,300
+In the next lesson, we're going to learn about, "anchor elements" and we're going to start creating, "hyperlinks"
+
+171
+00:14:05,300 --> 00:14:06,440
+in our web pages.
+
+172
+00:14:06,440 --> 00:14:09,740
+So for all of that and more, I'll see you on the next lesson.
+

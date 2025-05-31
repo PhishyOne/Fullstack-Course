@@ -1,0 +1,1600 @@
+1
+00:00:00,080 --> 00:00:05,390
+Now that we've seen all of these different types of relationships, we've created these relationships.
+
+2
+00:00:05,390 --> 00:00:11,630
+We've done a whole bunch of work around how to join the tables, how to set up the relationships, primary
+
+3
+00:00:11,660 --> 00:00:12,860
+keys, foreign keys.
+
+4
+00:00:12,890 --> 00:00:19,670
+Now it's time to do a little bit of struggling and actually apply all of that knowledge into a real
+
+5
+00:00:19,670 --> 00:00:26,150
+exercise where we have to think and where we have to come up with the results by ourselves, which is
+
+6
+00:00:26,150 --> 00:00:30,110
+the part where we convert information into knowledge.
+
+7
+00:00:30,110 --> 00:00:34,400
+So something that I'm telling you into, something that you know yourself.
+
+8
+00:00:34,580 --> 00:00:35,830
+Time for some struggle.
+
+9
+00:00:35,840 --> 00:00:43,340
+Continue into the family travel tracker dot zip file and take a look inside the files.
+
+10
+00:00:43,370 --> 00:00:49,640
+We have some of the files that we had from before, such as a lot of the code that we had left off with
+
+11
+00:00:49,640 --> 00:00:53,240
+at the end of the travel tracker project.
+
+12
+00:00:53,300 --> 00:00:59,330
+But this new travel tracker that we're going to create is now a family travel tracker.
+
+13
+00:00:59,720 --> 00:01:04,459
+So this is what we're going to be building a upgrade to the travel tracker.
+
+14
+00:01:04,459 --> 00:01:06,890
+It's now a family travel tracker.
+
+15
+00:01:06,890 --> 00:01:16,030
+So let's say in your family you have four members you, your husband, your son, your daughter, etcetera.
+
+16
+00:01:16,040 --> 00:01:20,060
+And you want to track everybody's travels across the world.
+
+17
+00:01:20,060 --> 00:01:25,820
+Well, you now need to establish relationships between your tables.
+
+18
+00:01:25,820 --> 00:01:32,420
+And this is what we can end up with if we apply all our new knowledge.
+
+19
+00:01:32,630 --> 00:01:34,580
+I can click on the Angela tab.
+
+20
+00:01:34,580 --> 00:01:37,220
+It shows me all the places that Angela has been.
+
+21
+00:01:37,340 --> 00:01:43,520
+I can click on the next person's tab and it will show me the places the other person has been, and
+
+22
+00:01:43,520 --> 00:01:47,870
+depending on which tab I am in, I can add different countries.
+
+23
+00:01:47,870 --> 00:01:53,690
+So let's say that Jack has now been to Canada and I click add.
+
+24
+00:01:53,720 --> 00:01:58,610
+Then that populates the Jack tab and his countries.
+
+25
+00:01:58,610 --> 00:02:01,070
+So he's been to a total of three countries now.
+
+26
+00:02:01,070 --> 00:02:05,390
+But if I go back to Angela you can see that it's unchanged for Angela.
+
+27
+00:02:05,390 --> 00:02:08,960
+And she has been to four countries now.
+
+28
+00:02:08,960 --> 00:02:12,770
+We also have this additional page add a family member.
+
+29
+00:02:12,770 --> 00:02:16,270
+So when you click on that tab we can add a new member.
+
+30
+00:02:16,280 --> 00:02:17,870
+Let's create somebody.
+
+31
+00:02:17,870 --> 00:02:21,230
+Let's say we have Amy in our family as well.
+
+32
+00:02:21,230 --> 00:02:24,860
+So I can pick a color for her let's say red click add.
+
+33
+00:02:24,860 --> 00:02:28,940
+And we now have Amy in our list of family members.
+
+34
+00:02:28,940 --> 00:02:32,150
+Let's say that Amy recently went to Greenland.
+
+35
+00:02:32,150 --> 00:02:37,610
+So let's add that country and you can see the total countries works.
+
+36
+00:02:37,610 --> 00:02:38,990
+The colors work.
+
+37
+00:02:38,990 --> 00:02:44,690
+It's completely unique to Amy and it doesn't affect any of our other users.
+
+38
+00:02:44,810 --> 00:02:47,870
+This is the goal that we're trying to achieve.
+
+39
+00:02:47,900 --> 00:02:53,570
+Now this is not an easy challenge by any stretch of the imagination.
+
+40
+00:02:53,570 --> 00:02:57,140
+So I have added some things to make it a little bit easier.
+
+41
+00:02:57,140 --> 00:03:04,820
+For example, in the index.js under the views folder, I've actually created all of the existing code
+
+42
+00:03:04,820 --> 00:03:07,400
+that you need for everything to work.
+
+43
+00:03:07,400 --> 00:03:15,260
+So as long as you pass in something called users that contains all of these users as well as new users
+
+44
+00:03:15,260 --> 00:03:20,150
+that you update to this array, then this should work.
+
+45
+00:03:21,390 --> 00:03:27,990
+If you stop the previous process and use Nodemon to run index.js, which is your starting file, you'll
+
+46
+00:03:27,990 --> 00:03:31,530
+see that it already works with two new members.
+
+47
+00:03:31,560 --> 00:03:35,160
+Now, unfortunately, not a lot of the other parts work.
+
+48
+00:03:35,160 --> 00:03:41,850
+So for example, when I click on this button, which as you can see here is going to hit up the root
+
+49
+00:03:41,850 --> 00:03:49,170
+forward slash user with the value of new under the name of add.
+
+50
+00:03:49,200 --> 00:03:53,840
+Then we don't actually handle that yet in our index.js.
+
+51
+00:03:53,850 --> 00:03:56,190
+And that is of course for you to do.
+
+52
+00:03:56,190 --> 00:04:01,310
+And the other parts which are incomplete is the new root.
+
+53
+00:04:01,320 --> 00:04:07,680
+So when we create a new user in this new JS, it's going to hit up the new root, make a Post request
+
+54
+00:04:07,680 --> 00:04:16,279
+and add various things such as the name and also the color with the color that corresponds to a CSS
+
+55
+00:04:16,290 --> 00:04:18,240
+color as the value.
+
+56
+00:04:18,240 --> 00:04:25,980
+And hopefully you'll be able to handle that in this route and also make some adjustments as needed to
+
+57
+00:04:25,980 --> 00:04:30,810
+the other routes such as the forward slash get, etcetera.
+
+58
+00:04:30,840 --> 00:04:35,040
+Just one thing to note in the syntax highlighting for this JS file.
+
+59
+00:04:35,040 --> 00:04:36,210
+The index.js.
+
+60
+00:04:36,240 --> 00:04:42,450
+For some reason, in my case it keeps on highlighting this as an error and you'll see the file.
+
+61
+00:04:42,480 --> 00:04:44,340
+The whole thing is red.
+
+62
+00:04:44,370 --> 00:04:47,850
+Don't worry, this is actually perfectly functioning code.
+
+63
+00:04:47,850 --> 00:04:54,960
+I think the syntax highlighting is just getting a little bit confused between the angle brackets inserted
+
+64
+00:04:54,960 --> 00:05:00,600
+into the middle of a string, it really prefers it when you have the double quotes either side of these
+
+65
+00:05:01,020 --> 00:05:01,680
+brackets.
+
+66
+00:05:01,680 --> 00:05:07,650
+But rest assured, everything inside index.js is perfectly functioning and working.
+
+67
+00:05:07,650 --> 00:05:12,600
+Despite all of these errors and warnings, it's just a syntax highlighting thing.
+
+68
+00:05:12,630 --> 00:05:13,710
+Don't worry about it.
+
+69
+00:05:13,710 --> 00:05:14,220
+Ignore it.
+
+70
+00:05:14,220 --> 00:05:21,270
+You don't need to touch anything inside index.js other than look at it to know what are the routes that
+
+71
+00:05:21,270 --> 00:05:23,250
+we're hitting up, what are the names?
+
+72
+00:05:23,250 --> 00:05:25,800
+What are the values so that you know how to handle it?
+
+73
+00:05:26,950 --> 00:05:33,070
+Now, before you get started attempting this exercise, remember what we learned about relationships
+
+74
+00:05:33,070 --> 00:05:42,250
+in Postgres and have a think about how you need to change the tables and add the relationships as necessary.
+
+75
+00:05:42,490 --> 00:05:50,260
+So if we think about it, we'll need a users table that sets up each user with their name and the color
+
+76
+00:05:50,260 --> 00:05:52,870
+that they're going to be represented on the map.
+
+77
+00:05:53,080 --> 00:05:56,140
+And these colors should represent CSS colors.
+
+78
+00:05:56,140 --> 00:06:01,570
+So good examples are teal, powder blue, red, blue, green, yellow.
+
+79
+00:06:01,780 --> 00:06:10,270
+And it should probably have a primary key that can be linked to the visited countries table.
+
+80
+00:06:10,480 --> 00:06:18,130
+Now the visited countries table probably needs to be updated or deleted and recreated so that we have
+
+81
+00:06:18,130 --> 00:06:26,020
+some sort of way of establishing a relationship between the countries that have been visited and the
+
+82
+00:06:26,020 --> 00:06:27,970
+user who did the visiting.
+
+83
+00:06:28,330 --> 00:06:34,210
+Have a think about how you might create those tables from scratch if you need to delete any of the tables,
+
+84
+00:06:34,210 --> 00:06:40,810
+because altering it is complicated, you can always right click and go to delete.
+
+85
+00:06:42,070 --> 00:06:43,300
+If you really get stuck.
+
+86
+00:06:43,300 --> 00:06:51,040
+Remember you can go into the queries SQL and if you scroll down, you'll see the SQL solution for the
+
+87
+00:06:51,040 --> 00:06:52,090
+exercise.
+
+88
+00:06:52,360 --> 00:07:00,580
+And you can copy the entire line of code in order to set up the database to have it the same way as
+
+89
+00:07:00,610 --> 00:07:01,780
+what I've got here.
+
+90
+00:07:01,780 --> 00:07:08,920
+So I've got all the sample data and the relationships and the tables recreated for you.
+
+91
+00:07:09,280 --> 00:07:11,290
+Have a think about giving it a go.
+
+92
+00:07:11,320 --> 00:07:14,110
+Maybe you could delete the table, recreate it.
+
+93
+00:07:14,140 --> 00:07:17,350
+Try some of the SQL commands you've learnt.
+
+94
+00:07:17,380 --> 00:07:21,790
+If you get stuck then come back and we'll go through the solution together.
+
+95
+00:07:22,180 --> 00:07:28,450
+It's a difficult challenge, but hopefully by running the solution, you'll see what it is that you
+
+96
+00:07:28,450 --> 00:07:29,470
+need to achieve.
+
+97
+00:07:29,500 --> 00:07:35,620
+The whole functionality and try to figure out how to use what you've learned about relationships, about
+
+98
+00:07:35,620 --> 00:07:42,730
+Postgres, and using Node and Express to complete this project.
+
+99
+00:07:42,760 --> 00:07:44,140
+I'll leave you to it.
+
+100
+00:07:44,290 --> 00:07:49,360
+Aim to spend about 1 or 2 hours on this and then come back afterwards.
+
+101
+00:07:49,360 --> 00:07:51,970
+If you get stuck and we'll go through the solution together.
+
+102
+00:07:56,210 --> 00:07:58,410
+All right, let's go through the solution together.
+
+103
+00:07:58,430 --> 00:08:06,050
+Now, one of the first things we have to think about is to establish the relationship between our tables
+
+104
+00:08:06,050 --> 00:08:17,480
+of users and visited countries, and in this case, what we have is a one to many relationship, because
+
+105
+00:08:17,480 --> 00:08:22,340
+there is one user who can visit many countries.
+
+106
+00:08:22,340 --> 00:08:29,360
+And in order to establish this relationship, we can either alter the visited countries table to add
+
+107
+00:08:29,360 --> 00:08:37,190
+a foreign key, or we can simply drop our previous two tables, and you can also delete them in Pgadmin
+
+108
+00:08:37,190 --> 00:08:37,940
+as well.
+
+109
+00:08:37,940 --> 00:08:43,100
+You can simply right click on a table and also ask it to be deleted.
+
+110
+00:08:43,370 --> 00:08:49,640
+Now the challenge is do you remember how to establish a one to many relationship?
+
+111
+00:08:49,850 --> 00:08:58,670
+And the way we do it is by creating a foreign key that points from the many side of the one to many
+
+112
+00:08:58,670 --> 00:09:06,560
+relationship over to the primary key on the one of the one to many relationship.
+
+113
+00:09:06,560 --> 00:09:10,550
+So this is the one and this is the many.
+
+114
+00:09:11,230 --> 00:09:21,190
+In this way, we're creating a relationship where one user can have many, many visited countries.
+
+115
+00:09:21,370 --> 00:09:24,940
+And this foreign key I've called user underscore id.
+
+116
+00:09:25,270 --> 00:09:29,920
+It's an integer because the primary key for the user id is also an integer.
+
+117
+00:09:29,950 --> 00:09:35,890
+References is what sets up this particular field as the foreign key.
+
+118
+00:09:35,920 --> 00:09:45,130
+And I've pointed it towards the table of users and the property that is ID which is the primary key
+
+119
+00:09:45,130 --> 00:09:45,540
+here.
+
+120
+00:09:45,550 --> 00:09:50,390
+So we've seen this previously when we were working with simpler examples.
+
+121
+00:09:50,410 --> 00:09:55,810
+Now we're applying this to our actual tables in the Family Travel tracker.
+
+122
+00:09:57,350 --> 00:10:04,460
+If you didn't manage to get this far, or you forgot to do this or struggled with it, then feel free
+
+123
+00:10:04,460 --> 00:10:16,100
+to go into the queries SQL and copy all of these lines, and you can paste it into Pgadmin going into
+
+124
+00:10:16,100 --> 00:10:23,000
+the query tool on your world database, making sure that you have it changed from your previous school
+
+125
+00:10:23,000 --> 00:10:23,990
+database.
+
+126
+00:10:23,990 --> 00:10:30,890
+And now you can simply just right click on the database you want and then go into the query tool for
+
+127
+00:10:30,920 --> 00:10:31,730
+that database.
+
+128
+00:10:31,730 --> 00:10:36,200
+Just check the connection there and then we can paste all of that in.
+
+129
+00:10:36,200 --> 00:10:42,260
+And hopefully if I've got all the semicolons in the right places, you can simply just hit run.
+
+130
+00:10:42,260 --> 00:10:50,360
+And the last command after I've created the two tables, added the relationship, inserted some data,
+
+131
+00:10:50,360 --> 00:10:54,830
+so two users and some countries for each of the users.
+
+132
+00:10:54,830 --> 00:11:04,100
+Then I've made a select all from visited countries joining the users where the users tables ID matches
+
+133
+00:11:04,100 --> 00:11:11,390
+that foreign key user ID, and we end up with this table that shows us the join.
+
+134
+00:11:11,390 --> 00:11:17,600
+So this is our visited countries table and this is our users table.
+
+135
+00:11:17,870 --> 00:11:21,560
+Each user has been to many places.
+
+136
+00:11:21,560 --> 00:11:24,230
+So we see the users repeating here.
+
+137
+00:11:24,230 --> 00:11:30,350
+So Angela's been to France and Great Britain and Jack has been to Canada and France.
+
+138
+00:11:30,350 --> 00:11:36,890
+And this table is created using the match between the user ID on the visited countries table and the
+
+139
+00:11:36,890 --> 00:11:39,800
+ID in the users table.
+
+140
+00:11:39,920 --> 00:11:47,120
+Now we can get hold of, for example, all the countries that a particular user has been to, or what
+
+141
+00:11:47,120 --> 00:11:51,320
+is the color of that user to be represented on our map.
+
+142
+00:11:51,350 --> 00:11:59,060
+And essentially we haven't really changed that much other than taking into account the relationships.
+
+143
+00:11:59,840 --> 00:12:08,780
+Hopefully if everything went well for you, then you've got your tables set up with the correct relationship,
+
+144
+00:12:08,780 --> 00:12:14,900
+the one to many relationship, and you've got some sample values in there that doesn't have to match
+
+145
+00:12:14,900 --> 00:12:16,040
+what I've got here.
+
+146
+00:12:16,400 --> 00:12:23,660
+Now, once we've got our database set up, the next step is to look at how we can modify our index.js
+
+147
+00:12:23,690 --> 00:12:27,550
+in order to add that multi-user functionality.
+
+148
+00:12:27,560 --> 00:12:33,140
+There are quite a lot of changes between the index.js and solution JS code files.
+
+149
+00:12:33,140 --> 00:12:37,820
+And I want to show you a cool way where in VS code you can compare code.
+
+150
+00:12:37,970 --> 00:12:46,190
+Right click on index.js and select for compare this option, and then right click on the solution dot
+
+151
+00:12:46,220 --> 00:12:50,810
+js and select the other one which is compare with selected.
+
+152
+00:12:50,840 --> 00:12:55,100
+So now what's going to happen is we're going to have a split screen.
+
+153
+00:12:55,100 --> 00:12:58,040
+Where on the left we've got the index.js.
+
+154
+00:12:58,040 --> 00:13:00,590
+On the right we've got the solution dot JS.
+
+155
+00:13:00,620 --> 00:13:08,690
+And the code has very cleverly figured out which lines of code are subtracted or modified, and which
+
+156
+00:13:08,690 --> 00:13:12,770
+lines of code are added compared to the other file.
+
+157
+00:13:12,860 --> 00:13:20,570
+And this is handy because it allows us to compare the index versus the solution.
+
+158
+00:13:20,570 --> 00:13:24,200
+And I can show you exactly what was changed in between.
+
+159
+00:13:25,130 --> 00:13:30,050
+So the first thing that was changed is our check visited function.
+
+160
+00:13:30,050 --> 00:13:36,860
+Now check visited gets called the first time the user tries to hit up the home root.
+
+161
+00:13:36,860 --> 00:13:43,460
+So it's in our app.get when they hit up localhost 3000 or the home root of your website.
+
+162
+00:13:43,640 --> 00:13:50,570
+And this is where we need to get hold of all the countries that a user has visited now previously,
+
+163
+00:13:50,570 --> 00:13:56,840
+it was easy enough because we could simply select all of the country codes from our table of visited
+
+164
+00:13:56,840 --> 00:14:03,800
+countries, because visited countries represented only one user, so it would contain the two letter
+
+165
+00:14:03,800 --> 00:14:09,050
+country codes of all the places that the single user has been to.
+
+166
+00:14:09,320 --> 00:14:16,580
+Now, because we have multiple users and we've updated the way that our visited countries works where
+
+167
+00:14:16,580 --> 00:14:23,540
+we have that one to many relationship with the users table, we now need to change the code a little
+
+168
+00:14:23,540 --> 00:14:30,080
+bit in order to fully take advantage of our more advanced database situation.
+
+169
+00:14:30,710 --> 00:14:33,500
+So let me walk you through the code here.
+
+170
+00:14:33,500 --> 00:14:34,700
+What's going on?
+
+171
+00:14:34,730 --> 00:14:39,740
+This part of our DB dot query has been completely changed.
+
+172
+00:14:39,770 --> 00:14:46,970
+The previous part that we had is just this, where we had select country code from visited countries,
+
+173
+00:14:46,970 --> 00:14:50,270
+and the rest of this query is all new.
+
+174
+00:14:51,080 --> 00:14:52,910
+So what does it do?
+
+175
+00:14:52,910 --> 00:14:56,480
+Well, this we have already seen in the previous lesson we.
+
+176
+00:14:56,630 --> 00:15:02,320
+Which allows us to join two tables based on some sort of criteria.
+
+177
+00:15:02,330 --> 00:15:11,600
+And because our two tables, the user table and the visited countries table, have this many to one
+
+178
+00:15:11,600 --> 00:15:19,820
+relationship, we can use this criteria where the users table.id that's the primary key.
+
+179
+00:15:19,820 --> 00:15:21,590
+Remember of the users table.
+
+180
+00:15:21,680 --> 00:15:30,020
+When that value matches the user ID of the other table, the visited countries table.
+
+181
+00:15:30,020 --> 00:15:36,680
+This is the foreign key and that is the criteria that we want to join the users table with our visited
+
+182
+00:15:36,680 --> 00:15:37,580
+countries.
+
+183
+00:15:38,650 --> 00:15:47,260
+If this is confusing, I recommend simply selecting it and then running it in Pgadmin, and you'll see
+
+184
+00:15:47,260 --> 00:15:50,530
+a visual representation of what kind of data you get back.
+
+185
+00:15:51,650 --> 00:15:52,610
+In this case.
+
+186
+00:15:52,610 --> 00:15:57,870
+What's happened is we've joined the visited countries with the users table.
+
+187
+00:15:57,890 --> 00:16:05,810
+We've matched up the user ID on the users table with the user ID on the visited countries table, and
+
+188
+00:16:05,810 --> 00:16:11,060
+we've created a new table where we are just selecting on that field of country code.
+
+189
+00:16:11,090 --> 00:16:18,320
+Essentially what we have here now is a new table that contains all of the countries that all of our
+
+190
+00:16:18,320 --> 00:16:19,680
+users have been to.
+
+191
+00:16:19,700 --> 00:16:22,700
+So we need to narrow that down a little bit more.
+
+192
+00:16:22,700 --> 00:16:24,700
+And that's where our query comes in.
+
+193
+00:16:24,710 --> 00:16:34,220
+So using the where keyword we're checking to filter the results to only include where the user ID is
+
+194
+00:16:34,220 --> 00:16:39,920
+equal to the first option that we're passing in right here using dollar one.
+
+195
+00:16:39,920 --> 00:16:43,160
+And that first option is the current user ID.
+
+196
+00:16:43,940 --> 00:16:51,800
+By default I've set the current user ID to be one, and that is because when a user first lands on our
+
+197
+00:16:51,800 --> 00:16:59,000
+home page, what I want to show them is the first user's countries that they've visited.
+
+198
+00:16:59,000 --> 00:17:02,240
+So we start from the first tab essentially.
+
+199
+00:17:03,890 --> 00:17:10,670
+Now if we take this other option and add it into our queries here.
+
+200
+00:17:10,670 --> 00:17:17,750
+So select country code from visited countries joining the users table on this particular criteria.
+
+201
+00:17:17,750 --> 00:17:20,329
+And then we add our final criteria.
+
+202
+00:17:20,329 --> 00:17:25,940
+And I change this to the current value which is set to default as one.
+
+203
+00:17:25,940 --> 00:17:26,930
+And I run that.
+
+204
+00:17:26,930 --> 00:17:31,010
+You can see we now have the country codes of only the first user.
+
+205
+00:17:31,010 --> 00:17:36,860
+And you can see this also if I expand this table a little bit change it to select all.
+
+206
+00:17:36,860 --> 00:17:45,560
+And you can see we're now only selecting on the cases where the user ID is equal to one.
+
+207
+00:17:45,590 --> 00:17:48,380
+That's what that is going to select on.
+
+208
+00:17:48,950 --> 00:17:55,970
+But we're simply narrowing it down only to the country code, which is really the only part of the data
+
+209
+00:17:55,970 --> 00:17:58,550
+that we're interested in from this database.
+
+210
+00:17:59,760 --> 00:18:07,920
+Once we get those countries back, then it gets populated into this constant called countries, which
+
+211
+00:18:07,920 --> 00:18:11,460
+is now a list of two letter codes.
+
+212
+00:18:11,460 --> 00:18:19,740
+And just as before we pass it over to index.js, we pass over the countries, the countries dot length,
+
+213
+00:18:19,740 --> 00:18:26,580
+which if this represents all the countries the user's been to, the number of items in there will represent
+
+214
+00:18:26,580 --> 00:18:31,890
+the total number of countries a user has been to, which gets displayed down here.
+
+215
+00:18:32,640 --> 00:18:39,870
+The only part that changes a little bit is we also need to pass over the color that represents that
+
+216
+00:18:39,870 --> 00:18:41,460
+user's countries.
+
+217
+00:18:41,460 --> 00:18:44,820
+So for example Angela is represented by teal here.
+
+218
+00:18:44,820 --> 00:18:47,130
+And Jack has this sort of powder blue.
+
+219
+00:18:47,190 --> 00:18:49,710
+Now where do we get that color from.
+
+220
+00:18:49,710 --> 00:18:57,810
+Well we've updated our users table to contain a color that's associated with that user.
+
+221
+00:18:57,810 --> 00:19:01,320
+So the user has an ID, a name and a color.
+
+222
+00:19:01,320 --> 00:19:07,050
+And we want to use that data to update this list that we've got here.
+
+223
+00:19:07,200 --> 00:19:14,850
+Now I've created this list of users just to be able to visually show you how we want this list to be
+
+224
+00:19:14,850 --> 00:19:15,510
+structured.
+
+225
+00:19:15,510 --> 00:19:22,080
+We want to have all of the properties that's in that table ID name and color, and we're going to use
+
+226
+00:19:22,080 --> 00:19:27,630
+it to pass it over to the index.js rendered file.
+
+227
+00:19:27,630 --> 00:19:29,910
+And we do it right here.
+
+228
+00:19:30,390 --> 00:19:36,780
+This is new compared to previously because previously we only had one user and we didn't need to pass
+
+229
+00:19:36,780 --> 00:19:38,040
+over this list.
+
+230
+00:19:38,040 --> 00:19:45,360
+But now we do because we want to represent all the users up here in the tab so that we can select them
+
+231
+00:19:45,360 --> 00:19:46,920
+on the website.
+
+232
+00:19:47,310 --> 00:19:55,320
+In addition, we need the color that represents that user so that we can change the color of the button.
+
+233
+00:19:55,320 --> 00:19:57,720
+And also the country's displayed.
+
+234
+00:19:58,080 --> 00:20:00,360
+So where do we get all of that information.
+
+235
+00:20:00,360 --> 00:20:03,990
+Well this is where the second change happens.
+
+236
+00:20:03,990 --> 00:20:08,430
+This new function compared to before I called it get current user.
+
+237
+00:20:08,430 --> 00:20:14,040
+But of course you can call it anything you want, but essentially it makes a very simple query to the
+
+238
+00:20:14,040 --> 00:20:14,640
+database.
+
+239
+00:20:14,640 --> 00:20:17,280
+Select everything from the users table.
+
+240
+00:20:17,280 --> 00:20:24,750
+And once we get hold of those results, we put it into the users list right here.
+
+241
+00:20:24,750 --> 00:20:28,650
+And of course, as you can see, I could probably have this as empty.
+
+242
+00:20:28,650 --> 00:20:33,630
+And it wouldn't really change very much because I would just populate it from right here.
+
+243
+00:20:33,630 --> 00:20:40,560
+But the reason why I do have it included is so that we can visualize the structure of our data more
+
+244
+00:20:40,560 --> 00:20:48,390
+easily, where it's a list of dictionaries with these three properties, and that helps us plan for
+
+245
+00:20:48,390 --> 00:20:50,700
+how we want to use that list.
+
+246
+00:20:50,700 --> 00:20:56,820
+So always make things easier for yourself by visualizing it and seeing it, rather than holding it in
+
+247
+00:20:56,820 --> 00:20:58,470
+your head or imagining it.
+
+248
+00:20:58,470 --> 00:21:00,750
+That's where bugs start to creep in.
+
+249
+00:21:00,930 --> 00:21:08,940
+Now that we've populated that users list, updated it with what's stored in the database, we can find
+
+250
+00:21:08,970 --> 00:21:16,650
+the current user from that list of users by checking for where the user's ID matches the current user
+
+251
+00:21:16,650 --> 00:21:16,980
+ID.
+
+252
+00:21:17,610 --> 00:21:24,000
+Notice how right now, the current ID is set to user number one?
+
+253
+00:21:24,000 --> 00:21:31,260
+And what we're trying to do is we're trying to go through the list of users and find the record where
+
+254
+00:21:31,260 --> 00:21:41,130
+the ID here matches that current user's ID, and then we pull out that entire record right here and
+
+255
+00:21:41,130 --> 00:21:43,680
+set it as a current user.
+
+256
+00:21:45,520 --> 00:21:47,200
+And we do that right here.
+
+257
+00:21:47,230 --> 00:21:53,920
+Get current user, set it to this current user, and then we can get hold of the color that is associated
+
+258
+00:21:53,920 --> 00:21:55,360
+with that current user.
+
+259
+00:21:57,250 --> 00:22:04,780
+Now this line of code is quite short and concise, but if you're not familiar with how JavaScript does
+
+260
+00:22:04,810 --> 00:22:12,310
+map filter reduce or in this case, the find function, then you could have also created just a simple
+
+261
+00:22:12,310 --> 00:22:19,960
+for loop that loops through the array of users, and then checks each of the IDs of each of the users
+
+262
+00:22:19,990 --> 00:22:21,460
+against the current user ID.
+
+263
+00:22:21,790 --> 00:22:28,690
+When we do have a match, then we pull out that particular user and we return it as the output of this
+
+264
+00:22:28,690 --> 00:22:29,480
+function.
+
+265
+00:22:29,500 --> 00:22:32,080
+Now, one important thing to note here.
+
+266
+00:22:32,080 --> 00:22:34,870
+Notice how I've got two equal signs here.
+
+267
+00:22:34,870 --> 00:22:36,720
+Instead of three equal signs.
+
+268
+00:22:36,730 --> 00:22:44,080
+Three equal signs is not going to work as well for you, because then it means that the data types of
+
+269
+00:22:44,080 --> 00:22:46,780
+the left hand side must match the right hand side.
+
+270
+00:22:46,870 --> 00:22:54,040
+In most scenarios, this user ID will be a number and the current user ID will be a number.
+
+271
+00:22:54,040 --> 00:23:00,940
+But there are cases where if we're getting the data passed in through our form, it can come in as a
+
+272
+00:23:00,940 --> 00:23:02,950
+string and you'll see this fail.
+
+273
+00:23:02,950 --> 00:23:07,360
+So if you have some bugs, see if this might be the issue.
+
+274
+00:23:07,360 --> 00:23:12,490
+I suspect it might be a problem for a lot of you guys.
+
+275
+00:23:12,490 --> 00:23:18,940
+And if in doubt, as always, you can always use the console logs to check data types.
+
+276
+00:23:18,940 --> 00:23:23,860
+So if you were debugging, you might do a console log and then do a typeof.
+
+277
+00:23:23,860 --> 00:23:30,010
+And then inside the curly brackets you put the left hand side that you're checking and put it right
+
+278
+00:23:30,010 --> 00:23:30,370
+here.
+
+279
+00:23:30,370 --> 00:23:36,910
+And then on the next line you can console, log and type check the other one that you're trying to match.
+
+280
+00:23:36,970 --> 00:23:44,830
+If these two are of different data types, say string and number, then this match is not going to work
+
+281
+00:23:44,830 --> 00:23:46,300
+with three equal signs.
+
+282
+00:23:46,300 --> 00:23:54,250
+This is a precise equal, whereas the two equal signs just checks for whether if the values are equal.
+
+283
+00:23:54,250 --> 00:23:59,680
+Ignoring the data types, this can get you out of trouble with this particular issue here.
+
+284
+00:24:01,300 --> 00:24:07,540
+Now, once we've gotten the current user and we pass over the color, the next part we need to think
+
+285
+00:24:07,540 --> 00:24:12,480
+about is where all of this data lands and it goes into the index.js.
+
+286
+00:24:12,490 --> 00:24:19,930
+So if we open up that file inside the views folder, we can see how we're using the data that gets passed
+
+287
+00:24:19,930 --> 00:24:20,490
+in.
+
+288
+00:24:20,500 --> 00:24:26,140
+So for example we have our tabs at the very top of the website.
+
+289
+00:24:26,140 --> 00:24:31,930
+And what I'm doing here is looping through each of the users that gets passed in.
+
+290
+00:24:31,930 --> 00:24:40,480
+So that array of users, and we populate different parts of the tab using information from that particular
+
+291
+00:24:40,540 --> 00:24:41,680
+list of dictionaries.
+
+292
+00:24:41,680 --> 00:24:48,820
+So remember, users is passed over as a list of dictionaries.
+
+293
+00:24:48,820 --> 00:24:56,560
+And the dictionary contains ID, it contains the name and it contains the color.
+
+294
+00:24:58,140 --> 00:25:05,640
+And then we basically just have multiple of these entries for each of the users that we have.
+
+295
+00:25:05,670 --> 00:25:07,590
+So that is our list.
+
+296
+00:25:07,740 --> 00:25:14,190
+In this loop we're looping through each of these items and we are populating different parts of the
+
+297
+00:25:14,190 --> 00:25:14,970
+tab.
+
+298
+00:25:15,270 --> 00:25:24,120
+For example, we're putting the user ID into the value of the input so that when we submit this form
+
+299
+00:25:24,120 --> 00:25:32,880
+using a Post request, we'll be able to catch the request and see the value in the name set to whatever
+
+300
+00:25:32,880 --> 00:25:35,610
+the ID is chosen by the user.
+
+301
+00:25:35,850 --> 00:25:42,900
+The other part that we're using is the user color property to set the background color of these tabs.
+
+302
+00:25:42,900 --> 00:25:45,900
+So this one is powder blue and this one is teal.
+
+303
+00:25:46,050 --> 00:25:54,870
+We're also using the user dot name in order to put the name of that user into the labels of these tabs,
+
+304
+00:25:54,870 --> 00:25:57,870
+so that the user can see which one they're selecting on.
+
+305
+00:25:58,950 --> 00:26:06,420
+Finally, this entire form gets submitted whenever the user chooses one of these inputs.
+
+306
+00:26:06,450 --> 00:26:09,570
+We'll have as many of these inputs as there are users.
+
+307
+00:26:09,570 --> 00:26:14,370
+And then finally there is an extra one that goes to a different page.
+
+308
+00:26:14,460 --> 00:26:23,280
+So let's follow the action here and go to the forward slash users route back in our index.js or solution
+
+309
+00:26:23,310 --> 00:26:24,240
+dot JS.
+
+310
+00:26:24,450 --> 00:26:29,430
+And you can see it hits up this route right here inside the post.
+
+311
+00:26:29,700 --> 00:26:33,740
+So we have an app dot post that hits up the forward slash users route.
+
+312
+00:26:33,750 --> 00:26:42,750
+And what we're doing is we are setting the current user ID to be equal to whichever tab was selected.
+
+313
+00:26:42,750 --> 00:26:49,530
+So remember this request dot body uses body parser and gets hold of whatever value is sent over from
+
+314
+00:26:49,530 --> 00:26:51,000
+the form in the user.
+
+315
+00:26:51,000 --> 00:26:53,220
+And this is set to the user id.
+
+316
+00:26:53,220 --> 00:26:55,740
+So it could be one or 2 or 3.
+
+317
+00:26:55,740 --> 00:27:02,880
+And then we update our current user ID up here to the value that we're selected.
+
+318
+00:27:02,880 --> 00:27:11,550
+So we're reflecting on which user is being selected to show the countries that they've been to.
+
+319
+00:27:12,420 --> 00:27:19,860
+On the other part of the if and else statement, you'll see that if the request dot body dot add.
+
+320
+00:27:19,860 --> 00:27:26,550
+So instead of tapping into user, we're tapping into something that has an input with a name of add
+
+321
+00:27:26,550 --> 00:27:29,010
+which is right here.
+
+322
+00:27:29,010 --> 00:27:38,340
+If that is equal to new, then in that case it means that the user hit this button and instead we should
+
+323
+00:27:38,340 --> 00:27:46,020
+render this page Nujabes Nujabes was already created for you and it's in the views folder.
+
+324
+00:27:46,020 --> 00:27:48,600
+And it's a very simple form.
+
+325
+00:27:48,750 --> 00:27:54,840
+It hits up a route called forward Slash New and it asks the user to type in their name.
+
+326
+00:27:54,840 --> 00:27:59,310
+So for example, Amy and then to pick a color.
+
+327
+00:27:59,310 --> 00:28:05,130
+And then once we click the add button, then that's going to submit the form.
+
+328
+00:28:05,130 --> 00:28:11,940
+And it's going to hit up this route, making a Post request that contains the name that the user typed
+
+329
+00:28:11,940 --> 00:28:18,150
+in, and also the radio button containing the color that they selected.
+
+330
+00:28:18,150 --> 00:28:21,450
+So the value could be any of these colors.
+
+331
+00:28:21,450 --> 00:28:24,060
+And we can tap into it using the name color.
+
+332
+00:28:24,180 --> 00:28:28,320
+Now these colors correspond to CSS named colors.
+
+333
+00:28:28,320 --> 00:28:32,010
+And we can store that in the database to represent that user.
+
+334
+00:28:32,760 --> 00:28:37,170
+Going back over here let's see where this ends up.
+
+335
+00:28:37,170 --> 00:28:40,740
+So forward slash new is right here.
+
+336
+00:28:40,740 --> 00:28:47,550
+So this is yet another new post request that we have in our solution.
+
+337
+00:28:47,550 --> 00:28:53,550
+When this route is hit up we can get hold of the name of the user.
+
+338
+00:28:53,550 --> 00:28:59,190
+So that was into the field where they entered the name right here.
+
+339
+00:28:59,790 --> 00:29:08,040
+And we can also get hold of the request dot body dot color which comes from those radio buttons right
+
+340
+00:29:08,040 --> 00:29:08,310
+here.
+
+341
+00:29:08,310 --> 00:29:16,380
+So whichever one they picked, then we have enough data to start creating a new entry to add to our
+
+342
+00:29:16,380 --> 00:29:17,730
+user table.
+
+343
+00:29:18,300 --> 00:29:24,930
+I'm writing here insert into users table, and the fields I want to populate is the name and color.
+
+344
+00:29:25,470 --> 00:29:36,810
+So the name and color fields and the values I'm passing in is firstly the name that comes from right
+
+345
+00:29:36,810 --> 00:29:40,710
+here, and secondly the color that also comes from right here.
+
+346
+00:29:40,710 --> 00:29:43,680
+So from the body of our form.
+
+347
+00:29:43,860 --> 00:29:48,450
+And then finally I have this thing called returning everything.
+
+348
+00:29:48,510 --> 00:29:51,450
+So what is this returning asterisks do.
+
+349
+00:29:51,480 --> 00:29:56,820
+Well let's try it out in pgadmin and see what we get as the result.
+
+350
+00:29:57,400 --> 00:30:04,210
+If we create a new query and we say insert into users a name and a color.
+
+351
+00:30:04,210 --> 00:30:08,440
+So let's change this to Amy and the color.
+
+352
+00:30:08,440 --> 00:30:10,660
+Let's change it to red.
+
+353
+00:30:10,990 --> 00:30:21,580
+Now if I go ahead and add the returning keyword and add an asterisk to say, return everything after
+
+354
+00:30:21,580 --> 00:30:28,330
+I hit run, you see, what happens is it returns the new record that was added from that insert.
+
+355
+00:30:28,450 --> 00:30:33,280
+And this is what we need in order to get hold of the current user ID.
+
+356
+00:30:34,540 --> 00:30:42,700
+Once we have the current user ID, then we can assign it to that value that we have up here.
+
+357
+00:30:43,030 --> 00:30:48,560
+And once we've changed that so now it's become three for example.
+
+358
+00:30:48,580 --> 00:30:57,970
+Then the next step in this is to redirect to the home route which remember uses that current user ID
+
+359
+00:30:58,300 --> 00:31:02,920
+to get all of the countries that that user has been to.
+
+360
+00:31:02,950 --> 00:31:11,050
+Not only does check visited uses current user ID, but get current user also uses current user id and
+
+361
+00:31:11,050 --> 00:31:18,490
+it fetches the latest and most up to date information on that particular user that we just added.
+
+362
+00:31:19,260 --> 00:31:28,320
+And what this allows us to do is to create a new user and give them a color, click add, and then we
+
+363
+00:31:28,320 --> 00:31:35,310
+can see them in the list of users and we can start adding countries for them.
+
+364
+00:31:37,960 --> 00:31:43,660
+That brings us to the final part of our code that required changing, which is our post request to the
+
+365
+00:31:43,660 --> 00:31:45,790
+route forward slash add.
+
+366
+00:31:46,420 --> 00:31:55,690
+Pretty much all of the behavior inside the index.js is the same as before for our add button.
+
+367
+00:31:56,470 --> 00:32:03,850
+We hit up the add route whenever a user types a new inputs with the country that they've been to, and
+
+368
+00:32:03,850 --> 00:32:09,910
+then once they hit submit, it submits to this route right here.
+
+369
+00:32:10,360 --> 00:32:17,380
+The only parts that have changed is instead of simply just adding to the table where we just do an insert
+
+370
+00:32:17,380 --> 00:32:24,070
+into visited countries, the new country code that we found this time we have to insert it along with
+
+371
+00:32:24,070 --> 00:32:27,850
+the user's ID, because there are now multiple users.
+
+372
+00:32:27,940 --> 00:32:35,140
+The first thing we do is we get hold of the current user, reusing that function up here, and this
+
+373
+00:32:35,140 --> 00:32:40,330
+will give us the user's ID, the user color, etcetera, the user's name.
+
+374
+00:32:40,330 --> 00:32:48,280
+And then we change our insert into visited countries by passing in in addition to the country code,
+
+375
+00:32:48,280 --> 00:32:55,240
+but also a user ID, and that is the current user ID from right here.
+
+376
+00:32:55,240 --> 00:33:02,530
+So if the current user is number three, then that's what's going to be inserted into the visited countries
+
+377
+00:33:02,530 --> 00:33:03,430
+table.
+
+378
+00:33:04,180 --> 00:33:09,700
+And it's going to populate this part right here with the user ID.
+
+379
+00:33:10,060 --> 00:33:14,770
+So now we have a country code matched to the user who entered it.
+
+380
+00:33:15,340 --> 00:33:24,850
+And once all of this is done, then we can go ahead and redirect back to the home page showing the updated
+
+381
+00:33:24,850 --> 00:33:26,800
+country that was added.
+
+382
+00:33:27,040 --> 00:33:34,600
+Because remember, the home route actually checks for all of the latest countries and bases it on the
+
+383
+00:33:34,600 --> 00:33:35,770
+current user.
+
+384
+00:33:36,340 --> 00:33:37,390
+There you have it.
+
+385
+00:33:37,390 --> 00:33:42,550
+You now have a website where you can add new family members.
+
+386
+00:33:42,820 --> 00:33:49,270
+You can select a color for them and add them to our list of family members.
+
+387
+00:33:49,270 --> 00:33:56,170
+And we can view the countries that each of the members of our family have been to, and add any new
+
+388
+00:33:56,170 --> 00:34:00,220
+countries they've been to, just unique to that person.
+
+389
+00:34:00,220 --> 00:34:06,700
+And we're able to do this using the power of relationships in PostgreSQL.
+
+390
+00:34:06,790 --> 00:34:08,800
+So hopefully this is interesting.
+
+391
+00:34:08,800 --> 00:34:11,530
+And I know it was a really, really tough challenge.
+
+392
+00:34:11,530 --> 00:34:15,730
+And there is zero shame in looking at the solutions.
+
+393
+00:34:15,730 --> 00:34:21,850
+If it helps you to understand what's going on, and you're able to then take what you've learned from
+
+394
+00:34:21,850 --> 00:34:27,100
+the solutions and go back and fix your code to make it work the way it's supposed to.
+
+395
+00:34:28,040 --> 00:34:28,639
+There you have it.
+
+396
+00:34:28,639 --> 00:34:35,239
+You've built a family travel tracker, and if you have shared your family travel tracker with your own
+
+397
+00:34:35,239 --> 00:34:40,639
+family and you have some crazy stories, then do share it in the Q&A.
+
+398
+00:34:40,670 --> 00:34:45,500
+I'd love to hear how your own products are being used out in the world.
+
+399
+00:34:45,650 --> 00:34:47,630
+Hope you had fun with me in this lesson.
+
+400
+00:34:47,630 --> 00:34:49,159
+I look forward to seeing you in the next.
+

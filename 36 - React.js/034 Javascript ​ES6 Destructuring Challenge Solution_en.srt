@@ -1,0 +1,276 @@
+1
+00:00:00,290 --> 00:00:00,610
+All right.
+
+2
+00:00:00,630 --> 00:00:04,230
+So here's the solution to the challenge from the previous lesson.
+
+3
+00:00:04,260 --> 00:00:10,380
+First I'm gonna comment out the code from the previous lesson. And then I'm going to import this constant
+
+4
+00:00:10,380 --> 00:00:13,060
+called cars from practice.js.
+
+5
+00:00:13,080 --> 00:00:26,890
+So let's go ahead and export it as the default and then import it just below all the other ones.
+
+6
+00:00:26,920 --> 00:00:27,200
+All right.
+
+7
+00:00:27,220 --> 00:00:33,760
+So now that I've got access to this array called cars, let's start off by just logging it and see what
+
+8
+00:00:33,760 --> 00:00:44,340
+it looks like in the console. You can see it's an array with two items inside both are objects and then those
+
+9
+00:00:44,340 --> 00:00:50,840
+objects have loads of properties and nested objects and nested arrays.
+
+10
+00:00:50,850 --> 00:00:54,270
+This is starting to look a bit like the kind of stuff you get back from APIs
+
+11
+00:00:54,270 --> 00:00:54,540
+right?
+
+12
+00:00:55,560 --> 00:00:58,830
+So how can I get this code to work?
+
+13
+00:00:58,830 --> 00:01:02,940
+So the first thing that my table shows is the actual model
+
+14
+00:01:02,940 --> 00:01:03,600
+/ight.
+
+15
+00:01:03,690 --> 00:01:07,560
+And I've got in my object this thing called model.
+
+16
+00:01:07,560 --> 00:01:11,760
+So how can I pull it out so that I can use this syntax?
+
+17
+00:01:11,760 --> 00:01:18,150
+Well let's first destructure our cars array so that we have some variable names assigned to the first
+
+18
+00:01:18,210 --> 00:01:19,900
+and second items.
+
+19
+00:01:20,010 --> 00:01:25,350
+My first object in the array is my Honda and my second object is my Tesla.
+
+20
+00:01:25,740 --> 00:01:33,720
+So I would love to give each of these objects their own variable names and I can do that using de
+
+21
+00:01:33,720 --> 00:01:34,830
+structuring.
+
+22
+00:01:34,980 --> 00:01:42,030
+So I'm going to create a new constant which is going to be an array destructure and I've got the first
+
+23
+00:01:42,060 --> 00:01:44,680
+item in my array was the Honda
+
+24
+00:01:44,850 --> 00:01:49,950
+and the second was the Tesla. And I'm going to set it to equal that array of cars.
+
+25
+00:01:50,520 --> 00:01:56,460
+So now as soon as I've done that, you can see that some of my code the error has gone right?
+
+26
+00:01:56,460 --> 00:02:04,670
+It now recognizes Honda.model and Tesla.model because now I've got access to these variables.
+
+27
+00:02:04,710 --> 00:02:11,430
+So Honda is going to output the entire Honda Civic object.
+
+28
+00:02:11,460 --> 00:02:13,690
+Now let's address the next step,
+
+29
+00:02:13,830 --> 00:02:15,870
+the top speed.
+
+30
+00:02:15,870 --> 00:02:22,170
+So we know that the top speed lives inside another object called speedStats.
+
+31
+00:02:22,620 --> 00:02:26,080
+So we have to destructure this a little bit further.
+
+32
+00:02:26,280 --> 00:02:34,520
+So let's create a constant and let's destructure the Honda or Tesla object. Let's say that we have access
+
+33
+00:02:34,580 --> 00:02:35,690
+to this object
+
+34
+00:02:35,690 --> 00:02:40,980
+now Honda. How can we get hold of this top speed?
+
+35
+00:02:41,000 --> 00:02:48,680
+Well we first have to dive into the speedStats and then we have to get hold of the top speed.
+
+36
+00:02:48,770 --> 00:02:55,060
+Let's go ahead and set this constant equal to Honda and destructure
+
+37
+00:02:55,080 --> 00:03:03,290
+firstly these speedStats property and then we're gonna add a colon and a set of curly braces.
+
+38
+00:03:03,290 --> 00:03:10,310
+Now inside these curly braces we're going to destructure the object that is stored inside speedStats
+
+39
+00:03:10,400 --> 00:03:11,500
+a little bit further.
+
+40
+00:03:11,720 --> 00:03:15,420
+So we know we've got something called topSpeed in there.
+
+41
+00:03:15,560 --> 00:03:19,550
+We can pull out both top speed and the zeroToSixty
+
+42
+00:03:19,610 --> 00:03:26,920
+if you want to, although in our case we actually only just need the top speed. And instead of calling
+
+43
+00:03:26,920 --> 00:03:32,100
+it topSpeed we're going to use that trick we learned about renaming it.
+
+44
+00:03:32,230 --> 00:03:34,530
+Let's go ahead and call it honda
+
+45
+00:03:34,570 --> 00:03:37,050
+TopSpeed.
+
+46
+00:03:37,410 --> 00:03:43,470
+And so this line of code no longer has any errors. But we don't have one yet for Tesla.
+
+47
+00:03:43,530 --> 00:03:49,050
+So let's go ahead and repeat the same thing for our Tesla.
+
+48
+00:03:51,810 --> 00:03:57,420
+And now if you actually look at what's being rendered, you're already seeing our brand is being pulled
+
+49
+00:03:57,420 --> 00:04:03,750
+out or rather probably should be better called model, our top speed is being shown for both of the models
+
+50
+00:04:04,350 --> 00:04:08,130
+and now the last one we want to do is the top color.
+
+51
+00:04:08,160 --> 00:04:13,380
+So we've got this property called coloursByPopularity and we want to get hold of the black for the
+
+52
+00:04:13,380 --> 00:04:19,440
+Honda and the red for the Tesla to be shown in our table. But in the starting versions of the code you
+
+53
+00:04:19,440 --> 00:04:25,920
+should be looking at something that looks like this where we need to get a specific variable name called
+
+54
+00:04:25,920 --> 00:04:26,950
+teslaTopColour
+
+55
+00:04:27,180 --> 00:04:29,190
+and hondaTopColour.
+
+56
+00:04:29,190 --> 00:04:37,050
+So over here we're going to create a new const that is going to destructure our cars and we're going
+
+57
+00:04:37,050 --> 00:04:45,360
+to pull out this colorsByPopularity from our Honda first just in the same way that we've done over
+
+58
+00:04:45,360 --> 00:04:50,160
+here with the speedStats. But we're going to dig into this a little bit further.
+
+59
+00:04:50,180 --> 00:04:56,850
+So we're going to add a colon and then we'd be able to get access to the array of colors.
+
+60
+00:04:56,850 --> 00:05:04,410
+And if I want to give the first color a name, then I simply do the same thing as I would with normal
+
+61
+00:05:04,410 --> 00:05:10,890
+re-derestructuring where I get to specify a variable name for any of the items in the array. And in our
+
+62
+00:05:10,890 --> 00:05:15,170
+case we'll call it hondaTopColour.
+
+63
+00:05:15,180 --> 00:05:25,680
+And now if I repeat this for the Tesla and change this to teslaTopColour, then you'll see that my table
+
+64
+00:05:25,740 --> 00:05:31,870
+now shows the most popular color for Tesla and the first item in that array for Honda.
+
+65
+00:05:31,890 --> 00:05:35,890
+So if you didn't manage to complete the challenge it's time to go back and review it now.
+
+66
+00:05:35,940 --> 00:05:40,060
+But if all of this is pretty clear then head over to the next lesson.
+
+67
+00:05:40,110 --> 00:05:45,080
+We're going to be looking at some more complex ways of using that useState
+
+68
+00:05:45,140 --> 00:05:47,750
+hook. So all of that and more,
+
+69
+00:05:47,820 --> 00:05:48,190
+I'll see you there.
+

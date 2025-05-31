@@ -1,0 +1,140 @@
+1
+00:00:00,300 --> 00:00:06,570
+Now in the last lesson we looked at how we would create new tables using the SQL language and how
+
+2
+00:00:06,570 --> 00:00:10,790
+we would insert data into our tables. In this lesson
+
+3
+00:00:10,800 --> 00:00:18,270
+we're going to look at the next part of CRUD which is 'R' for read. How would you read data in your table?
+
+4
+00:00:19,100 --> 00:00:24,390
+Well the most often used keyword is the SQL SELECT keyword.
+
+5
+00:00:24,680 --> 00:00:29,800
+And what this does is it allows you to read the data from your database.
+
+6
+00:00:29,810 --> 00:00:37,220
+So for example whenever I right clicked on my tables and I clicked on show table you can see up here
+
+7
+00:00:37,310 --> 00:00:44,660
+this syntax show up automatically because I'm able to show the table by running this statement. And what
+
+8
+00:00:44,660 --> 00:00:53,780
+it says is SELECT * FROM products. Products is the table that I want to see and * stands for a
+
+9
+00:00:53,780 --> 00:00:54,530
+wildcard.
+
+10
+00:00:54,530 --> 00:00:58,650
+So it means select everything from the products table
+
+11
+00:00:58,850 --> 00:01:02,900
+and this is why we see everything in our table.
+
+12
+00:01:02,900 --> 00:01:10,100
+Now if you only wanted one column or two columns from this table then instead of asterix or * you
+
+13
+00:01:10,100 --> 00:01:19,370
+can simply write SELECT name, price FROM this products table. And if you hit run you can see we've
+
+14
+00:01:19,370 --> 00:01:26,330
+now removed that id column and we're reading from our database only the columns that we want.
+
+15
+00:01:26,360 --> 00:01:31,160
+Now what if you only wanted a particular row from your database?
+
+16
+00:01:31,160 --> 00:01:35,160
+Say for example you only wanted to see the first row,
+
+17
+00:01:35,230 --> 00:01:37,900
+the one with an id of one.
+
+18
+00:01:37,940 --> 00:01:45,300
+How would you do that with SQL? Well this is when you would need to search through your database by
+
+19
+00:01:45,300 --> 00:01:47,620
+using the WHERE keyword.
+
+20
+00:01:47,640 --> 00:01:54,720
+So this is the syntax we would SELECT a particular column or if you want to select all of the columns
+
+21
+00:01:55,050 --> 00:02:00,750
+then you would put in asterisks and then we specify the table that you want to read the data from
+
+22
+00:02:01,020 --> 00:02:04,030
+and then the WHERE is a search condition.
+
+23
+00:02:04,080 --> 00:02:06,200
+So you could say something like
+
+24
+00:02:06,230 --> 00:02:11,690
+WHERE country equals Mexico or WHERE custom ID equals one.
+
+25
+00:02:11,820 --> 00:02:22,870
+If we tried out in the browser we can write SELECT everything which is * FROM the products table
+
+26
+00:02:23,960 --> 00:02:28,520
+where id equals 1.
+
+27
+00:02:28,520 --> 00:02:36,590
+So now if I hit run it isolates that single record where the id is equal to 1 and we select a single
+
+28
+00:02:36,670 --> 00:02:38,380
+row.
+
+29
+00:02:38,380 --> 00:02:44,050
+Now if you read the documentation you can see that there's other operators where you can get fancier
+
+30
+00:02:44,200 --> 00:02:45,450
+than what we've done.
+
+31
+00:02:45,640 --> 00:02:52,040
+So you can use things such as equal or greater or less than between like in all sorts of things
+
+32
+00:02:52,060 --> 00:02:57,930
+to modify this WHERE statement so that you can select the pieces of data that you need.
+
+33
+00:02:58,330 --> 00:03:05,890
+So this statement is for reading data from your database and grabbing the data that meet certain criteria.
+
+34
+00:03:06,490 --> 00:03:08,050
+And you'll see the statement a lot
+
+35
+00:03:08,050 --> 00:03:10,110
+when you start working with SQL databases.
+

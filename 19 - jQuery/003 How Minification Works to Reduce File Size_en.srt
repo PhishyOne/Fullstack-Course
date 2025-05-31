@@ -1,0 +1,184 @@
+1
+00:00:00,570 --> 00:00:08,039
+Now for the inquisitive ones amongst you you might have copied this URL where our jQuery library
+
+2
+00:00:08,039 --> 00:00:16,200
+resides and tried to take a look at it. And if you did this is what you would see, it looks like a huge
+
+3
+00:00:16,200 --> 00:00:17,010
+mess.
+
+4
+00:00:17,280 --> 00:00:23,330
+But this is essentially the minified version of the jQuery library.
+
+5
+00:00:23,490 --> 00:00:30,040
+And you might notice that it looks very similar from the Bootstrap CDN that we used previously.
+
+6
+00:00:30,240 --> 00:00:36,330
+When you copy the URL there and paste it and load it in your browser, then you can see again you
+
+7
+00:00:36,330 --> 00:00:39,980
+have this huge mess of code.
+
+8
+00:00:39,990 --> 00:00:42,810
+Now what exactly is all of this?
+
+9
+00:00:43,050 --> 00:00:49,500
+Let's take a section of this and copy it, and inside Atom I'm going to open a new page.
+
+10
+00:00:49,680 --> 00:00:52,760
+I'm going to show you what this minification does.
+
+11
+00:00:52,770 --> 00:00:56,470
+So essentially we've still got the same Bootstrap code.
+
+12
+00:00:56,490 --> 00:01:00,340
+So in the case of Bootstrap then it is CSS,
+
+13
+00:01:00,450 --> 00:01:03,920
+and in the case of jQuery then it's Javascript code.
+
+14
+00:01:04,170 --> 00:01:14,700
+But essentially all of the spaces, the new lines, the comments, have been removed from the file to try
+
+15
+00:01:14,700 --> 00:01:16,400
+and reduce its size.
+
+16
+00:01:16,590 --> 00:01:23,490
+But you can see that as I've been combing through this and separating out these lines into the familiar
+
+17
+00:01:23,490 --> 00:01:28,000
+formatting that we're used to, then you can see that it's just CSS code.
+
+18
+00:01:28,200 --> 00:01:31,000
+And this is simply just Javascript code.
+
+19
+00:01:31,140 --> 00:01:37,850
+And in fact if you head over to minifier.org, which is a way of converting your Javascript or CSS
+
+20
+00:01:37,860 --> 00:01:40,470
+code to a minified version.
+
+21
+00:01:40,650 --> 00:01:47,880
+Now to test it out I've got our index.js from our drumkit code and at the top I'm going to add
+
+22
+00:01:47,940 --> 00:01:49,170
+a comment.
+
+23
+00:01:49,200 --> 00:01:56,250
+This is a comment. And you can see that it's got a lot of spaces, new lines, new paragraphs.
+
+24
+00:01:56,430 --> 00:02:02,190
+But we're going to copy its entirety by just hitting command or control A and then command or control
+
+25
+00:02:02,190 --> 00:02:07,300
+C, and then we're going to take it over to our minifier and we're going to paste that in.
+
+26
+00:02:07,380 --> 00:02:14,220
+And now we're going to select Javascript and hit Minify, and you can see that it's just crunched everything
+
+27
+00:02:14,220 --> 00:02:17,500
+together and got rid of comments.
+
+28
+00:02:17,520 --> 00:02:25,120
+So now you can see that our original script was 1539 bytes, our 
+
+29
+00:02:25,150 --> 00:02:29,720
+minified script is only 1113 bytes.
+
+30
+00:02:29,790 --> 00:02:37,260
+So we have gained 426 bytes, making our files smaller and therefore quicker for our users to load.
+
+31
+00:02:37,260 --> 00:02:43,650
+And this is exactly the reason why we minify our Javascript or our CSS, because all of this code has
+
+32
+00:02:43,650 --> 00:02:46,830
+to be loaded up by your users' browser.
+
+33
+00:02:46,950 --> 00:02:54,060
+Now depending on their Internet speed, that may take a short time or a long time. Now because the browser
+
+34
+00:02:54,090 --> 00:03:00,090
+doesn't care about tabs, indents, spaces and comments, it completely ignores all of it,
+
+35
+00:03:00,120 --> 00:03:07,270
+there's no point asking the user to load up all of this unnecessary information, and by minifying
+
+36
+00:03:07,410 --> 00:03:11,210
+we get rid of those things and make our web site load much faster.
+
+37
+00:03:11,340 --> 00:03:16,920
+So if you download the jQuery library straight up then you'll see something that looks a bit like
+
+38
+00:03:16,920 --> 00:03:17,770
+this.
+
+39
+00:03:17,790 --> 00:03:25,830
+Now as with all libraries they'll come up with a standard version that is human readable and they'll
+
+40
+00:03:25,830 --> 00:03:31,620
+also have a minified version that's just intended for the browser.
+
+41
+00:03:31,620 --> 00:03:38,310
+And this is so that you can customize the code if you wish and then minify it yourself, or if you don't
+
+42
+00:03:38,310 --> 00:03:44,330
+want to do any customization then simply to just drop the jQuery file into your project.
+
+43
+00:03:44,340 --> 00:03:44,720
+All right.
+
+44
+00:03:44,730 --> 00:03:49,920
+So in the next lesson we're actually going to be getting down and dirty and actually exploring all the
+
+45
+00:03:49,920 --> 00:03:54,930
+things that you can do with jQuery, starting by selecting elements.
+
+46
+00:03:54,980 --> 00:03:58,470
+So for all of that and more, I'll see you on the next lesson.
+

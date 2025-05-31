@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Assignment</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p, ul, ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      .code-snippet {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .code-block {
+        background-color: #fff;
+        color: #b4690e;
+        font-size: 90%;
+      }
+      .black-block {
+        color: #000000;
+      }
+      .italic-text {
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <h1 id="coding-title"></h1>
+    <div>
+      <h2>Instructions</h2>
+      <div id="coding-instructions"></div>
+    </div>
+    <div>
+      <h2>Test(s)</h2>
+      <div id="coding-tests"></div>
+    </div>
+    <div>
+      <h2>Solution(s)</h2>
+      <div id="coding-solutions"></div>
+    </div>
+
+    <script>
+      const quizData = {"title": "007 Leap Year Challenge Exercise", "hasInstructions": true, "hasTests": true, "hasSolutions": true, "instructions": "<p><strong>\ud83d\udcaaThis is a Difficult Challenge \ud83d\udcaa</strong></p><p>Write a program that works out whether if a given year is a leap year. A normal year has 365 days, leap years have 366, with an extra day in February. The reason why we have leap years is really fascinating,<a href=\"https://www.youtube.com/watch?v=xX96xng7sAE\"> this video</a> goes into more detail.<br></p><p>This is how to work out whether if a particular year is a leap year:</p><p><em>A year is a leap year if it is evenly divisible by </em><strong><em>4 </em></strong><em>;</em></p><p><strong><em>except</em></strong><em> if that year is also evenly divisible by </em><strong><em>100</em></strong><em>;</em></p><p><strong><em>unless</em></strong><em> that year is also evenly divisible by </em><strong><em>400</em></strong><em>.</em></p><p><br></p><p>e.g. Is the year 2000 a leap year?:</p><p>2000 \u00f7 4 = 500 (Leap)</p><p>2000 \u00f7 100 = 20 (Not Leap)</p><p>2000 \u00f7 400 = 5 (Leap!)</p><p><br></p><p>So the year 2000 is a leap year.<br></p><p>But the year 2100 is not a leap year because:</p><p>2100 \u00f7 4 = 525 (Leap)</p><p>2100 \u00f7 100 = 21 (Not Leap)</p><p>2100 \u00f7 400 = 5.25 (Not Leap)</p><p><br></p><p><strong>Warning</strong> your output should match the Example Output format exactly, even the positions of the commas and full stops.</p><p><br></p><p><strong>Example Input 1</strong></p><pre class=\"prettyprint linenums\">2400</pre><p><strong>Example Output 1</strong></p><pre class=\"prettyprint linenums\">Leap year.</pre><p><br></p><p><strong>Example Input 2</strong></p><pre class=\"prettyprint linenums\">1989</pre><p><br></p><p><strong>Example Output 2</strong></p><pre class=\"prettyprint linenums\">Not leap year.</pre><p><br></p><p><strong>Hint</strong></p><ol><li><p>Remember that the modulo (%) operator gives you the remainder of a division. We covered this in <a href=\"https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12371848\">this lesson</a>.</p></li><li><p>Try to visualise the rules by creating a flow chart on <a href=\"http://www.draw.io\">www.draw.io</a>.</p></li><li><p>If you really get stuck, you can see <a href=\"https://bit.ly/36BjS2D\">the flow chart I created</a>.</p></li><li><p>Try to run your code in <a href=\"https://repl.it/@appbrewery/Leap-year-challenge\">this Repl.it playground</a> and check it against the <a href=\"https://www.mathsisfun.com/leap-years.html\">known leap years</a>. </p></li></ol><p><br></p>", "tests": [{"file_name": "evaluate.js", "key": 0.26463060079989575, "content": "describe('isLeap()', function() {\n    it('Problem! isLeap(1948) should return \"Leap year.\"', function() {\n         var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n    \n    var result = isLeap(1948);\n    \n    expect(stdout || result).toMatch(\"Leap year.\");\n\n    });\n    \n    it('Problem! isLeap(1998) should return \"Not leap year.\"', function() {\n         var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n    \n    var result = isLeap(1998);\n    \n    expect(stdout || result).toMatch(\"Not leap year.\");\n\n    });\n    \n      it('Problem! isLeap(2020) should return \"Leap year.\"', function() {\n         var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n      stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n    \n    var result = isLeap(2020);\n    \n    expect(stdout || result).toMatch(\"Leap year.\");\n\n    });\n});\n"}], "solutions": [{"file_name": "index.js", "key": 0.5568888999185913, "content": "function isLeap(year) {\n    \n\n    if (year % 4 === 0) {\n        if (year % 100 === 0) {\n            if (year % 400 === 0) {\n                return \"Leap year.\";\n            }else {\n                return \"Not leap year.\";\n            }\n        }else {\n          return \"Leap year.\";\n        }\n    }else {\n        return \"Not leap year.\";\n    }\n    \n    \n    //     if (year % 4 === 0) {\n    //     if (year % 100 === 0) {\n    //         if (year % 400 === 0) {\n    //             console.log(\"Leap year.\");\n    //         }else {\n    //             console.log(\"Not leap year.\");\n    //         }\n    //     }else {\n    //       console.log(\"Leap year.\");\n    //     }\n    // }else {\n    //     console.log(\"Not leap year.\");\n    // }\n\n}"}]};
+
+      function renderCodeList(rootElement, codeList, className, titlePrefix) {
+        for (var i = 0; i < codeList.length; i++) {
+          var elem = codeList[i];
+          var jsElem = document.createElement("div");
+          jsElem.className = className;
+          var jsElemTitle = document.createElement("h3");
+          jsElemTitle.innerHTML = titlePrefix + " " + (i + 1);
+          var jsElemBody = document.createElement("code");
+          jsElemBody.className = "code-block black-block";
+          jsElemBody.innerHTML = "<pre>" + elem.content + "</pre>";
+          jsElem.appendChild(jsElemTitle);
+          jsElem.appendChild(jsElemBody);
+          rootElement.appendChild(jsElem);
+        }
+      }
+      
+      function main() {
+        // display the assignment
+        var codingTitle = document.getElementById("coding-title");
+        codingTitle.innerHTML = quizData.title;
+        
+        var codingInstructions = document.getElementById("coding-instructions");
+        if (quizData.hasInstructions) {
+          codingInstructions.innerHTML = quizData.instructions;
+        } else {
+          codingInstructions.innerHTML = "<span class=\"italic-text\">" + quizData.instructions
+            + "</span>";
+        }
+
+        // display the test(s)
+        var codingTests = document.getElementById("coding-tests");
+        if (!quizData.hasTests) {
+          codingTests.innerHTML = "<span class=\"italic-text\">" + quizData.tests + "</span>";
+        } else {
+          renderCodeList(codingTests, quizData.tests, "coding-test", "Test");
+        }
+        
+
+        // display the solution(s)
+        var codingSolutions = document.getElementById("coding-solutions");
+        if (!quizData.hasSolutions) {
+          codingSolutions.innerHTML = "<span class=\"italic-text\">" + quizData.solutions + "</span>";
+        } else {
+          renderCodeList(codingSolutions, quizData.solutions, "coding-solution", "Solution");
+        }
+      }
+    </script>
+  </body>
+</html>

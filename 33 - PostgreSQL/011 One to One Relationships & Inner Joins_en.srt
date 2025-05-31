@@ -1,0 +1,588 @@
+1
+00:00:00,110 --> 00:00:06,290
+Hey guys, in this lesson we're going to be learning all about relational databases and how that applies
+
+2
+00:00:06,290 --> 00:00:08,240
+to PostgreSQL.
+
+3
+00:00:08,270 --> 00:00:13,640
+And we're going to be looking at the different types of relationships such as one to many, 1 to 1,
+
+4
+00:00:13,640 --> 00:00:15,680
+and many to many relationships.
+
+5
+00:00:15,680 --> 00:00:22,370
+And we're going to see how we can join our tables together that are constructed using these relationships.
+
+6
+00:00:22,640 --> 00:00:31,460
+To begin, we already spoke about how relationships are a really big aspect of SQL type databases,
+
+7
+00:00:31,460 --> 00:00:33,980
+and it's really what they are strong at.
+
+8
+00:00:34,010 --> 00:00:39,580
+They are essentially the relationship goals of all the different databases.
+
+9
+00:00:39,590 --> 00:00:45,160
+And this is really where the power of SQL databases actually come in.
+
+10
+00:00:45,170 --> 00:00:49,340
+So let's explore and see how we can create great relationships.
+
+11
+00:00:49,460 --> 00:00:52,760
+Now the first type of relationship we're going to look at is the simplest.
+
+12
+00:00:52,760 --> 00:00:55,220
+It's a 1 to 1 relationship.
+
+13
+00:00:55,400 --> 00:01:00,330
+And if you take a look here you'll see how we've designed this relationship.
+
+14
+00:01:00,330 --> 00:01:09,620
+Now in this type of crow's feet diagrams, the relationships which are 1 to 1 are represented like this.
+
+15
+00:01:09,830 --> 00:01:13,190
+On this side we have a table called student.
+
+16
+00:01:13,190 --> 00:01:15,920
+And on this side we have a table called contact.
+
+17
+00:01:15,920 --> 00:01:22,490
+And we're linking these two tables together using this 1 to 1 relationship.
+
+18
+00:01:22,490 --> 00:01:26,090
+And they're linked by the field that is the ID.
+
+19
+00:01:26,660 --> 00:01:34,610
+When you think of a 1 to 1 relationship, it basically means that there is one entry in the student
+
+20
+00:01:34,610 --> 00:01:44,150
+that maps to one entry in the contact table, and very often this is a way to modularize your database.
+
+21
+00:01:44,150 --> 00:01:53,750
+So for example, if you have a table which has many, many columns as the columns kind of extend, as
+
+22
+00:01:53,750 --> 00:01:59,720
+you end up with more and more of them, your database becomes larger and larger and more difficult to
+
+23
+00:01:59,720 --> 00:02:00,500
+search.
+
+24
+00:02:00,500 --> 00:02:06,260
+So a lot of databases are optimized to have many, many records, so many, many rows.
+
+25
+00:02:06,260 --> 00:02:11,660
+But they can struggle when you have too many fields or too many columns.
+
+26
+00:02:12,020 --> 00:02:17,300
+One way of splitting a table up is using a 1 to 1 relationship.
+
+27
+00:02:17,300 --> 00:02:23,240
+Now an example of this is represented here using SQL code.
+
+28
+00:02:23,390 --> 00:02:26,120
+By now you already understand how create table works.
+
+29
+00:02:26,120 --> 00:02:28,190
+So here we're creating two tables.
+
+30
+00:02:28,190 --> 00:02:33,920
+One is a table called student and the other is a table called contact detail.
+
+31
+00:02:34,040 --> 00:02:41,750
+Now these two tables represent different bits of data about a student in a imaginary school.
+
+32
+00:02:41,750 --> 00:02:47,060
+In the first table we have the first name and the last name of the student.
+
+33
+00:02:47,060 --> 00:02:52,850
+And of course we have a primary key to represent the ID of that record in the table.
+
+34
+00:02:53,180 --> 00:02:59,390
+This is obviously vastly simplified, but you can imagine a student table might contain some pieces
+
+35
+00:02:59,390 --> 00:03:01,010
+of information such as this.
+
+36
+00:03:01,010 --> 00:03:05,210
+Now, every so often you might need to contact the student's parents.
+
+37
+00:03:05,210 --> 00:03:11,960
+And so you would need to look up the student and the contact detail table.
+
+38
+00:03:12,350 --> 00:03:19,040
+Here we essentially extend the student table and we add some more details that are related to their
+
+39
+00:03:19,040 --> 00:03:22,820
+contacts, such as their telephone number or their address.
+
+40
+00:03:23,000 --> 00:03:30,770
+While we could have all of this inside the student's table, it's not very modular, and very often
+
+41
+00:03:30,770 --> 00:03:36,620
+you'll see tables being more efficient if we can separate them into different tasks or have different
+
+42
+00:03:36,620 --> 00:03:38,170
+roles, such as here.
+
+43
+00:03:38,180 --> 00:03:40,250
+But how do we link them up?
+
+44
+00:03:40,250 --> 00:03:46,370
+Well, in this case we have a 1 to 1 relationship between the IDs.
+
+45
+00:03:46,550 --> 00:03:54,830
+The ID of the student is the primary key of the student table, and we use that same ID when we create
+
+46
+00:03:54,830 --> 00:03:58,250
+a record in the contact detail table.
+
+47
+00:03:58,250 --> 00:04:02,000
+And this is set to be unique.
+
+48
+00:04:02,000 --> 00:04:04,880
+So it cannot reoccur in this table.
+
+49
+00:04:04,880 --> 00:04:10,820
+So we can't map to student IDs to two different records for example.
+
+50
+00:04:10,820 --> 00:04:17,540
+But also we set it as an integer because we know that in this case this ID is an integer as a whole
+
+51
+00:04:17,540 --> 00:04:18,170
+number.
+
+52
+00:04:18,170 --> 00:04:28,880
+And we have the references keyword in Postgres which sets this particular field as a foreign key.
+
+53
+00:04:28,880 --> 00:04:36,350
+So we now have a primary key which is here which uniquely identifies all records in this table.
+
+54
+00:04:36,350 --> 00:04:44,900
+And we have a foreign key which identifies the relationship between records in the contact detail table
+
+55
+00:04:44,900 --> 00:04:48,470
+with the records in the student table.
+
+56
+00:04:48,620 --> 00:04:52,760
+So we're now kind of getting into the realm of database design.
+
+57
+00:04:52,760 --> 00:04:59,660
+And very often you'll see that people design their databases using drawings such as these, which.
+
+58
+00:04:59,780 --> 00:05:01,360
+You can create yourself.
+
+59
+00:05:01,370 --> 00:05:08,750
+If you go to Draw.io and you can create these tables, add different fields, and plan to have different
+
+60
+00:05:08,750 --> 00:05:12,290
+relationships and links between the tables.
+
+61
+00:05:12,290 --> 00:05:22,940
+And this is a very easy, at a glance way to see how we have a 1 to 1 relationship between the ID fields
+
+62
+00:05:22,940 --> 00:05:24,620
+in these two tables.
+
+63
+00:05:25,490 --> 00:05:29,300
+Now I want you to create this in Postgres yourself.
+
+64
+00:05:29,300 --> 00:05:35,990
+So we're going to complete these sessions as an exercise so that you can have a go at creating some
+
+65
+00:05:35,990 --> 00:05:37,730
+of these relationships yourself.
+
+66
+00:05:37,850 --> 00:05:44,480
+The first thing I want you to do is to go into the resources for this session and download 8.5 Family
+
+67
+00:05:44,480 --> 00:05:45,470
+Travel Tracker.
+
+68
+00:05:45,500 --> 00:05:51,920
+This file contains all of the starting files that we'll need to complete the final exercise, but also
+
+69
+00:05:51,920 --> 00:05:59,030
+in there I've snuck in this file called queries dot SQL, and it's got all of the queries that we go
+
+70
+00:05:59,030 --> 00:06:00,140
+through in this lesson.
+
+71
+00:06:00,140 --> 00:06:02,450
+So you don't have to type it out all yourself.
+
+72
+00:06:02,450 --> 00:06:05,540
+And you might make some typos or spelling errors.
+
+73
+00:06:05,540 --> 00:06:12,230
+And this is just a way that allows you to simply copy these commands and put them into Postgres.
+
+74
+00:06:12,530 --> 00:06:18,560
+If you collapse all of your databases, I want you to go ahead and create a new database.
+
+75
+00:06:19,250 --> 00:06:22,430
+And this database you're going to call school.
+
+76
+00:06:22,460 --> 00:06:23,990
+Go ahead and click save.
+
+77
+00:06:23,990 --> 00:06:26,720
+And we now have this school database created.
+
+78
+00:06:26,720 --> 00:06:31,940
+Click on this query tool so that we connect to this school database.
+
+79
+00:06:32,210 --> 00:06:37,310
+Here is where you're going to paste in the queries that you just copied over.
+
+80
+00:06:37,400 --> 00:06:38,900
+Don't worry about these lines.
+
+81
+00:06:38,900 --> 00:06:39,890
+They're just comments.
+
+82
+00:06:39,890 --> 00:06:47,120
+And I wanted to separate the different parts of the queries so that you'd be able to see which part
+
+83
+00:06:47,150 --> 00:06:48,200
+goes into which.
+
+84
+00:06:48,200 --> 00:06:56,990
+And in SQL, the comments are created using two dashes at the beginning instead of, for example, our
+
+85
+00:06:56,990 --> 00:07:03,380
+two forward slashes and JavaScript in SQL is just two dashes, so they won't get executed as code.
+
+86
+00:07:03,560 --> 00:07:07,790
+So now that we've got the code in here, let's go ahead and create these two tables.
+
+87
+00:07:07,790 --> 00:07:11,270
+So let's run those two commands.
+
+88
+00:07:11,270 --> 00:07:20,540
+And now if we go into schemas and we hit refresh, you should be able to see that we have our two tables
+
+89
+00:07:20,540 --> 00:07:21,440
+created.
+
+90
+00:07:21,590 --> 00:07:23,270
+They don't yet have any data.
+
+91
+00:07:23,270 --> 00:07:31,280
+So let's populate some data in here by copying the part from the data section and paste it into the
+
+92
+00:07:31,280 --> 00:07:32,960
+query section here.
+
+93
+00:07:33,050 --> 00:07:38,900
+And then let's hit run in order to insert those pieces of data into our tables.
+
+94
+00:07:38,900 --> 00:07:43,190
+So notice the first command inserts into the students table.
+
+95
+00:07:43,190 --> 00:07:48,290
+And we have well my name Angela, you added as a student.
+
+96
+00:07:48,410 --> 00:07:52,550
+And then we insert some details into the contact detail table.
+
+97
+00:07:52,550 --> 00:07:58,940
+And we're inserting the telephone number the address, but also that all important foreign key, the
+
+98
+00:07:58,940 --> 00:08:00,320
+student ID.
+
+99
+00:08:00,320 --> 00:08:09,860
+So now I know that because the student table is created with a primary key that is serial, it's going
+
+100
+00:08:09,860 --> 00:08:13,310
+to start the ID from number one.
+
+101
+00:08:13,310 --> 00:08:16,400
+And this is the only entry that I've added so far.
+
+102
+00:08:16,400 --> 00:08:19,580
+So the ID for this student is one.
+
+103
+00:08:19,580 --> 00:08:23,300
+That's what I'm inserting into the contact detail table.
+
+104
+00:08:23,300 --> 00:08:25,070
+As the ID of this record.
+
+105
+00:08:25,340 --> 00:08:29,660
+I'm adding a imaginary telephone number and an imaginary address.
+
+106
+00:08:29,660 --> 00:08:36,740
+And now using this foreign key, I've linked it to this primary key.
+
+107
+00:08:36,740 --> 00:08:43,539
+And these two records, even though they exist on different tables, are now linked through this 1 to
+
+108
+00:08:43,539 --> 00:08:45,110
+1 relationship.
+
+109
+00:08:45,710 --> 00:08:49,050
+Now, how can we use this 1 to 1 relationship?
+
+110
+00:08:49,070 --> 00:08:52,300
+What if we wanted to bring up the entire record?
+
+111
+00:08:52,310 --> 00:08:54,740
+How would we do that using SQL?
+
+112
+00:08:54,890 --> 00:08:56,630
+Let's analyze this code.
+
+113
+00:08:56,630 --> 00:09:02,390
+Here we've got select all select asterisks which is going to select everything.
+
+114
+00:09:02,390 --> 00:09:07,430
+And then we say the table that we want to select from which is the student table.
+
+115
+00:09:07,430 --> 00:09:12,920
+And then we're using this keyword here which is called join.
+
+116
+00:09:13,340 --> 00:09:19,640
+And what this is going to perform is what's known in the industry as an inner join.
+
+117
+00:09:19,760 --> 00:09:26,330
+It's going to join two tables together based on some sort of criteria.
+
+118
+00:09:26,330 --> 00:09:30,830
+And the criteria is determined by this keyword on.
+
+119
+00:09:31,160 --> 00:09:38,780
+And the criteria here we're saying look inside the students table, find the ID, which as you remember
+
+120
+00:09:38,780 --> 00:09:42,050
+is the primary key that's unique in the students table.
+
+121
+00:09:42,170 --> 00:09:45,980
+And then check for equality.
+
+122
+00:09:45,980 --> 00:09:55,460
+So find the ID in the contact detail table that matches this ID we've got the foreign key.
+
+123
+00:09:55,460 --> 00:09:56,840
+We've got the primary key.
+
+124
+00:09:56,840 --> 00:09:59,510
+And when they match each other we'll find the.
+
+125
+00:09:59,650 --> 00:10:04,360
+Record that contains all of the details of that student.
+
+126
+00:10:04,360 --> 00:10:08,420
+And if we run this, it will look something like this.
+
+127
+00:10:08,440 --> 00:10:10,720
+This is two tables.
+
+128
+00:10:10,720 --> 00:10:19,750
+This is the first table, the students table that contains an ID as the primary key, the first name
+
+129
+00:10:19,750 --> 00:10:20,680
+and last name.
+
+130
+00:10:20,680 --> 00:10:24,030
+And then we've got another table right here.
+
+131
+00:10:24,040 --> 00:10:27,100
+And this is the contact details table.
+
+132
+00:10:27,400 --> 00:10:32,670
+And it contains a foreign key the ID and the telephone number and address.
+
+133
+00:10:32,680 --> 00:10:42,040
+But what we've done here is because we know that there is a 1 to 1 relationship between the ID field
+
+134
+00:10:42,040 --> 00:10:47,590
+in the contact details table and the ID field in the students table.
+
+135
+00:10:47,590 --> 00:10:54,610
+We can use this SQL command to join these two tables together.
+
+136
+00:10:54,850 --> 00:10:58,180
+And that is what we end up with right here.
+
+137
+00:10:58,180 --> 00:11:07,000
+We end up with one big table with all of the fields that correspond to that particular entry.
+
+138
+00:11:07,000 --> 00:11:10,650
+And that is how we can use a 1 to 1 relationship.
+
+139
+00:11:10,660 --> 00:11:14,970
+So what I want you to do is to try this out as an exercise.
+
+140
+00:11:14,980 --> 00:11:18,250
+Enter this command into your pgadmin.
+
+141
+00:11:18,250 --> 00:11:25,180
+And if you need to copy that command, you can find it again in queries dot SQL.
+
+142
+00:11:25,450 --> 00:11:29,860
+And hopefully you end up with that exact same table being generated.
+
+143
+00:11:30,960 --> 00:11:33,480
+Let's try it together for the first one.
+
+144
+00:11:33,480 --> 00:11:38,280
+And I'm going to paste in my query here, making sure that I'm in the correct database.
+
+145
+00:11:38,280 --> 00:11:45,510
+And then if I go ahead and hit run, then this command is going to utilize that 1 to 1 relationship.
+
+146
+00:11:45,510 --> 00:11:54,160
+And it's going to bring up this giant table that is joined by the hip, but actually joined by the 1
+
+147
+00:11:54,160 --> 00:11:57,210
+to 1 relationship right here.
+

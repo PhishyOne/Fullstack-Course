@@ -1,0 +1,224 @@
+1
+00:00:00,210 --> 00:00:01,740
+This is an exciting moment.
+
+2
+00:00:01,740 --> 00:00:07,840
+We're finally ready to apply everything that we've learned so far to get started building
+
+3
+00:00:07,920 --> 00:00:10,570
+our final project, the keeper app.
+
+4
+00:00:10,620 --> 00:00:17,160
+So in this lesson I've got a challenge for you that is going to get as part of the way towards our final
+
+5
+00:00:17,160 --> 00:00:18,180
+product.
+
+6
+00:00:18,180 --> 00:00:20,090
+So this is what we're aiming for.
+
+7
+00:00:20,100 --> 00:00:22,770
+We've got a header component,
+
+8
+00:00:22,770 --> 00:00:28,150
+we've got a note component and we've got a footer down here as well.
+
+9
+00:00:28,230 --> 00:00:33,990
+Now in the index.js file, I've got all the steps that you need to go through in order to complete
+
+10
+00:00:33,990 --> 00:00:35,400
+this challenge.
+
+11
+00:00:35,400 --> 00:00:42,600
+If you want to work on this project locally instead of on code sandbox, then the simplest way is to go
+
+12
+00:00:42,600 --> 00:00:50,040
+to the link that is listed in the course resources for the starting project and then once you're here,
+
+13
+00:00:50,070 --> 00:00:59,040
+go ahead and click on this button to export this project as a zip file and then unzip that file and
+
+14
+00:00:59,100 --> 00:01:02,480
+you should end up with a project folder.
+
+15
+00:01:02,490 --> 00:01:08,400
+Now once you've got your project folder, you can click and drag it into your VS code and add it to
+
+16
+00:01:08,400 --> 00:01:14,070
+your workspace. And then you can remove any previous folders that you've been working on.
+
+17
+00:01:14,250 --> 00:01:19,440
+And if you expand all the files, you end up with the same starting files.
+
+18
+00:01:19,440 --> 00:01:27,300
+So in this case the files that we've got are a index.html which is kept very simple. It's got a title,
+
+19
+00:01:27,690 --> 00:01:30,840
+it's got a link to google fonts.
+
+20
+00:01:30,990 --> 00:01:36,330
+So if you remember from previously we can simply select the fonts we want from Google and then embed
+
+21
+00:01:36,330 --> 00:01:43,090
+the fonts as a style sheet link. And then we've got a link to the style sheet inside styles.
+
+22
+00:01:43,090 --> 00:01:43,980
+CSS,
+
+23
+00:01:43,980 --> 00:01:51,180
+and finally we've got a link to our index.js as a JSX file. And of course as always we've got
+
+24
+00:01:51,180 --> 00:01:54,650
+that prerequisite div with the idof root.
+
+25
+00:01:54,720 --> 00:02:00,960
+So the other files to take a look at is the styles.css file because in here I've already added a
+
+26
+00:02:01,020 --> 00:02:08,699
+bunch of styles and classes which you're going to be applying to the code that you're writing with React.
+
+27
+00:02:08,699 --> 00:02:14,460
+It's up to you whether if you want to work on this in code sandbox or on your local environment that
+
+28
+00:02:14,460 --> 00:02:16,760
+you've set up in the last lesson.
+
+29
+00:02:16,800 --> 00:02:20,870
+Now if you do decide to go down this route, I recommend the first thing to do
+
+30
+00:02:20,880 --> 00:02:28,110
+once you've downloaded it is to open up your hyperterminal and cd over to the location of your project.
+
+31
+00:02:28,440 --> 00:02:37,440
+So in my case it's in download/keeper-app-part-1 and then go ahead and run npm install. This
+
+32
+00:02:37,440 --> 00:02:43,980
+way you'll install the react, the react-dom module and the react-scripta module that's included with
+
+33
+00:02:43,980 --> 00:02:45,050
+the package.
+
+34
+00:02:45,180 --> 00:02:52,200
+And once that's done, then you can go ahead and run npm start for it to run the server to be able to
+
+35
+00:02:52,200 --> 00:02:55,480
+view it inside your browser under localhost 3000.
+
+36
+00:02:55,980 --> 00:03:02,190
+So it's up to you if you want to complete this challenge using code sandbox or if you want to do it
+
+37
+00:03:02,190 --> 00:03:05,180
+locally using your editor of choice.
+
+38
+00:03:05,790 --> 00:03:12,420
+But either way, the goals are going to be the same. You're going to be creating a new React app that includes
+
+39
+00:03:12,450 --> 00:03:19,010
+a app component. Inside that app component, you can have three components: a header component, a
+
+40
+00:03:19,010 --> 00:03:26,820
+footer component and a note component. The header is going to look something like this showing the keeper
+
+41
+00:03:26,880 --> 00:03:32,880
+app title or whatever it is that you decide to call it, and then the footer is going to look like this
+
+42
+00:03:33,000 --> 00:03:41,580
+with a dynamically rendered year so not a statically typed number. You're going to use what you've learnt
+
+43
+00:03:41,580 --> 00:03:47,700
+about Javascript dates to try and get the actual current year showing up here. And then finally you've
+
+44
+00:03:47,700 --> 00:03:52,930
+got this note component which is going to show a title and some content.
+
+45
+00:03:53,190 --> 00:03:59,040
+And the final step is just to make sure that the styling is the same for the website that you've created
+
+46
+00:03:59,460 --> 00:04:06,030
+and this sample completed app which you can access right here. In order to get the styling right
+
+47
+00:04:06,030 --> 00:04:12,300
+you might have to take a look inside these styles.css and see which classes are being targeted
+
+48
+00:04:12,570 --> 00:04:19,310
+and which HMTL elements are being targeted in order to render the same style as you see here.
+
+49
+00:04:19,320 --> 00:04:22,940
+So the goal is to test everything that you've learnt so far.
+
+50
+00:04:23,400 --> 00:04:31,230
+And if you want to, you can even update the styles.css to whichever style you want it to be to customize
+
+51
+00:04:31,230 --> 00:04:37,500
+it if you wish. Or if you want to completely create the styles.css from scratch then you can also
+
+52
+00:04:37,500 --> 00:04:41,270
+just delete that and try to create your own style if you wish.
+
+53
+00:04:42,690 --> 00:04:48,240
+But what I recommend is to go through each of these points in the index.js and try to complete
+
+54
+00:04:48,240 --> 00:04:48,360
+it.
+
+55
+00:04:48,960 --> 00:04:53,640
+And once you're done with the challenge, head over to the next lesson and I'll go through the solution
+
+56
+00:04:53,640 --> 00:04:57,150
+with you. Pause the video now and try to complete the challenge.
+

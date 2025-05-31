@@ -1,0 +1,776 @@
+1
+00:00:00,750 --> 00:00:07,740
+In this lesson I'm going to show you how to separate out a React app into even smaller components which
+
+2
+00:00:07,740 --> 00:00:13,230
+are more specialized. And in the process we're going to learn how to use the React developer tools to
+
+3
+00:00:13,230 --> 00:00:17,610
+help debug and manage all of these components. And to begin
+
+4
+00:00:17,640 --> 00:00:23,140
+I've got a copy of the website that we had at the end of the previous cochallenge.
+
+5
+00:00:23,370 --> 00:00:32,520
+So go ahead and fork this starting project and we'll get started by splitting out some of our components.
+
+6
+00:00:32,520 --> 00:00:39,720
+Notice how in our card component, we've got things here which might work better as a single component
+
+7
+00:00:40,020 --> 00:00:43,170
+because in the future we might want to reuse it.
+
+8
+00:00:43,320 --> 00:00:50,550
+And one of the most obvious choices is this avatar image because there might be other parts of our website
+
+9
+00:00:50,580 --> 00:00:54,660
+where we might need a circular image with a white border.
+
+10
+00:00:54,990 --> 00:01:01,170
+So it makes sense to create a custom component and separate it out. In order to do that
+
+11
+00:01:01,170 --> 00:01:10,740
+we're going to extract this image element and I'm going to create a new file called Avatar and then
+
+12
+00:01:10,800 --> 00:01:16,320
+add all of the boilerplate code and I'm going to return this image element.
+
+13
+00:01:16,320 --> 00:01:22,590
+So let's cut it out of here and put it into our avatar function right here.
+
+14
+00:01:22,610 --> 00:01:31,100
+Now if we head back into our card.jsx and we import our avatar component and then replace it
+
+15
+00:01:31,160 --> 00:01:33,760
+where it used to be.
+
+16
+00:01:33,940 --> 00:01:41,050
+Now notice at this point our app breaks because when we copied over that image element it had its source
+
+17
+00:01:41,140 --> 00:01:48,760
+set as the props.image whereas in our new avatar component, we haven't actually yet added the props
+
+18
+00:01:48,880 --> 00:01:54,500
+inputs and we haven't passed any properties to that avatar component.
+
+19
+00:01:54,640 --> 00:02:01,180
+So pause the video and have a think about this and see if you can solve this problem and make the errors
+
+20
+00:02:01,180 --> 00:02:01,650
+go away.
+
+21
+00:02:03,170 --> 00:02:04,100
+I'll give you a hint.
+
+22
+00:02:04,160 --> 00:02:10,820
+You need to think about how to pass over that image property to the newly created avatar component.
+
+23
+00:02:14,200 --> 00:02:14,530
+All right.
+
+24
+00:02:14,630 --> 00:02:22,610
+So in our card component, we know that we get past some properties and these properties come from our
+
+25
+00:02:22,670 --> 00:02:23,120
+App.
+
+26
+00:02:23,120 --> 00:02:23,930
+js
+
+27
+00:02:24,140 --> 00:02:28,680
+and its name, image, telephone and e-mail.
+
+28
+00:02:28,700 --> 00:02:32,170
+Now the image property corresponds to the image URL
+
+29
+00:02:32,200 --> 00:02:39,380
+that's from our contacts.js which is the URL that we want to insert into our avatar image elements
+
+30
+00:02:39,430 --> 00:02:40,380
+source.
+
+31
+00:02:40,460 --> 00:02:42,830
+So we have to pass it down two levels
+
+32
+00:02:42,830 --> 00:02:43,490
+right?
+
+33
+00:02:43,520 --> 00:02:50,540
+So first it's from app to card and then it's from card to Avatar.
+
+34
+00:02:52,280 --> 00:02:56,960
+At this point especially if you have a lot of properties and a lot of components, it can start to get
+
+35
+00:02:56,960 --> 00:02:58,770
+a bit confusing.
+
+36
+00:02:58,850 --> 00:03:04,370
+Now if you really think about it though, we know that we can dig around and see that we've got this prop
+
+37
+00:03:04,370 --> 00:03:09,480
+called image which is being passed almost like an attribute to the card component.
+
+38
+00:03:09,710 --> 00:03:19,970
+And we can pick it up inside here and pass it over as the props.image. And now inside the avatar
+
+39
+00:03:19,970 --> 00:03:27,620
+component, there's now a property called image which we can pick up inside here as long as we add props
+
+40
+00:03:27,740 --> 00:03:33,670
+as an input parameter and we can pick it up inside here and everything's all good again.
+
+41
+00:03:33,920 --> 00:03:39,170
+But there's a much easier way of finding out the names of properties and which components rendered them.
+
+42
+00:03:40,690 --> 00:03:44,190
+If you open up this right sided pane here,
+
+43
+00:03:44,260 --> 00:03:49,150
+if you take a look down here you see a section called the React DevTools.
+
+44
+00:03:49,150 --> 00:03:55,150
+And this might remind you a little bit of our Chrome developer tools and it works in a similar way.
+
+45
+00:03:55,150 --> 00:04:02,080
+So instead of showing the entire HTML DOM tree, it actually shows you your React DOM tree so you can
+
+46
+00:04:02,080 --> 00:04:08,920
+see that we've got an app component at the top of the tree which then split into three card components
+
+47
+00:04:09,010 --> 00:04:15,150
+that we've got on screen and then inside each card component we've got an avatar component.
+
+48
+00:04:15,280 --> 00:04:20,769
+And what's really helpful about these React dev tools is we can peek at the props that are being passed
+
+49
+00:04:20,769 --> 00:04:23,330
+around to each of these components.
+
+50
+00:04:23,350 --> 00:04:30,190
+So for example if I was coding up the card component and I wanted to know which properties I can tap
+
+51
+00:04:30,190 --> 00:04:36,640
+into using props.something I can just click on one of these card components and on the right here
+
+52
+00:04:36,670 --> 00:04:42,870
+I see all of the props that it gets passed and I can see that it's being rendered by the app component.
+
+53
+00:04:43,630 --> 00:04:49,660
+And now that I've got the names and the values of each of these props, I can then go ahead inserting
+
+54
+00:04:49,660 --> 00:04:53,200
+them inside each of my HTML elements.
+
+55
+00:04:53,230 --> 00:04:59,950
+Now I find that code sandbox's React dev tools tends to be quite buggy and sometimes it just doesn't show
+
+56
+00:04:59,950 --> 00:05:01,330
+what it's supposed to.
+
+57
+00:05:01,330 --> 00:05:08,640
+So what I prefer to work on is the actual React dev tools that you can install on Chrome or Firefox.
+
+58
+00:05:08,770 --> 00:05:15,700
+And also if you're working with your local environment so using a local editors such as VS code or
+
+59
+00:05:15,700 --> 00:05:23,090
+Atom, you're going to need this installed anyways. I recommend using Chrome for the entirety of this course.
+
+60
+00:05:23,110 --> 00:05:27,970
+So if you head over to the Chrome web store and search for the React developer tools that's offered
+
+61
+00:05:27,970 --> 00:05:35,130
+by Facebook, you can go ahead and add it to Chrome just by clicking on the add extension button. And once
+
+62
+00:05:35,130 --> 00:05:39,300
+it's done you'll see this little symbol show up next to your search bar.
+
+63
+00:05:39,300 --> 00:05:45,930
+Now if you're using Firefox there's also a React developer tools add-on that you can use and it works
+
+64
+00:05:45,960 --> 00:05:54,060
+exactly the same way. Once you've got this installed then you can actually just simply open up the Chrome
+
+65
+00:05:54,060 --> 00:06:01,110
+developer tools or Firefox developer tools by going to view, developer and developer tools or using the
+
+66
+00:06:01,110 --> 00:06:03,670
+shortcut as you're probably used to by now.
+
+67
+00:06:03,690 --> 00:06:09,060
+So inside here you'll notice right at the end there's a tab called components and it's got this little
+
+68
+00:06:09,060 --> 00:06:10,630
+React symbol next to it.
+
+69
+00:06:10,710 --> 00:06:18,180
+And this is going to be showing our React components on screen. The first time you install the React component,
+
+70
+00:06:18,180 --> 00:06:19,970
+I recommend refreshing the website
+
+71
+00:06:19,980 --> 00:06:22,940
+sSo it actually starts working. And when it does
+
+72
+00:06:22,980 --> 00:06:29,850
+you can see it'll either color itself in red or in blue depending on whether if you're in the developer
+
+73
+00:06:29,850 --> 00:06:32,520
+mode or if you're in the deployment mode.
+
+74
+00:06:33,000 --> 00:06:40,200
+Once this has been activated in our components tab you should be able to see our React component tree.
+
+75
+00:06:40,230 --> 00:06:43,730
+So here you can even use this little select tool.
+
+76
+00:06:43,890 --> 00:06:49,130
+Not this one which is going to select the HTML elements, but this one inside the components tab.
+
+77
+00:06:49,320 --> 00:06:52,940
+And this is going to allow you to select your React components.
+
+78
+00:06:52,980 --> 00:06:58,890
+So for example if I click here it's going to select my avatar components in the tree and you can imagine
+
+79
+00:06:58,890 --> 00:07:04,230
+if you have a very big and complex website with hundreds of components rendered then this can become
+
+80
+00:07:04,230 --> 00:07:05,460
+really helpful.
+
+81
+00:07:05,610 --> 00:07:11,490
+And when I've got my avatar component selected, you can see that it gets a property called img which
+
+82
+00:07:11,490 --> 00:07:18,830
+is the URL of the image. Now if I was to develop my avatar.jsx file,
+
+83
+00:07:18,950 --> 00:07:25,490
+it's quite easy for me to actually go ahead and to know which properties I can tap into when I write
+
+84
+00:07:25,490 --> 00:07:28,030
+props.something.
+
+85
+00:07:28,070 --> 00:07:32,960
+Now a cool thing about this React dev tool is that it works on other websites that you haven't developed
+
+86
+00:07:32,960 --> 00:07:33,680
+as well.
+
+87
+00:07:33,710 --> 00:07:40,310
+For example, if I go to airbnb.com you can see that the color has now changed its become a black
+
+88
+00:07:40,310 --> 00:07:47,840
+and blue and this represents a deployed version of React, so react is in production mode. And if we go
+
+89
+00:07:47,840 --> 00:07:54,020
+ahead and open up our developer tools again and we go to components then we can see that AirBnB is also
+
+90
+00:07:54,020 --> 00:07:57,550
+comprised of a whole bunch of React components.
+
+91
+00:07:58,040 --> 00:08:04,160
+And if we go ahead and use our selector tool maybe we can scroll down and take a look at each of these
+
+92
+00:08:04,250 --> 00:08:06,540
+tile elements that they've got here right?
+
+93
+00:08:07,010 --> 00:08:10,460
+So these seem very much like classic components.
+
+94
+00:08:10,670 --> 00:08:16,160
+And if we click on it you can see they've got a component called E and it's got all of these props like
+
+95
+00:08:16,220 --> 00:08:22,310
+aspect ratio and alt as well as a source URL just like what we have.
+
+96
+00:08:23,270 --> 00:08:29,450
+So the React developer tools makes it a lot easier to debug what's actually going on when your app goes
+
+97
+00:08:29,450 --> 00:08:29,960
+wrong,
+
+98
+00:08:29,960 --> 00:08:33,240
+so when it's not doing something you're expecting it to.
+
+99
+00:08:33,260 --> 00:08:40,789
+For example if inside my avatar component instead of tapping into the props.image instead I thought
+
+100
+00:08:40,789 --> 00:08:48,080
+maybe I had it as an image URL, then I'll notice that in my preview that I don't actually get an image
+
+101
+00:08:48,080 --> 00:08:55,280
+shown. But using my React dev tools I can go ahead and select the image and then take a look at the props
+
+102
+00:08:55,280 --> 00:08:57,710
+that are showing up and I can see, "Oh right.
+
+103
+00:08:57,710 --> 00:09:03,670
+So the URL is actually under a prop called img instead of image URL".
+
+104
+00:09:03,890 --> 00:09:06,310
+So I go ahead and fix that and then bam!
+
+105
+00:09:06,440 --> 00:09:09,390
+Of course my images now start showing up.
+
+106
+00:09:09,500 --> 00:09:15,290
+So we're going to be using the React developer tools to debug our website in the future as well so that
+
+107
+00:09:15,290 --> 00:09:18,920
+when things go wrong, we'll be able to inspect it and know how to fix it.
+
+108
+00:09:20,220 --> 00:09:27,240
+Now if you're wondering where all of the HTML elements are in our tree because if we look at our card
+
+109
+00:09:27,240 --> 00:09:33,420
+component we can see those divs, there's s and all of these are being filtered out to only show the
+
+110
+00:09:33,420 --> 00:09:34,920
+React components.
+
+111
+00:09:35,040 --> 00:09:40,020
+And this is very useful when you're developing for React because you're unlikely to want to inspect
+
+112
+00:09:40,410 --> 00:09:46,200
+on those HTML native components. But if you do want them switched on then you can click on this little
+
+113
+00:09:46,380 --> 00:09:50,970
+settings icon go to the components and switch off the filter.
+
+114
+00:09:50,970 --> 00:09:56,160
+So all of these host items then get shown such as your divs and s.
+
+115
+00:09:56,670 --> 00:10:03,240
+But normally I will actually have that filter on just so that my tree is a lot cleaner.
+
+116
+00:10:03,240 --> 00:10:08,730
+Another thing that's quite helpful in the React developer tools is you can go ahead and click on this
+
+117
+00:10:08,730 --> 00:10:14,370
+part which shows you the source code for this component and it brings up the file that's actually rendering
+
+118
+00:10:14,370 --> 00:10:20,850
+that component so that you can inspect it inside your browser. And you can even change the values of
+
+119
+00:10:20,850 --> 00:10:29,200
+some of these components just by going into the props and clicking into here and adding a new URL
+
+120
+00:10:30,390 --> 00:10:35,930
+like so. Coming back to these reusable React components,
+
+121
+00:10:36,040 --> 00:10:42,640
+one of the most important things when you're creating a website is having an idea of how you would like
+
+122
+00:10:42,640 --> 00:10:50,080
+to create the component structure or the component tree because there are many places that can be reusable
+
+123
+00:10:50,080 --> 00:10:50,970
+components.
+
+124
+00:10:51,040 --> 00:10:59,230
+For example our paragraph which represents these detail elements in our contact cards I'm using them
+
+125
+00:10:59,380 --> 00:11:02,260
+more than once and in more than one place.
+
+126
+00:11:02,410 --> 00:11:08,680
+Whenever you find yourself creating the same thing over and over again such as this paragraph element
+
+127
+00:11:08,740 --> 00:11:15,160
+with the same class and same styling applied to it, then it's usually a good idea to separate it out into
+
+128
+00:11:15,160 --> 00:11:21,820
+a separate component and have properties pass to it so that it can render custom pieces of information.
+
+129
+00:11:23,080 --> 00:11:23,950
+As a challenge
+
+130
+00:11:23,950 --> 00:11:32,200
+I want you to create a custom detail component and that is going to replace these two paragraph tags.
+
+131
+00:11:32,680 --> 00:11:38,560
+And then I want you to pass these different pieces of information over to that detail component and
+
+132
+00:11:38,620 --> 00:11:44,650
+use the React dev tools to inspect for the props and make sure that it works properly.
+
+133
+00:11:44,860 --> 00:11:47,620
+So pause the video now and try to complete this challenge.
+
+134
+00:11:51,480 --> 00:11:51,830
+All right.
+
+135
+00:11:51,860 --> 00:11:57,650
+So the end result is instead of having these paragraph tags, I want to have components called detail.
+
+136
+00:11:58,220 --> 00:12:04,490
+And for these detailed components, I'm going to pass over a single property which I'm going to call the
+
+137
+00:12:04,580 --> 00:12:12,590
+detail info. And I'm going to set them to equal the value of the telephone number and the email. Inside
+
+138
+00:12:12,680 --> 00:12:13,600
+this detail
+
+139
+00:12:13,610 --> 00:12:20,390
+I'm going to say props.tel and then I'm going to make another copy of this detail component
+
+140
+00:12:20,420 --> 00:12:26,690
+and this one's going to be props.email and that should theoretically replace these two lines.
+
+141
+00:12:26,690 --> 00:12:32,500
+So let's cut those out and go ahead and create a new file called detail.
+
+142
+00:12:32,510 --> 00:12:41,270
+jsx and inside here I'm going to paste those two paragraph tags as a template but I'm also going
+
+143
+00:12:41,270 --> 00:12:49,670
+to get hold of the input statement, I'm going to create the detail component as a function and then it's
+
+144
+00:12:49,670 --> 00:12:59,890
+going to hopefully return some semblance of this and then I'm going to export it as the default. So inside
+
+145
+00:12:59,950 --> 00:13:04,210
+my detail component I'm not going to be returning to paragraph elements,
+
+146
+00:13:04,210 --> 00:13:07,630
+I just want one so I can delete that other one.
+
+147
+00:13:07,630 --> 00:13:16,600
+And inside this particular detail element I'm going to need to add the props as an input parameter so
+
+148
+00:13:16,600 --> 00:13:19,860
+that way I can tap into any of the props that are passed over.
+
+149
+00:13:19,990 --> 00:13:22,610
+And now just to make my errors go away
+
+150
+00:13:22,630 --> 00:13:28,330
+I'm going to go back into my card.jsx and then import that detail component.
+
+151
+00:13:32,670 --> 00:13:39,030
+But unfortunately as you can see right now, I don't actually get any details showing up.
+
+152
+00:13:39,030 --> 00:13:42,930
+So this is the moment for our React dev tools to really shine.
+
+153
+00:13:42,930 --> 00:13:50,740
+If we take a look at our detail component and on the right hand side we see our props being passed over.
+
+154
+00:13:50,910 --> 00:13:52,720
+It's listed under a property called 
+
+155
+00:13:52,740 --> 00:13:59,040
+detailInfo using props.tel which is what I copied over from my card
+
+156
+00:13:59,040 --> 00:14:01,170
+.jsx is not going to fly.
+
+157
+00:14:01,650 --> 00:14:08,460
+Instead I have to change this to the name of the property I've got over here which is detailInfo. And
+
+158
+00:14:08,460 --> 00:14:16,380
+as soon as I do that then my details start showing up and now I've got two detail components each getting
+
+159
+00:14:16,380 --> 00:14:23,970
+some properties passed over, the telephone and the email, and they're being rendered as a separate component.
+
+160
+00:14:24,570 --> 00:14:32,160
+So effectively, we can split our website into smaller and smaller components so that we end up with a
+
+161
+00:14:32,160 --> 00:14:40,910
+bunch of components like a pallet of components that we can then customize and use as needed.
+
+162
+00:14:40,950 --> 00:14:47,880
+So if we needed a calendar component, then we can simply just use it and then edit it to have different
+
+163
+00:14:47,880 --> 00:14:49,650
+information inside.
+
+164
+00:14:49,800 --> 00:14:52,390
+And this really is the power of React,
+
+165
+00:14:52,620 --> 00:15:00,660
+making it faster and easier to develop the front end of your web application. And a good example of this
+
+166
+00:15:00,780 --> 00:15:06,810
+is even though we've got these Avatar components nested inside our card as default,
+
+167
+00:15:06,810 --> 00:15:08,410
+but let's say that somewhere else
+
+168
+00:15:08,430 --> 00:15:16,500
+let's say in our app component we decided that I wanted a Avatar image of myself just under the h1 my
+
+169
+00:15:16,500 --> 00:15:17,240
+contacts.
+
+170
+00:15:17,700 --> 00:15:29,100
+Well, all I would have to do is just import my avatar component and then go ahead and insert it wherever
+
+171
+00:15:29,100 --> 00:15:29,790
+it is I want,
+
+172
+00:15:29,790 --> 00:15:39,300
+so just below my h. And then all I have to do is provide the props that the Avatar component needs which
+
+173
+00:15:39,300 --> 00:15:40,560
+is something called image.
+
+174
+00:15:40,650 --> 00:15:45,480
+So I have to get an image URL and search for me.
+
+175
+00:15:46,170 --> 00:15:53,730
+This seems to be a picture of me and let's just copy the image address and use it as the property called
+
+176
+00:15:53,930 --> 00:16:01,590
+img for my avatar image. And now if we go over to our React app, you can see that I've now got this avatar
+
+177
+00:16:01,590 --> 00:16:06,540
+component at the top in the app level of my tree,
+
+178
+00:16:06,570 --> 00:16:12,630
+so just above all of the cards. And I'm able to add it in with all the styling all of the other bells
+
+179
+00:16:12,630 --> 00:16:20,010
+and whistles just by creating that single avatar component and providing it the necessary props to customize
+
+180
+00:16:20,010 --> 00:16:20,740
+it.
+
+181
+00:16:20,820 --> 00:16:22,770
+So this is really really powerful.
+
+182
+00:16:22,770 --> 00:16:30,030
+This idea of a palette of components and the React developer tools really make it easy to actually see
+
+183
+00:16:30,030 --> 00:16:36,020
+what's going on with each of these components, to view them, their properties, see the entire component
+
+184
+00:16:36,020 --> 00:16:36,660
+tree,
+
+185
+00:16:36,660 --> 00:16:38,600
+find the ones that you want,
+
+186
+00:16:38,940 --> 00:16:40,040
+look at the source code
+
+187
+00:16:40,050 --> 00:16:45,720
+if you need to fix things and we're going to be using a lot of this as we're developing our more complex
+
+188
+00:16:45,720 --> 00:16:54,140
+React apps. Now in the next lesson though, we're going to sort out a big eyesore in our app that is all
+
+189
+00:16:54,140 --> 00:16:55,090
+of this.
+
+190
+00:16:55,100 --> 00:17:02,910
+Notice how we're writing so much repetitive code here: contacts[0].name, contacts[0], contacts
+
+191
+00:17:02,910 --> 00:17:03,710
+[1],
+
+192
+00:17:03,710 --> 00:17:09,589
+this is very painful to look at. But in the next lesson we're going to learn about mapping components
+
+193
+00:17:09,950 --> 00:17:17,030
+so that we end up with much more simplified code that uses loops rather than these hardcoded values.
+
+194
+00:17:17,030 --> 00:17:19,490
+So for all of that and more, I'll see you there.
+

@@ -1,0 +1,312 @@
+1
+00:00:00,750 --> 00:00:04,410
+All right, so now let's begin building our custom token.
+
+2
+00:00:04,950 --> 00:00:11,820
+Now to start, I want you to head over to the current lesson's course resources and download the starting
+
+3
+00:00:11,820 --> 00:00:12,300
+project.
+
+4
+00:00:12,810 --> 00:00:15,000
+So it should be something called token.zip.
+
+5
+00:00:15,330 --> 00:00:22,380
+And once it's downloaded, go ahead and unzip the folder and open up the project inside VSCode.
+
+6
+00:00:23,160 --> 00:00:28,680
+Now, here, you'll notice that I've already set up the project for React Development, so I've added
+
+7
+00:00:28,680 --> 00:00:33,120
+the tsconfig file and I've also modified the Webpack configs.
+
+8
+00:00:33,720 --> 00:00:40,800
+Now in addition, I've added some dependencies into the packaged.json which will get built when we run
+
+9
+00:00:40,800 --> 00:00:41,910
+npm install.
+
+10
+00:00:42,360 --> 00:00:49,230
+And also I've already created some of the assets such as the favicon and also the React components that
+
+11
+00:00:49,230 --> 00:00:51,390
+we're going to be working with and building out.
+
+12
+00:00:51,990 --> 00:01:00,060
+So essentially we've got this React frontend with a blank Internet computer Motoko backend and we're
+
+13
+00:01:00,060 --> 00:01:02,490
+going to be working on this in the coming lessons.
+
+14
+00:01:02,520 --> 00:01:08,700
+But because we've already covered some of the configuration and a lot of the boring stuff, I didn't
+
+15
+00:01:08,700 --> 00:01:10,500
+want you to repeat that over and over again.
+
+16
+00:01:10,890 --> 00:01:17,460
+So to save time, I've really created some of the barebones sort of HTML and CSS for you so that we can
+
+17
+00:01:17,460 --> 00:01:23,160
+work on the interesting things, which is working with the blockchain and also writing the JavaScript
+
+18
+00:01:23,160 --> 00:01:24,240
+code and Motoko code.
+
+19
+00:01:24,930 --> 00:01:27,900
+This project was actually inspired by Curve finance.
+
+20
+00:01:28,290 --> 00:01:30,930
+Curve is what's called an automated market maker.
+
+21
+00:01:31,560 --> 00:01:41,220
+It's really popular and used a lot for people to exchange stable coins and it's used really heavily by
+
+22
+00:01:41,220 --> 00:01:45,090
+people within the sort of web3 blockchain community.
+
+23
+00:01:45,690 --> 00:01:53,190
+And the reason why I really like it is because it has this really old school kind of nineties design
+
+24
+00:01:53,190 --> 00:01:55,860
+feel, like you're working on some sort of old Macintosh.
+
+25
+00:01:56,070 --> 00:02:04,140
+And I basically taken a lot of this design inspiration and built the front-end for our website, which
+
+26
+00:02:04,140 --> 00:02:07,410
+is going to be called DSurv instead of Curve.
+
+27
+00:02:07,830 --> 00:02:09,419
+And I want to show you how this looks.
+
+28
+00:02:09,720 --> 00:02:15,000
+But in order to do that, we have to actually build it and be able to run it locally on localhost.
+
+29
+00:02:15,330 --> 00:02:25,320
+So go ahead and open up a new terminal and use dfx start to start a new local simulated ICP blockchain.
+
+30
+00:02:26,040 --> 00:02:29,850
+And once that's done, let's go ahead and split out another screen.
+
+31
+00:02:30,000 --> 00:02:33,870
+And in this one, we're going to run npm install.
+
+32
+00:02:34,400 --> 00:02:39,390
+And this is going to take everything that's inside our package.json, everything that I've specified
+
+33
+00:02:39,390 --> 00:02:42,210
+as a dependency or a dev dependency,
+
+34
+00:02:42,210 --> 00:02:45,930
+and it's going to fetch that from the Internet and install it for us.
+
+35
+00:02:46,410 --> 00:02:48,180
+So that's going to take a little while
+
+36
+00:02:48,190 --> 00:02:54,300
+and it might be worth grabbing a cup of tea, depending on how fast your Internet and your computer
+
+37
+00:02:54,300 --> 00:02:54,660
+runs.
+
+38
+00:02:56,560 --> 00:03:02,110
+Now I fast-forwarded the video there for you, just so that you don't have to sit here and wait for my
+
+39
+00:03:02,110 --> 00:03:03,360
+packages to install.
+
+40
+00:03:03,370 --> 00:03:11,620
+But at the end of it, you should see that we've added something like 1,447 packages and they will go into
+
+41
+00:03:11,620 --> 00:03:12,760
+the node modules.
+
+42
+00:03:13,210 --> 00:03:18,340
+And these are a lot of the things that are required by the dfinity modules or some of the things
+
+43
+00:03:18,340 --> 00:03:21,940
+that we're going to be using later on as well
+
+44
+00:03:21,940 --> 00:03:26,980
+in order to authenticate our users, log in
+
+45
+00:03:26,980 --> 00:03:31,900
+users, also a lot of React dependencies and that kind of stuff.
+
+46
+00:03:32,500 --> 00:03:37,390
+So if you've seen some of these warnings in your installation about deprecation, don't worry about
+
+47
+00:03:37,390 --> 00:03:41,260
+it too much. Because I've specified the required version numbers,
+
+48
+00:03:41,620 --> 00:03:45,400
+you'll probably also see some deprecation here. But just be
+
+49
+00:03:45,400 --> 00:03:47,590
+rest assured it's all going to work just fine.
+
+50
+00:03:47,980 --> 00:03:49,990
+And a lot of this is very minor
+
+51
+00:03:49,990 --> 00:03:57,280
+like the material UI icons might have changed to MUI icons, but it really won't affect our website
+
+52
+00:03:57,280 --> 00:03:59,140
+or our security or anything at all.
+
+53
+00:03:59,620 --> 00:04:05,440
+Now that we've done that, the next thing we have to do is to go ahead and deploy our website.
+
+54
+00:04:05,500 --> 00:04:11,650
+Now you'll notice that in our main.mo I've deleted all the starter code in there, so there's not
+
+55
+00:04:11,650 --> 00:04:12,760
+much going on there.
+
+56
+00:04:12,910 --> 00:04:19,899
+But we do need to do a dfx deploy in order to build some of those declarations and other files in order
+
+57
+00:04:19,899 --> 00:04:25,120
+for the back-end to understand what's going on the front-end and some of that configuration for dfx
+
+58
+00:04:25,660 --> 00:04:26,740
+to complete.
+
+59
+00:04:27,100 --> 00:04:34,720
+So splitting out another terminal we're going to do a dfx deploy and this is going to create our wallet
+
+60
+00:04:34,720 --> 00:04:41,230
+canister, it's going to build our canister and install it onto this locally running ICP blockchain.
+
+61
+00:04:43,250 --> 00:04:47,720
+And as it's doing that, you'll see a dist folder being built, declarations folder being built.
+
+62
+00:04:47,930 --> 00:04:54,680
+And then once that's done and you see deployed canisters, then we can finally go ahead and run npm
+
+63
+00:04:54,740 --> 00:05:03,350
+start. And once we hit enter we'll be able to head over to the localhost, which is localhost 8080.
+
+64
+00:05:04,310 --> 00:05:09,530
+Or you can actually scroll up a little bit and you'll see localhost 8080 here, which you can simply
+
+65
+00:05:09,530 --> 00:05:13,370
+copy and paste into the browser here.
+
+66
+00:05:13,700 --> 00:05:16,300
+You should be able to see the frontend load up.
+
+67
+00:05:16,310 --> 00:05:19,430
+So we've got our DSurv website instead of curve.
+
+68
+00:05:19,820 --> 00:05:25,640
+We've got our faucet, which is where people are going to be able to claim some of our tokens for free.
+
+69
+00:05:26,180 --> 00:05:31,660
+And then we've got a check balance section where we can check a account's balance.
+
+70
+00:05:32,150 --> 00:05:38,390
+And finally we have a transfer section where we can transfer to another account some of our custom tokens.
+
+71
+00:05:38,840 --> 00:05:45,200
+Make sure that you're following to the step that everything is up and running without any errors in
+
+72
+00:05:45,200 --> 00:05:46,130
+the console.
+
+73
+00:05:46,670 --> 00:05:53,030
+And if you have any problems, then be sure to look back at the video and trace the steps one by one
+
+74
+00:05:53,330 --> 00:05:55,520
+to see if you can get to this step.
+
+75
+00:05:55,520 --> 00:05:58,970
+Once everybody is all here, then head over to the next lesson
+
+76
+00:05:59,350 --> 00:06:05,600
+where we're going to get started building out the check balance functionality on the back-end and tying it
+
+77
+00:06:05,600 --> 00:06:06,440
+up with the frontend.
+
+78
+00:06:06,890 --> 00:06:09,980
+So for all of that and more, I'll see you on the next lesson.
+

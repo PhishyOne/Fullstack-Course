@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/20 - Boss Level Challenge 2 - The Simon Game/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="001%20What%20You%27ll%20Make%20The%20Simon%20Game.mp4" title="001 What You'll Make The Simon Game.mp4">001 What You'll Make The Simon Game.mp4</a></td><td class="size">2.8 MiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="001%20What%20You%27ll%20Make%20The%20Simon%20Game_en.srt" title="001 What You'll Make The Simon Game_en.srt">001 What You'll Make The Simon Game_en.srt</a></td><td class="size">1.5 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="002%20Play%20the%20Game.html" title="002 Play the Game.html">002 Play the Game.html</a></td><td class="size">304 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="003%20Simon-Game-Challenge-Starting-Files.zip" title="003 Simon-Game-Challenge-Starting-Files.zip">003 Simon-Game-Challenge-Starting-Files.zip</a></td><td class="size">52.9 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="003%20Step%200%20-%20Download%20the%20Starting%20Files.html" title="003 Step 0 - Download the Starting Files.html">003 Step 0 - Download the Starting Files.html</a></td><td class="size">1.0 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="004%20Step%201%20-%20Add%20Javascript%20and%20jQuery.html" title="004 Step 1 - Add Javascript and jQuery.html">004 Step 1 - Add Javascript and jQuery.html</a></td><td class="size">1.1 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="005%20Simon-Game-Challenge-Step-1-Answer.zip" title="005 Simon-Game-Challenge-Step-1-Answer.zip">005 Simon-Game-Challenge-Step-1-Answer.zip</a></td><td class="size">52.7 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="005%20Step%201%20-%20Answer.html" title="005 Step 1 - Answer.html">005 Step 1 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="006%20Step%202%20-%20Create%20A%20New%20Pattern.html" title="006 Step 2 - Create A New Pattern.html">006 Step 2 - Create A New Pattern.html</a></td><td class="size">2.7 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="007%20Simon-Game-Challenge-Step-2-Answer.zip" title="007 Simon-Game-Challenge-Step-2-Answer.zip">007 Simon-Game-Challenge-Step-2-Answer.zip</a></td><td class="size">49.4 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="007%20Step%202%20-%20Answer.html" title="007 Step 2 - Answer.html">007 Step 2 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="008%20Step%203%20-%20Show%20the%20Sequence%20to%20the%20User%20with%20Animations%20and%20Sounds.html" title="008 Step 3 - Show the Sequence to the User with Animations and Sounds.html">008 Step 3 - Show the Sequence to the User with..&gt;</a></td><td class="size">1.6 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="009%20Simon-Game-Challenge-Step-3-Answer.zip" title="009 Simon-Game-Challenge-Step-3-Answer.zip">009 Simon-Game-Challenge-Step-3-Answer.zip</a></td><td class="size">49.4 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="009%20Step%203%20-%20Answer.html" title="009 Step 3 - Answer.html">009 Step 3 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="010%20Step%204%20-%20Check%20Which%20Button%20is%20Pressed.html" title="010 Step 4 - Check Which Button is Pressed.html">010 Step 4 - Check Which Button is Pressed.html</a></td><td class="size">2.5 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="011%20Simon-Game-Challenge-Step-4-Answer.zip" title="011 Simon-Game-Challenge-Step-4-Answer.zip">011 Simon-Game-Challenge-Step-4-Answer.zip</a></td><td class="size">49.5 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="011%20Step%204%20-%20Answer.html" title="011 Step 4 - Answer.html">011 Step 4 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="012%20Step%205%20-%20Add%20Sounds%20to%20Button%20Clicks.html" title="012 Step 5 - Add Sounds to Button Clicks.html">012 Step 5 - Add Sounds to Button Clicks.html</a></td><td class="size">677 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="013%20Simon-Game-Challenge-Step-5-Answer.zip" title="013 Simon-Game-Challenge-Step-5-Answer.zip">013 Simon-Game-Challenge-Step-5-Answer.zip</a></td><td class="size">49.6 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="013%20Step%205%20-%20Answer.html" title="013 Step 5 - Answer.html">013 Step 5 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="014%20Step%206%20-%20Add%20Animations%20to%20User%20Clicks.html" title="014 Step 6 - Add Animations to User Clicks.html">014 Step 6 - Add Animations to User Clicks.html</a></td><td class="size">1.5 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="015%20Simon-Game-Challenge-Step-6-Answer.zip" title="015 Simon-Game-Challenge-Step-6-Answer.zip">015 Simon-Game-Challenge-Step-6-Answer.zip</a></td><td class="size">49.6 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="015%20Step%206%20-%20Answer.html" title="015 Step 6 - Answer.html">015 Step 6 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="016%20Step%207%20-%20Start%20the%20Game.html" title="016 Step 7 - Start the Game.html">016 Step 7 - Start the Game.html</a></td><td class="size">1.8 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="017%20Simon-Game-Challenge-Step-7-Answer.zip" title="017 Simon-Game-Challenge-Step-7-Answer.zip">017 Simon-Game-Challenge-Step-7-Answer.zip</a></td><td class="size">49.8 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="017%20Step%207%20-%20Answer.html" title="017 Step 7 - Answer.html">017 Step 7 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="018%20Step%208%20-%20Check%20the%20User%27s%20Answer%20Against%20the%20Game%20Sequence8.html" title="018 Step 8 - Check the User's Answer Against the Game Sequence8.html">018 Step 8 - Check the User's Answer Against th..&gt;</a></td><td class="size">2.4 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="019%20Simon-Game-Challenge-Step-8-Answer.zip" title="019 Simon-Game-Challenge-Step-8-Answer.zip">019 Simon-Game-Challenge-Step-8-Answer.zip</a></td><td class="size">50.0 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="019%20Step%208%20-%20Answer.html" title="019 Step 8 - Answer.html">019 Step 8 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="020%20Step%209%20-%20Game%20Over.html" title="020 Step 9 - Game Over.html">020 Step 9 - Game Over.html</a></td><td class="size">831 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="021%20Simon-Game-Challenge-Step-9-Answer.zip" title="021 Simon-Game-Challenge-Step-9-Answer.zip">021 Simon-Game-Challenge-Step-9-Answer.zip</a></td><td class="size">49.9 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="021%20Step%209%20-%20Answer.html" title="021 Step 9 - Answer.html">021 Step 9 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="022%20Step%2010%20-%20Restart%20the%20Game.html" title="022 Step 10 - Restart the Game.html">022 Step 10 - Restart the Game.html</a></td><td class="size">333 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="023%20Simon-Game-Challenge-Step-10-Answer.zip" title="023 Simon-Game-Challenge-Step-10-Answer.zip">023 Simon-Game-Challenge-Step-10-Answer.zip</a></td><td class="size">49.9 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="023%20Step%2010%20-%20Answer.html" title="023 Step 10 - Answer.html">023 Step 10 - Answer.html</a></td><td class="size">664 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="024%20Course-Fixes-Report-an-Issue.url" title="024 Course-Fixes-Report-an-Issue.url">024 Course-Fixes-Report-an-Issue.url</a></td><td class="size">59 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="024%20Download%20the%20Completed%20Project%20Code.html" title="024 Download the Completed Project Code.html">024 Download the Completed Project Code.html</a></td><td class="size">660 B</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="024%20Simon-Game-Challenge-Completed.zip" title="024 Simon-Game-Challenge-Completed.zip">024 Simon-Game-Challenge-Completed.zip</a></td><td class="size">122.6 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="025%20Tip%20from%20Angela%20-%20Dealing%20with%20Frustration.mp4" title="025 Tip from Angela - Dealing with Frustration.mp4">025 Tip from Angela - Dealing with Frustration.mp4</a></td><td class="size">55.9 MiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="025%20Tip%20from%20Angela%20-%20Dealing%20with%20Frustration_en.srt" title="025 Tip from Angela - Dealing with Frustration_en.srt">025 Tip from Angela - Dealing with Frustration_..&gt;</a></td><td class="size">3.2 KiB</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="external-links.txt" title="external-links.txt">external-links.txt</a></td><td class="size">73 B</td><td class="date">2024-May-18 22:07</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

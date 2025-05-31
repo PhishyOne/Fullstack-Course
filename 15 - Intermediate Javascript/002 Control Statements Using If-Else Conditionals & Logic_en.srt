@@ -1,0 +1,260 @@
+1
+00:00:00,530 --> 00:00:08,360
+Now, in the last lesson, we created what is the basic structure of a love calculator using randomisation
+
+2
+00:00:08,420 --> 00:00:09,580
+and Javascript.
+
+3
+00:00:09,680 --> 00:00:15,890
+Now, wouldn't it be nice if we could give the user a custom message based on what they got as their love
+
+4
+00:00:15,890 --> 00:00:16,910
+score?
+
+5
+00:00:16,920 --> 00:00:24,080
+Now in order to do this we need a way of checking what score they got and responding differently based
+
+6
+00:00:24,080 --> 00:00:24,960
+on that score.
+
+7
+00:00:25,160 --> 00:00:31,610
+And to do that we need to use conditionals. The way that conditional statements work is, you can use the
+
+8
+00:00:31,850 --> 00:00:35,100
+keyword if to evaluate a statement.
+
+9
+00:00:35,210 --> 00:00:42,440
+For example, in this case, if the track is clear. And, if that statement is true, then it will carry out
+
+10
+00:00:42,530 --> 00:00:44,800
+a particular sequence of code.
+
+11
+00:00:44,990 --> 00:00:46,870
+But if that statement is false,
+
+12
+00:00:46,910 --> 00:00:48,510
+so the track is not clear,
+
+13
+00:00:48,650 --> 00:00:53,950
+then you can have an ELSE keyword that tells the computer what it should do instead
+
+14
+00:00:53,960 --> 00:01:01,850
+in that case. And this, in programming, is known as control flow. We're essentially controlling the flow
+
+15
+00:01:01,940 --> 00:01:05,420
+of our code depending on the current conditions.
+
+16
+00:01:05,450 --> 00:01:10,940
+By the way I had a lot of fun building that toy train set in Keynote. In case anybody else is living
+
+17
+00:01:11,300 --> 00:01:17,150
+in a cramped London apartment and you don't have the space for a full toy set, and you're probably too
+
+18
+00:01:17,150 --> 00:01:18,660
+old to play with them anyways,
+
+19
+00:01:18,740 --> 00:01:20,610
+Keynote is your best bet. Now,
+
+20
+00:01:20,630 --> 00:01:24,700
+this is how we might express our little track scenario in code.
+
+21
+00:01:24,770 --> 00:01:26,670
+So we have the keyword if,
+
+22
+00:01:26,690 --> 00:01:28,440
+and then we have some parentheses.
+
+23
+00:01:28,630 --> 00:01:31,910
+And inside the parentheses are some conditions.
+
+24
+00:01:31,940 --> 00:01:40,220
+So if the track is equal to clear then we take the flow of the code into the curly braces straight after
+
+25
+00:01:40,550 --> 00:01:49,110
+and then we run the function goStraight. However, if that condition is not true, i.e. track does not
+
+26
+00:01:49,140 --> 00:01:53,130
+equal clear, then the code flows to the else statement,
+
+27
+00:01:53,370 --> 00:01:56,120
+and we run the function turnRight instead.
+
+28
+00:01:56,130 --> 00:02:01,920
+While this is an easy way of seeing how our code works, it doesn't look very good when we have lots and
+
+29
+00:02:01,920 --> 00:02:05,160
+lots of code inside the if and else statement,
+
+30
+00:02:05,250 --> 00:02:10,940
+so more commonly you'll see this code structured like this by Javascript programmers.
+
+31
+00:02:11,070 --> 00:02:17,130
+So we say if, we test the condition, and that's followed straightaway by the block of code that will
+
+32
+00:02:17,130 --> 00:02:23,160
+get carried out if that condition is true, and then we open up the else statement to specify what should
+
+33
+00:02:23,160 --> 00:02:28,710
+happen if that condition is not true. And essentially, through the testing of these conditions, we get
+
+34
+00:02:28,710 --> 00:02:31,010
+to control the flow of code,
+
+35
+00:02:31,300 --> 00:02:37,560
+and that's why they're called conditionals. So let's use what we learned to edit our code in the love calculator.
+
+36
+00:02:37,710 --> 00:02:44,220
+So we have a love score here and we know that we get a number between 1 to 100.
+
+37
+00:02:44,220 --> 00:02:46,710
+So that will be the condition that we will test.
+
+38
+00:02:46,800 --> 00:02:53,310
+So we will say if, which is the keyword here, and then we'll open up some parentheses to add our testing
+
+39
+00:02:53,310 --> 00:02:54,310
+condition.
+
+40
+00:02:54,330 --> 00:02:59,850
+So let's say that our condition was that loveScore is equal to 100.
+
+41
+00:02:59,850 --> 00:03:05,090
+And in order to test for equality we're using three equal signs.
+
+42
+00:03:05,190 --> 00:03:10,340
+And if that is true then this block of code will be executed.
+
+43
+00:03:10,620 --> 00:03:17,720
+But if it's not true, i.e. else, then this block of code will be executed instead.
+
+44
+00:03:17,730 --> 00:03:21,380
+So let's say that, if loveScore was equal to 100.
+
+45
+00:03:21,390 --> 00:03:23,730
+Well that's pretty crazy, right?
+
+46
+00:03:23,790 --> 00:03:28,760
+Then we should say something like, alert "Your love score is " this amount.
+
+47
+00:03:28,890 --> 00:03:30,990
+And then we should give them an interpretation.
+
+48
+00:03:31,020 --> 00:03:38,190
+Like, for example, "You love each other like Kanye loves Kanye.".
+
+49
+00:03:38,430 --> 00:03:45,420
+But otherwise we just give them the plain old normal message where we tell them their love score.
+
+50
+00:03:45,420 --> 00:03:51,780
+Now some might have realized that I would have to go through this many many times until I happened to
+
+51
+00:03:51,810 --> 00:03:56,430
+get a love score that is 100, which is quite unlikely.
+
+52
+00:03:56,430 --> 00:03:58,680
+I mean it's 1 percent likely, right?
+
+53
+00:03:58,890 --> 00:04:07,470
+So what if we simply wanted to test for a range, say for example if the love score was between 70 and
+
+54
+00:04:07,470 --> 00:04:11,270
+100, or if the love score was between 0 and 30?
+
+55
+00:04:11,340 --> 00:04:15,960
+Well, in order to do that, then we would have to use something like greater than.
+
+56
+00:04:15,990 --> 00:04:20,980
+So if love score was greater than 70 then we should get this alert,
+
+57
+00:04:21,029 --> 00:04:24,700
+otherwise we get this simple one instead.
+
+58
+00:04:24,720 --> 00:04:29,680
+So let's try this out and we get 58 on the first go.
+
+59
+00:04:29,820 --> 00:04:30,320
+There we go.
+
+60
+00:04:30,360 --> 00:04:32,160
+So we finally got above 70.
+
+61
+00:04:32,160 --> 00:04:33,780
+We've got 76 percent.
+
+62
+00:04:34,020 --> 00:04:37,730
+And we get told that we love each other like Kanye loves Kanye.
+
+63
+00:04:37,840 --> 00:04:40,300
+I used to love Kanye.
+
+64
+00:04:40,620 --> 00:04:45,750
+I thought I was Kanye. What if Kanye made a song about Kanye?
+
+65
+00:04:45,810 --> 00:04:47,710
+Man that would be so Kanye.
+

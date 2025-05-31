@@ -1,0 +1,564 @@
+1
+00:00:00,480 --> 00:00:01,080
+All right guys.
+
+2
+00:00:01,110 --> 00:00:02,440
+Welcome back.
+
+3
+00:00:02,460 --> 00:00:07,590
+In this module we're going to learn about some other really useful features of Javascript, for example
+
+4
+00:00:07,590 --> 00:00:09,930
+randomization and control flow.
+
+5
+00:00:10,190 --> 00:00:15,150
+And I believe in learning through doing, so while we're picking up all of these skills, we're going to
+
+6
+00:00:15,150 --> 00:00:17,370
+be building a love calculator.
+
+7
+00:00:17,550 --> 00:00:19,860
+So this is a bit of a throwback to the 90s.
+
+8
+00:00:19,890 --> 00:00:26,460
+And for those of you guys who are snapchatting away, then, you know, you might not remember this, but it was
+
+9
+00:00:26,580 --> 00:00:32,310
+kind of a complicated process where you would put down one person's name, then your crush’s name, and
+
+10
+00:00:32,310 --> 00:00:40,050
+then through a process of complicated maths, you would arrive at some random percentage, basically, that
+
+11
+00:00:40,080 --> 00:00:43,240
+dictated how well matched these two people were.
+
+12
+00:00:43,350 --> 00:00:46,710
+So let's try and replicate this using Javascript code.
+
+13
+00:00:46,710 --> 00:00:52,840
+Now, I hate to break it to you, but it's not really a love calculator. It doesn't actually work.
+
+14
+00:00:52,890 --> 00:00:59,980
+It's essentially a way of generating a random number to satisfy young girls’ needs to predict the future.
+
+15
+00:01:00,240 --> 00:01:02,830
+And we can replicate this using code.
+
+16
+00:01:02,910 --> 00:01:09,570
+So Javascript has a really handy way of generating random numbers. As you can imagine, especially when
+
+17
+00:01:09,570 --> 00:01:11,280
+you're creating things like games,
+
+18
+00:01:11,340 --> 00:01:17,490
+you need a lot of random numbers to be generated. So you can do this using Javascript by simply writing
+
+19
+00:01:17,550 --> 00:01:19,320
+Math.random().
+
+20
+00:01:19,530 --> 00:01:26,730
+And this is a function that generates a random number. And the random number that gets generated is a
+
+21
+00:01:26,730 --> 00:01:35,670
+16 decimal place number, and it can be any number between 0 and 0.9999999.
+
+22
+00:01:35,670 --> 00:01:39,870
+So essentially it never reaches 1. And the number that you get out,
+
+23
+00:01:39,870 --> 00:01:46,410
+so in this case n, will be different every single time you run the code, but it will always be between
+
+24
+00:01:46,410 --> 00:01:52,290
+0 and 0.9 to 16 decimal places, and it never ever reaches 1.
+
+25
+00:01:52,290 --> 00:01:57,780
+Now this is useful because it allows us to generate up to a billion random numbers.
+
+26
+00:01:57,780 --> 00:02:03,810
+So, for example, say if I were to say, variable n = Math.random, and remember we need to
+
+27
+00:02:03,810 --> 00:02:08,169
+use the parentheses to run the function even though it doesn't take an input.
+
+28
+00:02:08,190 --> 00:02:13,490
+Now say that in this case we get 0.3647 etc. etc..
+
+29
+00:02:13,530 --> 00:02:15,960
+Now say if we were trying to simulate a dice roll,
+
+30
+00:02:15,960 --> 00:02:21,810
+so we have 6 possibilities. When we roll a dice we get any number between 1 and 6, right?
+
+31
+00:02:22,080 --> 00:02:29,370
+So how do we take this random number that we get from Math.random and turn it into a number between
+
+32
+00:02:29,370 --> 00:02:30,640
+1 and 6?
+
+33
+00:02:30,810 --> 00:02:33,850
+Well, we could first multiply it by 6,
+
+34
+00:02:33,870 --> 00:02:36,710
+so we get 2.188.
+
+35
+00:02:36,720 --> 00:02:40,540
+Next we take that number and we perform Math.floor.
+
+36
+00:02:40,560 --> 00:02:44,130
+So you can see here, from our functions knowledge, we know that
+
+37
+00:02:44,160 --> 00:02:50,100
+n in this case is being used as an input to this function floor, which essentially rounds it down to
+
+38
+00:02:50,100 --> 00:02:51,400
+the nearest whole number.
+
+39
+00:02:51,420 --> 00:02:52,810
+In this case it would be 2.
+
+40
+00:02:52,890 --> 00:02:57,380
+And now we have a number that we can work with and we can give back to the user.
+
+41
+00:02:57,480 --> 00:03:03,570
+So I'm going to open up my Snippets inside Chrome, and I'm going to create a variable called n that
+
+42
+00:03:03,570 --> 00:03:05,490
+is equal to Math.random(),
+
+43
+00:03:05,580 --> 00:03:10,560
+and then I'm going to console.log whatever the number n might be.
+
+44
+00:03:10,560 --> 00:03:17,070
+So now I'm going to run my code and you can see we get 0.187 and then we get 
+
+45
+00:03:17,210 --> 00:03:21,630
+0.03, 0.147, 0.8446.
+
+46
+00:03:21,630 --> 00:03:29,220
+So you can see that they’re random numbers between 0 and 1 and it never reaches 1, but it can in fact
+
+47
+00:03:29,220 --> 00:03:30,400
+be 0.
+
+48
+00:03:30,840 --> 00:03:34,840
+So it would be 0.0 to 16 decimal places.
+
+49
+00:03:34,920 --> 00:03:40,980
+That is possible with Math.random. And we know this because if we head over to the MDN Developer 
+
+50
+00:03:40,990 --> 00:03:47,490
+Docs and we search for Math.random, then it tells us that this function creates a floating point number,
+
+51
+00:03:47,550 --> 00:03:57,210
+so a number that has decimal places, and it is a pseudo random number in the range from 0 inclusive up
+
+52
+00:03:57,210 --> 00:03:59,100
+to but not including 1,
+
+53
+00:03:59,100 --> 00:04:01,640
+so hence the 0.99999.
+
+54
+00:04:01,710 --> 00:04:05,410
+And then you can use this number to scale to your desired range.
+
+55
+00:04:05,430 --> 00:04:12,030
+So say if we wanted to simulate a dice roll using our code, then we would be able to scale this up if
+
+56
+00:04:12,090 --> 00:04:19,980
+we simply did n = n * 6. And if we run the code now, then you can see that we're
+
+57
+00:04:19,980 --> 00:04:24,940
+getting numbers between 0 and 5.
+
+58
+00:04:24,960 --> 00:04:27,270
+Now it never ever reaches 6.
+
+59
+00:04:27,270 --> 00:04:33,040
+The highest number we got was 5.99 and the lowest was 0.2 something.
+
+60
+00:04:33,060 --> 00:04:42,450
+So remember if we do Math.floor on this, then we will get numbers that are between 0 and 5, and you can
+
+61
+00:04:42,450 --> 00:04:46,260
+run this for as many times as you wish but it will never show 6.
+
+62
+00:04:46,260 --> 00:04:49,560
+So our range currently is between 0 and 5,
+
+63
+00:04:49,560 --> 00:04:55,590
+so, in order to increase it to 1 and 6, to simulate that dice roll, because when we roll the dice we never
+
+64
+00:04:55,590 --> 00:04:56,310
+get 0,
+
+65
+00:04:56,310 --> 00:05:02,690
+instead we get a range between 1 and 6, then all we need to do is just to add 1 over here.
+
+66
+00:05:02,780 --> 00:05:10,430
+So now we get the range between 1 all the way through to 6, and this is what's called a pseudo random
+
+67
+00:05:10,430 --> 00:05:11,650
+number generator.
+
+68
+00:05:11,810 --> 00:05:18,980
+And the reason why it's pseudo is because a computer is essentially a whole bunch of switches, just a
+
+69
+00:05:19,040 --> 00:05:27,200
+giant box of many many billions of switches, and, depending on whether the switch is on or off, you essentially
+
+70
+00:05:27,200 --> 00:05:30,360
+get 1 or 0, and it's through these 1s and 0s
+
+71
+00:05:30,380 --> 00:05:33,870
+it does all this computing and all of this glorious work.
+
+72
+00:05:33,920 --> 00:05:40,160
+But there's one thing that it's not very good at, and that is being random. Whereas in nature it's very
+
+73
+00:05:40,160 --> 00:05:46,180
+easy to get randomness, in a computer, because it's a completely deterministic process, 
+
+74
+00:05:46,340 --> 00:05:49,880
+it’s not very easy to get a true random number.
+
+75
+00:05:49,970 --> 00:05:56,270
+So people have come up with all sorts of ways and mathematical formulas to get this nonrandom computer
+
+76
+00:05:56,330 --> 00:06:03,470
+to generate what looks like or appears to be, at least statistically, random numbers.
+
+77
+00:06:03,470 --> 00:06:08,450
+Now if you're interested in learning more about pseudo random number generators or what's the difference
+
+78
+00:06:08,450 --> 00:06:13,850
+between random and pseudo random, then take a look at the resources section of this lesson.
+
+79
+00:06:13,850 --> 00:06:16,460
+There's a link to this video by Khan Academy
+
+80
+00:06:16,460 --> 00:06:20,320
+that’s really really good at explaining this in more detail.
+
+81
+00:06:20,350 --> 00:06:25,200
+So view this as a bit of extra reading or extra curricular work if you want.
+
+82
+00:06:25,310 --> 00:06:31,310
+And, if we just review that process, we created a variable called n that is equal to whatever we get
+
+83
+00:06:31,310 --> 00:06:37,400
+back from the Math.random function. And we know that Math.random gives us a number within the
+
+84
+00:06:37,400 --> 00:06:43,820
+range between 0 to 0.9 to 16 decimal places, so 0.9999999.
+
+85
+00:06:43,820 --> 00:06:50,070
+Now, it can be any number in that range, but it's not very useful to us until we scale it.
+
+86
+00:06:50,120 --> 00:06:55,640
+So we take that number and we multiply it by whatever range we need.
+
+87
+00:06:55,640 --> 00:07:01,640
+So if we need numbers between 1 and 12 then we would multiply it by 12, if we need it as a dice then
+
+88
+00:07:01,640 --> 00:07:06,260
+we would maybe multiply it by 6 because we want numbers between 1 and 6.
+
+89
+00:07:06,320 --> 00:07:11,590
+So this then changes the range from 0 to 5.99999,
+
+90
+00:07:11,650 --> 00:07:15,580
+and we can now get any number within that range from this code.
+
+91
+00:07:15,590 --> 00:07:19,900
+Now very rarely will you want to use the random number as a floating point number,
+
+92
+00:07:20,150 --> 00:07:27,140
+so you tend to use Math.floor to round that number down to the nearest whole number,
+
+93
+00:07:27,290 --> 00:07:30,380
+and that range then becomes 0 to 5.
+
+94
+00:07:30,380 --> 00:07:36,620
+Now, finally, because we want a range for our dice between 1 and 6, then all we need to do is add 1 to
+
+95
+00:07:36,620 --> 00:07:42,470
+our code and we end up with code that generates random numbers between 1 and 6.
+
+96
+00:07:42,470 --> 00:07:44,730
+So now here's your challenge.
+
+97
+00:07:44,870 --> 00:07:49,190
+As we said we're going to be building a love calculator.
+
+98
+00:07:49,790 --> 00:07:56,540
+And the way the love calculators work is that you enter two names and it should give you back a percentage
+
+99
+00:07:56,750 --> 00:08:01,720
+between 1 and 100, and that number is supposed to have some sort of meaning.
+
+100
+00:08:01,730 --> 00:08:05,820
+So I want you, as a challenge, to create a love calculator.
+
+101
+00:08:06,050 --> 00:08:12,650
+So it should have two prompts that ask for the names of the two people, and then it should be able to
+
+102
+00:08:12,830 --> 00:08:19,500
+completely ignore that and then calculate a random number that is a percentage.
+
+103
+00:08:19,520 --> 00:08:24,420
+So your random number generator should generate a number between 1 and 100.
+
+104
+00:08:24,440 --> 00:08:30,350
+And finally you should give this information back to the user in the form of an alert telling them what
+
+105
+00:08:30,350 --> 00:08:32,360
+is their love score.
+
+106
+00:08:32,659 --> 00:08:38,240
+So pause the video now and see if you can complete this challenge.
+
+107
+00:08:38,360 --> 00:08:38,650
+All right.
+
+108
+00:08:38,650 --> 00:08:43,360
+So let's clear the screen and start from the beginning.
+
+109
+00:08:43,370 --> 00:08:48,020
+So the first thing I'm going to do is I'm going to create two prompts. Now, because we're not actually
+
+110
+00:08:48,020 --> 00:08:51,530
+doing anything with the values that they're giving us, 
+
+111
+00:08:51,530 --> 00:08:56,420
+we’re not going to save the data that the user gives us into a variable, because we're not actually going to
+
+112
+00:08:56,420 --> 00:08:57,150
+be using it.
+
+113
+00:08:57,290 --> 00:09:00,340
+It's just there for authenticity’s sake.
+
+114
+00:09:00,380 --> 00:09:05,610
+So the next thing is where the real stuff happens and which is where the randomization comes in.
+
+115
+00:09:05,630 --> 00:09:12,740
+So let's create a very well called loveScore, and let's create this using Math.random.
+
+116
+00:09:12,980 --> 00:09:18,850
+And, remember, this will give us a number between 0 and up to but not including 1.
+
+117
+00:09:18,860 --> 00:09:26,570
+So now, if we wanted this number to be between 1 and 100, we would have to multiply that by 100.
+
+118
+00:09:26,870 --> 00:09:34,030
+So, if we console.log this as it is, then you can see that we're getting numbers between 0 and 99,
+
+119
+00:09:34,100 --> 00:09:40,160
+and also they have lots and lots of decimal places after the number.
+
+120
+00:09:40,160 --> 00:09:41,230
+So let's change that.
+
+121
+00:09:41,240 --> 00:09:42,690
+Let's round that number down.
+
+122
+00:09:42,710 --> 00:09:50,810
+So let's say loveScore = Math.floor the previous value of loveScore.
+
+123
+00:09:51,140 --> 00:09:56,920
+So now, if we hit run, we're getting 75, 17, so we're getting whole numbers now,
+
+124
+00:09:57,110 --> 00:10:01,310
+but it still does not go all the way up to 100,
+
+125
+00:10:01,460 --> 00:10:03,600
+but it can include 0.
+
+126
+00:10:03,770 --> 00:10:11,990
+So, in order to fix this, we are going to add 1 to the value, and that shifts our range up by 1, moving
+
+127
+00:10:11,990 --> 00:10:15,380
+it from 0 to 99 to 1 to 100.
+
+128
+00:10:15,380 --> 00:10:17,720
+So now that we've got our loveScore,
+
+129
+00:10:17,900 --> 00:10:22,130
+we can send this to the user using an alert,
+
+130
+00:10:22,190 --> 00:10:26,540
+“Your love score is “ + loveScore.
+
+131
+00:10:26,930 --> 00:10:35,270
+So now, if we uncomment our prompt and hit run, then it’ll say, “What is your name?”, and it’ll say, “What is their
+
+132
+00:10:35,270 --> 00:10:36,200
+name?”,
+
+133
+00:10:36,740 --> 00:10:39,750
+and of course none of that information is used
+
+134
+00:10:39,800 --> 00:10:41,470
+and it just gets discarded,
+
+135
+00:10:41,600 --> 00:10:48,290
+because at the end of the day love is a random process. And we get back a loveScore. And I can also
+
+136
+00:10:48,380 --> 00:10:53,460
+add a percentage at the end of this, and now it gives us a love score.
+
+137
+00:10:53,490 --> 00:10:55,150
+So pretty cool, right? Now,
+
+138
+00:10:55,160 --> 00:11:03,220
+wouldn’t it be nice if we could give them a custom message depending on how high or how low their score is?
+
+139
+00:11:03,230 --> 00:11:07,530
+So that's what we'll explore in the next lesson when we learn about control flow
+
+140
+00:11:07,610 --> 00:11:10,100
+and if else statements using Javascript.
+
+141
+00:11:10,100 --> 00:11:13,270
+So for all of that and more, I'll see you on the next lesson.
+

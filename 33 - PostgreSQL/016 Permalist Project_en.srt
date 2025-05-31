@@ -1,0 +1,1412 @@
+1
+00:00:00,230 --> 00:00:06,380
+Hey guys, it's time to apply everything that you've learned to build a project.
+
+2
+00:00:06,380 --> 00:00:12,860
+And this project is called The Penniless Project, and it's a permanent to do list.
+
+3
+00:00:12,860 --> 00:00:18,680
+And the reason why it's permanent is because we now have all of these Postgres skills, so we can store
+
+4
+00:00:18,680 --> 00:00:26,270
+all the data that gets entered into our to do list, into our permanent storage using Postgres.
+
+5
+00:00:26,870 --> 00:00:29,930
+This is what the website is going to look like.
+
+6
+00:00:29,930 --> 00:00:32,240
+It's going to be fully designed.
+
+7
+00:00:32,240 --> 00:00:40,700
+It's going to be a list where you can do all of the Crud actions, such as add a new item.
+
+8
+00:00:44,100 --> 00:00:52,060
+Edit any of the to do list items, and you can even check them off and delete them off your to do list.
+
+9
+00:00:52,080 --> 00:00:58,230
+So create, read, update, delete all of this being fully persisted.
+
+10
+00:00:58,230 --> 00:01:05,670
+So even if you refresh the website or restart your server, nothing gets destroyed because it's all
+
+11
+00:01:05,670 --> 00:01:08,100
+persisted in our Postgres database.
+
+12
+00:01:08,100 --> 00:01:15,300
+And all of that stuff is going to be stored inside a table called items, where we're going to persist
+
+13
+00:01:15,330 --> 00:01:21,360
+all of the data that gets entered and updated and deleted by the user.
+
+14
+00:01:22,140 --> 00:01:32,340
+In addition to testing the Crud methods that you have learned in this module using Postgres commands,
+
+15
+00:01:32,340 --> 00:01:41,730
+using Pgadmin to view your data, using your knowledge of Node Express and Postgres and the PG package
+
+16
+00:01:41,730 --> 00:01:47,070
+to work together to build this website, you're going to be putting all of these skills together.
+
+17
+00:01:47,070 --> 00:01:49,470
+In order to create this project.
+
+18
+00:01:49,770 --> 00:01:57,450
+Go ahead and download from this current lessons course resources the perma list project zip extract
+
+19
+00:01:57,450 --> 00:02:01,290
+the file and open it inside VS code.
+
+20
+00:02:01,500 --> 00:02:07,920
+Now notice that there are already a whole bunch of stuff that has been created for you, such as the
+
+21
+00:02:07,920 --> 00:02:13,950
+icons such as styling, such as a lot of the JS files including partials.
+
+22
+00:02:13,950 --> 00:02:17,330
+So remember way back when we learned about JS?
+
+23
+00:02:17,340 --> 00:02:21,690
+If you need to remind yourself of how these work, then you can always go back.
+
+24
+00:02:21,720 --> 00:02:26,370
+I know it's been a few modules since we talked about this, but you can always go back in the course
+
+25
+00:02:26,370 --> 00:02:29,340
+to have a refresh if you need to.
+
+26
+00:02:29,580 --> 00:02:34,140
+The first thing I want you to take a look is inside index.js.
+
+27
+00:02:34,140 --> 00:02:43,290
+So here I've got some starting code for you, which is simply going to render an persisted to do list.
+
+28
+00:02:43,290 --> 00:02:48,810
+And I want you to go ahead and CD over to this project, the Permollis project.
+
+29
+00:02:48,840 --> 00:02:56,160
+Use npm to install all of the required packages, and then use nodemon to run index.js.
+
+30
+00:02:56,400 --> 00:03:03,060
+Now if we go to localhost 3000, you can see that we have pretty much the entire project.
+
+31
+00:03:03,060 --> 00:03:09,480
+But the only difference is instead of persisting the data in a database, you'll notice here it's being
+
+32
+00:03:09,480 --> 00:03:17,940
+saved into this array of dictionary items, which is how we've done our persistence all of this time
+
+33
+00:03:17,940 --> 00:03:22,910
+up until now, when we actually know how to work with databases.
+
+34
+00:03:22,920 --> 00:03:29,270
+Now, with this version of the to do list, you can see that we can add an item such as write essay
+
+35
+00:03:29,310 --> 00:03:31,380
+goes into the to do list.
+
+36
+00:03:31,380 --> 00:03:37,440
+But if I go back to my server and I restart the server.
+
+37
+00:03:37,440 --> 00:03:40,020
+So right now it's running on port 3000.
+
+38
+00:03:40,050 --> 00:03:42,330
+Let's stop it and restart it.
+
+39
+00:03:42,330 --> 00:03:50,040
+If I go back here and I now refresh this page, you'll see all of that disappears because the data is
+
+40
+00:03:50,040 --> 00:03:51,180
+not persisted.
+
+41
+00:03:51,180 --> 00:03:59,340
+Instead, when we added it to this array and then the server restarted, it resets this array of items
+
+42
+00:03:59,340 --> 00:04:02,310
+back to the original state.
+
+43
+00:04:02,400 --> 00:04:05,670
+That has been our issue up until this point.
+
+44
+00:04:05,700 --> 00:04:12,120
+Nothing is really persisted, and if we ever restart our server, all of the data that's stored in that
+
+45
+00:04:12,120 --> 00:04:13,920
+Ram gets deleted.
+
+46
+00:04:14,790 --> 00:04:19,050
+Your job is to go through the index.js file.
+
+47
+00:04:19,050 --> 00:04:22,590
+Make sure that you understand how everything is working now.
+
+48
+00:04:22,590 --> 00:04:26,010
+Right now the edit and delete routes don't do anything yet.
+
+49
+00:04:26,040 --> 00:04:32,520
+They don't function at all, but all of the front end does in fact work.
+
+50
+00:04:32,520 --> 00:04:43,470
+So explore that in the index.js, see how each of the items are pulled and added in to the form here,
+
+51
+00:04:43,470 --> 00:04:47,850
+and how we have the edit form that goes to forward slash.
+
+52
+00:04:47,850 --> 00:04:56,220
+Edit how we have the delete form that goes to forward slash delete and look at the name and values that
+
+53
+00:04:56,220 --> 00:05:03,600
+you're going to get hold of through body parser in those post requests, and just understand how the
+
+54
+00:05:03,600 --> 00:05:08,760
+code works first before you get started trying to tackle it.
+
+55
+00:05:08,970 --> 00:05:12,690
+Notice in the front end so index.js.
+
+56
+00:05:12,720 --> 00:05:15,000
+I've got some front end JavaScript here.
+
+57
+00:05:15,000 --> 00:05:20,550
+And this is a handler function that basically has nothing to do with our persistence.
+
+58
+00:05:20,550 --> 00:05:24,390
+But it does allow me to click on this button.
+
+59
+00:05:24,390 --> 00:05:33,750
+And when I click on that button, it calls the handler passing in the ID of the row that was clicked.
+
+60
+00:05:33,750 --> 00:05:41,430
+And then I can use that ID to basically hide the title and the button.
+
+61
+00:05:41,430 --> 00:05:43,320
+So this is the title and this is.
+
+62
+00:05:43,440 --> 00:05:44,160
+The edit button.
+
+63
+00:05:44,160 --> 00:05:50,160
+So those are hidden and replace it with the done and input.
+
+64
+00:05:50,160 --> 00:05:53,880
+So this is the done button and this is our input.
+
+65
+00:05:53,910 --> 00:05:56,370
+This used to be a paragraph element.
+
+66
+00:05:56,370 --> 00:05:58,230
+And now it's become an input element.
+
+67
+00:05:58,230 --> 00:06:01,830
+And they are actually all four of these things are there.
+
+68
+00:06:01,830 --> 00:06:08,360
+They're just hidden and shown depending on the state of the press of the button.
+
+69
+00:06:08,370 --> 00:06:11,640
+The idea is you should be able to press the edit button.
+
+70
+00:06:11,640 --> 00:06:15,030
+It turns this paragraph tag into an input.
+
+71
+00:06:15,030 --> 00:06:21,990
+You should be able to edit and change the input, and then click the done button to make that Post request,
+
+72
+00:06:21,990 --> 00:06:27,930
+including all of the stuff that was updated in that particular input.
+
+73
+00:06:27,960 --> 00:06:35,040
+This is the input has a name of updated item title, and the value started off as being the original
+
+74
+00:06:35,040 --> 00:06:39,270
+title of the item, but it ends up being whatever the user typed in at the end.
+
+75
+00:06:39,270 --> 00:06:41,670
+So explore all of those files.
+
+76
+00:06:41,670 --> 00:06:48,650
+Try out the index.js and the last thing you need to think about before you get started is to create
+
+77
+00:06:48,650 --> 00:06:50,150
+a new database.
+
+78
+00:06:50,510 --> 00:06:52,370
+I've called mine permalinks.
+
+79
+00:06:52,370 --> 00:06:53,990
+That's the name of the database.
+
+80
+00:06:53,990 --> 00:06:58,880
+And then I've created a table in here called items.
+
+81
+00:06:58,880 --> 00:07:03,620
+And items is going to represent each of the items in the to do list.
+
+82
+00:07:03,620 --> 00:07:06,800
+So it's got a title and it's got a primary key ID.
+
+83
+00:07:06,830 --> 00:07:09,290
+That's all there is to begin with.
+
+84
+00:07:09,290 --> 00:07:16,730
+I've set the title as a Varchar 100 so that people can type in up to 100 characters, but you can decide
+
+85
+00:07:16,730 --> 00:07:22,040
+all of this yourself because after all, it is your project and it is your to do list.
+
+86
+00:07:22,040 --> 00:07:24,320
+So think about how you want to do this.
+
+87
+00:07:24,320 --> 00:07:26,900
+But just remember you will need a new database.
+
+88
+00:07:26,900 --> 00:07:33,290
+You will need a new table, and you'll need to think about what SQL commands you'll need to type to
+
+89
+00:07:33,290 --> 00:07:36,620
+create the table and the schema for the table.
+
+90
+00:07:37,430 --> 00:07:41,090
+If you get really stuck, you can look inside queries or SQL.
+
+91
+00:07:41,090 --> 00:07:48,830
+And I've got all of the SQL commands that you would need to set up this table of items in the schema
+
+92
+00:07:48,830 --> 00:07:53,630
+that I have chosen, but I recommend instead of doing that, if you get confused, look back at your
+
+93
+00:07:53,630 --> 00:07:57,650
+previous code and try to figure it out and then just compare afterwards.
+
+94
+00:07:58,190 --> 00:08:06,620
+Now once you've set up your database, then you can also run the solution JS in order to see the expected
+
+95
+00:08:06,620 --> 00:08:08,990
+behavior of the final product.
+
+96
+00:08:08,990 --> 00:08:13,520
+So it should be able to bring in all of the items in the database.
+
+97
+00:08:13,550 --> 00:08:19,790
+It should allow you to add items to the database, to cross them out to edit them.
+
+98
+00:08:20,450 --> 00:08:26,570
+And all of this behavior should work as long as you have named everything the same as me.
+
+99
+00:08:26,570 --> 00:08:33,770
+So in the solution, I have named my database perma list and I've called my table items and the table
+
+100
+00:08:33,770 --> 00:08:35,210
+has an ID and a title.
+
+101
+00:08:35,210 --> 00:08:39,890
+If all of these are the same, then the solution code should work for you as well.
+
+102
+00:08:40,070 --> 00:08:45,980
+I'm going to stop talking now, and I'm going to leave you to practice and apply what you've learned.
+
+103
+00:08:45,980 --> 00:08:51,140
+So expect to spend anywhere between 1 to 2 hours on this project.
+
+104
+00:08:51,140 --> 00:08:57,200
+Even though it is quite simple, it is quite involved and it will require a lot more thinking than writing.
+
+105
+00:08:57,200 --> 00:08:59,330
+So that's always a good thing.
+
+106
+00:08:59,330 --> 00:09:04,670
+When you spend more time or twice as much time thinking, then you'll have less bugs and everything
+
+107
+00:09:04,670 --> 00:09:05,780
+will make more sense.
+
+108
+00:09:05,960 --> 00:09:09,680
+Pause the video and complete this project.
+
+109
+00:09:12,520 --> 00:09:14,860
+All right, let's go through the solution together.
+
+110
+00:09:14,890 --> 00:09:18,460
+The first step is the creation of the database.
+
+111
+00:09:18,730 --> 00:09:24,370
+As you might remember, you can do that by simply going to Postgres, right clicking on databases and
+
+112
+00:09:24,370 --> 00:09:26,170
+then create a database.
+
+113
+00:09:26,260 --> 00:09:28,510
+In my case I've called it perma list.
+
+114
+00:09:28,510 --> 00:09:33,760
+And all you have to do is click save and you would have your database newly minted.
+
+115
+00:09:33,880 --> 00:09:40,810
+Inside that database we want to create a table called items and it has only two columns.
+
+116
+00:09:40,810 --> 00:09:47,830
+One is an ID that is going to be serially generated one until whenever whole numbers.
+
+117
+00:09:47,830 --> 00:09:49,780
+And it's going to be set as the primary key.
+
+118
+00:09:49,780 --> 00:09:54,700
+So it's going to be the unique aspect that identifies each of the records in this table.
+
+119
+00:09:54,880 --> 00:10:03,160
+Next we have a column called title which I've set to Varchar 100, allowing the user to type up to 100
+
+120
+00:10:03,160 --> 00:10:05,890
+characters as their to do list item.
+
+121
+00:10:05,890 --> 00:10:08,020
+And I've also set it as not null.
+
+122
+00:10:08,020 --> 00:10:14,530
+Now this is optional, but it does mean that we could have some error checking down the line so we could
+
+123
+00:10:14,530 --> 00:10:19,120
+prevent a new entry being created if it didn't have a title.
+
+124
+00:10:20,110 --> 00:10:27,820
+Next, I decided to insert some test data so that it would match up with the data that I have in my
+
+125
+00:10:27,820 --> 00:10:29,260
+array of items right here.
+
+126
+00:10:29,260 --> 00:10:36,190
+So we have some IDs, we have some titles, and I've created the two values to match by milk and finish
+
+127
+00:10:36,190 --> 00:10:36,790
+homework.
+
+128
+00:10:36,790 --> 00:10:40,390
+So hopefully this is going to get inserted into my database.
+
+129
+00:10:40,390 --> 00:10:43,330
+And once I pull it in it will match.
+
+130
+00:10:43,330 --> 00:10:45,790
+And I can replace this array.
+
+131
+00:10:45,820 --> 00:10:48,460
+Now it doesn't really matter if you do this.
+
+132
+00:10:48,460 --> 00:10:54,340
+This could be empty and you could insert it from the database, or your database could be empty and
+
+133
+00:10:54,340 --> 00:10:57,040
+you could add it from your index.js.
+
+134
+00:10:57,220 --> 00:10:59,050
+Either way, it works.
+
+135
+00:10:59,860 --> 00:11:08,860
+Once you have run these queries in Postgres on your Pumilus database, then you can view that table
+
+136
+00:11:08,860 --> 00:11:13,510
+in Pgadmin just to make sure that everything worked as you expect it to.
+
+137
+00:11:13,510 --> 00:11:16,060
+And you have those two items inserted.
+
+138
+00:11:16,060 --> 00:11:17,890
+Buy milk, finish homework.
+
+139
+00:11:18,550 --> 00:11:26,800
+So now we're ready to move on to the next part, which is to do our read in our app.get.
+
+140
+00:11:26,830 --> 00:11:34,510
+We want to be able to grab hold of the data from our database and then send it over to index.js in a
+
+141
+00:11:34,960 --> 00:11:35,690
+render.
+
+142
+00:11:35,860 --> 00:11:38,500
+So let's walk through the solution together.
+
+143
+00:11:38,680 --> 00:11:46,150
+Before we can access the database, we need to import the Postgres module from npm.
+
+144
+00:11:46,150 --> 00:11:53,620
+If you did an npm I, it should already be installed because it was defined in the starting package.json.
+
+145
+00:11:53,650 --> 00:11:59,230
+It was already added in here alongside with body parser, js and express.
+
+146
+00:12:00,410 --> 00:12:04,520
+In order to connect to that database, we first configure the database.
+
+147
+00:12:04,520 --> 00:12:11,000
+So PG client and put in your user your host the password and port.
+
+148
+00:12:11,030 --> 00:12:14,840
+None of this should have changed between your previous projects.
+
+149
+00:12:14,840 --> 00:12:17,660
+So you might have just copy and pasted it, which is fine.
+
+150
+00:12:17,660 --> 00:12:22,130
+But the one thing to note is you now are working with a different database.
+
+151
+00:12:22,160 --> 00:12:26,870
+It's no longer the world database, but instead it's the perma list database.
+
+152
+00:12:26,870 --> 00:12:33,200
+So if you had trouble with this, it might be because you forgot to update the name of your database
+
+153
+00:12:33,200 --> 00:12:37,310
+to match it with the one that you created in Pgadmin.
+
+154
+00:12:38,210 --> 00:12:44,600
+Once we've configured it, we connect to our database and we're ready to start using it in order to
+
+155
+00:12:44,600 --> 00:12:46,730
+get hold of the data inside.
+
+156
+00:12:47,000 --> 00:12:48,970
+Again, I'm using a try catch.
+
+157
+00:12:48,980 --> 00:12:52,010
+I'm doing very basic error handling here in this project.
+
+158
+00:12:52,010 --> 00:12:53,750
+I'm just console logging it.
+
+159
+00:12:53,750 --> 00:13:03,650
+But inside the try block I'm going to run the Postgres query to select everything from my table of items,
+
+160
+00:13:03,650 --> 00:13:07,700
+and I've decided to order it by ID ascending.
+
+161
+00:13:07,850 --> 00:13:17,090
+This part is of course optional, but if I do take this part out, hit save and go over here and let's
+
+162
+00:13:17,090 --> 00:13:26,030
+say I change for example the first item here and hit update.
+
+163
+00:13:26,030 --> 00:13:31,940
+Then that becomes the most updated item and it changes our order of the to do list.
+
+164
+00:13:31,940 --> 00:13:39,080
+So if we wanted to keep the order that we have, then we can have that order by ID ascending, which
+
+165
+00:13:39,080 --> 00:13:43,820
+you might have worked out because we already covered how this works, but you might not.
+
+166
+00:13:43,820 --> 00:13:50,570
+So this might be something to think about adding if you don't have it, but also it's completely optional.
+
+167
+00:13:50,570 --> 00:13:52,010
+You don't need it.
+
+168
+00:13:52,010 --> 00:13:56,390
+It's just one of those things that you might have wanted to apply to your project.
+
+169
+00:13:56,960 --> 00:14:06,430
+Now next, we set this item M's array to be the same as what we get back from the results.
+
+170
+00:14:06,440 --> 00:14:14,990
+I recommend console logging result dot rows, but if you remember from previous when we run this await
+
+171
+00:14:14,990 --> 00:14:23,330
+db dot query using the Postgres module, the content that we get back is an array of dictionaries where
+
+172
+00:14:23,330 --> 00:14:30,080
+each of the columns that we requested comes in as a dictionary of key value pairs.
+
+173
+00:14:30,080 --> 00:14:32,270
+So console log is your friend.
+
+174
+00:14:32,300 --> 00:14:33,680
+Don't be afraid to use it.
+
+175
+00:14:34,160 --> 00:14:42,200
+Once we set the data from our database into this temporary list, then we can work with it and pass
+
+176
+00:14:42,200 --> 00:14:50,660
+it over to our index.js front end file and render it passing in the list title, which I've called today.
+
+177
+00:14:50,690 --> 00:14:56,090
+The list items, which are these items that have been updated from the database.
+
+178
+00:14:56,090 --> 00:15:04,910
+And we are now ready to take a look at how that gets handled in the index dot JS list items gets passed
+
+179
+00:15:04,910 --> 00:15:13,850
+into this loop, and we loop through each of the items in the list items and use it to create one of
+
+180
+00:15:13,850 --> 00:15:15,260
+these rows.
+
+181
+00:15:16,040 --> 00:15:23,240
+You'll notice that each of the rows has a checkbox and that corresponds to this right here.
+
+182
+00:15:23,990 --> 00:15:31,190
+Next, we have a paragraph element that pulls in the item dot title.
+
+183
+00:15:31,370 --> 00:15:39,410
+If you remember from our solution dot js, the item has an ID and a title, and we grab hold of this
+
+184
+00:15:39,410 --> 00:15:46,130
+text and we put it into that paragraph element and it gets displayed right here.
+
+185
+00:15:48,980 --> 00:15:58,670
+The next part is where we have our hidden inputs, which will appear when we press the edit button,
+
+186
+00:15:58,670 --> 00:16:02,180
+because we have that handler that I talked to you about earlier.
+
+187
+00:16:02,360 --> 00:16:11,720
+But what does get displayed is this button that we can click on to edit the row of data.
+
+188
+00:16:11,750 --> 00:16:17,900
+And that is right here that is going to go through to the update route.
+
+189
+00:16:17,900 --> 00:16:20,600
+And we'll talk about it once we get there.
+
+190
+00:16:20,600 --> 00:16:29,090
+But essentially we now have this entire row being rendered and all the data comes from our database.
+
+191
+00:16:29,120 --> 00:16:32,320
+The next part is our create.
+
+192
+00:16:32,330 --> 00:16:35,630
+So we've done our read in the Crud.
+
+193
+00:16:35,660 --> 00:16:40,520
+The next part is how do we add new items into our database?
+
+194
+00:16:40,640 --> 00:16:50,060
+Using body parser, we get hold of the text that the user type into a input that has a name of new item,
+
+195
+00:16:50,060 --> 00:16:53,300
+and that is right here.
+
+196
+00:16:53,630 --> 00:17:00,440
+This is the input that is of type text and it has the name of new item.
+
+197
+00:17:00,440 --> 00:17:09,859
+So whatever value the user types into this input right here is going to be labeled with that name of
+
+198
+00:17:09,859 --> 00:17:10,910
+new item.
+
+199
+00:17:10,910 --> 00:17:17,300
+And when I hit the submit button it submits the form to the forward slash add route.
+
+200
+00:17:17,329 --> 00:17:20,270
+This is of course the submit button.
+
+201
+00:17:20,270 --> 00:17:28,119
+So the user types something, presses this button, and then we receive that data on our server side.
+
+202
+00:17:28,130 --> 00:17:34,220
+So looking at this we've got our forward slash add post route that we handle in our server.
+
+203
+00:17:34,220 --> 00:17:38,810
+And we grab hold of the text that the user entered into that field.
+
+204
+00:17:38,810 --> 00:17:43,250
+And then we use it to add to our database.
+
+205
+00:17:43,430 --> 00:17:52,250
+Previously in the index.js I had simply an items dot push to demo how we could add it into the items
+
+206
+00:17:52,280 --> 00:17:53,930
+array right here.
+
+207
+00:17:53,930 --> 00:17:58,060
+But now that we're working with our database, we no longer need to do that.
+
+208
+00:17:58,070 --> 00:18:08,930
+Instead, we make a DB query and we insert into our items table with the column name title and the value
+
+209
+00:18:08,930 --> 00:18:13,670
+corresponding to dollar one, which is going to be this right here.
+
+210
+00:18:13,670 --> 00:18:17,450
+And that is what the user typed in from the input.
+
+211
+00:18:18,440 --> 00:18:24,770
+Remember the ID is serial, so it's going to be automatically generated.
+
+212
+00:18:24,770 --> 00:18:28,640
+And the only other column in that table is the title.
+
+213
+00:18:28,640 --> 00:18:34,850
+So we can simply insert what comes from right here into this.
+
+214
+00:18:34,850 --> 00:18:37,940
+And that gets created in our database.
+
+215
+00:18:37,940 --> 00:18:45,290
+And finally, once that is completed and everything went without error, then we proceed to the next
+
+216
+00:18:45,290 --> 00:18:47,870
+step, which is to redirect to the home route.
+
+217
+00:18:47,900 --> 00:18:52,820
+If there was an error, then we would catch it and console log it.
+
+218
+00:18:53,210 --> 00:18:55,430
+What happens on this redirect?
+
+219
+00:18:55,430 --> 00:18:59,810
+Well, it goes back over to this route right here.
+
+220
+00:19:00,020 --> 00:19:06,710
+And we've seen this before in previous projects and also coding exercises.
+
+221
+00:19:06,710 --> 00:19:16,850
+Once we redirect to this location in our server, then it's going to pretend as if the server received
+
+222
+00:19:16,850 --> 00:19:18,710
+an App.get to the home route.
+
+223
+00:19:18,710 --> 00:19:20,540
+So it's going to do the same thing.
+
+224
+00:19:20,570 --> 00:19:28,910
+Pull back all of the new data from our database and render it in the index.js.
+
+225
+00:19:29,480 --> 00:19:33,020
+Essentially, it just forces a refresh of the page.
+
+226
+00:19:33,350 --> 00:19:39,290
+Now we've talked about create read, and now we're on to update.
+
+227
+00:19:39,470 --> 00:19:42,680
+The update happens in the edit route.
+
+228
+00:19:42,710 --> 00:19:46,280
+The update action is inside this form.
+
+229
+00:19:46,280 --> 00:19:50,030
+And it's triggered by this button right here.
+
+230
+00:19:50,030 --> 00:19:52,220
+That is the edit button.
+
+231
+00:19:52,220 --> 00:20:00,950
+So when I click on one of these buttons, then the JavaScript code right here is going to hide the paragraph
+
+232
+00:20:00,950 --> 00:20:06,710
+element, hide the edit button and unhide the done button.
+
+233
+00:20:06,710 --> 00:20:14,960
+And this input the parts of the code that are now hidden is this button right here.
+
+234
+00:20:14,960 --> 00:20:19,010
+And also this paragraph element right here.
+
+235
+00:20:19,010 --> 00:20:27,260
+These two are hidden and no longer seen, and they are now replaced by this input which the user can
+
+236
+00:20:27,260 --> 00:20:32,030
+type into to update the item's title.
+
+237
+00:20:32,030 --> 00:20:39,590
+And also this done button which will submit this form to the edit route.
+
+238
+00:20:40,100 --> 00:20:43,640
+What happens when I try to make an update?
+
+239
+00:20:43,640 --> 00:20:44,810
+So let's change this.
+
+240
+00:20:44,810 --> 00:20:46,880
+Buy cheese to buy milk.
+
+241
+00:20:47,000 --> 00:20:50,780
+Notice how even when I let's not submit this.
+
+242
+00:20:50,780 --> 00:20:52,310
+Let me just refresh this.
+
+243
+00:20:52,310 --> 00:20:58,640
+When I clicked on this button and this paragraph element was turned into an input element, the value
+
+244
+00:20:58,640 --> 00:21:04,280
+of that input is the same as what was in the paragraph element.
+
+245
+00:21:04,280 --> 00:21:11,930
+And the reason for this is because we were able to use the item title that comes from the insertion,
+
+246
+00:21:11,930 --> 00:21:16,280
+and I put it into the value of that input.
+
+247
+00:21:16,280 --> 00:21:21,680
+So that means the user doesn't have to type out the whole thing or to completely update it.
+
+248
+00:21:21,680 --> 00:21:26,930
+They can simply just select it and change it or do whatever they want.
+
+249
+00:21:27,260 --> 00:21:34,940
+The other part of this you'll see is I'm using the item ID in a number of places, I'm using it in a
+
+250
+00:21:34,970 --> 00:21:39,380
+hidden input and also the text input.
+
+251
+00:21:39,380 --> 00:21:46,490
+So a hidden input, which you might remember from previous lessons on HTML ages ago, is not displayed
+
+252
+00:21:46,490 --> 00:21:50,240
+to the user, so you don't actually see it anywhere.
+
+253
+00:21:50,240 --> 00:21:59,300
+But what I can do in here is I can add the item ID, which I got by looping through all of the items
+
+254
+00:21:59,300 --> 00:22:07,130
+so that this ID matches this title, so that I know which of these rows the user is trying to edit.
+
+255
+00:22:07,130 --> 00:22:12,230
+Because this one probably has an ID of one, this one has an ID of two, this one has an ID of three,
+
+256
+00:22:12,230 --> 00:22:19,880
+and I pass along the text that the user typed along with this ID so that I can update it on the back
+
+257
+00:22:19,880 --> 00:22:20,390
+end.
+
+258
+00:22:20,690 --> 00:22:27,110
+When the user hits this submit, this form goes to forward slash edit and we catch it right here.
+
+259
+00:22:27,230 --> 00:22:36,500
+Now I'm pulling in the item which is the updated item title that we got from right here.
+
+260
+00:22:36,530 --> 00:22:38,810
+This is the name of that input.
+
+261
+00:22:38,840 --> 00:22:43,850
+And the other input is the updated item ID which is that hidden input.
+
+262
+00:22:43,850 --> 00:22:49,850
+And I now have access to the ID of the item that I need to update.
+
+263
+00:22:49,850 --> 00:22:53,150
+And the new title I need to update it to.
+
+264
+00:22:53,150 --> 00:22:58,460
+So I'm ready to start my try catch block and make my SQL query.
+
+265
+00:22:58,490 --> 00:23:03,440
+So in this case we're using the update method, which we learned about in the previous lesson.
+
+266
+00:23:03,650 --> 00:23:11,210
+I'm updating the items table and I'm setting the title column to dollar one.
+
+267
+00:23:11,210 --> 00:23:17,630
+So dollar one is the first item that goes into the array and that is the new.
+
+268
+00:23:17,790 --> 00:23:26,700
+Text that comes from that input, and then add a condition here where the ID of the record is equal
+
+269
+00:23:26,700 --> 00:23:31,920
+to dollar two, which is of course this second input right here.
+
+270
+00:23:31,920 --> 00:23:35,580
+And that corresponds to the ID of the item that needed to be updated.
+
+271
+00:23:35,790 --> 00:23:44,850
+This entire try catch block is going to try and do just that, updating the record that matches that
+
+272
+00:23:44,850 --> 00:23:45,930
+criteria.
+
+273
+00:23:45,930 --> 00:23:50,730
+And once it's done, if it had no errors, again we refresh the page.
+
+274
+00:23:50,820 --> 00:23:54,570
+If there were errors, we simply just console log it.
+
+275
+00:23:55,380 --> 00:24:03,060
+So now all we're left with is our last conundrum or our last little challenge, which is when the user
+
+276
+00:24:03,060 --> 00:24:09,690
+clicks on the delete button, it should delete the item from the database.
+
+277
+00:24:10,140 --> 00:24:14,370
+That delete input is the checkbox.
+
+278
+00:24:14,370 --> 00:24:17,460
+And we can see it right here.
+
+279
+00:24:17,460 --> 00:24:19,590
+This is our input checkbox.
+
+280
+00:24:19,590 --> 00:24:26,490
+And here in the JavaScript on the front end, I've got an Onchange that listens for changes on the checkbox.
+
+281
+00:24:26,490 --> 00:24:32,610
+So that means if it was checked, basically if the user clicked on it, this is going to trigger.
+
+282
+00:24:32,610 --> 00:24:36,480
+And what this does is it's going to submit the form.
+
+283
+00:24:36,480 --> 00:24:42,390
+And submitting the form means making a Post request to the delete route.
+
+284
+00:24:42,930 --> 00:24:48,750
+And in this input I've also added a value.
+
+285
+00:24:48,750 --> 00:24:53,130
+I've got the value set as the item id.
+
+286
+00:24:53,640 --> 00:25:01,530
+That way I will know on my back end which of these rows the user tried to delete.
+
+287
+00:25:01,560 --> 00:25:05,480
+Did they try to delete the one with ID one or the one with ID two?
+
+288
+00:25:05,490 --> 00:25:07,680
+So I click this checkbox.
+
+289
+00:25:07,680 --> 00:25:15,900
+This triggers the form, passes over the ID of the row that was checked, and all of this data gets
+
+290
+00:25:15,900 --> 00:25:18,750
+submitted to the delete route.
+
+291
+00:25:18,750 --> 00:25:19,080
+Right?
+
+292
+00:25:20,070 --> 00:25:22,800
+So what happens in the delete route?
+
+293
+00:25:22,830 --> 00:25:30,150
+Well here we first get hold of the ID, the delete item id that comes from the checkbox input.
+
+294
+00:25:30,150 --> 00:25:37,560
+And then we use that ID to make a database query where we say delete from name of our table.
+
+295
+00:25:37,560 --> 00:25:45,960
+And our condition is where the ID of the record matches dollar one, which happens to be the ID that
+
+296
+00:25:45,960 --> 00:25:47,280
+we got from the form.
+
+297
+00:25:47,280 --> 00:25:55,980
+And after all of that's done, we refresh the page, making sure that the updated information is displayed
+
+298
+00:25:55,980 --> 00:25:56,940
+to the user.
+
+299
+00:25:57,060 --> 00:26:05,880
+Any errors we catch and log, that is all there is to it to complete this entire project.
+
+300
+00:26:06,330 --> 00:26:11,100
+Now, that's not to say that there aren't opportunities for upgrading the project.
+
+301
+00:26:11,100 --> 00:26:17,760
+Depending on maybe an edge case that you identified, or maybe the to do list doesn't perform the way
+
+302
+00:26:17,760 --> 00:26:18,810
+you want it to.
+
+303
+00:26:18,840 --> 00:26:22,740
+You can always change your code to update your preferences.
+
+304
+00:26:22,740 --> 00:26:29,130
+You now have the power in your hands to make this do whatever it is you want it to do.
+
+305
+00:26:29,130 --> 00:26:33,030
+And the base model of the project is the simplest form.
+
+306
+00:26:33,030 --> 00:26:42,450
+All I wanted to know is that you were able to use the Crud methods create, read, update, delete on
+
+307
+00:26:42,450 --> 00:26:49,590
+this Postgres database so that you can persist data in a actual live project.
+
+308
+00:26:49,950 --> 00:26:56,220
+And the reason why we're creating a to do list using this type of database persistence is because this
+
+309
+00:26:56,220 --> 00:27:01,860
+is one of the most common types of coding challenges you get from interviews.
+
+310
+00:27:01,860 --> 00:27:05,580
+It's something that people love and it's a great project to demonstrate.
+
+311
+00:27:05,610 --> 00:27:11,640
+Add your interviews as well, but hopefully you will make some updates to this, either styling wise
+
+312
+00:27:11,640 --> 00:27:17,460
+or functionality wise, to set yourself apart from the millions of other people who have also completed
+
+313
+00:27:17,460 --> 00:27:18,780
+the same project.
+
+314
+00:27:18,780 --> 00:27:21,570
+So what are some of the opportunities for upgrade?
+
+315
+00:27:21,570 --> 00:27:23,730
+Well, here are some of the ideas I thought about.
+
+316
+00:27:23,850 --> 00:27:29,700
+You can maybe sort your data in your to do list by their creation date.
+
+317
+00:27:29,730 --> 00:27:32,460
+Maybe you can store an additional column.
+
+318
+00:27:32,460 --> 00:27:39,480
+You can maybe think about using an alter command to add a new column to your database, store the creation
+
+319
+00:27:39,480 --> 00:27:44,490
+date through some sort of JavaScript wizardry that you could always look up on Google.
+
+320
+00:27:44,490 --> 00:27:50,760
+And this means that you have an extra piece of data that you can display to the user on the front end.
+
+321
+00:27:51,210 --> 00:27:55,380
+Another option I thought about is you could have multiple lists.
+
+322
+00:27:55,410 --> 00:27:57,750
+Why stop at one to do lists?
+
+323
+00:27:57,780 --> 00:28:00,990
+You'll notice that the to do list is called today.
+
+324
+00:28:00,990 --> 00:28:10,020
+And one of my favorite ways of creating to do lists is to create a to do list for today, for this week,
+
+325
+00:28:10,020 --> 00:28:15,270
+and for this month, because there are some tasks that can't be done in one day.
+
+326
+00:28:15,270 --> 00:28:15,530
+Write.
+
+327
+00:28:15,540 --> 00:28:17,580
+Some of them might take a week, some of them might take a month.
+
+328
+00:28:18,130 --> 00:28:25,600
+I actually normally keep these three types of to do lists on three post-its that I have in my notebook,
+
+329
+00:28:25,990 --> 00:28:30,820
+and it means that I can check off the items as they are done.
+
+330
+00:28:30,820 --> 00:28:35,440
+So I'll replace the today one every single day and the week one every single week.
+
+331
+00:28:35,440 --> 00:28:37,510
+And it's just a really nice overview.
+
+332
+00:28:37,510 --> 00:28:40,030
+So you can think about doing multiple lists.
+
+333
+00:28:40,030 --> 00:28:44,260
+Maybe you have a work list, maybe you have a school list.
+
+334
+00:28:44,290 --> 00:28:49,210
+Maybe you also have the same kind of format I have today, this week, this month.
+
+335
+00:28:49,210 --> 00:28:55,780
+But you can think about upgrading that and think about how you might start creating relationships that
+
+336
+00:28:55,780 --> 00:28:57,610
+can enable this.
+
+337
+00:28:57,940 --> 00:29:03,040
+Speaking of relationships, you could also think about what we did previously, where we had our family
+
+338
+00:29:03,040 --> 00:29:06,340
+travel tracker, where you could have a family to do lists.
+
+339
+00:29:06,370 --> 00:29:12,880
+Maybe different members will have different chores that they have to do, and it's a good place to keep
+
+340
+00:29:12,910 --> 00:29:17,020
+track of what chores you need to do versus what other people are doing.
+
+341
+00:29:17,020 --> 00:29:18,220
+Are they doing their chores?
+
+342
+00:29:18,220 --> 00:29:18,370
+ET.
+
+343
+00:29:18,970 --> 00:29:24,220
+I'm sure there are tons of upgrades that you can think of yourself and you can implement as well.
+
+344
+00:29:24,220 --> 00:29:29,260
+But use what you've learned and if you want to, you can provide these upgrades.
+
+345
+00:29:29,260 --> 00:29:36,610
+If you don't, and you just want a cursory understanding of how persistence works with Postgres with
+
+346
+00:29:36,610 --> 00:29:41,680
+a node backend, then you have already achieved all of that through this project.
+
+347
+00:29:42,160 --> 00:29:46,000
+All that's left to do now is have a play around with your code.
+
+348
+00:29:46,000 --> 00:29:47,200
+Remember, it is play.
+
+349
+00:29:47,200 --> 00:29:48,150
+It's not work.
+
+350
+00:29:48,160 --> 00:29:50,590
+It is acquiring knowledge for your own benefit.
+
+351
+00:29:50,590 --> 00:29:56,200
+And once you're done, head over to the next lesson where I've got a capstone challenge for you for
+
+352
+00:29:56,200 --> 00:29:56,770
+all of that.
+
+353
+00:29:56,770 --> 00:29:58,030
+And we'll I'll see you there.
+

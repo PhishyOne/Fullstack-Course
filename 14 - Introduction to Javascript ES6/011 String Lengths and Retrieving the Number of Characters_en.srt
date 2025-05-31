@@ -1,0 +1,296 @@
+1
+00:00:00,800 --> 00:00:08,029
+Now, another really cool feature of Javascript strings is that we can easily figure out the number of characters
+
+2
+00:00:08,119 --> 00:00:12,800
+in a string by simply tapping into its length property.
+
+3
+00:00:12,800 --> 00:00:19,890
+So we can simply write word.length, and we'll be able to get the number of characters inside the word.
+
+4
+00:00:20,000 --> 00:00:22,640
+So let me show it to you in practice.
+
+5
+00:00:22,790 --> 00:00:25,080
+Let's head over to our Chrome Snippets.
+
+6
+00:00:25,100 --> 00:00:32,090
+So let's say our variable name is equal to Angela, and say if I'm too lazy to count how many characters
+
+7
+00:00:32,330 --> 00:00:33,710
+are in the string
+
+8
+00:00:33,710 --> 00:00:40,230
+Angela, then I can simply write name.length in order to get the number of characters.
+
+9
+00:00:41,210 --> 00:00:44,490
+And you can see printed in our console is 6.
+
+10
+00:00:44,630 --> 00:00:49,820
+And if you really want to verify you can also count 1 2 3 4 5 6.
+
+11
+00:00:49,820 --> 00:00:56,540
+So in the previous version of Twitter you had only 140 characters that you could use in order to create
+
+12
+00:00:56,570 --> 00:00:57,550
+a tweet.
+
+13
+00:00:57,620 --> 00:01:03,290
+And as you were writing the tweet you would get a count of how many characters you've used and how many
+
+14
+00:01:03,290 --> 00:01:09,830
+characters you have remaining and your tweet would get cut off at 140 characters.
+
+15
+00:01:09,830 --> 00:01:16,490
+Now, in the last year, Twitter has decided to increase the character count to 280, but I kind of preferred
+
+16
+00:01:16,490 --> 00:01:18,710
+it when it was only 140 characters.
+
+17
+00:01:18,710 --> 00:01:24,440
+I find that 280 is a little bit too long and people end up writing mini essays, instead of what it should
+
+18
+00:01:24,440 --> 00:01:26,770
+be, which is kind of one or two sentences.
+
+19
+00:01:26,770 --> 00:01:28,790
+So here's a slightly harder challenge.
+
+20
+00:01:28,790 --> 00:01:34,430
+So I want you to write some Javascript code in order to create a prompt where the user can enter a long
+
+21
+00:01:34,430 --> 00:01:41,150
+string such as a paragraph of text from a blog post and you will tell them how many characters they
+
+22
+00:01:41,150 --> 00:01:49,320
+have written and also how many characters they have remaining out of either 140 or 280 characters.
+
+23
+00:01:49,400 --> 00:01:56,120
+The output that you should get should be something like 'You have written 182 characters,
+
+24
+00:01:56,210 --> 00:02:00,640
+you have'. What is 140 - 182?
+
+25
+00:02:00,680 --> 00:02:04,960
+That will be '-42 characters left'.
+
+26
+00:02:04,970 --> 00:02:08,539
+So you would get an output that looks something like this
+
+27
+00:02:08,570 --> 00:02:13,110
+if you have coded up your Twitter character count correctly.
+
+28
+00:02:13,280 --> 00:02:19,850
+So this is going to involve some concatenation, as well as a little bit of maths, and also what you have
+
+29
+00:02:19,850 --> 00:02:22,230
+learned about the length property.
+
+30
+00:02:22,370 --> 00:02:26,680
+So I'll leave this challenge to you. Pause the video now and try to complete it.
+
+31
+00:02:31,680 --> 00:02:33,780
+All right. So how did that go?
+
+32
+00:02:33,840 --> 00:02:35,520
+Let's comment this out,
+
+33
+00:02:35,520 --> 00:02:41,460
+so that means putting two forward slashes in front of it, which takes it out of the code and instead
+
+34
+00:02:41,460 --> 00:02:46,590
+gets completely ignored by the computer so that it's not treated as any sort of code.
+
+35
+00:02:46,590 --> 00:02:48,700
+Now there's two ways of commenting text.
+
+36
+00:02:48,720 --> 00:02:51,390
+You can either put two forward slashes in front of it,
+
+37
+00:02:51,390 --> 00:02:53,570
+and this means you'll have a single line comment,
+
+38
+00:02:53,580 --> 00:02:56,310
+so the next line becomes code once more,
+
+39
+00:02:56,520 --> 00:03:05,080
+or you can put a forward slash plus a star, and then you can have a star and forward slash to end it,
+
+40
+00:03:05,130 --> 00:03:10,220
+and this means that you can have multiline comments like so, which is pretty cool.
+
+41
+00:03:10,220 --> 00:03:10,490
+All right.
+
+42
+00:03:10,500 --> 00:03:12,790
+So I'm going to push that towards the bottom.
+
+43
+00:03:12,870 --> 00:03:14,880
+And we're going to write our code up here.
+
+44
+00:03:14,940 --> 00:03:18,900
+So I'm going to create a prompt that asks the user input a tweet,
+
+45
+00:03:18,960 --> 00:03:27,530
+so something like 'Compose your tweet', and this will simply ask the user to write the tweet in here.
+
+46
+00:03:28,230 --> 00:03:34,950
+And once they have created that tweet, then I'm going to bind whatever it is that they wrote in there
+
+47
+00:03:34,950 --> 00:03:41,670
+to a variable and I'm going to call that variable tweet. Seems to make sense, right? Now, once we have that
+
+48
+00:03:41,670 --> 00:03:45,370
+variable tweet, I'm going to use it to check its length.
+
+49
+00:03:45,540 --> 00:03:49,750
+So I can create a new variable called tweetCount,
+
+50
+00:03:50,490 --> 00:03:54,990
+and this can equal tweet.length.
+
+51
+00:03:54,990 --> 00:04:04,740
+Now finally I can create my alert and inside the alert I'm going to tell the user "You have written "
+
+52
+00:04:04,950 --> 00:04:22,560
++ tweetCount + " characters, you have " + (140 - tweetCount) + " characters remaining. ".
+
+53
+00:04:22,630 --> 00:04:32,080
+So now if I copy this first paragraph and I go ahead and I run my code and paste that paragraph in here,
+
+54
+00:04:32,710 --> 00:04:40,600
+then I can hit OK and I will get an alert back that says 'You have written 187 characters, you have 
+
+55
+00:04:40,660 --> 00:04:42,850
+-47 characters remaining.'.
+
+56
+00:04:43,190 --> 00:04:50,090
+And this of course works also if I just write in some gobbledygook and I will also get my character count
+
+57
+00:04:50,140 --> 00:04:54,160
+and how many I have remaining to be a valid tweet.
+
+58
+00:04:54,250 --> 00:05:00,580
+Now some of you might have run the code and then tried to navigate to a different tab to get your text
+
+59
+00:05:00,700 --> 00:05:06,540
+and then when you came back you saw this error that says 'Cannot read property 'length' of null'.
+
+60
+00:05:06,760 --> 00:05:12,130
+And that's because when you navigate away from the tab the pop up gets dismissed,
+
+61
+00:05:12,190 --> 00:05:17,340
+and this tweet variable is now a null value, so it doesn't have a value.
+
+62
+00:05:17,410 --> 00:05:22,730
+And when you try to get the length of something that doesn't exist then you get this error here.
+
+63
+00:05:22,780 --> 00:05:24,410
+So don't worry too much about this.
+
+64
+00:05:24,430 --> 00:05:31,320
+We'll explain all of the nil values such as null or undefined or NaN in the coming lessons.
+
+65
+00:05:31,450 --> 00:05:38,620
+But for now just make sure that when you hit prompt you actually give it a value or any value you wish.
+
+66
+00:05:38,620 --> 00:05:44,630
+The other thing is that some of you guys might have skipped this stage of having a tweetCount variable,
+
+67
+00:05:44,680 --> 00:05:51,130
+so simply having tweet.length where I have tweetCount, and that works just as well.
+
+68
+00:05:51,250 --> 00:05:58,270
+So I can just replace these two places where I have the tweetCount, and I can delete this, and if I run
+
+69
+00:05:58,270 --> 00:06:01,400
+you can see that this works exactly the same.
+
+70
+00:06:01,700 --> 00:06:06,400
+And the only reason why I added that extra step is just to make it more visible so you can understand the
+
+71
+00:06:06,400 --> 00:06:07,980
+logic of the code more clearly.
+
+72
+00:06:07,990 --> 00:06:13,420
+Now in the next lesson I want to talk to you about, you guessed it, yet another feature of Javascript
+
+73
+00:06:13,420 --> 00:06:20,510
+strings, which is the slice function, which will enable us to slice and dice our strings.
+
+74
+00:06:20,530 --> 00:06:23,680
+So for all of that and more, I'll see you on the next lesson.
+

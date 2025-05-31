@@ -1,0 +1,944 @@
+1
+00:00:00,480 --> 00:00:07,020
+Up till now in all of the apps that we've created where we've used state, I've actually tried to keep
+
+2
+00:00:07,020 --> 00:00:14,910
+the component tree very simple. And in fact all that we have is just a single app component where everything
+
+3
+00:00:14,910 --> 00:00:16,360
+is being rendered.
+
+4
+00:00:16,410 --> 00:00:24,000
+Now we know from previous lessons that this is not how a React app will end up looking like. We would
+
+5
+00:00:24,000 --> 00:00:28,350
+probably want to separate out this app into separate components.
+
+6
+00:00:28,350 --> 00:00:31,650
+So we'd probably have a component for the heading area,
+
+7
+00:00:31,740 --> 00:00:38,880
+we'd probably have one for this div with the input and the button, we'd probably then have each of these
+
+8
+00:00:38,970 --> 00:00:42,930
+s  being a separate component being rendered.
+
+9
+00:00:43,000 --> 00:00:45,600
+So let's see how this would pan out.
+
+10
+00:00:45,630 --> 00:00:54,900
+Go ahead and fork the starting sandbox and then go into your components folder and create a new component
+
+11
+00:00:55,170 --> 00:00:58,200
+called ToDoItem.
+
+12
+00:00:58,460 --> 00:00:59,900
+jsx.
+
+13
+00:01:00,190 --> 00:01:08,640
+Now inside this to do item, I want you to take out the  and create a separate component.
+
+14
+00:01:08,970 --> 00:01:14,280
+The behaviour that you're looking for afterwards is the ability to add new items to the list like so.
+
+15
+00:01:15,320 --> 00:01:17,250
+Pause the video and I'll wait for you.
+
+16
+00:01:20,260 --> 00:01:20,640
+All right.
+
+17
+00:01:20,670 --> 00:01:26,130
+So first we're going to have to import React from react. Next
+
+18
+00:01:26,160 --> 00:01:31,740
+we're going to create our function which is going to be called ToDoItem just like the name of the
+
+19
+00:01:31,740 --> 00:01:32,630
+file
+
+20
+00:01:32,760 --> 00:01:40,580
+and here we're going to return an  which is going to contain some text from the to do list.
+
+21
+00:01:40,590 --> 00:01:47,460
+Finally we're going to export this as the default and the name is ToDoItem.
+
+22
+00:01:47,460 --> 00:01:57,810
+Now we can go into our App.jsx and import are ToDoItem from ./ToDoItem.
+
+23
+00:01:57,860 --> 00:02:06,310
+Alright so now we can use this component instead of this  when we want to render it. So we can add
+
+24
+00:02:06,400 --> 00:02:13,540
+a self closing tag which is called ToDoItem, and then in order to display a different ToDoItem  each
+
+25
+00:02:13,540 --> 00:02:19,720
+time we map through our items array, we're going to pass this ToDoItem which is the text,
+
+26
+00:02:19,900 --> 00:02:28,040
+this should display as a property. So we'll call it text maybe and set it equal ToDoItem.
+
+27
+00:02:28,900 --> 00:02:37,000
+So now we can receive this text inside our ToDoItem as one of the props and instead of having this
+
+28
+00:02:37,000 --> 00:02:44,110
+hardcoded text, I'm gonna open up a set of curly braces and happened to props.text.
+
+29
+00:02:44,110 --> 00:02:52,690
+So now if we refresh our app and add buy milk, click add, you'll see it has exactly the same functionality
+
+30
+00:02:52,690 --> 00:02:59,860
+as before but this time we've now got a separate component. And that's the solution to the challenge.
+
+31
+00:02:59,860 --> 00:03:05,800
+This was a mini review of something we've covered already namely splitting our app into different components.
+
+32
+00:03:06,340 --> 00:03:12,430
+But now that we know all about state, we need to start thinking about how our state is handled across
+
+33
+00:03:12,430 --> 00:03:18,270
+the app and ToDoItem components. And this ToDoItem component
+
+34
+00:03:18,280 --> 00:03:25,960
+at the moment is what you would call a stateless component because it's not trying to change itself
+
+35
+00:03:26,050 --> 00:03:27,490
+or anything else.
+
+36
+00:03:27,490 --> 00:03:33,960
+All it's doing is receiving some read only properties and it just displays them inside.
+
+37
+00:03:34,510 --> 00:03:40,780
+Remember that props are read only so you can't for example say inside here.
+
+38
+00:03:40,900 --> 00:03:50,110
+Let's say if we had a div and inside the div we had an inputs and let's say that this input had an on
+
+39
+00:03:50,110 --> 00:03:59,380
+Change and when it gets called then we're going to trigger some code and we tried to modify the props
+
+40
+00:03:59,830 --> 00:04:04,970
+and we say props equals new thing.
+
+41
+00:04:05,020 --> 00:04:08,290
+This unfortunately does not work as I'll show you.
+
+42
+00:04:08,290 --> 00:04:09,690
+So I add buy milk,
+
+43
+00:04:09,730 --> 00:04:14,140
+so there's a new input that's been added as well because I'm adding a new to do item.
+
+44
+00:04:14,710 --> 00:04:22,690
+And ideally when I start typing, it should update our props but it does not because props is read only.
+
+45
+00:04:23,620 --> 00:04:32,140
+So we can't modify our props but what we can do though is we can have state inside these components.
+
+46
+00:04:32,140 --> 00:04:34,300
+Here's a challenge for you.
+
+47
+00:04:34,480 --> 00:04:42,580
+See if you can change the code just inside this ToDoItem file so that when you add a new to-do item
+
+48
+00:04:43,090 --> 00:04:49,540
+and you click on it, it crosses out the item and then when you click on it again it uncrosses it out.
+
+49
+00:04:50,170 --> 00:04:56,320
+So you've already seen what linethrough does when you change the text decoration to this particular
+
+50
+00:04:56,320 --> 00:05:02,950
+value. It basically just crosses out the text. And you've learnt enough about state to be able to figure
+
+51
+00:05:02,950 --> 00:05:11,920
+out when this  or this div gets clicked, how it should change this text styling. So you'll need to
+
+52
+00:05:11,920 --> 00:05:20,140
+think about inline styling, ternary operators, conditional rendering, event handling and using state to
+
+53
+00:05:20,140 --> 00:05:23,320
+complete this challenge. Pause the video now and give that a go.
+
+54
+00:05:26,490 --> 00:05:26,940
+All right.
+
+55
+00:05:27,060 --> 00:05:33,800
+So the first thing we need to do is test to see if we can change this  using inline styling.
+
+56
+00:05:33,840 --> 00:05:38,270
+So let's tap into the style property and inside the style property
+
+57
+00:05:38,340 --> 00:05:39,590
+let's add some code.
+
+58
+00:05:39,930 --> 00:05:47,190
+So we're going to say that if we wanted the style to just be applied, then we could simply add a Javascript
+
+59
+00:05:47,310 --> 00:05:54,960
+object as the code and the property was called textDecoration which of course has to be camel case
+
+60
+00:05:55,500 --> 00:05:59,660
+and then the value was called line-through,
+
+61
+00:05:59,910 --> 00:06:02,010
+and this is going to be a string.
+
+62
+00:06:02,010 --> 00:06:05,860
+So let's add a new item and see if that works.
+
+63
+00:06:05,910 --> 00:06:06,840
+So brilliant.
+
+64
+00:06:06,840 --> 00:06:08,580
+That's now working.
+
+65
+00:06:08,580 --> 00:06:15,780
+But we need this to be rendered depending on a condition. And that condition is whether if the user has
+
+66
+00:06:15,900 --> 00:06:23,580
+clicked on this to do item. So you can either add a onClick to the list item or to the div.
+
+67
+00:06:23,580 --> 00:06:25,050
+It really doesn't actually matter.
+
+68
+00:06:25,410 --> 00:06:31,740
+So I'm going to add it to the div just to keep this code on one page and I'm gonna get hold of the on
+
+69
+00:06:31,740 --> 00:06:32,970
+Click.
+
+70
+00:06:32,970 --> 00:06:40,590
+And when that happens I'm going to call a function. And the function is going to be called handleClick.
+
+71
+00:06:42,330 --> 00:06:50,350
+And that's what I'm going to trigger over here as well when this div gets clicked.
+
+72
+00:06:50,350 --> 00:06:59,260
+I want to set a boolean maybe to true or to false depending on whether if this text decoration should
+
+73
+00:06:59,260 --> 00:07:08,680
+be applied. Let's say that I had a constant called isDone and this isDone property is either true or
+
+74
+00:07:08,680 --> 00:07:16,180
+false depending on whether if the user clicked on this div. And to set this isDone property, I'm going
+
+75
+00:07:16,180 --> 00:07:24,730
+to have a function called setIsDone and I'm of course going to need to use state to achieve this.
+
+76
+00:07:25,990 --> 00:07:32,380
+Now the initial value of isDone is going to be false because all items should start out being not done
+
+77
+00:07:32,740 --> 00:07:34,120
+with no line through.
+
+78
+00:07:34,690 --> 00:07:42,820
+But then if the user clicks on this div, then I should be able to handle this click and call setIsDone.
+
+79
+00:07:43,230 --> 00:07:48,040
+And I want to set it to the opposite of what it currently is.
+
+80
+00:07:48,040 --> 00:07:57,010
+So I can use an arrow statement to get the previous value and then I can return the opposite of the
+
+81
+00:07:57,010 --> 00:07:58,530
+previous value.
+
+82
+00:07:58,780 --> 00:08:06,100
+You can of course use a bunch of IF statements If previous value is true then return false, else return
+
+83
+00:08:06,100 --> 00:08:06,850
+true.
+
+84
+00:08:06,850 --> 00:08:13,120
+But actually a much easier way of doing this which you probably already know is to simply return the
+
+85
+00:08:13,240 --> 00:08:17,240
+opposite of previous value like so.
+
+86
+00:08:17,290 --> 00:08:22,960
+So this way if previous value is true then this is going to equal false, if it equals false then it's
+
+87
+00:08:22,960 --> 00:08:26,140
+going to equal again the opposite.
+
+88
+00:08:26,400 --> 00:08:34,049
+So now that we're handling click and we have our click added to our div, all we have to do now is to
+
+89
+00:08:34,049 --> 00:08:40,150
+use this isDone to conditionally render this textDecoration.
+
+90
+00:08:40,230 --> 00:08:49,080
+I'm going to say that this textDecoration if isDone is true ? should be the line-through
+
+91
+00:08:49,620 --> 00:08:54,760
+but else the textDecoration should be set to none.
+
+92
+00:08:54,930 --> 00:09:01,890
+This way effectively when this isDone is true, we're going to apply line-through text decoration,
+
+93
+00:09:02,160 --> 00:09:09,630
+when this is false we're going to change the textDecoration back to none even if this was already applied.
+
+94
+00:09:09,630 --> 00:09:11,900
+Let's go ahead and check our app.
+
+95
+00:09:12,000 --> 00:09:20,730
+So add a new item, click add. Click on it, it gets striked through. Click on it again the text decoration
+
+96
+00:09:20,760 --> 00:09:23,320
+becomes none.
+
+97
+00:09:23,360 --> 00:09:30,850
+So this is all very well and good and we've now got state being managed inside our ToDoItem.
+
+98
+00:09:31,040 --> 00:09:35,180
+But notice how the state is kind of localized to this item.
+
+99
+00:09:35,180 --> 00:09:37,070
+It's not going anywhere else.
+
+100
+00:09:37,220 --> 00:09:44,420
+What if we wanted to change the state of a parent component? Let's say that when this div gets clicked
+
+101
+00:09:44,420 --> 00:09:47,930
+on, instead of just striking out the text,
+
+102
+00:09:47,930 --> 00:09:58,040
+what if we wanted to delete it from our items array? How do we reach up from our ToDoItem into its parent
+
+103
+00:09:58,100 --> 00:10:09,700
+the app component and somehow change this items array? So first I'm going to delete that isDone component
+
+104
+00:10:10,180 --> 00:10:15,720
+and then I'm going to delete everything that's inside handleClick. I'm also going to delete my inline
+
+105
+00:10:15,790 --> 00:10:19,680
+style as well. And I'm going to delete the useState as well
+
+106
+00:10:20,140 --> 00:10:23,980
+so we're now back to a very simple ToDoItem.
+
+107
+00:10:24,190 --> 00:10:26,730
+Now we're ready to tackle the next stage.
+
+108
+00:10:26,830 --> 00:10:33,580
+How do we manage to add an item and when we click on it instead of striking it through, we're changing
+
+109
+00:10:33,580 --> 00:10:34,780
+its styling?
+
+110
+00:10:34,780 --> 00:10:39,530
+I actually want to affect the entire array and this is the desired behavior.
+
+111
+00:10:39,550 --> 00:10:42,770
+I want to click on it and it should delete from my array.
+
+112
+00:10:42,910 --> 00:10:54,570
+So if I had multiple items, say buy milk, buy eggs, buy bacon and I decide to check off buy eggs, that should
+
+113
+00:10:54,570 --> 00:10:56,970
+be the only one that's removed from my array.
+
+114
+00:10:58,050 --> 00:11:01,440
+Let's see how we can tackle this.
+
+115
+00:11:01,710 --> 00:11:08,970
+The first thing to realize is that when we pass over props to our child components, we can also pass
+
+116
+00:11:09,030 --> 00:11:14,130
+over functions which gets called by our child component.
+
+117
+00:11:14,130 --> 00:11:22,500
+For example, when we create each to do item in addition to the text property, we can add another property.
+
+118
+00:11:22,950 --> 00:11:24,990
+So we could call it anything we want,
+
+119
+00:11:24,990 --> 00:11:35,240
+so say onChecked maybe. And we can set this equal to a function inside our app component.
+
+120
+00:11:35,240 --> 00:11:42,740
+So let's say that we wanted to create a function called deleteItem and this was the function that
+
+121
+00:11:42,740 --> 00:11:46,740
+we would pass to our child ToDoItem.
+
+122
+00:11:46,760 --> 00:11:56,270
+So we'll call it deleteItem and then inside our ToDoItem we'll now be able to trigger, instead of handle
+
+123
+00:11:56,270 --> 00:11:59,300
+Click which lives inside the ToDoItem,
+
+124
+00:11:59,300 --> 00:12:08,410
+we can now trigger props.onChecked. And this means that it'll be able to trigger deleteItem inside
+
+125
+00:12:08,470 --> 00:12:10,670
+all app component right here.
+
+126
+00:12:10,720 --> 00:12:13,080
+So let's go ahead and just log this event,
+
+127
+00:12:15,820 --> 00:12:16,390
+like so.
+
+128
+00:12:17,050 --> 00:12:24,370
+So now when I add a buy milk, click Add, and when I click on it you can see that in my console I'm getting
+
+129
+00:12:24,370 --> 00:12:26,570
+this message being sent.
+
+130
+00:12:26,590 --> 00:12:35,360
+So this entire function is being packaged up and sent over to the to-do item under the prop onChecked.
+
+131
+00:12:35,440 --> 00:12:40,790
+And then that prop is only triggered when this div detects a click.
+
+132
+00:12:40,960 --> 00:12:50,240
+And now I can address what should happen when that item wants to delete itself from the array. If I wanted
+
+133
+00:12:50,240 --> 00:12:57,260
+to delete an item from my items array, I'm probably going to need to call setItems.
+
+134
+00:12:57,260 --> 00:13:05,300
+And inside this set items, I'll need to get hold of the previous items and open up a set of curly braces
+
+135
+00:13:05,360 --> 00:13:07,810
+for my arrow function.
+
+136
+00:13:08,090 --> 00:13:14,210
+Now how can i delete the item that requested the deletion?
+
+137
+00:13:14,430 --> 00:13:22,920
+Well one of the things I could do is when I call this onChecked, I could pass over something that identifies
+
+138
+00:13:23,010 --> 00:13:30,180
+this particular ToDoItem from all of the other ones that gets rendered. And I can do that by adding
+
+139
+00:13:30,300 --> 00:13:31,860
+an id.
+
+140
+00:13:31,950 --> 00:13:34,800
+So inside my to do list item,
+
+141
+00:13:34,850 --> 00:13:41,400
+firstly we need to remember that when we map through arrays and create components we should always have
+
+142
+00:13:41,460 --> 00:13:42,900
+a key.
+
+143
+00:13:42,900 --> 00:13:51,840
+And I'm going to set this key to the index of the ToDoItem from the items array. And this map function
+
+144
+00:13:51,960 --> 00:13:55,520
+actually gives me a really easy way of accessing that.
+
+145
+00:13:55,530 --> 00:14:01,240
+Notice how in this callback function the first item I provide is the value,
+
+146
+00:14:01,260 --> 00:14:05,650
+so the value of each item from the array.
+
+147
+00:14:05,670 --> 00:14:08,900
+So in this case its the do item that I've already tapped into.
+
+148
+00:14:09,420 --> 00:14:18,360
+But if I add a comma and I add another variable name then I can tap into the index of this item in the
+
+149
+00:14:18,360 --> 00:14:19,370
+items array.
+
+150
+00:14:19,440 --> 00:14:20,940
+So let's try doing that.
+
+151
+00:14:21,210 --> 00:14:28,440
+Remember from our lesson on arrays that if you only have one parameter, you can leave out the parentheses.
+
+152
+00:14:28,560 --> 00:14:34,140
+But if you want to have more than one parameter then you'll need the parentheses and add a comma to
+
+153
+00:14:34,140 --> 00:14:35,880
+separate each of those items.
+
+154
+00:14:36,510 --> 00:14:39,120
+So the second one I'm going to call index.
+
+155
+00:14:39,120 --> 00:14:44,630
+This is going to be the index of the current ToDoItem that's being looped through the items array
+
+156
+00:14:45,210 --> 00:14:49,220
+and I'm going to use the index as the key. Now
+
+157
+00:14:49,250 --> 00:14:56,600
+in an ideal world, React advises us to not use the index for the key and instead use some sort of unique
+
+158
+00:14:56,690 --> 00:14:58,820
+identifying string.
+
+159
+00:14:58,880 --> 00:15:05,870
+For example you could use a package such as uuid which basically just allows you to generate a u
+
+160
+00:15:05,890 --> 00:15:09,160
+uid by installing it as a package.
+
+161
+00:15:09,170 --> 00:15:16,070
+So super simple. But in our case we're going to leave it as the index because we want to use this index
+
+162
+00:15:16,070 --> 00:15:21,890
+value and we want to use it to pass over to our ToDoItem as an id.
+
+163
+00:15:25,040 --> 00:15:30,830
+So now that means our ToDoItem should be able to receive the id in the props.
+
+164
+00:15:30,830 --> 00:15:33,160
+Let's see if that is indeed the case.
+
+165
+00:15:33,380 --> 00:15:39,470
+So let's add a new item and then go to our components click on this item and you can see it's got the
+
+166
+00:15:39,470 --> 00:15:44,570
+id being passed over as 0 because it's the first item in the array.
+
+167
+00:15:44,570 --> 00:15:48,210
+This one has a id of one because it's the second item.
+
+168
+00:15:48,410 --> 00:15:54,560
+They both get some text as the props and they also get this method onChecked which corresponds to the
+
+169
+00:15:54,560 --> 00:15:56,730
+deleteItem function.
+
+170
+00:15:56,960 --> 00:16:04,220
+So you might think that given that we have access to the id now inside this function, I could just
+
+171
+00:16:04,220 --> 00:16:13,640
+pass it back over as props.id and that way my onChecked function will be able to receive the id
+
+172
+00:16:13,760 --> 00:16:18,440
+right here and then I could probably just log it.
+
+173
+00:16:18,530 --> 00:16:22,160
+Now I'm going to show you what actually happens instead.
+
+174
+00:16:22,160 --> 00:16:29,480
+If I go ahead and keep the console open and I add a new item, you'll see that immediately this console
+
+175
+00:16:29,480 --> 00:16:33,480
+log triggers and it prints out the id of the item.
+
+176
+00:16:33,620 --> 00:16:35,370
+So what's going on here?
+
+177
+00:16:35,480 --> 00:16:41,350
+Now remember that way back and we talked about JavaScript functions and passing around functions.
+
+178
+00:16:41,420 --> 00:16:47,360
+We said that whenever you have a set of parentheses and something inside it, then you're going to be
+
+179
+00:16:47,360 --> 00:16:51,570
+calling the function rather than passing the function.
+
+180
+00:16:51,770 --> 00:16:56,570
+So we can't actually pass our props.id like this.
+
+181
+00:16:56,570 --> 00:17:01,920
+This is just going to call it immediately the moment that this ToDoItem gets rendered.
+
+182
+00:17:02,030 --> 00:17:11,000
+Instead what we can do in our onClick is to create a function and this function will only get called
+
+183
+00:17:11,359 --> 00:17:17,660
+when the onClick gets triggered and it's only in this moment that we actually want to tap into props
+
+184
+00:17:18,079 --> 00:17:28,530
+.onChecked and then passing in the props.id. This way when the ToDoItem gets rendered,
+
+185
+00:17:28,540 --> 00:17:34,990
+this function is not going to be called until this div detects a click.
+
+186
+00:17:34,990 --> 00:17:41,800
+Let me reiterate this. Previously when we click the Add button and rendered the ToDoItem component
+
+187
+00:17:42,100 --> 00:17:49,570
+it triggered props.onChecked immediately. But now props.onChecked will only be called the moment
+
+188
+00:17:49,600 --> 00:17:52,400
+the item is actually clicked.
+
+189
+00:17:52,400 --> 00:18:03,350
+Now if I add an item click Add, notice that nothing gets printed until I click on this ToDoItem. Now
+
+190
+00:18:03,350 --> 00:18:10,090
+that we know we can get hold of the id of the ToDoItem inside this delete function.
+
+191
+00:18:10,190 --> 00:18:18,590
+Well now we can activate our setItems and we can use what we've learned before to change our items
+
+192
+00:18:18,770 --> 00:18:19,850
+array.
+
+193
+00:18:20,030 --> 00:18:26,810
+More specifically we're going to use the filter function that we learned before and filter through all
+
+194
+00:18:26,810 --> 00:18:37,070
+of the previous items in our items array and get rid of the ones which match this id. So inside our
+
+195
+00:18:37,070 --> 00:18:38,280
+setItems
+
+196
+00:18:38,510 --> 00:18:47,110
+we're going to return a array and that array is going to be constructed from our previous items array.
+
+197
+00:18:47,300 --> 00:18:53,320
+But it's going to be filtered so that we get rid of the item that we don't want,
+
+198
+00:18:53,450 --> 00:19:00,680
+so the one that has this id that was passed over. Remember that the filter function again expects
+
+199
+00:19:00,890 --> 00:19:02,730
+a function itself.
+
+200
+00:19:02,750 --> 00:19:11,000
+Let's go ahead and add a arrow function and inside this filter function, we have access to two properties.
+
+201
+00:19:11,150 --> 00:19:16,350
+The first one is the actual element that's being looped through in the array
+
+202
+00:19:17,000 --> 00:19:20,730
+and the second one is the index of the current element.
+
+203
+00:19:21,020 --> 00:19:28,520
+So we can tap in to each item as we're looping through previous items and we can also tap into the index
+
+204
+00:19:28,730 --> 00:19:31,110
+of that item.
+
+205
+00:19:31,160 --> 00:19:38,720
+Now we're going to go through our array of previous items, look through each item and get the index of
+
+206
+00:19:38,720 --> 00:19:48,260
+each item and we're going to return an output, a final array, that is going to return all the items where
+
+207
+00:19:48,260 --> 00:19:53,510
+the index is not equal to the id being passed over.
+
+208
+00:19:54,110 --> 00:19:58,670
+So let's go ahead and hit save and check this out inside our new window.
+
+209
+00:19:58,670 --> 00:20:03,800
+So I've got my React dev tool open here as well and I'm going to add a new item.
+
+210
+00:20:04,370 --> 00:20:12,050
+So this went into the array with the index of 0, so it's the first item. And the id got passed over to
+
+211
+00:20:12,050 --> 00:20:15,290
+the ToDoItem component as a prop.
+
+212
+00:20:15,290 --> 00:20:21,860
+And in addition, there's another prop, onChecked, which passed over the deleteItem function that we were
+
+213
+00:20:21,860 --> 00:20:30,080
+editing here. And I've set up the code such that when I click on this ToDoItem, it will trigger delete
+
+214
+00:20:30,110 --> 00:20:38,630
+Item and it will pass over the id as the input. Then we get to receive that id here which remember
+
+215
+00:20:38,690 --> 00:20:44,070
+equates to the index of the item that we're trying to delete.
+
+216
+00:20:44,270 --> 00:20:53,360
+And then we call setItems to update our list of items and we filter it so that we only end up with
+
+217
+00:20:53,360 --> 00:20:56,900
+the ones where the index doesn't match this id,
+
+218
+00:20:56,900 --> 00:21:00,770
+so everything other than the one that's being clicked.
+
+219
+00:21:00,770 --> 00:21:04,180
+So let's add a couple more.
+
+220
+00:21:04,640 --> 00:21:12,700
+And if I go ahead and click on buy eggs, then the id is going to be 1, that's going to be passed to
+
+221
+00:21:12,710 --> 00:21:13,910
+deleteItem.
+
+222
+00:21:14,060 --> 00:21:21,950
+It's going to loop through my array of three items and filter so that we only end up with items where
+
+223
+00:21:21,950 --> 00:21:25,090
+the index does not equal one.
+
+224
+00:21:25,100 --> 00:21:27,550
+So that's this one and this one.
+
+225
+00:21:27,560 --> 00:21:31,300
+So that means if I click here, you can see eggs disappears
+
+226
+00:21:31,430 --> 00:21:40,060
+but we end up with still the remainder of our array that's been filtered using this rule.
+
+227
+00:21:40,160 --> 00:21:45,050
+This really is getting into a lot of functional programming that you'll see a lot of
+
+228
+00:21:45,050 --> 00:21:54,020
+in React where we're passing one function into another function inside another function inside another
+
+229
+00:21:54,020 --> 00:21:57,110
+function inside another function.
+
+230
+00:21:57,650 --> 00:22:04,280
+It does take some time to be able to wrap your head around this and I strongly encourage you to have
+
+231
+00:22:04,280 --> 00:22:11,210
+a go at playing around with this code, trying to filter on some sort of different condition maybe changing
+
+232
+00:22:11,210 --> 00:22:15,980
+the items so that instead of being an array, it's an array of objects.
+
+233
+00:22:15,980 --> 00:22:20,110
+Just have a mess around with it until you get comfortable with it.
+
+234
+00:22:20,510 --> 00:22:26,270
+And it always takes a lot of time to mess around with these things especially something as complex as
+
+235
+00:22:26,270 --> 00:22:33,200
+this to feel comfortable. And the idea is that I'm not expecting you to remember how to do this. Just
+
+236
+00:22:33,260 --> 00:22:36,950
+so that you understand what's going on, so you can look it up the next time.
+

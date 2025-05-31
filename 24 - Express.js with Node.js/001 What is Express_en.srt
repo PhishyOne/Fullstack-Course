@@ -1,0 +1,336 @@
+1
+00:00:00,410 --> 00:00:01,130
+Hey, guys.
+
+2
+00:00:01,130 --> 00:00:06,740
+In this lesson, we're going to be learning all about the Express Framework, the framework that's built
+
+3
+00:00:06,740 --> 00:00:11,240
+on top of Node that's going to help us create our backends with ease.
+
+4
+00:00:11,990 --> 00:00:18,680
+Now, even when we're looking at the entire world of frameworks, Express comes ranking pretty high
+
+5
+00:00:18,710 --> 00:00:20,860
+amongst the professional developers.
+
+6
+00:00:20,870 --> 00:00:27,950
+And so we're going to see what exactly this framework is and why it's loved and used by so many developers.
+
+7
+00:00:28,310 --> 00:00:33,860
+Previously, I mentioned that there are many languages that you can use on the back end, and these
+
+8
+00:00:33,860 --> 00:00:36,170
+are the programming languages,
+
+9
+00:00:36,170 --> 00:00:42,080
+but in addition to languages, there are also a bunch of frameworks that you can choose.
+
+10
+00:00:42,530 --> 00:00:50,690
+Now, I mentioned that the framework that uses JavaScript is Node, but strictly speaking, Node is actually
+
+11
+00:00:50,690 --> 00:00:52,400
+not a framework,
+
+12
+00:00:52,580 --> 00:00:56,450
+instead it's a runtime environment.
+
+13
+00:00:57,080 --> 00:01:03,390
+Now we mentioned previously that what a runtime environment means is it allows us to run JavaScript
+
+14
+00:01:03,390 --> 00:01:05,330
+on the computer.
+
+15
+00:01:05,340 --> 00:01:14,610
+So Node is what enables us to use JavaScript on a computer and not just limited to within the browser.
+
+16
+00:01:14,730 --> 00:01:21,780
+Now Express, on the other hand, is actually a JavaScript framework that allows us to create backends
+
+17
+00:01:21,780 --> 00:01:29,580
+for our websites and with the powers of Node and Express combined is how most professional developers
+
+18
+00:01:29,580 --> 00:01:31,710
+build their website backends.
+
+19
+00:01:32,250 --> 00:01:35,010
+Why do we need Express anyways?
+
+20
+00:01:35,010 --> 00:01:38,540
+Because Node is too powerful and all encompassing.
+
+21
+00:01:38,550 --> 00:01:46,140
+You can use Node to do a lot of things because all it is is it allows us to run JavaScript on any computer
+
+22
+00:01:46,560 --> 00:01:50,130
+and this means that it can be used to do many things.
+
+23
+00:01:50,130 --> 00:01:58,200
+And indeed, yes, it is mostly used for web development to create the back-end for our websites,
+
+24
+00:01:58,200 --> 00:02:06,150
+but in addition, you can also use Node to maybe program your IoT device, your Internet of Things device.
+
+25
+00:02:06,150 --> 00:02:11,220
+Maybe you want a smart toaster that tweets at you and the toast is done,
+
+26
+00:02:11,220 --> 00:02:14,240
+because these days it seems like that's what IoT is all about.
+
+27
+00:02:14,250 --> 00:02:21,240
+But you can also use Node to maybe make desktop apps and in fact VS Code, which you've been using all
+
+28
+00:02:21,240 --> 00:02:30,060
+this time is created using Node.js, and it's the Node that allows this desktop application to run on your
+
+29
+00:02:30,060 --> 00:02:36,390
+computer as you've been using it right now. As we mentioned that you can use Node to do a lot of
+
+30
+00:02:36,390 --> 00:02:36,840
+things
+
+31
+00:02:36,840 --> 00:02:43,830
+and when we have a tool or a language that allows us to do many things, it generally is not very specialized
+
+32
+00:02:43,830 --> 00:02:45,060
+for one thing.
+
+33
+00:02:45,060 --> 00:02:51,690
+And right now the one thing and the one thing only that we're interested in is creating a website
+
+34
+00:02:51,690 --> 00:02:52,200
+back-end.
+
+35
+00:02:52,560 --> 00:03:00,720
+If you imagine Node as a Phillips screwdriver, it's the tool that allows us to use JavaScript on any
+
+36
+00:03:00,720 --> 00:03:03,090
+computer, not just within the browser,
+
+37
+00:03:03,120 --> 00:03:06,660
+then this tool is pretty great and it's pretty universal.
+
+38
+00:03:06,660 --> 00:03:11,010
+It allows us to do many, many tasks using JavaScript.
+
+39
+00:03:11,010 --> 00:03:16,710
+But I don't know if you've ever built anything with IKEA, but lately, I'm moving house and I'm building
+
+40
+00:03:16,710 --> 00:03:23,790
+a lot of IKEA furniture and I sort of started giving myself repetitive strain injury by trying to use
+
+41
+00:03:23,790 --> 00:03:31,980
+the Allen Key and the screwdriver to build, you know, like a Pax wardrobe or like a BILLY bookcase.
+
+42
+00:03:31,980 --> 00:03:36,270
+And then I finally gave up and I bought an electric screwdriver
+
+43
+00:03:36,270 --> 00:03:38,760
+and then my entire life changed.
+
+44
+00:03:38,760 --> 00:03:44,850
+In fact, if you are building IKEA furniture, that is a level three difficulty or above,
+
+45
+00:03:44,880 --> 00:03:48,690
+you should probably buy an electric screwdriver.
+
+46
+00:03:48,840 --> 00:03:54,060
+I know this is a programming course, but you know, this is a really important life lesson.
+
+47
+00:03:54,060 --> 00:03:59,250
+So in our case, Express is kind of like that electric screwdriver.
+
+48
+00:03:59,250 --> 00:04:05,760
+It allows us to use JavaScript and Node to create our website back end, but it is souped up and it
+
+49
+00:04:05,760 --> 00:04:09,060
+makes the whole thing so much quicker and so much easier.
+
+50
+00:04:09,570 --> 00:04:10,920
+Don't take my word for it.
+
+51
+00:04:10,920 --> 00:04:17,279
+Let's take a look at the code written using just Node to create a very simple website.
+
+52
+00:04:17,279 --> 00:04:25,950
+It's got a homepage, it's got an About Us page, and that's basically all our website has. In order to
+
+53
+00:04:25,950 --> 00:04:34,260
+do this using just Node, this is all of the code that you have to write yourself and it's a little
+
+54
+00:04:34,260 --> 00:04:39,180
+bit cumbersome and it's a little bit complicated and it's really hard for somebody to look at this code
+
+55
+00:04:39,180 --> 00:04:42,650
+straight away and know exactly what is going on.
+
+56
+00:04:42,660 --> 00:04:50,820
+Now let's compare this exact same website, but this time we're building it using Express and Node.
+
+57
+00:04:50,850 --> 00:04:58,050
+In this case, we are importing, Express and Express will interface with all the Node parts for us.
+
+58
+00:04:58,050 --> 00:04:59,610
+And look at this code.
+
+59
+00:04:59,610 --> 00:04:59,810
+Look at
+
+60
+00:04:59,830 --> 00:05:05,740
+how beautifully laid out it is and look at how modular each part is and how easy it is to understand
+
+61
+00:05:05,740 --> 00:05:08,140
+what's going on in all the different parts.
+
+62
+00:05:08,290 --> 00:05:13,990
+Now, in the last module, I could have of course, made you write out all of this in order to create
+
+63
+00:05:14,020 --> 00:05:16,120
+our first website using Node,
+
+64
+00:05:16,120 --> 00:05:22,930
+but this is almost on a level of torture and entirely unnecessary because no web developer will create
+
+65
+00:05:22,930 --> 00:05:24,790
+a website using just Node.
+
+66
+00:05:24,820 --> 00:05:30,220
+In almost all the cases, when we're creating a backend using node, we're going to be using Express.
+
+67
+00:05:30,250 --> 00:05:34,570
+Because of all these advantages; we get better readability,
+
+68
+00:05:34,600 --> 00:05:36,760
+we have to write less code,
+
+69
+00:05:37,150 --> 00:05:43,330
+we have the ability to add middleware, which I'll explain to you very soon what it is and how it acts
+
+70
+00:05:43,330 --> 00:05:49,450
+almost like Lego to enable us to choose which features we want to add to our website backend.
+
+71
+00:05:49,720 --> 00:05:56,020
+With all of these advantages plus more, it's no wonder that it's so popular amongst JavaScript backend
+
+72
+00:05:56,020 --> 00:06:01,340
+developers, even though if you've ever heard of a JavaScript framework, you'll know that there is
+
+73
+00:06:01,340 --> 00:06:06,560
+a massive amount of debate all the time, which is the best frontend framework, which is the best
+
+74
+00:06:06,560 --> 00:06:11,240
+backend framework, which is the best authentication framework, etcetera, etcetera.
+
+75
+00:06:11,240 --> 00:06:18,170
+But this is the one time where it's actually really easy to pick a JavaScript framework. When you're
+
+76
+00:06:18,170 --> 00:06:24,260
+working with Node and you're creating a website back end, a professional developer will choose the
+
+77
+00:06:24,260 --> 00:06:30,290
+Express framework because as you'll soon see, it is the best choice and it makes our lives a lot easier.
+
+78
+00:06:30,290 --> 00:06:32,600
+And also it might even spark joy.
+
+79
+00:06:32,600 --> 00:06:34,460
+And this is backed up with data.
+
+80
+00:06:34,460 --> 00:06:40,340
+So if you look at the state of JavaScript statistics, there is 100% no doubt which framework you should
+
+81
+00:06:40,340 --> 00:06:43,820
+be using when you're working with Node to generate your backend.
+
+82
+00:06:43,820 --> 00:06:50,060
+So now that we've seen what Express.js is and why it's chosen by professional developers the world over.
+
+83
+00:06:50,090 --> 00:06:56,360
+The next thing to do is to actually use it and create our very first website backend.
+
+84
+00:06:56,360 --> 00:06:59,570
+So for all of that and more, I'll see you in the next lesson.
+

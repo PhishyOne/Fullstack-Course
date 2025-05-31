@@ -1,0 +1,644 @@
+1
+00:00:00,320 --> 00:00:05,910
+Now the last type of relationship is the many to many relationship.
+
+2
+00:00:05,930 --> 00:00:11,720
+And this is probably one of the most complex and least used types of relationships.
+
+3
+00:00:12,080 --> 00:00:14,690
+What is a many to many relationship?
+
+4
+00:00:14,720 --> 00:00:18,530
+Let's think about it on the bigger scale first.
+
+5
+00:00:18,650 --> 00:00:22,280
+Let's say you have a student in your school.
+
+6
+00:00:22,310 --> 00:00:27,290
+Well, they could be in many classes, right?
+
+7
+00:00:27,320 --> 00:00:31,850
+One student can be subscribed or enrolled in many classes.
+
+8
+00:00:31,850 --> 00:00:34,880
+So maybe I am a student.
+
+9
+00:00:34,880 --> 00:00:39,410
+I take English, maths and physics at my school.
+
+10
+00:00:39,440 --> 00:00:40,610
+One student.
+
+11
+00:00:40,610 --> 00:00:41,630
+Many classes.
+
+12
+00:00:41,630 --> 00:00:44,150
+This direction of the relationship.
+
+13
+00:00:44,150 --> 00:00:53,930
+One student such as Angela can be subscribed to many classes such as English, maths, physics.
+
+14
+00:00:54,530 --> 00:00:59,300
+Now on the other hand, we have the opposite relationship.
+
+15
+00:00:59,330 --> 00:01:07,790
+We could have one class, let's say English class that is taken by many students in this English class.
+
+16
+00:01:07,790 --> 00:01:16,100
+Maybe there is Angela, but also Amy and Emily and lots of different students in this class.
+
+17
+00:01:16,160 --> 00:01:24,200
+So in this case we have a one so one class that's linked to many students.
+
+18
+00:01:24,290 --> 00:01:33,380
+So if you have to one to many relationships, one from each side of the table, then what you get overall
+
+19
+00:01:33,380 --> 00:01:35,930
+is a many to many relationship.
+
+20
+00:01:36,470 --> 00:01:42,320
+And this type of relationship does happen occasionally in our data storage needs.
+
+21
+00:01:42,380 --> 00:01:51,590
+And to represent this relationship, usually in Postgres, what we do is we create a new table that
+
+22
+00:01:51,590 --> 00:01:54,740
+represents just that relationship.
+
+23
+00:01:54,920 --> 00:01:58,340
+And we can't represent the relationship alone.
+
+24
+00:01:58,340 --> 00:02:00,830
+Using a single relationship.
+
+25
+00:02:00,860 --> 00:02:07,580
+Each record in the enrollment table will have a student ID.
+
+26
+00:02:07,610 --> 00:02:09,949
+So student number one.
+
+27
+00:02:09,949 --> 00:02:12,560
+And they also have a class ID.
+
+28
+00:02:12,560 --> 00:02:14,870
+So class one.
+
+29
+00:02:15,140 --> 00:02:21,980
+And then for each class that the student subscribes to we would have a separate record.
+
+30
+00:02:21,980 --> 00:02:25,910
+So student one is also subscribed to class three.
+
+31
+00:02:25,910 --> 00:02:30,470
+And maybe student two is subscribed to class one.
+
+32
+00:02:30,470 --> 00:02:31,820
+And so on and so forth.
+
+33
+00:02:31,820 --> 00:02:39,740
+And that table in its entirety and all the records can represent this many to many relationship.
+
+34
+00:02:40,310 --> 00:02:48,020
+In this case, if we have two tables and we straight up wanted to represent the many to many relationship,
+
+35
+00:02:48,050 --> 00:02:54,450
+we would have two crow's feet like this, linking some sort of field with each other in the table.
+
+36
+00:02:54,470 --> 00:03:01,580
+But because in Postgres we have this need for the extra table to create this relationship, I often
+
+37
+00:03:01,580 --> 00:03:10,370
+represent the database design like this, so that you can see that the student ID is a many to one relationship
+
+38
+00:03:10,370 --> 00:03:12,470
+with the enrollment table.
+
+39
+00:03:12,470 --> 00:03:21,410
+Student ID and the class ID has a many to one relationship with this field called class ID in the enrollment
+
+40
+00:03:21,440 --> 00:03:22,190
+table.
+
+41
+00:03:22,280 --> 00:03:30,100
+Let's see this again in action using the code here, which you will of course find in your queries.
+
+42
+00:03:30,110 --> 00:03:35,090
+So let's create these two new tables in Pgadmin.
+
+43
+00:03:35,240 --> 00:03:43,730
+The class table that has just the title of the class, the name of the class, and a primary key that
+
+44
+00:03:43,730 --> 00:03:46,040
+uniquely identifies that class.
+
+45
+00:03:46,040 --> 00:03:54,380
+And then the enrollment table which has the student ID, class ID and both of these are set up as foreign
+
+46
+00:03:54,380 --> 00:03:58,010
+keys because they have that references keyword.
+
+47
+00:03:58,040 --> 00:04:01,850
+This one references the student table ID field.
+
+48
+00:04:01,850 --> 00:04:10,940
+This one references the class table ID field, and then we set the primary key as a combination of these
+
+49
+00:04:10,940 --> 00:04:12,260
+two IDs.
+
+50
+00:04:12,260 --> 00:04:14,990
+So it could be zero one or 1 or 2.
+
+51
+00:04:14,990 --> 00:04:20,149
+And the reason why it's primary key is because each of these enrollment records are unique.
+
+52
+00:04:20,149 --> 00:04:27,410
+So if we had student one enrolled in class two, we should not have two duplicate records where we have
+
+53
+00:04:27,410 --> 00:04:31,220
+another one which represents student one enrolled in class two.
+
+54
+00:04:31,250 --> 00:04:37,340
+That's what that primary key part does, and ensures that each of the records in the enrollment table
+
+55
+00:04:37,370 --> 00:04:38,540
+are unique.
+
+56
+00:04:39,050 --> 00:04:42,050
+Now let's create this relationship.
+
+57
+00:04:43,070 --> 00:04:45,770
+So now we can go ahead and refresh.
+
+58
+00:04:45,770 --> 00:04:49,760
+And we should see our new tables class and enrollment.
+
+59
+00:04:49,790 --> 00:04:53,330
+Let's add some data into there so that we can work with it.
+
+60
+00:04:53,360 --> 00:04:59,120
+Go ahead and copy all of the lines under this data section in queries dot SQL.
+
+61
+00:04:59,120 --> 00:04:59,750
+And.
+
+62
+00:04:59,980 --> 00:05:03,250
+Paste it into where we run our queries.
+
+63
+00:05:03,610 --> 00:05:06,580
+Let's do that and add all of these values.
+
+64
+00:05:06,580 --> 00:05:10,330
+What I've done is I've created yet another student.
+
+65
+00:05:10,330 --> 00:05:14,080
+So we have this student which will have an ID of two.
+
+66
+00:05:14,110 --> 00:05:21,150
+And remember previously we had the other student that had an ID of one, which was just me.
+
+67
+00:05:21,160 --> 00:05:23,590
+It was this student right here.
+
+68
+00:05:23,890 --> 00:05:28,090
+Now we're creating some new values into the class table.
+
+69
+00:05:28,090 --> 00:05:33,730
+So we're adding three classes that the school offers English literature, maths and physics.
+
+70
+00:05:33,730 --> 00:05:36,910
+Because they added an order this one will have an ID of one.
+
+71
+00:05:36,940 --> 00:05:37,960
+This one two.
+
+72
+00:05:37,960 --> 00:05:39,370
+This one three.
+
+73
+00:05:39,610 --> 00:05:43,630
+Now the final part we create our enrollment records.
+
+74
+00:05:43,840 --> 00:05:46,060
+We have some values here.
+
+75
+00:05:46,270 --> 00:05:50,800
+And I've separated these two even though you could add all four in the same go.
+
+76
+00:05:50,800 --> 00:05:52,870
+But this is just easier to look at.
+
+77
+00:05:53,140 --> 00:05:59,560
+The first value corresponds to the student ID, so this is the first student.
+
+78
+00:05:59,560 --> 00:06:05,200
+And and they are being enrolled into class one and class two.
+
+79
+00:06:05,230 --> 00:06:07,180
+So that's English and maths.
+
+80
+00:06:07,300 --> 00:06:14,620
+Now the other insert has the second student the student with ID two in this case Jack Bauer who is enrolled
+
+81
+00:06:14,620 --> 00:06:19,390
+into class two maths and class three physics.
+
+82
+00:06:19,390 --> 00:06:22,630
+And I think that's going to set him up for saving the world quite nicely.
+
+83
+00:06:23,140 --> 00:06:31,300
+Now let's see how we can use our join keyword to take advantage of this many to many relationship that
+
+84
+00:06:31,300 --> 00:06:32,410
+we have set up.
+
+85
+00:06:32,680 --> 00:06:39,960
+In this case, I'm selecting everything from the enrollment table, and I'm going to join it to two
+
+86
+00:06:39,970 --> 00:06:40,600
+tables.
+
+87
+00:06:40,600 --> 00:06:43,060
+So I have two join statements in here.
+
+88
+00:06:43,090 --> 00:06:45,310
+The first one is the student table.
+
+89
+00:06:45,310 --> 00:06:56,020
+And the criteria is that the student ID must equal the enrollment tables student ID in the enrollment
+
+90
+00:06:56,050 --> 00:06:56,440
+table.
+
+91
+00:06:56,440 --> 00:07:02,470
+Remember we had a foreign key which is called student ID, and we want that to match the primary key
+
+92
+00:07:02,470 --> 00:07:07,540
+on the student table so that we're getting the same student each time.
+
+93
+00:07:07,690 --> 00:07:14,950
+Next we're going to join it to the class table, making sure that the class ID matches the enrollment
+
+94
+00:07:14,980 --> 00:07:16,570
+table's class ID.
+
+95
+00:07:17,140 --> 00:07:24,040
+Now, when we run this entire SQL command, we end up with this big joined table.
+
+96
+00:07:24,040 --> 00:07:27,160
+And we have three tables right here.
+
+97
+00:07:27,670 --> 00:07:31,960
+This is the enrollment table.
+
+98
+00:07:32,560 --> 00:07:36,070
+This is the student table.
+
+99
+00:07:36,760 --> 00:07:41,080
+And this is the class table.
+
+100
+00:07:41,440 --> 00:07:46,900
+And every unique record in the enrollment table.
+
+101
+00:07:46,900 --> 00:07:51,970
+So every single relationship is represented in this.
+
+102
+00:07:51,970 --> 00:07:59,320
+And you'll see the other parts that are duplicated such as the class or the student.
+
+103
+00:07:59,320 --> 00:08:01,360
+You'll see them show up many times.
+
+104
+00:08:01,360 --> 00:08:09,220
+But the unique part is making sure that every single record in that enrollment table is shown and displayed
+
+105
+00:08:09,220 --> 00:08:09,790
+here.
+
+106
+00:08:10,360 --> 00:08:18,760
+So now, if we wanted to know, for example, well, how many students are taking maths, we could sum
+
+107
+00:08:18,760 --> 00:08:19,480
+that up.
+
+108
+00:08:19,480 --> 00:08:21,370
+We would end up with two.
+
+109
+00:08:21,400 --> 00:08:23,290
+There's only two students in math class.
+
+110
+00:08:23,380 --> 00:08:28,810
+Or if we wanted to know well which classes is Angela taking?
+
+111
+00:08:28,810 --> 00:08:31,150
+Well, that's maths and English.
+
+112
+00:08:31,510 --> 00:08:38,289
+Or if we wanted to know which classes is Angela and Jack taking together?
+
+113
+00:08:38,289 --> 00:08:43,539
+Well, we would be able to query this table and find the overlap as well.
+
+114
+00:08:43,720 --> 00:08:53,950
+And this is how we can use a many to many relationship to represent data that can have a many to one
+
+115
+00:08:53,950 --> 00:08:55,750
+relationship on both sides.
+
+116
+00:08:55,750 --> 00:09:03,190
+So one student goes to many classes, but one class also can have many students.
+
+117
+00:09:04,240 --> 00:09:10,960
+Now I want to introduce you to a command that you might see in the future, which is called an alias.
+
+118
+00:09:10,990 --> 00:09:18,340
+And we can establish an alias or an alternative name using the as keyword.
+
+119
+00:09:18,340 --> 00:09:21,880
+In this case I'm selecting certain fields.
+
+120
+00:09:21,880 --> 00:09:23,800
+So there is a field called firstName.
+
+121
+00:09:23,800 --> 00:09:25,090
+There's a field called LastName.
+
+122
+00:09:25,090 --> 00:09:26,470
+There's a field called title.
+
+123
+00:09:26,470 --> 00:09:30,040
+And in the student table there is a field called ID.
+
+124
+00:09:30,400 --> 00:09:32,500
+But I don't want to call it ID.
+
+125
+00:09:32,500 --> 00:09:37,210
+Instead I want to call it stud or student for short.
+
+126
+00:09:37,240 --> 00:09:40,690
+That's just how I want to format the table that comes out.
+
+127
+00:09:40,780 --> 00:09:48,850
+I can use this as keyword, and what that's going to do is when it generates this final table and selects
+
+128
+00:09:48,850 --> 00:09:54,820
+all the fields that I want, it's going to rename this field into stud.
+
+129
+00:09:55,000 --> 00:09:59,620
+And that can be helpful when you want to search through something that has many.
+
+130
+00:09:59,740 --> 00:10:06,250
+Any different fields called ID, you can give them a different name each time, or maybe you just want
+
+131
+00:10:06,250 --> 00:10:08,440
+to name it something else that you choose.
+
+132
+00:10:08,470 --> 00:10:14,440
+It's easier for you to understand what's going on, but this is how you can use as to create an alias.
+
+133
+00:10:14,890 --> 00:10:21,160
+Another way we can use the alias is to simplify our SQL queries.
+
+134
+00:10:21,250 --> 00:10:28,420
+Notice here that there is a lot of text, and each time when we want to tap into a particular table
+
+135
+00:10:28,450 --> 00:10:36,220
+to define a field we're interested in, such as student ID, class ID, enrollment, class ID, etcetera,
+
+136
+00:10:36,220 --> 00:10:41,770
+we have to type out each of the table names individually, and that can get really tiring if your queries
+
+137
+00:10:41,770 --> 00:10:43,360
+become longer and longer.
+
+138
+00:10:43,390 --> 00:10:46,990
+One way to shorten this is to use an alias.
+
+139
+00:10:47,020 --> 00:10:54,220
+Not only are we saying that the student ID is now called stud, but we're also setting aliases for our
+
+140
+00:10:54,220 --> 00:10:54,880
+tables.
+
+141
+00:10:54,880 --> 00:10:59,920
+We're going to call enrollment E, student S and class C.
+
+142
+00:10:59,950 --> 00:11:07,750
+So now whenever we want to use the names of those tables such as student ID enrollment or student ID
+
+143
+00:11:08,110 --> 00:11:12,130
+class ID, we can now use their alias instead.
+
+144
+00:11:12,130 --> 00:11:14,770
+And that makes our code a lot shorter.
+
+145
+00:11:14,770 --> 00:11:19,030
+And many times it just means you don't have to type out the entire name of your table.
+
+146
+00:11:19,030 --> 00:11:22,810
+So you'll see this occurring frequently out in the wild.
+
+147
+00:11:22,930 --> 00:11:30,410
+Now, one thing that a lot of people don't know is that the As keyword is actually completely optional.
+
+148
+00:11:30,430 --> 00:11:34,720
+You can achieve exactly the same type of alias behavior.
+
+149
+00:11:34,750 --> 00:11:39,100
+You can set the alias without that as keyword.
+
+150
+00:11:39,190 --> 00:11:47,440
+You can say enrollment space E, and that space is already enough to tell SQL that you're setting up
+
+151
+00:11:47,440 --> 00:11:48,040
+an alias.
+
+152
+00:11:48,040 --> 00:11:53,200
+You're saying, let's call enrollment E, let's call student S, and let's call class C.
+
+153
+00:11:53,440 --> 00:12:00,100
+This is easy enough to understand when it comes to the name of tables, but I recommend this is just
+
+154
+00:12:00,100 --> 00:12:07,510
+a recommendation on when you want to rename fields such as student ID here as a different name that
+
+155
+00:12:07,510 --> 00:12:09,610
+you keep using that as keyword.
+
+156
+00:12:09,610 --> 00:12:13,230
+It just keeps it a little bit easier to understand.
+
+157
+00:12:13,240 --> 00:12:14,080
+For some reason.
+
+158
+00:12:14,080 --> 00:12:19,390
+I find in the select statement if I'm selecting a field and giving it an alias, if I don't have that
+
+159
+00:12:19,390 --> 00:12:21,760
+as keyword, I get confused more frequently.
+
+160
+00:12:21,760 --> 00:12:23,350
+So that's just a tip.
+
+161
+00:12:23,380 --> 00:12:26,470
+You don't have to listen, but it has helped me.
+

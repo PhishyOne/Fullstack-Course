@@ -1,0 +1,764 @@
+1
+00:00:00,440 --> 00:00:00,890
+All right.
+
+2
+00:00:00,890 --> 00:00:07,310
+So now that we've covered all of the get requests, it's time to cover some of the posting and updating
+
+3
+00:00:07,310 --> 00:00:08,000
+methods.
+
+4
+00:00:08,000 --> 00:00:16,400
+So our post put and patch methods to create new jokes to add to the API and update the jokes that are
+
+5
+00:00:16,400 --> 00:00:17,750
+in the library.
+
+6
+00:00:18,350 --> 00:00:21,290
+The first one we're going to tackle is the post requests.
+
+7
+00:00:21,320 --> 00:00:30,560
+We want to be able to hit up the forward slash jokes endpoint and to submit content in the body of the
+
+8
+00:00:30,560 --> 00:00:36,260
+request using the W-w-w form URL encoded format.
+
+9
+00:00:36,260 --> 00:00:44,690
+And the two parameters that we can hit up is text and type to provide the text of the joke and the type
+
+10
+00:00:44,690 --> 00:00:45,200
+of the joke.
+
+11
+00:00:45,200 --> 00:00:50,060
+And these are two strings that we will use to submit our new joke.
+
+12
+00:00:51,020 --> 00:00:58,400
+The ID should be automatically created by adding an ID that is one higher than the last ID in the jokes
+
+13
+00:00:58,400 --> 00:01:05,580
+array and the other two pieces of data that comes from the body of the request will then get added to
+
+14
+00:01:05,580 --> 00:01:11,700
+a JavaScript object and included in the jokes array that's in that variable called jokes.
+
+15
+00:01:11,700 --> 00:01:15,510
+So if you want to try this yourself, pause the video now.
+
+16
+00:01:15,510 --> 00:01:18,750
+But otherwise, let's walk through how to do this.
+
+17
+00:01:21,830 --> 00:01:24,230
+We're going to use a different verb now.
+
+18
+00:01:24,230 --> 00:01:27,030
+And this method comes from Express.
+
+19
+00:01:27,050 --> 00:01:29,900
+It's the post requests that you've seen before.
+
+20
+00:01:29,900 --> 00:01:37,370
+So using App.post, we specify the endpoint that we want to receive this request on forward slash jokes,
+
+21
+00:01:37,370 --> 00:01:41,690
+and then we provide our callback to handle that request.
+
+22
+00:01:41,840 --> 00:01:46,900
+The first thing I'm going to do is to create a new object which I'll call new joke.
+
+23
+00:01:46,910 --> 00:01:53,730
+And in the new object I've got my ID, I've got my joke text, and I've got my joke type.
+
+24
+00:01:53,750 --> 00:02:00,530
+These three parts that create the joke itself, the ID I'm simply going to create by looking at the
+
+25
+00:02:00,530 --> 00:02:01,790
+length of the jokes array.
+
+26
+00:02:01,820 --> 00:02:09,410
+You'll notice that they are numbered from 1 to 100 and the length at the moment without any modification
+
+27
+00:02:09,410 --> 00:02:10,729
+is 100.
+
+28
+00:02:10,729 --> 00:02:13,820
+So 101 will be the next one.
+
+29
+00:02:13,820 --> 00:02:18,620
+And then once we're on 101, the next one will be 102 and so on and so forth.
+
+30
+00:02:18,620 --> 00:02:24,870
+So this will be automatically created without needing to get hold of this data from the user.
+
+31
+00:02:25,200 --> 00:02:30,600
+Now the next two parts use request dot body dot text and request dot body dot type.
+
+32
+00:02:30,600 --> 00:02:36,690
+If you scroll through the index.js, you'll see that I've already included the body parser code that
+
+33
+00:02:36,690 --> 00:02:44,670
+is required for us to be able to tap into request dot body and I've added URL encoded as an option to
+
+34
+00:02:44,670 --> 00:02:51,570
+true and we're basically ready to go using that middleware in order to receive these two pieces of data
+
+35
+00:02:51,990 --> 00:02:53,820
+as I specified before.
+
+36
+00:02:53,820 --> 00:03:01,860
+You can also use Express has a native passing ability, but for me I prefer using body parser because
+
+37
+00:03:01,860 --> 00:03:06,240
+it just makes it clear to me perfectly clear what that part of the middleware does.
+
+38
+00:03:06,270 --> 00:03:12,030
+And you'll see developers using body parser on all day long, all the time as well.
+
+39
+00:03:12,030 --> 00:03:14,610
+So this is very much standard practice.
+
+40
+00:03:15,240 --> 00:03:21,000
+Once we've created this new object, we're going to push it to our array of jokes, add it right to
+
+41
+00:03:21,000 --> 00:03:26,880
+the end of that array, and then we can also console.log the last joke.
+
+42
+00:03:26,880 --> 00:03:29,250
+So jokes slice minus one.
+
+43
+00:03:29,280 --> 00:03:37,410
+This line of code basically is equivalent to saying take all the jokes and then access the one at index,
+
+44
+00:03:37,410 --> 00:03:39,270
+which is the last index.
+
+45
+00:03:39,270 --> 00:03:43,470
+And this is how we would do that in JavaScript using the slice method.
+
+46
+00:03:43,470 --> 00:03:51,960
+So slice from zero backwards, which somehow in JavaScript land goes back to the very last item and
+
+47
+00:03:51,960 --> 00:03:52,470
+picks it out.
+
+48
+00:03:52,470 --> 00:03:54,600
+You can try this for yourself and see it.
+
+49
+00:03:54,600 --> 00:03:56,100
+Don't just take my word for it.
+
+50
+00:03:56,220 --> 00:04:01,440
+And then finally we're going to send back the new joke that the user created.
+
+51
+00:04:02,310 --> 00:04:03,660
+Take a look through this code.
+
+52
+00:04:03,660 --> 00:04:05,430
+Make sure that you understand everything.
+
+53
+00:04:05,430 --> 00:04:12,420
+If you need to look anything up, such as the slice method, you can check that out and you'll notice
+
+54
+00:04:12,420 --> 00:04:18,510
+that the object that I'm sending back as the Json to the client is the one that they created.
+
+55
+00:04:18,510 --> 00:04:24,990
+This comes from all of their data rather than the one that comes from the last item in the array.
+
+56
+00:04:25,020 --> 00:04:30,540
+You can make the design choice of sending this back to them just in case you wanted to check that this
+
+57
+00:04:30,540 --> 00:04:31,170
+works.
+
+58
+00:04:31,170 --> 00:04:38,220
+And you can also add in error handling or add in some checks, making sure that the joke text contains
+
+59
+00:04:38,220 --> 00:04:44,580
+however many characters you want it, and the type of joke matches a certain list of types that you've
+
+60
+00:04:44,580 --> 00:04:45,240
+specified.
+
+61
+00:04:45,240 --> 00:04:52,320
+We can always extend this API, but the key point here is you know how to write the API to handle a
+
+62
+00:04:52,320 --> 00:04:53,160
+post request.
+
+63
+00:04:53,160 --> 00:04:55,170
+That's all that I'm looking for here.
+
+64
+00:04:55,770 --> 00:04:56,640
+Pause the video.
+
+65
+00:04:56,640 --> 00:05:01,230
+Implement this in your own index.js if you haven't done so already.
+
+66
+00:05:03,480 --> 00:05:03,900
+All right.
+
+67
+00:05:03,900 --> 00:05:04,890
+Challenge number five.
+
+68
+00:05:04,890 --> 00:05:06,270
+We're going to make a put request.
+
+69
+00:05:06,270 --> 00:05:11,300
+So just as a reminder, a put request is a complete update.
+
+70
+00:05:11,310 --> 00:05:17,340
+That means you have to provide all of the parts that are not automated into the object.
+
+71
+00:05:17,340 --> 00:05:24,840
+So in our joke that is providing the text, providing the type, and of course we'll need the ID in
+
+72
+00:05:24,840 --> 00:05:27,690
+order to get hold of that particular item.
+
+73
+00:05:27,690 --> 00:05:33,780
+Now the ID identifies that object in the array, so we don't want to update that unless we want to mess
+
+74
+00:05:33,780 --> 00:05:34,530
+everything up.
+
+75
+00:05:34,530 --> 00:05:36,420
+That's the one thing we're going to keep constant.
+
+76
+00:05:36,420 --> 00:05:43,920
+But the rest and all of the content of the joke object is going to be completely replaced in Postman.
+
+77
+00:05:43,920 --> 00:05:50,280
+You should be able to send a put request if you have the solution JS up that server running using Nodemon
+
+78
+00:05:50,310 --> 00:05:56,940
+you should be able to send this request and be able to update completely the joke with a specific ID.
+
+79
+00:05:56,940 --> 00:06:02,470
+So if you take a look inside the params tab you'll see that I've specified an ID of two.
+
+80
+00:06:02,470 --> 00:06:08,410
+And that's the joke I want to update which gets replaced in this endpoint URL becomes forward slash
+
+81
+00:06:08,410 --> 00:06:14,920
+two and then I'm providing some text and the type and you'll notice that if you leave one of these blank,
+
+82
+00:06:14,950 --> 00:06:17,800
+you will end up with nothing in that updated joke.
+
+83
+00:06:17,800 --> 00:06:21,760
+And this is how put requests are meant to behave.
+
+84
+00:06:21,760 --> 00:06:25,930
+And the reason why we're doing both put and patch is for you to be able to see how it's done.
+
+85
+00:06:25,930 --> 00:06:30,700
+But in reality, when you're writing your API, you would probably choose either a put or a patch to
+
+86
+00:06:30,700 --> 00:06:33,970
+handle update requests depending on your needs.
+
+87
+00:06:34,270 --> 00:06:42,610
+Again, either pause the video now and try to figure out how to do this or continue with me and we'll
+
+88
+00:06:42,610 --> 00:06:45,010
+talk through how to do this together.
+
+89
+00:06:46,370 --> 00:06:52,100
+The first thing we're going to do is we're going to get hold of the ID that comes in from request dot
+
+90
+00:06:52,100 --> 00:06:53,270
+parameters, dot ID.
+
+91
+00:06:53,600 --> 00:06:59,180
+And again, remember, you can either choose to pass this int to turn it from a string to an integer
+
+92
+00:06:59,180 --> 00:07:05,930
+so that you can use the triple equal sign operator, or you can choose to not pass it and simply use
+
+93
+00:07:05,930 --> 00:07:10,670
+the double equal sign operator to check for vaguely equals.
+
+94
+00:07:10,670 --> 00:07:12,590
+And this is exactly equals.
+
+95
+00:07:12,590 --> 00:07:14,600
+That's kind of how I think about it in my head.
+
+96
+00:07:14,930 --> 00:07:21,410
+Now the next thing is we're going to grab hold of the ID, the body text and the body type.
+
+97
+00:07:21,440 --> 00:07:29,570
+These two come from the form submission, and then we're going to find that particular joke because
+
+98
+00:07:29,570 --> 00:07:33,320
+we need to replace that item in the joke array completely.
+
+99
+00:07:33,320 --> 00:07:36,080
+I'm choosing to use the find index method.
+
+100
+00:07:36,110 --> 00:07:42,170
+This is going to allow me to add a callback into that method for a match criteria.
+
+101
+00:07:42,170 --> 00:07:46,080
+So it's going to loop through each of the jokes inside the jokes array.
+
+102
+00:07:46,080 --> 00:07:51,000
+It's going to check each of their IDs against the ID that we provide up here.
+
+103
+00:07:51,030 --> 00:07:58,170
+And when there is a match, it's going to output the index of that joke into this constant called search
+
+104
+00:07:58,200 --> 00:07:58,890
+index.
+
+105
+00:07:58,890 --> 00:08:05,910
+And then I can tap into the jokes array using that search index and I can set it by simply using the
+
+106
+00:08:05,910 --> 00:08:08,790
+equal sign to this replacement joke here.
+
+107
+00:08:08,790 --> 00:08:12,360
+So it's going to completely replace the data that was in there before.
+
+108
+00:08:12,360 --> 00:08:15,900
+And this is one of the ways that you can do a put request.
+
+109
+00:08:16,740 --> 00:08:22,710
+Finally, we're going to resend the replacement joke back to the user just so that we can show them
+
+110
+00:08:22,710 --> 00:08:27,720
+this is what happened and that joke will be replaced in the data store.
+
+111
+00:08:28,170 --> 00:08:33,090
+Pause the video now and check if there's anything that you don't understand here.
+
+112
+00:08:33,330 --> 00:08:35,460
+Check the documentation for Find Index.
+
+113
+00:08:35,460 --> 00:08:41,280
+If this is the first time you're coming across this method and then try and implement this in your own
+
+114
+00:08:41,280 --> 00:08:47,580
+index.js and verify it by running the index.js and try to hit it up using Postman.
+
+115
+00:08:50,630 --> 00:08:55,880
+The final challenge in post put and patch is the patch request.
+
+116
+00:08:55,910 --> 00:08:59,240
+The patch request is like our little patchwork quilt.
+
+117
+00:08:59,240 --> 00:09:07,330
+It is a little update to a complete resource and we're only choosing to update one small bit of it.
+
+118
+00:09:07,340 --> 00:09:12,290
+And as you might have already realized, this is most often what you're going to be choosing when you're
+
+119
+00:09:12,290 --> 00:09:13,700
+making an update to a resource.
+
+120
+00:09:13,700 --> 00:09:15,590
+You don't want to update the entire thing.
+
+121
+00:09:15,620 --> 00:09:19,280
+Say if you have a user, they have their address, their name, their password.
+
+122
+00:09:19,370 --> 00:09:26,090
+There's very, very few instances where you would want to provide all of their data to update.
+
+123
+00:09:26,120 --> 00:09:29,750
+In most cases, you just want to pick one parameter to update.
+
+124
+00:09:29,780 --> 00:09:32,720
+That's how our patch request is going to work.
+
+125
+00:09:32,750 --> 00:09:35,240
+It's going to hit up jokes forward slash ID.
+
+126
+00:09:35,240 --> 00:09:41,120
+So this is the path parameter that the request has to provide, and then we're going to search through
+
+127
+00:09:41,120 --> 00:09:47,420
+our jokes to find a match for that ID, and then we look through the body of the request and we can
+
+128
+00:09:47,420 --> 00:09:49,400
+see what it is they want to replace.
+
+129
+00:09:49,400 --> 00:09:54,660
+So in this case, we want to replace the type of that joke into something else.
+
+130
+00:09:54,660 --> 00:09:57,000
+So joke with ID number two.
+
+131
+00:09:57,030 --> 00:09:59,920
+Why did the scarecrow win a prize?
+
+132
+00:09:59,940 --> 00:10:04,560
+Because he was outstanding in his field.
+
+133
+00:10:05,230 --> 00:10:05,700
+Um.
+
+134
+00:10:06,360 --> 00:10:06,600
+Okay.
+
+135
+00:10:06,600 --> 00:10:08,580
+This is not the funniest of all the jokes.
+
+136
+00:10:08,580 --> 00:10:15,810
+I don't know why I'm laughing, but, um, what we want to do is change the joke type to agriculture,
+
+137
+00:10:15,840 --> 00:10:20,160
+because we've decided that we have too many agriculture based jokes and we're going to create this new
+
+138
+00:10:20,160 --> 00:10:20,820
+type.
+
+139
+00:10:21,090 --> 00:10:22,410
+That is the goal.
+
+140
+00:10:22,410 --> 00:10:31,200
+And you can again, think about it, try it out or pause the video and do some Googling, do some searching,
+
+141
+00:10:31,230 --> 00:10:32,700
+see if you can figure it out.
+
+142
+00:10:32,700 --> 00:10:36,270
+Or we can walk through how to do this together.
+
+143
+00:10:36,450 --> 00:10:38,340
+Pause the video or continue.
+
+144
+00:10:40,270 --> 00:10:43,750
+This is how I've decided to write the patch request.
+
+145
+00:10:43,780 --> 00:10:45,310
+Yours might be different.
+
+146
+00:10:45,310 --> 00:10:48,790
+And in fact, there are many, many ways you can do this.
+
+147
+00:10:49,210 --> 00:10:54,610
+I've, as always, opted for the most readable version, so we're going to use the apt patch method
+
+148
+00:10:54,610 --> 00:11:02,170
+from Express, provide the endpoint that we want to hit up, provide the callback to handle that request,
+
+149
+00:11:02,290 --> 00:11:11,680
+pass the integer from the request parameter ID so that that number two string becomes number two as
+
+150
+00:11:11,680 --> 00:11:12,400
+a number.
+
+151
+00:11:12,400 --> 00:11:19,870
+And then we check it against the joke ID by looping through all of the jokes in our jokes array, checking
+
+152
+00:11:19,870 --> 00:11:23,990
+each of one of them and finding the joke that matches.
+
+153
+00:11:24,010 --> 00:11:29,750
+So we store it inside existing joke, and then we construct our replacement joke.
+
+154
+00:11:29,770 --> 00:11:31,900
+And notice here what I'm doing.
+
+155
+00:11:32,650 --> 00:11:38,290
+The two things that we can patch in this joke is the text and the type.
+
+156
+00:11:38,660 --> 00:11:44,890
+What this code does is it checks to see if there is a request dot body dot text.
+
+157
+00:11:44,960 --> 00:11:53,060
+If the patch request actually included some text in the body of the request, in which case replace
+
+158
+00:11:53,060 --> 00:11:54,770
+that in the joke text.
+
+159
+00:11:54,800 --> 00:12:03,020
+But if this is nil or it doesn't exist, then this or operator is going to allow the second part, which
+
+160
+00:12:03,020 --> 00:12:09,860
+is the existing joke that we found and grab the text from there anyways to put it back into this new
+
+161
+00:12:09,860 --> 00:12:10,700
+object.
+
+162
+00:12:10,910 --> 00:12:16,880
+Essentially this or statement says go for this if it exists.
+
+163
+00:12:16,910 --> 00:12:19,750
+Otherwise, go and set it to this.
+
+164
+00:12:19,760 --> 00:12:23,570
+And this is a really neat pattern that you'll see very often.
+
+165
+00:12:23,960 --> 00:12:30,980
+You can, of course, make this more complicated or more readable in your case by using an if statement,
+
+166
+00:12:31,010 --> 00:12:36,050
+you can say if request dot body dot text exists.
+
+167
+00:12:36,050 --> 00:12:42,560
+So just simply by leaving it this if this has any value, it's going to evaluate to true, in which
+
+168
+00:12:42,560 --> 00:12:52,490
+case we can go inside this curly braces and we can set the joke text to this request dot body dot text
+
+169
+00:12:52,490 --> 00:12:54,770
+and we can write it in many, many, many lines.
+
+170
+00:12:54,770 --> 00:13:00,350
+But this is something that you might see out in the wild, and this is one very efficient way of doing
+
+171
+00:13:00,350 --> 00:13:00,700
+it.
+
+172
+00:13:00,710 --> 00:13:08,630
+If you've never seen this before, test it out in your console or in a blank piece of JavaScript file
+
+173
+00:13:08,630 --> 00:13:11,270
+just to make sure you understand what's happening here.
+
+174
+00:13:12,230 --> 00:13:16,070
+Now again, we do the same thing that we did with the put request.
+
+175
+00:13:16,100 --> 00:13:23,360
+We find the index of the joke that matches the ID that the user requested and then we replace it with
+
+176
+00:13:23,360 --> 00:13:26,030
+the replacement joke that we just created up here.
+
+177
+00:13:26,030 --> 00:13:32,600
+And then we send that replace joke back to the client and we assure them that everything went correctly.
+
+178
+00:13:32,930 --> 00:13:35,570
+There's quite a lot of code in this patch request.
+
+179
+00:13:35,600 --> 00:13:41,450
+It's a good idea to go through it and make sure you understand what all the different parts are doing,
+
+180
+00:13:41,450 --> 00:13:46,580
+such as the find method, the find index method, the Or operators.
+
+181
+00:13:46,610 --> 00:13:50,030
+Make sure that you're happy with all of it and then implement it yourself.
+
+182
+00:13:50,330 --> 00:13:56,930
+Once you've done all of that, make sure you use Nodemon to run your index.js and check that all of
+
+183
+00:13:56,930 --> 00:14:03,190
+the routes in the collection posts put and patch all work as you expect it to.
+
+184
+00:14:03,200 --> 00:14:09,140
+So take a look in the params section, take a look inside the body section, make sure that all of these
+
+185
+00:14:09,140 --> 00:14:15,500
+parts you should not have to change, but when you send it, it should come back with a correct response
+
+186
+00:14:15,500 --> 00:14:17,090
+instead of an error.
+
+187
+00:14:17,090 --> 00:14:23,120
+So obviously in my case index.js none of these things have been implemented, so that's why I'm getting
+
+188
+00:14:23,120 --> 00:14:23,780
+that error.
+
+189
+00:14:23,780 --> 00:14:28,190
+But in your case, if you've written the correct code, it should work as expected.
+
+190
+00:14:28,550 --> 00:14:32,180
+Now all we have left is figuring out how to delete jokes.
+
+191
+00:14:32,180 --> 00:14:35,150
+So that's what we're going to be doing in the next lesson.
+

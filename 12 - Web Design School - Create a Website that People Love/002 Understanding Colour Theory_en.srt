@@ -1,0 +1,436 @@
+1
+00:00:00,810 --> 00:00:08,520
+Now one of the first things I want to talk about is Color Theory. And color theory is the art and science
+
+2
+00:00:08,610 --> 00:00:11,760
+of creating the right palette for your website.
+
+3
+00:00:12,450 --> 00:00:15,040
+So take a look at this example.
+
+4
+00:00:15,090 --> 00:00:21,690
+Now let's say you had a logo where you have flowers which are brown, paintball which is pink.
+
+5
+00:00:21,810 --> 00:00:24,960
+It looks all very weird and very inconsistent.
+
+6
+00:00:25,020 --> 00:00:30,960
+And take a look at the actual logos. Like what are you thinking when you see these color palettes on
+
+7
+00:00:30,960 --> 00:00:37,560
+the words. The color of the flowers looks a bit like dirt I guess but it also looks a bit like something
+
+8
+00:00:37,560 --> 00:00:40,460
+else. And the paint ball being pink
+
+9
+00:00:40,530 --> 00:00:45,120
+I'm not really sure who that target audience is. But take a look at this.
+
+10
+00:00:45,390 --> 00:00:50,630
+If we flip the color palette, it suddenly all looks like it's meant to be like this.
+
+11
+00:00:50,730 --> 00:00:53,710
+It suddenly all looks a lot better right?
+
+12
+00:00:53,730 --> 00:00:56,940
+It looks consistent with the actual message.
+
+13
+00:00:57,000 --> 00:01:02,770
+So when you're picking colors you have to be aware of the mood of your color palette.
+
+14
+00:01:02,940 --> 00:01:09,780
+So the predominant color that is going to be in your design really tells a story and it conveys a message
+
+15
+00:01:09,840 --> 00:01:11,530
+to the user.
+
+16
+00:01:11,700 --> 00:01:20,490
+For example, Red conveys love, energy, intensity. Which is why you see a lot of car adverts which have a
+
+17
+00:01:20,520 --> 00:01:22,980
+red car on a red background.
+
+18
+00:01:23,340 --> 00:01:25,250
+It's because they're trying to tell you,
+
+19
+00:01:25,260 --> 00:01:28,560
+"Hey buy this car and you'll feel energetic
+
+20
+00:01:28,620 --> 00:01:38,220
+and the intensity of this car even if you're 89." Now yellow is more about joy, intellect, attention.
+
+21
+00:01:39,060 --> 00:01:46,290
+And the most important thing about yellow though is how attention grabbing it is because it's almost
+
+22
+00:01:46,290 --> 00:01:50,550
+impossible to not look at something that is very yellow.
+
+23
+00:01:50,580 --> 00:01:53,530
+For example this ad. Now a few years back
+
+24
+00:01:53,550 --> 00:01:59,220
+this ad caused an uproar because it has this lady in a yellow bikini
+
+25
+00:01:59,220 --> 00:02:01,500
+and it says, "Are you 
+
+26
+00:02:01,500 --> 00:02:03,560
+beach body ready?"
+
+27
+00:02:03,570 --> 00:02:06,740
+And a lot of people got really really upset about it.
+
+28
+00:02:06,750 --> 00:02:08,090
+They took to the Internet,
+
+29
+00:02:08,100 --> 00:02:09,419
+they raved about it.
+
+30
+00:02:09,570 --> 00:02:15,390
+And I remember thinking to myself at the time, "You know, this is not so different from a lot of the other
+
+31
+00:02:15,390 --> 00:02:17,880
+ads that are trying to tell women how to look."
+
+32
+00:02:18,500 --> 00:02:20,100
+And it's not a great message.
+
+33
+00:02:20,160 --> 00:02:26,580
+But why is it causing so much anger and causing so much attention drawn to it?
+
+34
+00:02:26,580 --> 00:02:30,270
+And I think the reason is because it's actually bright yellow.
+
+35
+00:02:30,900 --> 00:02:35,450
+It's impossible to ignore this advert when you come across it.
+
+36
+00:02:35,610 --> 00:02:42,420
+So when you're creating a logo or when you're creating some sort of headline, then yeah yellow is a great
+
+37
+00:02:42,420 --> 00:02:48,090
+choice. But when you're creating something that's designed to be looked at for a long period of time
+
+38
+00:02:48,540 --> 00:02:53,290
+then yellow can be too attention grabbing. It might actually hurt your user's eyes
+
+39
+00:02:53,400 --> 00:02:58,000
+if you tried to read a whole article that's backgrounded in yellow.
+
+40
+00:02:58,350 --> 00:03:05,670
+Now the next color that we're going to talk about is green which is all about freshness, growth, safety.
+
+41
+00:03:05,880 --> 00:03:13,110
+And that's why you see a lot of grocery companies like Hello Fresh or Amazon groceries use this color
+
+42
+00:03:13,230 --> 00:03:19,120
+as their predominant color palette. Because it's trying to tell you, "Hey look! This thing is edible.
+
+43
+00:03:19,140 --> 00:03:21,620
+This is what we're selling."
+
+44
+00:03:21,690 --> 00:03:28,870
+And so if you have a company that has anything to do with food, this is usually a safe bet to go with.
+
+45
+00:03:28,890 --> 00:03:37,440
+Now Blue is about stability, trust, serenity. And so you see a lot of companies which need to convey that
+
+46
+00:03:37,440 --> 00:03:39,980
+"Hey, we're really trustworthy"
+
+47
+00:03:40,020 --> 00:03:41,930
+use this color. For example,
+
+48
+00:03:41,940 --> 00:03:47,640
+look at all the financial companies, look at companies like PayPal or the cryptocurrency companies like
+
+49
+00:03:47,640 --> 00:03:52,680
+Coinbase. They all choose this color because they want you to know that they're not going to run away
+
+50
+00:03:52,680 --> 00:03:54,060
+with your money.
+
+51
+00:03:54,090 --> 00:04:01,170
+In fact, there was a really interesting psychology study where they compared interviewees wearing different
+
+52
+00:04:01,170 --> 00:04:02,550
+colored shirts.
+
+53
+00:04:02,580 --> 00:04:05,700
+So for example, a group of them would wear a green shirt,
+
+54
+00:04:05,700 --> 00:04:12,410
+another group would wear a blue shirt and they compared how they were perceived by the interviewers.
+
+55
+00:04:12,510 --> 00:04:19,050
+And it showed that just by changing the color of your shirt to a blue one you vastly increase the amount
+
+56
+00:04:19,050 --> 00:04:20,180
+of trust in you
+
+57
+00:04:20,250 --> 00:04:21,970
+that's given by other people.
+
+58
+00:04:21,990 --> 00:04:26,390
+So have a think about that the next time you're going for an interview.
+
+59
+00:04:26,460 --> 00:04:34,950
+Now the final color is purple and it's meant to signify royalty, wealth, femininity. And strangely enough
+
+60
+00:04:34,980 --> 00:04:41,160
+I've come across a number of payday loan companies which use this color palette especially ones which
+
+61
+00:04:41,160 --> 00:04:42,900
+are targeted at women.
+
+62
+00:04:42,990 --> 00:04:48,690
+So, the important thing to think about is that you're making a conscious decision when you're choosing
+
+63
+00:04:48,690 --> 00:04:49,920
+a color palette.
+
+64
+00:04:50,010 --> 00:04:56,040
+It's not just whichever color you like or your favorite color. But it's actually 'what message am I trying
+
+65
+00:04:56,040 --> 00:05:03,930
+to convey to the user' and then picking an appropriate color. Now, usually you're not just going to be
+
+66
+00:05:03,930 --> 00:05:09,180
+using a single color for your design. You're probably going to be using two or three.
+
+67
+00:05:09,300 --> 00:05:14,850
+So at some point you have to think about which different colors to combine.
+
+68
+00:05:14,850 --> 00:05:19,680
+And this is probably the most scientific part of color theory.
+
+69
+00:05:19,740 --> 00:05:28,740
+Now very often, designers will rely on scientific ways of combining colors. For example taking two colors
+
+70
+00:05:28,770 --> 00:05:31,560
+that are right next to each other on the color wheel.
+
+71
+00:05:32,130 --> 00:05:36,170
+And this way you create what's called an analogous color palette.
+
+72
+00:05:36,390 --> 00:05:42,600
+And these designs look incredibly harmonious and they really work well together.
+
+73
+00:05:42,600 --> 00:05:48,450
+So this color palette can be really good for things like navigation bars and the body of your website
+
+74
+00:05:48,930 --> 00:05:52,300
+or things like a logo and it's background.
+
+75
+00:05:52,350 --> 00:05:59,160
+Now, what it's not so good at though is standing out. If you really want your design to pop, you're better
+
+76
+00:05:59,160 --> 00:06:05,490
+off taking two colors from opposite ends of the color wheel creating what's called a complementary color
+
+77
+00:06:05,490 --> 00:06:08,280
+palette or a clashing palette.
+
+78
+00:06:08,280 --> 00:06:12,270
+Now this complementary color palette really creates that pop.
+
+79
+00:06:12,600 --> 00:06:16,490
+And it really brings out each of the colors.
+
+80
+00:06:16,620 --> 00:06:23,130
+So the next time you go to a supermarket, I want you to take a look at the meat aisle and see if they've
+
+81
+00:06:23,130 --> 00:06:27,910
+used this complementary color palette to make things pop.
+
+82
+00:06:27,930 --> 00:06:34,620
+So, one of the things that you often see is they'll take these fake plastic bits of greenery like fake
+
+83
+00:06:34,620 --> 00:06:42,720
+grass or fake bushes and they'll put it in between the meat. And because the green and the red are complementary
+
+84
+00:06:42,720 --> 00:06:50,160
+colors it makes the red meat pop out a lot more and gives you this idea of freshness
+
+85
+00:06:50,310 --> 00:06:57,750
+even if it's a little bit past the best dates. But what you shouldn't do with clashing colors or complementary
+
+86
+00:06:57,750 --> 00:07:04,710
+colors is to try to style text and text background with it because it actually looks very very jarring
+
+87
+00:07:04,920 --> 00:07:08,440
+and you can feel your eyes sort of getting a little bit fuzzy
+
+88
+00:07:08,550 --> 00:07:13,940
+looking at this particular combination. So don't do this when it concerns text.
+
+89
+00:07:14,100 --> 00:07:20,670
+Instead, keep it to things like logos or icons or things that you really really want to stand out from
+
+90
+00:07:20,670 --> 00:07:21,990
+each other.
+
+91
+00:07:22,020 --> 00:07:28,350
+Now, there's a lot of other ways that you can combine colors like drawing an equilateral triangle to
+
+92
+00:07:28,350 --> 00:07:34,170
+create a triadic color palette or drawing a perfect square.
+
+93
+00:07:34,180 --> 00:07:40,200
+Now if you want to, you can head over to a website called Adobe color which lets you mess around with
+
+94
+00:07:40,290 --> 00:07:47,430
+all of these different color combinations. So select a triadic color palette or a square color palette
+
+95
+00:07:47,820 --> 00:07:52,990
+and then drag it around the color wheel so that you get different combinations of colors.
+
+96
+00:07:53,100 --> 00:07:59,100
+And once you come across a palette that fits the mood of your project, then you can pick the hex codes
+
+97
+00:07:59,220 --> 00:08:02,790
+and just put them straight into your website.
+
+98
+00:08:02,790 --> 00:08:07,950
+Now if all of that sounds like it was a little bit too much work ,then I got you covered.
+
+99
+00:08:07,980 --> 00:08:11,470
+You can also use a website called colorhunt.co.
+
+100
+00:08:11,490 --> 00:08:17,550
+This is a website where professional designers have curated some of their favorite color palettes
+
+101
+00:08:17,730 --> 00:08:21,130
+and you can nab the hex codes straight off the website.
+
+102
+00:08:22,110 --> 00:08:28,530
+So take a look at the hot and popular sections of this website and use it to guide the pilot scheme
+
+103
+00:08:28,540 --> 00:08:30,810
+for your next project.
+
+104
+00:08:30,810 --> 00:08:37,350
+Now when you create a website that has a beautiful consistent color scheme like the one for the LIEBE
+
+105
+00:08:37,350 --> 00:08:44,760
+yogurt, you can see how much it makes the design stand out and it becomes really colorful and really
+
+106
+00:08:44,760 --> 00:08:51,000
+playful and you can convey different messages using your choice of colors and your color scheme.
+
+107
+00:08:51,010 --> 00:08:54,060
+So think about your color choice and your color palette
+
+108
+00:08:54,060 --> 00:08:59,760
+the next time you design your website to make sure that it is consistent with what your brand is about
+
+109
+00:08:59,850 --> 00:09:04,140
+and what your product is about and it conveys the message you want to convey.
+

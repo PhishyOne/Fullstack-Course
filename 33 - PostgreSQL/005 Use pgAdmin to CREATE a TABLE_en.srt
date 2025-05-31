@@ -1,0 +1,908 @@
+1
+00:00:00,350 --> 00:00:03,290
+Now let's try this out for real.
+
+2
+00:00:03,290 --> 00:00:13,100
+In the current lesson, you'll find a download to this file called capitals dot, CSV and CSV stands
+
+3
+00:00:13,100 --> 00:00:23,000
+for Comma Separated Values, and you'll see if you open up this file inside VS code, that it's exactly
+
+4
+00:00:23,000 --> 00:00:23,420
+that.
+
+5
+00:00:23,420 --> 00:00:32,450
+Each line contains a separate record, and each of the records are separated by a comma to show that
+
+6
+00:00:32,450 --> 00:00:34,490
+they are in distinct columns.
+
+7
+00:00:34,490 --> 00:00:40,130
+Effectively, the first line of our CSV happens to be the header.
+
+8
+00:00:40,130 --> 00:00:46,160
+So it's kind of like the header row defining what is the name of each field.
+
+9
+00:00:46,160 --> 00:00:49,760
+And there's only three fields id, country and capital.
+
+10
+00:00:49,760 --> 00:00:56,610
+And in each record the capital corresponds to the country that is Praia, the capital.
+
+11
+00:00:56,630 --> 00:00:58,280
+Afghanistan is Kabul.
+
+12
+00:00:58,310 --> 00:01:00,860
+The capital of Albania is Tirana, etcetera.
+
+13
+00:01:01,040 --> 00:01:05,900
+We've got all of the countries in the world listed in the CSV, and we're going to create a table for
+
+14
+00:01:05,900 --> 00:01:12,410
+it in our Postgres database, download the CSV file and have it handy because we're going to refer to
+
+15
+00:01:12,410 --> 00:01:16,010
+this data to figure out how we're going to create our table.
+
+16
+00:01:16,850 --> 00:01:23,570
+You'll notice that in this case we have a perfect primary key which is our ID field.
+
+17
+00:01:23,570 --> 00:01:27,080
+Because all of the IDs are unique.
+
+18
+00:01:27,230 --> 00:01:32,300
+The next is our country field which is the name of the country.
+
+19
+00:01:32,300 --> 00:01:33,560
+So this is text.
+
+20
+00:01:33,560 --> 00:01:37,700
+And in our case we can define it as Varchar 45.
+
+21
+00:01:37,700 --> 00:01:44,780
+Because I know for a fact that all of the countries in this list have less than 45 characters, and
+
+22
+00:01:44,780 --> 00:01:52,130
+similarly all of the capitals are text, and they also all have less than 45 characters.
+
+23
+00:01:52,520 --> 00:01:59,810
+Once we have looked at the data and defined each of the data types we want to use, then we're ready
+
+24
+00:01:59,810 --> 00:02:04,820
+to write some SQL code inside Pgadmin to create a table.
+
+25
+00:02:05,430 --> 00:02:08,460
+So I want you to go ahead and open up Pgadmin.
+
+26
+00:02:09,330 --> 00:02:15,840
+And when you first open it up, it might ask you to set a global password.
+
+27
+00:02:15,870 --> 00:02:19,830
+This is the password for accessing Pgadmin.
+
+28
+00:02:19,830 --> 00:02:25,590
+And it's important that you write this down because there's lots of passwords involved in databases
+
+29
+00:02:25,590 --> 00:02:26,430
+for some reason.
+
+30
+00:02:26,430 --> 00:02:28,860
+And I always get confused which one's which.
+
+31
+00:02:28,860 --> 00:02:31,260
+So it's a good idea to keep a track of that.
+
+32
+00:02:31,680 --> 00:02:39,390
+When you go ahead and open up your servers on the left, you can double click on the PostgreSQL 15 database
+
+33
+00:02:39,390 --> 00:02:41,670
+and it will again ask you for a password.
+
+34
+00:02:41,680 --> 00:02:47,220
+Now this password is the one that you defined when you installed Postgres.
+
+35
+00:02:47,310 --> 00:02:53,070
+Remember previously when I told you that when you installed Postgres, it tells you that your default
+
+36
+00:02:53,070 --> 00:02:58,080
+username is Postgres and you had to set a password.
+
+37
+00:02:58,110 --> 00:03:01,470
+Now in my case, I set it to 123456.
+
+38
+00:03:01,470 --> 00:03:06,000
+But in your case, hopefully you've got something a little bit more secure and more importantly, hopefully
+
+39
+00:03:06,000 --> 00:03:08,400
+you've written this data down.
+
+40
+00:03:08,400 --> 00:03:11,970
+So now you can go ahead and enter it when it prompts you.
+
+41
+00:03:12,000 --> 00:03:17,790
+Don't worry if you forgot or something went wrong, you can always reset it, but it's a good idea to
+
+42
+00:03:17,790 --> 00:03:19,500
+keep track of everything.
+
+43
+00:03:20,160 --> 00:03:24,420
+Once you're here, I want you to expand this one that says databases.
+
+44
+00:03:24,420 --> 00:03:28,380
+And by default we get a database called Postgres.
+
+45
+00:03:28,410 --> 00:03:33,060
+Now, I don't want to use this one because I'm going to create one of our own.
+
+46
+00:03:33,060 --> 00:03:36,750
+And to do that we're going to right click on databases.
+
+47
+00:03:36,750 --> 00:03:39,360
+We're going to say create database.
+
+48
+00:03:39,360 --> 00:03:42,180
+And we're going to give our database a name.
+
+49
+00:03:42,180 --> 00:03:45,540
+So my database is going to be called world.
+
+50
+00:03:45,540 --> 00:03:46,140
+That's it.
+
+51
+00:03:46,140 --> 00:03:48,900
+The owner is our default user Postgres.
+
+52
+00:03:48,900 --> 00:03:51,960
+And we can go ahead and simply hit save.
+
+53
+00:03:52,440 --> 00:03:58,500
+So now we have our two databases Postgres and World which we just created.
+
+54
+00:03:58,650 --> 00:04:05,190
+If you go ahead and expand schemas and then take a look inside tables, you'll see that there are currently
+
+55
+00:04:05,190 --> 00:04:06,360
+no tables.
+
+56
+00:04:06,360 --> 00:04:09,390
+So let's go ahead and create a table.
+
+57
+00:04:09,600 --> 00:04:14,910
+Having selected this database, I want you to go ahead and click on this query tool.
+
+58
+00:04:14,940 --> 00:04:19,260
+This is the place in Pgadmin where we can write SQL code.
+
+59
+00:04:20,010 --> 00:04:26,580
+As you might remember from previously, in order to create a table, we write create table and notice
+
+60
+00:04:26,580 --> 00:04:29,640
+how it's very helpfully highlighting your keywords.
+
+61
+00:04:29,640 --> 00:04:36,750
+So if you somehow make a typo like create table, then you should be reminded that there's something
+
+62
+00:04:36,750 --> 00:04:39,130
+wrong because it's not highlighting it correctly.
+
+63
+00:04:39,150 --> 00:04:43,080
+Let's create a table and I'm going to call it capitals.
+
+64
+00:04:43,080 --> 00:04:48,000
+And once we've added the name I'm going to add a set of parentheses.
+
+65
+00:04:48,000 --> 00:04:53,280
+And at the end of the parentheses it's important to remember to add a semicolon.
+
+66
+00:04:53,490 --> 00:04:57,690
+Unlike JavaScript which is kind of nonchalant about these kind of things.
+
+67
+00:04:57,690 --> 00:05:00,390
+It's like, oh, you missed a semicolon.
+
+68
+00:05:00,390 --> 00:05:02,670
+Sometimes it can, sometimes it doesn't.
+
+69
+00:05:02,700 --> 00:05:10,440
+In SQL, it's very important that you end each of your lines of code with a semicolon.
+
+70
+00:05:10,440 --> 00:05:12,510
+Otherwise it's not going to work.
+
+71
+00:05:13,470 --> 00:05:15,990
+Now we get to define our fields.
+
+72
+00:05:15,990 --> 00:05:18,390
+So remember our first field was ID.
+
+73
+00:05:18,630 --> 00:05:24,990
+And we're going to give it the serial data type.
+
+74
+00:05:24,990 --> 00:05:29,730
+Now in our case it doesn't really matter because we're going to import data that is already serial that
+
+75
+00:05:29,730 --> 00:05:30,840
+we've already defined.
+
+76
+00:05:30,840 --> 00:05:32,280
+But it's good practice.
+
+77
+00:05:32,280 --> 00:05:38,610
+Whenever I'm creating a primary key, which is usually called the ID field, I like to have it named
+
+78
+00:05:38,610 --> 00:05:43,980
+as serial in Postgres, because then if I add any new entries, it's going to automatically work this
+
+79
+00:05:43,980 --> 00:05:46,020
+out so I don't have to look through the database.
+
+80
+00:05:46,020 --> 00:05:48,360
+Look up what's the ID of the last entry?
+
+81
+00:05:48,390 --> 00:05:50,160
+Figure out this kind of stuff.
+
+82
+00:05:50,190 --> 00:05:52,170
+We're going to leave it to the computers.
+
+83
+00:05:52,380 --> 00:05:58,200
+Now the next constraint I'm going to add is of course our primary key.
+
+84
+00:05:58,380 --> 00:06:05,040
+There's lots of constraints in Postgres, such as the unique constraint or the not null constraint.
+
+85
+00:06:05,040 --> 00:06:10,380
+And we'll see this in later lessons ins when we cover these different constraints.
+
+86
+00:06:10,380 --> 00:06:17,850
+But for our ID, the only constraint we need to tell it is that this is the defining field for each
+
+87
+00:06:17,850 --> 00:06:18,510
+record.
+
+88
+00:06:18,510 --> 00:06:21,300
+It will be unique for every single record.
+
+89
+00:06:21,300 --> 00:06:23,970
+That's our promise to Postgres.
+
+90
+00:06:24,150 --> 00:06:30,180
+The next one we want to call it country, and it is going to be a text data type.
+
+91
+00:06:30,330 --> 00:06:38,700
+As I said, it's not going to be more than 45 characters, so I'm going to define it as a varchar brackets
+
+92
+00:06:38,700 --> 00:06:39,630
+45.
+
+93
+00:06:39,630 --> 00:06:46,080
+And similarly for the capital, I'm also going to define it as a Varchar 45.
+
+94
+00:06:46,590 --> 00:06:50,670
+And remember that weird aspect of SQL.
+
+95
+00:06:50,700 --> 00:06:55,980
+The last field cannot have a comma, otherwise it will give you an error.
+
+96
+00:06:56,340 --> 00:07:02,880
+All of these other fields have a comma, and the last one you leave it blank.
+
+97
+00:07:03,330 --> 00:07:04,410
+A couple of things.
+
+98
+00:07:04,460 --> 00:07:04,610
+Little.
+
+99
+00:07:04,810 --> 00:07:09,890
+Quirks to note, but this is essentially the code that we need to create our table.
+
+100
+00:07:09,940 --> 00:07:15,340
+Let's go ahead and run this code and hopefully you will have something green.
+
+101
+00:07:15,340 --> 00:07:18,730
+And also it says query returned successfully.
+
+102
+00:07:18,970 --> 00:07:20,980
+This means our table is created.
+
+103
+00:07:20,980 --> 00:07:21,990
+But where is it.
+
+104
+00:07:22,000 --> 00:07:23,950
+Well let's go ahead and right click on this.
+
+105
+00:07:23,950 --> 00:07:28,120
+Click refresh and hopefully you'll see your capitals table.
+
+106
+00:07:28,240 --> 00:07:35,560
+If you right click on this and say view Edit Data or Rows, then Pgadmin is going to bring up your table.
+
+107
+00:07:35,560 --> 00:07:40,360
+Now our table is a little bit sad at the moment because we have no data in it.
+
+108
+00:07:40,360 --> 00:07:43,540
+All we did was to create the table.
+
+109
+00:07:43,720 --> 00:07:46,810
+Notice how our query area changed.
+
+110
+00:07:46,810 --> 00:07:54,730
+It changed to select asterisks, which means select all from public dot capitals order by ID ascending.
+
+111
+00:07:55,060 --> 00:08:02,500
+This was SQL code that was written automatically for us by Pgadmin when we simply right clicked on view
+
+112
+00:08:02,500 --> 00:08:04,130
+edit data or rows.
+
+113
+00:08:04,150 --> 00:08:05,260
+Now let's see what happens.
+
+114
+00:08:05,260 --> 00:08:13,990
+If I say first 100 rows, it's going to change the query to say order by ID ascending limit to the first
+
+115
+00:08:13,990 --> 00:08:15,430
+100 records.
+
+116
+00:08:15,550 --> 00:08:24,130
+As you can see, using Pgadmin is a really great way to get access to a gooey or a graphical user interface
+
+117
+00:08:24,130 --> 00:08:29,950
+where we can click and point and do all the usual things you would expect when working with a computer,
+
+118
+00:08:29,950 --> 00:08:36,010
+and without having to do all of this manually by typing out SQL code, which, as you can imagine,
+
+119
+00:08:36,010 --> 00:08:38,200
+might have errors you might forget.
+
+120
+00:08:38,200 --> 00:08:38,740
+ET cetera.
+
+121
+00:08:38,740 --> 00:08:47,050
+So this is a really great way of working with Postgres, and I'd recommend everyone to use this rather
+
+122
+00:08:47,050 --> 00:08:50,590
+than trying to access Postgres through the terminal or something crazy.
+
+123
+00:08:51,590 --> 00:08:57,320
+Now that we've got our table successfully created, I want to show you one last thing before I leave
+
+124
+00:08:57,320 --> 00:08:58,880
+you to do an exercise.
+
+125
+00:08:58,880 --> 00:09:04,370
+And that is how we can import data into our table.
+
+126
+00:09:04,550 --> 00:09:13,340
+You know that you've already downloaded the capitals CSV, and we can import that data format CSV into
+
+127
+00:09:13,340 --> 00:09:15,160
+our table in Postgres.
+
+128
+00:09:15,170 --> 00:09:21,620
+And we can do that using Pgadmin in a really simple way, much, much simpler than if we had to do this
+
+129
+00:09:21,620 --> 00:09:22,360
+manually.
+
+130
+00:09:22,370 --> 00:09:28,610
+Right click on your table and then go ahead and click on Import Slash Export data.
+
+131
+00:09:28,640 --> 00:09:34,820
+Make sure that here where it says import export you've got import selected by default I think it goes
+
+132
+00:09:34,820 --> 00:09:35,690
+to export.
+
+133
+00:09:35,690 --> 00:09:38,210
+And then we can select our file name.
+
+134
+00:09:38,210 --> 00:09:44,270
+So if you go ahead and click on this folder and find where you saved that file.
+
+135
+00:09:44,270 --> 00:09:48,110
+Capitals dot CSV probably in your downloads folder.
+
+136
+00:09:48,140 --> 00:09:55,340
+Then go ahead and click open and it will add the file path to that file.
+
+137
+00:09:55,730 --> 00:10:03,590
+Leave the format as CSV, and then go into the options and make sure this checkmark next to header is
+
+138
+00:10:03,590 --> 00:10:05,570
+clicked blue to the right.
+
+139
+00:10:05,600 --> 00:10:13,340
+What this is going to ensure is telling our import that the first line in our CSV is not actual data.
+
+140
+00:10:13,340 --> 00:10:14,330
+It's not a record.
+
+141
+00:10:14,330 --> 00:10:17,780
+Instead, it's the header for each of the fields.
+
+142
+00:10:17,930 --> 00:10:25,790
+So now when you go into columns, you'll see that it's auto imported the names that's in that CSV and
+
+143
+00:10:25,790 --> 00:10:29,420
+it's added it in here, the ID, the country and the capital.
+
+144
+00:10:29,930 --> 00:10:38,060
+Remember that when we created the table, I created the names of the fields as exactly matching the
+
+145
+00:10:38,060 --> 00:10:38,570
+header.
+
+146
+00:10:38,780 --> 00:10:47,630
+This is important if you have changed your field names from, say, a capital C instead of lowercase
+
+147
+00:10:47,660 --> 00:10:54,410
+C for country, or you've called capital something else, then it's important that you either change
+
+148
+00:10:54,410 --> 00:11:02,480
+your CSV or change your table, because otherwise something might go wrong and it might not know which
+
+149
+00:11:02,480 --> 00:11:05,480
+one you're talking about, which columns to import, etcetera.
+
+150
+00:11:06,050 --> 00:11:11,630
+If we go ahead and click okay, then it's going to perform the import process.
+
+151
+00:11:11,630 --> 00:11:16,580
+And hopefully you're getting all green pop ups saying process completed.
+
+152
+00:11:16,580 --> 00:11:25,340
+And if you had any issues such as you need to rename your fields, you can simply right click click
+
+153
+00:11:25,340 --> 00:11:32,270
+on properties, go to columns and then edit each of the names here and make sure you hit save.
+
+154
+00:11:32,900 --> 00:11:37,220
+And once you've got all of that matching, then you can try the import process again.
+
+155
+00:11:37,340 --> 00:11:42,680
+So now let's go ahead and right click on our table and click refresh.
+
+156
+00:11:42,680 --> 00:11:46,940
+And we can go to View Edit Data or Rows.
+
+157
+00:11:46,940 --> 00:11:51,650
+And you'll see we now have lots of data in our database.
+
+158
+00:11:51,650 --> 00:11:53,000
+And it's import.
+
+159
+00:11:53,000 --> 00:11:57,110
+And all of those countries and their capitals.
+
+160
+00:11:57,740 --> 00:12:04,160
+Now we can go ahead and use this data in our database, which is what we're going to be doing in the
+
+161
+00:12:04,160 --> 00:12:05,090
+next lesson.
+
+162
+00:12:05,090 --> 00:12:08,210
+We're going to be building out a world capitals quiz.
+
+163
+00:12:08,210 --> 00:12:13,130
+But before we do that, I want you to get a little bit more practice doing this.
+
+164
+00:12:13,130 --> 00:12:20,570
+And so I have created another set of data for you to create a table and to import it.
+
+165
+00:12:20,600 --> 00:12:28,810
+The exercise for this lesson is to download the other file in this lesson, which is called flags dot
+
+166
+00:12:28,820 --> 00:12:29,330
+CSV.
+
+167
+00:12:29,630 --> 00:12:36,800
+And if you open that file up in VS code, you can see what the data looks like because it's also a comma
+
+168
+00:12:36,800 --> 00:12:39,680
+separated value type data.
+
+169
+00:12:39,770 --> 00:12:41,240
+Here we have the header.
+
+170
+00:12:41,270 --> 00:12:43,670
+It's got id name and flag.
+
+171
+00:12:43,670 --> 00:12:48,110
+And then we have each of these records.
+
+172
+00:12:48,350 --> 00:12:51,890
+For the flag it is an emoji.
+
+173
+00:12:52,010 --> 00:12:56,900
+An emoji is basically a UTF eight data type.
+
+174
+00:12:56,930 --> 00:13:00,230
+It is essentially stored as text.
+
+175
+00:13:00,230 --> 00:13:08,480
+And when that text is recognized by a computer, then it will know to pick an image to display in its
+
+176
+00:13:08,480 --> 00:13:09,170
+place.
+
+177
+00:13:09,200 --> 00:13:17,630
+Now you can either store this data type as a Varchar, but I recommend using the text data type because
+
+178
+00:13:17,630 --> 00:13:23,510
+it handles UTF eight a little bit better and you get to try out a different data type.
+
+179
+00:13:23,840 --> 00:13:30,350
+Pause the video now and try and create a table in your Postgres database.
+
+180
+00:13:30,350 --> 00:13:40,430
+You can call the table flags and go ahead and add all of these fields in your create SQL code, and
+
+181
+00:13:40,430 --> 00:13:46,010
+then import this file into that table and hopefully everything going well.
+
+182
+00:13:46,010 --> 00:13:51,140
+You'll have another table with all of the data of each country and their flags.
+
+183
+00:13:51,570 --> 00:13:52,880
+So pause the video.
+
+184
+00:13:52,890 --> 00:13:53,970
+Give that a go now.
+
+185
+00:13:58,340 --> 00:13:58,730
+All right.
+
+186
+00:13:58,760 --> 00:14:04,520
+Just as a reminder, the way we're going to do this is we're going to the same database, our world
+
+187
+00:14:04,520 --> 00:14:08,090
+database, and we're going to create a new table.
+
+188
+00:14:08,090 --> 00:14:10,940
+So making sure your world database is selected.
+
+189
+00:14:10,970 --> 00:14:16,470
+We're going to open up our SQL query panel so that we can write our code.
+
+190
+00:14:16,490 --> 00:14:21,230
+So create table and it's going to be called flags.
+
+191
+00:14:21,440 --> 00:14:24,530
+And then we can add our fields.
+
+192
+00:14:25,130 --> 00:14:27,200
+Remember to add a semicolon.
+
+193
+00:14:27,200 --> 00:14:36,980
+And then we can write ID serial primary key and then name which is the name of the second field.
+
+194
+00:14:36,980 --> 00:14:42,500
+So we're trying to keep these headers matching with our Postgres database fields.
+
+195
+00:14:42,500 --> 00:14:47,060
+And this I'm going to store as a varchar 45.
+
+196
+00:14:47,120 --> 00:14:54,350
+And then finally the flag is going to be saved as a text data type.
+
+197
+00:14:54,380 --> 00:14:56,960
+Again no comma for the last piece of data.
+
+198
+00:14:56,960 --> 00:15:01,730
+And we can click run to run this code and create this table.
+
+199
+00:15:01,920 --> 00:15:03,740
+Let's go ahead and refresh our tables.
+
+200
+00:15:03,740 --> 00:15:08,090
+And we can see we now have a table called flags.
+
+201
+00:15:08,480 --> 00:15:13,520
+Now you might have realized that there's another way of creating tables in Pgadmin, which is to simply
+
+202
+00:15:13,520 --> 00:15:16,310
+right click on Tables Create table.
+
+203
+00:15:16,400 --> 00:15:17,990
+You can add the name in here.
+
+204
+00:15:17,990 --> 00:15:20,330
+You can define each of the columns.
+
+205
+00:15:20,330 --> 00:15:23,630
+And you can do that by simply adding a new row.
+
+206
+00:15:23,660 --> 00:15:30,560
+But I think in this case it's actually better doing it using the SQL query, not only because we've
+
+207
+00:15:30,560 --> 00:15:37,010
+learned a bunch of SQL, so we should use it, but also I find it much quicker to type out my schema
+
+208
+00:15:37,040 --> 00:15:39,180
+than to define it by clicking.
+
+209
+00:15:39,200 --> 00:15:45,110
+There are other cases where, for example, when I just want to view a table, when I want to view some
+
+210
+00:15:45,110 --> 00:15:48,140
+data, then you can click around.
+
+211
+00:15:48,140 --> 00:15:53,450
+But I recommend typing out the SQL code if not for anything else, just for practice.
+
+212
+00:15:53,870 --> 00:15:56,570
+Now we need to import our data.
+
+213
+00:15:56,570 --> 00:16:04,880
+So right click on our flags table and then click on Import Export Data making sure it is import.
+
+214
+00:16:04,910 --> 00:16:11,630
+Making sure that we change the file path to the location where we've saved our flags dot csv.
+
+215
+00:16:12,050 --> 00:16:16,880
+Click open to save that file path and you can check by scrolling down.
+
+216
+00:16:16,880 --> 00:16:21,140
+It should say flags dot CSV and not the previous version.
+
+217
+00:16:21,140 --> 00:16:27,610
+You'll get an error if you try to import the wrong shape of data, of course, and then making sure
+
+218
+00:16:27,620 --> 00:16:33,020
+header is selected to true to the right, and then columns making sure all three columns are in here.
+
+219
+00:16:33,020 --> 00:16:36,020
+And then click okay to import our data.
+
+220
+00:16:36,170 --> 00:16:40,670
+Now let's right click on the flags and then view all rows.
+
+221
+00:16:40,700 --> 00:16:44,810
+We can see all of our data has been added here.
+
+222
+00:16:44,810 --> 00:16:49,100
+And we can even see our little flags which is perfect.
+
+223
+00:16:49,700 --> 00:16:51,380
+Hopefully you manage to do that.
+
+224
+00:16:51,380 --> 00:16:52,040
+All right.
+
+225
+00:16:52,040 --> 00:16:56,660
+And in the next lesson we'll be using these databases that we created.
+
+226
+00:16:56,660 --> 00:17:02,480
+And we're going to be reading the data in our database to create an actual quiz app.
+
+227
+00:17:02,480 --> 00:17:05,000
+So for all of that and more I'll see you there.
+

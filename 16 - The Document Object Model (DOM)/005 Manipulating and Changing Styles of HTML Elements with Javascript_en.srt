@@ -1,0 +1,260 @@
+1
+00:00:00,420 --> 00:00:00,840
+All right.
+
+2
+00:00:00,990 --> 00:00:07,200
+So now that we know how to select elements using the DOM, it's time to learn how to use Javascript to
+
+3
+00:00:07,200 --> 00:00:10,060
+manipulate the elements that we've selected.
+
+4
+00:00:10,110 --> 00:00:18,030
+Now, as you saw earlier on, we were able to change the CSS style dynamically using Javascript by tapping
+
+5
+00:00:18,030 --> 00:00:21,060
+into the style property of an element object.
+
+6
+00:00:21,060 --> 00:00:31,320
+So, for example, we could say document.querySelector(“h1”).style.color = “red”.
+
+7
+00:00:32,070 --> 00:00:38,750
+And that selects on the h1 element in our document, changes the style color to a red color.
+
+8
+00:00:38,760 --> 00:00:45,510
+Now every single CSS property can be changed in this way using Javascript, but the property names might
+
+9
+00:00:45,510 --> 00:00:47,610
+look a little bit different.
+
+10
+00:00:47,760 --> 00:00:52,830
+As we said earlier on, Javascript naming conventions tend to be camel cased.
+
+11
+00:00:52,830 --> 00:00:56,760
+So, for example querySelector, where the first word is lowercase
+
+12
+00:00:56,760 --> 00:00:59,940
+and the second word begins with an uppercase letter.
+
+13
+00:00:59,940 --> 00:01:06,390
+This is camel casing and this is standard for naming methods and properties in Javascript.
+
+14
+00:01:06,870 --> 00:01:12,720
+So that means that when you're trying to change the CSS styles, you will find that the property names
+
+15
+00:01:12,750 --> 00:01:16,830
+don't look quite the same as what you see in CSS.
+
+16
+00:01:16,860 --> 00:01:24,660
+So, for example, we might have things like font size, which is font-size as the property name in CSS,
+
+17
+00:01:24,780 --> 00:01:30,810
+but if you're trying to change it using Javascript, then the property is going to be camel cased like
+
+18
+00:01:30,810 --> 00:01:31,530
+so.
+
+19
+00:01:31,530 --> 00:01:39,780
+So let's change the font size to, I don’t know, something massive, 10rem. And you can find all of those names inside
+
+20
+00:01:39,780 --> 00:01:45,750
+the DOM style object documentation and you'll see all of these properties and what they look like when
+
+21
+00:01:45,750 --> 00:01:49,910
+you're trying to change it using Javascript instead of CSS.
+
+22
+00:01:49,960 --> 00:01:54,200
+And I'll leave a link to this in the resources of this current lesson so you can check it out.
+
+23
+00:01:54,270 --> 00:01:58,740
+But, as a rule of thumb, in most cases they're exactly the same,
+
+24
+00:01:58,740 --> 00:02:04,440
+other than the fact that there are no dashes and every word after the first one will have its first
+
+25
+00:02:04,440 --> 00:02:06,000
+letter capitalized.
+
+26
+00:02:06,000 --> 00:02:12,420
+The other thing to notice is that the values that you're going to set it to have to be represented as
+
+27
+00:02:12,420 --> 00:02:20,370
+strings. Whereas in CSS we simply just specified the value as is, for example padding 7 percent, if we're
+
+28
+00:02:20,370 --> 00:02:26,760
+trying to do this with Javascript, then we actually have to specify everything as a string, even if it's
+
+29
+00:02:26,760 --> 00:02:28,770
+a number, like line height or padding.
+
+30
+00:02:28,950 --> 00:02:34,460
+So, just so you can see more clearly, I'm inside the Elements tab of the Chrome Developer Tools,
+
+31
+00:02:34,620 --> 00:02:42,600
+and as you might remember, you can quite easily select an item over here and change its CSS by just typing
+
+32
+00:02:42,600 --> 00:02:43,530
+it inside here,
+
+33
+00:02:43,530 --> 00:02:48,930
+so say visibility is hidden, and that hides our h1.
+
+34
+00:02:49,230 --> 00:02:56,250
+But if we wanted to do the same thing using Javascript, then we would have to specify that value “hidden”
+
+35
+00:02:56,640 --> 00:02:57,480
+as a string.
+
+36
+00:02:58,440 --> 00:03:00,720
+So remember those two differences.
+
+37
+00:03:00,720 --> 00:03:02,180
+Now it's your turn to try it out.
+
+38
+00:03:02,370 --> 00:03:11,240
+I want you to use Javascript only to change the background color of our button here to a yellow color.
+
+39
+00:03:11,370 --> 00:03:16,230
+And you might have to take a look at the object style properties or you can just give it a go and see
+
+40
+00:03:16,260 --> 00:03:18,630
+if you can predict what it might be.
+
+41
+00:03:18,630 --> 00:03:21,840
+So pause the video now and give that challenge a go.
+
+42
+00:03:21,840 --> 00:03:22,110
+All right.
+
+43
+00:03:22,140 --> 00:03:27,600
+So you might already realize that in order to change the background color of our button, then in CSS you
+
+44
+00:03:27,600 --> 00:03:33,310
+would simply just tap into the background color property and you would set it to yellow.
+
+45
+00:03:33,630 --> 00:03:35,810
+And that would achieve what we wanted.
+
+46
+00:03:35,940 --> 00:03:41,460
+But because we have to do it using Javascript, then we need to know the Javascript version of that background
+
+47
+00:03:41,460 --> 00:03:42,570
+color property.
+
+48
+00:03:42,630 --> 00:03:50,070
+So if we head over to our Style Object Properties documentation and we hit command f and we search for background
+
+49
+00:03:50,070 --> 00:03:54,150
+color, then you can see that it brings up the property
+
+50
+00:03:54,210 --> 00:03:56,520
+that’s called backgroundColor.
+
+51
+00:03:56,520 --> 00:04:02,220
+And as some of you might have predicted it's simply the same property without the dash and camel case.
+
+52
+00:04:02,550 --> 00:04:06,430
+So let's now use it inside our console.
+
+53
+00:04:06,510 --> 00:04:10,680
+So we're going to tap into the document and query for the selector
+
+54
+00:04:10,680 --> 00:04:22,200
+that is a button, and change its style property, namely the background color property, to, remember the value
+
+55
+00:04:22,200 --> 00:04:23,990
+has to be specified as a string,
+
+56
+00:04:24,030 --> 00:04:26,130
+so it's the word yellow
+
+57
+00:04:26,250 --> 00:04:28,390
+inside some quotation marks.
+
+58
+00:04:28,410 --> 00:04:33,830
+Now if we hit enter, our Javascript code has turned the background color of the button yellow.
+
+59
+00:04:34,050 --> 00:04:35,580
+So if you found that difficult at all,
+
+60
+00:04:35,580 --> 00:04:40,350
+then I recommend going through some of the other properties that we've been using in CSS and trying
+
+61
+00:04:40,350 --> 00:04:42,870
+to do it using Javascript instead,
+
+62
+00:04:42,960 --> 00:04:46,420
+and have a play around with the Chrome Developer Tools until you really get it.
+
+63
+00:04:46,470 --> 00:04:51,630
+Now in the next lesson we're going to learn all about the separation of concerns and how we can keep
+
+64
+00:04:51,660 --> 00:04:57,230
+our style inside the CSS but toggle it on and off using Javascript.
+
+65
+00:04:57,230 --> 00:05:00,240
+So for all of that and more, I'll see you on the next lesson.
+

@@ -1,0 +1,500 @@
+1
+00:00:00,450 --> 00:00:00,830
+All right.
+
+2
+00:00:00,840 --> 00:00:04,470
+So there's a really big and exciting project that's coming up.
+
+3
+00:00:04,590 --> 00:00:13,050
+We're going to be building an NFT marketplace where we can mint, list and sell non-fungible tokens on
+
+4
+00:00:13,260 --> 00:00:17,370
+the Internet computer. If you don't know what nfts are,
+
+5
+00:00:17,460 --> 00:00:19,790
+this is a really simple explanation.
+
+6
+00:00:19,800 --> 00:00:26,110
+They're called non-fungible tokens because one NFT is unique and can't be exchanged for another.
+
+7
+00:00:26,640 --> 00:00:31,920
+For example, if you have a $100 bill and it doesn't matter what markings you've got on it or if it's
+
+8
+00:00:32,220 --> 00:00:38,910
+scratched up or if it's a little bit wrinkled, it is exchangeable for another hundred dollar bill.
+
+9
+00:00:38,910 --> 00:00:44,250
+It's completely identical in the eyes of anyone who holds it or the bank.
+
+10
+00:00:44,640 --> 00:00:50,670
+For example, the other day I was traveling in Costa Rica and I had a 10,000 Costa Rican colones bill
+
+11
+00:00:51,030 --> 00:00:57,000
+which got caught onto my jumper, and when I tried to tug on it, it just ripped in half, which was
+
+12
+00:00:57,000 --> 00:00:59,700
+really sad because it's actually worth quite a lot.
+
+13
+00:01:00,150 --> 00:01:05,519
+So I was thinking, is this the end of my 10,000 colone
+
+14
+00:01:06,000 --> 00:01:10,920
+bill? Well, actually, I could just go into the bank, give them my two pieces,
+
+15
+00:01:11,370 --> 00:01:16,230
+and once they verified that it was not some sort of counterfeit that I produced, they gave me a new
+
+16
+00:01:16,230 --> 00:01:18,150
+10,000 colone bill.
+
+17
+00:01:18,390 --> 00:01:21,030
+So they're completely identical to each other.
+
+18
+00:01:21,720 --> 00:01:27,390
+Now, the concept of an NFT is, well, okay, we've created all these tokens, right?
+
+19
+00:01:27,390 --> 00:01:30,720
+We've created the Ethereum token, we've created Bitcoin.
+
+20
+00:01:30,960 --> 00:01:36,630
+Well, you've created that DANG token or whatever it is you called it, your own custom token, but they're
+
+21
+00:01:36,630 --> 00:01:37,590
+all interchangeable.
+
+22
+00:01:38,010 --> 00:01:43,260
+What if instead we created tokens on the blockchain that were unique?
+
+23
+00:01:43,500 --> 00:01:46,710
+So they had unique identifiers, they had unique features.
+
+24
+00:01:47,160 --> 00:01:54,210
+And here we have these files, most commonly images, that artists have created which are completely unique.
+
+25
+00:01:54,780 --> 00:01:59,960
+So if you went into the lourve and you saw the Mona Lisa, there is only one Mona Lisa.
+
+26
+00:01:59,970 --> 00:02:08,250
+It doesn't matter how good a replica-- You could completely, you know, clone all the atoms and all of
+
+27
+00:02:08,250 --> 00:02:10,440
+the molecules in the Mona Lisa and create another one,
+
+28
+00:02:10,440 --> 00:02:17,160
+it still won't be the original Mona Lisa and you won't be able to sell it as the famous Mona Lisa,
+
+29
+00:02:17,190 --> 00:02:17,460
+right?
+
+30
+00:02:18,120 --> 00:02:19,190
+So I think you get my point.
+
+31
+00:02:19,200 --> 00:02:24,150
+And recently the NFT craze has hotted up and it's completely gone out of control.
+
+32
+00:02:24,660 --> 00:02:31,500
+The most recent sort of mainstream news is Christies, which is a famous auctioneer selling pieces
+
+33
+00:02:31,500 --> 00:02:40,170
+by Picasso or by Leonardo da Vinci, sold a collection by Beeple who is an NFT creator.
+
+34
+00:02:40,620 --> 00:02:47,160
+And he had a collection called Everydays, where he created a piece of digital art every day for 5000
+
+35
+00:02:47,160 --> 00:02:49,890
+days, which is actually pretty impressive achievement.
+
+36
+00:02:50,340 --> 00:02:57,750
+And this collection was auctioned at Christies and was sold for over 69 million U.S. dollars.
+
+37
+00:02:58,260 --> 00:03:00,570
+So the NFT craze is definitely real.
+
+38
+00:03:01,380 --> 00:03:05,970
+Now, you might have thought about creating an NFT yourself, especially if you're a good artist.
+
+39
+00:03:06,450 --> 00:03:10,020
+But as developers we can do even one step better.
+
+40
+00:03:10,110 --> 00:03:15,630
+We can create the marketplace where people can mint, list and sell the NFT.
+
+41
+00:03:16,200 --> 00:03:21,360
+One of the most famous marketplaces, one of the largest marketplaces as well, is something called
+
+42
+00:03:21,360 --> 00:03:22,260
+OpenSea.
+
+43
+00:03:22,890 --> 00:03:30,540
+And on Opensea you can list and you can sell NFTs. And you can see that the NFTs on here are not cheap.
+
+44
+00:03:30,780 --> 00:03:36,180
+So if you're looking at a collection, for example, really famous group called the Bored Ape Yatch Club
+
+45
+00:03:36,480 --> 00:03:39,810
+have 10,000 items on Opensea.
+
+46
+00:03:40,320 --> 00:03:46,770
+And if you look at the prices for them that people are bidding on, they're sort of averaging
+
+47
+00:03:46,770 --> 00:03:50,430
+around the sort of 100 eth mark right? Now,
+
+48
+00:03:50,430 --> 00:03:57,750
+if we take a look at how much 100 ETH is actually worth in dollars, at least at the moment it's worth
+
+49
+00:03:57,750 --> 00:04:03,030
+something like 335,000 U.S. dollars.
+
+50
+00:04:03,480 --> 00:04:07,080
+And that's just a single one of these pieces of digital art.
+
+51
+00:04:07,500 --> 00:04:10,470
+So that's not even like a collection or anything.
+
+52
+00:04:10,770 --> 00:04:18,930
+And for every single piece of art that's sold on Opensea, the platform will charge a 2.5% transaction
+
+53
+00:04:18,930 --> 00:04:19,290
+fee.
+
+54
+00:04:19,620 --> 00:04:25,500
+So as always, if you're not Bored Ape Yacht Club and you're already super famous, it's always better
+
+55
+00:04:25,500 --> 00:04:28,770
+to be the platform than to be the individual creator.
+
+56
+00:04:30,060 --> 00:04:37,020
+The project that we're going to be building is a NFT e-commerce site that's inspired by Opensea as can
+
+57
+00:04:37,020 --> 00:04:38,880
+be built with React on the frontend,
+
+58
+00:04:38,880 --> 00:04:41,640
+Motoko and Internet computer supporting the backend.
+
+59
+00:04:42,000 --> 00:04:51,600
+And the best part of it is while most current NFTs are sold and bought for large amounts of money,
+
+60
+00:04:52,050 --> 00:04:59,610
+when you actually look at the actual item, most of the original files are actually stored on a third
+
+61
+00:04:59,610 --> 00:05:00,480
+party server.
+
+62
+00:05:00,990 --> 00:05:05,490
+So let's take this NFT, for example, number 5465.
+
+63
+00:05:05,820 --> 00:05:12,750
+If you take a look at its details on Opensea, it's actually got a contract address which if you click
+
+64
+00:05:12,750 --> 00:05:14,520
+on it, will take you to Etherscan.
+
+65
+00:05:14,880 --> 00:05:21,390
+And here you can actually take a look and read the original contract, which includes a link to the
+
+66
+00:05:21,390 --> 00:05:21,960
+token
+
+67
+00:05:21,960 --> 00:05:22,740
+URI.
+
+68
+00:05:23,040 --> 00:05:25,920
+So we pass in that ID 5465.
+
+69
+00:05:28,300 --> 00:05:32,140
+It'll show us the identifier for this item on ipfs.
+
+70
+00:05:32,740 --> 00:05:34,150
+Ipfs stores
+
+71
+00:05:34,150 --> 00:05:41,500
+a lot of the NFTs that are currently in circulation. And we get hold of the actual URL of this item
+
+72
+00:05:41,800 --> 00:05:46,630
+by simply going to it in the browser bar like so.
+
+73
+00:05:47,050 --> 00:05:47,880
+And here it is.
+
+74
+00:05:47,890 --> 00:05:55,750
+This is the actual hosted URL of this original NFT, which anyone can access, by the way.
+
+75
+00:05:55,900 --> 00:06:00,970
+You don't have to own it, and you can access it in its original size, original format.
+
+76
+00:06:01,510 --> 00:06:08,770
+But when we're creating our version of Opensea, all the NFT minted on there will be created on the
+
+77
+00:06:08,770 --> 00:06:10,060
+Internet computer blockchain.
+
+78
+00:06:10,810 --> 00:06:17,050
+And that means that the NFT data, as in the actual bits and bytes themselves, will be stored on-chain.
+
+79
+00:06:17,380 --> 00:06:23,350
+And that's quite different from just having a smart contract with a URL that points to Ipfs or worse
+
+80
+00:06:23,350 --> 00:06:25,810
+still, a single company's private server.
+
+81
+00:06:26,680 --> 00:06:32,840
+Now, the website and collection that we're going to be creating is inspired by one of the original
+
+82
+00:06:32,840 --> 00:06:34,840
+NFT, which is called the Cryptopunks.
+
+83
+00:06:35,320 --> 00:06:41,920
+And that is really cute little pieces of pixel art where each cryptopunk has some unique features.
+
+84
+00:06:42,220 --> 00:06:43,840
+For example, some have hats,
+
+85
+00:06:44,110 --> 00:06:51,520
+some have these cool 3D glasses, and depending on which feature you like or you want, then the price
+
+86
+00:06:51,520 --> 00:06:52,840
+really varies accordingly.
+
+87
+00:06:53,020 --> 00:06:58,650
+And you can see that some of these were sold for really crazy prices like this one here.
+
+88
+00:06:58,750 --> 00:07:07,180
+This guy with blue eyeshadow was sold for a whopping 124,000 ether, which if you want to know how much
+
+89
+00:07:07,180 --> 00:07:10,510
+that is, it's something crazy.
+
+90
+00:07:10,510 --> 00:07:19,540
+Like I don't even know how many zeros there are here. That's currently worth like $415 million, which
+
+91
+00:07:19,540 --> 00:07:21,850
+is absolutely insane.
+
+92
+00:07:22,330 --> 00:07:28,600
+So to save you from having to spend millions of dollars acquiring these pieces of art to be able to
+
+93
+00:07:28,600 --> 00:07:37,840
+build your own NFT marketplace, I have very helpfully created some for you using a website called pixil
+
+94
+00:07:37,840 --> 00:07:38,530
+art.com.
+
+95
+00:07:38,920 --> 00:07:44,980
+I've created some of these pixel characters inspired by the original Cryptopunks.
+
+96
+00:07:45,490 --> 00:07:46,750
+This is what they look like.
+
+97
+00:07:46,750 --> 00:07:52,390
+I've got a collection of six, which you'll be able to download in the course resources in the Udemy
+
+98
+00:07:52,390 --> 00:07:54,580
+course once we get to that stage.
+
+99
+00:07:55,180 --> 00:08:00,220
+So I drew these from scratch and they're obviously not as great as, you know, a real artist or whatever,
+
+100
+00:08:00,220 --> 00:08:04,720
+but I think they're kind of cute and I think for our purposes they'll work just fine.
+
+101
+00:08:05,380 --> 00:08:13,440
+The final website that we're going to be making, the OpenD is going to have a lot of features.
+
+102
+00:08:13,450 --> 00:08:15,070
+This is actually quite a big project.
+
+103
+00:08:15,580 --> 00:08:22,450
+So we've simplified down a lot of the OpenSea features and we've pared it down to just the core functionality
+
+104
+00:08:22,720 --> 00:08:24,130
+that we need to wrap your head around.
+
+105
+00:08:24,520 --> 00:08:33,220
+There is a section where we can view the NFTs that the logged in user owns, and the user can sell these
+
+106
+00:08:33,220 --> 00:08:41,380
+NFTs by clicking on sell and then setting a price in DANG, the Angela coin, which anyone can claim from
+
+107
+00:08:41,380 --> 00:08:46,870
+the previous project that we created. and once these items are sold,
+
+108
+00:08:48,620 --> 00:08:53,540
+then you'll be able to see them on the Discover page where they're listed for people to buy.
+
+109
+00:08:53,990 --> 00:08:59,480
+Now, you obviously can't buy an item that you've listed, but you can buy items that other people own
+
+110
+00:08:59,480 --> 00:09:01,940
+that they've listed. On this Discover page,
+
+111
+00:09:02,270 --> 00:09:05,300
+you'll be able to pay in DANG coins.
+
+112
+00:09:05,420 --> 00:09:12,470
+This one costs two DANG and you'll be able to purchase these individual NFTs which you'll then see
+
+113
+00:09:12,470 --> 00:09:13,940
+in your collection.
+
+114
+00:09:14,690 --> 00:09:18,080
+Now you'll also be able to mint NFT on here.
+
+115
+00:09:21,630 --> 00:09:26,040
+And this will create a unique canister on the Internet
+
+116
+00:09:26,040 --> 00:09:33,960
+Computer blockchain that contains all of the data for your image file that you've just minted. And
+
+117
+00:09:33,960 --> 00:09:37,320
+once they're minted, you'll be able to see them in your collection as well,
+
+118
+00:09:37,590 --> 00:09:41,500
+ready for sale or just simply for you to keep and to hold.
+
+119
+00:09:42,240 --> 00:09:44,550
+So I'm super excited about this project.
+
+120
+00:09:44,580 --> 00:09:49,500
+It took me a really, really long time to figure out all the nuts and bolts of it and to simplify it
+
+121
+00:09:49,500 --> 00:09:56,820
+to a point where we can build it relatively quickly and learn all the important stuff around NFTs, programmatically
+
+122
+00:09:56,820 --> 00:10:03,930
+creating canisters, buying and selling NFTs through the transfer of a third party token, such
+
+123
+00:10:03,930 --> 00:10:10,680
+as the Angela coin that we created early on, and managing all of the e-commerce requirements of this website.
+
+124
+00:10:10,980 --> 00:10:16,230
+So it's a really fun project and I'm so excited to get started.
+
+125
+00:10:16,530 --> 00:10:21,900
+Once you're ready, head over to the next lesson and we'll get started building up this project.
+

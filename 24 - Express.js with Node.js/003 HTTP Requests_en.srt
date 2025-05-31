@@ -1,0 +1,1096 @@
+1
+00:00:00,260 --> 00:00:00,890
+Hey, guys.
+
+2
+00:00:00,890 --> 00:00:06,440
+In today's lesson, we're going to be learning all about HTTP requests and we're going to learn the
+
+3
+00:00:06,440 --> 00:00:11,030
+language that allows you to make requests to your Node server.
+
+4
+00:00:11,810 --> 00:00:16,280
+What exactly is HTTP and what does it stand for?
+
+5
+00:00:16,309 --> 00:00:23,150
+Well, the first part you already know because it stands for HyperText, just like HTML stands for hypertext.
+
+6
+00:00:23,270 --> 00:00:29,990
+The second part, the Transfer Protocol basically describes this as a language, a language that allows
+
+7
+00:00:29,990 --> 00:00:33,230
+computers to talk to each other across the Internet.
+
+8
+00:00:33,500 --> 00:00:40,610
+We as humans, when we want to transfer our thoughts between each other, we have this thing called
+
+9
+00:00:40,610 --> 00:00:41,180
+language.
+
+10
+00:00:41,180 --> 00:00:44,000
+Or you could call it thought transfer protocol.
+
+11
+00:00:44,000 --> 00:00:46,760
+It could be English, it could be French, it could be Spanish,
+
+12
+00:00:46,760 --> 00:00:54,060
+but either way, we make these sounds across the air and we allow each other to understand our own thoughts.
+
+13
+00:00:54,080 --> 00:01:01,230
+Now, when computers want to talk to each other across the Internet, they need the Hyper Text Transfer
+
+14
+00:01:01,260 --> 00:01:05,880
+Protocol, a different language that allows them to understand each other.
+
+15
+00:01:06,060 --> 00:01:13,560
+Now I want to teach you some basic vocabulary to get you started with the computer language of HTTP.
+
+16
+00:01:13,920 --> 00:01:18,510
+Just as always, when I go to a new country, I always learn a few words just to ensure that I don't
+
+17
+00:01:18,510 --> 00:01:19,640
+go hungry.
+
+18
+00:01:19,650 --> 00:01:26,670
+So in China, maybe you can say, Wǒ èle, Maybe in Japan, you'll say Onaka ga suita.
+
+19
+00:01:27,060 --> 00:01:33,320
+And if you go to Mexico and you want some empanadas, you'll say Tengo hambre, and so on and so forth.
+
+20
+00:01:33,330 --> 00:01:39,930
+Basically, we want to know enough vocabulary in HTTP so that we know what's going on in the secret
+
+21
+00:01:39,930 --> 00:01:41,640
+lives of computers.
+
+22
+00:01:41,970 --> 00:01:49,290
+When we make these HTTP requests, there are five main words that you'll come across and it's GET,POST,
+
+23
+00:01:49,290 --> 00:01:51,030
+PUT, PATCH and DELETE.
+
+24
+00:01:51,030 --> 00:01:52,950
+So let's go through each of them.
+
+25
+00:01:52,950 --> 00:01:59,100
+Now remember previously when we tried to run our server and request our website from the server, we
+
+26
+00:01:59,100 --> 00:02:05,730
+got an error saying Cannot GET. GET is one of the first words you're going to need to learn,
+
+27
+00:02:05,730 --> 00:02:12,420
+and this is when you want to request a resource from the server.
+
+28
+00:02:12,540 --> 00:02:19,530
+This could be an HTML website, it could be some piece of text, it could be a piece of data from the database
+
+29
+00:02:19,530 --> 00:02:20,640
+or the server,
+
+30
+00:02:20,640 --> 00:02:29,580
+but you are "getting" something from the server when you make your HTTP request using the GET keyword.
+
+31
+00:02:29,820 --> 00:02:33,570
+Now, POST is similarly easy to understand.
+
+32
+00:02:33,600 --> 00:02:40,320
+Essentially, in this case, what you're doing is you are sending a resource to the server.
+
+33
+00:02:40,410 --> 00:02:47,550
+This could be a piece of information like if you have a Form to sign up to your website. Well, their
+
+34
+00:02:47,550 --> 00:02:54,030
+email and their password is going to be sent to your server when they click that Sign-up button
+
+35
+00:02:54,030 --> 00:02:56,940
+and that is going to be done using a POST request.
+
+36
+00:02:56,940 --> 00:03:01,350
+And then on the server side, you can take that information and then do whatever you will with it,
+
+37
+00:03:01,350 --> 00:03:09,720
+save it into a database, or process it or work with it somehow. PUT and PATCH are somewhat related because
+
+38
+00:03:09,720 --> 00:03:13,680
+essentially what they are is they are update methods.
+
+39
+00:03:13,770 --> 00:03:21,180
+However, they are a little bit different. Now, a put request is when you want to replace a resource
+
+40
+00:03:21,180 --> 00:03:24,000
+with whatever it is you're sending over.
+
+41
+00:03:24,000 --> 00:03:28,950
+So you want to update something by replacing it completely.
+
+42
+00:03:29,070 --> 00:03:32,660
+PATCH is a little bit different and similar to the word in English,
+
+43
+00:03:32,670 --> 00:03:41,160
+essentially you want to patch-up a resource even though both of these are updates, they work a little
+
+44
+00:03:41,160 --> 00:03:42,060
+bit differently.
+
+45
+00:03:42,060 --> 00:03:47,880
+And a good analogy for the difference between these two types of update, which I often like to think
+
+46
+00:03:47,880 --> 00:03:50,280
+about, is an Amazon return.
+
+47
+00:03:50,310 --> 00:03:55,680
+I order a lot of parcels from Amazon and very often I get things which are broken or something that's
+
+48
+00:03:55,680 --> 00:03:56,580
+not working.
+
+49
+00:03:56,580 --> 00:04:05,970
+So let's say you get a bicycle from Amazon and when you receive it, unfortunately one of the tires
+
+50
+00:04:06,000 --> 00:04:07,410
+is just broken.
+
+51
+00:04:07,560 --> 00:04:09,660
+Now this is real story.
+
+52
+00:04:09,840 --> 00:04:11,700
+I actually ordered a bicycle from Amazon.
+
+53
+00:04:11,700 --> 00:04:13,080
+Don't ask me why.
+
+54
+00:04:13,170 --> 00:04:19,680
+Now, when you tell Amazon that you have shipped me a broken bicycle, they have two options.
+
+55
+00:04:19,709 --> 00:04:28,860
+Option Number 1 is they use a PUT request to give you an entirely new bicycle.
+
+56
+00:04:28,860 --> 00:04:33,090
+They just replace your bicycle with a new bicycle
+
+57
+00:04:33,090 --> 00:04:36,300
+and this way you update the bicycle.
+
+58
+00:04:36,330 --> 00:04:44,580
+Now, the other option they have is a PATCH request, where in this case they only send you the functioning
+
+59
+00:04:44,580 --> 00:04:50,790
+wheel so that you yourself can replace the broken wheel with this new functioning wheel and you patch
+
+60
+00:04:50,820 --> 00:04:52,440
+up the broken bicycle.
+
+61
+00:04:52,530 --> 00:04:57,600
+Finally, we have the DELETE word, which is pretty easy to understand.
+
+62
+00:04:57,600 --> 00:04:59,760
+It just deletes resources.
+
+63
+00:04:59,880 --> 00:05:02,190
+Either from the server or from the database.
+
+64
+00:05:02,190 --> 00:05:09,270
+But essentially this is a request from the client-side computer to the server-side computer saying that
+
+65
+00:05:09,270 --> 00:05:12,060
+there is something that needs to be deleted.
+
+66
+00:05:12,240 --> 00:05:19,230
+With these five words under your belt, you should be able to navigate the world of HTTP requests.
+
+67
+00:05:19,260 --> 00:05:23,310
+Let's take a look at this with a real example.
+
+68
+00:05:23,340 --> 00:05:31,380
+Here I've got a server created using Node and Express, and as you've seen before, we are running this
+
+69
+00:05:31,380 --> 00:05:35,480
+server on Port 3000 and it's up and running.
+
+70
+00:05:35,490 --> 00:05:42,810
+As you saw before, when we run this code and we tried to load up the website at that location, localhost
+
+71
+00:05:42,810 --> 00:05:47,080
+port 3000, we get this error saying Cannot GET.
+
+72
+00:05:47,100 --> 00:05:55,230
+So now that we know what GET means, it means you, the client using the browser are trying to get a
+
+73
+00:05:55,230 --> 00:05:58,440
+resource, namely the homepage to load up,
+
+74
+00:05:58,440 --> 00:06:05,890
+but you Cannot GET because our server does not yet have any code that allows us to do that.
+
+75
+00:06:05,910 --> 00:06:08,340
+So what do we have to do instead?
+
+76
+00:06:08,340 --> 00:06:15,120
+Well, we need to add a little bit of code to say, well, what should happen when a user is trying
+
+77
+00:06:15,120 --> 00:06:18,300
+to get at our home page?
+
+78
+00:06:18,390 --> 00:06:22,260
+The forward slash (/) goes at the end of the home page.
+
+79
+00:06:22,260 --> 00:06:29,520
+So for example, if you have localhost:3000 and then at the end you can have a forward slash or
+
+80
+00:06:29,520 --> 00:06:31,260
+you can have no forward slash,
+
+81
+00:06:31,260 --> 00:06:39,270
+but either way, when you load this address up, it's trying to make a GET request to the route, which
+
+82
+00:06:39,270 --> 00:06:40,710
+is the home page.
+
+83
+00:06:41,250 --> 00:06:45,570
+In this case, we've added the Express method called GET
+
+84
+00:06:45,570 --> 00:06:49,890
+so now our server knows what to do when that GET request comes through,
+
+85
+00:06:49,950 --> 00:06:56,580
+and then in between the curly braces of the anonymous function right here, we can define how our server
+
+86
+00:06:56,580 --> 00:06:58,950
+wants to respond to that GET request.
+
+87
+00:06:58,950 --> 00:07:02,400
+And in this case, I'm just sending over the words, "Hello World."
+
+88
+00:07:02,400 --> 00:07:09,180
+And so now when we try to load up our home page at localhost:3000 with this updated code, you will
+
+89
+00:07:09,180 --> 00:07:13,170
+actually see the words, "Hello World" come up in the browser.
+
+90
+00:07:13,440 --> 00:07:18,990
+Let's have a little bit of practice doing this and also setting up our server.
+
+91
+00:07:19,260 --> 00:07:24,630
+First, I want you to just simply repeat the process that we did in the previous lesson, which is to
+
+92
+00:07:24,630 --> 00:07:31,950
+set up a brand new server using Node and Express, and because it involves quite a few steps, I've
+
+93
+00:07:31,950 --> 00:07:38,760
+listed them all out here for you 1 to 6 so you can keep the screen up somewhere and pause the video
+
+94
+00:07:38,760 --> 00:07:47,550
+and then try to complete the exercise by creating your own Node server using Express and following these
+
+95
+00:07:47,550 --> 00:07:48,210
+steps.
+
+96
+00:07:48,210 --> 00:07:53,760
+Now, you don't have to write the GET request yet, just the parts where you can get your server up and
+
+97
+00:07:53,760 --> 00:07:54,450
+running.
+
+98
+00:07:55,440 --> 00:07:58,080
+Pause the video and give this challenge a go.
+
+99
+00:08:01,580 --> 00:08:01,970
+All right.
+
+100
+00:08:01,970 --> 00:08:13,460
+So the first thing we want to do is to create a new folder in our Backend module called 3.2 HTTP Requests.
+
+101
+00:08:13,490 --> 00:08:20,530
+Now you can either do this using VS Code buttons or you can do this using the mkdir command,
+
+102
+00:08:20,540 --> 00:08:27,530
+but either way, we want to create our new directory and then inside we're going to create an index.js
+
+103
+00:08:27,530 --> 00:08:28,100
+file.
+
+104
+00:08:28,310 --> 00:08:35,030
+The next thing we're going to do is to go ahead and initialize NPM in this project folder.
+
+105
+00:08:35,030 --> 00:08:38,809
+So first we need to cd over into the right directory.
+
+106
+00:08:38,809 --> 00:08:44,420
+So I'm just going to do that by dragging over this folder here 3.2 HTTP Requests.
+
+107
+00:08:44,450 --> 00:08:51,740
+Once we've made sure we're in the right location, then we can go ahead and use, "npm init -y" to set up NPM
+
+108
+00:08:52,370 --> 00:08:53,930
+on that directory.
+
+109
+00:08:53,930 --> 00:08:59,750
+And next we can go ahead and install Express by using,
+
+110
+00:08:59,750 --> 00:09:01,200
+"npm i express".
+
+111
+00:09:02,590 --> 00:09:07,840
+Now once those modules are installed, we're ready to start writing some code.
+
+112
+00:09:07,840 --> 00:09:14,920
+So the first thing we're going to do is we're going to import express from express and remember that
+
+113
+00:09:14,920 --> 00:09:23,080
+in order to use import, we have to go into the package.json and change the type of our project to use
+
+114
+00:09:23,080 --> 00:09:25,360
+modules from ES6.
+
+115
+00:09:25,360 --> 00:09:27,670
+So let's hit Save, close that down.
+
+116
+00:09:27,670 --> 00:09:35,500
+And now we've imported Express, we can create a constant, which is our app and we can do that using
+
+117
+00:09:35,500 --> 00:09:36,400
+Express.
+
+118
+00:09:37,390 --> 00:09:45,430
+Now we're able to start listening with our app using app.listen and then we provide the port that we
+
+119
+00:09:45,430 --> 00:09:51,190
+want to listen on, which I'm going to set to 3000 as always.
+
+120
+00:09:51,190 --> 00:09:58,990
+And then we can add an anonymous function to specify what should happen when our port is up and running.
+
+121
+00:09:58,990 --> 00:10:08,880
+And all I want to do is just simply console log that the, "Server has started on port..." and then I'm just
+
+122
+00:10:08,880 --> 00:10:13,260
+going to insert my port number right here.
+
+123
+00:10:14,100 --> 00:10:15,150
+All right, that's it.
+
+124
+00:10:15,150 --> 00:10:23,670
+And now we're ready to go ahead and run our server so we can use Node and then index.js and our server
+
+125
+00:10:23,670 --> 00:10:25,350
+has started.
+
+126
+00:10:25,680 --> 00:10:27,510
+And that concludes the challenge.
+
+127
+00:10:27,510 --> 00:10:33,510
+This is how far we got in the previous lessons similar to previously, though we get that error where
+
+128
+00:10:33,510 --> 00:10:37,920
+it says Cannot GET / the forward slash location.
+
+129
+00:10:38,070 --> 00:10:45,420
+Now if we go back and we add the code that allows our server to handle GET requests, then we can fix
+
+130
+00:10:45,420 --> 00:10:45,660
+that.
+
+131
+00:10:45,660 --> 00:10:53,100
+So we're going to use the app.get method, which comes from Express, and then the path or the endpoint
+
+132
+00:10:53,100 --> 00:10:58,530
+that we want to be able to handle right now is just the root, the home page, which is just a forward
+
+133
+00:10:58,530 --> 00:10:59,280
+slash (/).
+
+134
+00:10:59,310 --> 00:11:06,480
+Now next comes an anonymous function and, and we can tap into the request and response.
+
+135
+00:11:06,480 --> 00:11:14,580
+So it's written usually like this req and res and inside the curly braces, we can define what we should
+
+136
+00:11:14,580 --> 00:11:18,570
+do once we receive this get request at this endpoint.
+
+137
+00:11:18,780 --> 00:11:24,210
+Firstly, the thing I want to show you is what the request from the browser looks like.
+
+138
+00:11:24,210 --> 00:11:29,460
+We can go ahead and log the request parameter right here.
+
+139
+00:11:29,460 --> 00:11:37,710
+And if I go ahead and hit save, stop my server and restart my server, remember that when we're using
+
+140
+00:11:37,710 --> 00:11:44,850
+Node to run our Index.js file and get our server started every single time we make a change, we have
+
+141
+00:11:44,850 --> 00:11:52,440
+to stop the server using control C (Ctrl + C) and then restart the server using node Index.js.
+
+142
+00:11:52,470 --> 00:12:00,150
+This brings me to a point where a lot of people fall down on if you have a server that has started and
+
+143
+00:12:00,150 --> 00:12:06,510
+it's running somewhere, but then you decide that you open up another terminal somewhere else,
+
+144
+00:12:07,660 --> 00:12:11,290
+and then you try and run another project.
+
+145
+00:12:11,290 --> 00:12:19,960
+So in here, if I try to run Node Index.js again, I get this error where it says, "address is already
+
+146
+00:12:19,960 --> 00:12:28,120
+in use..." and it tells me that I'm trying to run my server on a port, port 3000, which is already running
+
+147
+00:12:28,120 --> 00:12:28,690
+something.
+
+148
+00:12:28,690 --> 00:12:30,520
+It's already occupied.
+
+149
+00:12:30,550 --> 00:12:36,880
+This is one thing that's really important to note and when you see this error which you might encounter
+
+150
+00:12:36,880 --> 00:12:41,540
+from time to time, just know that you can solve this in two ways.
+
+151
+00:12:41,560 --> 00:12:48,790
+One is you can go to the place where you have the server running and you can stop it and then go back
+
+152
+00:12:48,790 --> 00:12:53,770
+and you can run your other project without any problems, as you can see right here.
+
+153
+00:12:54,100 --> 00:13:01,180
+Another way you can do this is by actually killing that particular port using a terminal command.
+
+154
+00:13:01,360 --> 00:13:08,240
+Now I'm going to link to this blog post, which shows you which commands you need to use in order to
+
+155
+00:13:08,240 --> 00:13:12,500
+close a port on Mac, on Windows and on Linux.
+
+156
+00:13:12,500 --> 00:13:14,660
+So basically you can follow the process here
+
+157
+00:13:14,660 --> 00:13:20,420
+if you get really stuck and you end up in that situation where you can't find the place where you've
+
+158
+00:13:20,420 --> 00:13:23,030
+started your port in order to stop it.
+
+159
+00:13:23,840 --> 00:13:30,890
+Now let's make sure that our server is started and go over to localhost:3000 and then over here we can
+
+160
+00:13:30,890 --> 00:13:38,580
+see the printed output of what that entire request from my browser actually looks like.
+
+161
+00:13:38,600 --> 00:13:44,450
+Now there's actually way too much information to process here, so I'm going to narrow it down by going
+
+162
+00:13:44,450 --> 00:13:47,210
+to request.rawHeaders.
+
+163
+00:13:47,210 --> 00:13:56,210
+And the raw headers are basically a list of key value pairs that come from where the request originated.
+
+164
+00:13:56,240 --> 00:13:57,530
+Let's hit Save.
+
+165
+00:13:57,530 --> 00:14:01,640
+Let's stop our server using Ctrl C.
+
+166
+00:14:01,670 --> 00:14:06,140
+Let's restart our server using, "node index.js".
+
+167
+00:14:06,140 --> 00:14:13,910
+And now if we request this again, then you can see these are the raw headers that we're getting.
+
+168
+00:14:13,910 --> 00:14:19,970
+So it tells me where is the domain, where this website is being accessed.
+
+169
+00:14:20,180 --> 00:14:26,150
+It tells me other things, such as where that request originated from, which in my case was Google
+
+170
+00:14:26,150 --> 00:14:33,470
+Chrome, what system I'm running, and a whole bunch of other things about my request.
+
+171
+00:14:33,620 --> 00:14:36,920
+That's essentially what a request is.
+
+172
+00:14:36,920 --> 00:14:43,970
+It comes in from the browser, it hits up a particular path, and then we can either get hold of it
+
+173
+00:14:43,970 --> 00:14:51,590
+inside this anonymous function or more importantly, we want to be able to send back a response.
+
+174
+00:14:51,860 --> 00:14:54,680
+To do that, we use res.send,
+
+175
+00:14:54,680 --> 00:14:59,570
+and in the body of this method we can send back a piece of text.
+
+176
+00:14:59,570 --> 00:15:04,010
+So for example, I am just going to write, "Hello World," that's it.
+
+177
+00:15:04,010 --> 00:15:05,930
+And then I'm going to hit Save.
+
+178
+00:15:05,930 --> 00:15:14,450
+I'm going to go ahead and stop my browser, rerun my browser, go back and reload, and you can see
+
+179
+00:15:14,450 --> 00:15:22,250
+now instead of having that error, Cannot GET root path, I've now got, "Hello world" being sent back from
+
+180
+00:15:22,250 --> 00:15:23,230
+my server.
+
+181
+00:15:23,240 --> 00:15:34,520
+So when I request my home page at this particular path and I hit Enter to go to that location, my browser
+
+182
+00:15:34,520 --> 00:15:42,020
+sends the request to my server and because my server is running and listening and it knows how to handle
+
+183
+00:15:42,020 --> 00:15:45,650
+that GET request, it sends this piece of text back,
+
+184
+00:15:45,650 --> 00:15:48,440
+and that's what I see on this web page.
+
+185
+00:15:48,440 --> 00:15:52,910
+That's the entire simple process of what's going on behind the scenes.
+
+186
+00:15:54,810 --> 00:16:01,470
+So one thing you've noticed is every time I've changed any sort of code on my server side, I've had
+
+187
+00:16:01,470 --> 00:16:06,990
+to stop my server and then restart my server, which frankly is a bit of a pain.
+
+188
+00:16:07,020 --> 00:16:08,430
+What can we do instead?
+
+189
+00:16:08,430 --> 00:16:17,000
+Well, professional Node Developers use a tool called Nodemon, and what Nodemon does is pretty simple.
+
+190
+00:16:17,010 --> 00:16:24,030
+It automatically restarts the node application when it detects files changes.
+
+191
+00:16:24,150 --> 00:16:29,400
+That means that you don't have to manually stop and start your server every time there's a change,
+
+192
+00:16:29,400 --> 00:16:32,880
+Nodemon does that for you and to use it.
+
+193
+00:16:32,880 --> 00:16:42,090
+It's as simple as replacing the node keyword with nodemon and then the file that you want to run and
+
+194
+00:16:42,090 --> 00:16:46,830
+it's going to automatically do all of the monitoring magic behind the scenes.
+
+195
+00:16:47,250 --> 00:16:51,000
+In order to test this out, I want to show you one other thing that you can send.
+
+196
+00:16:51,000 --> 00:16:57,120
+Instead of just plain text, you can also send fully formatted HTML.
+
+197
+00:16:57,130 --> 00:17:00,160
+So, for example, in this case, I'm not sending back text.
+
+198
+00:17:00,160 --> 00:17:04,480
+I'm actually sending back in the form of an h1.
+
+199
+00:17:04,690 --> 00:17:13,329
+Going back to our project, let's go ahead and stop our server and let's use NPM to install using the
+
+200
+00:17:13,329 --> 00:17:17,740
+-g flag so you can use npm i or NPM install.
+
+201
+00:17:17,980 --> 00:17:24,849
+I is probably better to prevent making typos and then the -g flag stands for global.
+
+202
+00:17:24,849 --> 00:17:31,630
+So this means that we are installing this package called nodemon globally on our computer because we
+
+203
+00:17:31,630 --> 00:17:37,150
+don't just want it to work for this one project, we'll want to use it for other projects that we develop
+
+204
+00:17:37,150 --> 00:17:38,500
+in the future as well.
+
+205
+00:17:38,500 --> 00:17:43,390
+So we're installing it for use on any project using that -g flag.
+
+206
+00:17:43,390 --> 00:17:46,990
+So now let's go ahead and hit Enter and install it.
+
+207
+00:17:47,020 --> 00:17:53,350
+Now if you get some errors or your install didn't really work, go ahead to the Nodemon documentation
+
+208
+00:17:53,350 --> 00:17:57,970
+and simply copy and paste the installation command.
+
+209
+00:17:58,750 --> 00:18:06,460
+Now, once the installation has completed, then we can now use it by typing "nodemon" and then "index.js"
+
+210
+00:18:06,490 --> 00:18:13,630
+to use Nodemon to run our Index.js path to monitor our files for any changes.
+
+211
+00:18:13,630 --> 00:18:15,670
+And I'm going to make that change right now.
+
+212
+00:18:15,670 --> 00:18:21,670
+Instead of sending "Hello world", I'm going to send an h1 that just says, "Hello".
+
+213
+00:18:22,150 --> 00:18:28,030
+Now when I hit Save or even if I don't hit save, Nodemon is actually already monitoring those changes
+
+214
+00:18:28,030 --> 00:18:34,810
+on a timely basis and it has restarted my server because it saw those changes.
+
+215
+00:18:34,810 --> 00:18:37,540
+So now let's go back to our localhost.
+
+216
+00:18:37,570 --> 00:18:39,340
+Let's refresh our page.
+
+217
+00:18:39,340 --> 00:18:47,320
+You can see that has now been updated and my server is now sending back fully formatted HTML.
+
+218
+00:18:48,310 --> 00:18:53,200
+You saw that previously we were only handling the endpoint.
+
+219
+00:18:53,200 --> 00:18:55,540
+That is just the forward slash (/),
+
+220
+00:18:55,540 --> 00:19:00,100
+and I want to talk a little bit more about what endpoints are.
+
+221
+00:19:00,310 --> 00:19:06,160
+If you imagine that you want to send a letter to your friend somewhere across the world, let's say
+
+222
+00:19:06,160 --> 00:19:10,000
+you have a Pen pal in Europe or you have a Pen pal in Africa,
+
+223
+00:19:10,030 --> 00:19:18,010
+then the endpoint of your letter in HTTP would be forward slash that destination.
+
+224
+00:19:18,010 --> 00:19:21,580
+So it could be forward slash Europe or forward slash Africa.
+
+225
+00:19:21,580 --> 00:19:25,810
+And these would be the endpoints for your letters.
+
+226
+00:19:26,200 --> 00:19:32,380
+Now, when you send your letter, that's equivalent to your HTTP request.
+
+227
+00:19:32,650 --> 00:19:42,340
+We saw that we can get hold of the root or the home page by targeting the forward-slash (/) endpoint,
+
+228
+00:19:42,340 --> 00:19:45,850
+and this is equivalent to going to localhost
+
+229
+00:19:46,690 --> 00:19:52,830
+:3000 and then hitting a forward slash or not having the forward slash.
+
+230
+00:19:52,840 --> 00:20:00,880
+Either way, it's going to hit up this particular root. If we want to add other endpoints into our server
+
+231
+00:20:00,880 --> 00:20:07,270
+code so we can handle more situations then we simply just need to add another GET method.
+
+232
+00:20:07,270 --> 00:20:14,500
+So in this case, I'm adding the endpoint "/About", and when the user tries to hit up that
+
+233
+00:20:14,500 --> 00:20:20,980
+endpoint, they're going to get this h1 instead. When they go to Localhost
+
+234
+00:20:21,950 --> 00:20:23,600
+:3000,
+
+235
+00:20:23,600 --> 00:20:32,600
+and this is kind of equivalent to when you go to say, www.google.com, which is the main domain,
+
+236
+00:20:32,600 --> 00:20:41,480
+and then you hit up the, "/About" endpoint and this then gets picked up in our server right
+
+237
+00:20:41,480 --> 00:20:48,680
+here and these lines of code get triggered, which is why this h1 gets displayed on the screen.
+
+238
+00:20:48,950 --> 00:20:55,790
+We're going to try this out in our exercise so that instead of just writing a server that runs, we're
+
+239
+00:20:55,790 --> 00:21:03,290
+going to add to this exercise so that our server can handle the, "/", "/contact"
+
+240
+00:21:03,290 --> 00:21:10,970
+and "/about" endpoints. It's totally up to you what you want your server to send back on
+
+241
+00:21:10,970 --> 00:21:13,250
+the home endpoint.
+
+242
+00:21:13,250 --> 00:21:21,870
+So this could be maybe just say, Home Page as a h1 and then maybe on the /contact route,
+
+243
+00:21:21,870 --> 00:21:25,200
+maybe you could have your phone number being listed,
+
+244
+00:21:25,200 --> 00:21:26,310
+etcetera.
+
+245
+00:21:26,430 --> 00:21:33,420
+And on the /about endpoint, you could maybe have some info about yourself, maybe a paragraph element
+
+246
+00:21:33,420 --> 00:21:35,280
+or an h1 or something like that.
+
+247
+00:21:35,280 --> 00:21:37,980
+It's totally up to you how you want to do it.
+
+248
+00:21:37,980 --> 00:21:43,980
+It doesn't really matter as long as you're able to understand how to hit up the different endpoints
+
+249
+00:21:43,980 --> 00:21:46,500
+and how to target them in your server.
+
+250
+00:21:46,830 --> 00:21:49,530
+Pause the video and complete this challenge.
+
+251
+00:21:54,080 --> 00:21:54,470
+All right.
+
+252
+00:21:54,470 --> 00:22:00,290
+So this is pretty simple all I'm going to do is copy this part of my code.
+
+253
+00:22:00,320 --> 00:22:06,010
+The get method and paste it twice so that I get two more endpoints that I can add.
+
+254
+00:22:06,020 --> 00:22:12,830
+So the first one is the about endpoint, and in my case, I'm just going to write an h1 called, "About
+
+255
+00:22:12,830 --> 00:22:13,370
+me."
+
+256
+00:22:13,370 --> 00:22:21,830
+And then maybe I can also have a paragraph tag saying, "My name is Angela," close my paragraph tag.
+
+257
+00:22:21,830 --> 00:22:24,650
+That's all the HTML that I'm going to send over.
+
+258
+00:22:24,650 --> 00:22:29,600
+And then the third endpoint is the contact endpoint.
+
+259
+00:22:29,600 --> 00:22:35,900
+And in this case, I'm going to have a h1 that says, "Contact me," and I'm going to have a paragraph that
+
+260
+00:22:35,900 --> 00:22:41,870
+says maybe my phone number is +4412345678
+
+261
+00:22:41,870 --> 00:22:42,740
+9
+
+262
+00:22:43,460 --> 00:22:49,250
+And then let's close off our paragraph tag and notice how Nodemon is working hard in the background,
+
+263
+00:22:49,250 --> 00:22:57,680
+noticing these changes and updating and restarting our server so we can simply go back over to our localhost
+
+264
+00:22:57,680 --> 00:22:58,700
+3000,
+
+265
+00:22:58,730 --> 00:23:00,140
+refresh the page,
+
+266
+00:23:00,140 --> 00:23:06,920
+this is what our home page looks like, this is what our about page looks like, and this is what our
+
+267
+00:23:06,920 --> 00:23:08,780
+contact page look like.
+
+268
+00:23:08,780 --> 00:23:16,310
+So you can see how we can use these different endpoints to plan for when a user or when a client tries
+
+269
+00:23:16,310 --> 00:23:17,840
+to hit up that endpoint.
+
+270
+00:23:17,840 --> 00:23:25,850
+And in reality, what this means is we can easily build multi-page websites, navigation into our web
+
+271
+00:23:25,850 --> 00:23:30,650
+apps built using Node and Express on the backend.
+
+272
+00:23:30,740 --> 00:23:36,800
+So in the next lesson, we're going to be learning more about different types of HTTP requests, and
+
+273
+00:23:36,800 --> 00:23:40,850
+we're also going to be learning how we can use Middleware with Express.
+
+274
+00:23:40,850 --> 00:23:44,050
+So for all of that and more, I'll see you on the next lesson.
+

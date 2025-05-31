@@ -1,0 +1,632 @@
+1
+00:00:00,420 --> 00:00:00,810
+All right.
+
+2
+00:00:00,820 --> 00:00:10,530
+So in the last lesson, we saw that we were able to get the balance by querying our HashMap, and we're
+
+3
+00:00:10,530 --> 00:00:15,540
+able to return the result from this public query function.
+
+4
+00:00:15,930 --> 00:00:20,190
+And we test that on the command line using our own OWNER_PUBLIC_KEY.
+
+5
+00:00:21,300 --> 00:00:26,280
+Now, we want to be able to get this to work using the front-end instead of using the command line.
+
+6
+00:00:26,880 --> 00:00:31,260
+So to do that, we have to write some code in the balance.jsx.
+
+7
+00:00:32,040 --> 00:00:38,670
+Now in this file, I've already got the HTML pretty much done for you because that part is easy.
+
+8
+00:00:39,090 --> 00:00:44,910
+But we're going to be writing the JavaScript code in order to hook it up with our backend and get it
+
+9
+00:00:44,910 --> 00:00:45,390
+to work.
+
+10
+00:00:45,960 --> 00:00:53,160
+So the first thing we want to do is notice that we've got this handleClick listener hooked up so that
+
+11
+00:00:53,160 --> 00:01:00,750
+whenever the user clicks on this button, request balance, then it will trigger this function.
+
+12
+00:01:01,650 --> 00:01:05,010
+And inside this function, currently we've just got a console log.
+
+13
+00:01:05,099 --> 00:01:11,550
+So if we go ahead and test it on the front-end, so if we go ahead and click Check Balance, then you
+
+14
+00:01:11,550 --> 00:01:14,340
+can see it triggers this function call.
+
+15
+00:01:15,000 --> 00:01:23,010
+So instead of doing a console.log, what we want to do instead is we want to use await and call our function,
+
+16
+00:01:23,880 --> 00:01:33,870
+which is balanceOf. And we want to pass in the principal that the user typed inside that text field
+
+17
+00:01:34,320 --> 00:01:35,640
+right here.
+
+18
+00:01:36,570 --> 00:01:40,680
+So that's an input which is right here.
+
+19
+00:01:41,250 --> 00:01:48,300
+And in order get hold of what's inside the input, we have to add a value attribute.
+
+20
+00:01:48,660 --> 00:01:52,200
+Now the value is going to be an input value,
+
+21
+00:01:52,210 --> 00:01:57,690
+so whatever the user types in there. And we're going to capture that inside a constant.
+
+22
+00:01:58,290 --> 00:02:03,330
+So we're going to create a cons which is using the React use state.
+
+23
+00:02:03,870 --> 00:02:11,460
+So we're going to set the const to be called inputValue, just like what we've got down here.
+
+24
+00:02:12,180 --> 00:02:16,620
+And we're going to give it also a setter as well,
+
+25
+00:02:16,620 --> 00:02:25,410
+so setInput. And this is going to be tracked using our useState hook and we're going to set the initial
+
+26
+00:02:25,410 --> 00:02:27,480
+value to just an empty string.
+
+27
+00:02:29,040 --> 00:02:35,880
+We've got our useState which is from our React module and in order to set the input value, we have
+
+28
+00:02:35,880 --> 00:02:44,490
+to add an onChange listener attribute as well so that when it changes, we will trigger a function
+
+29
+00:02:44,490 --> 00:02:52,680
+which in this case is just going to be using the JavaScript fat arrow and we're going to call setInput
+
+30
+00:02:53,160 --> 00:02:57,900
+to set it to the e.target.value.
+
+31
+00:02:58,890 --> 00:03:05,190
+What this is going to do is whenever this input gets changed, which means that the user's typing something
+
+32
+00:03:05,190 --> 00:03:07,920
+into it, it's going to trigger this function.
+
+33
+00:03:08,430 --> 00:03:16,710
+And this function takes the event that caused the trigger and it calls our setInput setter method in
+
+34
+00:03:16,710 --> 00:03:21,780
+order to set the input values state to the event that triggered it,
+
+35
+00:03:21,780 --> 00:03:28,050
+so the typing .target, which is going to be this current input element, .value, which is going
+
+36
+00:03:28,050 --> 00:03:29,880
+to be whatever the user typed in here.
+
+37
+00:03:30,600 --> 00:03:37,650
+And this kind of format is really commonly seen in React where we have an input, the value is set using
+
+38
+00:03:37,650 --> 00:03:42,090
+the constant and when it's on change, trigger the setter for that constant.
+
+39
+00:03:43,500 --> 00:03:50,070
+Let's just make sure that actually works so that we actually console.log. Instead of balance button clicked,
+
+40
+00:03:50,430 --> 00:03:58,560
+we're going to console.log input value and let's go ahead and hit save and go back to our front-end.
+
+41
+00:03:58,560 --> 00:04:04,890
+And I'm just going to type something in here, click check balance, and you can see that it's got a hold
+
+42
+00:04:04,890 --> 00:04:07,440
+of the input inside that field.
+
+43
+00:04:08,010 --> 00:04:08,760
+So brilliant.
+
+44
+00:04:09,390 --> 00:04:16,440
+Now the next thing we want to do is we want to take that input value and pass it back into here.
+
+45
+00:04:16,740 --> 00:04:21,540
+But we don't want to pass it back just as text, which is what we've got currently,
+
+46
+00:04:21,540 --> 00:04:28,740
+whatever we type into the input field is going to be served up as text. But instead, we want to convert
+
+47
+00:04:28,740 --> 00:04:36,300
+it into a principal data type and then call this function passing that in as the input. In order to
+
+48
+00:04:36,300 --> 00:04:40,530
+import the classes from Motoko on the front-end
+
+49
+00:04:40,830 --> 00:04:45,150
+in JavaScript, our import will look a little bit different.
+
+50
+00:04:45,660 --> 00:04:52,410
+So we're going to import the principal type and it's going to come from our dfinity module.
+
+51
+00:04:52,830 --> 00:04:56,940
+So it's going to be @dfinity/principal.
+
+52
+00:04:57,510 --> 00:05:08,190
+This is really similar to our Motoko mo:base/Principal, but this is written obviously in JavaScript,
+
+53
+00:05:08,520 --> 00:05:13,710
+but also this comes from our package.json @dfinity.
+
+54
+00:05:14,220 --> 00:05:15,840
+This is where it's getting it from.
+
+55
+00:05:16,230 --> 00:05:22,680
+And the @ sign basically just denotes a scoped package, which is sort of a way of grouping similar
+
+56
+00:05:22,680 --> 00:05:23,730
+packages together
+
+57
+00:05:24,030 --> 00:05:32,940
+instead of having them all separate. We can get hold of the Dfinity principal type by using this import,
+
+58
+00:05:33,570 --> 00:05:40,290
+and then we can create our principal by converting it using the Principal type.
+
+59
+00:05:40,770 --> 00:05:44,310
+So we're going to say Principal.fromText.
+
+60
+00:05:44,580 --> 00:05:51,660
+We did this in our main.mo when we got hold of our owner's principal from the command line and
+
+61
+00:05:51,660 --> 00:05:55,860
+then we converted it into an actual Principal type using that method.
+
+62
+00:05:56,250 --> 00:06:00,360
+But in this case, we're converting it from the current input value.
+
+63
+00:06:00,930 --> 00:06:06,540
+So we're basically taking whatever the user types inside here and then converting it into a Principal 
+
+64
+00:06:06,540 --> 00:06:06,960
+type,
+
+65
+00:06:07,320 --> 00:06:15,990
+and then finally, we're going to call that method, balanceOf, from our main.mo. Again,
+
+66
+00:06:15,990 --> 00:06:20,970
+in order to be able to call the methods in our back end, we have to import it.
+
+67
+00:06:21,450 --> 00:06:31,080
+So we're going to import our actor, which is our token canister, and we're going to get it from our
+
+68
+00:06:31,650 --> 00:06:32,970
+relative path.
+
+69
+00:06:33,120 --> 00:06:40,530
+So I actually need three of these .. slashes and then we go into the declarations folder which is right here,
+
+70
+00:06:41,040 --> 00:06:44,790
+and then from there we can access the token bridge file.
+
+71
+00:06:45,480 --> 00:06:47,760
+This is what it should look like to import.
+
+72
+00:06:48,270 --> 00:06:52,860
+Now I can say await token.balanceOf.
+
+73
+00:06:55,050 --> 00:07:01,920
+And this method requires a principal to be passed in, which is what we have created in the previous
+
+74
+00:07:01,920 --> 00:07:02,500
+line here.
+
+75
+00:07:03,210 --> 00:07:08,430
+And then we're going to set this to a const which I'm going to call balance.
+
+76
+00:07:09,150 --> 00:07:14,730
+And we want to display that balance inside this paragraph element here.
+
+77
+00:07:15,720 --> 00:07:23,190
+Now, instead of having XYZ, we're going to display the balance result here.
+
+78
+00:07:24,000 --> 00:07:29,640
+And for that to work, we need to create another constant that has state.
+
+79
+00:07:30,060 --> 00:07:32,130
+So we called it balanceResult.
+
+80
+00:07:32,610 --> 00:07:37,170
+And we're going to have a setter which is going to be called setBalance.
+
+81
+00:07:37,770 --> 00:07:44,310
+So we're going to useState and we're going to set the balance to have an initial value of also just
+
+82
+00:07:44,310 --> 00:07:45,210
+an empty string.
+
+83
+00:07:45,420 --> 00:07:50,220
+So notice that this is actually going to be a string or a text data type.
+
+84
+00:07:50,940 --> 00:07:54,170
+When we get this balance back, it's going to look like this.
+
+85
+00:07:54,180 --> 00:08:00,610
+It's going to be formatted like this, and it's going to be a natural number. In order to set it properly,
+
+86
+00:08:00,630 --> 00:08:06,210
+so using our setBalance, we want to change this into a string.
+
+87
+00:08:06,540 --> 00:08:15,840
+And JavaScript rather handily actually has a method which is called toLocaleString. And make sure that
+
+88
+00:08:15,840 --> 00:08:17,720
+you've got the correct spelling.
+
+89
+00:08:17,730 --> 00:08:20,760
+It's not local, it's locale.
+
+90
+00:08:21,840 --> 00:08:29,550
+And then at the end we add a set of parentheses to actually convert this number into a formatted number,
+
+91
+00:08:30,090 --> 00:08:31,500
+which is going to be a string.
+
+92
+00:08:31,530 --> 00:08:40,679
+And if we hit save and go back to our front-end, if we paste in that principal ID, click check balance,
+
+93
+00:08:41,039 --> 00:08:43,830
+then you can see it shows up right here.
+
+94
+00:08:44,430 --> 00:08:44,910
+Perfect.
+
+95
+00:08:44,910 --> 00:08:47,610
+That actually worked using our back-end.
+
+96
+00:08:47,940 --> 00:08:54,660
+And that is how we can get our front-end to pull in the data from our back-end and to format it to be
+
+97
+00:08:54,660 --> 00:08:56,340
+able to see it on the website.
+
+98
+00:08:56,910 --> 00:08:59,760
+Now, there's a couple of things that we want to fix here.
+
+99
+00:09:00,240 --> 00:09:07,260
+Firstly, it would be nice if we can also get hold of our currency so that it could say 1 billion DANG
+
+100
+00:09:07,260 --> 00:09:08,910
+or whatever your currency is called.
+
+101
+00:09:09,840 --> 00:09:12,330
+And I actually want to set that to you as a challenge.
+
+102
+00:09:12,750 --> 00:09:18,510
+Can you modify the Motoko code as well as the JavaScript code so that your currency symbol shows up
+
+103
+00:09:18,510 --> 00:09:20,040
+just after the balance?
+
+104
+00:09:20,550 --> 00:09:23,940
+I'll give you a few seconds to pause the video before I show you the solution.
+
+105
+00:09:26,780 --> 00:09:27,140
+Ready?
+
+106
+00:09:27,440 --> 00:09:28,400
+Here's the solution.
+
+107
+00:09:29,000 --> 00:09:35,360
+Let's go back into our main.mo and let's create another query function.
+
+108
+00:09:36,020 --> 00:09:42,350
+So public query func and we'll call this one getSymbol.
+
+109
+00:09:45,020 --> 00:09:52,160
+So it's not going to take any inputs, but it is going to return a text.
+
+110
+00:09:53,810 --> 00:09:57,320
+Let's add a semicolon there to make this error go away.
+
+111
+00:09:57,800 --> 00:10:03,410
+And we're just simply going to return whatever is the value of our symbol right here.
+
+112
+00:10:05,730 --> 00:10:14,640
+So whatever it is that you set right here is going to be returned to our method. So we can create a new
+
+113
+00:10:14,640 --> 00:10:24,750
+const which we'll call a cryptoSymbol and will have a setSymbol method as well.
+
+114
+00:10:25,350 --> 00:10:31,530
+And we're going to useState and set it to have an initial value of an empty string.
+
+115
+00:10:32,340 --> 00:10:40,230
+And here we're going to use a setSymbol and call our await token
+
+116
+00:10:40,620 --> 00:10:43,600
+.getSymbol
+
+117
+00:10:43,700 --> 00:10:46,440
+method, like this.
+
+118
+00:10:47,340 --> 00:10:49,850
+So let me just check that I've got the method correct.
+
+119
+00:10:49,860 --> 00:10:51,140
+It's called getSymbol,
+
+120
+00:10:51,150 --> 00:10:52,170
+I called getSymbol.
+
+121
+00:10:52,170 --> 00:10:52,710
+Perfect.
+
+122
+00:10:53,160 --> 00:11:00,030
+And then down here, just after our balanceResult, we're going to add in our cryptoSymbol to show
+
+123
+00:11:00,030 --> 00:11:00,210
+up.
+
+124
+00:11:00,630 --> 00:11:01,650
+Let's hit save.
+
+125
+00:11:01,980 --> 00:11:06,210
+Let's copy our principle ID and paste it.
+
+126
+00:11:06,330 --> 00:11:07,890
+Now, this is really important.
+
+127
+00:11:07,890 --> 00:11:13,590
+You can see that it says type error, token, blah, blah, blah is not a function.
+
+128
+00:11:13,920 --> 00:11:16,100
+Now, can you figure out why that is?
+
+129
+00:11:16,110 --> 00:11:21,300
+Because this will happen to you quite a few times when you're doing ICP development.
+
+130
+00:11:22,080 --> 00:11:28,830
+So the reason is because we updated on main.mo code and we updated our front-end. Whenever we
+
+131
+00:11:28,830 --> 00:11:38,220
+update our front-end, because we're using the automatic reload on our npm server using npm start, it
+
+132
+00:11:38,220 --> 00:11:45,150
+will automatically restart the server, but it will not automatically do dfx deploy for us.
+
+133
+00:11:45,570 --> 00:11:52,500
+And because we've changed the backend, our Motoko file, we have to do that in order to pull that into
+
+134
+00:11:52,500 --> 00:11:57,520
+our declarations and to actually be able to access it from our frontend.
+
+135
+00:11:58,050 --> 00:11:59,280
+So let's do that,
+
+136
+00:11:59,290 --> 00:12:00,360
+dfx deploy.
+
+137
+00:12:03,610 --> 00:12:07,450
+And once that's done, you can see we can now access this method.
+
+138
+00:12:07,930 --> 00:12:14,530
+And if we hit, save and go back, we should now be able to get it to show up.
+
+139
+00:12:15,040 --> 00:12:15,790
+So perfect.
+
+140
+00:12:17,140 --> 00:12:23,500
+The next thing I want to do is I want to hide this feedback message, because when you first load it
+
+141
+00:12:23,500 --> 00:12:28,700
+up and you don't have any accounts, it just says this account has a balance of .
+
+142
+00:12:29,020 --> 00:12:30,550
+It doesn't really make much sense.
+
+143
+00:12:31,090 --> 00:12:41,630
+So what we can do is we can create a new const called isHidden and we can setHidden as the setter.
+
+144
+00:12:44,140 --> 00:12:48,310
+And we're going to start off with a value of true.
+
+145
+00:12:48,850 --> 00:12:57,100
+And we can set the hidden attribute on our paragraph to be equal to the isHidden constant that we've
+
+146
+00:12:57,100 --> 00:13:02,600
+got up here and we want to set it to be not hidden
+
+147
+00:13:02,620 --> 00:13:07,480
+once we've gotten back the balance and the symbol and the user actually clicked on the button.
+
+148
+00:13:07,930 --> 00:13:13,450
+So we can say setHidden and we'll set it to false inside here.
+
+149
+00:13:13,990 --> 00:13:14,980
+Now let's go back
+
+150
+00:13:14,980 --> 00:13:18,070
+and you can see initially there's no text below the button.
+
+151
+00:13:18,550 --> 00:13:23,020
+But if we check our balance, then you can see that paragraph suddenly appears.
+
+152
+00:13:24,570 --> 00:13:30,090
+This is really just sort of improving the appearance and improving the UX of our frontend.
+
+153
+00:13:30,540 --> 00:13:34,080
+It doesn't really change the main functionality, which we've already achieved.
+
+154
+00:13:34,980 --> 00:13:35,770
+There you have it.
+
+155
+00:13:35,790 --> 00:13:44,700
+We've got our balance checking mechanism complete and we can now move on to the next aspect, which
+
+156
+00:13:44,700 --> 00:13:54,180
+is getting our faucet to run and being able to tap into the faucet and give any user 10,000 free tokens.
+
+157
+00:13:54,750 --> 00:13:56,430
+So for all of that and more,
+
+158
+00:13:56,730 --> 00:13:58,170
+I'll see you in the next lesson.
+

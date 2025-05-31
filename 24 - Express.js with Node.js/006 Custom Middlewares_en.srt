@@ -1,0 +1,916 @@
+1
+00:00:00,530 --> 00:00:05,780
+In this lesson, we'll practice using another popular type of middleware called Morgan.
+
+2
+00:00:05,830 --> 00:00:11,450
+Afterwards, we'll write our very own custom middleware and then finish off by putting all that knowledge
+
+3
+00:00:11,450 --> 00:00:14,510
+together to create a Band Name Generator.
+
+4
+00:00:15,390 --> 00:00:22,590
+We mentioned that in terms of the types of functionality you see with middleware, you've got pre-processing
+
+5
+00:00:22,620 --> 00:00:23,430
+types.
+
+6
+00:00:23,850 --> 00:00:25,720
+You've got authentication.
+
+7
+00:00:25,740 --> 00:00:30,120
+You've got error handling ones and you've got logging requests.
+
+8
+00:00:30,150 --> 00:00:34,770
+Body-parser belongs to the pre-processing category.
+
+9
+00:00:34,800 --> 00:00:41,130
+So now let's look at a different category of middleware, namely the logging types.
+
+10
+00:00:42,060 --> 00:00:50,160
+One of the most commonly used logging middlewares for Node is a package called morgan, and it comes
+
+11
+00:00:50,160 --> 00:00:52,200
+from the Dexter Show.
+
+12
+00:00:52,230 --> 00:00:53,400
+Morgan Dexter.
+
+13
+00:00:53,490 --> 00:01:00,540
+And you can see just how popular it is always on NPM by looking at the weekly downloads. Almost 4 million
+
+14
+00:01:00,540 --> 00:01:01,380
+weekly downloads.
+
+15
+00:01:01,380 --> 00:01:09,150
+So it's really, really commonly used and it's basically used to log the requests that come in to your
+
+16
+00:01:09,150 --> 00:01:09,960
+server.
+
+17
+00:01:10,050 --> 00:01:19,660
+And in order to use it, all we have to do is to install it onto our server, import it, and then use
+
+18
+00:01:19,660 --> 00:01:23,710
+it as middleware with the app.use() method.
+
+19
+00:01:24,160 --> 00:01:30,670
+Now, morgan has a number of options that you can use to determine how detailed you want the logging
+
+20
+00:01:30,700 --> 00:01:31,510
+to be.
+
+21
+00:01:31,510 --> 00:01:38,320
+But essentially what happens when we use the morgan middleware, is when we send a request to our server,
+
+22
+00:01:38,320 --> 00:01:45,430
+such as if we try to load up the home page by going to localhost:3000, then it's going to hit up our
+
+23
+00:01:45,430 --> 00:01:50,440
+GET route and it's going to send back the words "Hello,"
+
+24
+00:01:50,470 --> 00:01:58,870
+but also behind the scenes this middleware function has triggered before it even gets to the app.get()
+
+25
+00:01:58,900 --> 00:02:07,060
+handler and we get an output in our console that has the date and time of the request.
+
+26
+00:02:07,090 --> 00:02:09,789
+It has the type of request that was made.
+
+27
+00:02:09,789 --> 00:02:14,620
+It has the URL of the request, which is to the forward-slash (/) or the root route.
+
+28
+00:02:14,650 --> 00:02:17,210
+The status code of the request,
+
+29
+00:02:17,210 --> 00:02:23,050
+so 200, it was successful and then a whole bunch of other things that we saw previously in our request,
+
+30
+00:02:23,050 --> 00:02:25,240
+such as where did it come from?
+
+31
+00:02:25,240 --> 00:02:33,850
+Well, it was coming from a Mac running on macOS X 10.15.7, and it came from a browser which is Chrome,
+
+32
+00:02:33,850 --> 00:02:34,510
+etcetera,
+
+33
+00:02:34,510 --> 00:02:35,290
+etcetera.
+
+34
+00:02:35,290 --> 00:02:43,300
+So what I want you to do is I want you to pause on this video, take a look through the docs for the
+
+35
+00:02:43,300 --> 00:02:51,820
+NPM package that's called morgan, and take a look at the different Predefined Formats so we can have
+
+36
+00:02:51,820 --> 00:02:57,220
+combined, we can have common, development (dev), short, tiny,
+
+37
+00:02:57,220 --> 00:03:04,300
+and you can see it tells you what is going to be logged, the status, the URL, the method, the response-time,
+
+38
+00:03:04,300 --> 00:03:08,020
+etcetera, and decide whichever one it is that you want.
+
+39
+00:03:08,170 --> 00:03:14,740
+And then using the code that I showed you earlier, I want you to go into index2.js and modify
+
+40
+00:03:14,740 --> 00:03:15,910
+this starting file
+
+41
+00:03:15,910 --> 00:03:21,280
+so that we can start logging using the morgan middleware.
+
+42
+00:03:21,730 --> 00:03:28,810
+I'm going to leave this slide up and I want you to pause the video and see if you can complete this
+
+43
+00:03:28,810 --> 00:03:29,890
+mini-challenge.
+
+44
+00:03:33,660 --> 00:03:33,990
+All right.
+
+45
+00:03:33,990 --> 00:03:40,500
+So this time I'm going to use a different morgan option. Again,
+
+46
+00:03:40,500 --> 00:03:45,090
+I'm going to use the app.use() method in order to use morgan.
+
+47
+00:03:45,090 --> 00:03:52,830
+And then inside some curly braces, I get to specify the format of my output.
+
+48
+00:03:52,830 --> 00:04:03,540
+So I'm going to change it to "tiny" in order to get less stuff out and making sure that I've stopped my
+
+49
+00:04:03,540 --> 00:04:08,190
+server, making sure that I have in fact NPM installed
+
+50
+00:04:08,190 --> 00:04:11,940
+morgan, so that I have the package that I just imported,
+
+51
+00:04:11,940 --> 00:04:16,320
+I'm going to use Nodemon to run my index2.js
+
+52
+00:04:16,320 --> 00:04:21,360
+So now let's go ahead and test this out.
+
+53
+00:04:21,360 --> 00:04:26,820
+So I'm going to open up my Postman and I'm going to hit up the localhost:3000.
+
+54
+00:04:26,850 --> 00:04:29,280
+Let's send a GET request.
+
+55
+00:04:29,310 --> 00:04:32,500
+You can see a GET request was sent to the root route.
+
+56
+00:04:32,500 --> 00:04:38,920
+The result was 200, all successful and that whole process took five milliseconds.
+
+57
+00:04:38,920 --> 00:04:40,390
+Now let's try something else.
+
+58
+00:04:40,390 --> 00:04:43,960
+Let's try a POST request to the /submit.
+
+59
+00:04:44,140 --> 00:04:49,510
+You can see that even though we don't even have a handler to deal with it, because the middleware actually
+
+60
+00:04:49,510 --> 00:04:53,020
+happens before the request reaches any of the handlers,
+
+61
+00:04:53,050 --> 00:05:00,040
+we still have a valid middleware action that's happening, telling me that a post request was submitted
+
+62
+00:05:00,040 --> 00:05:02,350
+to the /submit route.
+
+63
+00:05:02,380 --> 00:05:09,400
+It was a 404 because of course that is not handled and this is how long it took.
+
+64
+00:05:10,240 --> 00:05:12,040
+So have a play around with that.
+
+65
+00:05:12,040 --> 00:05:21,130
+If you use the morgan documentation and you use the require() function, which is fine, it's just a little
+
+66
+00:05:21,130 --> 00:05:29,110
+bit outdated and they could probably update their documentation because we are in fact using
+
+67
+00:05:29,110 --> 00:05:36,130
+module-based ES6 JavaScript so we can actually use the import as we've been using so far.
+
+68
+00:05:36,130 --> 00:05:38,470
+That's just one thing to keep note of.
+
+69
+00:05:38,500 --> 00:05:44,860
+Now we've seen a couple of middlewares, now we've seen body-parser and we've seen morgan just now,
+
+70
+00:05:44,890 --> 00:05:47,830
+what if we wanted to build our own middleware?
+
+71
+00:05:47,830 --> 00:05:49,780
+What does that require?
+
+72
+00:05:50,140 --> 00:05:59,620
+Essentially what happens in all of these middlewares is we use the app.use() method to specify a middleware
+
+73
+00:05:59,620 --> 00:06:02,430
+to use when the request comes in,
+
+74
+00:06:02,440 --> 00:06:12,820
+and inside there, we can pass in a function and it has a request, a response object and a next() method.
+
+75
+00:06:13,150 --> 00:06:19,690
+Because there can be multiple middleware and also because this is something that happens in the middle,
+
+76
+00:06:19,720 --> 00:06:26,380
+the next function basically determines when we should move on from the middleware and continue in the
+
+77
+00:06:26,380 --> 00:06:29,410
+flow of the server handlers.
+
+78
+00:06:29,410 --> 00:06:33,810
+So when should it go to the next function that's in line?
+
+79
+00:06:33,810 --> 00:06:40,590
+So the middleware that we're putting inside the app.use() method can in fact be created from scratch.
+
+80
+00:06:40,800 --> 00:06:47,250
+And it's quite useful to see this, just to know roughly what's actually going behind the scenes with
+
+81
+00:06:47,250 --> 00:06:50,970
+all of these different modules that we're putting in here, like body-parser and
+
+82
+00:06:50,970 --> 00:06:51,720
+morgan.
+
+83
+00:06:51,870 --> 00:06:59,400
+So in this case, all I've got is a function that takes a request, a response object, and also has
+
+84
+00:06:59,400 --> 00:07:01,200
+a next() method.
+
+85
+00:07:01,320 --> 00:07:08,460
+Now when the middleware is activated, in this case, all I'm doing is just doing some logging, so I'm
+
+86
+00:07:08,460 --> 00:07:16,050
+saying log request method and then tap into the req.method property in order to print it out.
+
+87
+00:07:16,560 --> 00:07:22,680
+Finally, we have the next() function, which basically just says, okay, I'm done with all of my middleware
+
+88
+00:07:22,680 --> 00:07:27,660
+functionality, proceed to the next step of handling that request.
+
+89
+00:07:27,690 --> 00:07:31,020
+Now if there is another middleware here,
+
+90
+00:07:32,060 --> 00:07:35,730
+then that is where that next() is going to go to.
+
+91
+00:07:35,750 --> 00:07:41,900
+It's going to go to the next app.use, which is why it's really important in Express the order that
+
+92
+00:07:41,900 --> 00:07:43,160
+you put your middleware.
+
+93
+00:07:43,190 --> 00:07:49,490
+If you want your request to be authenticated before you log the request or before you parse the request,
+
+94
+00:07:49,490 --> 00:07:53,870
+then you have to think about the order that it's going in in your code file.
+
+95
+00:07:54,140 --> 00:07:59,810
+But once it's done with all the middleware, then the next function will actually go to your request
+
+96
+00:07:59,840 --> 00:08:02,990
+handlers such as our app.get or our app.post.
+
+97
+00:08:03,140 --> 00:08:11,630
+So what I want you to do is to take a look at this particular slide and think about how you can implement
+
+98
+00:08:11,630 --> 00:08:13,340
+it in your own code.
+
+99
+00:08:13,460 --> 00:08:20,090
+Now in this case, all I'm doing is just logging the req.method, but I want you to log the
+
+100
+00:08:20,090 --> 00:08:28,460
+req.method, but also the URL of the request and you can get access to these through req.method, but
+
+101
+00:08:28,460 --> 00:08:31,710
+also req.url.
+
+102
+00:08:32,230 --> 00:08:41,080
+Open up index3.js, modify the code here so that you can create your own logging middleware and
+
+103
+00:08:41,080 --> 00:08:48,310
+as an extra challenge, I don't want you to have the middleware like what we had in the example, which
+
+104
+00:08:48,310 --> 00:08:54,040
+is where we've got the function inside app.use(), I want you to make it look like the other middleware
+
+105
+00:08:54,040 --> 00:08:55,190
+that we've used.
+
+106
+00:08:55,210 --> 00:09:01,660
+Remember with body-parser, all we did was app.use() and then we just said body-parser, blah blah blah
+
+107
+00:09:01,660 --> 00:09:02,260
+blah, blah.
+
+108
+00:09:02,290 --> 00:09:06,610
+And with morgan it was again going into here.
+
+109
+00:09:06,610 --> 00:09:16,690
+So what your app.use() should look like is it should look like this, making sure that this line of code
+
+110
+00:09:16,690 --> 00:09:17,950
+actually works.
+
+111
+00:09:17,950 --> 00:09:25,750
+I want you to write the middleware function that's going to log the request URL and the request method
+
+112
+00:09:25,750 --> 00:09:27,070
+into the console.
+
+113
+00:09:27,280 --> 00:09:30,130
+Pause the video and complete this challenge.
+
+114
+00:09:35,380 --> 00:09:35,680
+All right.
+
+115
+00:09:35,680 --> 00:09:40,810
+So we know that we need to create a middleware function called logger in order for this line of code
+
+116
+00:09:40,810 --> 00:09:41,590
+to work.
+
+117
+00:09:41,590 --> 00:09:43,300
+So let's do that now.
+
+118
+00:09:43,300 --> 00:09:53,050
+It's going to have the request, response and next and then we're going to console log a bunch of things.
+
+119
+00:09:53,080 --> 00:10:01,480
+Now, how you format your console log is totally up to you, but I'm going to say "Request method" and
+
+120
+00:10:01,480 --> 00:10:09,310
+then afterwards is going to come the "req.method" property,
+
+121
+00:10:09,310 --> 00:10:16,720
+and then I'm also going to console log the "req.url" and I'll change that here as well.
+
+122
+00:10:16,930 --> 00:10:26,860
+And then finally, we're going to need the next() function to say that this function should continue on
+
+123
+00:10:26,860 --> 00:10:28,720
+to the next thing.
+
+124
+00:10:28,720 --> 00:10:31,540
+So let's go ahead and stop our server.
+
+125
+00:10:31,540 --> 00:10:39,830
+Let's use our Nodemon to run index3.js and now let's make some requests.
+
+126
+00:10:39,830 --> 00:10:42,470
+So let's make a GET request.
+
+127
+00:10:42,590 --> 00:10:46,300
+You can see the Request Method and the Request URL.
+
+128
+00:10:46,310 --> 00:10:51,500
+Let's try our POST method, you can see the Request Method and the URL.
+
+129
+00:10:51,500 --> 00:10:57,860
+So we've actually replicated some of the functionality of morgan by creating this middleware ourselves
+
+130
+00:10:57,860 --> 00:11:04,640
+and then using the app.use() method, we're able to specify the middleware that we want to be implemented
+
+131
+00:11:04,670 --> 00:11:07,640
+before we end up in the route handlers.
+
+132
+00:11:07,640 --> 00:11:10,880
+Now remember what I said about the next() method.
+
+133
+00:11:10,880 --> 00:11:17,810
+It's really common that people forget to use it in the middleware and this is what would happen if you
+
+134
+00:11:17,810 --> 00:11:18,200
+did that.
+
+135
+00:11:18,200 --> 00:11:20,270
+So let's make a Send request.
+
+136
+00:11:20,300 --> 00:11:22,340
+You can see it's just hanging, right?
+
+137
+00:11:22,340 --> 00:11:27,110
+Even though we've got all of these things that we wanted, console logged, logged,
+
+138
+00:11:27,110 --> 00:11:34,430
+but if we actually try to go to our home page localhost, then it's actually not going to load because
+
+139
+00:11:34,430 --> 00:11:42,140
+it never manages to reach this handler because right here we need that method to happen before we can
+
+140
+00:11:42,140 --> 00:11:49,580
+actually hit up that handler that sends back whatever it is that we need to the client.
+
+141
+00:11:49,580 --> 00:11:57,200
+So the order of things really becomes very clear when you omit or when you add in that next function
+
+142
+00:11:57,200 --> 00:11:58,970
+in the middleware.
+
+143
+00:12:00,730 --> 00:12:05,950
+All that's left to do now is to complete the coding exercise for this lesson and to prove that you've
+
+144
+00:12:05,950 --> 00:12:09,970
+learned all the things that we talked about, which is a lot in this lesson.
+
+145
+00:12:09,970 --> 00:12:16,570
+So putting all of your knowledge together, we're going to create the Bandname Generator. Again, going
+
+146
+00:12:16,570 --> 00:12:22,720
+back to your 3.4 Middleware, you can see that inside index4.js,
+
+147
+00:12:22,750 --> 00:12:25,150
+we've got everything set up for you to get started.
+
+148
+00:12:25,150 --> 00:12:32,470
+It's just a simple Express Node Server, but what you're going to have to do is to go ahead and install
+
+149
+00:12:32,470 --> 00:12:43,300
+the right packages, to import the right modules and then to be able to serve up the index.html website
+
+150
+00:12:43,330 --> 00:12:47,320
+when a GET request is made to our server.
+
+151
+00:12:47,320 --> 00:12:53,560
+So we did that when we did index1.js, remember? Earlier? And you can review the code from over there
+
+152
+00:12:53,560 --> 00:12:58,990
+and you can even copy and paste the code in because my stance on copy and pasting code is you're never
+
+153
+00:12:58,990 --> 00:13:04,100
+going to be able to memorize word for word what a lot of these methods and things are going to look
+
+154
+00:13:04,100 --> 00:13:07,850
+like, and it's perfectly acceptable to copy and paste code.
+
+155
+00:13:07,850 --> 00:13:14,690
+But, but this is a huge but, you have to understand what the code that you copied does, what is its
+
+156
+00:13:14,690 --> 00:13:20,750
+function and not just blindly copy and paste code from the internet, but we've already gone through
+
+157
+00:13:20,750 --> 00:13:26,870
+it, so you should be able to review index1.js, add in the part of code that are required in order
+
+158
+00:13:26,870 --> 00:13:35,420
+to serve up the website and also you should be able to get the middleware working so that we can actually
+
+159
+00:13:35,420 --> 00:13:42,200
+parse the information that's coming in from the form in our Bandname Generator. The Street name and
+
+160
+00:13:42,200 --> 00:13:48,590
+the Pet name, so that when the submit button is pressed and a POST request comes over to our server,
+
+161
+00:13:48,590 --> 00:13:50,420
+we know how to handle it.
+
+162
+00:13:50,420 --> 00:13:56,090
+And then finally, what we're going to do is we're going to do a res.send to send back the result of
+
+163
+00:13:56,090 --> 00:13:57,650
+the combined word.
+
+164
+00:13:57,650 --> 00:14:02,210
+So the first part is the Street name and the second part is their Pet name.
+
+165
+00:14:02,330 --> 00:14:11,510
+If you go ahead and use Nodemon to run the solution4.js, then if you go over to our localhost
+
+166
+00:14:11,510 --> 00:14:13,610
+you can see how it should function.
+
+167
+00:14:13,610 --> 00:14:22,910
+So let's put in my values here into the two inputs, click submit and then we get back a h2 and a
+
+168
+00:14:22,910 --> 00:14:23,210
+h2.
+
+169
+00:14:23,210 --> 00:14:29,420
+And this is just an emoji which you can even copy and paste into your code if you wish.
+
+170
+00:14:29,420 --> 00:14:35,540
+And then this is the combined value of those two inputs that I put in just now.
+
+171
+00:14:35,540 --> 00:14:44,210
+So if I change this to Angela and then hit submit, you can see this is reacting to my HTML form.
+
+172
+00:14:44,230 --> 00:14:45,350
+That's the goal.
+
+173
+00:14:45,380 --> 00:14:49,490
+Pause the video and give this challenge a go.
+
+174
+00:14:53,160 --> 00:14:56,130
+Now, this combines a lot of stuff that we did today.
+
+175
+00:14:56,130 --> 00:15:03,480
+And what I want you to do if you got stuck, is to take a look at solution4.js, the solution code
+
+176
+00:15:03,480 --> 00:15:07,770
+for the exercise and see where you might have gone wrong.
+
+177
+00:15:07,800 --> 00:15:11,500
+The first thing we need to do is to add our route handlers.
+
+178
+00:15:11,520 --> 00:15:19,470
+We have an app.get() on our root route that is going to send the file, which is our index.html inside
+
+179
+00:15:19,470 --> 00:15:20,670
+the public folder.
+
+180
+00:15:20,790 --> 00:15:26,550
+Remember to do that, we need the full-file path and to get the full path path we need this directory
+
+181
+00:15:26,550 --> 00:15:27,950
+name constant.
+
+182
+00:15:27,960 --> 00:15:35,250
+So you can simply have copied these three lines from index1 and that is going to get you that directory
+
+183
+00:15:35,250 --> 00:15:41,100
+name which you can append to the rest of the path, which is the public folder index.html.
+
+184
+00:15:41,910 --> 00:15:49,110
+And then once you've done that, the next part is to actually test it out and make sure that when you
+
+185
+00:15:49,110 --> 00:15:57,730
+go to your localhost:3000, you actually see that file being served up using the Send file.
+
+186
+00:15:57,730 --> 00:16:03,040
+So always break down a complex task into smaller tasks and test frequently.
+
+187
+00:16:03,070 --> 00:16:11,140
+Now once that's up and running, then we need to install and get the body-parser middleware to work.
+
+188
+00:16:11,170 --> 00:16:18,250
+We'll import body-parser from the body-parser module, and then we're going to use the app.use() to be able
+
+189
+00:16:18,250 --> 00:16:20,620
+to parse urlencoded data.
+
+190
+00:16:20,620 --> 00:16:25,480
+And this again, you could have simply just copied over from the solution1.
+
+191
+00:16:25,480 --> 00:16:31,300
+This is something that we already did before and because you now know what it does, you don't have
+
+192
+00:16:31,300 --> 00:16:36,660
+to memorize it letter by letter and make typos and struggle in that kind of way.
+
+193
+00:16:36,670 --> 00:16:42,580
+This is something that you can simply keep save on your computer and refer to it whenever you need this
+
+194
+00:16:42,580 --> 00:16:45,850
+functionality because now you understand what it does.
+
+195
+00:16:46,810 --> 00:16:53,650
+Once we have that middleware in place, then we can go ahead and process the request body that we're
+
+196
+00:16:53,650 --> 00:16:55,540
+getting through the HTML form.
+
+197
+00:16:55,660 --> 00:16:59,650
+In my case, I created my own middleware called bandNameGenerator,
+
+198
+00:16:59,650 --> 00:17:04,000
+so another preprocessor that's going into our server.
+
+199
+00:17:04,000 --> 00:17:08,589
+So once we've parsed the information, then we generate the band name,
+
+200
+00:17:08,920 --> 00:17:17,589
+this function basically takes the request, takes the first part, which is the Street, and then adds
+
+201
+00:17:17,589 --> 00:17:23,079
+it to the Pet name and then hits up the next() part of our server.
+
+202
+00:17:23,079 --> 00:17:27,520
+And this app.use() is where this function is called.
+
+203
+00:17:27,940 --> 00:17:30,370
+So this is the first middleware that happens.
+
+204
+00:17:30,370 --> 00:17:37,450
+We parse the information, then we generate the name from the req.body that the user entered, and
+
+205
+00:17:37,450 --> 00:17:42,100
+then our server determines which route needs to be hit up.
+
+206
+00:17:42,730 --> 00:17:52,360
+If it was a POST request that came in to the submit route, then we're going to res.send() the actual band
+
+207
+00:17:52,360 --> 00:17:56,980
+name back to the user, h1 and a h2.
+
+208
+00:17:57,220 --> 00:18:01,150
+And that is how we end up with this website.
+
+209
+00:18:01,780 --> 00:18:08,500
+If you didn't create a separate middleware and you simply put this inside the POST route, that's also
+
+210
+00:18:08,500 --> 00:18:09,670
+perfectly fine.
+
+211
+00:18:09,670 --> 00:18:11,020
+It really doesn't matter.
+
+212
+00:18:11,020 --> 00:18:15,400
+I just wanted to demonstrate to you one potential option.
+
+213
+00:18:15,400 --> 00:18:20,470
+You could have simply put all of this in here and then just paste it like this.
+
+214
+00:18:20,470 --> 00:18:25,600
+This is in fact less lines of code, but it's always good to know other options, right?
+
+215
+00:18:25,600 --> 00:18:32,140
+And plus, I get to demonstrate to you what happens if we actually change the order of our middleware.
+
+216
+00:18:32,140 --> 00:18:39,790
+So if by accident I put my body-parser middleware below my band generator middleware, then this is
+
+217
+00:18:39,790 --> 00:18:43,720
+what's going to happen when I go to my website.
+
+218
+00:18:43,720 --> 00:18:49,360
+So let's put in our Street name, let's put in our Pet name, hit submit.
+
+219
+00:18:49,390 --> 00:18:54,640
+We get errors, can't read properties of undefined.
+
+220
+00:18:54,670 --> 00:18:55,910
+Why is it undefined?
+
+221
+00:18:55,930 --> 00:19:02,260
+Well, it's because we're trying to access the req.body here, which is the first middleware.
+
+222
+00:19:02,260 --> 00:19:07,780
+But req.body doesn't exist yet because we haven't parsed the incoming request.
+
+223
+00:19:08,080 --> 00:19:14,500
+Remember, middleware order matters a huge deal and I just wanted to be able to demonstrate that to
+
+224
+00:19:14,500 --> 00:19:14,890
+you.
+
+225
+00:19:14,920 --> 00:19:20,650
+Hopefully, the rest of the code is pretty clear and you managed to get your version of bandNameGenerator
+
+226
+00:19:20,650 --> 00:19:21,460
+to work.
+
+227
+00:19:21,730 --> 00:19:26,650
+Once you're ready, head over to the next lesson where we've got the final programming challenge for
+
+228
+00:19:26,650 --> 00:19:27,550
+this section.
+
+229
+00:19:27,550 --> 00:19:28,780
+So I'll see you there.
+

@@ -1,0 +1,1764 @@
+1
+00:00:00,620 --> 00:00:01,280
+Hey, guys.
+
+2
+00:00:01,280 --> 00:00:08,720
+In this lesson we're going to be learning all about API authentication and authorization, the ability
+
+3
+00:00:08,720 --> 00:00:13,640
+to prove that you have the rights to access a particular API.
+
+4
+00:00:14,270 --> 00:00:21,380
+Previously we saw that we were able to make very simple GET requests using Axios or coming from our
+
+5
+00:00:21,380 --> 00:00:24,440
+server side and also doing it via Postman,
+
+6
+00:00:24,440 --> 00:00:30,710
+but you can imagine that there are a lot of scenarios where maybe you don't want everybody to be able
+
+7
+00:00:30,710 --> 00:00:32,659
+to access your API.
+
+8
+00:00:32,810 --> 00:00:38,980
+Let's say that the data that you hold behind your API is a resource, right?
+
+9
+00:00:38,990 --> 00:00:44,930
+Let's view it as money because after all, in our current day and age, data is extremely valuable.
+
+10
+00:00:45,200 --> 00:00:53,390
+In that case, let's imagine that we have our data locked up in a vault like a bank does, and our API
+
+11
+00:00:53,420 --> 00:00:59,510
+is the front desk where we can take and handle requests from customers and clients.
+
+12
+00:00:59,630 --> 00:01:06,900
+So let's say somebody bad comes along and says, "Well, I'd like to get Â£100, please" using the API,
+
+13
+00:01:06,930 --> 00:01:09,830
+and they try to get hold of some resource.
+
+14
+00:01:09,840 --> 00:01:13,020
+Now so far this works with everything that we've seen.
+
+15
+00:01:13,230 --> 00:01:19,220
+Our API would say, Well, here you go, here's the money that you requested and off he goes.
+
+16
+00:01:19,230 --> 00:01:26,280
+What we want instead is in certain scenarios we want to be able to protect the resources behind our
+
+17
+00:01:26,280 --> 00:01:29,250
+API by using authentication.
+
+18
+00:01:29,250 --> 00:01:31,140
+So how does that work?
+
+19
+00:01:31,140 --> 00:01:35,940
+Well, in that case, we need to know who are you when you're making these requests?
+
+20
+00:01:35,940 --> 00:01:43,320
+And depending on whether if you have the authentication or not, then we might say, "Oh 401 unauthorized.
+
+21
+00:01:43,350 --> 00:01:45,240
+Sorry, you can't do that."
+
+22
+00:01:45,510 --> 00:01:52,350
+In this lesson, we're going to be learning exactly how we can authenticate the user or the client that
+
+23
+00:01:52,350 --> 00:01:58,200
+is making the API request and depending on whether or not they are authorized to make that request,
+
+24
+00:01:58,230 --> 00:02:03,030
+we can send them the data or tell them no, sorry, that's not allowed.
+
+25
+00:02:03,690 --> 00:02:08,100
+In terms of authentication, I like to think of it as four tiers.
+
+26
+00:02:08,130 --> 00:02:12,300
+There is the Zero Authentication, so none at all,
+
+27
+00:02:12,300 --> 00:02:14,520
+and that's what we've been working with so far.
+
+28
+00:02:14,610 --> 00:02:22,140
+There is Basic Authentication, API Key-based Authorization and also Token-based Authentication.
+
+29
+00:02:22,140 --> 00:02:27,510
+Now I'm going to tell you a little bit later on what's the difference between authentication and authorization.
+
+30
+00:02:27,510 --> 00:02:35,760
+Let's first go in order of security and let's start with the first type, No Authentication.
+
+31
+00:02:35,880 --> 00:02:40,590
+Now we've already seen APIs with no authentication.
+
+32
+00:02:40,590 --> 00:02:48,090
+For example, when we worked with the bored API, none of the endpoints in the API required any sort
+
+33
+00:02:48,090 --> 00:02:49,410
+of authentication.
+
+34
+00:02:49,410 --> 00:02:53,400
+So what can an API do to prevent abuse of the API?
+
+35
+00:02:53,430 --> 00:02:58,440
+Let's say somebody makes way too many requests and there's no way to check who they are or where they're
+
+36
+00:02:58,440 --> 00:02:59,250
+coming from,
+
+37
+00:02:59,250 --> 00:03:05,160
+then the way the API providers might add a safety check is to put in a Rate Limit.
+
+38
+00:03:05,280 --> 00:03:15,180
+As you saw in the bored APIs instance, we had a rate limit of 100 requests per 15 minutes and I put
+
+39
+00:03:15,180 --> 00:03:21,060
+in that rate limit so that under most cases as a student, that should be enough for you to work with
+
+40
+00:03:21,060 --> 00:03:27,840
+the API and get hold of the data and try out the things you want to try without hitting it up too much
+
+41
+00:03:27,840 --> 00:03:30,750
+and then ending up making the API go down for everyone.
+
+42
+00:03:30,870 --> 00:03:34,050
+So this is one way.
+
+43
+00:03:34,050 --> 00:03:42,180
+So you can check each IP address, how many requests they're making per minute and based on some sort
+
+44
+00:03:42,180 --> 00:03:48,060
+of arbitrary decision that you make, you can say, "Well, I'm going to limit it to this amount."
+
+45
+00:03:48,960 --> 00:03:56,700
+So that's something that you commonly see with public APIs that have no authentication and no authentication
+
+46
+00:03:56,700 --> 00:03:59,100
+is great because it means it's super inclusive.
+
+47
+00:03:59,100 --> 00:04:00,330
+Anyone can use it.
+
+48
+00:04:00,330 --> 00:04:07,470
+It's super easy to get started and usually if you don't have changing data that you're protecting or
+
+49
+00:04:07,470 --> 00:04:14,040
+data that needs to be assigned to a particular user, you very often see no authentication APIs.
+
+50
+00:04:14,610 --> 00:04:20,970
+If you go back to the Bored API Documentation, you'll see that all of the endpoints don't require any
+
+51
+00:04:20,970 --> 00:04:26,610
+sort of authentication and you can simply just make the request as anyone and you'll be able to get
+
+52
+00:04:26,610 --> 00:04:27,630
+the data back.
+
+53
+00:04:27,630 --> 00:04:35,070
+But the API requests are in fact rate limited and that means that we do have some safety measures,
+
+54
+00:04:35,070 --> 00:04:41,430
+although it is not a measure to authenticate or authorize any sort of API user.
+
+55
+00:04:42,210 --> 00:04:46,350
+Let's move on to the next level of security, Basic Authentication.
+
+56
+00:04:46,350 --> 00:04:49,710
+And as the name suggests, it is pretty basic.
+
+57
+00:04:49,710 --> 00:04:51,300
+So how does it work?
+
+58
+00:04:51,300 --> 00:04:59,100
+Well, you provide a username and password when you make your API request.
+
+59
+00:04:59,130 --> 00:04:59,940
+What that means
+
+60
+00:05:00,110 --> 00:05:05,360
+is you are authenticating yourself to the API provider.
+
+61
+00:05:05,360 --> 00:05:07,880
+You have an account with the API provider,
+
+62
+00:05:07,880 --> 00:05:12,800
+by providing these two pieces of information, you are proving your identity.
+
+63
+00:05:13,010 --> 00:05:22,940
+Usually, the way that Basic Authentication is done is by passing over a Base64 encoded string in the
+
+64
+00:05:22,940 --> 00:05:25,370
+header of the request.
+
+65
+00:05:25,400 --> 00:05:29,030
+Now what is Base64 encoding?
+
+66
+00:05:29,030 --> 00:05:32,960
+Well, it's basically taking text which is ASCII,
+
+67
+00:05:32,960 --> 00:05:39,260
+so anything that you can type on your keyboard and that can be converted into bits.
+
+68
+00:05:39,260 --> 00:05:43,790
+So zeros and ones to represent that particular character.
+
+69
+00:05:43,850 --> 00:05:50,080
+And then we can take the bits and then encode it into another character.
+
+70
+00:05:50,090 --> 00:05:54,740
+Now usually when we do Base64 encoding, there is a little bit of expansion,
+
+71
+00:05:54,740 --> 00:06:03,150
+so for example, by starting with the word man, M-A-N, the end result that we get once we've done our
+
+72
+00:06:03,150 --> 00:06:11,490
+Base64 encoding is TWFU and you can see we've got one more character than previously.
+
+73
+00:06:11,610 --> 00:06:18,150
+And depending on whether if you have spacing in your line of source encoding, then you might see extra
+
+74
+00:06:18,150 --> 00:06:19,740
+characters as well.
+
+75
+00:06:20,310 --> 00:06:28,230
+Each character is represented in binary, and I've seen some people who can actually read binary, which
+
+76
+00:06:28,230 --> 00:06:33,720
+I think is a crazy skill, but probably not that useful because computers can do it faster.
+
+77
+00:06:33,750 --> 00:06:36,600
+After all, this is basically computer language, right?
+
+78
+00:06:36,600 --> 00:06:44,460
+When we first started out with computers, we had a button for on and we had a button for off.
+
+79
+00:06:44,460 --> 00:06:49,590
+And by switching things on and off, on and off, we could represent to the computer what it is that
+
+80
+00:06:49,590 --> 00:06:57,360
+we wanted to type out or what we wanted it to number crunch and do all of the computations and all of
+
+81
+00:06:57,360 --> 00:07:03,240
+the things that computers do through these zeros and ones or these on and offs.
+
+82
+00:07:03,450 --> 00:07:08,160
+As you can see, each character that you can think of is represented in binary.
+
+83
+00:07:08,160 --> 00:07:15,450
+And then by taking that binary and passing it through a special encoding method, we end up with Base64.
+
+84
+00:07:15,720 --> 00:07:18,960
+And then we simply format it in this format,
+
+85
+00:07:18,960 --> 00:07:23,430
+so the username: password,
+
+86
+00:07:24,770 --> 00:07:29,180
+and we convert all of this into Base64.
+
+87
+00:07:29,210 --> 00:07:35,450
+So you'll end up with some sort of long string full of characters that represents this data
+
+88
+00:07:35,450 --> 00:07:37,400
+but in Base64.
+
+89
+00:07:37,730 --> 00:07:49,130
+And then what you can do is you can add this to an Authorization header and you can pass this data along
+
+90
+00:07:49,130 --> 00:07:51,320
+when you make your requests.
+
+91
+00:07:51,350 --> 00:07:55,760
+Let's see how this works in practice by trialing it through Postman.
+
+92
+00:07:56,510 --> 00:08:03,560
+The API that we're going to be using is another one of our own APIs and it's called the Secrets API.
+
+93
+00:08:03,920 --> 00:08:12,140
+So this API is all about putting your confessions into a database and for people to be able to share
+
+94
+00:08:12,140 --> 00:08:14,990
+and view each other's secrets anonymously.
+
+95
+00:08:15,410 --> 00:08:21,890
+The API has different endpoints with different levels of authentication.
+
+96
+00:08:22,130 --> 00:08:30,690
+What we can do with this API is we can register a new user by passing over a username and password in
+
+97
+00:08:30,690 --> 00:08:32,760
+the body of the POST request.
+
+98
+00:08:32,760 --> 00:08:41,220
+And once we've registered ourselves on the service then we can use that username and password to perform
+
+99
+00:08:41,220 --> 00:08:44,490
+a request using Basic authentication.
+
+100
+00:08:44,670 --> 00:08:51,990
+The way that our endpoints on this REST API works is if you wanted to get a random secret from the database
+
+101
+00:08:51,990 --> 00:08:57,750
+of secrets, then you don't need to authenticate yourself because we're sending over a small piece of
+
+102
+00:08:57,750 --> 00:08:58,440
+data,
+
+103
+00:08:58,470 --> 00:09:03,600
+people are probably not going to hit up this route too often, but if you want something a little bit
+
+104
+00:09:03,600 --> 00:09:11,910
+more involved, a little bit larger in terms of size of the response and also a little bit more precious
+
+105
+00:09:11,910 --> 00:09:16,530
+in terms of our resources, then we have a gate.
+
+106
+00:09:16,530 --> 00:09:21,900
+So we use basic authentication to make sure that at least you are a registered user,
+
+107
+00:09:21,900 --> 00:09:27,080
+and if down the line, we want to make sure that we check which users are making lots of requests,
+
+108
+00:09:27,090 --> 00:09:31,320
+say you want to have a paid tier for your API, all of that kind of stuff is possible.
+
+109
+00:09:31,680 --> 00:09:38,030
+So let's make a request to this endpoint using Basic authentication and Postman.
+
+110
+00:09:38,040 --> 00:09:46,920
+So I've got Postman up here on the right and I'm making an HTTP GET request and the URL that I'm going
+
+111
+00:09:46,920 --> 00:09:50,340
+to hit up is this particular URL.
+
+112
+00:09:50,370 --> 00:09:58,710
+This is the base URL for our API, secrets-api.appbrewery.com and I encourage you to read through the docs as
+
+113
+00:09:58,710 --> 00:10:01,860
+always before you make any sort of request to an API.
+
+114
+00:10:01,980 --> 00:10:10,380
+And what this API has is it has a Query Parameter called "page," because when you get hold of all pieces
+
+115
+00:10:10,380 --> 00:10:15,840
+of data, say all the secrets on the database, it's going to be a lot of data and we don't want to
+
+116
+00:10:15,840 --> 00:10:20,700
+send massive amounts of data over the Internet when people are making API requests.
+
+117
+00:10:20,700 --> 00:10:27,120
+So normally what people do, these API providers is they can paginate the response, so they'll give
+
+118
+00:10:27,120 --> 00:10:33,060
+you 10 at a time or 20 at a time and you can request which page you want, maybe you'll request
+
+119
+00:10:33,060 --> 00:10:33,720
+Page 1,
+
+120
+00:10:33,720 --> 00:10:38,300
+and then once you've dealt with the data there, you can request Page 2 and so on and so forth.
+
+121
+00:10:38,310 --> 00:10:44,250
+This is simply one of the parameters that we can add into the query parameter to determine the type
+
+122
+00:10:44,250 --> 00:10:45,630
+of response we get back.
+
+123
+00:10:45,780 --> 00:10:50,190
+The important thing now is authorization or authentication.
+
+124
+00:10:50,190 --> 00:10:55,560
+And the type that we want to use is the Basic Authentication.
+
+125
+00:10:55,560 --> 00:11:00,390
+We have to type in a username and a password in order for this to work.
+
+126
+00:11:00,750 --> 00:11:10,230
+What I want you to do is to go ahead and use this endpoint POST/register to register yourself
+
+127
+00:11:10,380 --> 00:11:18,810
+a username and password, and then once that's done, go ahead and use that username and password to hit
+
+128
+00:11:18,810 --> 00:11:21,600
+up the /all route.
+
+129
+00:11:21,630 --> 00:11:23,940
+Pause the video here and give that a go.
+
+130
+00:11:26,310 --> 00:11:26,610
+All right.
+
+131
+00:11:26,610 --> 00:11:27,660
+So let's run through this.
+
+132
+00:11:27,660 --> 00:11:32,850
+The first step is to make a POST request to the register route.
+
+133
+00:11:32,890 --> 00:11:42,270
+Let's go ahead and hit up the correct endpoint and then we're going to pass over some Body parameters
+
+134
+00:11:42,270 --> 00:11:45,840
+in the format of form-urlencoded.
+
+135
+00:11:45,840 --> 00:11:51,030
+And we have two KMeys, a username and a password.
+
+136
+00:11:51,480 --> 00:11:57,060
+And I'm just going to put in a random user, let's say our jackbauer user.
+
+137
+00:11:57,060 --> 00:12:04,230
+Let's say Jack Bauer wants to use our API and he wants to confess to some of his deepest, darkest secrets.
+
+138
+00:12:04,470 --> 00:12:09,900
+So I'm going to type a password and then I'm going to go ahead and hit Send to make this request.
+
+139
+00:12:09,900 --> 00:12:15,810
+And hopefully you'll see down here in the responses that we get a status: 200, which means everything
+
+140
+00:12:15,810 --> 00:12:20,880
+went okay and that I am now successfully registered.
+
+141
+00:12:21,060 --> 00:12:26,130
+Keep a hold of your username and password because we're going to need it in our Basic authentication
+
+142
+00:12:26,230 --> 00:12:33,340
+to try and request all of the secrets. We've got, our type of authorization selected as, Basic Auth,
+
+143
+00:12:33,340 --> 00:12:39,160
+and then I'm going to type in my username and password.
+
+144
+00:12:39,190 --> 00:12:47,380
+Once I've got both of those pieces of data, hit Send and you'll be able to see that we've got our secrets
+
+145
+00:12:47,380 --> 00:12:50,860
+coming back, ten per page.
+
+146
+00:12:51,280 --> 00:12:58,780
+Now I wanted to mention that when we're using Basic Authentication using Postman, it's actually doing
+
+147
+00:12:58,780 --> 00:13:00,820
+some magical stuff behind the scenes
+
+148
+00:13:00,820 --> 00:13:07,390
+for us. What it's doing is it's generating the authorization header automatically based on the username
+
+149
+00:13:07,390 --> 00:13:10,270
+and password that you've provided here.
+
+150
+00:13:10,270 --> 00:13:15,430
+So you can see this if you go over to the Headers tab and you can see they've automatically generated
+
+151
+00:13:15,430 --> 00:13:25,780
+this header with a key of authorization and a value of Basic with the B capitalized space and then a
+
+152
+00:13:25,780 --> 00:13:28,930
+string that represents your username and password.
+
+153
+00:13:28,930 --> 00:13:34,510
+Now I can prove this to you if you go ahead and copy your own string that you have in Postman that's
+
+154
+00:13:34,510 --> 00:13:42,400
+generated here and go to a website called base64decode.org and paste that string into the top box,
+
+155
+00:13:42,430 --> 00:13:50,080
+hit Decode and you can see it automatically decoded it to the original format, which is username :
+
+156
+00:13:50,080 --> 00:13:51,100
+password.
+
+157
+00:13:51,610 --> 00:13:54,700
+And that is basically what's happening behind the scenes here.
+
+158
+00:13:54,700 --> 00:14:00,340
+So when you're making server-side requests that need basic authentication or authorization, you can
+
+159
+00:14:00,340 --> 00:14:01,600
+also do this yourself.
+
+160
+00:14:01,600 --> 00:14:08,590
+Create the headers, use this as a string, convert your username and password, add in the word Basic
+
+161
+00:14:08,590 --> 00:14:10,270
+and add this as a header.
+
+162
+00:14:10,270 --> 00:14:15,700
+But in most cases, if you're using a library like Axios, it'll be able to generate all of that for
+
+163
+00:14:15,700 --> 00:14:18,370
+you by providing your username and password.
+
+164
+00:14:19,530 --> 00:14:19,950
+All right.
+
+165
+00:14:19,950 --> 00:14:21,900
+So did you manage to get this to work?
+
+166
+00:14:21,900 --> 00:14:27,990
+Did you manage to use Basic Authentication to authenticate yourself with the API provider and get hold
+
+167
+00:14:27,990 --> 00:14:29,820
+of some secrets?
+
+168
+00:14:29,820 --> 00:14:36,540
+Like I talked to my pet fish and imagine they're responding to me with witty comebacks.
+
+169
+00:14:37,050 --> 00:14:38,430
+"Uh, we've all been there."
+
+170
+00:14:39,000 --> 00:14:45,360
+We've now seen No authentication and Basic authentication in action when it comes to APIs.
+
+171
+00:14:45,390 --> 00:14:51,060
+Now let's go ahead and take a look at API Key Authorization.
+
+172
+00:14:51,390 --> 00:14:57,450
+One thing you'll notice is that this term authorization, if you're in the US, that's spelled with
+
+173
+00:14:57,450 --> 00:15:04,500
+a Z, but I'm in the UK, so it's spelt with an S, authorization versus authentication.
+
+174
+00:15:04,500 --> 00:15:05,850
+What is the difference?
+
+175
+00:15:05,850 --> 00:15:12,330
+Because you hear it a lot and you're often wondering, well, am I using authorization or am I using
+
+176
+00:15:12,330 --> 00:15:13,440
+authentication?
+
+177
+00:15:13,440 --> 00:15:21,430
+So the difference between these two forms is if you have a user, they can authenticate themselves with
+
+178
+00:15:21,430 --> 00:15:22,530
+your service.
+
+179
+00:15:22,540 --> 00:15:26,440
+That means you are logging in or you are registering.
+
+180
+00:15:26,440 --> 00:15:37,390
+But authorization is simply a client who is allowed to use your service with an API key that might be
+
+181
+00:15:37,390 --> 00:15:43,660
+associated with a user, in which case they are authenticating themselves and then getting an API key
+
+182
+00:15:43,660 --> 00:15:47,200
+to authorize themselves to use your API.
+
+183
+00:15:47,230 --> 00:15:53,080
+But it could just be you don't even need to register with the API provider and you can simply get hold
+
+184
+00:15:53,080 --> 00:15:59,080
+of an API key and authorize yourself with the API provider.
+
+185
+00:15:59,410 --> 00:16:01,660
+That is the difference.
+
+186
+00:16:01,930 --> 00:16:05,740
+Authorization is something that allows you to use an API.
+
+187
+00:16:05,740 --> 00:16:12,040
+Authentication is something that allows you to be identified as a user to the API provider.
+
+188
+00:16:12,490 --> 00:16:19,930
+You'll see that a lot of public APIs use API keys and it's really useful because you can then track
+
+189
+00:16:19,960 --> 00:16:22,140
+the usage per API key.
+
+190
+00:16:22,150 --> 00:16:28,000
+So for example, if you signed up for the Google Maps API, you can use all sorts of different APIs
+
+191
+00:16:28,000 --> 00:16:34,060
+that they provide, for example, the Places API to find all the different things that show up on Google
+
+192
+00:16:34,060 --> 00:16:34,780
+Maps,
+
+193
+00:16:34,780 --> 00:16:40,330
+or you can use the Distance Matrix to calculate the distance between two points in time, again, using
+
+194
+00:16:40,330 --> 00:16:41,710
+Google's APIs.
+
+195
+00:16:41,800 --> 00:16:48,520
+And every single time when you make a request, you need to use this key before you can get back a response,
+
+196
+00:16:48,520 --> 00:16:53,440
+then they can log, well, how many requests are you making with that key?
+
+197
+00:16:53,440 --> 00:17:00,610
+So you can see in this case they're using the places API 200,000 times per day.
+
+198
+00:17:00,620 --> 00:17:03,790
+So you're making 200,000 requests per day.
+
+199
+00:17:03,790 --> 00:17:10,780
+And as with most public APIs, they have to stand up their own infrastructure, their own servers,
+
+200
+00:17:10,780 --> 00:17:13,829
+they have to maintain these server computers, etcetera.
+
+201
+00:17:13,839 --> 00:17:20,410
+There's a lot of costs involved, so it's often that they will charge you for using their APIs.
+
+202
+00:17:20,410 --> 00:17:28,690
+For example, in this case, this person is racking up $2,000 worth of API usage and by looking at how
+
+203
+00:17:28,690 --> 00:17:34,060
+often you're needing to make requests through your API key, they can determine how much they should
+
+204
+00:17:34,060 --> 00:17:34,900
+charge you.
+
+205
+00:17:35,110 --> 00:17:42,580
+This is useful to know both as an API user as well as an API provider and in future lessons we'll see
+
+206
+00:17:42,580 --> 00:17:47,020
+how we can create our own APIs and we'll look at the other side of the coin.
+
+207
+00:17:47,020 --> 00:17:49,960
+But for now let's focus on the client side.
+
+208
+00:17:49,960 --> 00:17:56,080
+The easiest side for now, if you go back to our Secrets API documentation, you can see that we have
+
+209
+00:17:56,080 --> 00:18:05,110
+some endpoints that require an API to authorize your usage and in order to get hold of an API, there
+
+210
+00:18:05,110 --> 00:18:11,440
+is the generate API key endpoint, which for now we've kept it pretty simple.
+
+211
+00:18:11,440 --> 00:18:17,380
+Just allows you to hit up this route, make a GET request and get your own API key to use.
+
+212
+00:18:17,920 --> 00:18:24,070
+And once you've generated the API key you can scroll down to the filter endpoint.
+
+213
+00:18:24,310 --> 00:18:31,480
+This endpoint allows you to return some secrets with a particular embarrassment score, so you'll see
+
+214
+00:18:31,480 --> 00:18:36,450
+that each of the secrets are associated with embarrassment scores or the emScore.
+
+215
+00:18:36,460 --> 00:18:41,800
+And this is just a way for the user to provide a piece of metadata about;
+
+216
+00:18:41,800 --> 00:18:45,490
+on a scale of 1 to 10, how embarrassing is your secret?
+
+217
+00:18:46,000 --> 00:18:54,250
+And by using this filter endpoint, we can provide this score as a query parameter and then we can provide
+
+218
+00:18:54,250 --> 00:18:59,260
+a number to say what is the minimum embarrassment score to filter for?
+
+219
+00:18:59,380 --> 00:19:07,510
+But most importantly, in order for this request to pass, we also need to pass the API key as a query
+
+220
+00:19:07,510 --> 00:19:08,320
+parameter.
+
+221
+00:19:08,320 --> 00:19:14,430
+And this is the key that we generated previously from this step, generate-api-key.
+
+222
+00:19:14,440 --> 00:19:18,310
+So I want you to pause the video and give this a go using the
+
+223
+00:19:18,350 --> 00:19:26,540
+documentation from secrets-api.appbrewery.com. I want you to use Postman to get hold of all the embarrassing
+
+224
+00:19:26,540 --> 00:19:30,930
+secrets that have an embarrassment score of seven or more.
+
+225
+00:19:30,950 --> 00:19:32,540
+So pause the video.
+
+226
+00:19:32,570 --> 00:19:33,500
+Give this a go.
+
+227
+00:19:36,560 --> 00:19:36,950
+All right.
+
+228
+00:19:36,950 --> 00:19:41,540
+So the first step we need to do is we need to generate an API key.
+
+229
+00:19:41,570 --> 00:19:43,870
+So we would go on to the website.
+
+230
+00:19:43,880 --> 00:19:49,250
+Maybe we would give our card details, maybe we would need to sign up and log in,
+
+231
+00:19:49,250 --> 00:19:56,600
+but either way, at some point we will hit up this endpoint and get the API to give us an access key.
+
+232
+00:19:56,720 --> 00:20:04,010
+Once we've gotten hold of the access key, then we can go and hit up the routes that require it. In the
+
+233
+00:20:04,010 --> 00:20:04,820
+Secrets API,
+
+234
+00:20:04,850 --> 00:20:07,400
+that is the filter endpoint,
+
+235
+00:20:07,430 --> 00:20:11,610
+we can make our requests to this endpoint.
+
+236
+00:20:11,630 --> 00:20:20,900
+/filter and we can add the parameter which is called score that tells the API what is the
+
+237
+00:20:20,900 --> 00:20:21,620
+minimum score
+
+238
+00:20:21,620 --> 00:20:24,650
+we want to filter by and I'm setting that to 7.
+
+239
+00:20:24,950 --> 00:20:32,900
+Coming into Authorization, we can provide our API key here where we say what is the Key and what is
+
+240
+00:20:32,900 --> 00:20:33,770
+the Value.
+
+241
+00:20:33,800 --> 00:20:43,230
+The key here is apiKey, spelt with a capital K, as you can see in the docs and our value, I'm just
+
+242
+00:20:43,230 --> 00:20:51,030
+going to paste in from the point where we got it from and we're going to add it to the Query Parameters.
+
+243
+00:20:51,030 --> 00:20:52,200
+With API keys,
+
+244
+00:20:52,200 --> 00:20:58,500
+sometimes the API requires you to add it to the Header of the request and other times it requires you
+
+245
+00:20:58,500 --> 00:21:01,800
+to add it to the Query Parameter.
+
+246
+00:21:01,890 --> 00:21:07,770
+It depends on the API and you should always read through their docs to figure out what you need to do.
+
+247
+00:21:08,130 --> 00:21:10,590
+So now we're ready to go ahead and hit Send.
+
+248
+00:21:10,590 --> 00:21:17,670
+And once you've done that, hopefully you've got a correct key, then you should get back some secrets
+
+249
+00:21:17,670 --> 00:21:21,990
+that are all filtered by the emScore.
+
+250
+00:21:22,380 --> 00:21:25,340
+So let's see, what are some of these embarrassing secrets?
+
+251
+00:21:25,350 --> 00:21:30,300
+"I have a secret collection of embarrassing childhood photos that I use to blackmail my siblings."
+
+252
+00:21:30,690 --> 00:21:33,810
+Pretty useful, sibling blackmailer.
+
+253
+00:21:35,310 --> 00:21:41,130
+All right, so now let's look at the final form of authentication that we want to cover, which is Token
+
+254
+00:21:41,130 --> 00:21:42,840
+Based Authentication.
+
+255
+00:21:43,350 --> 00:21:48,730
+Why is it that we're increasing in levels of security?
+
+256
+00:21:48,750 --> 00:21:57,060
+Well, no authentication is obvious, but Basic Authentication uses a username and password that's passed
+
+257
+00:21:57,060 --> 00:22:01,530
+over as a Base64 encoded string in the header.
+
+258
+00:22:01,710 --> 00:22:10,170
+As you saw, I was quite easily able to use the Base64 decoder to get back in clear text the username
+
+259
+00:22:10,170 --> 00:22:11,310
+and password.
+
+260
+00:22:11,340 --> 00:22:17,550
+Now that means it's equally possible for somebody on the internet to intercept your API requests and
+
+261
+00:22:17,550 --> 00:22:19,080
+to be able to do the same.
+
+262
+00:22:19,170 --> 00:22:20,850
+So why do we still use it?
+
+263
+00:22:20,850 --> 00:22:28,590
+Well, most API providers that use Basic Authentication will have HTTPS on their domain, which means
+
+264
+00:22:28,590 --> 00:22:34,380
+that we're using cryptography to securely encode all the data that being passed back and forth.
+
+265
+00:22:34,680 --> 00:22:40,130
+And even if somebody intercepts the packets, they won't be viewing the string as what we saw,
+
+266
+00:22:40,140 --> 00:22:43,890
+instead, it will be mumbo jumbo that they cannot decode.
+
+267
+00:22:43,980 --> 00:22:48,390
+But nonetheless it is still passing username and password,
+
+268
+00:22:48,390 --> 00:22:55,080
+and if it's a less secure website or there is something that goes wrong, then there is a risk there.
+
+269
+00:22:55,230 --> 00:23:02,010
+Now API Key Authorization is a little bit more secure because nowhere do we actually type in our username
+
+270
+00:23:02,010 --> 00:23:02,910
+and password,
+
+271
+00:23:02,910 --> 00:23:09,660
+instead we have this API key which can be deleted and regenerated.
+
+272
+00:23:09,660 --> 00:23:13,170
+It can have caps on it, so you can rate limit it.
+
+273
+00:23:13,170 --> 00:23:18,090
+You can say, "I'm generating this key, but I only want to make say a thousand requests a month, so I'm
+
+274
+00:23:18,090 --> 00:23:19,740
+only paying for that amount."
+
+275
+00:23:19,740 --> 00:23:25,890
+So even if somebody intercepts this API key, they won't be able to get hold of the username and password.
+
+276
+00:23:25,920 --> 00:23:28,110
+They won't have any of your payment details.
+
+277
+00:23:28,110 --> 00:23:34,410
+It is just a reusable code that you're using to access an API.
+
+278
+00:23:35,130 --> 00:23:42,060
+Finally, the Token-Based Authorization or authentication is even more secure because essentially we're
+
+279
+00:23:42,060 --> 00:23:52,470
+getting the user to use a username and password to log in and then once they've logged in, we generate
+
+280
+00:23:52,470 --> 00:24:00,570
+a token to be used with the API so the API doesn't get involved with the username and password and instead
+
+281
+00:24:00,570 --> 00:24:04,650
+it's the token that's constantly being used to interact with the API.
+
+282
+00:24:04,890 --> 00:24:12,480
+Normally you'll see Token Based Authentication as OAuth and OAuth 2.0 is probably the industry standard
+
+283
+00:24:12,480 --> 00:24:15,240
+for doing token-based authentication.
+
+284
+00:24:15,240 --> 00:24:17,780
+And this is kind of what happens behind the scenes.
+
+285
+00:24:17,790 --> 00:24:28,830
+You have a user for a service and you want to be able to act on their behalf, so you get them to sign
+
+286
+00:24:28,830 --> 00:24:35,190
+in with their username and password on the API provider's website and then
+
+287
+00:24:35,220 --> 00:24:39,450
+the API provider generates a token off the back of that.
+
+288
+00:24:39,450 --> 00:24:48,150
+And then this token can be passed back to you as the third party and you can use this token to interact
+
+289
+00:24:48,150 --> 00:24:50,010
+with the API.
+
+290
+00:24:50,100 --> 00:24:52,740
+So let's see this as a real life example.
+
+291
+00:24:52,740 --> 00:25:00,930
+So let's say that you are building a third party app, say it's a weather app, but you have a special
+
+292
+00:25:00,930 --> 00:25:09,330
+twist on the app where you are going to get hold of a user's events in their Google calendar.
+
+293
+00:25:09,330 --> 00:25:16,140
+So you want to see that they have a meeting, for example, on Tuesday and it's happening in Baltimore.
+
+294
+00:25:16,140 --> 00:25:22,350
+So you grab all of these pieces of data and you look at the weather for that location and that date,
+
+295
+00:25:22,350 --> 00:25:28,530
+and maybe you would be able to send the user an alert to tell them to bring an umbrella to that particular
+
+296
+00:25:28,530 --> 00:25:29,400
+event.
+
+297
+00:25:29,580 --> 00:25:37,030
+That's the idea behind interacting with the Google Calendar APIs for the user to be able to grant you
+
+298
+00:25:37,030 --> 00:25:39,180
+access to this data.
+
+299
+00:25:39,190 --> 00:25:44,260
+Well, what you have to do if you weren't using token-based authentication, then you would have to
+
+300
+00:25:44,260 --> 00:25:54,730
+give us, this third party, the username and password, so that we can use this to interact with the
+
+301
+00:25:54,730 --> 00:25:56,740
+Google calendar API.
+
+302
+00:25:56,860 --> 00:26:05,650
+Instead, what we're able to do is we can use token-based authentication or OAuth to get the user to
+
+303
+00:26:05,650 --> 00:26:16,000
+sign in with Google, and this generates a token for us to get hold of and then we can use this token
+
+304
+00:26:16,000 --> 00:26:24,400
+to interact with the Google Calendar API. And then we can get hold of the user's events, their meetings,
+
+305
+00:26:24,400 --> 00:26:27,550
+we can even post data or delete data,
+
+306
+00:26:27,550 --> 00:26:34,720
+we can basically interact with Google calendar as this user without ever needing to get hold of their
+
+307
+00:26:34,720 --> 00:26:36,040
+username and password.
+
+308
+00:26:36,040 --> 00:26:41,100
+And instead all of that security stuff is handled by Google.
+
+309
+00:26:41,110 --> 00:26:45,640
+So this is a way more secure way of doing API authentication.
+
+310
+00:26:45,640 --> 00:26:51,070
+And every time you've seen this screen where it's asking you to authorize a particular app on the behalf
+
+311
+00:26:51,070 --> 00:26:54,940
+of your Google account, then you have performed this process.
+
+312
+00:26:54,940 --> 00:26:59,020
+But let's see it more concretely using our API.
+
+313
+00:26:59,230 --> 00:27:07,030
+If you take a look inside the Secrets API, you'll see that there is a path that allows us to get hold
+
+314
+00:27:07,030 --> 00:27:11,500
+of secrets based on the ID of the secret.
+
+315
+00:27:11,590 --> 00:27:20,170
+This path is protected by Bearer Token Authentication and Bearer Token Authentication uses a user's
+
+316
+00:27:20,170 --> 00:27:28,240
+username and password to authenticate themselves on our server, and then our server generates a token
+
+317
+00:27:28,240 --> 00:27:37,770
+that will be used as a proxy for anybody else to interact with the API as that user. We can use the
+
+318
+00:27:37,800 --> 00:27:44,400
+get-auth-token path by posting a request with a body of username and password.
+
+319
+00:27:44,520 --> 00:27:51,750
+Once the server has successfully authenticated that user, then they will pass back a token and we can
+
+320
+00:27:51,750 --> 00:27:56,370
+use that token then to interact with the rest of the API.
+
+321
+00:27:56,370 --> 00:28:04,290
+And you'll see this very commonly when you want to say post something on behalf of a user or change
+
+322
+00:28:04,290 --> 00:28:12,270
+something or delete something on behalf of a user, you're basically interacting with a service as if
+
+323
+00:28:12,270 --> 00:28:13,290
+you were the user,
+
+324
+00:28:13,290 --> 00:28:18,570
+but because we're using token-based authentication, you never need to get hold of their username and
+
+325
+00:28:18,570 --> 00:28:21,810
+password and we can keep all of that secure.
+
+326
+00:28:22,230 --> 00:28:24,180
+Let's give this a go.
+
+327
+00:28:24,210 --> 00:28:31,950
+Open up Postman and see if you can figure out how to get hold of the secrets using this endpoint and
+
+328
+00:28:31,950 --> 00:28:35,310
+get hold of the secret with an ID of 2.
+
+329
+00:28:35,400 --> 00:28:36,570
+Pause the video.
+
+330
+00:28:36,600 --> 00:28:37,750
+Give this a go.
+
+331
+00:28:40,300 --> 00:28:40,690
+All right.
+
+332
+00:28:40,690 --> 00:28:49,420
+So first we need to use this get-auth-token path in order to get an authentication token and we're going
+
+333
+00:28:49,420 --> 00:28:51,700
+to make a POST request to this path.
+
+334
+00:28:51,700 --> 00:28:53,080
+So let's change that.
+
+335
+00:28:53,080 --> 00:29:01,840
+And we want to add in into the Body some form-url encoded data and we want to pass it over our username
+
+336
+00:29:01,840 --> 00:29:04,600
+and also our password.
+
+337
+00:29:04,780 --> 00:29:11,050
+I'm just using the username and password that I got Ahold of earlier when I registered myself and I'm
+
+338
+00:29:11,050 --> 00:29:13,270
+going to pass in the values.
+
+339
+00:29:18,520 --> 00:29:21,430
+And then I'm going to go ahead and hit Send.
+
+340
+00:29:21,730 --> 00:29:25,700
+If you're doing this for the first time, you'll see your token being generated.
+
+341
+00:29:25,720 --> 00:29:29,230
+If you're doing this for the second time, you're still getting the same token.
+
+342
+00:29:29,230 --> 00:29:35,050
+But it's telling you that you have already been issued a token and it's just reminding you of what it
+
+343
+00:29:35,050 --> 00:29:35,620
+is.
+
+344
+00:29:35,770 --> 00:29:43,330
+Both options could happen, but once we've gotten hold of our token, then we can use it to get hold
+
+345
+00:29:43,330 --> 00:29:45,910
+of a secret with a particular ID.
+
+346
+00:29:46,390 --> 00:29:55,210
+Let's go ahead and copy the endpoint and I'm going to change this url parameter to get hold of the secret
+
+347
+00:29:55,210 --> 00:29:57,250
+with an ID of 2.
+
+348
+00:29:58,060 --> 00:30:04,630
+So now, before I can send it, I need to change the authorization to a Bearer Token Authorization and
+
+349
+00:30:04,630 --> 00:30:10,560
+I'm going to paste in the token that I got back from the previous step in here.
+
+350
+00:30:10,570 --> 00:30:16,630
+And just like what it did with basic authentication, Postman is generating an authorization header
+
+351
+00:30:16,630 --> 00:30:17,920
+behind the scenes
+
+352
+00:30:17,950 --> 00:30:21,010
+automatically based on the token that you put in here.
+
+353
+00:30:21,010 --> 00:30:26,950
+And you can see this by going to the Headers, you can see that it's generated a Header with key of
+
+354
+00:30:26,950 --> 00:30:35,170
+authorization and value of Bearer, and then the token that you have added in here.
+
+355
+00:30:35,380 --> 00:30:42,400
+If you're doing this by yourself using just code, then this would be the full value of that header
+
+356
+00:30:42,400 --> 00:30:44,740
+that you're sending over with your request.
+
+357
+00:30:45,220 --> 00:30:51,370
+So now let's go ahead and hit Send and hopefully if everything worked, we'll get back the secret with
+
+358
+00:30:51,370 --> 00:30:53,530
+an ID of 2.
+
+359
+00:30:53,890 --> 00:31:01,060
+Now, it's time to try an exercise and do everything that we did just now, exploring the different ways
+
+360
+00:31:01,060 --> 00:31:05,100
+of authenticating yourself or authorizing yourself with an API,
+
+361
+00:31:05,110 --> 00:31:08,470
+but instead, this time we're going to do it with code.
+
+362
+00:31:08,500 --> 00:31:18,220
+Go ahead and download the starting files 5.4 API Auth.zip extract the zip and open it up inside VS Code.
+
+363
+00:31:18,400 --> 00:31:26,120
+Once you're here, the first thing I want you to do is to cd over to the API Authentication folder and
+
+364
+00:31:26,120 --> 00:31:32,330
+then I want you to do your usual thing where you use "npm i" to install all the required node modules.
+
+365
+00:31:32,330 --> 00:31:38,060
+And then I want you to go to solution.js without scrolling down, without looking at the solution.
+
+366
+00:31:38,120 --> 00:31:45,410
+I want you to update all of these constants using yourUsername, yourPassword, yourAPIKey,
+
+367
+00:31:45,410 --> 00:31:50,960
+yourBearerToken that you generated earlier when we were going through each of the steps in Postman.
+
+368
+00:31:51,080 --> 00:32:00,410
+And once you've done that, then I want you to use Nodemon to run the solution.js and then we can
+
+369
+00:32:00,410 --> 00:32:04,880
+head over to localhost:3000 and you'll see this basic website.
+
+370
+00:32:04,910 --> 00:32:10,730
+Now, what we're able to do here is we can hit on each of these different authentication buttons.
+
+371
+00:32:10,760 --> 00:32:16,820
+No Authentication gives us a random secret. Basic Authentication
+
+372
+00:32:16,820 --> 00:32:20,260
+will hit up the GET/all path.
+
+373
+00:32:20,260 --> 00:32:28,660
+The API Key Authentication will get us the filtered endpoint and Bearer Token Authentication will get
+
+374
+00:32:28,660 --> 00:32:35,500
+us a secret with a particular ID. So you can see we're using all of the same endpoints that we did using
+
+375
+00:32:35,500 --> 00:32:41,590
+Postman, but this time we're actually hitting it up from our server, so we're doing server side requests
+
+376
+00:32:41,590 --> 00:32:48,640
+using Axios, but we're also making sure that we learn how to do that using all of the different types
+
+377
+00:32:48,640 --> 00:32:50,140
+of authentication.
+
+378
+00:32:50,590 --> 00:32:57,850
+Take a look inside the Index.js and I have a bunch of TODO's for you to be able to work through this
+
+379
+00:32:57,880 --> 00:33:04,270
+and you might need to remind yourself of how to make requests using Axios and you might need to use
+
+380
+00:33:04,270 --> 00:33:07,780
+some of the hints that are available in each of the steps,
+
+381
+00:33:07,780 --> 00:33:15,220
+but essentially, you should be able to complete this server-side code so that it works the same as the
+
+382
+00:33:15,220 --> 00:33:15,880
+solution.js
+
+383
+00:33:15,910 --> 00:33:16,840
+Pause 
+
+384
+00:33:17,620 --> 00:33:19,870
+the video now and give this a go.
+
+385
+00:33:22,190 --> 00:33:22,580
+All right.
+
+386
+00:33:22,580 --> 00:33:24,270
+So how did you get on with that?
+
+387
+00:33:24,290 --> 00:33:28,820
+Let's go through the solution code and see if you managed to get it to work.
+
+388
+00:33:29,000 --> 00:33:35,040
+The first step is to fill in all the values that you had from the three different types of auth,
+
+389
+00:33:35,060 --> 00:33:41,390
+and once you've done that, we're going to use each of these constants in the different types of authentication.
+
+390
+00:33:41,480 --> 00:33:46,340
+So the first one we're going to do is actually the route that has no authentication.
+
+391
+00:33:46,340 --> 00:33:56,690
+So we're using a "try, catch" block and we're using Axios to make a GET request to our API URL at the random
+
+392
+00:33:56,690 --> 00:33:57,740
+endpoint.
+
+393
+00:33:57,830 --> 00:33:59,480
+This is pretty simple.
+
+394
+00:33:59,480 --> 00:34:08,630
+And then once we get back the data, we pass it over to the Index.ejs and we use JSON Stringify to pass
+
+395
+00:34:08,630 --> 00:34:13,130
+it over just as a simple string instead of a JavaScript object.
+
+396
+00:34:13,159 --> 00:34:21,300
+This content is then caught in the index.ejs and displayed in this box right here.
+
+397
+00:34:22,110 --> 00:34:25,179
+This is just to whet our appetite and get us started,
+
+398
+00:34:25,199 --> 00:34:32,790
+the next one uses Basic Authentication and if you got stuck on how to do this, as always, there is
+
+399
+00:34:32,820 --> 00:34:34,860
+Google out there as your friend.
+
+400
+00:34:34,860 --> 00:34:42,060
+But even better than Google is me as your friend because I've actually provided this hint to show you
+
+401
+00:34:42,090 --> 00:34:47,790
+how you could have searched to find this particular StackOverflow question, which is, "How do you send
+
+402
+00:34:47,790 --> 00:34:49,620
+Basic Authentication with Axios?"
+
+403
+00:34:49,650 --> 00:34:51,360
+That's pretty much what we want to do here.
+
+404
+00:34:51,360 --> 00:34:51,889
+Right?
+
+405
+00:34:51,900 --> 00:34:58,740
+And it tells us that there is an auth parameter that we can add to our requests by adding in a username
+
+406
+00:34:58,740 --> 00:35:00,330
+and password.
+
+407
+00:35:01,290 --> 00:35:10,440
+What we're able to do is we can provide this auth after we've provided the endpoint and we can add in
+
+408
+00:35:10,440 --> 00:35:17,700
+our username or password under this parameter name of auth and it will do all of that Base64 encoding
+
+409
+00:35:17,700 --> 00:35:24,240
+for us and then we can send over this request and we should be able to get back our data, which again
+
+410
+00:35:24,240 --> 00:35:27,630
+we turn into a string and send over to the front-end.
+
+411
+00:35:28,410 --> 00:35:30,770
+Now the next one uses the API key.
+
+412
+00:35:30,780 --> 00:35:36,570
+And remember, in our case, the API key is also sent over as a parameter.
+
+413
+00:35:36,660 --> 00:35:40,890
+With Axios, we can send parameters like this.
+
+414
+00:35:40,920 --> 00:35:46,440
+Alternatively, we can simply add them onto the end of our URL.
+
+415
+00:35:46,470 --> 00:35:47,700
+Both ways are correct.
+
+416
+00:35:47,700 --> 00:35:49,970
+It really depends on which one you want to use.
+
+417
+00:35:49,980 --> 00:35:54,960
+And if you've searched around or you looked at the Axios docs, you might see something like this,
+
+418
+00:35:54,960 --> 00:35:57,960
+but you might also see other people add it straight into the endpoint.
+
+419
+00:35:57,960 --> 00:36:02,220
+It doesn't really matter whichever way you did as long as it worked.
+
+420
+00:36:02,250 --> 00:36:06,030
+We had to provide a parameter in the form of a score.
+
+421
+00:36:06,060 --> 00:36:10,710
+The embarrassment score that we want to filter on, and also our API key.
+
+422
+00:36:10,920 --> 00:36:15,420
+And once we get back the data again, we pass it over to the front-end.
+
+423
+00:36:15,930 --> 00:36:19,350
+Now the final one we have requires a Bearer Token.
+
+424
+00:36:19,350 --> 00:36:25,740
+So in this case we're hitting up the secrets endpoint and we're providing the ID of 2 to get hold
+
+425
+00:36:25,740 --> 00:36:27,540
+of that particular secret.
+
+426
+00:36:27,570 --> 00:36:34,810
+Now I'm passing in the config so that I can provide a parameter for the headers parameter.
+
+427
+00:36:34,810 --> 00:36:42,520
+And in here I'm putting in the Authorization as the key and the value as the word Bearer with a capital
+
+428
+00:36:42,550 --> 00:36:46,960
+B, a space, and then the Bearer Token that we generated earlier on.
+
+429
+00:36:46,960 --> 00:36:55,420
+And again, I added a hint to maybe how you can figure this out, but essentially this is the config
+
+430
+00:36:55,420 --> 00:37:03,160
+and you can either add this object straight into here, as we did with our parameters or with our authentication,
+
+431
+00:37:03,160 --> 00:37:06,370
+or you can separate it out whichever way you prefer.
+
+432
+00:37:06,580 --> 00:37:12,220
+Then we make the GET request, we get back the data and we send it over to the frontend.
+
+433
+00:37:12,310 --> 00:37:19,930
+If you got stuck or something didn't work, make sure you review the solution.js code and fix your code
+
+434
+00:37:19,930 --> 00:37:21,490
+so that you get it to work.
+
+435
+00:37:21,520 --> 00:37:26,770
+You can also take the code and figure out where you went wrong and understand what it is you have to
+
+436
+00:37:26,770 --> 00:37:28,350
+do in order to get it to work.
+
+437
+00:37:28,360 --> 00:37:34,390
+But hopefully you managed to try out all of the different forms of authentication using code and using
+
+438
+00:37:34,390 --> 00:37:35,190
+Postman.
+
+439
+00:37:35,200 --> 00:37:39,520
+In the next lesson, we're going to be using some of that authentication, but we're also going to be
+
+440
+00:37:39,520 --> 00:37:43,090
+exploring some of the other parts of this REST API.
+
+441
+00:37:43,120 --> 00:37:45,580
+So for all of that and more, I'll see you there.
+

@@ -1,0 +1,464 @@
+1
+00:00:00,590 --> 00:00:00,980
+All right.
+
+2
+00:00:00,980 --> 00:00:05,520
+So in this lesson, I want to introduce you to directory creation,
+
+3
+00:00:05,540 --> 00:00:08,630
+file creation, and directory manipulation.
+
+4
+00:00:08,630 --> 00:00:10,280
+And we're going to be doing all of this
+
+5
+00:00:10,310 --> 00:00:12,800
+inside the command line, just with our keyboard.
+
+6
+00:00:13,190 --> 00:00:16,400
+Now I'm starting in my root directory over here.
+
+7
+00:00:16,550 --> 00:00:21,920
+And I am going to create a new folder right here.
+
+8
+00:00:22,370 --> 00:00:26,900
+Obviously, I can go through the right-click, New Folder, all of that,
+
+9
+00:00:26,900 --> 00:00:31,310
+but we are pro-developers now, so we're going to get used to using the Command Line.
+
+10
+00:00:31,310 --> 00:00:38,120
+So the command is "mkdir" or make directory and then we're going to give our directory a name.
+
+11
+00:00:38,120 --> 00:00:40,880
+So let's just call it Angela, right?
+
+12
+00:00:41,210 --> 00:00:45,590
+And you can see, there you go, pops up a new folder called Angela.
+
+13
+00:00:45,830 --> 00:00:56,780
+Now let's cd into this new directory and you can see that if I click on here or if I use ls that there's
+
+14
+00:00:56,810 --> 00:00:58,150
+absolutely nothing in there.
+
+15
+00:00:58,160 --> 00:01:00,210
+It's an empty folder.
+
+16
+00:01:00,450 --> 00:01:05,129
+So what if I wanted to create a file in our Graphical User Interface?
+
+17
+00:01:05,129 --> 00:01:13,530
+I could say open up an application like TextEdit and I could make a file and write something in it and
+
+18
+00:01:13,530 --> 00:01:16,560
+then save it inside my new directory.
+
+19
+00:01:16,590 --> 00:01:21,780
+Do a little bit of navigating in order to get there, and then I have to give my file a name.
+
+20
+00:01:21,780 --> 00:01:24,150
+Let's call it Text and hit Save.
+
+21
+00:01:24,600 --> 00:01:26,610
+Now we have to exit the application.
+
+22
+00:01:26,610 --> 00:01:30,240
+And after all of that work, I've got a text file.
+
+23
+00:01:30,240 --> 00:01:35,400
+And if we do ls now, you can see that Text.rtf exists.
+
+24
+00:01:35,400 --> 00:01:42,120
+But if you want to do the same thing using the command line, then it's as simple as simply typing "touch"
+
+25
+00:01:42,120 --> 00:01:43,590
+to create a new file.
+
+26
+00:01:43,650 --> 00:01:45,630
+And then we're going to specify the name of the file,
+
+27
+00:01:45,630 --> 00:01:52,290
+let's call it Text2 and then we give it an extension .txt. And you can open it either by double-
+
+28
+00:01:52,290 --> 00:01:57,750
+clicking on it, which is what we're used to, or you can simply write, Open Text2.txt
+
+29
+00:01:58,550 --> 00:02:06,770
+and it will open it using the default application which is TextEdit in a Mac.
+
+30
+00:02:07,500 --> 00:02:14,880
+Now you can specify which application you want to open this file in and all you have to do is say Open,
+
+31
+00:02:14,880 --> 00:02:17,320
+and then you're going to use the -a flag,
+
+32
+00:02:17,340 --> 00:02:21,570
+then you're going to specify the application that you want to use.
+
+33
+00:02:22,340 --> 00:02:25,100
+And then I can specify the file that I want to open,
+
+34
+00:02:25,100 --> 00:02:31,790
+so Text2.txt and hit Enter and it will open up the application that I've got and then open up my
+
+35
+00:02:31,790 --> 00:02:33,800
+file for me to be able to edit.
+
+36
+00:02:34,610 --> 00:02:39,410
+So what if you wanted to delete files inside the command line?
+
+37
+00:02:39,440 --> 00:02:47,020
+Currently, I'm inside the Angela folder and there are two files and I want to delete my Text.rtf.
+
+38
+00:02:47,270 --> 00:02:52,500
+Then all you need to do is just use the 'rm" command which removes files.
+
+39
+00:02:52,520 --> 00:02:54,140
+If you type the command as is,
+
+40
+00:02:54,140 --> 00:03:01,160
+so just rm, and then we're going to specify Text.rtf to remove.
+
+41
+00:03:01,160 --> 00:03:04,050
+And once I hit Enter you'll see it disappear,
+
+42
+00:03:04,070 --> 00:03:05,970
+also in the Finder as well.
+
+43
+00:03:05,990 --> 00:03:09,500
+Now what if I want to remove all the files inside a folder?
+
+44
+00:03:09,500 --> 00:03:13,730
+So let's create some more text files.
+
+45
+00:03:15,110 --> 00:03:22,820
+So let's call it Text.txt and then let's create Text3.txt.
+
+46
+00:03:22,820 --> 00:03:24,440
+So now I've got Text,
+
+47
+00:03:24,470 --> 00:03:26,240
+Text2, Text3.
+
+48
+00:03:26,360 --> 00:03:30,300
+A little bit of a tongue twister there. And I want to remove all of them.
+
+49
+00:03:30,320 --> 00:03:34,980
+To do that, you have to be inside the directory that you want to remove all the files from.
+
+50
+00:03:34,980 --> 00:03:40,290
+And if you want to know which directory you're currently in, you can either look at the part that's
+
+51
+00:03:40,290 --> 00:03:42,060
+before your username and prompt.
+
+52
+00:03:42,060 --> 00:03:49,830
+So, in this case, I'm inside a folder called Angela, but you can also use the pwd or Print working directory
+
+53
+00:03:49,830 --> 00:03:56,520
+command, and then when you hit Enter it tells you your entire path and your current folder location.
+
+54
+00:03:56,990 --> 00:04:03,680
+And now I want to remove all of them in one go without having to type, rm Text.txt, etcetera.
+
+55
+00:04:04,010 --> 00:04:10,100
+Again, we're using the remove (rm) command and then we're simply going to use the asterisks (*) as a wildcard
+
+56
+00:04:10,100 --> 00:04:13,520
+which matches everything that has every single name.
+
+57
+00:04:13,520 --> 00:04:20,180
+And now if I hit enter, you can see that all my three files inside my current directory are removed.
+
+58
+00:04:20,940 --> 00:04:25,860
+So do you remember in the beginning of this module we mentioned that using the command line gives you
+
+59
+00:04:25,860 --> 00:04:32,280
+more power, more control, and as we all know, with great power comes great responsibility.
+
+60
+00:04:32,280 --> 00:04:38,910
+And that means that you have to be careful when using certain commands because the Graphical User Interface
+
+61
+00:04:38,940 --> 00:04:41,080
+isn't there to protect you.
+
+62
+00:04:41,100 --> 00:04:47,700
+So, for example, if you were not inside the directory that you wanted to delete, say if you were
+
+63
+00:04:47,700 --> 00:04:54,900
+inside your root directory and you, you know, tried to remove all the files inside your root directory,
+
+64
+00:04:54,900 --> 00:04:57,510
+then it's probably not such a great idea.
+
+65
+00:04:57,510 --> 00:05:04,170
+So always check which location you're in before you're doing some of these destructive commands.
+
+66
+00:05:04,200 --> 00:05:08,880
+Now to remove folders or remove directories, there's a different command.
+
+67
+00:05:08,880 --> 00:05:15,870
+So now I want to remove this Angela folder that I've created and I'm inside the right place to do it.
+
+68
+00:05:15,870 --> 00:05:19,500
+I'm inside my root directory, which is at this level.
+
+69
+00:05:19,500 --> 00:05:23,910
+And again, always check where you are by using the ls command.
+
+70
+00:05:23,920 --> 00:05:26,170
+You can see that I am at this level.
+
+71
+00:05:26,170 --> 00:05:34,600
+So now I want to remove this Angela directory and if I just simply write, rm Angela and I hit Enter,
+
+72
+00:05:34,600 --> 00:05:37,480
+you can see it says that, " 'Angela/': is a directory".
+
+73
+00:05:37,480 --> 00:05:42,070
+So this rm command by itself is not going to work. To do it,
+
+74
+00:05:42,100 --> 00:05:46,330
+we actually have to add a flag which is the -r flag.
+
+75
+00:05:46,330 --> 00:05:49,330
+So this allows you to remove a directory.
+
+76
+00:05:49,330 --> 00:05:50,800
+So now let's try that again.
+
+77
+00:05:50,800 --> 00:05:54,550
+rm -r and then we're going to use the Angela directory
+
+78
+00:05:54,550 --> 00:06:00,940
+and if we watch over here and I hit Enter, you can see that that directory is now gone, including
+
+79
+00:06:00,940 --> 00:06:07,900
+all the files that it held, all the folders that are inside the Angela folder and it removes all of
+
+80
+00:06:07,900 --> 00:06:09,250
+its child components.
+
+81
+00:06:09,400 --> 00:06:12,100
+Again, these are destructive commands,
+
+82
+00:06:12,130 --> 00:06:14,110
+be really careful when you're using them,
+
+83
+00:06:14,110 --> 00:06:20,140
+and in fact, there's a pretty hilarious bit of Internet history, which is where somebody submitted
+
+84
+00:06:20,140 --> 00:06:27,070
+a question to StackExchange serverfault, which is similar to Stack Overflow, but it's more for sys admins
+
+85
+00:06:27,070 --> 00:06:28,270
+and network admins.
+
+86
+00:06:28,270 --> 00:06:35,380
+So what he said was "Monday morning mistake," he used the sudo command which stands for Superuserdo,
+
+87
+00:06:35,410 --> 00:06:40,720
+which uses your admin privileges to basically allow you to do things that are probably a little bit
+
+88
+00:06:40,720 --> 00:06:41,560
+dangerous.
+
+89
+00:06:41,560 --> 00:06:45,880
+And he used the rm command and then the -rf flag.
+
+90
+00:06:45,880 --> 00:06:51,730
+So we've already seen the -r which allows you to remove entire directories and all the folders and
+
+91
+00:06:51,730 --> 00:06:53,850
+all the child folders it contains.
+
+92
+00:06:53,860 --> 00:06:57,130
+He also used the f flag, which stands for force.
+
+93
+00:06:57,130 --> 00:06:59,650
+So this doesn't ask you for a confirmation.
+
+94
+00:06:59,650 --> 00:07:04,690
+And then the very last thing, which is something that you should probably never, ever write
+
+95
+00:07:04,690 --> 00:07:10,000
+and there's very few cases where this is actually useful, which is the "no-preserve-root/".
+
+96
+00:07:10,000 --> 00:07:18,220
+And what that means is that along with everything else inside this command, it basically wipes your
+
+97
+00:07:18,220 --> 00:07:21,250
+hard disk to the point where you cannot recover it.
+
+98
+00:07:21,430 --> 00:07:23,740
+And this guy said, "Monday morning, mistake.
+
+99
+00:07:23,770 --> 00:07:30,100
+I basically just wiped my entire server," which obviously contains data from other people who are using
+
+100
+00:07:30,100 --> 00:07:31,720
+his server, "and what do I do?"
+
+101
+00:07:31,720 --> 00:07:38,830
+So as it turns out, this is actually a hoax where this guy is trying to advertise his server company.
+
+102
+00:07:38,830 --> 00:07:41,800
+And I mean, it's clever or is it not clever?
+
+103
+00:07:41,800 --> 00:07:48,180
+I'm not sure that it's positive PR, but it got a lot of attention on the Internet.
+
+104
+00:07:48,190 --> 00:07:52,750
+So if you're interested, you can have a read of this and I'll link to it in this lesson.
+
+105
+00:07:52,750 --> 00:07:58,450
+But basically, if you have a look at the answers, you can see that this is something really bad to
+
+106
+00:07:58,450 --> 00:07:59,110
+never do.
+
+107
+00:07:59,110 --> 00:08:01,660
+So with great power comes great responsibility.
+
+108
+00:08:01,660 --> 00:08:06,520
+And in this module I've introduced you to some of the most common commands that you're going to be finding
+
+109
+00:08:06,520 --> 00:08:09,820
+yourself using and also some of the most common shortcuts.
+
+110
+00:08:09,820 --> 00:08:14,800
+And if you want to learn more about the command line, then this is a website that I highly recommend.
+
+111
+00:08:14,830 --> 00:08:16,150
+I have nothing to do with them,
+
+112
+00:08:16,150 --> 00:08:18,880
+it's just something that I found to be written quite well.
+
+113
+00:08:18,880 --> 00:08:22,720
+So it's completely free and it's called the Command Line Tutorial.
+
+114
+00:08:22,720 --> 00:08:28,480
+Learn Enough Command Line to Be Dangerous. Again, the title is repeating what we just said before,
+
+115
+00:08:28,480 --> 00:08:33,760
+but it goes into more depth like grepping, curl, all of those things that you might have come across
+
+116
+00:08:33,789 --> 00:08:38,440
+and you will certainly come across more of it in your journey as a developer.
+

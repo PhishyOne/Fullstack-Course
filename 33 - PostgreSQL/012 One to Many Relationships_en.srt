@@ -1,0 +1,604 @@
+1
+00:00:00,230 --> 00:00:04,340
+In the previous lesson, we looked at 1 to 1 relationships.
+
+2
+00:00:04,370 --> 00:00:10,250
+Now let's take a look at the next type of relationship that we can create in our Postgres database.
+
+3
+00:00:10,250 --> 00:00:14,560
+And this is probably one of the most frequently used relationships.
+
+4
+00:00:14,570 --> 00:00:17,450
+It's a one to many relationship.
+
+5
+00:00:18,030 --> 00:00:24,120
+In a lot of cases, this is the relationship that you're going to be falling back on because it occurs
+
+6
+00:00:24,120 --> 00:00:26,850
+very frequently in data storage.
+
+7
+00:00:26,940 --> 00:00:34,260
+The way that a one to many relationship works is if you think about a case where you have something
+
+8
+00:00:34,500 --> 00:00:44,820
+that has only one record, say, one student, but that student happens to have many of some other type
+
+9
+00:00:44,820 --> 00:00:49,120
+of data, then you end up with a one to many relationship.
+
+10
+00:00:49,140 --> 00:00:53,920
+In the example here, we have our student's table as we had from before.
+
+11
+00:00:53,940 --> 00:00:56,280
+So in our school we have our students.
+
+12
+00:00:56,280 --> 00:01:01,980
+But each student makes many homework submissions.
+
+13
+00:01:02,610 --> 00:01:09,630
+And this is how we end up with a one to many relationship.
+
+14
+00:01:10,890 --> 00:01:16,770
+Each piece of homework can only have one student who did the work.
+
+15
+00:01:16,800 --> 00:01:23,370
+We don't have group projects in our school, but one student can be associated with many pieces of homework.
+
+16
+00:01:23,580 --> 00:01:30,780
+That's why if you take the student as a starting point, then you would call this a one to many relationship.
+
+17
+00:01:30,780 --> 00:01:37,500
+But if you take the homework submission as the starting point, then you would call this a many to one
+
+18
+00:01:37,500 --> 00:01:38,640
+relationship.
+
+19
+00:01:38,730 --> 00:01:40,540
+Now this is one example.
+
+20
+00:01:40,560 --> 00:01:47,910
+Another example that you can imagine is if you have a customer database, say you sell Christmas trees
+
+21
+00:01:47,910 --> 00:01:50,640
+and you want to keep track of your customers.
+
+22
+00:01:50,730 --> 00:01:54,690
+That customer can make many orders, right?
+
+23
+00:01:54,720 --> 00:01:58,290
+They might make an order for a tree in 2012.
+
+24
+00:01:58,320 --> 00:02:04,270
+They might make another order for another tree in 2020, and so on and so forth.
+
+25
+00:02:04,290 --> 00:02:08,940
+So this orders table is a many.
+
+26
+00:02:09,030 --> 00:02:12,780
+And this customer table is a one.
+
+27
+00:02:12,780 --> 00:02:19,260
+And if we want to link up that relationship, if we want to have some sort of representation of this
+
+28
+00:02:19,260 --> 00:02:25,950
+type of relationship, then that is when we need our many to one relationship.
+
+29
+00:02:27,120 --> 00:02:38,070
+Notice in our database design, the homework table has a crow's feet representation linked to the student
+
+30
+00:02:38,100 --> 00:02:39,610
+ID field.
+
+31
+00:02:39,630 --> 00:02:48,730
+So this again is the foreign key in this table and this in the student table.
+
+32
+00:02:48,750 --> 00:02:55,190
+The ID is the primary key in our crow's feet representation.
+
+33
+00:02:55,200 --> 00:03:05,130
+The many side has this three legged sort of like a bird feet kind of representation.
+
+34
+00:03:05,130 --> 00:03:10,440
+And then on the one side we again have that same type of representation.
+
+35
+00:03:10,440 --> 00:03:13,380
+So this is one to many.
+
+36
+00:03:14,400 --> 00:03:21,570
+Another thing to note here is that in the homework submission, each homework submission has its own
+
+37
+00:03:21,570 --> 00:03:25,860
+primary key because there are many pieces of homework that is submitted.
+
+38
+00:03:25,860 --> 00:03:31,650
+So each of these records has to be uniquely identified from each other.
+
+39
+00:03:31,980 --> 00:03:38,970
+The foreign key, however, is the field that links it back to the student that created it.
+
+40
+00:03:38,970 --> 00:03:44,520
+So this field stores the ID of the student who made that piece of homework.
+
+41
+00:03:45,590 --> 00:03:51,320
+Let's see this for real by creating this table called Homework submission.
+
+42
+00:03:51,560 --> 00:03:56,020
+This is the SQL command that is required to create this table.
+
+43
+00:03:56,030 --> 00:03:59,780
+It's called homework submission and it has just three fields.
+
+44
+00:03:59,780 --> 00:04:10,040
+It has a primary key field right here that uniquely identifies each record in the homework submission.
+
+45
+00:04:10,040 --> 00:04:14,570
+So each homework might have a different mark.
+
+46
+00:04:14,600 --> 00:04:16,850
+It might have a different teacher.
+
+47
+00:04:16,850 --> 00:04:18,290
+It might have a different class.
+
+48
+00:04:18,290 --> 00:04:19,670
+It might have a different date.
+
+49
+00:04:19,670 --> 00:04:23,480
+But for simplicity's sake I've only added three fields.
+
+50
+00:04:23,480 --> 00:04:28,880
+What is the mark that the student got and what is the ID of that piece of homework?
+
+51
+00:04:28,880 --> 00:04:31,310
+And what is the student's ID?
+
+52
+00:04:31,340 --> 00:04:34,670
+Who created that piece of homework?
+
+53
+00:04:35,180 --> 00:04:44,180
+This is how we establish a many to one relationship.
+
+54
+00:04:45,710 --> 00:04:51,710
+One student has many homework submissions.
+
+55
+00:04:52,070 --> 00:04:58,430
+And again we use that references keyword to set up our foreign key.
+
+56
+00:04:58,670 --> 00:05:07,610
+Inside this table there is something an ID that identifies a foreign table.
+
+57
+00:05:07,610 --> 00:05:09,200
+Hence it's the foreign key.
+
+58
+00:05:09,440 --> 00:05:16,460
+And so this entire line is how we set up our many to one relationship.
+
+59
+00:05:16,580 --> 00:05:19,130
+We give the field a name.
+
+60
+00:05:19,250 --> 00:05:24,050
+We say that it has to be a whole number, because this ID is also a whole number.
+
+61
+00:05:24,050 --> 00:05:26,480
+And they basically have to map to each other.
+
+62
+00:05:26,570 --> 00:05:33,470
+We use the references keyword to set up this as the foreign key and set up the relationship.
+
+63
+00:05:33,470 --> 00:05:43,580
+And then here we target the student table and the field in that table which is called ID.
+
+64
+00:05:44,300 --> 00:05:47,870
+This part is probably the most interesting.
+
+65
+00:05:47,900 --> 00:05:50,450
+We're saying look for the student table.
+
+66
+00:05:50,450 --> 00:05:57,320
+Find the field or the column in there that's called ID which is of course this one right here.
+
+67
+00:05:57,320 --> 00:06:03,530
+And then set this as a relation to this field here.
+
+68
+00:06:04,670 --> 00:06:11,390
+Let's go ahead and create this table for ourselves in Pgadmin so that we can work with it.
+
+69
+00:06:12,170 --> 00:06:14,780
+Again I'm going to go into the queries dot SQL.
+
+70
+00:06:14,810 --> 00:06:20,400
+I'm going to copy this command that creates the homework submission table.
+
+71
+00:06:20,420 --> 00:06:25,700
+I'm going to paste it into my queries under the school database.
+
+72
+00:06:25,700 --> 00:06:28,550
+And now I have created my tables.
+
+73
+00:06:28,550 --> 00:06:33,380
+And if I hit refresh I now have a new table called Homework submission.
+
+74
+00:06:34,350 --> 00:06:40,530
+Now just be careful when you're working with databases in terms of plural or singular.
+
+75
+00:06:40,830 --> 00:06:42,600
+There's a lot of debate around this.
+
+76
+00:06:42,600 --> 00:06:47,530
+You could call this table contact details homework submissions students.
+
+77
+00:06:47,550 --> 00:06:50,070
+You could have it pluralized basically.
+
+78
+00:06:50,070 --> 00:06:56,460
+But you'll also see other people name everything in singular such as contact details student.
+
+79
+00:06:56,490 --> 00:07:03,030
+It really is actually up to you or the company that you work at where they define these rules.
+
+80
+00:07:03,030 --> 00:07:06,270
+But if the rules are in place, try to keep it the same.
+
+81
+00:07:06,270 --> 00:07:12,270
+So don't have a table that's called contact details and a table called student that doesn't really work.
+
+82
+00:07:12,270 --> 00:07:18,930
+So it doesn't really matter if you name your tables pluralize or singular, but just stick to one particular
+
+83
+00:07:18,930 --> 00:07:19,590
+scheme.
+
+84
+00:07:19,890 --> 00:07:26,160
+Now that we've created our homework submission table, let's add some data into that table.
+
+85
+00:07:26,160 --> 00:07:30,600
+So copy this part of the SQL query.
+
+86
+00:07:30,960 --> 00:07:36,600
+And what this code is going to do is it's going to insert some values into our homework submission table.
+
+87
+00:07:36,600 --> 00:07:40,170
+And it's just going to add the mark and student ID.
+
+88
+00:07:40,470 --> 00:07:46,800
+So remember this table also has a ID field which is set as serial.
+
+89
+00:07:46,800 --> 00:07:54,600
+So it will automatically generate it starting from 1 to 3 and increment automatically for each new record.
+
+90
+00:07:54,630 --> 00:07:58,680
+The only part that we need to add in is the mark and the student ID.
+
+91
+00:07:59,130 --> 00:08:10,380
+The mark is the grade or the score that the student got for that piece of homework, and the ID corresponds
+
+92
+00:08:10,380 --> 00:08:14,220
+to the student ID in the student table.
+
+93
+00:08:14,220 --> 00:08:16,920
+So I know I've added one record in there.
+
+94
+00:08:16,920 --> 00:08:21,270
+So the first record has an ID of one and that's me.
+
+95
+00:08:21,270 --> 00:08:22,860
+I think it's one.
+
+96
+00:08:22,860 --> 00:08:24,210
+And then it's Angela you.
+
+97
+00:08:24,210 --> 00:08:31,650
+And essentially what we're saying is we have three pieces of homework right here, three new records
+
+98
+00:08:31,650 --> 00:08:38,220
+and they have different scores, but they're all associated with actually the same student.
+
+99
+00:08:39,419 --> 00:08:46,680
+Once we go ahead and run this code, we will now have some data in our homework submissions table.
+
+100
+00:08:46,680 --> 00:08:54,000
+And if we take a look at it, you'll see that we have the IDs of each of these pieces of homework,
+
+101
+00:08:54,030 --> 00:09:00,660
+the ID of the student who created these homeworks, and the mark that they got for each piece of homework
+
+102
+00:09:00,660 --> 00:09:01,590
+submission.
+
+103
+00:09:03,450 --> 00:09:10,290
+This is a little bit confusing to look at as a human, because I don't know which student this ID corresponds
+
+104
+00:09:10,290 --> 00:09:10,770
+to.
+
+105
+00:09:10,770 --> 00:09:19,980
+So let's utilize this relationship that we've created the many to one relationship, and let's write
+
+106
+00:09:19,980 --> 00:09:27,030
+some code that will generate this table that is all joined up.
+
+107
+00:09:27,300 --> 00:09:30,410
+Notice how again it is two tables.
+
+108
+00:09:30,420 --> 00:09:33,660
+First, this is the student table.
+
+109
+00:09:34,230 --> 00:09:40,410
+And it is joined to the homework submission table.
+
+110
+00:09:40,410 --> 00:09:49,710
+And the criteria that is used for this join is that this student ID has to match this ID in the student
+
+111
+00:09:49,740 --> 00:09:50,340
+table.
+
+112
+00:09:50,340 --> 00:10:00,090
+And remember this is the one and this is the many if you remember the SQL command from the previous
+
+113
+00:10:00,090 --> 00:10:00,660
+part.
+
+114
+00:10:00,660 --> 00:10:07,080
+So I recommend don't look inside the queries or SQL in VS code just yet because the answer is right
+
+115
+00:10:07,080 --> 00:10:07,580
+there.
+
+116
+00:10:07,590 --> 00:10:15,900
+Have a think about how you might write the code based on what you did previously, with the 1 to 1 relationship,
+
+117
+00:10:15,900 --> 00:10:23,730
+where you had to use the join on command in order to join these two tables together.
+
+118
+00:10:24,000 --> 00:10:31,620
+Try it out, maybe fail, but at least give it a go and have a think about it before you join me and
+
+119
+00:10:31,620 --> 00:10:33,480
+we go through the solution together.
+
+120
+00:10:39,050 --> 00:10:39,470
+All right.
+
+121
+00:10:39,470 --> 00:10:47,780
+So what we want to do is we want to firstly select right and select allows us to define what we want
+
+122
+00:10:47,780 --> 00:10:48,440
+to select.
+
+123
+00:10:48,470 --> 00:10:50,210
+We're going to say everything.
+
+124
+00:10:50,210 --> 00:10:54,530
+And then we get to say well which table do you want to select from.
+
+125
+00:10:54,530 --> 00:10:58,610
+And in this case you can choose student or you can choose homework submission.
+
+126
+00:10:58,610 --> 00:11:00,650
+It doesn't really matter.
+
+127
+00:11:01,520 --> 00:11:07,940
+Next what we want to do is we want to define the join on criteria.
+
+128
+00:11:08,060 --> 00:11:12,170
+This is going to be the criteria for our join.
+
+129
+00:11:12,170 --> 00:11:19,610
+And this is going to be the table that we want to join to this student table.
+
+130
+00:11:19,970 --> 00:11:23,180
+The code looks like this.
+
+131
+00:11:23,450 --> 00:11:27,830
+Select everything from the student table.
+
+132
+00:11:27,860 --> 00:11:32,840
+Join it to the homework submission table based on this criteria.
+
+133
+00:11:33,020 --> 00:11:35,240
+The student ID.
+
+134
+00:11:35,270 --> 00:11:37,310
+So this is the student table.
+
+135
+00:11:37,310 --> 00:11:48,970
+The ID field which is this one must be equal to the student ID in the homework submission table.
+
+136
+00:11:50,600 --> 00:11:54,590
+In this case because we're saying join to homework submission.
+
+137
+00:11:54,620 --> 00:12:00,860
+Then we can, in this same line define it just as student ID, but if you want it to be more clear,
+
+138
+00:12:00,860 --> 00:12:07,820
+you could also write homework submission dot student ID just as what we've done here table field.
+
+139
+00:12:08,600 --> 00:12:16,970
+If you run this command as it is in Pgadmin, you will end up with this join table that's created.
+
+140
+00:12:17,000 --> 00:12:26,360
+We found the records and we've lined up the records so that the student ID matches the ID in the student
+
+141
+00:12:26,390 --> 00:12:27,170
+table.
+
+142
+00:12:27,260 --> 00:12:36,470
+And in this case, even though the names occur many times, they represent every record in the homework
+
+143
+00:12:36,470 --> 00:12:38,210
+submission table.
+
+144
+00:12:38,900 --> 00:12:42,500
+As you can see, in this case, it's a little bit extra.
+
+145
+00:12:42,500 --> 00:12:49,090
+We've got the ID, the ID, the student ID, all of these things show up so many times.
+
+146
+00:12:49,100 --> 00:12:54,410
+What if we only wanted certain parts of this table after it's been joined?
+
+147
+00:12:54,560 --> 00:12:58,000
+Well, we can narrow down our select.
+
+148
+00:12:58,010 --> 00:13:05,840
+So in this case I'm saying select the student ID, the first name, the last name and the mark, and
+
+149
+00:13:05,840 --> 00:13:12,710
+we end up with a table that is a little bit more shortened and a little bit more easier to understand.
+
+150
+00:13:12,740 --> 00:13:20,960
+You can always use this, as you might already know, to select on the particular fields that you want
+
+151
+00:13:20,960 --> 00:13:22,700
+in the final table.
+

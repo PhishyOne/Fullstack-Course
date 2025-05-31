@@ -1,0 +1,212 @@
+1
+00:00:00,840 --> 00:00:07,470
+Now in the last lesson we looked at how you would read data from your database and how you would select
+
+2
+00:00:07,500 --> 00:00:10,320
+pieces of data based on certain criteria.
+
+3
+00:00:10,530 --> 00:00:17,910
+In this lesson we're going to tackle the 'U' in CRUD which is how do you update records in your database?
+
+4
+00:00:18,000 --> 00:00:24,750
+So at the moment if we look at the entire products table, you remember that the price for our pencil
+
+5
+00:00:25,020 --> 00:00:29,790
+is set as null because when we created this record we didn't have a price yet.
+
+6
+00:00:29,850 --> 00:00:31,390
+So we left it blank.
+
+7
+00:00:31,470 --> 00:00:39,930
+If I wanted to update that record to now provide a value for the price of my pencil then I can use the
+
+8
+00:00:39,960 --> 00:00:41,490
+UPDATE statement.
+
+9
+00:00:41,490 --> 00:00:43,730
+And this is how the syntax looks.
+
+10
+00:00:43,860 --> 00:00:50,760
+We use the UPDATE keyword and we specify the table we want to update and then we set the values that
+
+11
+00:00:50,760 --> 00:00:58,740
+we want to update and we can specify a particular condition to only update the records that we were
+
+12
+00:00:58,740 --> 00:01:00,440
+interested in updating.
+
+13
+00:01:00,480 --> 00:01:08,070
+So in our case we would write something like UPDATE and the table we want to update is of course again
+
+14
+00:01:08,070 --> 00:01:11,480
+the products table and then we write set
+
+15
+00:01:11,730 --> 00:01:19,440
+and we want to set the price to equal 0.8 as the price of our pencil.
+
+16
+00:01:19,440 --> 00:01:25,830
+Now this is quite a dangerous statement because if I hit run right now it's going to set everything
+
+17
+00:01:25,860 --> 00:01:29,290
+in my table to have a price of 0.8.
+
+18
+00:01:29,520 --> 00:01:36,590
+So it's really important that you specify the WHERE statement so that it only sets the price of 
+
+19
+00:01:36,590 --> 00:01:42,470
+0.8 where the record has an id equal to 2.
+
+20
+00:01:42,930 --> 00:01:49,740
+So now it's going to find this particular record and only set its price to 0.8.
+
+21
+00:01:49,740 --> 00:01:57,210
+So now if I hit run and let's see our products table again, you can see our pencil now has a price and
+
+22
+00:01:57,210 --> 00:01:59,620
+we don't have any null values anymore.
+
+23
+00:02:00,740 --> 00:02:08,300
+Now what if you wanted to change the table instead of a particular record? Say in our product table
+
+24
+00:02:08,300 --> 00:02:14,450
+what if we also wanted to keep track of the stock of each of our products? Well then we would need to
+
+25
+00:02:14,450 --> 00:02:17,540
+add a new column. In SQL 
+
+26
+00:02:17,580 --> 00:02:21,540
+that means we need to alter the table.
+
+27
+00:02:21,540 --> 00:02:23,850
+And this is the ALTER table syntax.
+
+28
+00:02:23,850 --> 00:02:29,480
+It's used to add, delete or modify columns in an existing table which is exactly what we want
+
+29
+00:02:29,550 --> 00:02:30,260
+right?
+
+30
+00:02:30,270 --> 00:02:32,470
+And this is what you need to write.
+
+31
+00:02:32,550 --> 00:02:35,320
+ALTER TABLE provide the table name
+
+32
+00:02:35,490 --> 00:02:38,980
+and then you add the column name and data type.
+
+33
+00:02:39,000 --> 00:02:49,320
+So over here we would say ALTER TABLE and the table is the products table and then we say add the column
+
+34
+00:02:49,320 --> 00:02:55,670
+name that's called stock and then the data type will be simply an integer.
+
+35
+00:02:55,670 --> 00:03:02,660
+So now if we hit run and we view our products table you can see we now have an extra column tagged on
+
+36
+00:03:02,660 --> 00:03:06,170
+at the end but they both have null values.
+
+37
+00:03:06,410 --> 00:03:14,420
+So as a challenge, I want you to update both of these records so that they will have a stock value and
+
+38
+00:03:14,420 --> 00:03:18,090
+the value of the stock should correspond to what you see in this table.
+
+39
+00:03:18,110 --> 00:03:26,350
+So we have 32 pens and 12 pencils to sell. Pause the video and try to complete this challenge.
+
+40
+00:03:28,080 --> 00:03:28,430
+All right.
+
+41
+00:03:28,440 --> 00:03:34,200
+So there shouldn't have been too hard because you can always head back to the documentation and check
+
+42
+00:03:34,200 --> 00:03:37,910
+out the syntax for the update statement. In our code
+
+43
+00:03:37,920 --> 00:03:43,080
+we need to specify UPDATE the products table
+
+44
+00:03:43,080 --> 00:03:53,560
+and we're going to set the stock to equal 32 for the pen and we're only going to set the stock to 32
+
+45
+00:03:54,250 --> 00:03:57,960
+where the id is equal to 1.
+
+46
+00:03:57,970 --> 00:04:06,360
+So now if we hit run then you can see our pen now has a stock value and the pencil has a stock of 12.
+
+47
+00:04:06,520 --> 00:04:15,430
+So let's clear the screen and let's update the products table and set the stock to equal 12 where the
+
+48
+00:04:15,430 --> 00:04:19,130
+id is equal to 2.
+
+49
+00:04:19,230 --> 00:04:26,820
+And now we have stock values for both of our products and our table is now complete without any null
+
+50
+00:04:26,820 --> 00:04:28,320
+values.
+
+51
+00:04:28,590 --> 00:04:32,190
+But you can start to see how painful it can be
+
+52
+00:04:32,370 --> 00:04:37,890
+updating some of these values and especially when you haven't accounted for it when you created the
+
+53
+00:04:37,890 --> 00:04:38,400
+schema.
+

@@ -1,0 +1,724 @@
+1
+00:00:00,690 --> 00:00:06,030
+Now in the last lesson you should have downloaded and unzipped the starting project.
+
+2
+00:00:06,270 --> 00:00:11,540
+So go ahead and open it up inside Chrome and also inside Atom.
+
+3
+00:00:11,820 --> 00:00:18,810
+So currently I've got the index.html, the index.js, and the styles.css open side by side
+
+4
+00:00:18,900 --> 00:00:24,720
+inside Atom, and I want you to have the same configuration so that we can work along with it together.
+
+5
+00:00:24,720 --> 00:00:31,860
+Now the first thing for you to do is to link up the index.js with our index.html and test it using
+
+6
+00:00:31,860 --> 00:00:32,770
+an alert.
+
+7
+00:00:32,890 --> 00:00:35,150
+So pause the video and go ahead and do that.
+
+8
+00:00:38,130 --> 00:00:44,740
+So as we did before we always put our scripts right at the end just before the body closing tag.
+
+9
+00:00:45,060 --> 00:00:54,150
+And we use the script with a source. So the source is of course index.js, and hit save, and then let's
+
+10
+00:00:54,150 --> 00:01:01,590
+just give it a test as always with a simple alert just to make sure that everything is linked up properly
+
+11
+00:01:01,680 --> 00:01:02,690
+and it's working.
+
+12
+00:01:02,910 --> 00:01:07,790
+And so now inside our index.html we've got a link to our stylesheet,
+
+13
+00:01:07,800 --> 00:01:13,330
+we’ve got a script that points to our index.js, and we're ready to begin.
+
+14
+00:01:13,590 --> 00:01:20,220
+Now, at the moment, even though I have all of these buttons on my web site, nothing actually happens when
+
+15
+00:01:20,220 --> 00:01:21,130
+I press on them,
+
+16
+00:01:21,150 --> 00:01:21,560
+right?
+
+17
+00:01:21,580 --> 00:01:23,820
+Absolutely nothing happens.
+
+18
+00:01:23,820 --> 00:01:29,640
+Now in order to start registering the button clicks, I need to add what we call an event listener to
+
+19
+00:01:29,640 --> 00:01:29,930
+it,
+
+20
+00:01:29,940 --> 00:01:33,150
+so the buttons will let me know when a user clicks on it.
+
+21
+00:01:33,150 --> 00:01:39,060
+Now inside our index.js, let's first create a function that does something when the button gets
+
+22
+00:01:39,060 --> 00:01:39,860
+clicked.
+
+23
+00:01:39,900 --> 00:01:48,450
+So let's call this function handleClick, and it's going to take no inputs, but it will carry out an alert
+
+24
+00:01:48,510 --> 00:01:57,460
+that says “I got clicked!”. And we basically want our button to trigger this function when it receives a click.
+
+25
+00:01:57,570 --> 00:02:04,380
+So in order to do that we first have to select our button inside the HTML and add an event listener that
+
+26
+00:02:04,380 --> 00:02:05,160
+listens
+
+27
+00:02:05,190 --> 00:02:11,160
+for when it gets clicked, and when it does, to call this function called handleClick.
+
+28
+00:02:11,160 --> 00:02:18,920
+So first of course we'll need to tap into the document and then we'll querySelector for our button.
+
+29
+00:02:18,930 --> 00:02:24,180
+Now I'm only targeting the first button here just so that we can see what's going on before we start
+
+30
+00:02:24,180 --> 00:02:26,190
+trying to do this to all the buttons.
+
+31
+00:02:26,190 --> 00:02:32,700
+All right. So now that I've selected my first button, the next step is to add an event listener, and the
+
+32
+00:02:32,700 --> 00:02:37,870
+method for it is pretty much what it sounds like. It’s addEventListener.
+
+33
+00:02:38,190 --> 00:02:44,700
+Now if we take a look inside the documentation, as you always should when you’re using a new method or a new
+
+34
+00:02:44,700 --> 00:02:51,630
+property, then you can see that the method addEventListener sets up a function to be called whenever
+
+35
+00:02:51,630 --> 00:02:55,020
+the specified event is delivered to the target.
+
+36
+00:02:55,170 --> 00:03:02,160
+So the target in our case is the object that we're calling the method addEventListener on, which in
+
+37
+00:03:02,160 --> 00:03:08,430
+our case is simply just going to be the first button on our web page, and then we're calling the method
+
+38
+00:03:08,550 --> 00:03:13,020
+addEventListener. And this event listener usually has two parameters.
+
+39
+00:03:13,200 --> 00:03:19,940
+The first one is the type which is a case sensitive string representing the event type to listen to.
+
+40
+00:03:20,070 --> 00:03:25,560
+And if you click on this link you can see all of the different event types that you can listen to.
+
+41
+00:03:25,860 --> 00:03:31,650
+But in our case we're just looking for something really really simple which is simply the click event
+
+42
+00:03:32,010 --> 00:03:35,910
+which means that the mouse clicked on the button.
+
+43
+00:03:36,000 --> 00:03:38,000
+So let's go ahead and add that click event.
+
+44
+00:03:38,060 --> 00:03:40,950
+And remember we have to add it as a string.
+
+45
+00:03:40,950 --> 00:03:42,900
+So that's the first parameter done.
+
+46
+00:03:42,900 --> 00:03:45,280
+Now what about the second parameter?
+
+47
+00:03:45,540 --> 00:03:48,620
+Well, the second parameter is a listener,
+
+48
+00:03:48,810 --> 00:03:58,620
+and this usually is a Javascript function that's going to be called when that click event gets detected.
+
+49
+00:03:58,620 --> 00:04:04,320
+So, in our case, we're going to call our function handleClick.
+
+50
+00:04:04,320 --> 00:04:12,810
+So what this line of code does is it finds the first button in our document, which is the w drum button,
+
+51
+00:04:13,470 --> 00:04:21,540
+and then it adds a event listener to that button so that it listens for clicks that happen on that button.
+
+52
+00:04:21,690 --> 00:04:28,350
+And when it does it runs the code inside the function handleClick, and that should send us an alert
+
+53
+00:04:28,350 --> 00:04:30,020
+saying "I got clicked!".
+
+54
+00:04:30,060 --> 00:04:37,230
+So let's try it out. Let's refresh our web site, and if you remember I only added that event listener to
+
+55
+00:04:37,230 --> 00:04:38,410
+the first button.
+
+56
+00:04:38,580 --> 00:04:42,460
+So if we click any of these other buttons still nothing will happen.
+
+57
+00:04:42,810 --> 00:04:49,250
+But when I click on the first button, then you can see that we've got the message "I got clicked!".
+
+58
+00:04:49,470 --> 00:04:56,520
+So that means that this button is listening for every time that the user clicks on it and we're able
+
+59
+00:04:56,520 --> 00:05:00,070
+to get it to call a method every single time
+
+60
+00:05:00,090 --> 00:05:01,250
+it does get clicked.
+
+61
+00:05:01,410 --> 00:05:05,660
+So this is getting us closer to our goal, right? Now
+
+62
+00:05:05,770 --> 00:05:11,100
+event listeners are a little bit like when you're going to a party and you're asking your dad to pick you
+
+63
+00:05:11,100 --> 00:05:11,670
+up.
+
+64
+00:05:11,910 --> 00:05:17,220
+You're giving him an event listener by telling him to wait for a message from you that tells him to
+
+65
+00:05:17,220 --> 00:05:18,030
+pick you up.
+
+66
+00:05:18,060 --> 00:05:22,560
+And by doing this you're essentially adding an event listener to your dad.
+
+67
+00:05:22,590 --> 00:05:27,540
+Now as the evening moves on and you're getting kind of bored with the party you decide to message your
+
+68
+00:05:27,540 --> 00:05:33,810
+dad, and when he receives that message he will carry out a function, namely picking you up, right?
+
+69
+00:05:33,840 --> 00:05:35,280
+That's what dads are for I guess.
+
+70
+00:05:35,320 --> 00:05:39,700
+So this is exactly the same thing that we're doing with our code. Now
+
+71
+00:05:39,720 --> 00:05:46,080
+the keen eyed amongst you might have noticed that the way that we're calling our function is a little
+
+72
+00:05:46,080 --> 00:05:52,650
+bit different from usual, namely we normally call or function with a set of parentheses,
+
+73
+00:05:52,920 --> 00:05:56,350
+but in this case we're not using it.
+
+74
+00:05:56,370 --> 00:05:57,860
+Now why is that?
+
+75
+00:05:58,020 --> 00:06:02,790
+Well let's see what happens when we do add the parentheses.
+
+76
+00:06:02,790 --> 00:06:05,990
+So let's save and let's refresh our web site.
+
+77
+00:06:06,300 --> 00:06:13,620
+Now you'll notice that immediately this alert gets called, and this is the problem.
+
+78
+00:06:13,740 --> 00:06:20,550
+What happens is that our code will run and run and run until it hits the script tag and then it'll go
+
+79
+00:06:20,550 --> 00:06:27,790
+and find the index.js file that we specified in the script tag and it'll run this line of code.
+
+80
+00:06:27,790 --> 00:06:36,330
+Now if we add the parentheses here, then this is a straight up method call, and it will call that
+
+81
+00:06:36,330 --> 00:06:41,310
+method straight away when it's adding the event listener.
+
+82
+00:06:41,340 --> 00:06:43,800
+Now that's not what we want to happen.
+
+83
+00:06:43,800 --> 00:06:48,590
+We don't want this function to trigger as soon as the event listener is added,
+
+84
+00:06:48,600 --> 00:06:48,920
+right?
+
+85
+00:06:48,930 --> 00:06:53,970
+No, we want it to trigger when the click happens.
+
+86
+00:06:54,000 --> 00:07:00,450
+So in that case instead of calling our function as we would with the parentheses we're passing in the
+
+87
+00:07:00,450 --> 00:07:03,180
+name of the function as an input.
+
+88
+00:07:03,180 --> 00:07:11,700
+So that means that we're waiting for this click event to happen before we call the handleClick function.
+
+89
+00:07:11,940 --> 00:07:17,030
+And this is a bit of a logical jump that you'll have to make in order to understand a lot of things
+
+90
+00:07:17,040 --> 00:07:18,160
+in Javascript.
+
+91
+00:07:18,360 --> 00:07:28,260
+It's the idea of passing a function as an input so that it can be called at a later time.
+
+92
+00:07:28,260 --> 00:07:33,210
+Now there's other ways that you'll see this part written out in the wild.
+
+93
+00:07:33,240 --> 00:07:40,800
+The most common way is, instead of adding a function name here that calls the function later on,
+
+94
+00:07:40,950 --> 00:07:45,840
+most people will write this code as simply an anonymous function.
+
+95
+00:07:45,840 --> 00:07:52,730
+So anonymous functions look pretty much exactly the same as a normal function but they're just anonymous.
+
+96
+00:07:52,800 --> 00:07:54,750
+They don't have a name.
+
+97
+00:07:54,750 --> 00:07:56,680
+So this is what it would look like.
+
+98
+00:07:56,790 --> 00:08:02,070
+And we can replace this part of the code with our anonymous function.
+
+99
+00:08:02,070 --> 00:08:08,820
+So now you'll see it does exactly the same thing, namely when I click on the button, it goes and carries
+
+100
+00:08:08,820 --> 00:08:12,290
+out the content of that anonymous function.
+
+101
+00:08:12,840 --> 00:08:19,290
+And inside the parentheses of this anonymous function are all the instructions that you want to happen
+
+102
+00:08:19,830 --> 00:08:23,080
+when that button detects the click.
+
+103
+00:08:23,190 --> 00:08:26,830
+All right so this is going to take a little bit of wrapping your head around,
+
+104
+00:08:26,970 --> 00:08:30,420
+but I really want to challenge you with a small task.
+
+105
+00:08:30,540 --> 00:08:37,500
+And the problem we have to address is at the moment we're only adding an event listener to our first
+
+106
+00:08:37,590 --> 00:08:46,280
+button, because we're using querySelector, which selects the first button in our index.html.
+
+107
+00:08:46,380 --> 00:08:54,660
+Now I want you to change this code or write some new code so that we're adding an event listener to
+
+108
+00:08:54,840 --> 00:09:02,130
+every single button so that no matter which button you click on you'll always get this alert that says
+
+109
+00:09:02,220 --> 00:09:03,470
+"I got clicked!".
+
+110
+00:09:03,840 --> 00:09:07,570
+Now there's a really really roundabout way of doing this,
+
+111
+00:09:07,710 --> 00:09:09,150
+and there's a better way.
+
+112
+00:09:09,300 --> 00:09:11,870
+And I want you to figure out what is the better way.
+
+113
+00:09:12,090 --> 00:09:16,310
+And as a hint it shouldn't take you more than five lines of code to do this.
+
+114
+00:09:16,470 --> 00:09:23,670
+So pause the video now and see if you can figure out a way of adding the event listener that does exactly
+
+115
+00:09:23,670 --> 00:09:25,780
+the same thing as what we've got here,
+
+116
+00:09:25,860 --> 00:09:28,950
+but to all of the buttons.
+
+117
+00:09:28,950 --> 00:09:29,340
+All right.
+
+118
+00:09:29,340 --> 00:09:31,110
+So how did that go?
+
+119
+00:09:31,310 --> 00:09:38,300
+Well, in order to solve this challenge successfully, you would have to recall that previously in our Javascript
+
+120
+00:09:38,300 --> 00:09:46,640
+lessons we learned about loops. And loops are a great way of preventing ourselves from doing really tedious
+
+121
+00:09:46,640 --> 00:09:53,240
+work, because you might realize that you can say something like querySelectorAll for button, and then
+
+122
+00:09:53,240 --> 00:09:59,830
+you can say, for the first button add event listener, then for the second button add event listener, for
+
+123
+00:09:59,830 --> 00:10:00,370
+this.
+
+124
+00:10:00,410 --> 00:10:01,630
+And on and on.
+
+125
+00:10:01,640 --> 00:10:09,560
+And there's seven buttons, so that's a lot of lines of code, which we are not interested in doing, right?
+
+126
+00:10:09,560 --> 00:10:15,860
+So instead what we can do is we can create a for loop. And remember, for the for loop,
+
+127
+00:10:15,860 --> 00:10:19,740
+we start out with creating a variable i that's equal to zero,
+
+128
+00:10:19,940 --> 00:10:22,600
+and then we specify the upper bound of i,
+
+129
+00:10:22,640 --> 00:10:25,160
+so namely when should our loop stop.
+
+130
+00:10:25,160 --> 00:10:32,390
+And in this case we want our loop to loop through seven times because we have seven buttons. And we can get
+
+131
+00:10:32,390 --> 00:10:40,190
+that number 7 by simply saying document.querySelectorAll, and we're going to select all of the items
+
+132
+00:10:40,400 --> 00:10:42,620
+that have the tag 'button'.
+
+133
+00:10:42,680 --> 00:10:49,040
+Now this is a little bit dangerous because say if later on we decide to add another button say in our
+
+134
+00:10:49,040 --> 00:10:55,050
+footer, like a button that points towards our Twitter or our Facebook or whatever it may be,
+
+135
+00:10:55,160 --> 00:10:58,850
+then this loop is also going to loop through all of those buttons,
+
+136
+00:10:59,000 --> 00:11:00,570
+adding an event listener.
+
+137
+00:11:00,800 --> 00:11:07,730
+So we should really be a little bit more specific with our selector. And if we take a look here, all
+
+138
+00:11:07,730 --> 00:11:11,750
+of our buttons have a class of drum applied to it.
+
+139
+00:11:11,960 --> 00:11:18,680
+So instead of just targeting button elements we can be more specific and more safe by saying target
+
+140
+00:11:18,920 --> 00:11:24,060
+all of the elements that have a selector of .drum.
+
+141
+00:11:24,260 --> 00:11:29,830
+And remember the dot specifies that this is going to be a class that we're targeting.
+
+142
+00:11:29,840 --> 00:11:35,900
+So now we're looking through our document querying for all of the elements that have a class of drum,
+
+143
+00:11:36,080 --> 00:11:42,980
+and then we're going to call .length on it in order to see how many elements we've got that have
+
+144
+00:11:42,980 --> 00:11:50,780
+a class of drum. And that number will help us determine when we should stop looping, because we essentially
+
+145
+00:11:50,780 --> 00:11:54,590
+just want to loop through all of our buttons and add event listeners.
+
+146
+00:11:54,620 --> 00:11:59,990
+So what better way of stopping our loop than figuring out how many buttons we have that has the class
+
+147
+00:11:59,990 --> 00:12:00,860
+drum on it?
+
+148
+00:12:00,860 --> 00:12:03,740
+Now you can also separate this line out if you wish,
+
+149
+00:12:03,830 --> 00:12:07,050
+and if it makes it clearer to you, by creating a new variable
+
+150
+00:12:07,060 --> 00:12:17,360
+saying numberOfDrumButtons, and you can set it equal to this, and then you can use that inside the
+
+151
+00:12:17,360 --> 00:12:22,320
+for loop, by saying start i from zero and end
+
+152
+00:12:22,490 --> 00:12:26,480
+when i is no longer less than the number of drum buttons.
+
+153
+00:12:26,750 --> 00:12:30,700
+And finally we're going to increment i by one each time.
+
+154
+00:12:30,770 --> 00:12:35,830
+So now inside our for loop we're going to use this part of our code,
+
+155
+00:12:35,900 --> 00:12:36,350
+right?
+
+156
+00:12:36,560 --> 00:12:41,690
+So we're going to paste that into here, and maybe give it a little bit of space from everything else so
+
+157
+00:12:41,720 --> 00:12:44,230
+you can see more clearly what's going on.
+
+158
+00:12:44,300 --> 00:12:51,080
+And in this case we're looking through our document, we're querying for all of the selectors that have
+
+159
+00:12:51,080 --> 00:12:58,640
+the class drum, and then we're selecting each individual element from this array to add an event listener.
+
+160
+00:12:58,670 --> 00:13:00,820
+So we want to start off with zero.
+
+161
+00:13:01,070 --> 00:13:05,490
+And then the next time the loop runs it will be 1, and then it'll be 2.
+
+162
+00:13:05,750 --> 00:13:08,660
+And this is where we put our i.
+
+163
+00:13:08,990 --> 00:13:12,590
+So when this loop starts off, i is going to be equal to zero.
+
+164
+00:13:12,800 --> 00:13:14,620
+So this is going to be equal to zero,
+
+165
+00:13:14,630 --> 00:13:21,210
+so we get our first drum element. And then the next time that this loop runs i gets incremented by 1,
+
+166
+00:13:21,380 --> 00:13:23,370
+so this i is now equal to 1,
+
+167
+00:13:23,390 --> 00:13:26,980
+and we get the next element, and so on and so forth.
+
+168
+00:13:27,080 --> 00:13:33,770
+So now if we hit save and we refresh our web site, then you can see that no matter which button we click
+
+169
+00:13:33,770 --> 00:13:42,620
+on, we're always going to get the alert "I got clicked!". So that event listener has been added to all of
+
+170
+00:13:42,620 --> 00:13:46,040
+our buttons by using a for loop.
+
+171
+00:13:46,070 --> 00:13:50,260
+Now if you find it easier in this case you can also use a while loop,
+
+172
+00:13:50,270 --> 00:13:57,080
+so while i is less than the number of drum buttons, or whichever way you found to be most effective.
+
+173
+00:13:57,290 --> 00:14:03,800
+Now what I didn't want you to do was to write out this code seven times changing the i from 0 through
+
+174
+00:14:03,800 --> 00:14:04,740
+to 7.
+
+175
+00:14:04,790 --> 00:14:11,570
+So if you had any problems with this challenge then I strongly urge you to take a look back at the lessons
+
+176
+00:14:11,660 --> 00:14:13,000
+in the Javascript module,
+
+177
+00:14:13,080 --> 00:14:18,980
+where we went over this concept of loops, and maybe repeat some of the exercises and challenges so that you're
+
+178
+00:14:18,980 --> 00:14:22,030
+fully comfortable with this before we carry on.
+
+179
+00:14:22,040 --> 00:14:25,900
+But once you're ready we're going to get started playing some sounds.
+
+180
+00:14:25,920 --> 00:14:27,770
+So for all of that and more,
+
+181
+00:14:27,950 --> 00:14:29,090
+I'll see you on the next lesson.
+

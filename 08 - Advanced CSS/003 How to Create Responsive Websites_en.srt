@@ -1,0 +1,892 @@
+1
+00:00:00,320 --> 00:00:03,800
+So we've talked a little bit about layout using CSS.
+
+2
+00:00:03,830 --> 00:00:10,730
+Now a really important concept in terms of layout is how it should change depending on the size of the
+
+3
+00:00:10,730 --> 00:00:11,450
+screen,
+
+4
+00:00:11,600 --> 00:00:18,800
+because these days there are many different screen sizes: desktops, laptops, iPads, mobile phones
+
+5
+00:00:18,800 --> 00:00:22,580
+and we want our website to look good on all of them.
+
+6
+00:00:22,580 --> 00:00:30,740
+And in order to do that, we need to make our websites responsive, so it responds to the changes in the
+
+7
+00:00:30,740 --> 00:00:31,790
+screen size.
+
+8
+00:00:32,390 --> 00:00:38,500
+The next time you go on to the web, I want you to try and change the size of your window.
+
+9
+00:00:38,510 --> 00:00:45,800
+So grab one of the sides or grab one of the corners and simply move it so that we change the width of
+
+10
+00:00:45,800 --> 00:00:46,640
+the screen.
+
+11
+00:00:46,640 --> 00:00:51,050
+And what I want you to notice is how the website responds to that.
+
+12
+00:00:51,140 --> 00:01:00,120
+Notice how here in my full width you can see all of these things up here, the different parts of the
+
+13
+00:01:00,120 --> 00:01:01,230
+navigation bar.
+
+14
+00:01:01,230 --> 00:01:07,440
+But when I make this a little bit narrower, you'll see that at some point it suddenly will disappear.
+
+15
+00:01:07,440 --> 00:01:08,640
+And where has it gone?
+
+16
+00:01:08,640 --> 00:01:10,470
+Well, it's gone into a menu now.
+
+17
+00:01:10,470 --> 00:01:18,630
+So if you're on iPad or if you're on an iPhone where there's not enough width to display all of these
+
+18
+00:01:18,630 --> 00:01:23,190
+items, then it gets collapsed into a little menu system, which is really neat.
+
+19
+00:01:23,190 --> 00:01:23,470
+Right?
+
+20
+00:01:23,550 --> 00:01:30,030
+And at various points of the width, for example, right about here, you can see the navigation bar
+
+21
+00:01:30,030 --> 00:01:32,190
+collapse and go into a menu.
+
+22
+00:01:32,190 --> 00:01:37,890
+And then if we go even further, you can see that search button even disappears, so that on mobile
+
+23
+00:01:37,890 --> 00:01:41,700
+maybe you're not able to use that search bar very well.
+
+24
+00:01:41,700 --> 00:01:45,750
+So they've hidden it on this particular size.
+
+25
+00:01:46,170 --> 00:01:53,550
+Have a look at your favorite websites and see how they're designed to be responsive and come back and
+
+26
+00:01:53,550 --> 00:01:55,950
+I'll show you how we can do it as well.
+
+27
+00:01:56,430 --> 00:01:59,340
+There are four main ways of doing this.
+
+28
+00:01:59,370 --> 00:02:02,850
+One is through the use of what's called Media Queries,
+
+29
+00:02:02,850 --> 00:02:06,540
+and then there is CSS Grid, CSS Flexbox,
+
+30
+00:02:06,540 --> 00:02:13,950
+and you can also get really good responsiveness by using external frameworks such as Bootstrap.
+
+31
+00:02:13,950 --> 00:02:17,580
+So we're going to talk about all three of these in this lesson.
+
+32
+00:02:17,760 --> 00:02:24,630
+The first one is the media query, and this is essentially something that you put in instead of a selector
+
+33
+00:02:24,630 --> 00:02:25,950
+in your CSS.
+
+34
+00:02:26,100 --> 00:02:33,180
+As you remember, this is normally the part before the curly braces where you add your selector, your
+
+35
+00:02:33,510 --> 00:02:41,640
+.class or your # ID, but instead we use an @ sign and then the word media,
+
+36
+00:02:41,640 --> 00:02:47,280
+and afterwards we have some brackets and we add in a breakpoint.
+
+37
+00:02:47,370 --> 00:02:58,470
+This essentially says that look inside these braces to apply the CSS when you are displaying the website
+
+38
+00:02:58,470 --> 00:03:10,440
+on a screen that is below or equal to 600px wide. Here we've set the max-width to 600 and everything
+
+39
+00:03:10,440 --> 00:03:17,250
+that is up to that size will have a different CSS, which we can define in here.
+
+40
+00:03:17,250 --> 00:03:19,860
+And this is how a media query works.
+
+41
+00:03:19,860 --> 00:03:21,120
+It's pretty simple.
+
+42
+00:03:21,120 --> 00:03:25,680
+We can define various different widths. Coming back to here,
+
+43
+00:03:25,710 --> 00:03:33,480
+notice how when we go from this width to this width, there is a breakpoint right there that changes
+
+44
+00:03:33,480 --> 00:03:38,340
+the display and tells the navigation bar to have a different CSS layout.
+
+45
+00:03:38,340 --> 00:03:41,490
+So we could do exactly that using media queries.
+
+46
+00:03:41,970 --> 00:03:48,420
+Now, another common method for creating responsiveness is through something called CSS G  rid.
+
+47
+00:03:48,450 --> 00:03:53,070
+This is a little bit harder to understand, which is why we're dedicating a whole section to teaching
+
+48
+00:03:53,070 --> 00:03:53,880
+you about it.
+
+49
+00:03:53,880 --> 00:03:57,450
+But it also means that it's a lot more flexible.
+
+50
+00:03:57,450 --> 00:04:04,110
+So you could create any of these designs, but let's say we pick one of these, for example, this layout
+
+51
+00:04:04,110 --> 00:04:07,020
+right here, and we want to do that on our website.
+
+52
+00:04:07,050 --> 00:04:15,200
+Well, we could use CSS Grid by simply creating a div that contains five divs.
+
+53
+00:04:15,210 --> 00:04:17,579
+So notice there's five squares here.
+
+54
+00:04:17,579 --> 00:04:20,550
+One, two, three, four, five.
+
+55
+00:04:20,579 --> 00:04:28,740
+And each of these divs are given a class called ".card," but the containing div gets a different style
+
+56
+00:04:28,950 --> 00:04:36,990
+and we apply the display grid to the containing div.
+
+57
+00:04:36,990 --> 00:04:41,130
+So this is going to be applied to this one right here.
+
+58
+00:04:41,250 --> 00:04:48,540
+And remember, previously we learned about display and we saw how it could be inline, it could be block,
+
+59
+00:04:48,570 --> 00:04:50,820
+it could be none,
+
+60
+00:04:50,820 --> 00:04:57,330
+and in this case, if we set it to grid, then we're basically saying that we're going to use this system
+
+61
+00:04:57,330 --> 00:04:59,640
+of CSS Grid to do the layout.
+
+62
+00:05:00,370 --> 00:05:08,200
+And CSS Grid is a pretty simple system where you can define how you want the columns and rows to be
+
+63
+00:05:08,200 --> 00:05:08,920
+laid out.
+
+64
+00:05:09,370 --> 00:05:12,370
+If we go to the next line here, let me talk you through it.
+
+65
+00:05:12,370 --> 00:05:19,960
+So here we're saying that we're going to have some columns in our grid where we're going to have two
+
+66
+00:05:19,960 --> 00:05:20,560
+columns.
+
+67
+00:05:20,560 --> 00:05:26,190
+So there are two bits here that I've defined and they're both one fraction (1fr).
+
+68
+00:05:26,200 --> 00:05:37,960
+What this says is we want two columns, one and two, and on our website we would create these two columns
+
+69
+00:05:37,960 --> 00:05:40,450
+one and two.
+
+70
+00:05:41,260 --> 00:05:46,450
+And what the "fr" stands for is to make it an equal fraction.
+
+71
+00:05:46,450 --> 00:05:53,590
+One and two basically have the same width and it's just divided the screen into two columns.
+
+72
+00:05:53,830 --> 00:06:01,010
+The next line, if we look at this, says we should also create some rows in our grid.
+
+73
+00:06:01,010 --> 00:06:10,280
+And because there are three different values here, then we're creating one, two and three rows and
+
+74
+00:06:10,280 --> 00:06:13,220
+we're creating these rows a little bit differently from our columns.
+
+75
+00:06:13,250 --> 00:06:14,660
+Now, we could do the same thing,
+
+76
+00:06:14,660 --> 00:06:21,260
+we could have three equal size columns, or we could use fractions to figure out maybe one has to be
+
+77
+00:06:21,260 --> 00:06:25,850
+twice as big as the other, but we can also define it simply in terms of pixels.
+
+78
+00:06:25,850 --> 00:06:28,490
+And for rows you'll often see this.
+
+79
+00:06:28,490 --> 00:06:37,370
+So what we said is that the top-row should have 100px in height, the next one should be 200px
+
+80
+00:06:37,370 --> 00:06:41,000
+in height and the next one is also 200px.
+
+81
+00:06:41,190 --> 00:06:47,390
+CSS Grid, as you can see, is an incredibly flexible way of creating very complex layout very quickly.
+
+82
+00:06:47,510 --> 00:06:55,700
+And if we go to the next line, this gap basically says that there should be a gap of 30px  between
+
+83
+00:06:55,700 --> 00:07:01,270
+each of the rows and the columns, which you'll see right here and right here.
+
+84
+00:07:01,270 --> 00:07:10,540
+Now, finally we can change the first div here, which has a class of ".first" which we target right here
+
+85
+00:07:10,540 --> 00:07:14,830
+so that we make the column span two columns.
+
+86
+00:07:14,830 --> 00:07:22,240
+So now instead of just being a single column like the rest of these, which is one column width, this
+
+87
+00:07:22,240 --> 00:07:28,030
+one is spanning two of the columns on our grid, and our entire website only has two columns.
+
+88
+00:07:28,030 --> 00:07:29,680
+So it makes it go full width
+
+89
+00:07:29,680 --> 00:07:32,130
+basically. To achieve this layout
+
+90
+00:07:32,140 --> 00:07:36,550
+maybe we'll put a header in there, maybe we'll put a big heading, maybe we'll put some big text,
+
+91
+00:07:36,550 --> 00:07:37,390
+etcetera.
+
+92
+00:07:37,390 --> 00:07:46,270
+And this complex layout is very easily done using just five six lines of code using CSS Grid.
+
+93
+00:07:46,330 --> 00:07:51,400
+Now we're going to be diving much, much deeper into CSS Grid and I'm going to be showing you and walking
+
+94
+00:07:51,400 --> 00:07:53,410
+you through a lot of the different features,
+
+95
+00:07:53,410 --> 00:07:56,350
+but we're going to be dedicating a whole section to it.
+
+96
+00:07:56,350 --> 00:07:58,270
+So don't worry if you don't fully understand it
+
+97
+00:07:58,270 --> 00:07:59,050
+right now.
+
+98
+00:07:59,080 --> 00:08:01,970
+I just want to show you quickly how it would work.
+
+99
+00:08:02,150 --> 00:08:07,730
+Similarly, I want to show you another powerful system that's often used, which is called Flexbox.
+
+100
+00:08:07,730 --> 00:08:12,080
+And this, again, is a big system which we're going to dive deep into
+
+101
+00:08:12,080 --> 00:08:17,360
+but for now, I just want you to get a quick overview and a brief understanding of how it works.
+
+102
+00:08:17,600 --> 00:08:25,670
+If grid is something that applies to 2D layouts, where you've got columns and you've got rows, then
+
+103
+00:08:25,670 --> 00:08:32,539
+what Flexbox is really good at is allowing you to create 1D layouts, whether if you want everything
+
+104
+00:08:32,539 --> 00:08:43,640
+laid out as boxes on the horizontal or if you want everything laid out vertically as boxes on the vertical,
+
+105
+00:08:43,640 --> 00:08:47,180
+then you're probably going to be using Flexbox for this.
+
+106
+00:08:47,420 --> 00:08:49,070
+So here's another simple demo.
+
+107
+00:08:49,100 --> 00:08:56,480
+We've got a div container that contains four divs and you can see them right here: one, two, three
+
+108
+00:08:56,480 --> 00:08:57,920
+and four.
+
+109
+00:08:58,490 --> 00:09:06,260
+If we make the parent container, so similar to last time where we made it use a display of grid, but
+
+110
+00:09:06,260 --> 00:09:08,810
+instead this time we use a display of flex.
+
+111
+00:09:08,810 --> 00:09:12,830
+Then we're saying to the CSS that we're using this Flexbox system.
+
+112
+00:09:13,280 --> 00:09:20,570
+And what this system then allows us to do is to set each of the divs inside the flex container.
+
+113
+00:09:20,570 --> 00:09:26,600
+So notice we're targeting each of these cards here and we can give them different settings.
+
+114
+00:09:26,600 --> 00:09:32,510
+Let's say that for all of them, by default, we want them to have a flex of one.
+
+115
+00:09:32,780 --> 00:09:39,500
+So what this does is it makes each of these cards have an equal width distribution.
+
+116
+00:09:39,500 --> 00:09:43,730
+So divide up the width equally between these four cards.
+
+117
+00:09:43,730 --> 00:09:48,560
+So one, two, three and four.
+
+118
+00:09:48,950 --> 00:09:57,560
+Now I've added a fixed height of 100px, so each of these cards should all have 100px in height,
+
+119
+00:09:57,560 --> 00:09:59,510
+but then I've gone and done
+
+120
+00:09:59,530 --> 00:10:03,910
+some customizations to the default layout that's set out here.
+
+121
+00:10:04,330 --> 00:10:09,280
+What I've done is I've added some extra classes to the first two divs.
+
+122
+00:10:09,460 --> 00:10:17,260
+This first div has, instead of a flex of one where it has equal width to everybody else, I've set
+
+123
+00:10:17,260 --> 00:10:19,080
+it to have a flex of two.
+
+124
+00:10:19,150 --> 00:10:26,350
+So what this means is this is going to be twice the width of each of these unmodified ones.
+
+125
+00:10:26,560 --> 00:10:33,170
+And then for the second card here, I've set the flex to be 0.5.
+
+126
+00:10:33,190 --> 00:10:37,690
+So this should have half the width of the normal cards.
+
+127
+00:10:37,810 --> 00:10:46,930
+And by using that flex property, I've managed to set up a very complex width ratio to create this particular
+
+128
+00:10:46,930 --> 00:10:48,430
+layout that I wanted.
+
+129
+00:10:48,550 --> 00:10:52,810
+And as you can imagine, if we were working with floats, margin and all of these things that we've
+
+130
+00:10:52,810 --> 00:10:57,520
+learnt about, it would be possible, but a lot more complicated to achieve this.
+
+131
+00:10:58,450 --> 00:11:06,290
+And you can use this really flexible system with Flexbox to determine how you want the layout to be
+
+132
+00:11:06,290 --> 00:11:08,870
+laid out horizontally.
+
+133
+00:11:08,870 --> 00:11:18,170
+So maybe you could have a navigation bar on the right, which is flex of one, and then you have a main
+
+134
+00:11:18,170 --> 00:11:20,070
+content that's flex of three.
+
+135
+00:11:20,090 --> 00:11:23,750
+So then this is three times the width of this one.
+
+136
+00:11:23,870 --> 00:11:27,920
+But alternatively, you can flex in this direction.
+
+137
+00:11:27,920 --> 00:11:35,030
+So maybe you want a heading section that is a flex of one, and then you have the main content here,
+
+138
+00:11:35,030 --> 00:11:40,130
+which is a flex of three, and then you have a footer which is also a one.
+
+139
+00:11:40,130 --> 00:11:44,840
+So then it's going to divide up the total height that you have on the web page.
+
+140
+00:11:44,840 --> 00:11:50,480
+So in this case, we have five units and then divide it up according to what you've set for the flex.
+
+141
+00:11:50,960 --> 00:11:57,740
+So again, this is a more complex layout system which we're going to dive into and we're going to learn
+
+142
+00:11:57,740 --> 00:11:58,520
+more about,
+
+143
+00:11:58,520 --> 00:12:05,000
+but essentially in terms of the gist, it's just about dividing up the width or dividing up the height
+
+144
+00:12:05,000 --> 00:12:07,850
+based on these ratios that you provide.
+
+145
+00:12:08,780 --> 00:12:15,500
+And because everything is a ratio and a percentage, then that means it is by default responsive.
+
+146
+00:12:15,530 --> 00:12:20,660
+Because if this width changes, then everything is going to change proportionally.
+
+147
+00:12:20,660 --> 00:12:27,560
+So none of these will have a fixed width like say 400px or  something, but instead, it's going to
+
+148
+00:12:27,560 --> 00:12:33,890
+work that number out based on what the total width is because it's a percentage of the total width.
+
+149
+00:12:35,000 --> 00:12:41,000
+Now the very last method of creating responsiveness that I want to talk about is using the Bootstrap
+
+150
+00:12:41,000 --> 00:12:41,900
+framework.
+
+151
+00:12:42,140 --> 00:12:48,320
+And the reason why it's called a framework is because it's external.
+
+152
+00:12:48,320 --> 00:12:54,020
+So it's not something that's built into CSS like Grid or Flexbox, but it's actually something that
+
+153
+00:12:54,020 --> 00:12:58,100
+we have to bring in so other people's code that we're going to use.
+
+154
+00:12:58,190 --> 00:13:07,500
+And essentially what they've done is they've defined a whole bunch of classes in their CSS.
+
+155
+00:13:07,520 --> 00:13:15,770
+So they've written an extensive amounts of CSS and they've put different rules for different selectors.
+
+156
+00:13:15,800 --> 00:13:18,030
+For example, you could have something called Card.
+
+157
+00:13:18,050 --> 00:13:21,470
+You could have something called Row and you could have something called Container.
+
+158
+00:13:21,470 --> 00:13:29,240
+And these all will point to some CSS code inside the Bootstrap container, which has predefined layout.
+
+159
+00:13:29,270 --> 00:13:35,750
+For example, here I've got three cards and notice how they've all got rounded corners and how they
+
+160
+00:13:35,750 --> 00:13:43,910
+have a specific type of font and all of that styling is applied automatically to your code by simply
+
+161
+00:13:43,910 --> 00:13:50,120
+putting in the Bootstrap framework and then adding a particular class name.
+
+162
+00:13:50,330 --> 00:13:59,240
+Now in terms of responsiveness, they also have a sort of flex system because Bootstrap is in fact built
+
+163
+00:13:59,240 --> 00:14:01,010
+on top of Flexbox.
+
+164
+00:14:01,040 --> 00:14:04,790
+Now, this system is a 12 division system.
+
+165
+00:14:04,790 --> 00:14:06,500
+So let me explain this.
+
+166
+00:14:06,530 --> 00:14:19,010
+If the full width of your website can be divided into 12 equal portions, so then you have one, two,
+
+167
+00:14:19,010 --> 00:14:19,910
+three.
+
+168
+00:14:19,910 --> 00:14:21,740
+One, two, three.
+
+169
+00:14:22,190 --> 00:14:24,950
+One, two, three.
+
+170
+00:14:27,740 --> 00:14:34,250
+Now, if you count these, you'll find that there are 12 little sections and they divide up the entire
+
+171
+00:14:34,250 --> 00:14:35,000
+website.
+
+172
+00:14:35,030 --> 00:14:43,490
+Now you can say if I want a particular div that is going to take up half of the width, then I can use
+
+173
+00:14:43,490 --> 00:14:46,130
+this class called ".col-6".
+
+174
+00:14:46,130 --> 00:14:52,250
+So column-six and it's basically going to take up six of these columns right here.
+
+175
+00:14:52,250 --> 00:14:54,590
+So six of these little sections.
+
+176
+00:14:54,590 --> 00:14:59,890
+And as you can see, this first card indeed does take up six of the sections.
+
+177
+00:14:59,900 --> 00:15:02,360
+Now I can create other cards in here.
+
+178
+00:15:02,360 --> 00:15:07,670
+So this one's going to take up two of the columns and this one's going to take up four of the columns
+
+179
+00:15:07,670 --> 00:15:14,930
+and added together they add up to 12, which means that it's going to take up the entire width.
+
+180
+00:15:14,930 --> 00:15:19,010
+So we've now got three cards taking up the entire width of the website.
+
+181
+00:15:19,010 --> 00:15:23,470
+But as we resize the website, then it's going to respond.
+
+182
+00:15:23,480 --> 00:15:26,720
+So a column 6 is going to be a 50% width.
+
+183
+00:15:26,750 --> 00:15:33,450
+If the width was 1000px, then this one is going to be 500px  wide.
+
+184
+00:15:33,450 --> 00:15:38,130
+If the width was 2000px, then the width will be 1000pv.
+
+185
+00:15:38,130 --> 00:15:39,030
+ecetera.
+
+186
+00:15:39,030 --> 00:15:45,930
+And this is not only really good for responsiveness, but it's also really good because I mentioned
+
+187
+00:15:45,960 --> 00:15:52,620
+we can get styling brought into our website really easily just by using some of the pre-built components
+
+188
+00:15:52,620 --> 00:15:57,180
+that comes with this framework similar to Grid Flexbox.
+
+189
+00:15:57,180 --> 00:16:03,720
+We're going to be doing a section on Bootstrap as well so that you can learn more about this system
+
+190
+00:16:03,720 --> 00:16:08,910
+and all of the features that are available to you once you understand how it works.
+
+191
+00:16:09,240 --> 00:16:16,080
+But these are some of the main ways that we can create responsive websites very easily in our web design
+
+192
+00:16:16,080 --> 00:16:17,850
+using CSS.
+
+193
+00:16:17,970 --> 00:16:25,500
+In the next lesson, I'm going to dive deeper into media queries because it's a relatively easy to understand
+
+194
+00:16:25,500 --> 00:16:31,800
+system and it's not as complex as some of these three, which we'll need to dedicate an individual section
+
+195
+00:16:31,800 --> 00:16:32,130
+to.
+
+196
+00:16:32,130 --> 00:16:33,750
+And quite a lot of time too.
+
+197
+00:16:34,170 --> 00:16:38,790
+Now, at this point, you might be thinking, well, there are all these different methods and they
+
+198
+00:16:38,790 --> 00:16:42,960
+all seem great, but which one is the best and which one should I choose?
+
+199
+00:16:42,960 --> 00:16:48,150
+This is often such a common question I get from students, and I want to say to you that there is no
+
+200
+00:16:48,150 --> 00:16:51,840
+such thing as the best when it comes to any sort of programming.
+
+201
+00:16:51,870 --> 00:17:00,150
+These are just tools and they could be tools like a hammer or a chisel or a drill.
+
+202
+00:17:00,150 --> 00:17:02,430
+They all have different specialties.
+
+203
+00:17:02,430 --> 00:17:04,710
+They're all good at different things, basically.
+
+204
+00:17:04,710 --> 00:17:09,240
+And as you'll see in the coming lessons, where we get to learn a little bit more about each of these
+
+205
+00:17:09,240 --> 00:17:15,119
+different styles of creating responsiveness and adding layout to our websites, They all have strengths
+
+206
+00:17:15,119 --> 00:17:22,319
+and weaknesses, so keep an open mind and all that you need to know for this lesson is just to realize
+
+207
+00:17:22,319 --> 00:17:27,750
+that there are many different ways of creating responsive websites, and these are the most common ways.
+
+208
+00:17:27,990 --> 00:17:32,220
+There's quite a lot of demo code that I showed you in this lesson, and I want you to be able to play
+
+209
+00:17:32,220 --> 00:17:37,290
+around with it because you're really only going to learn code when you actually try and make mistakes
+
+210
+00:17:37,290 --> 00:17:40,830
+and change things and mess with things in order to see how it works.
+
+211
+00:17:40,830 --> 00:17:47,460
+So download 8.2 Responsiveness from this lesson and then open it up inside VS Code.
+
+212
+00:17:47,460 --> 00:17:54,210
+If you go into the index.html and show it as a preview, you can see all the different ways that we
+
+213
+00:17:54,210 --> 00:18:01,050
+can create responsiveness and then go to the media query to see how we've used media queries in order
+
+214
+00:18:01,050 --> 00:18:07,440
+to achieve this kind of breakpoint responsiveness and then maybe go back and try a different method
+
+215
+00:18:07,440 --> 00:18:10,980
+like CSS grid and see how our grid is responsiveness.
+
+216
+00:18:10,980 --> 00:18:20,580
+But again, done using a different method and the same with Flexbox or Bootstrap and just examine some
+
+217
+00:18:20,580 --> 00:18:23,490
+of the code and play around with it or change things.
+
+218
+00:18:23,520 --> 00:18:28,350
+I know right now you don't have complete information because we haven't gone into this in detail yet,
+
+219
+00:18:28,350 --> 00:18:33,660
+but just get a feel of how it might work and see how is its responsiveness, test it out.
+
+220
+00:18:33,750 --> 00:18:35,130
+So I'll leave you to do that.
+
+221
+00:18:35,130 --> 00:18:39,360
+And then once you're done, head over back here and we'll go into the next lesson where we're going
+
+222
+00:18:39,360 --> 00:18:42,000
+to learn more about media queries in detail.
+
+223
+00:18:42,330 --> 00:18:44,520
+For all of that and more, I'll see you there.
+

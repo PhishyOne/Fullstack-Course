@@ -1,0 +1,780 @@
+1
+00:00:00,350 --> 00:00:07,040
+Now, in the last lesson, we looked at how to use some of the native node modules, but in this lesson
+
+2
+00:00:07,040 --> 00:00:13,580
+we're going to expand our horizons and we're going to learn about the Node Package Manager or otherwise
+
+3
+00:00:13,580 --> 00:00:21,200
+known as NPM in order to get access to the world of open source node packages.
+
+4
+00:00:21,500 --> 00:00:28,250
+So what exactly is the Node Package Manager also known as NPM?
+
+5
+00:00:28,280 --> 00:00:35,900
+Well, it's basically a place which collects modules that people have built for Node and it's created
+
+6
+00:00:35,900 --> 00:00:41,720
+by the GitHub organization and it's a really great place to find code that other people have written
+
+7
+00:00:41,720 --> 00:00:47,450
+where the utilities and tools to help you with writing your Node applications.
+
+8
+00:00:48,050 --> 00:00:57,770
+Now if we think of the native Node modules as the toolbox that we have at home, then the NPM or the
+
+9
+00:00:57,770 --> 00:01:04,230
+Node Package Manager is the place where you'll find all the weird and wonderful tools that you never
+
+10
+00:01:04,230 --> 00:01:09,240
+thought you would need, but then all of a sudden you realize that your bathtub is leaking and you actually
+
+11
+00:01:09,240 --> 00:01:13,710
+need to silicone the edges, which, by the way, is not an easy job.
+
+12
+00:01:13,710 --> 00:01:17,340
+And as a non-professional, you should not take it on.
+
+13
+00:01:17,370 --> 00:01:24,570
+Don't ask me how I know this. NPM is kind of like a community tool library.
+
+14
+00:01:24,570 --> 00:01:32,610
+So there are people who own weird stuff like Sanders and Silicone guns and all sorts of different Clippers,
+
+15
+00:01:32,610 --> 00:01:33,810
+whatever it may be,
+
+16
+00:01:33,810 --> 00:01:40,260
+and together they've put it into a library so that everyone from the neighborhood can share and use
+
+17
+00:01:40,260 --> 00:01:41,250
+these tools.
+
+18
+00:01:41,340 --> 00:01:45,380
+And NPM is kind of like the code equivalent of that.
+
+19
+00:01:45,390 --> 00:01:53,940
+It's open source and you can search to find all the packages that other developers have created, little
+
+20
+00:01:53,940 --> 00:01:59,250
+tools that they've written the code for that they think might be useful for other developers in the
+
+21
+00:01:59,250 --> 00:02:05,160
+future so that you don't have to duplicate the work and to write everything from scratch.
+
+22
+00:02:05,160 --> 00:02:08,009
+So it's our shared code library, if you will.
+
+23
+00:02:08,580 --> 00:02:15,690
+NPM comes pre-bundled with Node, so if you have Node installed, you will also have NPM installed.
+
+24
+00:02:15,720 --> 00:02:22,710
+Let's initialize our first project and see how we can configure our project.
+
+25
+00:02:23,370 --> 00:02:32,640
+Go ahead and download the starting project folder 2.3 NPM, extract it and open it inside VS Code. In
+
+26
+00:02:32,640 --> 00:02:33,660
+the index.js,
+
+27
+00:02:33,690 --> 00:02:40,920
+again, we have a blank file, but the first thing we're going to do to add to this project is to initialize
+
+28
+00:02:40,950 --> 00:02:41,760
+NPM.
+
+29
+00:02:41,760 --> 00:02:51,060
+And to do that we first have to change the directory over to this project folder, 2.3 NPM, and then we're
+
+30
+00:02:51,060 --> 00:02:56,790
+going to use the "npm" command and then we're going to add the word "init".
+
+31
+00:02:56,910 --> 00:03:04,530
+Now you can go ahead and hit Enter and this brings up the initialization utility, which is going to
+
+32
+00:03:04,530 --> 00:03:09,240
+help us create our configuration file, which is called the package.json.
+
+33
+00:03:09,750 --> 00:03:14,010
+It's going to ask us a bunch of questions and we just have to type the answers.
+
+34
+00:03:14,010 --> 00:03:16,890
+So first it wants to know what is the package name?
+
+35
+00:03:16,890 --> 00:03:25,500
+We will call it, "learning-npm," and then it's going to ask us the version which I'll leave as the
+
+36
+00:03:25,520 --> 00:03:26,130
+1.0.0.
+
+37
+00:03:26,130 --> 00:03:28,830
+So just hit Enter. Description:
+
+38
+00:03:28,980 --> 00:03:36,540
+"I'm learning about npm," entry point is the Index.js, test command:
+
+39
+00:03:36,540 --> 00:03:41,430
+we'll leave as empty, git repository: empty, keywords: empty,
+
+40
+00:03:41,430 --> 00:03:45,930
+and maybe put your own name as the author, the license
+
+41
+00:03:45,930 --> 00:03:47,250
+we'll leave it as ISC,
+
+42
+00:03:47,520 --> 00:03:55,020
+and then finally, you can see it's generated our json, which is the configuration file for our project.
+
+43
+00:03:55,020 --> 00:04:01,110
+And then it's asking us whether if this is okay, we can type y for yes and hit Enter.
+
+44
+00:04:01,200 --> 00:04:10,830
+So now if there is a new file that has been created in our NPM folder, and it's the package.json. So
+
+45
+00:04:10,830 --> 00:04:17,550
+this is a way of representing our data, the JavaScript object notation.
+
+46
+00:04:17,790 --> 00:04:24,690
+And you can see it's very similar to the way that JavaScript objects are structured and it's just key/
+
+47
+00:04:24,690 --> 00:04:28,590
+value pairs describing all of the things that we've entered just now.
+
+48
+00:04:28,620 --> 00:04:32,640
+This is just a configuration file, nothing magical about it.
+
+49
+00:04:32,670 --> 00:04:41,460
+Where the magic comes in is when we start installing and using NPM packages and to install an NPM package,
+
+50
+00:04:41,460 --> 00:04:48,630
+we use the "npm install" command and then we add in the name of the package.
+
+51
+00:04:48,990 --> 00:04:51,510
+So where are these packages?
+
+52
+00:04:51,750 --> 00:04:55,380
+Well, you can find them by going to npm.js
+
+53
+00:04:55,380 --> 00:04:59,580
+and here you can search for the entire world of packages,
+
+54
+00:04:59,590 --> 00:05:03,160
+but you would kind of need to know what it is you want to do.
+
+55
+00:05:03,160 --> 00:05:08,890
+So I want to show you a package that I found earlier, which is called sillyname.
+
+56
+00:05:08,890 --> 00:05:17,290
+And all it is, is just a random name generator so you can give yourself a new name that is pretty silly,
+
+57
+00:05:17,290 --> 00:05:21,040
+like Saltfollower Pickle or Roadtoe Ginger,
+
+58
+00:05:21,640 --> 00:05:27,520
+but we're going to use this silly package in order to learn some really important concepts like how
+
+59
+00:05:27,520 --> 00:05:34,240
+to find a package, how to install the package, and then how to use it. To install any of the NPM packages,
+
+60
+00:05:34,240 --> 00:05:36,670
+you'll see the command over here.
+
+61
+00:05:36,670 --> 00:05:43,600
+So let's copy it, and let's go back to our terminal and paste that command in.
+
+62
+00:05:44,190 --> 00:05:48,510
+Once you've pasted it in, you can see it's actually a shorthand,
+
+63
+00:05:48,740 --> 00:05:49,440
+"npm i"
+
+64
+00:05:49,470 --> 00:05:57,090
+is short for "npm install", and because you'll be using this command very frequently when you're using
+
+65
+00:05:57,090 --> 00:05:59,580
+Node, you can simply shorten it down to npm i.
+
+66
+00:06:00,750 --> 00:06:07,680
+Now in this case we're just installing one NPM package, but if you wanted more packages then you can
+
+67
+00:06:07,680 --> 00:06:14,670
+enter the names of all the packages you want in one go with a space in between and you'll see me doing
+
+68
+00:06:14,670 --> 00:06:16,950
+this in our later projects as well.
+
+69
+00:06:17,130 --> 00:06:23,810
+But in our case, we just want to install this one package and let's go ahead and hit Enter.
+
+70
+00:06:23,820 --> 00:06:30,870
+And once it's installed, if you check the package.json again, you can see it's inserted a new section
+
+71
+00:06:30,870 --> 00:06:32,250
+called "Dependencies".
+
+72
+00:06:32,250 --> 00:06:40,800
+So it's saying now our project, our learning-npm, which is accessed through the Index.js, and now depends
+
+73
+00:06:40,800 --> 00:06:44,500
+on this NPM package called sillyname.
+
+74
+00:06:44,620 --> 00:06:53,860
+And in addition, we've got a folder called node_modules that's downloaded all of this code from the NPM
+
+75
+00:06:53,860 --> 00:06:56,950
+repositories for this sillyname.
+
+76
+00:06:56,950 --> 00:07:04,930
+And you can see the code this creator wrote so that we can use this functionality in our project without
+
+77
+00:07:04,930 --> 00:07:07,180
+having to write all of this code.
+
+78
+00:07:07,570 --> 00:07:08,440
+Pretty neat.
+
+79
+00:07:08,470 --> 00:07:15,700
+Now let's collapse those folders, go back into our index.js and take a look at the documentation to
+
+80
+00:07:15,700 --> 00:07:24,640
+see how we can use this package. As usual on the NPM package homepage, you'll see some examples for
+
+81
+00:07:24,640 --> 00:07:30,940
+how you can use it, and the first thing you can do is to require that package.
+
+82
+00:07:30,940 --> 00:07:32,830
+So let's paste that in
+
+83
+00:07:32,830 --> 00:07:39,190
+at the top. We're creating a variable called generate name that requires this module.
+
+84
+00:07:39,220 --> 00:07:40,870
+Don't worry too much about the var,
+
+85
+00:07:40,870 --> 00:07:42,850
+we're going to come back to that in a minute.
+
+86
+00:07:43,630 --> 00:07:50,020
+The next step is to use the method called generate name that comes from this module.
+
+87
+00:07:50,050 --> 00:07:52,930
+Let's copy this as well and paste it in.
+
+88
+00:07:53,110 --> 00:07:58,330
+Now, in order to actually console.log it, we'll need our console log.
+
+89
+00:07:58,330 --> 00:08:06,280
+And I'm going to say something like, "My name is...." and I'm using the string interpolation from JavaScript
+
+90
+00:08:06,280 --> 00:08:13,660
+with the backticks (``) either side and then the dollar sign ($) and the curly brackets ({}) to insert the sillyname
+
+91
+00:08:13,660 --> 00:08:15,430
+that is generated.
+
+92
+00:08:15,700 --> 00:08:20,650
+Let's add a full stop, and add the closing semicolon, hit Save.
+
+93
+00:08:20,680 --> 00:08:22,750
+Now we are ready.
+
+94
+00:08:22,750 --> 00:08:28,390
+We've completed our project. Going back into our terminal,
+
+95
+00:08:28,390 --> 00:08:31,600
+let's use node to run our index.js.
+
+96
+00:08:31,630 --> 00:08:38,830
+Hit Enter and you can see, "My name is Spot Runner Bison," which is not too bad actually.
+
+97
+00:08:38,860 --> 00:08:40,570
+Waxthunder foot.
+
+98
+00:08:40,870 --> 00:08:42,490
+That is a good name.
+
+99
+00:08:42,820 --> 00:08:52,480
+Now you can see how easy it was to grab a package, download it, insert it into our project, and instantaneously
+
+100
+00:08:52,480 --> 00:09:00,880
+gain this upgrade and be able to use the code that somebody else created for our purposes in our project.
+
+101
+00:09:01,690 --> 00:09:04,810
+In a way, it's kind of like playing with Lego.
+
+102
+00:09:04,840 --> 00:09:11,200
+There's all of these different Lego pieces out there which other people have created or the Node team
+
+103
+00:09:11,200 --> 00:09:16,330
+has created, and all you have to do is just to plug it into your project.
+
+104
+00:09:16,330 --> 00:09:22,690
+And by playing and constructing all of these different Lego packages together, you can actually create
+
+105
+00:09:22,690 --> 00:09:30,190
+something really massive and really impressive, and really useful with not a lot of hard work and writing
+
+106
+00:09:30,190 --> 00:09:32,200
+code from scratch yourself.
+
+107
+00:09:32,440 --> 00:09:37,420
+Now, this is a good point to mention the ECMAScript modules.
+
+108
+00:09:37,840 --> 00:09:44,110
+Remember in the last lesson when we learned about the native node modules and I showed you the File
+
+109
+00:09:44,110 --> 00:09:51,430
+system when we looked at the example code for how to get hold of the package, you can see there is
+
+110
+00:09:51,430 --> 00:09:53,950
+this toggle ESM or CJS.
+
+111
+00:09:53,980 --> 00:10:02,770
+CJS stands for CommonJS and this was the method using, "require" that we used to use to get hold of Node
+
+112
+00:10:02,770 --> 00:10:07,180
+modules, native node modules or even NPM modules.
+
+113
+00:10:07,180 --> 00:10:10,030
+It was always using that "require" keyword.
+
+114
+00:10:10,480 --> 00:10:20,320
+However, since version 12 of Node, we've moved on a little bit, and Node is now enabled to use ECMAScript
+
+115
+00:10:20,320 --> 00:10:21,040
+modules.
+
+116
+00:10:21,040 --> 00:10:25,270
+So instead of using require, we can use the "import" keyword.
+
+117
+00:10:25,420 --> 00:10:32,350
+And this basically provides a standardized way of using JavaScript to be consistent on the front-end
+
+118
+00:10:32,350 --> 00:10:33,370
+and the back-end.
+
+119
+00:10:33,400 --> 00:10:39,520
+It also improves things through tree shaking and a whole bunch of crazy things behind the scenes, which
+
+120
+00:10:39,520 --> 00:10:40,900
+we don't need to get into.
+
+121
+00:10:40,900 --> 00:10:43,690
+But all it means for us is we can use.
+
+122
+00:10:43,710 --> 00:10:47,760
+Use that "import" keyword. In order to upgrade our project
+
+123
+00:10:47,760 --> 00:10:54,090
+to be able to use ECMAScript with Node, we actually need to go into the package.json.
+
+124
+00:10:54,090 --> 00:11:01,860
+Remember I told you that this package.json comes from NPM but effectively acts as a configuration file
+
+125
+00:11:01,860 --> 00:11:03,120
+for our project.
+
+126
+00:11:03,540 --> 00:11:08,430
+So what we can do in here is we can find a location.
+
+127
+00:11:08,430 --> 00:11:15,600
+So I normally like to go below this comma for "main" and we can add in a string which is called, "type".
+
+128
+00:11:15,900 --> 00:11:22,740
+The type of project we're going to use is going to be module-based so that we can use our imports and
+
+129
+00:11:22,740 --> 00:11:30,540
+use ES modules instead of using the default, which as of yet, right now, is the default value, which is
+
+130
+00:11:30,540 --> 00:11:31,620
+CommonJS.
+
+131
+00:11:32,160 --> 00:11:39,900
+So let's change that to module, and let's hit Save, and let me show you how we can convert this line to
+
+132
+00:11:39,900 --> 00:11:41,520
+use the new format.
+
+133
+00:11:41,880 --> 00:11:45,460
+Let's go ahead and write the "import" keyword.
+
+134
+00:11:45,520 --> 00:11:53,080
+And then the next thing we add here is the "method or object" that we want to import, and then we add
+
+135
+00:11:53,080 --> 00:11:59,500
+the "from" keyword and a string in order to specify which package or module we want to get hold of this
+
+136
+00:11:59,500 --> 00:12:00,550
+thing from.
+
+137
+00:12:00,550 --> 00:12:04,300
+So in our case, our package is called sillyname.
+
+138
+00:12:04,300 --> 00:12:06,160
+So that's where it's going to be from.
+
+139
+00:12:06,160 --> 00:12:13,240
+And I like to use this format where I write import (space space) from module, and then now when I go back
+
+140
+00:12:13,240 --> 00:12:19,750
+in here and I look for that generateName function, it gets auto-suggested to me.
+
+141
+00:12:19,750 --> 00:12:26,500
+Whereas if I do it this way, where I write generateName VS Code, doesn't actually know what the name
+
+142
+00:12:26,530 --> 00:12:31,660
+of this method is because we haven't specified the module that it's coming from.
+
+143
+00:12:31,720 --> 00:12:36,100
+This is just a little bit of a tip for when you need to do this.
+
+144
+00:12:36,100 --> 00:12:42,520
+So now we can go ahead and get rid of this line and everything still works as perfect.
+
+145
+00:12:42,820 --> 00:12:48,790
+So now I have a bit of a challenge for you and I want you to bring out the superhero in you.
+
+146
+00:12:49,270 --> 00:12:50,020
+What do I mean?
+
+147
+00:12:50,020 --> 00:12:55,150
+Well, we're going to go and find an NPM package called superheroes.
+
+148
+00:12:55,150 --> 00:12:56,500
+Don't worry if you can't find it,
+
+149
+00:12:56,500 --> 00:12:59,110
+I've linked to it in the course resources,
+
+150
+00:12:59,110 --> 00:13:05,860
+and here we've got a package that will allow us to generate a random superhero name.
+
+151
+00:13:05,860 --> 00:13:15,220
+So your task is to install this package into your project, into that same index.js that we used before
+
+152
+00:13:15,220 --> 00:13:17,170
+to generate the sillyname,
+
+153
+00:13:17,170 --> 00:13:28,030
+but this time I want you to console log something like, "I am..." and then it's your superhero name and maybe
+
+154
+00:13:28,030 --> 00:13:31,330
+an exclamation mark (!) just to make it more dramatic.
+
+155
+00:13:31,480 --> 00:13:39,460
+So that has to come out in the console log using this package. Pause the video and see if you can complete
+
+156
+00:13:39,460 --> 00:13:40,390
+this challenge.
+
+157
+00:13:43,380 --> 00:13:43,800
+All right.
+
+158
+00:13:43,800 --> 00:13:46,680
+So firstly, we're going to need to install this package.
+
+159
+00:13:46,680 --> 00:13:53,520
+So going into our terminal, making sure we're in the right folder, let's install that module and then
+
+160
+00:13:53,520 --> 00:14:00,430
+once that's done, let's check our package.json to make sure that that dependency got added.
+
+161
+00:14:00,450 --> 00:14:01,380
+Perfect.
+
+162
+00:14:01,380 --> 00:14:08,880
+And then let's go back to our code and I'm just going to comment out all the previous code and now I'm
+
+163
+00:14:08,880 --> 00:14:16,890
+going to use the import to get hold of this superheroes package, "import from..."
+
+164
+00:14:16,890 --> 00:14:20,820
+and then remember, it's a string called, "superheroes".
+
+165
+00:14:20,850 --> 00:14:26,100
+It has to be an s, It has to match the name of your package
+
+166
+00:14:26,100 --> 00:14:27,030
+precisely.
+
+167
+00:14:27,030 --> 00:14:34,920
+So very often I like to just paste it in and then we need the superheroes object from that package.
+
+168
+00:14:34,950 --> 00:14:38,520
+"import superheroes from superheroes".
+
+169
+00:14:38,730 --> 00:14:42,060
+And then we're going to use the superheroes.random()
+
+170
+00:14:42,060 --> 00:14:46,630
+method in order to generate a random name.
+
+171
+00:14:46,630 --> 00:14:50,710
+So let's create a const and let's set that to our name.
+
+172
+00:14:51,740 --> 00:14:53,830
+And then we can console.log(
+
+173
+00:14:53,850 --> 00:14:59,260
+"I am..." so and so, which is going to be the name inserted here
+
+174
+00:14:59,270 --> 00:15:01,070
+add an exclamation mark.
+
+175
+00:15:01,070 --> 00:15:02,470
+Close off the line.
+
+176
+00:15:02,480 --> 00:15:03,920
+Now I am done.
+
+177
+00:15:03,920 --> 00:15:04,990
+Let's hit Save.
+
+178
+00:15:05,000 --> 00:15:08,450
+Let's run our code using node. *error*
+
+179
+00:15:12,320 --> 00:15:12,650
+All right.
+
+180
+00:15:12,680 --> 00:15:14,120
+Now this is super important.
+
+181
+00:15:14,120 --> 00:15:21,440
+If you at this point see this error, "SyntaxError: Cannot use import statement outside a module".
+
+182
+00:15:21,440 --> 00:15:26,840
+This is because you might have skipped over the earlier part of this lesson, where we talked about ECMAScript
+
+183
+00:15:26,840 --> 00:15:29,690
+and how to enable it in our project.
+
+184
+00:15:30,080 --> 00:15:37,550
+Remember, you have to go into the package.json and add this extra key-value pair to set the "type" of
+
+185
+00:15:37,550 --> 00:15:43,940
+your project to module-based to allow us to use the ES modules.
+
+186
+00:15:43,970 --> 00:15:46,190
+So let's try this again.
+
+187
+00:15:46,190 --> 00:15:46,880
+Hopefully,
+
+188
+00:15:46,880 --> 00:15:54,620
+now you've added this and now if I go ahead and do node index.js, you can see it now works.
+
+189
+00:15:54,630 --> 00:16:02,820
+I am John Wraith!, I am Gertrude Yorkes!, I am Piledriver!,
+
+190
+00:16:02,850 --> 00:16:04,380
+that's a much better one.
+
+191
+00:16:06,030 --> 00:16:06,450
+All right.
+
+192
+00:16:06,450 --> 00:16:08,160
+So hope you had fun in this lesson.
+
+193
+00:16:08,160 --> 00:16:12,480
+And we learned about NPM packages and how to install and use them.
+
+194
+00:16:12,480 --> 00:16:18,630
+In the next lesson, we're going to be building a project that's going to create a QR code from a URL.
+
+195
+00:16:18,630 --> 00:16:21,240
+So for all of that and more, I'll see you there.
+

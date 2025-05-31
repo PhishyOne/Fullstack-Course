@@ -1,0 +1,128 @@
+1
+00:00:00,870 --> 00:00:08,400
+Now while our web site is live and running we can actually use jQuery to
+
+2
+00:00:08,550 --> 00:00:11,250
+add new elements on the fly. Now
+
+3
+00:00:11,250 --> 00:00:20,340
+for example if I selected my h1 and I decided to add a new button before the h1, then I simply use
+
+4
+00:00:20,430 --> 00:00:22,350
+the before method.
+
+5
+00:00:22,350 --> 00:00:29,330
+And inside these parentheses I can put down the HTML that I want to add before our h1.
+
+6
+00:00:29,370 --> 00:00:36,010
+So let's create a button that simply says New, and let's create the closing tag.
+
+7
+00:00:36,060 --> 00:00:43,500
+And now if I hit enter you can see that we've created a brand new button on our web page without changing
+
+8
+00:00:43,530 --> 00:00:46,620
+any of our HTML code inside Atom.
+
+9
+00:00:46,710 --> 00:00:50,820
+So that means that we can create HTML elements at any time we wish
+
+10
+00:00:50,820 --> 00:00:55,070
+just by using code. But there's actually a few ways that you can do this.
+
+11
+00:00:55,080 --> 00:00:58,920
+So previously I showed you how you can use the before.
+
+12
+00:00:59,040 --> 00:01:06,210
+Now there's also after which creates our HTML elements after the element that we've selected.
+
+13
+00:01:06,210 --> 00:01:10,140
+So in this case it creates it here after h1.
+
+14
+00:01:10,140 --> 00:01:21,910
+Now there's also prepend and append, and the difference between, say, prepend and before is that prepend 
+
+15
+00:01:21,950 --> 00:01:22,290
+will 
+
+16
+00:01:22,340 --> 00:01:29,590
+add your new HTML element into the item that you've selected just after the opening tag.
+
+17
+00:01:29,590 --> 00:01:38,560
+So if you go ahead and inspect on this new button you can see that it's been added inside the h1, just
+
+18
+00:01:38,560 --> 00:01:40,130
+before the word Hello.
+
+19
+00:01:40,210 --> 00:01:46,160
+And the button that we appended got added just after the content of the h1,
+
+20
+00:01:46,270 --> 00:01:48,880
+but before the end of the h1.
+
+21
+00:01:48,880 --> 00:01:57,760
+So using before, after, prepend and append, we have a lot of control over where our newly created HTML 
+
+22
+00:01:57,760 --> 00:01:59,180
+element is going to go.
+
+23
+00:01:59,500 --> 00:02:09,190
+So just as a reminder the before method will add your new element before the opening tag of the selected
+
+24
+00:02:09,220 --> 00:02:09,800
+element,
+
+25
+00:02:09,910 --> 00:02:18,700
+so in this case it was our h1, and the after method will add it after the h1, but the prepend and append
+
+26
+00:02:18,790 --> 00:02:20,310
+are a little bit special.
+
+27
+00:02:20,400 --> 00:02:29,380
+They’ll add your element just before the content of the h1 and right after the opening tag, and append does
+
+28
+00:02:29,380 --> 00:02:36,580
+the opposite where it gets added after the content of your h1 but still inside the h1 element.
+
+29
+00:02:36,730 --> 00:02:40,930
+Now if you wanted to remove elements it's also really really simple.
+
+30
+00:02:40,930 --> 00:02:46,060
+All you have to do is just use our dollar sign to select the elements that you want to remove.
+
+31
+00:02:46,060 --> 00:02:51,220
+For example say if we wanted to get rid of all of our buttons then we can simply select all of them
+
+32
+00:02:51,310 --> 00:02:58,210
+and say .remove, and that will get rid of all of the button elements inside our current web page.
+

@@ -1,0 +1,24 @@
+
+001 W3Schools-on-SQL
+https://www.w3schools.com/sql/
+
+001 SQL-Playground-on-sqliteonline.com
+https://sqliteonline.com/#fiddle-5bbdbaef7288bo2ajn2wly03
+
+001 Data-Types-in-SQL
+https://www.w3schools.com/sql/sql_datatypes.asp
+
+001 Primary-Keys-in-SQL
+https://www.w3schools.com/sql/sql_primarykey.asp
+
+005 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9
+
+005 Foreign-Keys-in-SQL
+https://www.w3schools.com/sql/sql_foreignkey.asp
+
+005 Inner-Joins
+https://www.w3schools.com/sql/sql_join_inner.asp
+
+005 Completed-SQL-demo-project
+https://sqliteonline.com/#fiddle-5bbdc72f7288eo2ajn2yh604

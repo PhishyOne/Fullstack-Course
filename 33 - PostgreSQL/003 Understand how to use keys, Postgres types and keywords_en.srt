@@ -1,0 +1,500 @@
+1
+00:00:00,230 --> 00:00:00,920
+Hey guys.
+
+2
+00:00:00,920 --> 00:00:07,310
+When we learned about SQL, we looked at how to create tables using the SQL language.
+
+3
+00:00:07,340 --> 00:00:14,240
+Well, this time let's take a look at some of the specifics when it comes to creating tables using Postgres.
+
+4
+00:00:14,390 --> 00:00:18,870
+By now, you should be pretty familiar with the idea of tables.
+
+5
+00:00:18,890 --> 00:00:27,230
+We have tables where there are the vertical parts which are our individual columns.
+
+6
+00:00:27,230 --> 00:00:32,479
+So imagine a Roman building with lots of columns.
+
+7
+00:00:32,479 --> 00:00:37,370
+They are always vertical, holding up the entire table.
+
+8
+00:00:37,400 --> 00:00:42,170
+And of course the columns represent different fields.
+
+9
+00:00:42,350 --> 00:00:44,810
+For example there's a field called name.
+
+10
+00:00:44,810 --> 00:00:46,850
+There's a field called age.
+
+11
+00:00:46,850 --> 00:00:53,630
+And we can keep adding more and more of these fields and the different characteristics of the data that
+
+12
+00:00:53,630 --> 00:00:55,010
+we want to capture.
+
+13
+00:00:55,100 --> 00:01:03,890
+For example, in this case, I am building a table of friends because of course, as programmers we
+
+14
+00:01:03,890 --> 00:01:08,150
+don't have that many friends, so it's good to track them in a spreadsheet.
+
+15
+00:01:08,510 --> 00:01:13,340
+Now, if you're somebody who has lots of friends, then you'll have an even greater need to track your
+
+16
+00:01:13,340 --> 00:01:15,020
+friends in a database.
+
+17
+00:01:15,560 --> 00:01:18,680
+And if you think this is completely ridiculous, don't worry.
+
+18
+00:01:18,680 --> 00:01:22,070
+This is just an example for us to learn databases and tables.
+
+19
+00:01:22,340 --> 00:01:26,670
+Now the other aspect of the table is the row.
+
+20
+00:01:26,690 --> 00:01:32,930
+So these are the horizontal parts of our table.
+
+21
+00:01:32,930 --> 00:01:39,740
+And I'm just drawing a really bad rendition of a rowing paddle here.
+
+22
+00:01:40,070 --> 00:01:42,680
+They look like big spoons but you get what I mean.
+
+23
+00:01:42,710 --> 00:01:49,280
+These are the horizontal parts of the table and they represent individual records of data.
+
+24
+00:01:49,310 --> 00:01:57,440
+For example, if we had a friend called Angela who is aged 12 and is not very cool, then this would
+
+25
+00:01:57,440 --> 00:02:06,470
+be our first entry of the table and all data in this row correspond to this particular person or this
+
+26
+00:02:06,470 --> 00:02:08,180
+particular entry.
+
+27
+00:02:08,539 --> 00:02:15,410
+We can have as many records as we want and you might think, you know, tables.
+
+28
+00:02:15,440 --> 00:02:18,650
+Okay, I use Excel spreadsheets all the same.
+
+29
+00:02:18,650 --> 00:02:25,220
+But one of the biggest downsides of a spreadsheet, for example, is that you can only really have so
+
+30
+00:02:25,220 --> 00:02:32,060
+many records before the spreadsheet becomes really kind of paralyzed and slow and difficult to load.
+
+31
+00:02:32,090 --> 00:02:37,420
+Have you ever tried opening up an Excel spreadsheet with over 5000 records?
+
+32
+00:02:37,430 --> 00:02:44,030
+It's extremely slow to load all of them up, and this is probably the point where people start moving
+
+33
+00:02:44,030 --> 00:02:50,900
+on to databases because they're extremely efficient at handling lots of data, and you can have millions
+
+34
+00:02:50,900 --> 00:02:53,270
+of records and it wouldn't even blink.
+
+35
+00:02:53,720 --> 00:02:55,580
+We've seen this concept of tables.
+
+36
+00:02:55,580 --> 00:03:02,210
+We know all about tables from spreadsheets, and we now know that when we have a database, essentially
+
+37
+00:03:02,210 --> 00:03:09,440
+what we have is just lots of tables tied together with some relationships and also with some rules that
+
+38
+00:03:09,440 --> 00:03:11,180
+define how they should behave.
+
+39
+00:03:11,570 --> 00:03:18,880
+You've seen previously that we can create a table in the SQL language simply by writing code like this.
+
+40
+00:03:18,890 --> 00:03:21,650
+There's the key word create table.
+
+41
+00:03:21,650 --> 00:03:26,680
+And then afterwards comes the name of the table that we want to create.
+
+42
+00:03:26,690 --> 00:03:30,650
+For example, in the previous version it would be friends.
+
+43
+00:03:30,650 --> 00:03:32,510
+That would be the name of our table.
+
+44
+00:03:32,510 --> 00:03:40,850
+And then we have an open parentheses, a close parentheses and a semicolon to define the end of this
+
+45
+00:03:40,850 --> 00:03:41,930
+block of code.
+
+46
+00:03:41,930 --> 00:03:47,630
+And in between the parentheses we've got all of the fields that we want to create.
+
+47
+00:03:47,900 --> 00:03:50,840
+First is the name of the field.
+
+48
+00:03:50,840 --> 00:03:54,950
+So for example that would have been the name of our friend.
+
+49
+00:03:54,980 --> 00:03:58,430
+The second field would be the age of our friend.
+
+50
+00:03:58,430 --> 00:04:03,380
+And the third field was the is cool factor.
+
+51
+00:04:03,380 --> 00:04:06,410
+And then after each field comes a space.
+
+52
+00:04:06,410 --> 00:04:08,900
+And then we get to define the data type.
+
+53
+00:04:09,080 --> 00:04:17,390
+The data type of SQL is a little bit more limited than the data types that are available in Postgres.
+
+54
+00:04:17,390 --> 00:04:25,460
+But either way you've seen data types like char and varchar, so characters or something like Boolean
+
+55
+00:04:25,460 --> 00:04:27,350
+for true or false.
+
+56
+00:04:27,350 --> 00:04:32,330
+And there's lots and lots of other ones that we're going to talk about just in a moment.
+
+57
+00:04:32,900 --> 00:04:42,260
+If we were to create this table of friends using SQL and creating it inside Postgres, this is the code
+
+58
+00:04:42,260 --> 00:04:43,940
+that we might use.
+
+59
+00:04:43,970 --> 00:04:51,290
+Firstly, we've got that keyword create table, and then we've defined the name of the table as friends.
+
+60
+00:04:51,290 --> 00:04:57,010
+And then in between the parentheses we've got all of our fields that we want to define.
+
+61
+00:04:57,020 --> 00:04:59,420
+So the first field is the ID.
+
+62
+00:04:59,970 --> 00:05:04,120
+And the ID is a primary key.
+
+63
+00:05:04,140 --> 00:05:12,060
+So what this keyword does is it ensures that any of the entries that go into this field must be unique,
+
+64
+00:05:12,060 --> 00:05:15,840
+and it uniquely identifies each record.
+
+65
+00:05:15,990 --> 00:05:22,770
+As you can imagine, you might have another friend called Angela, but if you were to search for all
+
+66
+00:05:22,770 --> 00:05:27,950
+the records with the name Angela, they'll probably be many that will match that criteria.
+
+67
+00:05:27,960 --> 00:05:35,550
+But we want to be able to always uniquely identify each record in our table, and that is the job of
+
+68
+00:05:35,550 --> 00:05:36,900
+the primary key.
+
+69
+00:05:36,990 --> 00:05:45,000
+This field cannot repeat, but in addition, we've got this handy Postgres keyword serial, which means
+
+70
+00:05:45,000 --> 00:05:51,630
+that if you add a new record now, you don't actually have to specify the ID of this third record.
+
+71
+00:05:51,630 --> 00:05:57,720
+It will automatically autoincrement from the previous record and give it a number three.
+
+72
+00:05:58,140 --> 00:06:00,000
+That's pretty handy.
+
+73
+00:06:00,240 --> 00:06:06,900
+The next field we have is our name field and we've set it to Varchar 50.
+
+74
+00:06:06,990 --> 00:06:10,020
+So this stands for variable Character.
+
+75
+00:06:10,020 --> 00:06:17,910
+And what it means is that this field will limit the data size up to a maximum of 50 characters.
+
+76
+00:06:17,910 --> 00:06:24,300
+But if you have less than 50 characters, say for example, if you just have the word jack for characters,
+
+77
+00:06:24,300 --> 00:06:32,370
+then it will decrease the size of that data block so that you are efficiently storing your data.
+
+78
+00:06:32,520 --> 00:06:35,430
+In contrast to, for example, char.
+
+79
+00:06:35,580 --> 00:06:42,090
+If I had defined this field as char 50, then it is going to give me enough space to store 50 characters
+
+80
+00:06:42,090 --> 00:06:44,730
+no matter the size of the actual data.
+
+81
+00:06:44,730 --> 00:06:49,830
+So this Varchar is a slightly more efficient way of storing data.
+
+82
+00:06:50,130 --> 00:06:55,920
+Another one you might come across when you're using a lot of Postgres is a data type called text.
+
+83
+00:06:55,950 --> 00:06:59,940
+Now text is also a flexible storage data type.
+
+84
+00:06:59,940 --> 00:07:06,990
+So it will decrease the size of the data to whatever it is you need, but it doesn't require you to
+
+85
+00:07:06,990 --> 00:07:09,180
+define a maximum size.
+
+86
+00:07:09,420 --> 00:07:15,990
+In olden days, a lot of people recommend that we use Varchar and define the maximum data size, because
+
+87
+00:07:15,990 --> 00:07:20,100
+this is the most efficient way of storing the smallest size of data.
+
+88
+00:07:20,130 --> 00:07:28,320
+But in modern testing, and I've seen a lot of people running efficiency tests and speed tests and working
+
+89
+00:07:28,320 --> 00:07:33,660
+with really, really large databases, millions and millions of entries and people are seeing that the
+
+90
+00:07:33,660 --> 00:07:42,150
+text data type doesn't actually take up all that much more space and isn't actually all that much slower.
+
+91
+00:07:42,150 --> 00:07:43,650
+It is a little bit slower.
+
+92
+00:07:43,650 --> 00:07:49,770
+But compared to the gains that you get by not having a situation where in the future you realize, oh,
+
+93
+00:07:49,770 --> 00:07:56,970
+actually, I now have a friend whose name is super, super long and I am one of those people.
+
+94
+00:07:56,970 --> 00:08:05,490
+I have a friend where their surname is like 20 characters, and once I had to go and book a flight for
+
+95
+00:08:05,490 --> 00:08:12,840
+them when we went on holiday and I was reading out the surname of this Sri Lankan friend of mine who
+
+96
+00:08:12,840 --> 00:08:19,530
+has a very, very long surname, and I started just cracking up on the phone because I had to read out
+
+97
+00:08:19,530 --> 00:08:22,350
+all 50 characters of their surname.
+
+98
+00:08:22,710 --> 00:08:29,310
+The point is, very often you'll see a lot of people using the text data type when they want to store
+
+99
+00:08:29,310 --> 00:08:35,100
+characters over the Varchar, and this is a more modern practice that I'm seeing.
+
+100
+00:08:35,100 --> 00:08:42,179
+But when you see Varchar 50, this is the old standard best practice way of doing it.
+
+101
+00:08:42,179 --> 00:08:43,400
+So don't be alarmed.
+
+102
+00:08:43,409 --> 00:08:44,490
+Either way is fine.
+
+103
+00:08:44,490 --> 00:08:46,350
+It really depends on your use case.
+
+104
+00:08:46,650 --> 00:08:53,580
+But in this case, I know that I'm going to refuse to make any friends who have a name that is more
+
+105
+00:08:53,580 --> 00:09:00,540
+than 50 characters, and in many cases, you are storing data that you know has a maximum data size.
+
+106
+00:09:00,540 --> 00:09:04,320
+But if you don't and you want the flexibility, it's best to use text.
+
+107
+00:09:04,710 --> 00:09:11,250
+Now the next one is the age of our friends, and I'm storing it as an integer, a whole number, which
+
+108
+00:09:11,250 --> 00:09:12,570
+is pretty straightforward.
+
+109
+00:09:12,570 --> 00:09:19,230
+And then we've got the final one in our table, which is whether if that friend is cool or not.
+
+110
+00:09:19,260 --> 00:09:21,390
+This is really a binary option, right?
+
+111
+00:09:21,390 --> 00:09:23,280
+It can only be true or false.
+
+112
+00:09:23,310 --> 00:09:25,440
+They're either cool or they're not cool.
+
+113
+00:09:25,440 --> 00:09:27,960
+So we're storing it as a boolean data type.
+
+114
+00:09:27,960 --> 00:09:31,170
+And we can have that as false or true.
+
+115
+00:09:31,890 --> 00:09:38,850
+As I mentioned, there are plenty more Postgres data types that you can dig into and depending on your
+
+116
+00:09:38,850 --> 00:09:47,070
+use case, for example, if you need to store a really big auto incrementing integer for your primary
+
+117
+00:09:47,070 --> 00:09:54,540
+key because you have billions and billions or trillions of records, or you need it for some other reason,
+
+118
+00:09:54,540 --> 00:09:59,460
+then you could use big cereal instead of cereal, or for example, when you need it.
+
+119
+00:09:59,600 --> 00:10:05,990
+To store the character, varying the var char variable length characters, or if you need to store a
+
+120
+00:10:05,990 --> 00:10:06,650
+date.
+
+121
+00:10:06,650 --> 00:10:15,140
+And I recommend taking a look at the documentation here and just scroll through the different data types,
+
+122
+00:10:15,140 --> 00:10:21,860
+because there's a lot of explanation and you can read up more on things such as the different character
+
+123
+00:10:21,860 --> 00:10:22,820
+types.
+
+124
+00:10:22,850 --> 00:10:29,870
+As we talked about text char varchar, and it goes into more detail on all of these general purpose
+
+125
+00:10:29,870 --> 00:10:30,890
+data types.
+

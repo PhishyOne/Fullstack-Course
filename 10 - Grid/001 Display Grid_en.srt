@@ -1,0 +1,736 @@
+1
+00:00:00,200 --> 00:00:00,830
+Hey guys.
+
+2
+00:00:00,830 --> 00:00:06,350
+In this module we're going to be learning all about CSS Grid, the CSS tool that's going to make it
+
+3
+00:00:06,350 --> 00:00:09,350
+easier for us to create two dimensional layouts.
+
+4
+00:00:09,620 --> 00:00:14,510
+After learning about Flexbox, you would probably look at a layout like this and think that you could
+
+5
+00:00:14,510 --> 00:00:22,940
+have a horizontal row based Flexbox system with multiple divs inside and you can define their widths
+
+6
+00:00:22,940 --> 00:00:26,270
+and also their alignment and so on and so forth.
+
+7
+00:00:26,450 --> 00:00:28,970
+Now how about a layout like this?
+
+8
+00:00:29,030 --> 00:00:32,689
+Can you think of how to create this using Flexbox?
+
+9
+00:00:32,720 --> 00:00:34,760
+It would be pretty hard, right?
+
+10
+00:00:34,790 --> 00:00:37,850
+Well, you'll be relieved to hear that it's not just you.
+
+11
+00:00:37,880 --> 00:00:43,580
+Web designers thought creating these kind of complex layouts is pretty difficult, too, which is why
+
+12
+00:00:43,580 --> 00:00:45,470
+they created Grid.
+
+13
+00:00:45,500 --> 00:00:49,310
+And Grid is here to make our lives a lot easier.
+
+14
+00:00:49,580 --> 00:00:56,300
+So if we look at the Swiss website where they've got the weather forecast for Bern, you can see that
+
+15
+00:00:56,300 --> 00:01:04,050
+it's actually created using grid and we can divide up the layout to see what the grid actually looks
+
+16
+00:01:04,050 --> 00:01:04,769
+like.
+
+17
+00:01:04,890 --> 00:01:11,460
+You've got all of these different sections and you can imagine just how hard this would be to make using
+
+18
+00:01:11,460 --> 00:01:13,970
+just Flexbox or floats.
+
+19
+00:01:13,980 --> 00:01:18,900
+And on top of that, look at how beautifully responsive this website is.
+
+20
+00:01:19,140 --> 00:01:26,010
+It shrinks and preserves the grid format, and everything is more or less proportional depending on
+
+21
+00:01:26,010 --> 00:01:28,260
+how the designer wanted it to look.
+
+22
+00:01:28,740 --> 00:01:33,930
+At this point, you might be wondering, well, what exactly is the difference between Flexbox and Grid
+
+23
+00:01:33,960 --> 00:01:34,420
+then?
+
+24
+00:01:34,440 --> 00:01:38,860
+Do I just pick one of them or is one of them better than the other one?
+
+25
+00:01:38,880 --> 00:01:41,950
+Well, here's how I tend to think of Flexbox.
+
+26
+00:01:41,970 --> 00:01:50,760
+I tend to think of it as a tool that helps me align content along a one dimensional line.
+
+27
+00:01:50,760 --> 00:01:59,760
+So this is a horizontal Flexbox, and it's really easy to use it to place our items and define how we
+
+28
+00:01:59,760 --> 00:02:02,070
+want them aligned on our page.
+
+29
+00:02:02,580 --> 00:02:10,320
+Now with Grid, however, on the other end, I think of it as a tool for laying out content along a
+
+30
+00:02:10,350 --> 00:02:12,270
+two dimensional grid.
+
+31
+00:02:12,390 --> 00:02:16,800
+So maybe I would want a navbar over to the right.
+
+32
+00:02:16,830 --> 00:02:19,790
+Maybe I would want some content over here.
+
+33
+00:02:19,800 --> 00:02:27,550
+Maybe I'd want a footer down here. Depending on how my design looks, if it is in a 2D,
+
+34
+00:02:27,570 --> 00:02:34,110
+so there's an X and a Y, then in most cases, you're going to be better off using grid.
+
+35
+00:02:34,200 --> 00:02:42,480
+Generally, Flexbox is really great for one dimensional alignment and Grid is really good for 2D layouts
+
+36
+00:02:42,480 --> 00:02:47,190
+where you have almost like a table structure with columns and rows.
+
+37
+00:02:47,430 --> 00:02:51,780
+But that makes it sound like as if you're going to be choosing between one of these.
+
+38
+00:02:51,780 --> 00:02:56,940
+It's either going to be Flexbox or Grid, And some of you might be wondering, well, why did you teach
+
+39
+00:02:56,970 --> 00:02:58,260
+us Flexbox anyways?
+
+40
+00:02:58,260 --> 00:03:00,600
+It seems like grid is far more powerful.
+
+41
+00:03:00,600 --> 00:03:04,770
+If I can do things in 2D, it's obviously better than 1D, right?
+
+42
+00:03:04,800 --> 00:03:07,680
+Why did I bother learning Flexbox?
+
+43
+00:03:07,860 --> 00:03:14,700
+Well, in reality, these tools have different strengths and they have different weaknesses.
+
+44
+00:03:14,730 --> 00:03:22,410
+Most web developers would use a combination of these two tools alongside other things such as floats
+
+45
+00:03:22,410 --> 00:03:26,580
+or bootstraps or other frameworks in order to create their design.
+
+46
+00:03:26,700 --> 00:03:35,010
+In this case, you can see we've got a grid style 2D layout, but within the grid one of these containers
+
+47
+00:03:35,040 --> 00:03:37,620
+is actually laid out using Flexbox.
+
+48
+00:03:37,800 --> 00:03:40,020
+This is really, really common.
+
+49
+00:03:40,020 --> 00:03:46,260
+Even in that example I showed you earlier where I said this is a really beautiful example of grid in
+
+50
+00:03:46,260 --> 00:03:46,990
+action.
+
+51
+00:03:47,010 --> 00:03:51,690
+You can see that actually there are components of Flexbox in this.
+
+52
+00:03:51,690 --> 00:03:54,710
+For example, this is a Flexbox.
+
+53
+00:03:54,720 --> 00:03:58,230
+It's laid out in a Flexbox column,
+
+54
+00:03:58,440 --> 00:04:03,660
+and it's a really good way of setting the alignment for each of these items.
+
+55
+00:04:03,660 --> 00:04:08,610
+So this column-based Flexbox is sitting within this grid.
+
+56
+00:04:08,880 --> 00:04:16,079
+So sometimes you might have a Flexbox inside a grid and other times you might have a grid inside a Flexbox.
+
+57
+00:04:16,079 --> 00:04:20,490
+So it really, really just depends on what it is that you want to create,
+
+58
+00:04:20,490 --> 00:04:27,270
+and knowing how to use different tool sets gives you the flexibility to create things exactly the way
+
+59
+00:04:27,270 --> 00:04:28,350
+you want it to.
+
+60
+00:04:28,680 --> 00:04:35,580
+And as my grandad says, the only thing that doesn't weigh you on your travels in life are skills.
+
+61
+00:04:35,580 --> 00:04:41,970
+So the more skills we have, the better we'll be able to adapt to situations and the easier things will
+
+62
+00:04:41,970 --> 00:04:46,590
+be. In order for you to better compare Grid versus Flexbox,
+
+63
+00:04:46,590 --> 00:04:50,100
+because I know right now it seems a little bit abstract, this idea,
+
+64
+00:04:50,130 --> 00:04:55,200
+I created a website to demo the two of them side by side.
+
+65
+00:04:55,230 --> 00:04:59,370
+If you head over to appbrewery.github.io/grid-vs-flexbox/
+
+66
+00:04:59,460 --> 00:04:59,970
+then
+
+67
+00:05:00,000 --> 00:05:03,300
+you can see this example that I've created for you.
+
+68
+00:05:03,330 --> 00:05:10,110
+Just because I said grid is for two dimensional layouts and Flexbox is for one dimensional layouts,
+
+69
+00:05:10,140 --> 00:05:16,350
+it doesn't mean that you can't create a one-dimensional grid, but it does behave a little bit differently.
+
+70
+00:05:16,650 --> 00:05:23,580
+Let's take a look at this grid we've got, and I want you to watch how it behaves when I try to make
+
+71
+00:05:23,580 --> 00:05:26,280
+this page smaller.
+
+72
+00:05:26,610 --> 00:05:36,150
+Notice how grids, natural inclination is to create a grid and everything lines up with each other on
+
+73
+00:05:36,150 --> 00:05:38,190
+a column and row basis.
+
+74
+00:05:38,190 --> 00:05:43,950
+So we have a column here and we have a row right here.
+
+75
+00:05:44,250 --> 00:05:50,520
+And notice how the gaps between all the items pretty much all match up with each other.
+
+76
+00:05:50,550 --> 00:05:55,680
+They're completely straight along, a very nice grid.
+
+77
+00:05:56,340 --> 00:05:58,830
+Now, Flexbox behaves very differently.
+
+78
+00:05:58,830 --> 00:06:07,630
+It's actually very difficult to get the Flexbox items to line up with each other like this because it's
+
+79
+00:06:07,630 --> 00:06:08,620
+flexible, right?
+
+80
+00:06:08,620 --> 00:06:17,500
+It tries to actually adapt and squish the content so that everything gets placed on the screen as I
+
+81
+00:06:17,500 --> 00:06:18,760
+expand.
+
+82
+00:06:18,760 --> 00:06:27,220
+This may be occasionally some items will line up with each other kind of like this, but it's not perfect
+
+83
+00:06:27,220 --> 00:06:28,450
+alignment, right?
+
+84
+00:06:28,660 --> 00:06:36,130
+Depending on the kind of behavior you want your items to have, do you want them to prioritize spacing
+
+85
+00:06:36,130 --> 00:06:42,520
+out content and aligning content, or do you want everything to be boxy like a grid?
+
+86
+00:06:43,030 --> 00:06:48,790
+Have a play around with this website and see what other things you can spot that are different between
+
+87
+00:06:48,790 --> 00:06:50,560
+Grid and Flexbox.
+
+88
+00:06:50,770 --> 00:06:57,310
+Now that we've seen how Grid behaves, it's time to show you how to create an actual grid.
+
+89
+00:06:57,490 --> 00:06:58,150
+Here
+
+90
+00:06:58,150 --> 00:07:02,770
+I've got a div that contains four paragraph elements.
+
+91
+00:07:02,770 --> 00:07:08,050
+Now these four paragraph elements are going to be my grid items.
+
+92
+00:07:08,410 --> 00:07:16,690
+And on the outside of these items I've got a container which is going to act as my grid. In order to
+
+93
+00:07:16,690 --> 00:07:20,350
+style this HTML so that it looks like this,
+
+94
+00:07:20,380 --> 00:07:30,040
+all I have to do is target my container using the container class and then set the display to grid.
+
+95
+00:07:30,070 --> 00:07:35,620
+Now, this should be familiar to you because previously, in order to use Flexbox, we had to set the
+
+96
+00:07:35,620 --> 00:07:37,750
+display to flex.
+
+97
+00:07:37,750 --> 00:07:39,790
+In this case, we're using grids,
+
+98
+00:07:39,790 --> 00:07:40,960
+so we set it to grid.
+
+99
+00:07:41,260 --> 00:07:47,770
+Next, I have to create some "grid-template-columns" and some "grid-template-rows".
+
+100
+00:07:47,800 --> 00:07:53,260
+Now, we're going to go into this notation in a lot more detail in the coming lessons, but it's also
+
+101
+00:07:53,260 --> 00:07:55,000
+pretty easy to understand.
+
+102
+00:07:55,360 --> 00:08:03,970
+What I'm doing here is I'm saying I want to create columns that have a fractional ratio of 1 to 2.
+
+103
+00:08:04,120 --> 00:08:07,390
+This side should be 1.
+
+104
+00:08:07,870 --> 00:08:15,850
+So the first column, if it had a width of 1, then I want the second column to be twice that width.
+
+105
+00:08:15,850 --> 00:08:21,190
+If this was 100px wide then this would be 200px wide.
+
+106
+00:08:21,780 --> 00:08:29,760
+But then for my rows, I've said I want it to be 1 to 1, two equal fractions.
+
+107
+00:08:29,940 --> 00:08:32,130
+And that's exactly what I get.
+
+108
+00:08:32,130 --> 00:08:37,140
+I get two rows that are pretty much equal in their heights.
+
+109
+00:08:37,590 --> 00:08:44,730
+And then finally, I've defined a gap of 10px so that this little distance between the columns
+
+110
+00:08:44,730 --> 00:08:47,730
+and between the rows is 10px.
+
+111
+00:08:47,750 --> 00:08:55,500
+And that allows my paragraphs to separate from each other without any sort of margin or padding, just
+
+112
+00:08:55,500 --> 00:08:58,520
+using these few lines of code.
+
+113
+00:08:58,530 --> 00:09:03,450
+I've managed to create a relatively complex layout for my website.
+
+114
+00:09:03,750 --> 00:09:10,650
+Let's go ahead and try this and write some code ourselves to see what happens when we set something
+
+115
+00:09:10,680 --> 00:09:12,000
+to display Grid.
+
+116
+00:09:12,180 --> 00:09:18,720
+Go ahead and download the starting code for this exercise 10.0 Display Grid,
+
+117
+00:09:18,720 --> 00:09:27,010
+and if you take a look inside index.html, you'll see that there are a whole bunch of divs that
+
+118
+00:09:27,010 --> 00:09:28,300
+I've created for you.
+
+119
+00:09:28,570 --> 00:09:33,610
+Now, the goal that we're trying to achieve here is to create a chess board.
+
+120
+00:09:33,700 --> 00:09:41,710
+And as you can imagine, if you had to do this using Float or Flexbox, it's a little bit painful,
+
+121
+00:09:41,710 --> 00:09:48,130
+especially if you wanted each of these divs to line up perfectly with each other.
+
+122
+00:09:48,340 --> 00:09:57,070
+But as we know, this is the strong suit of grid using the index.html and what you've learned about
+
+123
+00:09:57,070 --> 00:09:58,170
+CSS grid,
+
+124
+00:09:58,180 --> 00:10:07,690
+see if you can style this container to set it to use grid and create this kind of outcome.
+
+125
+00:10:08,030 --> 00:10:09,630
+There's a couple of things to note.
+
+126
+00:10:09,640 --> 00:10:14,500
+Each of the squares, white or black, should be 100px by 100px.
+
+127
+00:10:14,500 --> 00:10:16,060
+So they're squares.
+
+128
+00:10:16,060 --> 00:10:22,210
+And I've chosen some colors for a more modern, I guess, sort of chess board.
+
+129
+00:10:22,210 --> 00:10:25,150
+You can just make that white and black if you want to.
+
+130
+00:10:25,150 --> 00:10:26,560
+It's totally up to you.
+
+131
+00:10:26,560 --> 00:10:34,180
+But the outcome is to create something like this using our index.html and you should write your code
+
+132
+00:10:34,180 --> 00:10:36,490
+just below the comments here.
+
+133
+00:10:36,880 --> 00:10:40,390
+Pause the video and see if you can complete this challenge.
+
+134
+00:10:42,530 --> 00:10:42,970
+All right.
+
+135
+00:10:42,980 --> 00:10:46,640
+Hopefully you've given that a go and let's run through the solution together.
+
+136
+00:10:46,940 --> 00:10:52,760
+Now, the first thing we want to do is to open up our preview so that we can see what's happening as
+
+137
+00:10:52,790 --> 00:10:54,290
+we're doing things.
+
+138
+00:10:54,290 --> 00:11:00,500
+And because everything is invisible, because our divs have no size and they have no color, let's fix
+
+139
+00:11:00,500 --> 00:11:01,460
+that first.
+
+140
+00:11:01,820 --> 00:11:10,640
+So if I go ahead and target all of the white squares and set them to have a height of 100px and
+
+141
+00:11:10,640 --> 00:11:16,460
+a width of 100px, then if I go ahead and give them a background color.
+
+142
+00:11:16,460 --> 00:11:23,090
+So let's use the one that I've got in the example, then they should hopefully show up.
+
+143
+00:11:23,330 --> 00:11:28,880
+There are huge stack kind of just stacked along here, but we won't worry about that too much right
+
+144
+00:11:28,880 --> 00:11:29,340
+now.
+
+145
+00:11:29,360 --> 00:11:34,670
+Let's go ahead and do the same for our black squares to give them a size,
+
+146
+00:11:38,340 --> 00:11:41,130
+and to give them a background color.
+
+147
+00:11:41,370 --> 00:11:45,420
+And I'm going to use this color I've defined here.
+
+148
+00:11:46,290 --> 00:11:49,470
+Now we've got our white and black squares.
+
+149
+00:11:49,890 --> 00:11:57,330
+Now, unfortunately, they're all along one line at the moment because this is remember the default
+
+150
+00:11:57,330 --> 00:11:59,070
+layout of HTML flow.
+
+151
+00:11:59,100 --> 00:12:02,340
+All divs are set as display: block.
+
+152
+00:12:02,340 --> 00:12:06,210
+So they're going to try and occupy the full width of the screen.
+
+153
+00:12:06,240 --> 00:12:11,430
+And even though we've defined the width and the height, they're not going to come up and sit next to
+
+154
+00:12:11,430 --> 00:12:18,110
+each other unless we add some more CSS, which is exactly what I'm going to do right now.
+
+155
+00:12:18,120 --> 00:12:26,850
+So I'm going to target the container that contains all of these divs and I'm going to set it to display:
+
+156
+00:12:26,850 --> 00:12:27,720
+grid.
+
+157
+00:12:28,290 --> 00:12:34,920
+Now, this is not going to do too much just yet because we need to define our template-rows and our
+
+158
+00:12:34,920 --> 00:12:36,330
+template-columns.
+
+159
+00:12:36,450 --> 00:12:44,680
+If you look at the goal example, you'll see that a chess board is made up of eight by eight squares
+
+160
+00:12:44,680 --> 00:12:46,570
+and you can count these if you want.
+
+161
+00:12:46,600 --> 00:12:55,690
+And in total there are 64 squares and there are 64 divs that I've already included in the starting code.
+
+162
+00:12:55,690 --> 00:12:57,640
+So we don't have to worry about the HTML.
+
+163
+00:12:57,640 --> 00:12:59,710
+We just have to set up our grid.
+
+164
+00:12:59,860 --> 00:13:08,650
+Let's go ahead and set our grid-template-columns so we know we need eight equal-sized columns.
+
+165
+00:13:10,820 --> 00:13:15,380
+So we have one, two, three, four, five, six, seven, eight,
+
+166
+00:13:15,380 --> 00:13:21,620
+and once we've created all the columns, then you can see even if we didn't create any rows, we've
+
+167
+00:13:21,620 --> 00:13:25,760
+already got ourselves a bit of a chess board that's created.
+
+168
+00:13:26,270 --> 00:13:31,640
+Now we're going to explain why Grid is able to automatically infer what we want.
+
+169
+00:13:31,640 --> 00:13:39,140
+But just in case you did this and it's totally fine, we can add in the grid-template-rows just so that
+
+170
+00:13:39,140 --> 00:13:41,780
+it's really clear what it is that we want.
+
+171
+00:13:41,870 --> 00:13:46,340
+Eight equal size columns and eight equal size rows.
+
+172
+00:13:46,430 --> 00:13:53,600
+One thing you might notice with our solution is if you had extra width, then there's all these gaps
+
+173
+00:13:53,600 --> 00:13:56,540
+that show up between each of our columns.
+
+174
+00:13:56,570 --> 00:14:03,110
+Well, the reason for this is because our container is trying to take up the full width of the screen.
+
+175
+00:14:03,410 --> 00:14:10,860
+What we can do is we can set the width to 800px to fit all of our items.
+
+176
+00:14:10,860 --> 00:14:17,280
+And then this way we actually get a compact chess board that doesn't split up because it's trying to
+
+177
+00:14:17,280 --> 00:14:18,540
+be responsive.
+
+178
+00:14:18,720 --> 00:14:24,510
+Now, the default behavior for a grid container is to try and take up the full width, but only have
+
+179
+00:14:24,510 --> 00:14:30,630
+as much height as it allows to fit the content so we don't have to change the height.
+
+180
+00:14:30,720 --> 00:14:35,610
+Now, don't worry too much if you didn't set the width, it doesn't matter because this exercise is
+
+181
+00:14:35,610 --> 00:14:41,220
+all about you being able to figure out how to use the grid-template-columns and how to set the display
+
+182
+00:14:41,220 --> 00:14:45,060
+to grid so that we can turn our divs into our chess board.
+
+183
+00:14:45,300 --> 00:14:49,290
+As long as you've achieved that, then I'm happy that you've passed this challenge.
+
+184
+00:14:49,410 --> 00:14:55,470
+Now let's head over to the next lesson where we learn more about how to customize our grid.
+

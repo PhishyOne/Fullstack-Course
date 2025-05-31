@@ -1,0 +1,12 @@
+
+004 Useful.gitignore-templates
+https://github.com/github/gitignore
+
+005 Beginner-friendly-Repos
+https://github.com/MunGell/awesome-for-beginners
+
+005 Word-Mastermind-by-clupasq
+https://github.com/clupasq/word-mastermind
+
+008 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9

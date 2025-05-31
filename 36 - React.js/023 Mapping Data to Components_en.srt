@@ -1,0 +1,476 @@
+1
+00:00:00,440 --> 00:00:06,930
+All right guys. In this lesson we're going to be learning a new technique to get rid of a big eyesore
+
+2
+00:00:07,020 --> 00:00:08,970
+in our App.jsx.
+
+3
+00:00:09,060 --> 00:00:16,980
+Notice how we are creating these card components and indeed we do have these customizable reusable card
+
+4
+00:00:16,980 --> 00:00:24,390
+components for each of which we're passing over different custom props that comes from our contacts
+
+5
+00:00:24,480 --> 00:00:25,560
+array over here.
+
+6
+00:00:26,370 --> 00:00:28,940
+But notice how repetitive it is.
+
+7
+00:00:29,070 --> 00:00:36,720
+We're writing contacts[0].name, contacts[1].name, it seems like it would really benefit
+
+8
+00:00:36,810 --> 00:00:39,720
+from a loop. In this lesson
+
+9
+00:00:39,720 --> 00:00:44,970
+I'm going to show you a technique called mapping components which is going to make it easy for us to
+
+10
+00:00:45,270 --> 00:00:52,140
+map all of these individual custom pieces of data to each of these custom components.
+
+11
+00:00:52,140 --> 00:00:59,010
+And that way we won't have to keep creating card after card after card and it can be created dynamically,
+
+12
+00:00:59,010 --> 00:01:04,000
+for example using a form on our website or some input elements.
+
+13
+00:01:04,500 --> 00:01:12,870
+So the map function is a Javascript function that's really useful for handling arrays such as our contacts
+
+14
+00:01:12,960 --> 00:01:13,310
+array.
+
+15
+00:01:13,890 --> 00:01:21,540
+So our contacts array currently contains three items. And each of these are a Javascript object with
+
+16
+00:01:21,540 --> 00:01:31,140
+the same properties but different values. Inside our App.jsx, if instead we can go ahead and comment out
+
+17
+00:01:31,560 --> 00:01:39,480
+these three cards. And instead what we're going to do is we're going to tap into that contacts array
+
+18
+00:01:39,960 --> 00:01:45,480
+which we have access to because we imported it from the contacts file, and then we're going to call the
+
+19
+00:01:45,480 --> 00:01:51,570
+map function. So we can write contacts.map. Now
+
+20
+00:01:51,590 --> 00:01:57,980
+note how at the moment it's just typing it out like it's plain text and that is of course because we're
+
+21
+00:01:58,100 --> 00:02:00,860
+inside a div element as a child
+
+22
+00:02:00,920 --> 00:02:04,250
+so we have to go ahead and wrap it inside some curly braces
+
+23
+00:02:04,250 --> 00:02:07,910
+so this gets interpreted as Javascript code.
+
+24
+00:02:07,910 --> 00:02:10,970
+This map function as the input
+
+25
+00:02:10,970 --> 00:02:16,340
+the thing that should go inside these parentheses, it expects an actual function.
+
+26
+00:02:16,340 --> 00:02:20,340
+So in this case we're calling a function and then passing it a function.
+
+27
+00:02:20,540 --> 00:02:26,080
+And this is kind of the fundamentals of what you might call functional programming, where instead of
+
+28
+00:02:26,090 --> 00:02:32,270
+passing values around your code, you're passing functions into functions even into functions. You can have
+
+29
+00:02:32,510 --> 00:02:35,900
+many many levels of functions being passed around.
+
+30
+00:02:35,900 --> 00:02:41,000
+So what functionality do we want to happen to each of our contacts?
+
+31
+00:02:41,000 --> 00:02:48,760
+Well let's go ahead and create a new function up here and I'm gonna call it createCard.
+
+32
+00:02:48,770 --> 00:02:53,480
+So this function is going to create a new card component.
+
+33
+00:02:53,630 --> 00:03:02,180
+So I'm going to return a custom card component and of course I'm going to pass it some properties.
+
+34
+00:03:02,180 --> 00:03:08,000
+So let's say that we just pass at one property, which is the name property which we know that the card
+
+35
+00:03:08,030 --> 00:03:12,320
+is able to handle and put into this h2.
+
+36
+00:03:12,320 --> 00:03:17,530
+Now this name property I'm gonna set it equal to some value right? Now
+
+37
+00:03:17,570 --> 00:03:19,500
+let's imagine that this function
+
+38
+00:03:19,580 --> 00:03:25,540
+createCard, when it gets called it gets passed over a single contact.
+
+39
+00:03:25,610 --> 00:03:32,750
+So not an array of contacts but a single Javascript object such as this one or this one.
+
+40
+00:03:33,290 --> 00:03:39,560
+And of course each of these objects have properties such as id, name, image URL that we can tap into
+
+41
+00:03:39,890 --> 00:03:41,210
+inside the function.
+
+42
+00:03:41,270 --> 00:03:50,670
+So I could set the name property of the card component to equal contact.name. So now I'm going to
+
+43
+00:03:50,670 --> 00:03:56,970
+pass this entire function createCard into my map function.
+
+44
+00:03:56,970 --> 00:04:04,470
+So let's go ahead and get it to create a card and what the map function does is it loops through this
+
+45
+00:04:04,560 --> 00:04:06,510
+array of contacts
+
+46
+00:04:06,540 --> 00:04:14,880
+and for every single item that exists in the array, it calls the createCard function and it passes over
+
+47
+00:04:15,120 --> 00:04:17,850
+each of the objects inside the array.
+
+48
+00:04:17,850 --> 00:04:21,070
+So that means for the first time it loops around
+
+49
+00:04:21,120 --> 00:04:30,180
+it passes this entire first element in as the contact and then we can get hold of it inside our return
+
+50
+00:04:30,180 --> 00:04:35,630
+statement and get hold of the name property which gets put into our card component
+
+51
+00:04:35,670 --> 00:04:37,170
+right here.
+
+52
+00:04:37,170 --> 00:04:37,830
+I can of course
+
+53
+00:04:37,830 --> 00:04:47,010
+go ahead and elaborate on this by adding the image property and set that equal to the contact.image
+
+54
+00:04:47,210 --> 00:04:51,860
+URL. I think is the name inside our contacts.js.
+
+55
+00:04:52,680 --> 00:04:55,550
+And that now shows up over here.
+
+56
+00:04:56,250 --> 00:05:04,590
+And then maybe I can add another property, the telephone property, which I'll set to equal contact.
+
+57
+00:05:04,680 --> 00:05:05,270
+phone.
+
+58
+00:05:06,150 --> 00:05:13,190
+And finally I've got the email property which is just stored inside contact.email.
+
+59
+00:05:13,230 --> 00:05:21,420
+So now I've got my card component which is getting all of these pieces of information using these properties
+
+60
+00:05:21,510 --> 00:05:28,650
+from our contacts.js these Javascript objects with each of these names right here.
+
+61
+00:05:28,860 --> 00:05:37,590
+And that is being sent over as the props for our custom card component. as we can see in our React dev
+
+62
+00:05:37,590 --> 00:05:38,040
+tools.
+
+63
+00:05:38,670 --> 00:05:45,180
+But notice how in the console we're actually getting a warning here and this warning doesn't go away
+
+64
+00:05:45,270 --> 00:05:47,250
+when we refresh the browser.
+
+65
+00:05:47,250 --> 00:05:53,160
+So it's actually a real warning instead of some sort of problem with code sandbox. And what it tells
+
+66
+00:05:53,160 --> 00:05:59,220
+us is that each child in a list should have a unique key property.
+
+67
+00:05:59,220 --> 00:06:01,590
+This is a really important point.
+
+68
+00:06:01,620 --> 00:06:09,630
+Remember how in the beginning I said that React is able to create a virtual DOM that represents the
+
+69
+00:06:09,630 --> 00:06:12,110
+current appearance of your website.
+
+70
+00:06:12,300 --> 00:06:19,080
+And for it to be able to efficiently render components for every single component that's being rendered
+
+71
+00:06:19,200 --> 00:06:27,810
+using a loop such as the map function, we will have to give those components a property that has to be
+
+72
+00:06:27,810 --> 00:06:34,920
+called key. And this property has to be something that is unique amongst each of these card components
+
+73
+00:06:35,040 --> 00:06:37,830
+that's being created using this loop.
+
+74
+00:06:37,830 --> 00:06:44,310
+Luckily inside our contacts.js, I've got an id property which is unique amongst each of these
+
+75
+00:06:44,310 --> 00:06:48,150
+contacts and we're going to use it as the key,
+
+76
+00:06:48,150 --> 00:06:56,410
+so contact.id. And now once we do that our warning goes away because we're now conforming with
+
+77
+00:06:56,410 --> 00:06:57,890
+React's rules.
+
+78
+00:06:58,120 --> 00:07:05,710
+Now this key prop has to be spelt exactly like this and it's expected by React. And the value can be
+
+79
+00:07:05,740 --> 00:07:13,400
+a string or it can be a number, but it must be unique across all of the repeated components,
+
+80
+00:07:13,420 --> 00:07:21,160
+so in this case our cards. Now I have a challenge for you that's going to require a little bit of debugging
+
+81
+00:07:21,190 --> 00:07:22,600
+on your part.
+
+82
+00:07:22,600 --> 00:07:27,670
+See if you can get this key prop which we know corresponds to the ids,
+
+83
+00:07:27,700 --> 00:07:32,970
+so 1, 2 and 3 that's being passed over to the card component.
+
+84
+00:07:33,010 --> 00:07:38,580
+See if you can get that rendered as a paragraph tag above the h2,
+
+85
+00:07:38,620 --> 00:07:42,250
+so right here. Pause the video and complete this challenge
+
+86
+00:07:42,280 --> 00:07:47,980
+and as a hint, you're gonna have to dig into the React dev tools to figure out what's actually going on.
+
+87
+00:07:48,040 --> 00:07:54,460
+And then once you're done come back and we'll go through the solution together.
+
+88
+00:07:54,530 --> 00:07:54,830
+All right.
+
+89
+00:07:54,860 --> 00:08:00,950
+So this was a bit of a trick question because what you will have realized is that if you just go ahead
+
+90
+00:08:00,980 --> 00:08:09,170
+and create a paragraph tag and then inside there you try to get hold of props.key which we know
+
+91
+00:08:09,200 --> 00:08:12,590
+is the name of the prop being passed over,
+
+92
+00:08:12,740 --> 00:08:15,830
+you can see that not only does it not show up
+
+93
+00:08:15,890 --> 00:08:17,880
+we also get a warning.
+
+94
+00:08:17,930 --> 00:08:25,550
+And it tells us that key is not a prop. Trying to access it will result in undefined being returned.
+
+95
+00:08:26,090 --> 00:08:31,990
+So if you need it, you should create the same value as a different prop.
+
+96
+00:08:32,299 --> 00:08:35,900
+And we can see this if we actually look inside the React dev tools.
+
+97
+00:08:35,900 --> 00:08:43,190
+If we look at our card, we can see that out of all of the props that we're getting we don't see that
+
+98
+00:08:43,370 --> 00:08:44,840
+key prop.
+
+99
+00:08:44,840 --> 00:08:52,880
+And the reason is because as I mentioned, that key property for each React component is a special property.
+
+100
+00:08:53,450 --> 00:08:59,050
+And it's used to ensure the right order of items goes into the tree,
+
+101
+00:08:59,060 --> 00:09:05,840
+it's used so that it can render each of these components efficiently when they're being created from
+
+102
+00:09:05,840 --> 00:09:13,670
+a loop, but it is not something that we can tap into. If we actually wanted to show that id which comes
+
+103
+00:09:13,670 --> 00:09:14,910
+from contacts,
+
+104
+00:09:14,990 --> 00:09:19,850
+what we actually have to do is we have to create our own custom prop
+
+105
+00:09:19,850 --> 00:09:23,650
+sSay for example id = contact.id.
+
+106
+00:09:23,930 --> 00:09:28,280
+And even though it seems a bit repetitive because it seems like we've already got this key called prop
+
+107
+00:09:28,550 --> 00:09:33,880
+that is contact.id, but we have to remember that this is not for us to use.
+
+108
+00:09:33,890 --> 00:09:39,890
+So now if I go in here and I change that props to id then everything works fine
+
+109
+00:09:39,890 --> 00:09:42,160
+and I don't get any warnings anymore.
+
+110
+00:09:42,260 --> 00:09:48,350
+So Dev Tools is really really useful for debugging problems like this and I'm going to try and trip
+
+111
+00:09:48,380 --> 00:09:53,960
+you up a few times like this just so that you get a chance to use it and get used to debugging your
+
+112
+00:09:53,960 --> 00:09:56,990
+code because bugs always happen. It happens to the best of us.
+
+113
+00:09:57,470 --> 00:10:02,420
+And there was a time when I thought I was only a programmer that could create bugs not code.
+
+114
+00:10:02,480 --> 00:10:04,390
+So it's perfectly normal
+
+115
+00:10:04,460 --> 00:10:09,350
+and it's really important to get used to the tools. In the next lesson you're going to be putting this
+
+116
+00:10:09,350 --> 00:10:12,440
+technique into action in a challenge
+
+117
+00:10:12,440 --> 00:10:14,900
+where are you going to map data to React
+
+118
+00:10:14,900 --> 00:10:18,350
+components and render everything from scratch yourself.
+
+119
+00:10:18,680 --> 00:10:20,930
+So for all of that and more, I'll see you there.
+

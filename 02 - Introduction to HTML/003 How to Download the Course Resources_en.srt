@@ -1,0 +1,132 @@
+1
+00:00:00,860 --> 00:00:01,670
+Hi guys.
+
+2
+00:00:01,670 --> 00:00:07,550
+In this lesson I want to quickly talk through how to get hold of the course resources As you're working
+
+3
+00:00:07,550 --> 00:00:08,730
+through the course.
+
+4
+00:00:08,750 --> 00:00:16,219
+In many sections of the course, there will be downloadable resources and they are usually in a compressed
+
+5
+00:00:16,219 --> 00:00:16,940
+format.
+
+6
+00:00:16,940 --> 00:00:20,750
+So you'll see the.zip as the file extension.
+
+7
+00:00:20,750 --> 00:00:25,640
+Now what this means is that you can't use the files in this folder as it is.
+
+8
+00:00:25,640 --> 00:00:31,340
+You have to extract the files out of this folder and then once you've extracted it, you'll see that
+
+9
+00:00:31,340 --> 00:00:38,570
+the folder contains many resources such as images, or sounds, or other things that we're going to use
+
+10
+00:00:38,570 --> 00:00:44,270
+in the project, but also code files, which we're going to be using in order to complete some of the
+
+11
+00:00:44,270 --> 00:00:46,160
+exercises and projects.
+
+12
+00:00:46,160 --> 00:00:52,490
+So in order to download the course resources for a particular lesson, I want you to go into the resources
+
+13
+00:00:52,490 --> 00:01:00,080
+for that lesson, which should show up with a folder icon, click the down button and you'll see all
+
+14
+00:01:00,180 --> 00:01:03,450
+of the links that are included in that folder.
+
+15
+00:01:03,450 --> 00:01:07,950
+And in most cases the download will be a zip file.
+
+16
+00:01:07,950 --> 00:01:14,190
+So what I want you to do is to click on it and download should start automatically in your browser.
+
+17
+00:01:14,190 --> 00:01:17,280
+And then I want you to head over to your downloads folder,
+
+18
+00:01:17,280 --> 00:01:24,360
+and if you're on a Mac computer, then you can simply double-click on the zip file and it will automatically
+
+19
+00:01:24,360 --> 00:01:27,630
+extract all of the contents into a new folder.
+
+20
+00:01:27,630 --> 00:01:30,120
+Now on Windows, it's a little bit different.
+
+21
+00:01:30,180 --> 00:01:37,230
+All you have to do is to select the compressed file in your downloads folder and then you should see
+
+22
+00:01:37,230 --> 00:01:40,560
+at the top this extract all button show up.
+
+23
+00:01:40,560 --> 00:01:46,830
+If you don't see that, then simply just right click on the compressed folder and you should also be able
+
+24
+00:01:46,830 --> 00:01:54,750
+to find that extract all and then go ahead and simply select, extract and make a note of the destination.
+
+25
+00:01:54,750 --> 00:02:00,060
+Now once you've done that and you've gotten hold of the extracted folder and all of the files that it
+
+26
+00:02:00,060 --> 00:02:07,410
+contains, then I want you to simply drag it into your Visual Studio code and you'll see that VS Code
+
+27
+00:02:07,410 --> 00:02:14,010
+will automatically open up your folder and give you access to all of the included files.
+
+28
+00:02:14,400 --> 00:02:22,920
+If you try to drag a compressed folder into VS Code, it won't work properly and sometimes you might
+
+29
+00:02:22,920 --> 00:02:27,390
+be able to see the files, but you might not be able to work with it.
+
+30
+00:02:27,390 --> 00:02:32,130
+For example, on Windows you might be able to view the files, but it can create a lot of problems for
+
+31
+00:02:32,130 --> 00:02:33,270
+you down the road.
+
+32
+00:02:33,270 --> 00:02:40,080
+So remember, whenever you're downloading a file that has the.zip extension, be sure to extract the
+
+33
+00:02:40,080 --> 00:02:43,320
+files before you work with it in VS Code.
+

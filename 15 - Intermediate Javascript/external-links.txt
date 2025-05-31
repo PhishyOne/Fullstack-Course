@@ -1,0 +1,24 @@
+
+001 Randomness-video-by-Khan-Academy
+https://www.youtube.com/watch?v=GtOt7EBNEwQ&ab_channel=KhanAcademyLabs
+
+001 Math.random-MDN-docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+001 Love-Calculator
+https://www.lovecalculator.com/
+
+010 Blog-Why-cant-programmers-program-
+https://blog.codinghorror.com/why-cant-programmers-program/
+
+010 Now-thats-what-I-call-a-Hacker.
+https://www.jitbit.com/alexblog/249-now-thats-what-i-call-a-hacker/
+
+013 99-Bottles-of-beer-lyrics
+https://www.99-bottles-of-beer.net/lyrics.html
+
+016 Fibonacci-challenge-Flow-Chart
+https://drive.google.com/file/d/1g8vVtqhSj44vcElfc-HK0nMbecteW8Yg/view
+
+018 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9

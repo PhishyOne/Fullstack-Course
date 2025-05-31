@@ -1,0 +1,33 @@
+
+003 Try-the-Caesar-Cipher-Cryptii.com-
+https://cryptii.com/pipes/caesar-cipher
+
+003 AES-256-Encrypt-Decrypt-Online
+https://encode-decode.com/aes256-encrypt-online/
+
+004 Plain-Text-Offenders
+https://plaintextoffenders.com/
+
+004 Have-i-been-pwned-
+https://haveibeenpwned.com/
+
+004 The-most-common-passwords
+https://en.wikipedia.org/wiki/List_of_the_most_common_passwords
+
+004 Password-Strength-Checker
+http://password-checker.online-domain-tools.com/
+
+004 Impress-your-friends-with-Hacker-Typer
+https://hackertyper.net/
+
+006 Passport-strategies
+https://www.passportjs.org/packages/
+
+007 Luke-Chadwicks-Story
+https://vertis.io/2013/12/16/unauthorised-litecoin-mining/
+
+007 dotenv-package-on-npm
+https://www.npmjs.com/package/dotenv
+
+007 .gitignore-for-nodejs
+https://github.com/github/gitignore/blob/main/Node.gitignore

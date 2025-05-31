@@ -1,0 +1,176 @@
+1
+00:00:00,700 --> 00:00:01,540
+Hey guys.
+
+2
+00:00:01,540 --> 00:00:08,020
+Today it's Angela and the office crayfish. The office crayfish
+
+3
+00:00:08,020 --> 00:00:16,210
+and I would like to congratulate you on getting this far, so well done for completing the last module,
+
+4
+00:00:16,660 --> 00:00:19,680
+and we're both really proud of you. Now,
+
+5
+00:00:19,690 --> 00:00:28,610
+today I want to talk about something I've heard students say a lot and, you know, it's this idea like
+
+6
+00:00:29,510 --> 00:00:36,920
+maybe like I'm not cut out for programming, maybe like I just wasn't born with a particular brain that’s 
+
+7
+00:00:36,920 --> 00:00:46,590
+required to think in this way, maybe like this is just not for me. And, you know, why is it that so and
+
+8
+00:00:46,590 --> 00:00:48,780
+so like they just pick it up like that?
+
+9
+00:00:48,780 --> 00:00:52,560
+Like why are they just born to do it, you know?
+
+10
+00:00:52,560 --> 00:01:02,400
+And what I want to say to that is like, nobody is born to have a certain skill, right? Or, you know, there's
+
+11
+00:01:02,400 --> 00:01:10,050
+a lot of things that require a lot of dedication to be able to achieve the result that people get.
+
+12
+00:01:10,050 --> 00:01:12,420
+You just don't see it, that's all.
+
+13
+00:01:12,440 --> 00:01:18,680
+Now, you know, you never see like a baby like just being born that’s all like really muscular, right?
+
+14
+00:01:18,690 --> 00:01:22,790
+Like that doesn't happen. In order to get muscular, in order to get strong,
+
+15
+00:01:22,800 --> 00:01:28,770
+you’ve got to go to the gym, you've got to put in the ropes, like nobody can help you with that, no matter
+
+16
+00:01:28,800 --> 00:01:32,180
+how rich or how privileged or how smart you are.
+
+17
+00:01:32,790 --> 00:01:36,250
+If you don't go to the gym you're not going to get stronger.
+
+18
+00:01:36,600 --> 00:01:43,140
+And it's the same with a lot of other skills, you know, like, with programming, I would bet that there is
+
+19
+00:01:43,320 --> 00:01:49,940
+no one programmer who you can find who hasn't done the work.
+
+20
+00:01:50,040 --> 00:01:56,950
+Like you don't just show up on your day one and you’re like, well, I know everything. That doesn't work.
+
+21
+00:01:56,950 --> 00:02:03,990
+And in most cases, like, you know, people often hide like the hard work that's required in order to get
+
+22
+00:02:03,990 --> 00:02:06,030
+to where they are.
+
+23
+00:02:06,210 --> 00:02:10,889
+Like if you think about the game Pokemon Go, like you remember that from like a few years ago, how it
+
+24
+00:02:10,889 --> 00:02:17,090
+just blew up overnight and literally everybody was walking around playing Pokemon Go, I swear.
+
+25
+00:02:17,130 --> 00:02:21,760
+And newspapers were saying like, “Oh, overnight sensation, Pokemon Go.”
+
+26
+00:02:21,770 --> 00:02:27,960
+And it's like you know the creators stumbled on like some sort of a pot of gold.
+
+27
+00:02:27,960 --> 00:02:32,540
+But actually like, do you know how many other games that Niantic
+
+28
+00:02:32,580 --> 00:02:35,670
+and the founders of Niantic have built before that?
+
+29
+00:02:35,760 --> 00:02:43,220
+Like how many have failed and how many were just kind of meh, like until they had this big moment?
+
+30
+00:02:43,320 --> 00:02:44,520
+We don't see that.
+
+31
+00:02:44,550 --> 00:02:46,300
+But it doesn't mean it doesn't happen,
+
+32
+00:02:46,410 --> 00:02:46,710
+right?
+
+33
+00:02:47,160 --> 00:02:54,330
+So, in order to get good at something, you've got to show up, you’ve got to put in the hours, and then you'll
+
+34
+00:02:54,330 --> 00:02:56,810
+get the results that you deserve.
+
+35
+00:02:57,000 --> 00:03:01,800
+And in fact you know like if you suddenly just like win the lottery and you get something that you haven't
+
+36
+00:03:01,800 --> 00:03:04,610
+really worked hard for you never really cherish it.
+
+37
+00:03:04,680 --> 00:03:09,990
+Like if somebody gives you a gift and you didn't have to work hard for it it's not the same as the thing
+
+38
+00:03:09,990 --> 00:03:13,990
+that you know you worked a whole summer for like washing dishes.
+
+39
+00:03:13,990 --> 00:03:15,280
+Like I certainly remember that.
+
+40
+00:03:15,280 --> 00:03:20,160
+Like that thing that you buy is so different from something that somebody usually gives you.
+
+41
+00:03:20,730 --> 00:03:29,090
+So put in the work, put in the effort, and the results will happen, I promise, and I am here for you and
+
+42
+00:03:29,100 --> 00:03:31,460
+I'm here cheering you on. I believe in you.
+
+43
+00:03:32,100 --> 00:03:33,920
+And I think you're going to do great.
+
+44
+00:03:33,960 --> 00:03:35,330
+So just keep going.
+

@@ -1,0 +1,1148 @@
+1
+00:00:00,460 --> 00:00:07,390
+Now that we've created our tables and we've imported some data into there, or you could have created
+
+2
+00:00:07,390 --> 00:00:14,560
+some data fields of your own, it's now time to see how we can actually use that data in a real node
+
+3
+00:00:14,560 --> 00:00:15,190
+backend.
+
+4
+00:00:15,220 --> 00:00:19,810
+So we can power a project using data from our database.
+
+5
+00:00:20,770 --> 00:00:26,200
+The project we're going to be building as an example is a capitals quiz.
+
+6
+00:00:26,380 --> 00:00:30,130
+I don't know how good you are on your geography, but mine is pretty terrible.
+
+7
+00:00:30,250 --> 00:00:38,470
+But nonetheless, it's a quiz where you get a prompt for a country and you have to enter the name of
+
+8
+00:00:38,470 --> 00:00:39,320
+the capital.
+
+9
+00:00:39,340 --> 00:00:41,410
+So we're going to normalize the casing.
+
+10
+00:00:41,410 --> 00:00:44,650
+We're going to get rid of any blank characters they add in there.
+
+11
+00:00:44,650 --> 00:00:51,010
+But essentially we're checking whatever the user enters against what's in our database.
+
+12
+00:00:51,130 --> 00:00:56,770
+And we know that we have the names of the countries and their corresponding capitals.
+
+13
+00:00:56,770 --> 00:01:01,590
+And if the user gets it right, then they get to increase their score.
+
+14
+00:01:01,600 --> 00:01:07,540
+And up until the point where they get one question wrong and then that's their maximum score.
+
+15
+00:01:07,750 --> 00:01:09,340
+I'm not very good at this.
+
+16
+00:01:09,370 --> 00:01:17,100
+My max score so far in the testing and playthrough of this has been three, which is pretty abysmal,
+
+17
+00:01:17,110 --> 00:01:22,480
+but you let me know once you've built it if you get a lot higher of a score.
+
+18
+00:01:22,690 --> 00:01:24,540
+Essentially, this is what building.
+
+19
+00:01:24,550 --> 00:01:32,630
+Very simple, but it's going to be powered by our Postgres database to get all of that data, to get
+
+20
+00:01:32,630 --> 00:01:40,780
+a hold of all of those records, the line of code we need to read from our SQL database is the simply
+
+21
+00:01:40,780 --> 00:01:42,880
+this select all.
+
+22
+00:01:42,880 --> 00:01:47,410
+So that's what the asterisks does from the name of our table.
+
+23
+00:01:47,470 --> 00:01:52,470
+The SQL code is very simple and you've done this before.
+
+24
+00:01:52,480 --> 00:01:54,130
+You know exactly what it does.
+
+25
+00:01:54,130 --> 00:02:00,790
+But in order to implement it in our node and express backend, it takes a few more steps.
+
+26
+00:02:00,820 --> 00:02:06,190
+We saw this when we first introduced you to Postgres, but now that we know a little bit more about
+
+27
+00:02:06,190 --> 00:02:12,670
+Postgres, let's analyze this again so that we familiarize ourselves with how to work with Postgres
+
+28
+00:02:12,670 --> 00:02:15,580
+and the pg npm package.
+
+29
+00:02:15,610 --> 00:02:23,950
+In order to add a database to our backend, we're going to use this PG package, which simplifies things
+
+30
+00:02:23,950 --> 00:02:25,720
+down for us vastly.
+
+31
+00:02:25,720 --> 00:02:32,860
+And once we've installed it and imported it, then we can use it to create a new PG client.
+
+32
+00:02:32,860 --> 00:02:36,880
+So this is basically connecting to our database.
+
+33
+00:02:37,120 --> 00:02:44,980
+When we create this we have to add some configuration details such as what is the username which as
+
+34
+00:02:44,980 --> 00:02:46,780
+you remember defaults to Postgres.
+
+35
+00:02:46,780 --> 00:02:52,330
+Hopefully you haven't changed that and you should have the same username, the host, because we are
+
+36
+00:02:52,330 --> 00:02:57,250
+hosting our database on our computer that will be set by default as local host.
+
+37
+00:02:57,250 --> 00:02:59,470
+So also nothing to change there.
+
+38
+00:02:59,650 --> 00:03:06,580
+The name of our database, which if you remember I asked you to call it world which contains our two
+
+39
+00:03:06,580 --> 00:03:14,710
+tables, flags and capitals, and the password which corresponds to our username.
+
+40
+00:03:14,830 --> 00:03:18,970
+This is the password that we set up when we installed Postgres.
+
+41
+00:03:18,970 --> 00:03:25,480
+And you might remember I asked you to write it down because it's used quite a lot, such as in this
+
+42
+00:03:25,480 --> 00:03:27,580
+case to connect to our database.
+
+43
+00:03:27,580 --> 00:03:31,300
+We obviously wouldn't want some random person to connect to our database.
+
+44
+00:03:31,300 --> 00:03:38,260
+So that's why you set up a password when your database is locally hosted, such as in our case, it
+
+45
+00:03:38,260 --> 00:03:43,270
+doesn't really matter because obviously nobody else can access your computer at the same time trying
+
+46
+00:03:43,270 --> 00:03:44,470
+to access your database.
+
+47
+00:03:44,470 --> 00:03:49,900
+But once this database goes remote, goes on to the internet, then these kind of things and set up
+
+48
+00:03:49,900 --> 00:03:51,790
+becomes a little bit more important.
+
+49
+00:03:52,030 --> 00:03:54,310
+The final one is the port number.
+
+50
+00:03:54,310 --> 00:03:58,930
+And by default Postgres will run on port 5432.
+
+51
+00:03:58,930 --> 00:04:01,870
+And there is nowhere where we have changed that.
+
+52
+00:04:01,870 --> 00:04:05,860
+So yours will also be hopefully 5432.
+
+53
+00:04:06,520 --> 00:04:15,010
+Once we've created all of those configuration details, then we can use DB Dot connect to connect to
+
+54
+00:04:15,010 --> 00:04:16,839
+our world database.
+
+55
+00:04:17,050 --> 00:04:20,709
+You might remember the world database has lots of tables.
+
+56
+00:04:20,709 --> 00:04:26,680
+That's why when we run our SQL query using db dot query, we're going to run the code.
+
+57
+00:04:26,680 --> 00:04:30,730
+Select all from the capitals table.
+
+58
+00:04:30,730 --> 00:04:36,310
+That is going to be the table where we're going to be getting the data for our current project.
+
+59
+00:04:36,430 --> 00:04:38,590
+And then we have a callback.
+
+60
+00:04:38,620 --> 00:04:41,680
+If there's an error console log the error.
+
+61
+00:04:41,680 --> 00:04:47,410
+If there are no errors we're going to save the result dot rows.
+
+62
+00:04:47,410 --> 00:04:57,550
+So all of the data that comes from this line of SQL query into the quiz variable, so that we can use
+
+63
+00:04:57,550 --> 00:04:59,950
+it in our quiz application.
+
+64
+00:05:00,230 --> 00:05:04,430
+And then finally, at the very end, we close our connection to the database.
+
+65
+00:05:04,430 --> 00:05:10,160
+And this is good practice so that you're not connected to it and you don't accidentally do something
+
+66
+00:05:10,160 --> 00:05:16,130
+else or insert or delete your data so that you are closing off your session.
+
+67
+00:05:16,460 --> 00:05:23,000
+And that is all there is to it to connect to our database, to get, hold and run the query that we
+
+68
+00:05:23,000 --> 00:05:23,840
+want to run.
+
+69
+00:05:23,840 --> 00:05:26,000
+And then finally to close the connection.
+
+70
+00:05:26,270 --> 00:05:28,880
+Let's go ahead and do this in practice.
+
+71
+00:05:28,880 --> 00:05:33,860
+In the current lesson you'll see a zip file called World Capital Quiz.
+
+72
+00:05:33,860 --> 00:05:41,060
+And if you go ahead and download and extract that onto your computer and open it inside VS code, you'll
+
+73
+00:05:41,060 --> 00:05:46,460
+see all of these files that I've lovingly prepared for you ahead of time.
+
+74
+00:05:46,730 --> 00:05:59,270
+As always, first things first, it is to navigate to the file path and to install all the node modules
+
+75
+00:05:59,270 --> 00:06:01,370
+by running npm install.
+
+76
+00:06:01,370 --> 00:06:04,790
+So you end up with this folder node modules.
+
+77
+00:06:04,790 --> 00:06:10,030
+And once we've done that, take a look inside index.js.
+
+78
+00:06:10,040 --> 00:06:17,000
+This is effectively our JS file that defines this very simple quiz application.
+
+79
+00:06:17,000 --> 00:06:24,260
+And we've got our main.css and the background image hosted in the public folder.
+
+80
+00:06:24,260 --> 00:06:32,090
+So if you look inside index.js you'll see that I've got the middleware where I say use express dot static
+
+81
+00:06:32,120 --> 00:06:35,810
+defining the static folder as the public folder.
+
+82
+00:06:35,810 --> 00:06:42,620
+So then we can link to it in our HTML and other parts of our code.
+
+83
+00:06:43,420 --> 00:06:51,010
+I've already built the basic application, the back end and the front end for you, and I recommend
+
+84
+00:06:51,010 --> 00:06:57,130
+simply to use this because we're going to be building in all of the relevant parts of this module,
+
+85
+00:06:57,130 --> 00:07:03,970
+which is the Postgres, using the PG module, connecting to our database and reading from our database.
+
+86
+00:07:04,060 --> 00:07:08,470
+If you want, you can of course create this completely from scratch.
+
+87
+00:07:08,470 --> 00:07:16,450
+And to do that, all you need to do is run node nodemon solution dot js, hit enter and then go ahead
+
+88
+00:07:16,450 --> 00:07:19,300
+and open up localhost 3000.
+
+89
+00:07:19,300 --> 00:07:28,450
+And here you will see the working version of the app using the solution so you can try out the application.
+
+90
+00:07:28,480 --> 00:07:32,320
+Don't worry if you don't know the name of the capital, you can always google it.
+
+91
+00:07:32,320 --> 00:07:38,590
+But I think Norway's capital is Oslo, so I'm going to type it in, hit submit.
+
+92
+00:07:38,620 --> 00:07:39,760
+Hopefully I get it right.
+
+93
+00:07:39,760 --> 00:07:44,230
+If I do, my total score goes up and you'll see a little check mark.
+
+94
+00:07:44,260 --> 00:07:49,810
+And until you get to the point where I have no idea and I get it wrong and then hit submit, we get
+
+95
+00:07:49,810 --> 00:07:55,750
+a pop up game over final best score one, which is pretty sad, but hopefully you can do better than
+
+96
+00:07:55,780 --> 00:07:56,260
+me.
+
+97
+00:07:56,380 --> 00:08:02,860
+You can look at this project and create all the back end, front end by yourself, using the assets
+
+98
+00:08:02,860 --> 00:08:05,050
+that are available to you in the downloaded file.
+
+99
+00:08:05,050 --> 00:08:13,390
+But as I said, I recommend actually to use the index.js as your starting point because there's a lot
+
+100
+00:08:13,390 --> 00:08:17,980
+of new things, and it's best that we concentrate on one thing at a time.
+
+101
+00:08:17,980 --> 00:08:23,530
+But I'm going to walk through this code with you just so that we're all on board as to how it works.
+
+102
+00:08:23,980 --> 00:08:28,800
+First, we've got our express app running on port 3000.
+
+103
+00:08:28,810 --> 00:08:35,679
+We have a quiz item that is an array and it contains just three objects.
+
+104
+00:08:35,679 --> 00:08:40,990
+The objects are essentially the records that are in our database.
+
+105
+00:08:40,990 --> 00:08:43,690
+Has a country and a capital.
+
+106
+00:08:43,690 --> 00:08:49,600
+And of course, each being its own individual object means that they are linked to each other.
+
+107
+00:08:49,600 --> 00:08:54,010
+So we can check the country against the capital.
+
+108
+00:08:54,310 --> 00:08:58,150
+Now we've got a scorekeeper here called total correct.
+
+109
+00:08:58,150 --> 00:09:04,780
+And then we've got our middleware to be able to use body parser to get hold of data from the form,
+
+110
+00:09:04,780 --> 00:09:11,650
+and to use the public so that we can have our static files, our background images, our CSS or working.
+
+111
+00:09:12,130 --> 00:09:20,650
+If you go over to the index.js, you'll see that I've set up the JS file so that we are putting over
+
+112
+00:09:20,650 --> 00:09:22,060
+the total score.
+
+113
+00:09:22,150 --> 00:09:29,440
+We are taking the question dot country to display in that big H one as the question.
+
+114
+00:09:29,440 --> 00:09:37,990
+And then I've also got the input element to take the user input asking them to enter the capital.
+
+115
+00:09:38,170 --> 00:09:43,930
+There's some keywords on here Auto-focus autocomplete off, which means that that field is going to
+
+116
+00:09:43,930 --> 00:09:50,260
+be selected when you first load up, so that you don't have to click on it to type on it, which improves
+
+117
+00:09:50,260 --> 00:09:52,300
+the user experience just a little bit.
+
+118
+00:09:52,570 --> 00:09:54,580
+But it's always the small touches that help.
+
+119
+00:09:54,580 --> 00:09:59,530
+And the other thing that it doesn't do is it doesn't try to auto suggest your past entries, which is
+
+120
+00:09:59,530 --> 00:10:01,360
+not very helpful in this case.
+
+121
+00:10:01,810 --> 00:10:03,580
+Those are the settings.
+
+122
+00:10:03,580 --> 00:10:09,190
+And then it has the name of answer, which is what we're going to try and get hold of when the user
+
+123
+00:10:09,190 --> 00:10:10,810
+clicks the submit button.
+
+124
+00:10:10,960 --> 00:10:19,570
+The submit button is going to submit this form to the path of forward slash submit using a Post request,
+
+125
+00:10:19,570 --> 00:10:28,570
+and we catch that over here in the post request App.post forward slash submit and we can tap into request
+
+126
+00:10:28,570 --> 00:10:29,860
+dot body dot answer.
+
+127
+00:10:29,860 --> 00:10:32,920
+In order to get the answer that the user typed in.
+
+128
+00:10:33,040 --> 00:10:36,040
+You'll notice that I have this keyword trim here.
+
+129
+00:10:36,040 --> 00:10:41,860
+And basically what this does is if the user types in one, two, three, four and then they added a
+
+130
+00:10:41,860 --> 00:10:46,750
+space at the end, or they added a space in the beginning, whatever it is, they can't see it.
+
+131
+00:10:46,750 --> 00:10:51,400
+But of course that is not going to match up with whatever answer we have.
+
+132
+00:10:51,430 --> 00:10:54,310
+Space one, two, three, four is not equal to one, two, three, four.
+
+133
+00:10:54,310 --> 00:10:57,190
+So we use trim to get rid of any of those spaces at the beginning.
+
+134
+00:10:57,190 --> 00:10:57,940
+At the end.
+
+135
+00:10:58,360 --> 00:11:07,450
+Next what we do is we check to see if the capital that they entered is equal to the capital.
+
+136
+00:11:07,450 --> 00:11:17,230
+In the current question, this current question object is set to be equal to a random object.
+
+137
+00:11:17,230 --> 00:11:18,940
+So a random record.
+
+138
+00:11:18,940 --> 00:11:28,480
+In that quiz array, we use the randomization method to get hold of a random object which has a country
+
+139
+00:11:28,480 --> 00:11:31,150
+and also has a capital.
+
+140
+00:11:31,150 --> 00:11:40,750
+And we set this current question to that random country, and we use it both to send the country over
+
+141
+00:11:40,750 --> 00:11:42,910
+when we render the index.
+
+142
+00:11:43,210 --> 00:11:44,250
+JJ's.
+
+143
+00:11:44,410 --> 00:11:51,940
+So we send over the current question here containing that country, and we also use it to check against
+
+144
+00:11:51,940 --> 00:11:54,070
+the answer right here.
+
+145
+00:11:54,070 --> 00:12:00,520
+So current question dot capital against the answer that the user entered in the form.
+
+146
+00:12:00,670 --> 00:12:07,690
+We're using two lowercase in both of these answers so that we can normalize the casing so that we don't
+
+147
+00:12:07,690 --> 00:12:11,890
+end up with the official answer for France being Paris.
+
+148
+00:12:11,890 --> 00:12:17,290
+But then the user's answer is Paris and or vice versa.
+
+149
+00:12:17,290 --> 00:12:23,170
+So this just gets rid of this problem for us, turning them both into lowercase, therefore making it
+
+150
+00:12:23,170 --> 00:12:23,830
+match.
+
+151
+00:12:24,190 --> 00:12:26,830
+Next, if the user was correct.
+
+152
+00:12:26,830 --> 00:12:34,900
+If this is indeed equal, we increase their score, we log their total score, and finally we set the
+
+153
+00:12:34,900 --> 00:12:37,150
+is correct to true.
+
+154
+00:12:37,480 --> 00:12:40,390
+And then we go ahead and set up the next question.
+
+155
+00:12:40,390 --> 00:12:43,150
+Pulling out the next country in capital pair.
+
+156
+00:12:43,150 --> 00:12:53,050
+And then we render the index.js passing over the new question and also telling the JS file whether if
+
+157
+00:12:53,050 --> 00:12:58,180
+the previous answer was correct, and also updating the score on the front end.
+
+158
+00:12:58,180 --> 00:13:04,000
+So I've tried to keep it relatively simple in terms of the back end and front end code.
+
+159
+00:13:04,000 --> 00:13:10,870
+And at this point, if you have done all of the JS and the back end sections, all of this, there's
+
+160
+00:13:10,870 --> 00:13:12,820
+nothing new here.
+
+161
+00:13:13,120 --> 00:13:22,930
+The logic is relatively simple, and I, in fact, really encourage you to go ahead and run this code
+
+162
+00:13:22,930 --> 00:13:33,160
+as it is if you simply just use Nodemon to run the index.js in the World Capital quiz and go over to
+
+163
+00:13:33,160 --> 00:13:38,080
+the localhost 3000, you'll see that as you refresh on this website.
+
+164
+00:13:38,080 --> 00:13:43,810
+You'll see the same question quite a few times, because we're randomizing through just three entries
+
+165
+00:13:43,810 --> 00:13:47,590
+France, the US and the United Kingdom.
+
+166
+00:13:47,800 --> 00:13:51,040
+You can test out this very basic version.
+
+167
+00:13:51,040 --> 00:13:54,190
+So London is correct.
+
+168
+00:13:54,190 --> 00:13:57,880
+Paris is the capital of France.
+
+169
+00:13:57,880 --> 00:14:03,730
+And you'll see this occurring asking you for the same thing again and again, which is a lot easier
+
+170
+00:14:03,730 --> 00:14:04,540
+of a quiz.
+
+171
+00:14:04,540 --> 00:14:10,660
+But essentially it has all of the basic working components and it should all be functioning.
+
+172
+00:14:10,870 --> 00:14:16,900
+The step that we're interested in is to actually tap into our powerful database, and to get hold of
+
+173
+00:14:16,900 --> 00:14:21,340
+all of the entries in there, first, have it explore of your own.
+
+174
+00:14:21,340 --> 00:14:26,530
+Make sure you understand all of the existing code before we start adding new code, and then come back
+
+175
+00:14:26,530 --> 00:14:28,000
+and continue with me.
+
+176
+00:14:30,700 --> 00:14:38,800
+The first thing we're going to do is we're going to stop the server and use npm to install the package
+
+177
+00:14:38,800 --> 00:14:40,390
+we need, which is pkg.
+
+178
+00:14:40,600 --> 00:14:46,960
+It's just lowercase p and g, and we are installing it onto the World Capital quiz.
+
+179
+00:14:47,170 --> 00:14:51,640
+Once we have done that then we can use the pkg package in here.
+
+180
+00:14:51,640 --> 00:14:54,100
+So we can say import.
+
+181
+00:14:54,100 --> 00:15:01,240
+And we're going to import pkg from the pkg module just like that.
+
+182
+00:15:01,720 --> 00:15:06,400
+And once we've imported it we can go ahead and use it.
+
+183
+00:15:06,520 --> 00:15:12,760
+And to use it we have to first define a new client and configure it.
+
+184
+00:15:12,910 --> 00:15:16,900
+We're going to write const db equals new pkg dot client.
+
+185
+00:15:16,900 --> 00:15:20,530
+So pkg comes from that module we just imported.
+
+186
+00:15:20,530 --> 00:15:22,930
+And it has a class called client.
+
+187
+00:15:23,110 --> 00:15:29,950
+And we can construct that class by giving an object that contains all of the required properties.
+
+188
+00:15:29,950 --> 00:15:37,180
+And the only thing that you really have to change is if you changed your name of your database from
+
+189
+00:15:37,180 --> 00:15:43,360
+world to something else, if you named it something else, then you will need to match it.
+
+190
+00:15:43,390 --> 00:15:46,660
+Hopefully you named it the same and you can keep it as world.
+
+191
+00:15:46,690 --> 00:15:53,830
+The password will be the password that you set when you first installed Postgres for your default user,
+
+192
+00:15:53,830 --> 00:16:00,790
+which is Postgres, and leave the port as 5432, because that is the default port that Postgres uses
+
+193
+00:16:00,790 --> 00:16:03,400
+to run the database.
+
+194
+00:16:03,550 --> 00:16:09,400
+Once you've done all of that, then we can go ahead and write db dot connect.
+
+195
+00:16:09,400 --> 00:16:14,650
+And this is going to start up our connection to our database that we have defined here.
+
+196
+00:16:15,820 --> 00:16:22,510
+Once we have connected then we need to think about what is the point where we want to make that SQL
+
+197
+00:16:22,510 --> 00:16:23,380
+query.
+
+198
+00:16:23,380 --> 00:16:28,240
+Well, it's probably going to be the first time we grab hold of the home page.
+
+199
+00:16:28,780 --> 00:16:35,480
+And then we need to think about when we want to get hold of the data from our database.
+
+200
+00:16:35,500 --> 00:16:42,280
+Well, we only really want to run at once when our index.js first starts up, and instead of having
+
+201
+00:16:42,280 --> 00:16:47,950
+quiz with all of these items, we can replace it with the records from our database.
+
+202
+00:16:47,950 --> 00:16:55,390
+So we're going to use db dot query to run that SQL code, select all from capitals.
+
+203
+00:16:55,390 --> 00:16:59,680
+And that's going to give us all the records from our capitals table.
+
+204
+00:16:59,680 --> 00:17:04,180
+And we're going to use a callback to check if there was an error.
+
+205
+00:17:04,210 --> 00:17:05,920
+Then console log that error.
+
+206
+00:17:05,950 --> 00:17:13,270
+Otherwise if there was no error, we're going to set this quiz to equal raise dot rows from this query.
+
+207
+00:17:13,270 --> 00:17:17,109
+So that's going to give us all of the rows in the capitals table.
+
+208
+00:17:17,109 --> 00:17:21,130
+And finally we're going to run DB dot end to close off our connection.
+
+209
+00:17:21,130 --> 00:17:30,370
+Once all of that is done at this point in time on line 34, our quiz is now replaced with an array of
+
+210
+00:17:30,370 --> 00:17:32,680
+records from our database.
+
+211
+00:17:32,770 --> 00:17:38,230
+Now that we've done all of that, we can leave the rest of the code as it is because it's all using
+
+212
+00:17:38,230 --> 00:17:46,000
+that quiz array, which we've just simply updated to use our database data instead of the hard coded
+
+213
+00:17:46,000 --> 00:17:46,960
+data here.
+
+214
+00:17:47,260 --> 00:17:54,100
+And we can finally open up our terminal to use Nodemon to run our index.js.
+
+215
+00:17:54,640 --> 00:18:01,300
+Now, if we head back over to localhost 3000, you'll see that every time we hit refresh that we're
+
+216
+00:18:01,300 --> 00:18:08,200
+getting a new country name from our giant database containing all of the countries in the world.
+
+217
+00:18:08,200 --> 00:18:17,500
+And you can sort of cheat at this game a little bit by refreshing to a country that you at least know
+
+218
+00:18:17,500 --> 00:18:21,010
+the capital of, and then you can continue from there.
+
+219
+00:18:21,010 --> 00:18:24,880
+That's the only way that I figured out to make this game a little bit easier.
+
+220
+00:18:25,630 --> 00:18:28,990
+The capital of Iceland is Helsinki.
+
+221
+00:18:28,990 --> 00:18:30,010
+I think that's how you spell it.
+
+222
+00:18:30,010 --> 00:18:30,790
+I have no idea.
+
+223
+00:18:30,820 --> 00:18:32,110
+Let's hit submit.
+
+224
+00:18:32,110 --> 00:18:34,030
+Oh, and I already got it wrong.
+
+225
+00:18:34,300 --> 00:18:41,590
+The name of South Korea is Seoul, and let's try that.
+
+226
+00:18:41,590 --> 00:18:41,950
+Yes.
+
+227
+00:18:41,950 --> 00:18:43,120
+Finally we got one right.
+
+228
+00:18:43,510 --> 00:18:51,550
+The capital of Nigeria is not Lagos, but it is a different name and it cannot.
+
+229
+00:18:51,550 --> 00:18:53,140
+I cannot think of it right now.
+
+230
+00:18:53,680 --> 00:18:54,670
+Have a go at the game.
+
+231
+00:18:54,670 --> 00:19:01,000
+Once you've built it using this giant database and feel that success coursing through your veins and
+
+232
+00:19:01,000 --> 00:19:07,300
+tell me what is your top score that you're able to reach before the game ends?
+
+233
+00:19:08,360 --> 00:19:11,840
+Now it's not enough to just follow along, of course.
+
+234
+00:19:11,840 --> 00:19:18,410
+So I have an exercise for you to try out all of that without any of my guidance.
+
+235
+00:19:18,530 --> 00:19:26,390
+If you go ahead and download the other zip file in this class 8.2 Postgres, read zip and extract that
+
+236
+00:19:26,390 --> 00:19:28,490
+and open it inside VS code.
+
+237
+00:19:28,520 --> 00:19:35,750
+Then you'll be able to take a look at a similar but slightly different project where we're going to
+
+238
+00:19:35,750 --> 00:19:43,310
+use that other table that you imported the flags table to use what you learn in this lesson to make
+
+239
+00:19:43,310 --> 00:19:45,020
+this quiz app work.
+
+240
+00:19:45,050 --> 00:19:52,790
+First, again, CD over to the project folder and then use npm install to install all of the required
+
+241
+00:19:52,790 --> 00:19:53,660
+packages.
+
+242
+00:19:53,660 --> 00:20:00,230
+And then you'll have your node modules folder and you can use Nodemon to run solution dot js.
+
+243
+00:20:00,770 --> 00:20:07,070
+So now going back to localhost 3000, you'll see a similar but slightly different quiz.
+
+244
+00:20:07,100 --> 00:20:14,600
+This time we see a flag and we have to guess the country that that flag corresponds to.
+
+245
+00:20:14,720 --> 00:20:24,110
+This is maybe even more difficult depending on how much you know about flags, but oh okay.
+
+246
+00:20:24,110 --> 00:20:26,300
+This one I know I think this is Nepal.
+
+247
+00:20:26,900 --> 00:20:27,530
+Yes.
+
+248
+00:20:27,560 --> 00:20:29,690
+Got one and now I'm already stuck.
+
+249
+00:20:29,690 --> 00:20:31,040
+I have no idea what this is.
+
+250
+00:20:31,310 --> 00:20:38,960
+This is the quiz that we're building, and we're using that other table that we imported the flags table.
+
+251
+00:20:38,960 --> 00:20:43,910
+And you'll know that the names of the fields are slightly different here, so be careful.
+
+252
+00:20:43,910 --> 00:20:50,510
+The name of the country here is called name, and the name of the flag is called flag.
+
+253
+00:20:50,750 --> 00:20:52,040
+Observe your data.
+
+254
+00:20:52,070 --> 00:21:00,170
+Make sure that you know what's going on and open up the index.js file to start updating and writing
+
+255
+00:21:00,170 --> 00:21:02,570
+your code to use your Postgres database.
+
+256
+00:21:02,570 --> 00:21:07,790
+The flags, table and power this game, so I'm not going to give you any more hints.
+
+257
+00:21:07,940 --> 00:21:11,060
+I'm going to let you pause the video and try and figure this out on your own.
+
+258
+00:21:13,370 --> 00:21:15,620
+All right, so let's run through the solution quickly.
+
+259
+00:21:15,650 --> 00:21:20,630
+First we had to install an import pkg from the Postgres module.
+
+260
+00:21:20,840 --> 00:21:27,890
+Then we set up our database connection using pretty much the same settings as before because that flag
+
+261
+00:21:27,890 --> 00:21:29,900
+table is in the same database.
+
+262
+00:21:30,110 --> 00:21:38,180
+And then we connected to our database and we ran our query to select all from the flags table.
+
+263
+00:21:38,390 --> 00:21:42,860
+And then I set the quiz to equal the result rows from our flags table.
+
+264
+00:21:42,860 --> 00:21:44,810
+And I close the connection.
+
+265
+00:21:45,350 --> 00:21:46,640
+There's a few things going on.
+
+266
+00:21:46,670 --> 00:21:50,220
+Hopefully you manage to remember to do all of these things.
+
+267
+00:21:50,240 --> 00:21:53,680
+If not, go back and update your code to fix it.
+
+268
+00:21:53,700 --> 00:21:54,830
+Make sure it works.
+
+269
+00:21:55,340 --> 00:22:02,870
+And once you run this code in your index.js, hopefully you will end up with exactly the same game.
+
+270
+00:22:03,560 --> 00:22:06,200
+I think this game is slightly harder than the previous one.
+
+271
+00:22:06,200 --> 00:22:11,720
+I'm not sure what you think, but I wonder which spelling for turkey they've got here.
+
+272
+00:22:12,450 --> 00:22:15,380
+Ah, okay, so it's actually the old way of spelling it.
+
+273
+00:22:15,950 --> 00:22:16,520
+Yeah.
+
+274
+00:22:16,520 --> 00:22:18,300
+Let me know, what is your highest score?
+
+275
+00:22:18,320 --> 00:22:23,090
+Maybe somebody out there is actually a genius when it comes to flags and capitals.
+
+276
+00:22:23,120 --> 00:22:25,400
+This is one of those things I always obsessed about.
+
+277
+00:22:25,400 --> 00:22:29,660
+When I was a kid, I felt like it was really important to know the names of all the capitals of all
+
+278
+00:22:29,660 --> 00:22:30,620
+the countries.
+
+279
+00:22:30,650 --> 00:22:36,320
+I remember my mum would quiz me for no reason and today I realised with Google this is not a very useful
+
+280
+00:22:36,320 --> 00:22:40,790
+skill, but it does come in handy when you want to build some games for people to make.
+
+281
+00:22:41,480 --> 00:22:46,390
+So I hope you had fun with me building these two games and show them off to your family and friends.
+
+282
+00:22:46,400 --> 00:22:52,490
+Show off any modifications you make, or create a table of your own, and make a quiz of your own.
+
+283
+00:22:52,490 --> 00:22:59,240
+And be sure to let me know in the Q&A or on Twitter what you have built and what your friends and family
+
+284
+00:22:59,240 --> 00:23:00,080
+think about it.
+
+285
+00:23:00,110 --> 00:23:06,200
+So in the next lesson, we're going to dive deeper into Postgres and running databases with our back
+
+286
+00:23:06,200 --> 00:23:06,500
+end.
+
+287
+00:23:06,500 --> 00:23:08,840
+So for all of that and more, I'll see you there.
+

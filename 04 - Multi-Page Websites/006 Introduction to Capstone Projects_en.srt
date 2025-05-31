@@ -1,0 +1,308 @@
+1
+00:00:00,920 --> 00:00:01,700
+Hey, guys.
+
+2
+00:00:01,700 --> 00:00:07,070
+In this section, we'll be the first time you will be creating a Capstone Project.
+
+3
+00:00:07,070 --> 00:00:13,220
+So before we get started, I want to quickly tell you what exactly are the capstone projects and why
+
+4
+00:00:13,220 --> 00:00:17,090
+they're so important in your journey of becoming a web developer?
+
+5
+00:00:17,120 --> 00:00:23,870
+As a professional web developer, the most important thing I want to know about you is what you have
+
+6
+00:00:23,870 --> 00:00:24,530
+done.
+
+7
+00:00:24,680 --> 00:00:30,830
+Many web developers, for example, in this case, Matt Farley, a professional web developer and designer,
+
+8
+00:00:30,860 --> 00:00:37,130
+on his personal website, you'll be able to see his recent work, and this shows off the projects that
+
+9
+00:00:37,130 --> 00:00:39,380
+he's worked on, the clients he's worked with,
+
+10
+00:00:39,380 --> 00:00:45,050
+and also it means that anybody who's looking to hire him will be able to see exactly what he's made
+
+11
+00:00:45,050 --> 00:00:45,440
+of.
+
+12
+00:00:45,470 --> 00:00:49,010
+This is what we are building towards now.
+
+13
+00:00:49,010 --> 00:00:54,950
+Whenever I interview web developers or other programmers for any sort of job, one of the most important
+
+14
+00:00:54,950 --> 00:00:57,890
+thing I look for is their portfolio.
+
+15
+00:00:57,920 --> 00:00:59,090
+What have they built?
+
+16
+00:00:59,120 --> 00:01:00,690
+What does their code look like?
+
+17
+00:01:00,690 --> 00:01:02,070
+What are they able to do?
+
+18
+00:01:02,070 --> 00:01:06,480
+And this is a really important step in your evolution as a developer.
+
+19
+00:01:06,510 --> 00:01:11,640
+You need to be able to show people what you're capable of and what better way than to start building
+
+20
+00:01:11,640 --> 00:01:12,840
+a portfolio.
+
+21
+00:01:13,200 --> 00:01:18,420
+Previously you already come across GitHub and hopefully, you've already got an account on there, and this
+
+22
+00:01:18,420 --> 00:01:21,240
+is where we're going to be starting our portfolio
+
+23
+00:01:21,240 --> 00:01:24,000
+just like any other professional developer.
+
+24
+00:01:24,030 --> 00:01:29,880
+On your profile in GitHub, you will be able to pin and highlight some of the projects that you've built,
+
+25
+00:01:29,880 --> 00:01:34,500
+and this is where your portfolio is going to start to evolve.
+
+26
+00:01:34,530 --> 00:01:40,320
+Now another really neat thing about GitHub is you can see a developer's activity level, you can see
+
+27
+00:01:40,320 --> 00:01:46,740
+how often they've been uploading stuff to GitHub as a proxy for how often they're working and writing
+
+28
+00:01:46,740 --> 00:01:47,280
+code.
+
+29
+00:01:47,280 --> 00:01:53,670
+So this is another great way of telling how active a programmer is and how much they're practicing and
+
+30
+00:01:53,670 --> 00:01:55,110
+polishing their skills.
+
+31
+00:01:55,110 --> 00:02:00,870
+In the coming lessons, you're going to see an instruction for the Capstone project and the great thing
+
+32
+00:02:00,870 --> 00:02:06,570
+about these capstone projects is I've created them so that they are perfectly suited for your current
+
+33
+00:02:06,570 --> 00:02:07,320
+level.
+
+34
+00:02:07,320 --> 00:02:11,760
+I know exactly what you've learned because I've just taught it to you and the project specifications
+
+35
+00:02:11,760 --> 00:02:16,620
+reflect this, so it should be doable at your level.
+
+36
+00:02:16,620 --> 00:02:18,780
+Now that doesn't mean it's not hard.
+
+37
+00:02:18,780 --> 00:02:23,910
+There will be difficulties that you'll encounter and you will have things that you might want to look
+
+38
+00:02:23,910 --> 00:02:24,870
+up on the internet.
+
+39
+00:02:24,900 --> 00:02:29,280
+Maybe you'll need to look through the docs and you'll probably struggle at some point along the way.
+
+40
+00:02:29,280 --> 00:02:32,310
+That is the idea of the Capstone project.
+
+41
+00:02:32,310 --> 00:02:38,400
+But in addition, in the instructions you'll always see an example website that I've created to show
+
+42
+00:02:38,400 --> 00:02:40,190
+you what it is you're aiming for.
+
+43
+00:02:40,200 --> 00:02:47,010
+Now, the important thing here is you don't just straight up copy the example website because remember
+
+44
+00:02:47,010 --> 00:02:51,270
+this course is taken by millions of people across the entire web
+
+45
+00:02:51,270 --> 00:02:58,170
+and I've often seen people apply to jobs under my friends' startups or other situations where I've
+
+46
+00:02:58,170 --> 00:03:02,190
+seen in their portfolio projects that are clearly from a tutorial.
+
+47
+00:03:02,190 --> 00:03:04,560
+And I know that because they're one of my tutorials.
+
+48
+00:03:04,560 --> 00:03:08,670
+So keep this in mind when you're building your capstone project.
+
+49
+00:03:08,670 --> 00:03:14,250
+And the reason why these capstone projects can be added to your portfolio is because it's going to be
+
+50
+00:03:14,250 --> 00:03:16,080
+entirely your work.
+
+51
+00:03:16,110 --> 00:03:21,750
+The specifications are there as if you're a professional developer, getting the instructions from your
+
+52
+00:03:21,750 --> 00:03:22,260
+clients.
+
+53
+00:03:22,260 --> 00:03:26,610
+So ideally, everyone's work will be completely different.
+
+54
+00:03:26,610 --> 00:03:32,610
+And unlike the course projects where I provide solution code, where I provide walkthrough videos,
+
+55
+00:03:32,610 --> 00:03:38,310
+where we go through every part of the project in detail together, I give you the designs to create
+
+56
+00:03:38,310 --> 00:03:38,790
+it,
+
+57
+00:03:38,790 --> 00:03:43,920
+I show you exactly what it needs to look like, all the images and files that you require in order to
+
+58
+00:03:43,920 --> 00:03:44,550
+build it,
+
+59
+00:03:44,550 --> 00:03:51,150
+the capstone projects are a different concept, and the easiest way to imagine is you've now graduated
+
+60
+00:03:51,150 --> 00:03:54,840
+from Web Developer Bootcamp and you're now ready to take on a client.
+
+61
+00:03:54,870 --> 00:04:00,660
+Your client is going to give you a specification for what you need to create and you're going to create
+
+62
+00:04:00,660 --> 00:04:02,190
+it as a professional.
+
+63
+00:04:02,190 --> 00:04:06,180
+No copying of other people's code and no instructor to lean on.
+
+64
+00:04:06,180 --> 00:04:11,040
+And hopefully through these capstone projects you'll see your own personal evolution.
+
+65
+00:04:11,040 --> 00:04:16,769
+What you're able to build at Capstone one is going to be very different from Capstone Six and so on,
+
+66
+00:04:16,769 --> 00:04:21,540
+and this is a great way of getting used to working as a professional developer.
+
+67
+00:04:21,540 --> 00:04:27,870
+Now, if you don't ever want to get a job as a developer, then feel free to skip this module entirely
+
+68
+00:04:27,870 --> 00:04:29,580
+and continue learning.
+
+69
+00:04:29,580 --> 00:04:32,400
+It's only useful if you find it useful.
+
+70
+00:04:32,400 --> 00:04:39,240
+It's not for my benefit, but I do think that it's really important to get out of what's called tutorial
+
+71
+00:04:39,240 --> 00:04:42,480
+hell, where you are relying heavily on tutorials.
+
+72
+00:04:42,480 --> 00:04:48,420
+You need to be able to feel the struggle and to do things by yourself in order to evolve and get better
+
+73
+00:04:48,420 --> 00:04:51,330
+as a programmer and as a developer.
+
+74
+00:04:51,540 --> 00:04:52,740
+All right, enough said,
+
+75
+00:04:52,740 --> 00:04:59,160
+it's time to move on to the next lesson and take a look at the instructions for your first capstone
+
+76
+00:04:59,160 --> 00:04:59,940
+project.
+
+77
+00:05:00,060 --> 00:05:05,070
+I hope you enjoy it and be sure to share your good work in the Q&A once you're done.
+

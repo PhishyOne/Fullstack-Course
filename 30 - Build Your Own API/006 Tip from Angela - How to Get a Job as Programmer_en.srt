@@ -1,0 +1,112 @@
+1
+00:00:00,870 --> 00:00:04,710
+Now a lot of students are taking this course because you want to get a job.
+
+2
+00:00:05,370 --> 00:00:11,130
+And I have some pieces of advice that I often give students who are in your position.
+
+3
+00:00:11,220 --> 00:00:18,390
+One of the first things to do is don't worry about your qualifications. Your interviewers will care far
+
+4
+00:00:18,390 --> 00:00:23,100
+more about what you can do than where you've studied.
+
+5
+00:00:23,100 --> 00:00:28,890
+Now admittedly, there are companies where they have a blanket rule where nobody gets in the door unless
+
+6
+00:00:28,890 --> 00:00:34,610
+they have X degree from X university but the majority of companies aren't like this.
+
+7
+00:00:34,620 --> 00:00:36,420
+They'll look at what you can do.
+
+8
+00:00:36,510 --> 00:00:38,030
+So show them what you can do,
+
+9
+00:00:38,100 --> 00:00:39,630
+build a portfolio.
+
+10
+00:00:39,630 --> 00:00:45,750
+Have a look at some of the job listings on Indeed or LinkedIn and look at the skills that the recruiters
+
+11
+00:00:45,750 --> 00:00:47,130
+are looking for.
+
+12
+00:00:47,130 --> 00:00:52,620
+And then based on those skills and those pieces of-- and those expertise and the expertise that they're
+
+13
+00:00:52,620 --> 00:00:57,140
+looking for, try to build a project that demonstrates that.
+
+14
+00:00:57,300 --> 00:00:59,910
+And then once you've built up all your projects
+
+15
+00:00:59,910 --> 00:01:06,090
+think about how you can help other developers like answering questions on Stack Overflow or going into
+
+16
+00:01:06,090 --> 00:01:11,940
+the Q/A and helping other students because another really really important thing for recruiters
+
+17
+00:01:12,330 --> 00:01:17,730
+is knowing that you work well with other people, including people who are senior to you
+
+18
+00:01:17,880 --> 00:01:23,950
+so people who you can learn from, and people who are junior to you, people who you can teach.
+
+19
+00:01:24,030 --> 00:01:30,180
+So I believe that at any moment in time there's always people who will be above you and below you.
+
+20
+00:01:30,450 --> 00:01:36,420
+And a true team worker, somebody who's going to perform really really well in a company, is somebody who
+
+21
+00:01:36,420 --> 00:01:38,610
+can handle both sides really well.
+
+22
+00:01:38,610 --> 00:01:42,830
+So practice and see how you can demonstrate that to a recruiter.
+
+23
+00:01:42,960 --> 00:01:49,260
+Start building up your Stack Overflow reputation or start doing some code reviews with some developers
+
+24
+00:01:49,260 --> 00:01:50,860
+who are more senior to you.
+
+25
+00:01:51,060 --> 00:01:56,490
+And this way you'll be able to demonstrate not only are you really capable based on your project but
+
+26
+00:01:56,490 --> 00:02:00,700
+also you have the interpersonal skills to make it at the company.
+
+27
+00:02:00,720 --> 00:02:03,890
+So have a think about how you can pursue some of those things
+
+28
+00:02:03,890 --> 00:02:06,120
+I spoke about and keep going.
+

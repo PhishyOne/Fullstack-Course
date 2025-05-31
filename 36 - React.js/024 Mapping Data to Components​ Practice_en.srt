@@ -1,0 +1,808 @@
+1
+00:00:00,120 --> 00:00:03,380
+Alright guys, it's time for another challenge.
+
+2
+00:00:03,410 --> 00:00:08,189
+And in this challenge you're going to be applying what you've learned about mapping components in React
+
+3
+00:00:08,520 --> 00:00:15,600
+to create an emoji dictionary that looks beautiful and helps you in knowing what emojis actually
+
+4
+00:00:15,600 --> 00:00:16,280
+mean.
+
+5
+00:00:16,290 --> 00:00:22,170
+So it might be because I'm getting a bit old but I've come to realize that when people send me emojis
+
+6
+00:00:22,170 --> 00:00:27,620
+on WhatsApp or Twitter, sometimes I don't actually know what it really means.
+
+7
+00:00:27,690 --> 00:00:32,299
+So I searched online and I came across a website called emojimeanings.net
+
+8
+00:00:32,520 --> 00:00:38,890
+and it has really long descriptions of what each of these emojis actually mean.
+
+9
+00:00:38,940 --> 00:00:45,330
+And so you can actually paste in an emoji and decode what it is that young people are trying to say.
+
+10
+00:00:46,380 --> 00:00:51,610
+So for example, did you know that there is a difference between this emoji and this emoji?
+
+11
+00:00:51,630 --> 00:00:57,110
+I literally thought they were the same but if I study it closely, I guess this one looks more speeches
+
+12
+00:00:57,360 --> 00:00:59,470
+and this one is more like, Wow!.
+
+13
+00:00:59,670 --> 00:01:05,980
+So I had to look through this and I thought it'd be a great project to build for a challenge.
+
+14
+00:01:06,030 --> 00:01:10,260
+So you're going to end up with something that looks beautifully styled because I've read it included
+
+15
+00:01:10,290 --> 00:01:16,710
+a styles.css. Of course feel free to just completely scrap this and build your own styles if you
+
+16
+00:01:16,710 --> 00:01:17,670
+want to.
+
+17
+00:01:17,850 --> 00:01:24,360
+But the goal of this challenge is to use what you've learned about mapping components.
+
+18
+00:01:24,450 --> 00:01:32,460
+So go ahead and grab hold of this code sandbox from the course resources and then go ahead and fork
+
+19
+00:01:32,550 --> 00:01:37,190
+this sandbox to have your own copy.
+
+20
+00:01:37,270 --> 00:01:43,330
+Now we've already set up some parts of the website including the repetitive parts that you're pretty
+
+21
+00:01:43,330 --> 00:01:44,470
+used to already.
+
+22
+00:01:44,470 --> 00:01:50,490
+So we've got our app component rendered from our index.js, in our index.html 
+
+23
+00:01:50,500 --> 00:01:57,610
+we've got a montserrat font that's being loaded in as well as the style sheet and our root div and
+
+24
+00:01:57,660 --> 00:02:03,370
+our index.js etc. So to complete the challenge you don't actually need to touch the public folder
+
+25
+00:02:03,790 --> 00:02:12,790
+but what you will need to do is take a look inside the app.js. Here we've got a number of components
+
+26
+00:02:12,790 --> 00:02:17,620
+in here including some HTML elements that you might not have seen before.
+
+27
+00:02:18,190 --> 00:02:19,990
+This is a really nice component
+
+28
+00:02:19,990 --> 00:02:24,120
+whenever you want to create a dictionary-like website.
+
+29
+00:02:24,430 --> 00:02:26,710
+So we've got a dictionary list,
+
+30
+00:02:26,770 --> 00:02:34,920
+we've got a dictionary term and a dictionary detail element in use here. And if we go ahead and search
+
+31
+00:02:34,920 --> 00:02:41,790
+for these in MDN,  it has full descriptions on what each of these components actually do.
+
+32
+00:02:41,790 --> 00:02:46,500
+But it's just a really nice way of organizing data that's related together.
+
+33
+00:02:47,130 --> 00:02:51,680
+So for example in this case they've got a dictionary of the Cryptids of Cornwall,
+
+34
+00:02:51,690 --> 00:02:59,700
+they've got each term and detail being paired together using these dt and dd tags which is kind
+
+35
+00:02:59,700 --> 00:03:05,460
+of like the Javascript key value pair but it has a really nice structure and it's really well suited
+
+36
+00:03:05,520 --> 00:03:09,780
+for our application such as our emojipedia.
+
+37
+00:03:09,780 --> 00:03:15,880
+But you'll notice that this is a horrendously long bunch of each HTML that's just in here.
+
+38
+00:03:16,080 --> 00:03:26,580
+And your job is to turn these dictionary terms into a separate component called entry so that way you'll
+
+39
+00:03:26,580 --> 00:03:35,910
+be able to create each of these new emoji entries and be able to use props to pass over customizable
+
+40
+00:03:35,910 --> 00:03:41,830
+things such as the actual emoji or the name of the emoji or the definition of the emoji.
+
+41
+00:03:41,940 --> 00:03:46,580
+And if you look inside the emojipedia.js, I've already created a constant
+
+42
+00:03:46,620 --> 00:03:53,820
+that is an array of Javascript objects each containing all of the properties that you'll need to be
+
+43
+00:03:53,820 --> 00:03:57,240
+able to build a website that looks exactly like this.
+
+44
+00:03:58,140 --> 00:04:07,200
+So the goal of this challenge is to be able to dynamically add new data to our emojipedia and then for
+
+45
+00:04:07,200 --> 00:04:11,520
+our website to simply just update with the new data.
+
+46
+00:04:11,520 --> 00:04:18,540
+So for example if I go ahead and insert a new entry for emoji, you can see that immediately without me
+
+47
+00:04:18,540 --> 00:04:27,660
+having to write any more HTML, my map function is able to render this new card into my emojipedia.
+
+48
+00:04:27,720 --> 00:04:32,490
+This is what you're looking to achieve and you're going to use what you've learned in the previous lessons
+
+49
+00:04:32,880 --> 00:04:37,620
+about mapping and extracting components to achieve this.
+
+50
+00:04:37,920 --> 00:04:43,420
+Have a think about how you would tackle this and pause the video now to complete the challenge.
+
+51
+00:04:43,710 --> 00:04:48,810
+If you get stuck or if you just want to see the solution then head back over here to this video where
+
+52
+00:04:48,840 --> 00:04:52,090
+I'll be waiting for you to walk through the solution together.
+
+53
+00:04:52,280 --> 00:04:53,580
+So pause the video now
+
+54
+00:04:53,580 --> 00:04:59,840
+and good luck.
+
+55
+00:05:00,180 --> 00:05:00,520
+All right.
+
+56
+00:05:00,550 --> 00:05:08,320
+So in this challenge, I've actually not broken up the steps into individual comments right? Because you
+
+57
+00:05:08,320 --> 00:05:12,470
+already can see that this is the end outcome you're trying to achieve.
+
+58
+00:05:12,490 --> 00:05:15,950
+So it's good practice to create your own steps anyways.
+
+59
+00:05:16,000 --> 00:05:18,510
+Break down a large problem into smaller ones.
+
+60
+00:05:18,640 --> 00:05:21,180
+So let's have a think about this.
+
+61
+00:05:21,250 --> 00:05:27,700
+The first thing that will probably need to do is to create a separate entry component
+
+62
+00:05:27,700 --> 00:05:28,430
+right?
+
+63
+00:05:28,570 --> 00:05:33,590
+And this entry component is going to then need to get some props.
+
+64
+00:05:33,610 --> 00:05:40,180
+So if we study through this HTML, we can see the part that repeats are each of these divs with a class
+
+65
+00:05:40,180 --> 00:05:41,530
+name of term.
+
+66
+00:05:41,530 --> 00:05:44,540
+You see that we've got three of these in here.
+
+67
+00:05:44,590 --> 00:05:49,220
+So that is a perfect component to extract into our entry.
+
+68
+00:05:49,480 --> 00:05:56,200
+And if we look at them, we can see the parts which are not repeating, so the parts which are not reusable
+
+69
+00:05:56,560 --> 00:06:02,380
+are the actual emoji icon, the name of the emoji
+
+70
+00:06:02,500 --> 00:06:09,130
+and the description of the emoji. So these are the three things that will probably need props to address.
+
+71
+00:06:09,130 --> 00:06:18,880
+So step 2 is probably to create props to replace the hard coded data.
+
+72
+00:06:20,020 --> 00:06:20,260
+All right.
+
+73
+00:06:20,290 --> 00:06:26,070
+So once we've done that step then we should end up with three of these entry components
+
+74
+00:06:26,080 --> 00:06:26,680
+right?
+
+75
+00:06:26,710 --> 00:06:33,430
+Something that looks like this. And instead of having to add props to each of them and having to rewrite
+
+76
+00:06:33,460 --> 00:06:39,880
+all of this again, it probably makes sense to use what we learned about mapping components to solve this
+
+77
+00:06:39,880 --> 00:06:40,770
+problem for us.
+
+78
+00:06:40,780 --> 00:06:45,300
+So we have to write less code and we can be more lazy and watch more Netflix.
+
+79
+00:06:45,370 --> 00:07:02,550
+So step 3 is to map through the emojipedia array and render entry components. That will of course
+
+80
+00:07:02,580 --> 00:07:06,990
+involve us getting hold of the emojipedia const in here
+
+81
+00:07:06,990 --> 00:07:11,950
+which means we probably have to export it from this file and get it into our App
+
+82
+00:07:11,970 --> 00:07:16,190
+.jsx. So there could be a small part of this
+
+83
+00:07:16,230 --> 00:07:19,310
+step 3, maybe 3A.
+
+84
+00:07:19,380 --> 00:07:30,410
+which is to simply import the emojipedia const. Sso that seems pretty much like it's achievable right?
+
+85
+00:07:30,410 --> 00:07:36,230
+We've split it into smaller tasks that we can tackle individually and keep track of where we are in
+
+86
+00:07:36,230 --> 00:07:38,060
+completing our challenge.
+
+87
+00:07:38,060 --> 00:07:40,210
+Let's go ahead and tackle step 1 first.
+
+88
+00:07:40,640 --> 00:07:47,120
+I'm going to create a new component called entry.jsx and inside entry, I'm going to add all of
+
+89
+00:07:47,120 --> 00:07:48,770
+the normal boilerplate code.
+
+90
+00:07:52,760 --> 00:08:00,360
+And inside my App.js, I of course have to import entry from entry.
+
+91
+00:08:00,650 --> 00:08:00,950
+All right.
+
+92
+00:08:01,100 --> 00:08:07,180
+Now the entry component is going to be the repeated part as we said of our dictionary
+
+93
+00:08:07,190 --> 00:08:07,520
+right?
+
+94
+00:08:07,820 --> 00:08:14,900
+So I'm going to take this entire div which has the class name of term which corresponds to each of these
+
+95
+00:08:15,530 --> 00:08:17,810
+pieces or each of these cards.
+
+96
+00:08:17,840 --> 00:08:24,080
+So let's go ahead and cut that out and put it into our entry.
+
+97
+00:08:24,090 --> 00:08:29,960
+jsx so that's what we're going to be returning and hit save to get it to reformat.
+
+98
+00:08:29,960 --> 00:08:38,570
+And now I'm going to delete all of the other two divs inside here but retain that dictionary list component
+
+99
+00:08:38,630 --> 00:08:39,919
+that I have here.
+
+100
+00:08:39,950 --> 00:08:47,780
+So let's go ahead and create a entry component and maybe let's just copy it three times.
+
+101
+00:08:47,780 --> 00:08:55,790
+So now if we take a look at this in a new tab, we see that we've got three of the same thing right?
+
+102
+00:08:56,270 --> 00:09:04,860
+But we have successfully extracted our entry component from our app component. So we can go ahead and
+
+103
+00:09:04,860 --> 00:09:06,880
+delete step 1.
+
+104
+00:09:07,020 --> 00:09:13,950
+Now step 2 involves creating the props to replace the hard coded data so we can actually make our
+
+105
+00:09:14,040 --> 00:09:20,970
+entry component reusable and have different pieces of data being populated in each of these entries.
+
+106
+00:09:21,600 --> 00:09:27,160
+So we can already identify the three things that need changing which are these three things.
+
+107
+00:09:27,180 --> 00:09:32,430
+So let's go ahead and add some props where we create our entry.
+
+108
+00:09:32,430 --> 00:09:37,140
+You can of course call your properties anything you like but make sure that it's something that actually
+
+109
+00:09:37,140 --> 00:09:38,050
+makes sense.
+
+110
+00:09:38,070 --> 00:09:44,190
+So I'll create one called the emoji and then I'll create another one which is going to be called the
+
+111
+00:09:44,190 --> 00:09:48,780
+name and then the third one is going to be called the description.
+
+112
+00:09:49,650 --> 00:09:54,690
+So these are the three props that I'm going to eventually have. And inside here
+
+113
+00:09:54,690 --> 00:10:01,500
+I'm going to catch those props that I sent over when the entry component gets created and then render
+
+114
+00:10:01,500 --> 00:10:03,860
+them inside each of these places.
+
+115
+00:10:03,870 --> 00:10:08,980
+This one is going to become props.emoji
+
+116
+00:10:09,300 --> 00:10:13,380
+and of course we have to wrap them inside a set of curly braces.
+
+117
+00:10:13,380 --> 00:10:23,990
+And then this one inside the span is going to be props.name and finally this one is going to be
+
+118
+00:10:24,200 --> 00:10:26,570
+props.description.
+
+119
+00:10:29,880 --> 00:10:30,250
+All right.
+
+120
+00:10:30,250 --> 00:10:36,290
+So now all we have to do is to actually send each of these pieces of data that we promised.
+
+121
+00:10:36,730 --> 00:10:39,280
+I'm first going to use just some hard coded data.
+
+122
+00:10:39,310 --> 00:10:46,180
+So I'm going to go into my emojipedia and copy each of these strings.
+
+123
+00:10:46,180 --> 00:10:48,960
+So this is the emoji,
+
+124
+00:10:49,120 --> 00:10:51,090
+this is the name
+
+125
+00:10:51,910 --> 00:10:56,740
+and this is the description.
+
+126
+00:10:56,740 --> 00:10:59,060
+So let's go ahead and put those in there.
+
+127
+00:10:59,230 --> 00:11:08,170
+And now if we go ahead and take a look at our app, you'll see that we have three entries but only one
+
+128
+00:11:08,170 --> 00:11:14,910
+of them actually has data because that's the only one that's actually getting props being sent over
+
+129
+00:11:15,280 --> 00:11:19,330
+whereas both of these two don't have any props defined.
+
+130
+00:11:19,330 --> 00:11:25,240
+So when it's trying to render an emoji or the title or the paragraph, none of that is there.
+
+131
+00:11:25,300 --> 00:11:31,210
+So you can of course simply create three of these and update each of these pieces of data that you're
+
+132
+00:11:31,210 --> 00:11:33,160
+sending over via the props.
+
+133
+00:11:33,160 --> 00:11:34,990
+But that's kind of a pain.
+
+134
+00:11:35,020 --> 00:11:42,280
+So we want to try to be lazy and instead we want to go ahead and import the emojipedia and map through
+
+135
+00:11:42,280 --> 00:11:44,740
+it. Now that we're done with step 2
+
+136
+00:11:44,740 --> 00:11:46,320
+let's go ahead and delete that.
+
+137
+00:11:46,570 --> 00:11:50,930
+And step 3 starts off by importing the emojipedia.
+
+138
+00:11:51,400 --> 00:11:56,190
+But remember that you can't import without first exporting.
+
+139
+00:11:56,290 --> 00:12:02,080
+So that's not meant to be any sort of Buddhist Zen but it's actually just a practicality of getting
+
+140
+00:12:02,080 --> 00:12:04,600
+hold of this constant, emojipedia.
+
+141
+00:12:05,020 --> 00:12:11,950
+So inside this file emojipedia.js I'm going to export the constant as a default
+
+142
+00:12:11,950 --> 00:12:16,760
+and it was called emojipedia.
+
+143
+00:12:16,930 --> 00:12:17,140
+All right.
+
+144
+00:12:17,170 --> 00:12:27,730
+So once I'm exporting then I can go back into my App.js, import emojipedia from ../emoji
+
+145
+00:12:27,760 --> 00:12:29,010
+pedia.
+
+146
+00:12:29,110 --> 00:12:29,370
+All right.
+
+147
+00:12:29,500 --> 00:12:35,380
+So that's going to get us out of the components folder and into the parent folder, source and then get
+
+148
+00:12:35,380 --> 00:12:37,670
+hold of that emojipedia file.
+
+149
+00:12:37,690 --> 00:12:44,370
+So now I actually have access to this array called emojipedia.
+
+150
+00:12:45,240 --> 00:12:51,510
+And if I log it you'll be able to see it inside the console right here.
+
+151
+00:12:51,520 --> 00:12:51,970
+There we go.
+
+152
+00:12:52,120 --> 00:12:57,900
+So we've got three objects each with four properties: id, emoji, name and meaning.
+
+153
+00:12:57,940 --> 00:13:02,080
+And we're going to insert those into our React app.
+
+154
+00:13:02,350 --> 00:13:10,930
+That's 3A completed and now on to 3B, to map through the emojipedia array and render the entry
+
+155
+00:13:10,930 --> 00:13:17,940
+components. We saw in the last lesson how we can map through an array using the map function.
+
+156
+00:13:18,010 --> 00:13:25,650
+So let's go ahead and delete all of our entry components and instead we're going to tap into that emoji
+
+157
+00:13:25,660 --> 00:13:30,460
+pedia array and we're going to call the map function on it.
+
+158
+00:13:30,460 --> 00:13:36,370
+And of course we have to wrap it inside a set of curly braces so that it's actually valid Javascript
+
+159
+00:13:36,370 --> 00:13:38,200
+code. Up here
+
+160
+00:13:38,200 --> 00:13:46,840
+I'm going to create a function called createEntry and this function is going to take a single entry
+
+161
+00:13:47,110 --> 00:13:57,250
+from our emojipedia, so something like this. Let's call it a emojiTerm and for each of these emoji terms
+
+162
+00:13:57,340 --> 00:14:06,450
+from our dictionary of emojis, we're going to create or return a entry component.
+
+163
+00:14:06,820 --> 00:14:13,180
+And inside this entry component we're going to pass some props and the props that we are catching over
+
+164
+00:14:13,180 --> 00:14:17,820
+here are the emoji, name and description.
+
+165
+00:14:17,950 --> 00:14:30,160
+So let's go ahead and add a emoji, name and description. And remember that whenever we're using the map
+
+166
+00:14:30,160 --> 00:14:39,460
+function to loop through an array to render React components, we also have to add a key prop that's expected
+
+167
+00:14:39,490 --> 00:14:40,460
+by React
+
+168
+00:14:40,570 --> 00:14:44,570
+so it can more efficiently render your components.
+
+169
+00:14:44,590 --> 00:14:50,530
+Let's take a look through the emojipedia and see what each of these JavaScript objects actually have.
+
+170
+00:14:50,530 --> 00:14:53,930
+We've got an id, an emoji name and meaning.
+
+171
+00:14:53,950 --> 00:14:57,520
+So I want to map those to each of these props.
+
+172
+00:14:57,520 --> 00:15:03,400
+And remember that I'm getting passed over a single Javascript object. For example
+
+173
+00:15:03,430 --> 00:15:04,700
+this first one.
+
+174
+00:15:04,700 --> 00:15:11,110
+So in fact I'm just going to copy it over here and put it down here and then just comment it out just
+
+175
+00:15:11,170 --> 00:15:12,580
+for reference.
+
+176
+00:15:12,790 --> 00:15:23,530
+So for the key I'm going to set it as the emojiTerm.id. And remember the curly braces. The emoji
+
+177
+00:15:23,560 --> 00:15:30,390
+is going to be the emojiTerm.emoji. The name
+
+178
+00:15:33,520 --> 00:15:34,220
+it's gonna be .
+
+179
+00:15:34,240 --> 00:15:37,100
+name and the description
+
+180
+00:15:38,480 --> 00:15:40,540
+is going to be the property called
+
+181
+00:15:40,540 --> 00:15:50,240
+meaning. Now I've got my entry component being rendered for every single emoji term.
+
+182
+00:15:50,290 --> 00:15:56,380
+So it's almost like as if we had a some sort of var emoji term equals
+
+183
+00:15:56,410 --> 00:15:58,990
+this particular Javascript object
+
+184
+00:15:58,990 --> 00:16:06,490
+and then we are passing in each of these properties as props to our entry component. In order to actually
+
+185
+00:16:06,490 --> 00:16:09,380
+get hold of these emoji terms,
+
+186
+00:16:09,460 --> 00:16:15,490
+we're going to pass this function createEntry into our map function right here.
+
+187
+00:16:15,640 --> 00:16:19,340
+So let's pass it over here, creatEentry.
+
+188
+00:16:19,510 --> 00:16:26,380
+And now if we take a look at our app, you can see it's pulling in that data dynamically from our emoji
+
+189
+00:16:26,380 --> 00:16:34,690
+pedia and populating it to create as many entry components as we have items in our emojipedia which is
+
+190
+00:16:34,900 --> 00:16:36,470
+just three.
+
+191
+00:16:36,610 --> 00:16:43,690
+Now of course you can add as many or alter this as much as you like and pick out your favorite emojis
+
+192
+00:16:44,470 --> 00:16:51,100
+from the emoji meanings website, but the goal of this challenge was to practice mapping components and
+
+193
+00:16:51,160 --> 00:16:59,680
+extracting components as well as getting more familiar with props. If you got stuck during the challenge
+
+194
+00:16:59,770 --> 00:17:01,950
+or there was something that you couldn't figure out
+
+195
+00:17:02,080 --> 00:17:03,640
+but now you've watched the solution
+
+196
+00:17:03,640 --> 00:17:05,420
+things should be a lot more clear.
+
+197
+00:17:05,470 --> 00:17:10,990
+So if you didn't manage to complete the challenge, be sure to head back and do it by yourself without
+
+198
+00:17:10,990 --> 00:17:12,369
+the video this time
+
+199
+00:17:12,369 --> 00:17:18,829
+after seeing how it's done. In the next lesson, we're gonna be looking at some of the other methods that
+
+200
+00:17:18,829 --> 00:17:22,400
+are commonly used in React to manipulate arrays.
+
+201
+00:17:22,400 --> 00:17:28,339
+So in addition to a deep dive on map, we're also going to be looking at filter and reduce.
+
+202
+00:17:28,339 --> 00:17:30,800
+So for all of that and more, I'll see you there.
+

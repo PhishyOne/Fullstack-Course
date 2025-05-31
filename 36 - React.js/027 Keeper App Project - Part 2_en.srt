@@ -1,0 +1,444 @@
+1
+00:00:00,080 --> 00:00:00,840
+All right guys.
+
+2
+00:00:00,870 --> 00:00:08,310
+So since the last time we worked on our keeper app, we've learned a lot of new concepts such as props
+
+3
+00:00:08,670 --> 00:00:13,830
+and mapping components and looping and React devtools,
+
+4
+00:00:13,830 --> 00:00:16,410
+arrow functions, map filter reduce.
+
+5
+00:00:16,410 --> 00:00:22,340
+So let's go ahead and see if we can apply some of those things to improve our keeper app.
+
+6
+00:00:22,350 --> 00:00:29,160
+This is the keeper app part 2  and you can go ahead and get hold of the starting code sandbox by going
+
+7
+00:00:29,160 --> 00:00:35,340
+to the course resources. If you want to work on your local copy, then go ahead and download a copy of
+
+8
+00:00:35,340 --> 00:00:43,730
+it and then run npm install as well as npm start in order to run it on a local server.
+
+9
+00:00:43,860 --> 00:00:51,610
+But if you're working on it in code sandbox like I am, then go ahead and just fork your own copy. The
+
+10
+00:00:51,610 --> 00:00:54,760
+goal of this challenge is very simple.
+
+11
+00:00:54,760 --> 00:01:02,350
+All we want to do is to render all of the notes that currently live inside our notes.js as an
+
+12
+00:01:02,350 --> 00:01:09,690
+array called notes, into our keeper app as separate note components.
+
+13
+00:01:09,700 --> 00:01:15,070
+This is gonna use a lot of the thing that you learned in the previous lessons especially props and
+
+14
+00:01:15,070 --> 00:01:16,510
+mapping.
+
+15
+00:01:16,570 --> 00:01:23,740
+So this is what the finished app should look like and when you go into the notes.js file, if
+
+16
+00:01:23,740 --> 00:01:29,170
+you add a new entry you should see it pop up dynamically like this.
+
+17
+00:01:29,170 --> 00:01:35,320
+And this is all possible because you're going to be mapping through this array. Go ahead and pause the
+
+18
+00:01:35,320 --> 00:01:38,360
+video and try to give this challenge a go.
+
+19
+00:01:38,380 --> 00:01:42,390
+And once you're done, head back over here and we'll walk through the solution together.
+
+20
+00:01:47,920 --> 00:01:48,390
+All right.
+
+21
+00:01:48,390 --> 00:01:54,130
+So first let's head into our components folder and take a look at our App.js.
+
+22
+00:01:54,480 --> 00:02:00,720
+Here we've got the note component being rendered and we're only asking for one of these components to
+
+23
+00:02:00,720 --> 00:02:02,030
+be rendered.
+
+24
+00:02:02,190 --> 00:02:05,560
+Now at the moment, this component is completely hardcoded.
+
+25
+00:02:05,670 --> 00:02:10,380
+It has a set phrase for the h1 and a set phrase for the paragraph.
+
+26
+00:02:10,380 --> 00:02:17,760
+Now that won't do if we want to use our custom notes from our notes.js. So first let's go into
+
+27
+00:02:17,760 --> 00:02:20,850
+our App.js and pass it some custom props.
+
+28
+00:02:21,210 --> 00:02:26,070
+So the kind of things that we probably want to customize is the title of the note and the content of
+
+29
+00:02:26,070 --> 00:02:26,550
+the note.
+
+30
+00:02:26,610 --> 00:02:32,590
+So let's just create a prop called title and a prop called content.
+
+31
+00:02:32,600 --> 00:02:42,120
+Now I'm just gonna go and move this existing title and existing content over as the values of those
+
+32
+00:02:42,180 --> 00:02:42,920
+props,
+
+33
+00:02:44,240 --> 00:02:45,190
+like so.
+
+34
+00:02:45,710 --> 00:02:52,880
+And this way when I go ahead and look inside my React dev tools inside my note component, I'll be able
+
+35
+00:02:52,880 --> 00:02:59,180
+to see that I've got two props being passed over to the note component which I can then pick up inside
+
+36
+00:02:59,180 --> 00:02:59,840
+my note
+
+37
+00:02:59,870 --> 00:03:08,810
+.js. So inside my note function which is being called effectively from my App.js, I can receive
+
+38
+00:03:08,900 --> 00:03:16,460
+some properties and this object props is going to contain both of these properties, title and content.
+
+39
+00:03:17,000 --> 00:03:25,250
+So I can now insert it into my  inside a set of curly braces and I can inject that as props.
+
+40
+00:03:25,310 --> 00:03:35,330
+title and do the same with my content, so props.content. And these two properties should in fact work
+
+41
+00:03:35,390 --> 00:03:39,360
+when I pick up my note because I'm using the right names of the properties.
+
+42
+00:03:39,680 --> 00:03:46,190
+And frequently you get mismatches in terms of typos when you're trying to access a property and you
+
+43
+00:03:46,190 --> 00:03:54,590
+miss out on the content or you get typos when you are passing a prop over in terms of the key and you
+
+44
+00:03:54,590 --> 00:03:55,920
+get missing content.
+
+45
+00:03:56,090 --> 00:04:02,870
+But with our React dev tools and being able to view the props, it should help us debug any issues on that
+
+46
+00:04:02,870 --> 00:04:05,230
+front. All right.
+
+47
+00:04:05,260 --> 00:04:12,700
+So now that we've got our note rendering some custom content using props, we can now think about how we
+
+48
+00:04:12,700 --> 00:04:18,910
+can render multiple notes because our notes.js has lots of different notes with different titles
+
+49
+00:04:19,000 --> 00:04:20,740
+and different content.
+
+50
+00:04:20,740 --> 00:04:28,030
+One way is we could create lots of these note components but of course now that we know all about the
+
+51
+00:04:28,090 --> 00:04:38,110
+mapping strategy, then the easiest way is to use the map function. In order to map through the array of
+
+52
+00:04:38,110 --> 00:04:42,800
+notes, we first have to export it from this file where it lives.
+
+53
+00:04:42,820 --> 00:04:52,330
+So export default notes. And then let's go ahead and catch it over and in our App.js. So let's import
+
+54
+00:04:52,360 --> 00:04:57,600
+notes from ../notes.
+
+55
+00:04:57,820 --> 00:04:58,060
+All right.
+
+56
+00:04:58,090 --> 00:05:07,420
+So now that we've got access to this array called notes and we can log it to see its value which is just
+
+57
+00:05:07,420 --> 00:05:15,760
+currently four objects with different titles and content, given that we've got this array we can then
+
+58
+00:05:15,790 --> 00:05:24,910
+go into our app and replace this single note with a whole bunch of notes generated from a map function.
+
+59
+00:05:24,970 --> 00:05:32,260
+So let's go ahead and tap into the notes array that we just got hold of, called the map function and inside
+
+60
+00:05:32,260 --> 00:05:39,730
+the map function we're going to pass it a function that is going to create notes.
+
+61
+00:05:39,900 --> 00:05:49,110
+So this createNotes needs to get a single note item passed into it and once it does though it's going
+
+62
+00:05:49,110 --> 00:05:56,700
+to return a note component that is going to have some props being sent over.
+
+63
+00:05:56,700 --> 00:06:00,830
+Remember the props that we defined previously were title and content
+
+64
+00:06:00,900 --> 00:06:09,450
+so let's add a title prop and let's add a content prop. So the title is going to be based on the note
+
+65
+00:06:09,480 --> 00:06:11,850
+item that gets passed over to this function,
+
+66
+00:06:11,880 --> 00:06:19,920
+so it's gonna be noteItem.title and let's just check inside our notes.js that indeed that
+
+67
+00:06:19,920 --> 00:06:22,980
+those are the names of the properties, title and content.
+
+68
+00:06:23,550 --> 00:06:32,720
+So noteItem.title and noteItem.content. And of course because this is Javascript code it needs
+
+69
+00:06:32,720 --> 00:06:36,300
+to be wrapped inside a set of curly braces to be valid
+
+70
+00:06:36,360 --> 00:06:37,320
+JSX.
+
+71
+00:06:38,000 --> 00:06:44,750
+Now that we've got this function createNotes that takes a single note item and renders a custom note
+
+72
+00:06:44,780 --> 00:06:45,520
+component
+
+73
+00:06:45,710 --> 00:06:49,820
+we can pass that createNote function into our map.
+
+74
+00:06:49,850 --> 00:06:56,450
+So now if we wrap this whole line inside a set of curly braces, then it should be able to render our
+
+75
+00:06:56,450 --> 00:07:04,190
+notes with different titles and different content using the data that we've got inside on notes.
+
+76
+00:07:04,220 --> 00:07:06,310
+js.
+
+77
+00:07:06,410 --> 00:07:12,140
+Now there's a couple of things to remember though. Remember that whenever we want to map or loop through
+
+78
+00:07:12,620 --> 00:07:22,190
+a array in order to create dynamic React components such as these notes, we always have to add a key
+
+79
+00:07:22,190 --> 00:07:27,980
+prop and that key proper has to be unique amongst all of the same components.
+
+80
+00:07:28,160 --> 00:07:33,870
+So there can't be no note component that has the same key. Luckily inside on note.
+
+81
+00:07:33,890 --> 00:07:44,680
+js, we've also got a key property defined so we can just set this as the noteItem.key. This way
+
+82
+00:07:44,740 --> 00:07:50,890
+we clear any of the errors that are in our console and we're making React happy with the job that we're
+
+83
+00:07:50,890 --> 00:07:52,920
+doing now.
+
+84
+00:07:52,920 --> 00:07:56,730
+The next thing to note is we learned about arrow functions
+
+85
+00:07:56,730 --> 00:07:57,030
+right?
+
+86
+00:07:57,060 --> 00:08:01,060
+So we can vastly simplify and cut down on our code
+
+87
+00:08:01,230 --> 00:08:04,150
+and in fact I would argue it would make easier to read.
+
+88
+00:08:04,200 --> 00:08:05,610
+So let's go ahead and do that.
+
+89
+00:08:05,730 --> 00:08:12,900
+So first I'm going to move this function from the outside into the inside of my map function. So everything
+
+90
+00:08:12,900 --> 00:08:14,140
+still works the same
+
+91
+00:08:14,220 --> 00:08:21,600
+but now it's just being defined inside another function and at the position where it's being used.
+
+92
+00:08:21,720 --> 00:08:27,290
+Next I'm going to turn this into an anonymous function by deleting the name of the function,
+
+93
+00:08:27,390 --> 00:08:35,220
+so everything still works. And then I'm going to simplify things even further by turning this into an
+
+94
+00:08:35,250 --> 00:08:37,230
+ES6 arrow function.
+
+95
+00:08:37,320 --> 00:08:44,610
+So I'm going to delete the function keyword, add a fat arrow between the input and the body of the statement
+
+96
+00:08:45,240 --> 00:08:53,100
+and then because I've only got a single item being returned which gets treated effectively as a single
+
+97
+00:08:53,100 --> 00:09:01,410
+line of code I can actually also delete my return keyword as well as the curly braces that enclose the
+
+98
+00:09:01,410 --> 00:09:11,610
+entire block of code. And instead I can simply just tag this on at the end as a single line of code like
+
+99
+00:09:11,610 --> 00:09:13,160
+so.
+
+100
+00:09:13,170 --> 00:09:21,360
+So now everything still works exactly the same as before but we're using our arrow function in order
+
+101
+00:09:21,360 --> 00:09:26,250
+to pass a function that maps through our array of notes
+
+102
+00:09:26,400 --> 00:09:32,880
+and for each of the notes inside the array, it's going to carry out this functionality which is to create
+
+103
+00:09:32,880 --> 00:09:35,820
+a new note using the properties from that note
+
+104
+00:09:35,850 --> 00:09:39,720
+Item. Did you manage to complete the challenge?
+
+105
+00:09:39,720 --> 00:09:46,710
+If not, be sure to review some of the previous lessons that we covered including props as well as mapping
+
+106
+00:09:46,710 --> 00:09:53,890
+components. So in the coming lessons we're going to level up our skills in React development even more
+
+107
+00:09:54,190 --> 00:09:58,330
+so that we can add more functionality to our keeper app.
+
+108
+00:09:58,330 --> 00:10:06,490
+Things such as how to handle user inputs, how to dynamically add new notes from the user input, how to
+
+109
+00:10:06,490 --> 00:10:13,900
+deal with forms, how to delete notes and much much more. So once you're done reviewing the code here and
+
+110
+00:10:13,960 --> 00:10:19,000
+completing the challenge on your side, then head over to the next lesson and we're going to learn about
+
+111
+00:10:19,060 --> 00:10:23,490
+conditional rendering. So for all of that and more, I'll see you there.
+

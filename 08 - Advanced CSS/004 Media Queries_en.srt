@@ -1,0 +1,472 @@
+1
+00:00:00,350 --> 00:00:04,970
+So now that we've looked at some of the different ways that we can create responsive websites, we're
+
+2
+00:00:04,970 --> 00:00:11,210
+going to do a deep dive into one of those first methods through the use of media queries.
+
+3
+00:00:11,420 --> 00:00:16,700
+And media queries are actually pretty simple to understand, as you've seen before.
+
+4
+00:00:16,730 --> 00:00:24,620
+Essentially, instead of the selector, we have the "@media"  keyword and here you can define what's
+
+5
+00:00:24,620 --> 00:00:26,000
+called a breakpoint.
+
+6
+00:00:26,120 --> 00:00:35,210
+This essentially says that at this particular width, anything that is less than or equal to 600px,
+
+7
+00:00:35,420 --> 00:00:40,310
+then you should use this styling in here, instead.
+
+8
+00:00:40,310 --> 00:00:48,020
+For example, change the h1 to have a smaller font size when it's on a mobile phone instead of a full
+
+9
+00:00:48,020 --> 00:00:50,510
+width desktop website.
+
+10
+00:00:50,960 --> 00:00:52,280
+Let's look at some demo code.
+
+11
+00:00:52,280 --> 00:00:58,760
+If we have a div here that's completely empty, but we give it a height and a width and we change it
+
+12
+00:00:58,760 --> 00:01:06,990
+to a blue background color, but then we go ahead and add a media query as you saw in the demo website
+
+13
+00:01:06,990 --> 00:01:15,720
+in the last lesson, we can change the divs height and width when it's in this media query's brackets.
+
+14
+00:01:15,750 --> 00:01:23,460
+This is saying when the website is a lot narrower, such as on a mobile phone, we should actually have
+
+15
+00:01:23,460 --> 00:01:25,170
+a smaller square.
+
+16
+00:01:25,170 --> 00:01:32,310
+So instead of 200 by 200px, maybe it should be 100 by 100px instead so that it makes better
+
+17
+00:01:32,310 --> 00:01:37,260
+use of the screen real estate and it's scaled to fit to that screen size.
+
+18
+00:01:38,040 --> 00:01:49,560
+We're using that media query max-width in order to define any screen size that is 600px or below.
+
+19
+00:01:49,680 --> 00:01:57,360
+So anything that is smaller or equal to 600px, then it should have this particular kind of styling
+
+20
+00:01:57,360 --> 00:02:01,460
+and we provide an override to the default styling.
+
+21
+00:02:01,460 --> 00:02:05,480
+Now alternatively, you can use a different keyword here.
+
+22
+00:02:05,480 --> 00:02:12,530
+You can use the min-width, which is the minimum width, and by changing that from max to min, essentially
+
+23
+00:02:12,530 --> 00:02:15,680
+you're going the other direction of responsiveness.
+
+24
+00:02:15,680 --> 00:02:24,170
+So you're saying anything that is from 600px upwards, then we should have a different styling.
+
+25
+00:02:24,170 --> 00:02:28,340
+So you're basically targeting bigger screens with this min width.
+
+26
+00:02:28,430 --> 00:02:36,440
+So if you think about the total possible size of a website, so from 0 to say, I don't know, 2400px,
+
+27
+00:02:36,440 --> 00:02:47,840
+if you have a screen that is say only 600px right here, then you can use the max-width
+
+28
+00:02:47,840 --> 00:02:51,050
+to target this direction.
+
+29
+00:02:51,260 --> 00:03:00,980
+But if you want to target all the screens that are bigger, then you could use the min-width to target
+
+30
+00:03:00,980 --> 00:03:03,390
+in this direction.
+
+31
+00:03:04,110 --> 00:03:11,370
+So you're essentially targeting different screen sizes and providing different styles for those different
+
+32
+00:03:11,370 --> 00:03:12,540
+screen sizes.
+
+33
+00:03:12,900 --> 00:03:20,250
+Now you can also combine different breakpoints to target something that is a specific size.
+
+34
+00:03:20,250 --> 00:03:26,700
+So in this case, you're saying anything that is bigger than 600px,
+
+35
+00:03:28,510 --> 00:03:31,840
+using this particular line here.
+
+36
+00:03:31,840 --> 00:03:40,540
+So minimum width for this style is 600px and then maximum width for this style is 900px.
+
+37
+00:03:40,540 --> 00:03:50,140
+So anything that's less than 900px. And in between these two points is where your specific style
+
+38
+00:03:50,140 --> 00:03:53,400
+is going to be applied. In here.
+
+39
+00:03:53,410 --> 00:04:01,750
+So this means the screens, which are between 600 and 900, will be targeted using this combination
+
+40
+00:04:01,750 --> 00:04:06,820
+system by adding that "and" keyword between these two breakpoints.
+
+41
+00:04:07,420 --> 00:04:15,040
+Now if you flip that around and you change the smaller size to a max-width, then you're taking a different
+
+42
+00:04:15,040 --> 00:04:15,460
+approach.
+
+43
+00:04:15,460 --> 00:04:23,380
+You're saying anything that is less than 600px and anything that is greater than 900px on
+
+44
+00:04:23,380 --> 00:04:24,730
+those screen sizes,
+
+45
+00:04:24,730 --> 00:04:29,840
+let's apply these styles. So you can combine things in many different ways.
+
+46
+00:04:29,840 --> 00:04:32,480
+You can chop it and change it however you like.
+
+47
+00:04:32,900 --> 00:04:40,730
+But the important thing is to understand this wording max-width and min-width, the maximum width where
+
+48
+00:04:40,730 --> 00:04:45,560
+this style will be applied and the minimum width where this style will be applied.
+
+49
+00:04:45,560 --> 00:04:49,010
+So when you read it that way, it becomes much simpler to understand.
+
+50
+00:04:49,670 --> 00:04:57,920
+In addition to max-width and min-width, you might also see this "screen" keyword being used, which is
+
+51
+00:04:57,920 --> 00:05:02,690
+not really necessary by default because it's going to apply it to all screens,
+
+52
+00:05:02,690 --> 00:05:07,160
+but if we think about the alternative to screen is a keyword called "print".
+
+53
+00:05:07,190 --> 00:05:17,450
+And what this allows you to do is to use the media query to target only when your website is being printed
+
+54
+00:05:17,450 --> 00:05:19,970
+and to give it a different layout.
+
+55
+00:05:20,090 --> 00:05:26,390
+I don't normally recommend adding the screen keyword if you're just writing a normal media query, but
+
+56
+00:05:26,390 --> 00:05:29,540
+when you do see it out there in the wild, then you'll know what that means.
+
+57
+00:05:29,540 --> 00:05:33,560
+It's just saying targeting screens, or targeting print.
+
+58
+00:05:34,310 --> 00:05:40,610
+For more on media queries and all of the different properties that you can change using media queries,
+
+59
+00:05:40,640 --> 00:05:44,750
+head over to the Developer Docs and take a look at using media queries.
+
+60
+00:05:44,750 --> 00:05:52,310
+You can see under the syntax section there are a lot of things that we've mentioned, such as orientation,
+
+61
+00:05:52,310 --> 00:06:00,680
+or device-height, device-width or height and width and targeting different media types or targeting
+
+62
+00:06:00,680 --> 00:06:02,030
+different features.
+
+63
+00:06:02,030 --> 00:06:09,080
+And there's a lot more that you can do with media queries and you can have very complex media queries,
+
+64
+00:06:09,080 --> 00:06:14,990
+but most of the time you're going to be using pretty simple media queries such as max-width and
+
+65
+00:06:14,990 --> 00:06:18,860
+min-width, and you won't use a lot of these other features.
+
+66
+00:06:18,860 --> 00:06:21,410
+But as always, it's good to be aware that they exist.
+
+67
+00:06:21,410 --> 00:06:25,520
+So have a quick read of this and see if there's anything else there that you want to pick up.
+
+68
+00:06:25,640 --> 00:06:30,410
+And once you're done, let's go ahead and try an exercise and practice what we learned.
+
+69
+00:06:30,770 --> 00:06:38,000
+Open up the index.html for the starting file that you've just extracted and you can see I've got some
+
+70
+00:06:38,000 --> 00:06:38,990
+TODOs here.
+
+71
+00:06:39,020 --> 00:06:45,200
+Here, I've included some of the common breakpoints for the different devices that you're probably going
+
+72
+00:06:45,200 --> 00:06:46,760
+to want to target.
+
+73
+00:06:46,850 --> 00:06:51,890
+Mobile devices tend to be between 319 and 400px.
+
+74
+00:06:52,280 --> 00:07:01,250
+iPads and tablets tend to have this kind of screen width range (481px-1200px) and then laptops (1201px-1600px) and desktops (1601 and more).
+
+75
+00:07:01,370 --> 00:07:10,880
+I want you to create media queries for this web page so that in these different sizes, the background
+
+76
+00:07:10,880 --> 00:07:13,460
+color of the body will be different.
+
+77
+00:07:13,460 --> 00:07:18,200
+So by default, I've set it to an aquamarine and you can see it just looks like this.
+
+78
+00:07:18,230 --> 00:07:24,770
+It's a very simple website, but I want you to be able to change the width of this website, such as
+
+79
+00:07:24,770 --> 00:07:31,670
+when you right click on Solution and show preview, you can see it actually has different colors depending
+
+80
+00:07:31,670 --> 00:07:39,170
+on how we change it and if we take it out of VS Code and into the browser, then you can see there's
+
+81
+00:07:39,200 --> 00:07:41,450
+actually four different possible colors.
+
+82
+00:07:41,450 --> 00:07:48,470
+You've got desktop, which is the seagreen, and then you've got laptop which is limegreen, iPads, tablets,
+
+83
+00:07:48,470 --> 00:07:55,730
+this kind of powderblue and finally mobile devices which has this salmon, orange or red.
+
+84
+00:07:55,970 --> 00:07:57,830
+So you can do that.
+
+85
+00:07:57,830 --> 00:08:04,130
+Now another way of testing out the responsiveness using the Chrome Developer Tools is to open up the
+
+86
+00:08:04,130 --> 00:08:05,210
+Chrome Developer Tools,
+
+87
+00:08:05,210 --> 00:08:12,080
+if you don't remember how to do that, remember you can go to here and then go to more tools and then
+
+88
+00:08:12,080 --> 00:08:13,430
+you can go to Developer Tools.
+
+89
+00:08:13,430 --> 00:08:15,170
+That's how you open up this pane.
+
+90
+00:08:15,170 --> 00:08:21,980
+And if you click on this little button right here, then you can change the dimensions to, for example,
+
+91
+00:08:21,980 --> 00:08:28,040
+an iPhone SE or to an iPhone 12 or an iPad air and
+
+92
+00:08:28,360 --> 00:08:34,450
+it doesn't really do a lot of the bigger screens, but you can change it to responsive and then you
+
+93
+00:08:34,450 --> 00:08:36,940
+can change the size however you like.
+
+94
+00:08:36,940 --> 00:08:39,039
+And you can also type it in here if you want.
+
+95
+00:08:39,039 --> 00:08:42,760
+So this is a really neat way of testing out responsiveness in Chrome.
+
+96
+00:08:43,000 --> 00:08:48,520
+Pause the video and go ahead and complete this exercise.
+
+97
+00:08:52,180 --> 00:08:52,570
+All right.
+
+98
+00:08:52,570 --> 00:08:55,460
+So let's take a look at the solution code together.
+
+99
+00:08:55,480 --> 00:09:01,660
+Now, notice how essentially all we need is just four different media queries.
+
+100
+00:09:01,990 --> 00:09:08,140
+For the first one, I said that mobile devices are usually between 319 and 480px,
+
+101
+00:09:08,170 --> 00:09:13,180
+now, you could simply just target a max-width of 480,
+
+102
+00:09:13,210 --> 00:09:21,220
+or if you really want to, you can also have a minimum width in there, so that you actually are specific
+
+103
+00:09:21,220 --> 00:09:23,350
+about that mobile device size.
+
+104
+00:09:23,350 --> 00:09:30,760
+So we could put 319 right in here, but normally you're not really going to display your website on
+
+105
+00:09:30,760 --> 00:09:34,480
+anything that's less than mobile size, right?
+
+106
+00:09:34,480 --> 00:09:39,670
+Like there's not that many things that are narrower than 320px.
+
+107
+00:09:39,670 --> 00:09:41,470
+So you could do it either way.
+
+108
+00:09:41,470 --> 00:09:44,500
+It doesn't really matter, but this is one option.
+
+109
+00:09:45,230 --> 00:09:51,470
+Now, the next breakpoint we've got is the iPad and tablet size between 480 and 1200.
+
+110
+00:09:51,470 --> 00:09:59,240
+So we're using that min-width and max-width combo that you see right here to find that particular size
+
+111
+00:09:59,240 --> 00:10:00,830
+and turn it powderblue.
+
+112
+00:10:00,950 --> 00:10:04,190
+And then we do the same for the laptop size.
+
+113
+00:10:04,190 --> 00:10:11,630
+And finally, we simply define a min-width for our desktop so that anything that's larger than 1601 pixels
+
+114
+00:10:11,630 --> 00:10:14,270
+gets a color of seagreen.
+
+115
+00:10:14,610 --> 00:10:19,850
+Hope that was easy enough, and if you had any problems, have a look at the solution code,
+
+116
+00:10:19,850 --> 00:10:24,440
+but most importantly, it should work when you test it out.
+
+117
+00:10:24,890 --> 00:10:26,720
+That's all for media queries.
+
+118
+00:10:26,720 --> 00:10:32,600
+In the next lesson, we've got a final project for this section, so head over there once you're ready.
+

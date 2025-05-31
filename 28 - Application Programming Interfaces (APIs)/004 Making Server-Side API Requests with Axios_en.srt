@@ -1,0 +1,804 @@
+1
+00:00:00,140 --> 00:00:08,360
+Previously we've seen how to structure our API requests and make our API requests from Postman and also
+
+2
+00:00:08,360 --> 00:00:09,840
+from the browser,
+
+3
+00:00:09,860 --> 00:00:16,880
+but what if we want to create an app where we need our server to make the API requests?
+
+4
+00:00:16,910 --> 00:00:22,580
+This is one of the most common needs when we're dealing with Node and Express backends.
+
+5
+00:00:22,580 --> 00:00:27,320
+So let's see how we can do this using native Node and Axios.
+
+6
+00:00:27,830 --> 00:00:29,720
+This is essentially what we're trying to do.
+
+7
+00:00:29,750 --> 00:00:36,920
+We're trying to get our server to make a request to somebody else's server and they in return will send
+
+8
+00:00:36,920 --> 00:00:43,970
+us a response with the data or resource that we need and we can do that through their public API.
+
+9
+00:00:44,630 --> 00:00:52,610
+Now the code for this would look quite long and complicated if we're using native node modules such
+
+10
+00:00:52,610 --> 00:01:04,230
+as the HTTPS module so we can use HTTPS to essentially make this request from our server to reach out
+
+11
+00:01:04,230 --> 00:01:08,850
+from our server to the API provider's server.
+
+12
+00:01:09,420 --> 00:01:14,220
+Let's run through this code line by line so that we can understand it first.
+
+13
+00:01:14,340 --> 00:01:23,220
+The first thing we set are a bunch of options, including the base URL for where the API is hosted.
+
+14
+00:01:23,250 --> 00:01:28,670
+Then we have our path, which is our endpoint that we're trying to tap into.
+
+15
+00:01:28,680 --> 00:01:34,020
+And finally we provide a method for how we want to interact with that API.
+
+16
+00:01:34,260 --> 00:01:42,870
+Now the next thing we do is we put these options into a request method from this https module.
+
+17
+00:01:42,870 --> 00:01:46,560
+And as I mentioned before, this is something that you don't have to install,
+
+18
+00:01:46,560 --> 00:01:53,730
+it comes pre-built with Node. As you can imagine, needing to reach out from a server to another resource
+
+19
+00:01:53,730 --> 00:01:57,510
+on the internet is a relatively common need.
+
+20
+00:01:57,840 --> 00:02:04,590
+The response comes back in the form of a callback and it comes back in packets.
+
+21
+00:02:04,590 --> 00:02:12,090
+So we need to group those packets together and add each chunk onto a data string.
+
+22
+00:02:12,630 --> 00:02:21,120
+Once we receive the "end" message from our request, that means all the chunks have been sent over and
+
+23
+00:02:21,120 --> 00:02:24,030
+we can now use the data that we've collected.
+
+24
+00:02:24,180 --> 00:02:35,670
+We use our json.parse to turn that string data, that JSON format data into a JavaScript object which
+
+25
+00:02:35,670 --> 00:02:44,130
+we store under a variable, and then we can pass that over to our front-end using EJS or whichever means
+
+26
+00:02:44,130 --> 00:02:44,860
+we want.
+
+27
+00:02:44,880 --> 00:02:51,600
+And we also have this "try catch block" so that if there were any errors, we can send an error message
+
+28
+00:02:51,600 --> 00:02:55,290
+to the user or at least handle it on our back-end.
+
+29
+00:02:55,710 --> 00:03:00,930
+Finally, you have also a possible error message that can come from this request.
+
+30
+00:03:00,930 --> 00:03:08,130
+And if we do receive that message, then we have a callback to handle this particular error as well.
+
+31
+00:03:08,160 --> 00:03:10,620
+And finally, we end the request.
+
+32
+00:03:10,650 --> 00:03:15,840
+We tell it that we're done and we close that access portal to the outside.
+
+33
+00:03:16,910 --> 00:03:19,060
+As you can see, it's quite involved.
+
+34
+00:03:19,070 --> 00:03:28,880
+There's a lot of lines of code and while it is relatively doable, I recommend instead of using the
+
+35
+00:03:28,880 --> 00:03:33,560
+native Node module to use something called Axios.
+
+36
+00:03:33,710 --> 00:03:40,110
+What Axios is able to do is it knows what is the purpose we're trying to achieve.
+
+37
+00:03:40,130 --> 00:03:44,930
+We're trying to reach out from our server to another resource on the Internet
+
+38
+00:03:44,930 --> 00:03:48,680
+and it makes these responses very simple.
+
+39
+00:03:48,680 --> 00:03:56,690
+In the same way that Express makes creating our server using Node a lot simpler by simplifying a lot
+
+40
+00:03:56,690 --> 00:04:00,500
+of the commonly used methods and requirements,
+
+41
+00:04:00,530 --> 00:04:02,930
+Axios does pretty much the same thing.
+
+42
+00:04:02,930 --> 00:04:08,690
+Instead of all of that code that you saw earlier on, we pretty much just have these five lines of code
+
+43
+00:04:08,690 --> 00:04:11,090
+to sort all of that out.
+
+44
+00:04:11,270 --> 00:04:19,680
+So we're using the Axios package from NPM and we're using the GET method to make a request to a particular
+
+45
+00:04:19,890 --> 00:04:21,779
+API with an endpoint.
+
+46
+00:04:22,140 --> 00:04:29,340
+Just as you would type this into the browser, you can put this into the GET method and this is something
+
+47
+00:04:29,340 --> 00:04:31,290
+that is promise based.
+
+48
+00:04:31,290 --> 00:04:40,210
+So we can either use .then or we can use async await in order to handle the response.
+
+49
+00:04:40,230 --> 00:04:47,100
+In our case, because what we're trying to do here is we're trying to render a home page and we want
+
+50
+00:04:47,100 --> 00:04:55,020
+to provide it with some activity data we can use, await to actually wait for this to finish and then
+
+51
+00:04:55,020 --> 00:04:58,410
+go ahead and render the index page.
+
+52
+00:04:58,410 --> 00:05:01,290
+Now notice another feature about Axios.
+
+53
+00:05:01,320 --> 00:05:07,980
+When we get JSON data back, we can simply tap into it and it can automatically turn it into a JavaScript
+
+54
+00:05:08,010 --> 00:05:13,080
+object without needing to add an extra step and use json.parse.
+
+55
+00:05:14,010 --> 00:05:16,470
+Axios also has much better error handling.
+
+56
+00:05:16,470 --> 00:05:21,620
+It makes it a lot easier to group errors together and handle them in one place in your server,
+
+57
+00:05:21,630 --> 00:05:29,580
+but the main reason why we want to use it is because making the requests from our server to another
+
+58
+00:05:29,580 --> 00:05:33,870
+server is simplified down to pretty much just one line.
+
+59
+00:05:34,260 --> 00:05:43,080
+Again, comparing these two versions doing pretty much the same thing, we can see that all of this
+
+60
+00:05:43,110 --> 00:05:48,150
+is pretty much simplified into this one line.
+
+61
+00:05:48,660 --> 00:05:54,690
+If you want to check it out, head over to NPM and find the Axios package.
+
+62
+00:05:54,690 --> 00:06:00,600
+And as always as a proxy, always look at the weekly downloads to see how popular this is,
+
+63
+00:06:00,600 --> 00:06:04,170
+and as you can see, it's got 44 million weekly downloads.
+
+64
+00:06:04,170 --> 00:06:09,330
+It's almost on par with Express and all of the other popular packages.
+
+65
+00:06:09,330 --> 00:06:16,680
+Professional developers use Axios a lot for the purposes that we've just talked about and also others.
+
+66
+00:06:16,680 --> 00:06:21,450
+And as I say, we don't always have to reinvent the wheel.
+
+67
+00:06:21,450 --> 00:06:27,270
+We can actually leverage other people's work and make our lives a lot easier.
+
+68
+00:06:27,270 --> 00:06:35,970
+So as I mentioned, Axios makes a alias for all of the most commonly used request methods.
+
+69
+00:06:35,970 --> 00:06:44,250
+So we saw just now axios.get, they've got delete, post, put, patch and pretty much all the things
+
+70
+00:06:44,250 --> 00:06:49,590
+that you will need on a regular basis when you're making requests from your Express server.
+
+71
+00:06:50,070 --> 00:06:51,990
+Let's try it out in practice.
+
+72
+00:06:51,990 --> 00:07:00,690
+Let's put our knowledge to the test and if you go ahead and download 5.3 Axios zip, extract the folder
+
+73
+00:07:00,690 --> 00:07:10,180
+and open it inside VS Code, you'll see that I've prepared a file within index.ejs and index.js.
+
+74
+00:07:10,200 --> 00:07:16,380
+If we take a look at the packages that have been added as dependencies, we've got Axios, body-parser,
+
+75
+00:07:16,450 --> 00:07:18,420
+EJS and Express.
+
+76
+00:07:18,420 --> 00:07:24,450
+Before you do anything, go ahead and "npm install"  all of those packages.
+
+77
+00:07:24,600 --> 00:07:30,360
+And once you've done that, I want you to go ahead and use Nodemon to run the solution.js.
+
+78
+00:07:30,390 --> 00:07:37,650
+As always, don't peek, don't cheat, let's run the solution file and see what it is that we're
+
+79
+00:07:37,650 --> 00:07:39,330
+trying to create.
+
+80
+00:07:39,540 --> 00:07:41,310
+This is the website we're creating.
+
+81
+00:07:41,310 --> 00:07:46,560
+It's a website called, "I'm Bored" and it's going to help you find something to do when you're bored.
+
+82
+00:07:46,710 --> 00:07:53,730
+When you first load up the homepage, when you make the first GET request, it's going to fetch a random
+
+83
+00:07:53,730 --> 00:08:00,690
+activity from that endpoint which was bored-api.appbrewery.com/random.
+
+84
+00:08:00,690 --> 00:08:05,610
+So this is just a random activity that gets populated into this card.
+
+85
+00:08:05,610 --> 00:08:13,350
+You can see it's got the name of the activity, it's got the type of activity and also the number of
+
+86
+00:08:13,350 --> 00:08:15,870
+participants in this card.
+
+87
+00:08:16,210 --> 00:08:22,690
+Another thing that you can do with this website hitting up a different route on our server is to make
+
+88
+00:08:22,690 --> 00:08:30,730
+a POST request and say, "I want to find activities that have a type of education that are for a single
+
+89
+00:08:30,730 --> 00:08:31,610
+person to do."
+
+90
+00:08:31,630 --> 00:08:37,090
+So let's hit Go, and it's going to find an educational type
+
+91
+00:08:37,090 --> 00:08:44,169
+and with the number of matching participants that you requested and it gives you a card back.
+
+92
+00:08:44,380 --> 00:08:48,040
+Now, there are cases where this fails.
+
+93
+00:08:48,040 --> 00:08:55,300
+So for example, in our bored API, there actually are no educational-type activities that are for two
+
+94
+00:08:55,300 --> 00:08:55,900
+people.
+
+95
+00:08:55,900 --> 00:09:02,980
+So if you hit Go in this case, you'll get an error back and we handle that error and pass a relevant
+
+96
+00:09:02,980 --> 00:09:04,510
+message for the user.
+
+97
+00:09:04,510 --> 00:09:08,710
+So in this case, it says. "No activities that match your criteria."
+
+98
+00:09:09,510 --> 00:09:12,090
+That's pretty much the entire website.
+
+99
+00:09:12,120 --> 00:09:15,630
+Let's take a look what it takes to make this work.
+
+100
+00:09:15,810 --> 00:09:20,430
+As you see, we've already got some starting code for you in the index.js
+
+101
+00:09:20,430 --> 00:09:27,510
+and after you've installed your node_modules, the first step is to make the GET route for the home
+
+102
+00:09:27,510 --> 00:09:28,620
+page work.
+
+103
+00:09:28,770 --> 00:09:33,930
+When the user visits the homepage, it should show a single random activity.
+
+104
+00:09:34,230 --> 00:09:39,570
+I've already included the code that we showed you earlier on in the slide deck.
+
+105
+00:09:39,600 --> 00:09:46,500
+This is how you make a GET request with Axios, passing in the full URL of your request, you get back
+
+106
+00:09:46,500 --> 00:09:53,730
+the result in the form of response.data and you can actually log this just to see what is the structure
+
+107
+00:09:53,730 --> 00:09:56,850
+of the data you get back in the form of a JSON.
+
+108
+00:09:56,880 --> 00:10:03,300
+Alternatively, you can do it in your browser or you can do it in Postman as we have been doing before.
+
+109
+00:10:03,900 --> 00:10:11,650
+Once you're familiar with the structure of the data, then we can pass it over to the index.ejs file
+
+110
+00:10:11,650 --> 00:10:19,870
+and we can take that data object over here and populate the various parts of our website.
+
+111
+00:10:19,900 --> 00:10:25,330
+So we should be able to show the activity, show the type, show the number of participants.
+
+112
+00:10:25,870 --> 00:10:30,760
+You can either comment out this error part or you can simply handle it,
+
+113
+00:10:30,760 --> 00:10:35,710
+and if there were any errors, we want to show this particular div.
+
+114
+00:10:36,160 --> 00:10:43,540
+The second step is to make the POST route work and the POST route is tied to this form up here. So
+
+115
+00:10:43,540 --> 00:10:47,140
+it makes a post request to the root route,
+
+116
+00:10:47,140 --> 00:10:49,870
+and there are two dropdown lists.
+
+117
+00:10:49,870 --> 00:10:56,410
+One has the name of "type" and it has various values depending on what the user picked from the dropdown,
+
+118
+00:10:56,410 --> 00:11:02,670
+and the second one has the name of participants and again, has a number of options as well.
+
+119
+00:11:02,680 --> 00:11:09,970
+When the user submits, it's going to hit up this POST route right here in our server and we're going
+
+120
+00:11:09,970 --> 00:11:16,120
+to console log the req.body so that we're familiar with what it is we can get access to through
+
+121
+00:11:16,120 --> 00:11:17,830
+the req.body.
+
+122
+00:11:18,070 --> 00:11:24,010
+Once you're familiar with that, then you can play around with structuring the API requests, using
+
+123
+00:11:24,040 --> 00:11:30,610
+Axios and also using what you know about how to structure API requests that have queries that need to
+
+124
+00:11:30,610 --> 00:11:31,510
+be parsed.
+
+125
+00:11:31,540 --> 00:11:37,990
+Make sure that you're hitting up the filter endpoint and you're passing in both of the queries, type
+
+126
+00:11:37,990 --> 00:11:39,250
+and participant.
+
+127
+00:11:39,250 --> 00:11:47,020
+And then once you're done, go ahead and take that data and render the index.ejs with a single random
+
+128
+00:11:47,020 --> 00:11:49,210
+activity that comes back from the request.
+
+129
+00:11:49,300 --> 00:11:55,120
+This is important because as you know, when we filter on the activities, we get back an array.
+
+130
+00:11:55,120 --> 00:11:57,580
+So we have lots of different options
+
+131
+00:11:57,580 --> 00:11:58,680
+sometimes.
+
+132
+00:11:58,690 --> 00:12:00,520
+Sometimes we have a few options.
+
+133
+00:12:00,520 --> 00:12:07,900
+But I want you to take a random activity from the array and then pass it to the Index.ejs.
+
+134
+00:12:07,930 --> 00:12:12,280
+We only ever want to display a single activity here.
+
+135
+00:12:13,570 --> 00:12:19,900
+Finally, once you've done that process, any errors that you get from this stage. Now, when you get an
+
+136
+00:12:19,900 --> 00:12:27,310
+error and you can log that error and if the error actually is a 404 error, you'll know from previous
+
+137
+00:12:27,310 --> 00:12:27,760
+lessons,
+
+138
+00:12:27,760 --> 00:12:30,220
+that means that the resource is not found.
+
+139
+00:12:30,220 --> 00:12:39,670
+And what this means is that we try to filter on our API and find an activity with a criteria that actually
+
+140
+00:12:39,670 --> 00:12:42,370
+doesn't fetch any resources.
+
+141
+00:12:42,370 --> 00:12:47,620
+We have to tell the user in this case that no activities were found that match your criteria.
+
+142
+00:12:47,650 --> 00:12:56,680
+Just as the same, when we try to check for educational activities for two people, we get a 404 request
+
+143
+00:12:56,680 --> 00:12:58,360
+on the API.
+
+144
+00:12:58,540 --> 00:13:00,870
+So it would be hitting up the filter endpoint,
+
+145
+00:13:00,880 --> 00:13:07,270
+the type would be equal to education, and the participants would be equal to 2.
+
+146
+00:13:07,270 --> 00:13:10,180
+And when I do this, you can see that we get an error back,
+
+147
+00:13:10,180 --> 00:13:19,970
+and also when we take a look in the console the HTTP status code is a 404 because the API does not
+
+148
+00:13:19,970 --> 00:13:23,690
+have anything for that resource that we requested.
+
+149
+00:13:24,170 --> 00:13:33,140
+There is a little bit of EJS formatting, understanding JSON structure, there is a little bit of Axios making
+
+150
+00:13:33,140 --> 00:13:38,330
+serverside requests and also there's a little bit of error handling in this challenge.
+
+151
+00:13:38,330 --> 00:13:43,480
+So I'm going to let you pause the video and let you get on with the challenge.
+
+152
+00:13:43,490 --> 00:13:44,540
+Give it a go now.
+
+153
+00:13:46,490 --> 00:13:48,530
+All right, let's run through the solution together.
+
+154
+00:13:48,530 --> 00:13:54,020
+So the first step is to hit up the index.ejs file.
+
+155
+00:13:54,020 --> 00:14:01,940
+And if we take a look inside the solution.ejs, you can see what I'm doing here is checking to see
+
+156
+00:14:01,940 --> 00:14:09,800
+if there was any data being parsed over through the locals.data property,
+
+157
+00:14:09,800 --> 00:14:17,540
+and if there were, then I will show the data.activity, data.type and data.participants
+
+158
+00:14:17,540 --> 00:14:19,130
+into the card.
+
+159
+00:14:19,520 --> 00:14:26,810
+If there were any errors then I'm going to show this div and put the error into the div.
+
+160
+00:14:27,200 --> 00:14:32,180
+The next step is to structure the POST request.
+
+161
+00:14:32,360 --> 00:14:37,340
+And again, we're using exactly the same structure as you saw in the GET request,
+
+162
+00:14:37,370 --> 00:14:48,630
+we're making an async callback in this GET request and that is because we want to wait on this GET request.
+
+163
+00:14:48,960 --> 00:14:55,830
+When we hit up the POST route, it's because a form was submitted from the frontend that hits up the
+
+164
+00:14:55,830 --> 00:14:57,480
+forward slash ("/"), the root route.
+
+165
+00:14:57,510 --> 00:15:02,550
+It's a POST request and we get sent over two pieces of data.
+
+166
+00:15:02,580 --> 00:15:09,720
+The type of activity that was selected, which can have any of these values and can also be empty
+
+167
+00:15:09,720 --> 00:15:15,180
+or the participants property which can have any of these values.
+
+168
+00:15:15,630 --> 00:15:21,000
+Our job is to grab hold of those pieces of data from the request,
+
+169
+00:15:21,000 --> 00:15:28,350
+so req.body.type and req.body.participants, and then we insert it into our
+
+170
+00:15:28,350 --> 00:15:29,100
+URL.
+
+171
+00:15:29,130 --> 00:15:37,170
+As you've seen before, this is how we can structure our API requests by adding a query, type="
+
+172
+00:15:37,200 --> 00:15:42,240
+whatever the user submitted" and participants = "whatever the user submitted".
+
+173
+00:15:42,270 --> 00:15:49,710
+Now remember that with API requests where these queries are optional as in the case of our bored API,
+
+174
+00:15:50,100 --> 00:15:57,390
+remember that these queries can actually be empty as it describes in the documentation,
+
+175
+00:15:57,390 --> 00:16:05,910
+what that means is if the user selected the random type or any number of people, the value we get back
+
+176
+00:16:05,910 --> 00:16:08,580
+from that request is an empty string.
+
+177
+00:16:08,580 --> 00:16:12,690
+So then type equals an empty string, participants equals an empty string,
+
+178
+00:16:12,690 --> 00:16:15,870
+and that means that we're making those two filters optional.
+
+179
+00:16:15,870 --> 00:16:20,310
+So it will come back with all of the activities essentially.
+
+180
+00:16:20,400 --> 00:16:23,310
+So then we use Axios to make this GET request.
+
+181
+00:16:23,310 --> 00:16:27,690
+We reach from our server into the bored API server.
+
+182
+00:16:27,720 --> 00:16:33,120
+We get back some response data in the format of a JavaScript object.
+
+183
+00:16:33,240 --> 00:16:38,430
+Ideally, you might want to log that just to check and make sure it is in fact a JavaScript object and
+
+184
+00:16:38,430 --> 00:16:40,110
+how it is structured.
+
+185
+00:16:40,110 --> 00:16:48,300
+And then we use that data to render our home page passing over a random item from the result.
+
+186
+00:16:48,300 --> 00:16:54,180
+So remember, as I said, you get an array back, an array of activities, but we only want to display
+
+187
+00:16:54,180 --> 00:16:59,880
+a single activity here so we can fetch a random one from the array.
+
+188
+00:16:59,880 --> 00:17:06,240
+And then finally we do a little bit of error handling to make sure that if we caught an error in this
+
+189
+00:17:06,240 --> 00:17:13,079
+request, we're trying to get some resource from the filter endpoint passing in some queries,
+
+190
+00:17:13,079 --> 00:17:19,589
+then in all likelihood it's because there were no activities that match our criteria.
+
+191
+00:17:19,589 --> 00:17:22,890
+And you can also console log the error message when that happens
+
+192
+00:17:22,890 --> 00:17:24,630
+just to check as well.
+
+193
+00:17:24,810 --> 00:17:28,680
+You could make this error handling even more specific.
+
+194
+00:17:28,710 --> 00:17:34,530
+You could say that when the error that comes back is a 404, then we say that, "No activities match your
+
+195
+00:17:34,530 --> 00:17:35,400
+criteria."
+
+196
+00:17:35,400 --> 00:17:40,170
+If it was a different error message, maybe there's a network error or the internet is down, then we
+
+197
+00:17:40,170 --> 00:17:41,700
+pass a different message.
+
+198
+00:17:41,730 --> 00:17:46,820
+This is probably the simplest way to handle it, but it is up to you how you want to do it.
+
+199
+00:17:46,830 --> 00:17:48,120
+And so there you have it.
+
+200
+00:17:48,120 --> 00:17:57,300
+That is a very simple website that we've built with Node Express and Axios to make API requests from
+
+201
+00:17:57,300 --> 00:17:59,400
+a third-party public API.
+

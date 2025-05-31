@@ -1,0 +1,516 @@
+1
+00:00:00,690 --> 00:00:07,260
+So we've been using this keyword import and export for quite a few lessons now.
+
+2
+00:00:07,320 --> 00:00:16,580
+And I wanted to take a moment to do a quick deep dive on this concept of modules which comes from ES6
+
+3
+00:00:16,710 --> 00:00:21,780
+so that way we can better understand what it is that we're doing when we're importing React from the
+
+4
+00:00:21,780 --> 00:00:26,820
+React module and how does it actually work behind the scenes.
+
+5
+00:00:26,820 --> 00:00:30,100
+So here I've got a very simple starting Project.
+
+6
+00:00:30,150 --> 00:00:37,170
+So go ahead and open it up and fork your own copy. And all it displays at the moment is just three bullet
+
+7
+00:00:37,170 --> 00:00:39,670
+points 1, 2 and 3.
+
+8
+00:00:39,690 --> 00:00:48,180
+Now we've seen in the last lesson that we were able to create custom files which created independent
+
+9
+00:00:48,510 --> 00:00:54,900
+packaged bits of functionality which then, depending on what it is that we need from it, we can import
+
+10
+00:00:55,200 --> 00:00:58,020
+the functionality into a different file.
+
+11
+00:00:58,380 --> 00:01:03,480
+In my case in my source folder I'm just gonna go ahead and create a new file which I'll call a math
+
+12
+00:01:03,510 --> 00:01:04,459
+.js.
+
+13
+00:01:04,530 --> 00:01:06,690
+And we're not dealing with React components here.
+
+14
+00:01:06,690 --> 00:01:11,060
+This is just gonna be a simple JavaScript file. In this file
+
+15
+00:01:11,070 --> 00:01:19,800
+I'm going to create a new constant which is gonna be pi and I'm going to save the value of pi as 3.
+
+16
+00:01:19,800 --> 00:01:23,570
+1415962.
+
+17
+00:01:23,580 --> 00:01:28,620
+Now let's say that we had this file called math.js and it would store the value of pi amongst
+
+18
+00:01:28,710 --> 00:01:29,770
+other things.
+
+19
+00:01:29,790 --> 00:01:36,120
+So what if in our index.js we wanted to get hold of the value of pi and display it in our list
+
+20
+00:01:36,120 --> 00:01:36,690
+item here?
+
+21
+00:01:37,380 --> 00:01:42,030
+Well we would have to somehow export this value from this file
+
+22
+00:01:42,030 --> 00:01:42,880
+right?
+
+23
+00:01:42,930 --> 00:01:50,430
+This math.js then becomes a new module and we can export whatever it is that we want to be used
+
+24
+00:01:50,550 --> 00:01:52,610
+elsewhere from this file.
+
+25
+00:01:52,620 --> 00:01:56,170
+So in this case there's only one thing that we could possibly export.
+
+26
+00:01:56,220 --> 00:01:59,180
+So I'm going to export it as a default.
+
+27
+00:01:59,760 --> 00:02:05,980
+And then I'm going to specify the thing that I want to export which is the value of this constant pi.
+
+28
+00:02:06,660 --> 00:02:13,270
+And now when I go back to my index.js I can now import pi from that file math
+
+29
+00:02:13,320 --> 00:02:14,760
+.js
+
+30
+00:02:14,880 --> 00:02:19,080
+So I'll keep the extension there just to make it easier to see in this case.
+
+31
+00:02:19,290 --> 00:02:26,040
+Now that we've imported pi, we can now use it inside our code and I'm going to replace the content of
+
+32
+00:02:26,040 --> 00:02:29,150
+my first list item with the value of pi.
+
+33
+00:02:29,220 --> 00:02:31,260
+So notice what's happened here.
+
+34
+00:02:31,350 --> 00:02:42,600
+I'm now importing the constant pi from our math.js and our math.js specifies a single export
+
+35
+00:02:42,660 --> 00:02:48,090
+which is the default thing to be exported which is the value of this constant.
+
+36
+00:02:48,180 --> 00:02:54,480
+Now back over here, when I'm importing something that is the default, I can actually name it whatever
+
+37
+00:02:54,480 --> 00:02:56,820
+I want. I could call it pi
+
+38
+00:02:56,910 --> 00:03:03,510
+and as long as I updated my code to be consistent with the name I've given in the import then it works
+
+39
+00:03:03,540 --> 00:03:10,120
+just as well. Now what if we had more than one thing in this file math.js?
+
+40
+00:03:10,490 --> 00:03:14,030
+How would we export multiple things?
+
+41
+00:03:14,030 --> 00:03:23,000
+Well, in addition to creating a default export which means that when another file writes import something
+
+42
+00:03:23,300 --> 00:03:29,600
+from this file, that something is going to be equivalent to the default export.
+
+43
+00:03:29,720 --> 00:03:35,480
+But if you wanted to import more than one thing then you can write another export statement with a set
+
+44
+00:03:35,480 --> 00:03:36,730
+of curly braces
+
+45
+00:03:36,830 --> 00:03:41,780
+and inside these curly braces you can define all of the non-default exports,
+
+46
+00:03:41,780 --> 00:03:44,600
+so what else do you want to export from this file.
+
+47
+00:03:44,750 --> 00:03:53,200
+So maybe let's add the doublePi and triplePi functions in addition to the default export.
+
+48
+00:03:53,300 --> 00:03:58,960
+Now if we head back over here, I can still use my default pi
+
+49
+00:03:59,060 --> 00:03:59,660
+right?
+
+50
+00:03:59,690 --> 00:04:05,480
+And as I mentioned, we could call it capital PI or lowercase pi,
+
+51
+00:04:05,510 --> 00:04:09,620
+it does not matter. When I write import pi from this file
+
+52
+00:04:09,620 --> 00:04:15,920
+it's going to look for that default export and it's going to set whatever this value is, this constant
+
+53
+00:04:15,920 --> 00:04:24,080
+pi to a new variable essentially that we can now access inside our index.js file.
+
+54
+00:04:24,110 --> 00:04:30,230
+Now if I wanted to get hold of the other things that are being exported from this file. I can add a comma,
+
+55
+00:04:30,830 --> 00:04:39,310
+add a set of curly braces and specify the names of the other things that are being exported inside here,
+
+56
+00:04:39,350 --> 00:04:41,900
+so in our case it's doublePi and triplePi.
+
+57
+00:04:41,930 --> 00:04:46,700
+So let's go ahead and add those functions doublePi and triplePi.
+
+58
+00:04:46,730 --> 00:04:50,650
+Now in this case however, the names really do matter.
+
+59
+00:04:50,660 --> 00:04:52,910
+We can't just name doublePi
+
+60
+00:04:52,910 --> 00:05:00,650
+something else like double because it won't be able to recognize it from this list of exports. With the
+
+61
+00:05:00,650 --> 00:05:01,150
+default
+
+62
+00:05:01,160 --> 00:05:05,540
+there is only one and they can only be one default export per file.
+
+63
+00:05:05,630 --> 00:05:09,730
+But with these other ones, we differentiate them by their names.
+
+64
+00:05:09,770 --> 00:05:17,060
+So I have to make sure that I'm calling it the same as the export name. Once we've imported our double
+
+65
+00:05:17,060 --> 00:05:18,240
+Pi and triplePi
+
+66
+00:05:18,260 --> 00:05:20,660
+I can now use it in my list item.
+
+67
+00:05:20,660 --> 00:05:25,160
+So for example maybe in this case I want to use the value of doublePi
+
+68
+00:05:25,160 --> 00:05:27,480
+but remembering that double pi is a function.
+
+69
+00:05:27,500 --> 00:05:34,200
+So in order to get the value or the return out of it, I have to add the parentheses to activate it.
+
+70
+00:05:34,200 --> 00:05:38,060
+And now let's go ahead and do the same thing for triplePi as well.
+
+71
+00:05:38,120 --> 00:05:45,730
+And now you can see in our website we've got the value of pi which is exported as the default from math.
+
+72
+00:05:45,760 --> 00:05:53,330
+js. We've got the value of doublePi which is this function that's exported from math.js that
+
+73
+00:05:53,330 --> 00:05:59,420
+basically just returns the value pi multiplied by 2 and then triplePi multiplies it by 3.
+
+74
+00:05:59,450 --> 00:06:07,490
+And now we've got all 3 of these being rendered and all of these bits of functionality or constant
+
+75
+00:06:07,490 --> 00:06:15,970
+values are coming from this single import statement from a completely different file. What import and
+
+76
+00:06:16,030 --> 00:06:23,830
+export and the concept of modules allows us to do is to really be able to start splitting up our large
+
+77
+00:06:23,890 --> 00:06:28,710
+Javascript files into individual more manageable components.
+
+78
+00:06:28,870 --> 00:06:35,710
+And this is of course what the React components are leveraging from. And this capability is not new,
+
+79
+00:06:35,710 --> 00:06:42,340
+it's not unique to ES6 because even previously when we weren't using Babel, we weren't using ES6, when we
+
+80
+00:06:42,360 --> 00:06:50,770
+were just writing Node apps we were able to use the var react equals require react
+
+81
+00:06:50,770 --> 00:06:51,510
+right?
+
+82
+00:06:51,580 --> 00:06:55,080
+So this code does pretty much the same thing.
+
+83
+00:06:55,210 --> 00:07:01,030
+But remember that this require function actually comes from Node itself not Javascript.
+
+84
+00:07:01,030 --> 00:07:06,790
+So if you're interested in what exactly is the difference between the Node.js require and the ES6
+
+85
+00:07:06,850 --> 00:07:13,750
+import/export, then a link to this Stack Overflow answer and question if you want to dive more into the
+
+86
+00:07:13,750 --> 00:07:20,980
+specifics. But just note that when we're working with Node, when we're not really sure that we can always
+
+87
+00:07:20,980 --> 00:07:26,950
+use ES6 because remember the browser penetration of ES6 is something like 80% at the moment,
+
+88
+00:07:26,980 --> 00:07:33,190
+so that means out of 100 users 20 of them might not actually be have to render this code that you're
+
+89
+00:07:33,190 --> 00:07:34,270
+using.
+
+90
+00:07:34,270 --> 00:07:41,980
+And so we're only able to very safely use ES6 everywhere in our app because we know that we're relying
+
+91
+00:07:41,980 --> 00:07:46,860
+on Babel to convert it into a format that can be rendered on any browser.
+
+92
+00:07:47,410 --> 00:07:54,130
+But I prefer the syntax of import and export because it's really clear what's happening. I'm importing
+
+93
+00:07:54,130 --> 00:08:01,990
+whatever is the default export from the React module and in this case I'm importing the default pi
+
+94
+00:08:02,230 --> 00:08:08,380
+which is being exported by math.js in addition to these two other functions which I'm gonna use
+
+95
+00:08:08,500 --> 00:08:16,230
+inside my index.js file. Now if you don't want to actually separate out the difference between
+
+96
+00:08:16,290 --> 00:08:22,800
+the default and the exports, then in your import you can also just simply use the wildcard which is the
+
+97
+00:08:22,890 --> 00:08:23,670
+asterisks sign.
+
+98
+00:08:24,090 --> 00:08:29,760
+So this basically says import everything but you have to give it a name so that you can use it in your
+
+99
+00:08:29,760 --> 00:08:34,480
+file so you'll write right import everything as we'll call it pi.
+
+100
+00:08:34,890 --> 00:08:42,120
+And then if we go ahead and console log what exactly is the value of pi anyways, then you'll see that
+
+101
+00:08:42,120 --> 00:08:49,080
+pi is actually an object and it has certain properties. It has something called doublePi which is a
+
+102
+00:08:49,080 --> 00:08:52,780
+function, has something called triplePi which is also a function
+
+103
+00:08:52,920 --> 00:09:00,630
+and it also has a default property which is set to the value of whatever is being exported as the default
+
+104
+00:09:00,750 --> 00:09:02,160
+over here.
+
+105
+00:09:02,160 --> 00:09:06,180
+That means that we can now adjust our code instead of using pi,
+
+106
+00:09:06,180 --> 00:09:14,920
+we can write pi.default and then we can instead of doublePi, we can write pi.double pi and pi
+
+107
+00:09:14,950 --> 00:09:15,790
+.triplePi.
+
+108
+00:09:16,660 --> 00:09:22,990
+And now if we refresh you can see that we've basically got the same thing as before, but we're now saying
+
+109
+00:09:22,990 --> 00:09:26,040
+we want everything from this entire module.
+
+110
+00:09:26,300 --> 00:09:33,610
+Why? If you use a wild card then you'll lose the benefit of having a single default export. Using the
+
+111
+00:09:33,610 --> 00:09:39,940
+single default export and incorporating specific functions makes your code more clear and it means that
+
+112
+00:09:39,940 --> 00:09:43,080
+you're only importing the things that you need.
+
+113
+00:09:43,090 --> 00:09:48,070
+This is why you'll see the wild card import discouraged in many style guides.
+
+114
+00:09:48,100 --> 00:09:52,910
+So in this lesson we looked at the import and export keywords.
+
+115
+00:09:53,050 --> 00:10:01,150
+We saw that in a single file, we can only have a single default export but that default export can be
+
+116
+00:10:01,150 --> 00:10:06,700
+imported under any name you give it inside another file.
+
+117
+00:10:07,090 --> 00:10:13,120
+But if you wanted to get a hold of the other things that are being exported then you can add a comma
+
+118
+00:10:13,270 --> 00:10:21,070
+and a set of curly braces and then specify the exact names of the functions or constants or whatever
+
+119
+00:10:21,070 --> 00:10:25,150
+it is that you want to export from the other file.
+
+120
+00:10:25,150 --> 00:10:31,270
+And then once you've done that, you can then freely use these things that you've imported, either the
+
+121
+00:10:31,300 --> 00:10:37,370
+constants or the functions, and treat them as if they existed in this current file.
+
+122
+00:10:37,570 --> 00:10:40,640
+But it does mean that your files are split up.
+
+123
+00:10:40,670 --> 00:10:46,310
+They're easier to understand and it's easier to spot problems if there are any.
+
+124
+00:10:46,330 --> 00:10:53,620
+This way we can start building up more complex and more interesting apps that uses this kind of modularity.
+
+125
+00:10:54,460 --> 00:10:55,320
+In the next lesson
+
+126
+00:10:55,330 --> 00:10:58,780
+we're going to get some more practice using import and export
+
+127
+00:10:58,780 --> 00:11:01,370
+and I've got a challenge for you to complete.
+
+128
+00:11:01,510 --> 00:11:05,830
+If you're happy with all the concepts learned in this lesson and you think you can apply it yourself
+
+129
+00:11:06,100 --> 00:11:09,620
+then head over to the next lesson and complete the challenge.
+

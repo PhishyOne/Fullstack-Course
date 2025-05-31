@@ -1,0 +1,3216 @@
+1
+00:00:06,320 --> 00:00:07,340
+Hi, guys.
+
+2
+00:00:07,340 --> 00:00:17,390
+This is Angela from the brewery and I'm so excited to be doing this first ever live AMA.
+
+3
+00:00:17,660 --> 00:00:23,300
+So for those of you guys who've been with me for the longest, you know that back in the days in the
+
+4
+00:00:23,300 --> 00:00:32,360
+courses we used to do these live Ask Angela anythings and this is trying to bring it back and see how
+
+5
+00:00:32,360 --> 00:00:36,980
+you guys are all doing while you're safely at home.
+
+6
+00:00:36,980 --> 00:00:44,870
+And yeah, so I've never really done anything like this, so I'm a little bit nervous, but hopefully
+
+7
+00:00:44,870 --> 00:00:50,420
+it's going to go great and I'm going to get to know some more of you guys.
+
+8
+00:00:51,110 --> 00:00:51,530
+All right.
+
+9
+00:00:51,530 --> 00:00:59,900
+So the plan is we're going to take a look at some of the questions that were asked ahead of time.
+
+10
+00:00:59,900 --> 00:01:09,530
+So over the last week, you guys have been posting your questions on the ask page and our team has compiled
+
+11
+00:01:09,530 --> 00:01:14,060
+a bunch of the most upvoted questions.
+
+12
+00:01:14,060 --> 00:01:20,210
+So we're going to tackle some of those and then we're going to tackle some of these YouTube questions
+
+13
+00:01:20,210 --> 00:01:21,200
+live.
+
+14
+00:01:21,290 --> 00:01:29,030
+And I don't see too much of a delay in the chat, so hopefully I'll be able to get to you and we can
+
+15
+00:01:29,030 --> 00:01:31,040
+do a little bit of back and forth.
+
+16
+00:01:31,040 --> 00:01:31,670
+So.
+
+17
+00:01:32,270 --> 00:01:36,820
+All right, so here we've got the question from Melissa Santos.
+
+18
+00:01:36,820 --> 00:01:41,000
+So I'm just going to answer it all over again, because it seemed like when I went to the slides, you
+
+19
+00:01:41,000 --> 00:01:42,230
+couldn't hear me anymore.
+
+20
+00:01:42,320 --> 00:01:43,910
+So let's try this again.
+
+21
+00:01:44,180 --> 00:01:50,360
+So her question is how do you manage to use different languages for different projects without mixing
+
+22
+00:01:50,360 --> 00:01:51,440
+up the syntax?
+
+23
+00:01:52,280 --> 00:01:52,730
+All right.
+
+24
+00:01:52,730 --> 00:02:00,290
+So the first thing I want to say is that I mix up the syntax all the time, especially when I'm working
+
+25
+00:02:00,290 --> 00:02:03,050
+on like a swift project for a long time.
+
+26
+00:02:03,050 --> 00:02:09,650
+And then I switched to maybe doing a web development project with JavaScript.
+
+27
+00:02:09,650 --> 00:02:12,290
+Then, you know, I'm going to be missing semicolons.
+
+28
+00:02:12,290 --> 00:02:16,250
+I'm going to be just not writing JavaScript code.
+
+29
+00:02:16,280 --> 00:02:24,120
+But the great thing is that there's good lenders and if you use a good code editor like Atom of Yes
+
+30
+00:02:24,140 --> 00:02:28,280
+code or Sublime, then they should be able to pick up these things for you.
+
+31
+00:02:28,280 --> 00:02:36,740
+So I kind of let the machine do the machine part and then I do the brain pod, which is the logic.
+
+32
+00:02:36,740 --> 00:02:38,060
+That's the hardest part.
+
+33
+00:02:38,690 --> 00:02:48,950
+And the first part of her question she actually asked, so is is it a good idea to become fluent in
+
+34
+00:02:48,950 --> 00:02:52,790
+one language before moving on to other languages?
+
+35
+00:02:52,940 --> 00:02:58,040
+Now, I think this really depends on what you're trying to do, right?
+
+36
+00:02:58,040 --> 00:03:06,260
+If you're trying to build if your end project is an iOS app, then yeah, you definitely, definitely
+
+37
+00:03:06,260 --> 00:03:12,770
+need to get really good at probably Swift first.
+
+38
+00:03:12,860 --> 00:03:18,710
+But if you're trying to do something that occasionally requires just a little bit of web development
+
+39
+00:03:18,710 --> 00:03:30,920
+skills or just a little bit of maybe like a flutter multi iOS and Android app, then you could just
+
+40
+00:03:30,920 --> 00:03:32,780
+dive into the thing that you need.
+
+41
+00:03:33,140 --> 00:03:37,550
+The way I always see it is these programming languages.
+
+42
+00:03:37,850 --> 00:03:41,360
+They're not like a subject, they're not like history or geography.
+
+43
+00:03:41,360 --> 00:03:44,690
+They're more like a tool.
+
+44
+00:03:44,690 --> 00:03:49,160
+Like you're learning how to use the hammer, you're learning how to use a saw.
+
+45
+00:03:49,340 --> 00:03:56,630
+You don't have to get to like 100% of hammer ability before you can move on to the next tool.
+
+46
+00:03:56,660 --> 00:04:00,560
+It all depends on what you're trying to build, right?
+
+47
+00:04:01,700 --> 00:04:02,120
+All right.
+
+48
+00:04:02,120 --> 00:04:05,720
+So let's move on to the next question.
+
+49
+00:04:07,280 --> 00:04:07,670
+All right.
+
+50
+00:04:07,670 --> 00:04:18,140
+So in this question we've got from Jp RD and he's asking, given that coronavirus has affected so many
+
+51
+00:04:18,140 --> 00:04:29,570
+people and a lot of people are looking for ways of working from home, working remotely online, does
+
+52
+00:04:29,570 --> 00:04:37,820
+that mean that all the jobs are going to be filled up pretty quickly and, you know, it will be far
+
+53
+00:04:37,820 --> 00:04:39,080
+more competitive?
+
+54
+00:04:40,320 --> 00:04:46,860
+And I think I would say that, you know, you have to remember that when anything is desirable, it
+
+55
+00:04:46,860 --> 00:04:48,400
+is going to be competitive.
+
+56
+00:04:48,420 --> 00:04:59,520
+So if you think it's a great idea to work from home and, you know, have the flexibility of where you
+
+57
+00:04:59,520 --> 00:05:04,020
+live, be able to work remotely, then somebody else is going to have that idea as well.
+
+58
+00:05:04,410 --> 00:05:12,570
+But then again, you know, things that are worth doing are probably worth competing for.
+
+59
+00:05:13,200 --> 00:05:16,470
+It all depends on what is your ultimate goal.
+
+60
+00:05:16,470 --> 00:05:24,390
+And if your goal is to get a job as a web developer or as an app developer, then you just go to focus
+
+61
+00:05:24,390 --> 00:05:31,740
+on that goal and don't worry so much about what how much competition there is or how many other people
+
+62
+00:05:31,740 --> 00:05:33,510
+are applying to the same thing.
+
+63
+00:05:33,960 --> 00:05:37,320
+I mean, I remember back in the days when.
+
+64
+00:05:37,350 --> 00:05:45,300
+So I don't know if you guys know this, but I trained as a medical doctor and I worked as a doctor training
+
+65
+00:05:45,300 --> 00:05:48,270
+in orthopedic surgery for a number of years.
+
+66
+00:05:48,420 --> 00:05:57,960
+And when I was in medical school, even from like day one, people were telling me that if you want
+
+67
+00:05:57,960 --> 00:06:04,560
+to become a surgeon, like the chances are something like one in like 1000.
+
+68
+00:06:04,590 --> 00:06:06,330
+It's just so competitive.
+
+69
+00:06:06,330 --> 00:06:10,140
+And then within surgery, there's, you know, different competition ratios.
+
+70
+00:06:10,140 --> 00:06:15,300
+Like if you want to do brain surgery, that's like the most competitive field because there's only so
+
+71
+00:06:15,300 --> 00:06:16,650
+few brain surgeons.
+
+72
+00:06:17,070 --> 00:06:22,170
+But if you want to do, I don't know, maybe another type of surgery, maybe it's less competitive.
+
+73
+00:06:22,770 --> 00:06:31,500
+So I think even from that point, I was trained upon this idea that competition is just a way of life.
+
+74
+00:06:31,500 --> 00:06:37,080
+You know, you want something, other people want something, and then you just got to focus on yourself.
+
+75
+00:06:37,560 --> 00:06:46,470
+There's a really great book by Carl Newport, which I really like called So Good, They Can't Ignore
+
+76
+00:06:46,470 --> 00:06:46,590
+You.
+
+77
+00:06:46,590 --> 00:06:48,150
+I think that's the title anyways.
+
+78
+00:06:48,300 --> 00:06:52,110
+And I mean, the thing is, you don't really have to read the book.
+
+79
+00:06:52,110 --> 00:07:01,080
+I mean, it's a good book, but basically most of it is in the title like become so good at whatever
+
+80
+00:07:01,080 --> 00:07:03,960
+it is you do that they can't ignore you.
+
+81
+00:07:03,960 --> 00:07:11,780
+And they could be your boss, they could be a recruiter, they could be anybody, really.
+
+82
+00:07:11,790 --> 00:07:17,970
+And this is really something that I've always kept in my mind.
+
+83
+00:07:17,970 --> 00:07:30,390
+Like I've just tried to focus on doing the best job I can, and that means focusing on the student experience,
+
+84
+00:07:30,390 --> 00:07:41,070
+like, how can I make a course that is going to be the most helpful, the most enjoyable and the most
+
+85
+00:07:41,070 --> 00:07:42,420
+completed, right?
+
+86
+00:07:42,420 --> 00:07:48,480
+So I focus on these things and I don't really think about what other people are doing.
+
+87
+00:07:49,170 --> 00:07:57,510
+And that means that I have a product that I created and it's just much easier for me to think this way
+
+88
+00:07:58,110 --> 00:08:03,450
+if I spend all my time thinking about, well, you know, so-and-so is doing this or that person is
+
+89
+00:08:03,450 --> 00:08:08,160
+doing that, then I'm just going to be copying everybody all the time.
+
+90
+00:08:08,160 --> 00:08:13,590
+And if you guys have taken my courses, you know, that's usually not the way to go.
+
+91
+00:08:14,160 --> 00:08:20,880
+I mean, that also means that there's a lot of bad jokes in there that are untested and nobody's sanctioned.
+
+92
+00:08:20,880 --> 00:08:22,830
+And it's probably not a good idea.
+
+93
+00:08:23,130 --> 00:08:27,690
+But, you know, hey, we've got to try things right.
+
+94
+00:08:27,780 --> 00:08:28,080
+All right.
+
+95
+00:08:28,080 --> 00:08:30,900
+Let's move on to the next question.
+
+96
+00:08:34,570 --> 00:08:34,900
+All right.
+
+97
+00:08:34,900 --> 00:08:39,850
+So this question is from Mayank Saini.
+
+98
+00:08:40,390 --> 00:08:42,960
+I hope I pronounce that.
+
+99
+00:08:43,010 --> 00:08:43,590
+Okay.
+
+100
+00:08:43,600 --> 00:08:49,420
+I think I'm just going to be murdering people's names because I'm going to be bad at pronouncing eating.
+
+101
+00:08:50,680 --> 00:08:53,050
+So Mayank says a number of things.
+
+102
+00:08:53,290 --> 00:08:57,790
+My question is, how can I get a job as a full stack web developer to my dream company?
+
+103
+00:08:57,820 --> 00:09:00,340
+What do I have to master to do so?
+
+104
+00:09:01,200 --> 00:09:01,590
+Okay.
+
+105
+00:09:01,590 --> 00:09:06,990
+So your goal is to get a job as full stack web developer.
+
+106
+00:09:07,020 --> 00:09:12,070
+Now, some of you guys watching, maybe your goal is to get a job as an iOS developer.
+
+107
+00:09:12,090 --> 00:09:14,520
+Maybe you want to work as a data scientist.
+
+108
+00:09:14,520 --> 00:09:18,960
+Maybe you want to work at Facebook, Apple, Google, whatever it may be.
+
+109
+00:09:18,960 --> 00:09:21,840
+But the great thing is you already got your goal.
+
+110
+00:09:21,840 --> 00:09:27,630
+Like this is the first step because there are so many people I talked to who don't even know what they
+
+111
+00:09:27,630 --> 00:09:28,050
+want.
+
+112
+00:09:28,050 --> 00:09:31,320
+So you're already one step ahead of other people.
+
+113
+00:09:32,040 --> 00:09:36,750
+So now that you know what you want to get, how do you get them?
+
+114
+00:09:36,780 --> 00:09:41,460
+Well, let's think about it from the other point of view.
+
+115
+00:09:42,060 --> 00:09:44,250
+Let's say that you're a company.
+
+116
+00:09:44,730 --> 00:09:49,620
+Let's say you're a manager at Google and you want to hire a web developer.
+
+117
+00:09:49,920 --> 00:09:55,560
+Well, if you were the one who is doing the interview, who is sifting through all of the applications,
+
+118
+00:09:55,560 --> 00:09:56,610
+what would you think about?
+
+119
+00:09:56,880 --> 00:09:59,700
+This is a really, really useful exercise.
+
+120
+00:09:59,700 --> 00:10:07,320
+And this is something that I really it took it took some growing up to actually understand this, because
+
+121
+00:10:07,320 --> 00:10:11,220
+when you think about it from the other person's perspective, you know, they're not trying to make
+
+122
+00:10:11,220 --> 00:10:12,210
+it hard for you.
+
+123
+00:10:12,210 --> 00:10:16,090
+They're not trying to make you jump through hoops for the sake of jumping through hoops.
+
+124
+00:10:16,110 --> 00:10:20,760
+But let's say that you get like 20,000 applications.
+
+125
+00:10:20,760 --> 00:10:28,920
+So recently we were looking for a summer intern and there's just loads, loads of applications that
+
+126
+00:10:28,920 --> 00:10:29,610
+come in.
+
+127
+00:10:30,690 --> 00:10:40,290
+And, you know, as much as you really want to give each application all of your attention and just.
+
+128
+00:10:41,380 --> 00:10:43,720
+You know, really understand each person.
+
+129
+00:10:43,990 --> 00:10:45,340
+You don't really have the time.
+
+130
+00:10:45,340 --> 00:10:52,150
+So you're going to have to think about ways of making it a bit easier on yourself.
+
+131
+00:10:52,150 --> 00:10:52,660
+Right?
+
+132
+00:10:53,050 --> 00:10:58,300
+So one of those ways is by looking at somebody's qualification.
+
+133
+00:10:58,570 --> 00:11:05,140
+But another way, and probably something that I'm more fond of is actually just looking at what are
+
+134
+00:11:05,140 --> 00:11:07,390
+they capable of doing?
+
+135
+00:11:08,170 --> 00:11:10,330
+And this really is a key.
+
+136
+00:11:10,330 --> 00:11:10,900
+So.
+
+137
+00:11:11,770 --> 00:11:14,170
+You need to build a portfolio.
+
+138
+00:11:14,200 --> 00:11:19,090
+You need to show the world, not tell the world what you can do.
+
+139
+00:11:19,510 --> 00:11:23,560
+So create some web apps.
+
+140
+00:11:23,560 --> 00:11:28,450
+If you want to become a web developer, create some iOS apps if you want to become an iOS developer.
+
+141
+00:11:28,480 --> 00:11:30,520
+And don't just.
+
+142
+00:11:31,170 --> 00:11:36,090
+Don't just stick to the the stuff that you see in tutorials.
+
+143
+00:11:36,450 --> 00:11:38,730
+You have to somehow stand out.
+
+144
+00:11:39,090 --> 00:11:46,620
+And one of the best tips I can give you is, again, think from the recruiter's point of view.
+
+145
+00:11:46,710 --> 00:11:48,810
+They want to hire a web developer.
+
+146
+00:11:48,840 --> 00:11:52,980
+They are probably a manager, right, of some sort.
+
+147
+00:11:54,000 --> 00:11:58,020
+What are the kind of tools that they use every day?
+
+148
+00:11:58,950 --> 00:12:04,560
+So if you're a manager, especially if you're a product manager or a software lead, you're probably
+
+149
+00:12:04,560 --> 00:12:09,210
+going to use some form of task management like Trello or Asana.
+
+150
+00:12:09,720 --> 00:12:14,130
+You're probably going to use GitHub or something like it.
+
+151
+00:12:14,130 --> 00:12:15,390
+Hub like Bitbucket.
+
+152
+00:12:16,320 --> 00:12:22,920
+Think about the tools they use and build a tool that they can understand.
+
+153
+00:12:23,370 --> 00:12:28,300
+So if they use Trello or Asana, I'm sure there's pain points.
+
+154
+00:12:28,320 --> 00:12:32,430
+I'm sure there are certain features that would be really cool.
+
+155
+00:12:32,970 --> 00:12:42,390
+So if you build a Trello clone, but you add in some features of your own, some something that you
+
+156
+00:12:42,390 --> 00:12:48,090
+think of that you think would be really useful, and then you show that manager what you've built.
+
+157
+00:12:48,090 --> 00:12:51,610
+They will instantly understand what you've built.
+
+158
+00:12:51,630 --> 00:12:58,560
+They will see the advantages of your product, and they will be able to attest to your skill, which
+
+159
+00:12:58,560 --> 00:13:02,310
+is what is so, so important.
+
+160
+00:13:03,340 --> 00:13:11,320
+So my advice, whenever you want to achieve any sort of goal that involves other people, is to think
+
+161
+00:13:11,320 --> 00:13:13,720
+from the other person's point of view.
+
+162
+00:13:15,100 --> 00:13:15,460
+All right.
+
+163
+00:13:15,460 --> 00:13:27,640
+So we've done a couple of questions from the ask page now, and I'm seeing so much chat activity.
+
+164
+00:13:27,640 --> 00:13:31,870
+I really want to get to know you guys a little bit better.
+
+165
+00:13:31,960 --> 00:13:34,600
+So I want to do a poll.
+
+166
+00:13:34,720 --> 00:13:38,500
+So it's going to be pull time.
+
+167
+00:13:43,230 --> 00:13:43,710
+All right.
+
+168
+00:13:43,710 --> 00:13:53,370
+So if you go ahead and take a look at my slide, I want to know where you are.
+
+169
+00:13:53,400 --> 00:13:56,070
+So where are you streaming from?
+
+170
+00:13:56,400 --> 00:14:00,570
+Now, what you need to do is to head over to this link.
+
+171
+00:14:00,570 --> 00:14:07,560
+So wait a minute, I'm going to remove this banner and you can see if you go to London, Apple.com forward
+
+172
+00:14:07,560 --> 00:14:16,260
+slash where it will redirect you to this horribly long URL that's underneath, which is a poll.
+
+173
+00:14:16,500 --> 00:14:25,200
+So choose an answer and I want to know what your location is.
+
+174
+00:14:27,170 --> 00:14:27,530
+All right.
+
+175
+00:14:27,530 --> 00:14:30,470
+So I think some of you guys have voted.
+
+176
+00:14:31,530 --> 00:14:35,010
+Let's see the results.
+
+177
+00:14:35,830 --> 00:14:35,970
+Okay.
+
+178
+00:14:36,150 --> 00:14:37,760
+I think there's like 200 votes now.
+
+179
+00:14:37,770 --> 00:14:40,920
+I'm going to take a look at the results.
+
+180
+00:14:43,670 --> 00:14:44,090
+All right.
+
+181
+00:14:44,090 --> 00:14:47,130
+So it seems like most people are from Asia.
+
+182
+00:14:47,210 --> 00:14:50,660
+Next is Europe and next is North America.
+
+183
+00:14:51,470 --> 00:14:53,240
+I mean, that kind of makes sense to me.
+
+184
+00:14:53,240 --> 00:14:59,750
+I think it's about evening time in Asia now and then in Europe where I'm at in London, we're kind of
+
+185
+00:14:59,750 --> 00:15:03,350
+during the day and then North America is just waking up.
+
+186
+00:15:03,680 --> 00:15:05,240
+So that's pretty cool.
+
+187
+00:15:05,840 --> 00:15:06,500
+All right.
+
+188
+00:15:07,160 --> 00:15:12,740
+So let's take some questions from YouTube.
+
+189
+00:15:12,770 --> 00:15:19,670
+You guys have been chatting away in there and I'm trying to look at it for.
+
+190
+00:15:21,360 --> 00:15:25,290
+Just to see what's actually happening if you're getting the audio and everything.
+
+191
+00:15:25,290 --> 00:15:30,120
+But let's take some questions from YouTube.
+
+192
+00:15:30,210 --> 00:15:33,000
+So go ahead and ask away.
+
+193
+00:15:36,190 --> 00:15:36,520
+All right.
+
+194
+00:15:36,520 --> 00:15:42,700
+So we got one here from Claudia, and it's going to cut off because it's quite long, but I'll read
+
+195
+00:15:42,700 --> 00:15:43,510
+it out to you.
+
+196
+00:15:43,840 --> 00:15:47,240
+I want to ask you about the way you learn new coding skills.
+
+197
+00:15:47,260 --> 00:15:49,900
+How do you go about teaching yourself new skills?
+
+198
+00:15:49,930 --> 00:15:52,120
+What's your learning process?
+
+199
+00:15:52,150 --> 00:15:53,260
+Okay, cool.
+
+200
+00:15:53,470 --> 00:15:54,610
+So.
+
+201
+00:15:55,650 --> 00:15:58,140
+I think one of the most useful skills.
+
+202
+00:15:58,800 --> 00:16:03,300
+Like that I've ever picked up is learning.
+
+203
+00:16:04,020 --> 00:16:13,980
+I think if you can learn quite quickly, then it's going to help you in pretty much all sorts of ways.
+
+204
+00:16:15,040 --> 00:16:16,390
+So.
+
+205
+00:16:17,640 --> 00:16:25,950
+One of the ways that I do, one of the ways I sort of conceptualize it is I try to take the entire topic
+
+206
+00:16:26,070 --> 00:16:32,640
+and I break it down into, you know, what are all the parts that I need to learn?
+
+207
+00:16:32,910 --> 00:16:37,500
+Because when you take a textbook or when you take I don't know, let's say I mean, for example, at
+
+208
+00:16:37,500 --> 00:16:39,480
+the moment I'm trying to learn German, right?
+
+209
+00:16:39,990 --> 00:16:45,690
+If I just took a dictionary, it would take me years, years before I will learn it.
+
+210
+00:16:45,840 --> 00:16:54,240
+And I see sometimes people learning programming a bit like that, like they try to learn every single
+
+211
+00:16:54,240 --> 00:17:03,180
+method, every single function in a particular programming languages API or, you know, just, just
+
+212
+00:17:03,180 --> 00:17:04,140
+trying to learn it.
+
+213
+00:17:04,140 --> 00:17:04,859
+All right.
+
+214
+00:17:04,859 --> 00:17:11,190
+And there's a lot of courses are also kind of like a reference guide kind of style where they show you
+
+215
+00:17:11,190 --> 00:17:12,030
+everything.
+
+216
+00:17:12,690 --> 00:17:16,650
+And I think in terms of learning, it doesn't really work.
+
+217
+00:17:16,950 --> 00:17:21,869
+Instead, what you kind of need to do is, again, you have to have a goal, right?
+
+218
+00:17:22,200 --> 00:17:30,150
+So if you're learning to program, maybe that goal is you have a particular app you want to build now
+
+219
+00:17:30,150 --> 00:17:33,180
+the certain foundational skills that you need.
+
+220
+00:17:33,420 --> 00:17:38,580
+But once you get past the foundation, then you're kind of doing like learning Lego.
+
+221
+00:17:38,610 --> 00:17:40,830
+You're trying to figure out, Okay, I need to learn this bit.
+
+222
+00:17:40,830 --> 00:17:42,060
+Where should I go for that?
+
+223
+00:17:42,060 --> 00:17:44,520
+I need to learn that part in order to do this.
+
+224
+00:17:44,700 --> 00:17:50,940
+So, for example, the way that I'm thinking about German, like learning German, I've realized I don't
+
+225
+00:17:50,940 --> 00:17:52,050
+need to write German.
+
+226
+00:17:52,680 --> 00:17:57,910
+I probably could read, but it doesn't really bother me.
+
+227
+00:17:57,930 --> 00:18:06,240
+All I want to focus on is actually listening and speaking, so that already makes my task a lot easier.
+
+228
+00:18:07,080 --> 00:18:16,740
+Now next, if I want to be able to speak well, then I have to practice, right?
+
+229
+00:18:16,860 --> 00:18:26,190
+So there's a really good course actually by Pimsleur that I use where all they do is they just teach
+
+230
+00:18:26,190 --> 00:18:31,740
+you a couple of ways of saying a sentence and then they get you to practice.
+
+231
+00:18:31,740 --> 00:18:36,210
+You just, you know, they'll be like, what is how do you say, I want to go to the restaurant?
+
+232
+00:18:36,210 --> 00:18:38,070
+How do you say I'm going to the restaurant?
+
+233
+00:18:38,070 --> 00:18:40,680
+How do you say I went to the restaurant, etc.?
+
+234
+00:18:40,680 --> 00:18:48,540
+And you have a lot of practice just putting the words together in some sort of logical way.
+
+235
+00:18:49,170 --> 00:18:55,140
+And then because it's not really interactive, it's just, you know, a list of sentences, I have to
+
+236
+00:18:55,140 --> 00:18:55,880
+say.
+
+237
+00:18:56,070 --> 00:19:04,230
+Then I will take that and take Google Translate, which can listen live to what you're speaking in German,
+
+238
+00:19:04,230 --> 00:19:10,170
+and I'll translate it to English text so then I can judge based on that translation.
+
+239
+00:19:10,170 --> 00:19:11,970
+Well, how good is my German?
+
+240
+00:19:11,970 --> 00:19:15,570
+Did I manage to conjugate my verbs correctly?
+
+241
+00:19:15,570 --> 00:19:17,430
+Did I manage to put everything together?
+
+242
+00:19:18,300 --> 00:19:27,420
+And then in terms of listening, one of the hacks that I kind of came up with, I guess, I'm sure it's
+
+243
+00:19:27,420 --> 00:19:34,440
+not original, but I watched a lot of shows on Netflix, as I'm sure a lot of you guys do.
+
+244
+00:19:34,620 --> 00:19:43,290
+But I discovered that if you listen to a TV show that's produced in another language, so for me it's
+
+245
+00:19:43,290 --> 00:19:44,010
+German.
+
+246
+00:19:44,880 --> 00:19:50,730
+You can switch on not only the subtitles, which is helpful, but you can switch on something called
+
+247
+00:19:50,730 --> 00:20:03,630
+audio described, which basically will describe to you it's intended for people who are unable to see,
+
+248
+00:20:04,140 --> 00:20:07,440
+to be able to hear what's happening in the show.
+
+249
+00:20:07,680 --> 00:20:13,260
+But to somebody who's also, you know, not really very good at the language hearing what's happening
+
+250
+00:20:13,260 --> 00:20:19,380
+on the screen being described to me in German, you know, it will be something like a man walks into
+
+251
+00:20:19,380 --> 00:20:22,800
+the room, the man takes the keys from the table.
+
+252
+00:20:22,800 --> 00:20:23,820
+Like, I can see that.
+
+253
+00:20:23,820 --> 00:20:29,760
+I can see what's happening and I can match up what's happening with what's being described.
+
+254
+00:20:29,790 --> 00:20:33,330
+And this has been really, really helpful for me to learn listening.
+
+255
+00:20:33,690 --> 00:20:40,200
+So yeah, basically what I would say is break down the problem, figure out the goal, just take the
+
+256
+00:20:40,200 --> 00:20:48,390
+parts that you need to do to achieve the goal and then see how you can practice those skills repeatedly.
+
+257
+00:20:48,390 --> 00:20:51,240
+That's that's probably the best way of learning.
+
+258
+00:20:51,930 --> 00:20:52,200
+All right.
+
+259
+00:20:52,200 --> 00:20:55,680
+Let's take another question from YouTube.
+
+260
+00:21:00,080 --> 00:21:00,410
+All right.
+
+261
+00:21:00,410 --> 00:21:03,320
+We got one from.
+
+262
+00:21:06,370 --> 00:21:15,820
+I think your name is Yuvraj Agarkar car, so it's going to cut off the text again, but I'll read it
+
+263
+00:21:15,820 --> 00:21:16,210
+out.
+
+264
+00:21:16,240 --> 00:21:20,470
+I'm 17 and I've completed your iOS and Web dev courses.
+
+265
+00:21:20,560 --> 00:21:26,230
+My question is how to be good at reading docs and also how to start a startup.
+
+266
+00:21:26,260 --> 00:21:26,800
+Okay, cool.
+
+267
+00:21:26,800 --> 00:21:28,480
+So there's two questions in there.
+
+268
+00:21:28,480 --> 00:21:31,000
+First question is how do you get good at reading docs?
+
+269
+00:21:32,290 --> 00:21:36,230
+The answer is it depends.
+
+270
+00:21:36,250 --> 00:21:42,280
+So firstly, there's a difference in the quality of documentation.
+
+271
+00:21:43,390 --> 00:21:53,110
+So I worked a lot with iOS, and so I'm mostly reading Apple documentation, which is I mean, it's
+
+272
+00:21:53,110 --> 00:21:53,830
+beautiful.
+
+273
+00:21:53,830 --> 00:21:59,500
+Like they've laid out the website really nicely, but if you've taken my eyes courses, you know that
+
+274
+00:21:59,860 --> 00:22:01,510
+I think they're kind of minimalist.
+
+275
+00:22:02,440 --> 00:22:08,560
+They're kind of just like, Oh yeah, we have this thing which you can use, but why don't you go and
+
+276
+00:22:08,560 --> 00:22:10,240
+like find out yourself how to do it?
+
+277
+00:22:10,600 --> 00:22:12,610
+So yeah, it's useful.
+
+278
+00:22:12,610 --> 00:22:18,220
+But you know, if you've ever looked at some of Google's documentation, especially flutter documentation
+
+279
+00:22:18,220 --> 00:22:22,030
+is absolutely incredible and.
+
+280
+00:22:23,000 --> 00:22:28,260
+You know, really like kudos to the team because it is the best documentation I have ever seen.
+
+281
+00:22:28,280 --> 00:22:33,560
+It's kind of like this is a method that we have in this particular module.
+
+282
+00:22:33,590 --> 00:22:34,970
+This is how you would use it.
+
+283
+00:22:35,000 --> 00:22:36,500
+Here's a code example.
+
+284
+00:22:36,530 --> 00:22:45,170
+Here are the various parameters that you can tweak, and it is just so good that you can sort of imagine
+
+285
+00:22:45,170 --> 00:22:48,110
+yourself being able to pick up how to use it very easily.
+
+286
+00:22:48,560 --> 00:22:50,980
+Whereas Apple kind of like, Yeah, we don't really care.
+
+287
+00:22:50,990 --> 00:22:52,670
+You know, if you make it, you make it.
+
+288
+00:22:53,330 --> 00:22:55,340
+If you make an app, there's enough people who make apps.
+
+289
+00:22:55,340 --> 00:22:55,790
+I don't know.
+
+290
+00:22:55,790 --> 00:22:56,180
+I don't know.
+
+291
+00:22:56,180 --> 00:22:56,960
+What is that?
+
+292
+00:22:56,960 --> 00:22:59,210
+They're thinking behind that documentation.
+
+293
+00:22:59,420 --> 00:23:01,310
+But it's it's very hard.
+
+294
+00:23:02,360 --> 00:23:08,360
+The second thing I would say is that you don't necessarily learn a lot from documentation.
+
+295
+00:23:08,360 --> 00:23:14,570
+It's kind of like if you were learning a language and your starting point was the dictionary, you'll
+
+296
+00:23:14,570 --> 00:23:15,830
+be there for a while.
+
+297
+00:23:16,250 --> 00:23:23,240
+So the good thing is that, you know, this kind of comes back to how you learn, right?
+
+298
+00:23:23,240 --> 00:23:31,250
+A lot of people still learn in a pre-computer, pre-internet kind of way where you read a book, you
+
+299
+00:23:31,670 --> 00:23:34,670
+your lecturer gives you a lecture.
+
+300
+00:23:34,670 --> 00:23:39,110
+You take notes, you memorize those notes, you read the book, you take more notes.
+
+301
+00:23:39,110 --> 00:23:40,100
+You do a test.
+
+302
+00:23:40,940 --> 00:23:43,100
+This, I would say.
+
+303
+00:23:44,280 --> 00:23:46,530
+Is good for exams or for school.
+
+304
+00:23:46,530 --> 00:23:48,330
+It's probably still the way you have to do it.
+
+305
+00:23:48,330 --> 00:23:54,030
+But if you actually just trying to learn a skill for life or for, you know, changing jobs or just
+
+306
+00:23:54,030 --> 00:23:59,610
+for yourself, it's not the best way because information is really cheap.
+
+307
+00:23:59,910 --> 00:24:06,660
+You can get hold of pretty much any knowledge or information you want just by typing it into Google.
+
+308
+00:24:06,720 --> 00:24:15,000
+So why should I store all of that information in my brain when you know it's just two or three keystrokes
+
+309
+00:24:15,000 --> 00:24:15,540
+away?
+
+310
+00:24:15,540 --> 00:24:17,550
+So I don't really like to do that.
+
+311
+00:24:17,550 --> 00:24:19,620
+And this comes back to documentation.
+
+312
+00:24:19,710 --> 00:24:21,810
+I don't remember documentation.
+
+313
+00:24:21,810 --> 00:24:23,640
+I don't learn documentation.
+
+314
+00:24:24,210 --> 00:24:31,770
+There are loads of methods that I'm not, you know, I don't remember how to use.
+
+315
+00:24:31,770 --> 00:24:41,100
+But the thing I know is that I have the skills to be able to understand the code when I need to.
+
+316
+00:24:41,130 --> 00:24:45,660
+So when I want to look something up, I look it up in the documentation.
+
+317
+00:24:45,660 --> 00:24:47,820
+Actually, usually I look it up in StackOverflow.
+
+318
+00:24:47,850 --> 00:24:54,360
+I try to see an example where it's used and then in the example I'll see a particular method that's
+
+319
+00:24:54,360 --> 00:24:56,190
+in the documentation.
+
+320
+00:24:56,190 --> 00:24:59,070
+And then if I want more background, I'll read up on it.
+
+321
+00:24:59,070 --> 00:25:05,460
+In the documentation it's much better to learn things as and when you need to.
+
+322
+00:25:05,970 --> 00:25:09,000
+So that's pretty much what I do.
+
+323
+00:25:09,540 --> 00:25:16,410
+So the next question is how to start a startup.
+
+324
+00:25:17,790 --> 00:25:20,190
+That's like a really big question.
+
+325
+00:25:20,820 --> 00:25:30,360
+And I think back in the ask, there's also somebody who asked, I think it was somebody called Oliver
+
+326
+00:25:30,540 --> 00:25:33,840
+who said, What do you recommend to aspiring entrepreneurs?
+
+327
+00:25:33,840 --> 00:25:36,000
+So I'm going to answer these two together.
+
+328
+00:25:38,090 --> 00:25:39,650
+So.
+
+329
+00:25:40,390 --> 00:25:42,520
+When I started.
+
+330
+00:25:43,450 --> 00:25:52,900
+So I kind of started building a startup while I was still working as a doctor, which is probably a
+
+331
+00:25:52,900 --> 00:26:02,830
+little bit masochistic because I was working these crazy hours like, Oh man, it was probably like
+
+332
+00:26:02,830 --> 00:26:07,090
+some 14 hour occasionally, like 16 hour days.
+
+333
+00:26:08,120 --> 00:26:15,530
+And but the good thing about medicine, at least, is you have night shifts or the good thing or the
+
+334
+00:26:15,530 --> 00:26:23,660
+bad thing and the night shifts, you know, to be humane, at least in Europe, after three days of
+
+335
+00:26:23,660 --> 00:26:25,940
+night shifts, we tend to get three days off.
+
+336
+00:26:26,030 --> 00:26:32,360
+So the first day you'll be completely destroyed, you'll be hardly human because you're trying to switch
+
+337
+00:26:32,360 --> 00:26:33,230
+time zones, right?
+
+338
+00:26:33,230 --> 00:26:36,500
+It's kind of like flying to Australia and back every week.
+
+339
+00:26:37,460 --> 00:26:44,840
+So the first day is kind of like gone, but the second and third days I found that I was able to kind
+
+340
+00:26:44,840 --> 00:26:52,460
+of recuperate those days and I would just go to the library and I would work on my startup.
+
+341
+00:26:53,540 --> 00:26:57,800
+So the first thing is you got to find time.
+
+342
+00:26:58,130 --> 00:27:01,040
+There is no perfect time to start a startup.
+
+343
+00:27:01,070 --> 00:27:03,740
+There is no perfect opportunity.
+
+344
+00:27:03,740 --> 00:27:05,660
+That's just going to hit you on the head.
+
+345
+00:27:05,960 --> 00:27:14,120
+Everything that we've built, everything every opportunity that's come to us has taken a lot of work
+
+346
+00:27:14,120 --> 00:27:16,250
+to prepare to get to that point.
+
+347
+00:27:16,250 --> 00:27:16,760
+Right.
+
+348
+00:27:17,930 --> 00:27:23,930
+I think there was this this thing that my granddad drilled into me, which is my late granddad.
+
+349
+00:27:24,200 --> 00:27:27,740
+He he used to take me to school on his bicycle every day.
+
+350
+00:27:27,740 --> 00:27:34,640
+And on this little, like 30 minute bicycle ride, he would give me these, like, um, chicken soup
+
+351
+00:27:34,640 --> 00:27:37,660
+style, like pieces of, like, nuggets of advice.
+
+352
+00:27:37,670 --> 00:27:42,410
+I was like so many pieces of advice, including, like, they're going to sound weird.
+
+353
+00:27:42,410 --> 00:27:54,800
+It's like, if you ate beans uncooked twice and you still continue eating uncooked beans, then that's
+
+354
+00:27:54,800 --> 00:27:55,790
+not very smart.
+
+355
+00:27:58,640 --> 00:28:03,810
+So I think what he's trying to say is, don't make the same mistake twice.
+
+356
+00:28:03,830 --> 00:28:06,290
+I don't know why it has to do with uncooked beans.
+
+357
+00:28:07,220 --> 00:28:15,350
+But another thing that he told me is that, you know, opportunities come to those who are prepared.
+
+358
+00:28:15,350 --> 00:28:19,670
+I'm pretty sure it was another food analogy because I do really well with food analogies.
+
+359
+00:28:19,670 --> 00:28:21,590
+That's the way I understand the world.
+
+360
+00:28:22,940 --> 00:28:25,760
+But he says that, you know.
+
+361
+00:28:26,860 --> 00:28:34,210
+Every time you see somebody looking like as if they were just an overnight success, it's never overnight.
+
+362
+00:28:34,390 --> 00:28:44,170
+You don't see all the hours and days that they've poured into doing something fruitful or not successful
+
+363
+00:28:44,170 --> 00:28:50,710
+or not until they get to the point where they're prepared enough to be hit by that opportunity.
+
+364
+00:28:51,100 --> 00:28:56,830
+So a good example, I think is, for example, we built the flutter course because.
+
+365
+00:28:58,820 --> 00:29:06,200
+Tim, who heads up the Flutter team at Google, took my iOS course and he loved it so much that he reached
+
+366
+00:29:06,200 --> 00:29:13,430
+out to me over Twitter and this is how we partnered with the Flutter team at Google to build this course
+
+367
+00:29:13,430 --> 00:29:14,150
+together.
+
+368
+00:29:15,090 --> 00:29:22,320
+Now, if I had just started building courses day one and, you know, firstly nobody would know about
+
+369
+00:29:22,320 --> 00:29:22,620
+you.
+
+370
+00:29:22,650 --> 00:29:25,500
+Secondly, you know, there's no track record.
+
+371
+00:29:25,500 --> 00:29:32,520
+And thirdly, I'm not even sure I would be able to build such a good course from scratch.
+
+372
+00:29:32,820 --> 00:29:33,900
+So.
+
+373
+00:29:34,640 --> 00:29:41,780
+You know, the idea is to spend all of your time preparing, your start up, working on it, and then,
+
+374
+00:29:41,780 --> 00:29:46,010
+you know, there will be moments, there will be wins and there'll be losses and you have to grab onto
+
+375
+00:29:46,010 --> 00:29:48,800
+the wins and not think too much about the losses.
+
+376
+00:29:48,800 --> 00:29:52,070
+That's pretty much in a nutshell how I think about.
+
+377
+00:29:53,040 --> 00:29:54,060
+Our startup.
+
+378
+00:29:55,360 --> 00:29:55,750
+Okay.
+
+379
+00:29:55,750 --> 00:30:05,290
+So I'm going to go back to the chat and I'm going to ask you guys for some more questions and let's
+
+380
+00:30:05,290 --> 00:30:07,180
+see if we got some good ones.
+
+381
+00:30:08,930 --> 00:30:09,260
+All right.
+
+382
+00:30:09,260 --> 00:30:17,150
+So I think when I was looking at the questions that people had asked previously and also in YouTube
+
+383
+00:30:17,150 --> 00:30:20,810
+right now, the one that I'm seeing a lot is this one.
+
+384
+00:30:21,260 --> 00:30:29,120
+It seems like everybody wants to know when the iOS 14 update is coming for iOS, or is there going to
+
+385
+00:30:29,120 --> 00:30:30,290
+be a new course?
+
+386
+00:30:30,290 --> 00:30:31,730
+When is it going to happen?
+
+387
+00:30:31,760 --> 00:30:32,960
+What is happening on that?
+
+388
+00:30:32,960 --> 00:30:34,440
+Should I wait for the course?
+
+389
+00:30:34,460 --> 00:30:37,550
+Should I continue the iOS 13 course?
+
+390
+00:30:37,880 --> 00:30:39,050
+What's happening?
+
+391
+00:30:39,840 --> 00:30:45,230
+Okay, so here's what is happening.
+
+392
+00:30:46,790 --> 00:30:52,580
+We've reviewed Big Sur and also the latest version of Xcode.
+
+393
+00:30:52,610 --> 00:31:00,140
+We're in the process of testing the course through all of these new pieces of software, and what we
+
+394
+00:31:00,140 --> 00:31:03,620
+realized is that the changes are not that great.
+
+395
+00:31:03,950 --> 00:31:09,080
+So there's basically not enough changes to.
+
+396
+00:31:10,250 --> 00:31:16,220
+They tweaked the style of Xcode a little bit and they've added some handy features, which we might
+
+397
+00:31:16,220 --> 00:31:16,880
+point out.
+
+398
+00:31:17,030 --> 00:31:24,200
+But essentially over, you know, what we've been doing is we've, we've been just sort of trying to
+
+399
+00:31:24,200 --> 00:31:29,300
+figure out how we can update the last parts of the course because they're more outdated.
+
+400
+00:31:29,390 --> 00:31:34,340
+Whereas the beginning modules sort of up to flash chat, I think.
+
+401
+00:31:34,340 --> 00:31:40,190
+So the first 14 or 15 modules we're going to keep as is because they still work, but we'll update some
+
+402
+00:31:40,190 --> 00:31:41,180
+of the interfaces.
+
+403
+00:31:41,180 --> 00:31:49,250
+So at least initially it won't be so confusing, but that means that there will be no new iOS course.
+
+404
+00:31:49,250 --> 00:31:54,610
+You won't have to buy anything or the updates that we're making through this winter.
+
+405
+00:31:54,640 --> 00:31:59,060
+Next spring will get added to the existing iOS course.
+
+406
+00:31:59,060 --> 00:32:02,000
+So don't buy any more courses.
+
+407
+00:32:02,000 --> 00:32:07,250
+Just keep the one that you already have and you'll see the updates roll in.
+
+408
+00:32:07,250 --> 00:32:12,980
+But if you're already learning with the course, don't worry, the changes are not that big.
+
+409
+00:32:13,430 --> 00:32:16,100
+You'll be able to you'll be able to figure it out.
+
+410
+00:32:17,230 --> 00:32:20,470
+So that's that's what's happening on that.
+
+411
+00:32:20,830 --> 00:32:24,790
+And let's see what other questions we've got in YouTube.
+
+412
+00:32:28,040 --> 00:32:28,370
+All right.
+
+413
+00:32:28,370 --> 00:32:39,320
+So we've got a question from Atharva Vasco and also some people on YouTube, it seems.
+
+414
+00:32:41,810 --> 00:32:44,420
+Do you watch anime?
+
+415
+00:32:45,120 --> 00:32:45,380
+Okay.
+
+416
+00:32:45,420 --> 00:32:46,350
+So that's.
+
+417
+00:32:47,280 --> 00:32:48,300
+Kind of.
+
+418
+00:32:51,620 --> 00:32:52,280
+It's interesting.
+
+419
+00:32:52,280 --> 00:32:54,800
+That's that's a question that everybody wants to know.
+
+420
+00:32:54,800 --> 00:32:59,060
+I wonder if it's because of all the memes I've put into the courses from anime.
+
+421
+00:32:59,330 --> 00:33:01,670
+So I.
+
+422
+00:33:02,440 --> 00:33:04,660
+I don't think that.
+
+423
+00:33:07,190 --> 00:33:10,580
+So the anime that I like basically is quite old school.
+
+424
+00:33:10,580 --> 00:33:12,110
+You know, your girl's not young.
+
+425
+00:33:12,560 --> 00:33:21,970
+And so, for example, Ghibli movies Spirited Away, it's like one of my favorite all time movies.
+
+426
+00:33:21,980 --> 00:33:27,080
+It I love it so much, but pretty much any Djibouti movie, it's it's amazing.
+
+427
+00:33:27,080 --> 00:33:28,910
+It's just like paints the scene.
+
+428
+00:33:29,270 --> 00:33:36,920
+But more recently, I'm kind of late to the bandwagon here, but Netflix started showing this sort of
+
+429
+00:33:36,920 --> 00:33:42,140
+a Western anime called Avatar The Last Airbender.
+
+430
+00:33:43,310 --> 00:33:49,220
+So if you haven't watched this, don't be put off by the name.
+
+431
+00:33:49,220 --> 00:33:53,810
+It has a horrible name, but it is so good.
+
+432
+00:33:53,900 --> 00:34:01,280
+It it's like reliving childhood, you know, like, if you could just go back to being a little child,
+
+433
+00:34:01,280 --> 00:34:02,180
+that's how it feels.
+
+434
+00:34:02,180 --> 00:34:07,040
+It's so wholesome and oh, my God, it's just so good.
+
+435
+00:34:07,580 --> 00:34:09,830
+If you haven't watch it, I wouldn't ruin it for you.
+
+436
+00:34:09,830 --> 00:34:18,590
+But it is literally the best animated show I have ever watched, and it has a special place in my heart.
+
+437
+00:34:19,889 --> 00:34:22,250
+Okay, what other questions have we got?
+
+438
+00:34:25,940 --> 00:34:30,320
+We've got a question from a 13 year old boy.
+
+439
+00:34:30,620 --> 00:34:35,090
+I think I've had hoots about hoots about dudes.
+
+440
+00:34:35,929 --> 00:34:36,770
+I'm not sure.
+
+441
+00:34:37,730 --> 00:34:43,010
+And he asked, What careers can I have at age 13?
+
+442
+00:34:43,260 --> 00:34:48,739
+Okay, so the full question I will read out because it's a little bit long.
+
+443
+00:34:50,530 --> 00:34:54,909
+He says that I'm a 13 year old boy.
+
+444
+00:34:55,630 --> 00:34:57,820
+I'm doing your web development course.
+
+445
+00:34:57,850 --> 00:35:01,700
+I'm even doing a course based on how to create A.I. and ethical hacking.
+
+446
+00:35:01,720 --> 00:35:06,880
+What careers can I have at this age or job that doesn't consider my age?
+
+447
+00:35:06,910 --> 00:35:08,330
+Please take this question.
+
+448
+00:35:08,350 --> 00:35:09,220
+Love the way you teach.
+
+449
+00:35:09,250 --> 00:35:10,900
+Found it easy to understand Avatar.
+
+450
+00:35:11,710 --> 00:35:15,880
+Okay, so firstly, why are you thinking about work?
+
+451
+00:35:15,910 --> 00:35:17,200
+You're 13 men.
+
+452
+00:35:17,200 --> 00:35:19,250
+Like, just enjoy life.
+
+453
+00:35:19,270 --> 00:35:21,940
+It's so good to be that age.
+
+454
+00:35:23,140 --> 00:35:31,690
+But then again, I have to say, like when I was when I was 13, I was probably the same as you.
+
+455
+00:35:31,720 --> 00:35:36,460
+I was also thinking about, like, how to get a job.
+
+456
+00:35:36,460 --> 00:35:37,420
+I don't know what it is.
+
+457
+00:35:37,420 --> 00:35:41,800
+I think you're probably an overachiever, like a type a person like me as well.
+
+458
+00:35:42,550 --> 00:35:44,110
+So.
+
+459
+00:35:45,330 --> 00:35:53,400
+When I was 13, I was thinking that I'd really like to have some pocket money because my parents didn't
+
+460
+00:35:53,400 --> 00:35:58,620
+really believe in pocket money and there were like sweets and snacks that my friends were having and
+
+461
+00:35:58,620 --> 00:35:59,430
+I was kind of jealous.
+
+462
+00:35:59,430 --> 00:36:00,210
+So I was like, You know what?
+
+463
+00:36:00,210 --> 00:36:01,500
+I'm going to make my own money.
+
+464
+00:36:01,740 --> 00:36:07,680
+So I decided to take an inventory of What am I good at?
+
+465
+00:36:08,070 --> 00:36:10,800
+And I tried out a couple of things.
+
+466
+00:36:10,890 --> 00:36:13,880
+One is I got legs I can walk.
+
+467
+00:36:13,890 --> 00:36:17,870
+So I signed up for this thing in the UK.
+
+468
+00:36:17,880 --> 00:36:22,560
+I'm not even sure what it's called and elsewhere, but basically there's this giant book, like a telephone
+
+469
+00:36:22,560 --> 00:36:25,500
+directory that we used to have, like pre-internet days.
+
+470
+00:36:25,500 --> 00:36:30,990
+It's called like the Yellow Pages in the UK, and you can basically go door to door lugging these like
+
+471
+00:36:31,020 --> 00:36:35,970
+two kilogram books and you get paid a pound.
+
+472
+00:36:35,970 --> 00:36:41,400
+So like about $1.20 for every one of these books that you deliver.
+
+473
+00:36:41,970 --> 00:36:49,020
+So the thing is that there's so heavy that like, I don't know that they're like two kilos each.
+
+474
+00:36:49,020 --> 00:36:57,900
+So if you imagine in ten of them and I was 13, that was pretty hard and I got some pocket money, but
+
+475
+00:36:57,900 --> 00:36:59,910
+I thought about iterating on that.
+
+476
+00:36:59,910 --> 00:37:05,100
+So, you know, coming back to startups, you've got to try something, you test it out, see if it
+
+477
+00:37:05,100 --> 00:37:06,720
+works, if people like it.
+
+478
+00:37:07,260 --> 00:37:10,920
+So if it gets you to your goal and if not you iterate.
+
+479
+00:37:11,040 --> 00:37:18,450
+So my iteration basically ended up in me thinking about what else do I have?
+
+480
+00:37:18,450 --> 00:37:22,800
+And maybe like manual labor isn't really my strong point.
+
+481
+00:37:23,490 --> 00:37:29,820
+So I thought that, well, you know, I'm like pretty good at maths, I'm pretty good at physics and
+
+482
+00:37:30,870 --> 00:37:33,360
+there's probably other kids who want to learn maths and physics.
+
+483
+00:37:33,510 --> 00:37:39,060
+So I printed out these little flyers like from my little home printer.
+
+484
+00:37:39,060 --> 00:37:43,380
+So like they were like this big each per add because I didn't want to waste too much ink.
+
+485
+00:37:43,770 --> 00:37:49,560
+And I cut it out of the page and it's about like eight ads per page.
+
+486
+00:37:49,560 --> 00:37:55,740
+And I went door to door around sort of my neighbourhood area, like an area that I thought was like
+
+487
+00:37:55,740 --> 00:37:57,210
+within walking distance.
+
+488
+00:37:57,210 --> 00:38:04,260
+And I posted it to everybody in the mailbox and then like some people actually called me up and then
+
+489
+00:38:04,260 --> 00:38:10,410
+I became a tutor, although probably illegally, because I'm pretty sure you're not allowed to work
+
+490
+00:38:10,410 --> 00:38:15,150
+and earn money at age 13 unless you're like supervised or something.
+
+491
+00:38:15,600 --> 00:38:19,560
+But that was like my first entrepreneurial bent.
+
+492
+00:38:19,800 --> 00:38:23,790
+So coming back to your question, what careers can you have at age 13?
+
+493
+00:38:23,790 --> 00:38:29,850
+Well, now that you have the Internet effectively, you could do anything you could like probably sign
+
+494
+00:38:29,850 --> 00:38:34,380
+up on Fiverr and start doing freelance gigs.
+
+495
+00:38:35,400 --> 00:38:41,190
+I think when people sign up to these freelance gigs, they always want to like charge what it's worth.
+
+496
+00:38:41,190 --> 00:38:47,670
+And I would say, just don't do that, don't, don't like go overboard charge way, way below what you
+
+497
+00:38:47,670 --> 00:38:49,170
+think it should cost.
+
+498
+00:38:49,170 --> 00:38:55,380
+So you want to build somebody a website, charge $5 for it, you know, and what you want to do is like
+
+499
+00:38:55,380 --> 00:39:03,120
+build up your reputation so as you get more clients and if they like what you do, hopefully you're
+
+500
+00:39:03,120 --> 00:39:05,310
+doing a good job because you know, you're my student, right?
+
+501
+00:39:05,310 --> 00:39:06,960
+So you're going to be pretty good.
+
+502
+00:39:07,140 --> 00:39:13,230
+And when you give the project back to them, you're learning like skills, like communication, how
+
+503
+00:39:13,230 --> 00:39:18,150
+to work with clients, what clients mean when they're saying like, Oh, I would like that to look more
+
+504
+00:39:18,150 --> 00:39:18,870
+classy.
+
+505
+00:39:18,870 --> 00:39:20,910
+What does that actually mean to a web developer?
+
+506
+00:39:20,910 --> 00:39:22,320
+Well, you're going to work that out.
+
+507
+00:39:22,680 --> 00:39:27,330
+So once you've got a good client, then you've got a word of mouth.
+
+508
+00:39:27,330 --> 00:39:28,710
+You've also got reviews.
+
+509
+00:39:28,710 --> 00:39:33,690
+You've got a client who can be your referee and you build up on that.
+
+510
+00:39:33,690 --> 00:39:37,650
+So you take on more clients, maybe you've got too much work.
+
+511
+00:39:37,650 --> 00:39:42,990
+So now you raise your you raise your price now $10, and then you've got like too much work again.
+
+512
+00:39:42,990 --> 00:39:44,670
+You raise your price to $20.
+
+513
+00:39:44,670 --> 00:39:50,130
+And that way eventually you'll get to the point where you're making enough pocket money to buy sweets
+
+514
+00:39:50,130 --> 00:39:53,940
+or whatever it is you know, you want to achieve.
+
+515
+00:39:53,940 --> 00:39:59,250
+Maybe you want to like buy stocks at age 13, maybe you're going to buy into Tesla.
+
+516
+00:39:59,250 --> 00:39:59,970
+I don't know.
+
+517
+00:40:00,270 --> 00:40:03,420
+But yeah, so that's that's my advice.
+
+518
+00:40:05,490 --> 00:40:11,310
+Let's see if we got some more questions on YouTube.
+
+519
+00:40:11,790 --> 00:40:13,440
+So.
+
+520
+00:40:14,560 --> 00:40:18,490
+Let's see what you guys are saying in here.
+
+521
+00:40:25,480 --> 00:40:26,860
+Oh, this is a really good one.
+
+522
+00:40:27,550 --> 00:40:32,560
+So this is a question from Dionysius.
+
+523
+00:40:32,590 --> 00:40:33,760
+Dionysius.
+
+524
+00:40:34,030 --> 00:40:35,410
+I think that's how you pronounce it.
+
+525
+00:40:36,310 --> 00:40:41,500
+And he asked, Understanding syntax is not so difficult.
+
+526
+00:40:41,500 --> 00:40:46,180
+Formulating syntax together with logic to build functional code is difficult.
+
+527
+00:40:46,300 --> 00:40:50,750
+What are the best strategies to connect the dots to build real world projects?
+
+528
+00:40:50,770 --> 00:40:56,410
+This is something that you guys upvoted a lot and it's something that we think is really important because
+
+529
+00:40:56,410 --> 00:41:01,630
+one of the sort of feedback that we always getting from students is, Yeah, okay, so like, you know,
+
+530
+00:41:01,690 --> 00:41:09,700
+I've completed this tutorial, I've completed that tutorial, but you know, after I'm done, I still
+
+531
+00:41:09,700 --> 00:41:11,580
+don't know how to make my project.
+
+532
+00:41:11,590 --> 00:41:15,880
+I still don't know like how to, how to build something, right?
+
+533
+00:41:16,570 --> 00:41:23,770
+So this was really like our thinking when we started building the 100 Days of Code Project.
+
+534
+00:41:24,040 --> 00:41:33,850
+I wanted to make a course basically, which starts out with tutorials and a lot of heavy sort of guidance.
+
+535
+00:41:34,000 --> 00:41:44,650
+But then to progress on to be able to let you experience what it's like when the training wheels are
+
+536
+00:41:44,650 --> 00:41:45,250
+off.
+
+537
+00:41:45,430 --> 00:41:52,210
+So when I first learned how to ride a bicycle, I was riding it and I didn't really have one of those
+
+538
+00:41:52,210 --> 00:41:54,160
+fancy bicycles with the training wheels.
+
+539
+00:41:54,160 --> 00:41:58,240
+I just had my dad, like, holding the bicycle from behind.
+
+540
+00:41:58,720 --> 00:42:02,590
+And, you know, initially I was just riding.
+
+541
+00:42:02,590 --> 00:42:03,820
+He was running behind.
+
+542
+00:42:03,820 --> 00:42:06,280
+And at some point he kind of let go.
+
+543
+00:42:06,280 --> 00:42:10,060
+And I didn't really notice and I could just start cycling myself.
+
+544
+00:42:10,060 --> 00:42:13,960
+But then when I turned around and I saw that there was nobody there, I immediately crashed.
+
+545
+00:42:13,960 --> 00:42:14,470
+Right.
+
+546
+00:42:14,770 --> 00:42:19,690
+So, yeah, I guess my, my track record with bicycles is not great.
+
+547
+00:42:19,870 --> 00:42:26,740
+But so I guess the learning point there is that, you know.
+
+548
+00:42:27,430 --> 00:42:36,370
+You can't always be in territorial land if you want to become somebody who's not dependent on tutorials.
+
+549
+00:42:36,940 --> 00:42:44,830
+So a lot of people have been asking me, hey, you know, this course hundred days of code, why is
+
+550
+00:42:44,830 --> 00:42:48,040
+it that there's like less and less video towards the end?
+
+551
+00:42:48,730 --> 00:42:50,290
+Is it because you haven't finished it?
+
+552
+00:42:50,320 --> 00:42:51,190
+What's happening?
+
+553
+00:42:51,400 --> 00:42:54,820
+So the answer to that is, no, it's not because I haven't finished it.
+
+554
+00:42:54,820 --> 00:42:59,050
+It's because it's really carefully thought out, believe it or not.
+
+555
+00:42:59,050 --> 00:43:01,990
+And the idea is to.
+
+556
+00:43:03,040 --> 00:43:12,640
+Be that person holding the bicycle from behind and then to eventually let you go, because I want you
+
+557
+00:43:12,640 --> 00:43:20,020
+to be able to finish that course and to get a job or to build your own start up, build your own project.
+
+558
+00:43:20,110 --> 00:43:22,810
+But that requires quite a bit of struggle.
+
+559
+00:43:23,320 --> 00:43:26,440
+And the struggle comes from building projects.
+
+560
+00:43:26,440 --> 00:43:27,040
+Right.
+
+561
+00:43:27,190 --> 00:43:31,900
+But, you know, when I say to people, the best way to learn to code after you finish your tutorial
+
+562
+00:43:31,900 --> 00:43:33,730
+is to build a project.
+
+563
+00:43:33,730 --> 00:43:37,360
+Will they say, I don't know, which project do I build and how do I build it?
+
+564
+00:43:37,360 --> 00:43:38,620
+I don't know how to get there.
+
+565
+00:43:39,250 --> 00:43:47,050
+So that's why we built this course, to try and make it so that initially you have sort of more step
+
+566
+00:43:47,050 --> 00:43:55,270
+by step, like video lessons, and then you have step by step text lessons with more dependence on the
+
+567
+00:43:55,270 --> 00:44:01,930
+documentation and on the kind of real tools that a developer would use like Google and StackOverflow.
+
+568
+00:44:02,050 --> 00:44:03,070
+You need to struggle.
+
+569
+00:44:03,070 --> 00:44:05,980
+You need to find out the answers for yourself.
+
+570
+00:44:06,220 --> 00:44:09,040
+But, you know, there's walkthroughs and there's guidance.
+
+571
+00:44:09,040 --> 00:44:14,830
+And then eventually to get you to the very end where you're actually building your own projects for
+
+572
+00:44:14,830 --> 00:44:20,830
+your own portfolio, which contains 100% your own code, which you can copy, right?
+
+573
+00:44:20,830 --> 00:44:23,620
+You can sell, you can do whatever you want because it's your own.
+
+574
+00:44:23,770 --> 00:44:29,920
+And what we've done is just provided the project ideas for you, something that we think is really feasible
+
+575
+00:44:29,920 --> 00:44:34,810
+that you can definitely do if you've completed the entire first 80 days.
+
+576
+00:44:34,900 --> 00:44:37,360
+So that was what we tried to do.
+
+577
+00:44:37,360 --> 00:44:46,360
+And, you know, I think the best way to build real world projects is to start small.
+
+578
+00:44:46,720 --> 00:44:51,970
+So don't start off trying to build a car, build a skateboard instead.
+
+579
+00:44:52,030 --> 00:44:58,060
+And then once you've built the skateboard, maybe add a handle to it, turn it into a scooter, and
+
+580
+00:44:58,060 --> 00:45:01,720
+then maybe once you've done that, turn it into a motorcycle and then turn it into a car.
+
+581
+00:45:01,750 --> 00:45:07,990
+Don't just go out there and be like, I want to build Facebook plus Twitter plus, you know, whatever
+
+582
+00:45:07,990 --> 00:45:12,010
+enterprise software and I'm going to do it like after I complete this course.
+
+583
+00:45:12,010 --> 00:45:14,320
+Like, that's just you're setting yourself up to fail.
+
+584
+00:45:14,410 --> 00:45:16,810
+You have to start with something simple.
+
+585
+00:45:17,950 --> 00:45:20,200
+All right, so what kind of running?
+
+586
+00:45:20,200 --> 00:45:20,920
+A bit over?
+
+587
+00:45:20,920 --> 00:45:27,430
+I said we'd do 45 minutes, but we're kind of close to an hour now, so I'm just going to glance at
+
+588
+00:45:27,430 --> 00:45:32,740
+the YouTube chat and try to see what you guys are saying, like live.
+
+589
+00:45:34,120 --> 00:45:36,910
+Let's do some quick questions, swift UI or UI kit.
+
+590
+00:45:38,040 --> 00:45:40,060
+So if UI is getting a lot better.
+
+591
+00:45:40,060 --> 00:45:47,920
+But you know, when we did the Swift the Objective-C to Swift conversion, it took like years.
+
+592
+00:45:47,920 --> 00:45:50,200
+Still like loads of apps are built with Objective-C.
+
+593
+00:45:50,200 --> 00:45:55,330
+So Swift UI is not something that you can learn and get hired for right now.
+
+594
+00:45:55,360 --> 00:45:59,350
+It's really fun and I really enjoy playing with it, but.
+
+595
+00:46:00,190 --> 00:46:05,860
+I don't really think it's serious enough, like for my needs at the moment.
+
+596
+00:46:05,860 --> 00:46:10,000
+So we're probably going to build in more tutorials to the existing course.
+
+597
+00:46:10,000 --> 00:46:12,910
+So if you miss that, you don't have to buy a new course.
+
+598
+00:46:12,910 --> 00:46:20,920
+Your existing iOS 13 course will get updated, but it's going to be probably more swift UI, a little
+
+599
+00:46:20,920 --> 00:46:28,240
+bit less uikit and then we're going to keep tweaking that percentage until, you know, until like when
+
+600
+00:46:28,240 --> 00:46:29,740
+Apple fully transitions.
+
+601
+00:46:29,740 --> 00:46:35,050
+But I want to do it slowly because right now the kind of skills that's really important that's going
+
+602
+00:46:35,050 --> 00:46:36,670
+to get you hired is uikit.
+
+603
+00:46:38,960 --> 00:46:43,610
+Can you make your iOS course like 100 days challenge code?
+
+604
+00:46:46,280 --> 00:46:50,390
+I think we thought about making the 100 days of code challenge.
+
+605
+00:46:50,390 --> 00:46:53,480
+We thought about like, what's the perfect language for it?
+
+606
+00:46:53,630 --> 00:46:58,730
+Because Python is something that you can do, like a lot of different things with like web development
+
+607
+00:46:58,730 --> 00:47:03,290
+or data science or scripting or automation.
+
+608
+00:47:03,590 --> 00:47:12,320
+Swift is pretty much all about making apps, and it just doesn't really work that well with it.
+
+609
+00:47:13,520 --> 00:47:19,250
+I think it works better when you can actually build real projects, like big projects that you can show
+
+610
+00:47:19,250 --> 00:47:20,640
+off and you can use.
+
+611
+00:47:20,660 --> 00:47:23,090
+I think it's just a better format.
+
+612
+00:47:23,090 --> 00:47:26,840
+Like none of the things that we do is random.
+
+613
+00:47:26,840 --> 00:47:29,540
+Like I spend a lot of time thinking about it.
+
+614
+00:47:31,770 --> 00:47:32,240
+Okay.
+
+615
+00:47:32,280 --> 00:47:34,410
+What kind of games do you prefer?
+
+616
+00:47:34,440 --> 00:47:36,930
+Computer slash android.
+
+617
+00:47:38,490 --> 00:47:39,150
+Oh, man.
+
+618
+00:47:39,420 --> 00:47:44,430
+I recently got into this steam game called Salt and Sanctuary.
+
+619
+00:47:44,940 --> 00:47:48,600
+It's a two player couch co-op, and it's just so good.
+
+620
+00:47:48,600 --> 00:47:56,250
+It's like it's got, like, the RPG elements, it's got platforming, it's got some combat, and it's
+
+621
+00:47:56,250 --> 00:47:58,290
+got, like, just a lot of elements.
+
+622
+00:47:58,290 --> 00:47:59,610
+It's like, really well-rounded.
+
+623
+00:47:59,610 --> 00:48:04,920
+And I discovered that it was actually made by like, one guy, essentially, he built the entire video
+
+624
+00:48:04,920 --> 00:48:06,390
+game, which is crazy.
+
+625
+00:48:06,390 --> 00:48:07,350
+It's a really good one.
+
+626
+00:48:07,680 --> 00:48:09,990
+And on Android, on phone.
+
+627
+00:48:11,130 --> 00:48:15,630
+Yeah, among us, it's a bit of a guilty pleasure if you haven't played it.
+
+628
+00:48:16,260 --> 00:48:17,430
+Don't don't start.
+
+629
+00:48:19,660 --> 00:48:23,640
+Okay, so what else are we seeing in the chat?
+
+630
+00:48:23,670 --> 00:48:26,100
+Will you intend to build a Java course?
+
+631
+00:48:26,700 --> 00:48:27,960
+Probably not.
+
+632
+00:48:29,100 --> 00:48:32,460
+I don't really like Java that much.
+
+633
+00:48:33,330 --> 00:48:37,830
+I feel like Oracle is going to like send me a lawsuit just for saying the word Java.
+
+634
+00:48:38,280 --> 00:48:44,700
+So the funny story is that we obviously have like an Android course and Android courses built with Java.
+
+635
+00:48:44,700 --> 00:48:48,540
+So we thought it'd be a good idea to put the Java logo on the course image.
+
+636
+00:48:48,750 --> 00:48:55,350
+And then we got this like really serious letter from Oracle saying, Yeah, you're going to take off
+
+637
+00:48:55,350 --> 00:48:58,350
+our logo because you don't own the logo for Java.
+
+638
+00:48:58,470 --> 00:49:03,000
+And we were like, Hey, man, we're trying to teach your technology to people.
+
+639
+00:49:03,000 --> 00:49:07,210
+Like, we're trying to teach more people Java, which you own, but they were like, Nope.
+
+640
+00:49:07,230 --> 00:49:12,630
+So yeah, I think they're bit they're a bit old on that front.
+
+641
+00:49:13,680 --> 00:49:16,860
+Let's see, what other messages have you guys got?
+
+642
+00:49:20,070 --> 00:49:23,700
+I'm completing 100 days of code course with my grandfather.
+
+643
+00:49:23,730 --> 00:49:24,720
+Wow.
+
+644
+00:49:24,750 --> 00:49:26,170
+That's amazing.
+
+645
+00:49:26,190 --> 00:49:31,590
+I've heard of people completing it with, like, their kids, like the ten year old or 11 year old kids.
+
+646
+00:49:31,830 --> 00:49:33,450
+But that's pretty awesome.
+
+647
+00:49:33,750 --> 00:49:35,690
+You know, this is another good point.
+
+648
+00:49:35,700 --> 00:49:43,410
+My friend was recently telling me the story that they so he works at a bank and he was saying how they
+
+649
+00:49:43,410 --> 00:49:52,110
+have this guy who is like the godfather of like their platform's code and nobody else can like fix it
+
+650
+00:49:52,110 --> 00:49:53,190
+other than him.
+
+651
+00:49:53,730 --> 00:49:57,240
+And I was like really curious, you know?
+
+652
+00:49:57,240 --> 00:50:05,400
+And so one day the like, grandmaster of the finance company's code comes in and he's got like a walking
+
+653
+00:50:05,400 --> 00:50:05,670
+stick.
+
+654
+00:50:05,670 --> 00:50:09,780
+He's like 69 or something, and he's like really old.
+
+655
+00:50:09,780 --> 00:50:11,250
+He's got like white heads.
+
+656
+00:50:11,370 --> 00:50:20,850
+And it turns out that their entire system is built on pretty much like, you know, like really, really
+
+657
+00:50:20,850 --> 00:50:22,170
+old tech, right?
+
+658
+00:50:22,170 --> 00:50:29,250
+And this is like the only guy who really understands how to do it, these kind of old programming languages
+
+659
+00:50:29,250 --> 00:50:35,250
+like COBOL or Fortran, you know, because there's not actually a lot of people who know it and it's
+
+660
+00:50:35,250 --> 00:50:36,210
+super hard.
+
+661
+00:50:36,210 --> 00:50:38,130
+Like if you tried learning.
+
+662
+00:50:38,130 --> 00:50:42,620
+C And you think that's hard like try learning Fortran, it's it's even harder.
+
+663
+00:50:42,630 --> 00:50:49,590
+I guess there's also a machine code, but you know, there's also a point to be made that maybe somebody
+
+664
+00:50:49,590 --> 00:50:54,900
+should teach like these old languages because there's obviously some future in it as well.
+
+665
+00:50:54,990 --> 00:51:00,330
+Like all of the airline industry banking, they're all built on COBOL, which is crazy.
+
+666
+00:51:01,800 --> 00:51:05,250
+What are the best books that you've read this year?
+
+667
+00:51:07,180 --> 00:51:08,200
+The best books.
+
+668
+00:51:08,320 --> 00:51:17,430
+Oh, there's a really good book on negotiation by Chris Voss, and he's like this ex FBI negotiator,
+
+669
+00:51:17,440 --> 00:51:21,070
+so like negotiating hostage releases and everything.
+
+670
+00:51:21,490 --> 00:51:25,960
+And he wrote this book called Oh, man, what's it called?
+
+671
+00:51:25,990 --> 00:51:27,040
+Something about like.
+
+672
+00:51:29,390 --> 00:51:30,770
+Never split the difference.
+
+673
+00:51:30,770 --> 00:51:31,400
+That's it.
+
+674
+00:51:32,240 --> 00:51:37,790
+So he basically just teaches you like how to negotiate, like if you want to buy a used car, how to
+
+675
+00:51:37,790 --> 00:51:38,860
+get the best deal.
+
+676
+00:51:38,870 --> 00:51:44,960
+But using all of these skills that he got from like the FBI, which is absolutely insane.
+
+677
+00:51:45,080 --> 00:51:46,340
+It was a really good book.
+
+678
+00:51:48,080 --> 00:51:49,670
+Okay, so what else have we got?
+
+679
+00:51:50,980 --> 00:51:55,120
+Java, C++, or Python, which is the most powerful.
+
+680
+00:51:55,120 --> 00:51:55,780
+I mean, what?
+
+681
+00:51:55,960 --> 00:51:57,250
+What are you trying to like?
+
+682
+00:51:57,730 --> 00:51:59,170
+You like street fighters.
+
+683
+00:52:00,160 --> 00:52:03,540
+You know how on YouTube there's all these, like, videos of, like, bear?
+
+684
+00:52:03,580 --> 00:52:04,690
+This is Cobra.
+
+685
+00:52:06,280 --> 00:52:11,680
+I think somebody should make a YouTube video where it's like Java programmer versus Python program.
+
+686
+00:52:12,910 --> 00:52:13,480
+I don't know.
+
+687
+00:52:13,480 --> 00:52:15,480
+I don't think any of them are more powerful.
+
+688
+00:52:15,490 --> 00:52:17,220
+I think they have their own uses.
+
+689
+00:52:17,230 --> 00:52:22,030
+It's like kind of saying, you know, hammer versus sor who's going to win.
+
+690
+00:52:22,460 --> 00:52:25,030
+Doesn't really make too much sense.
+
+691
+00:52:27,140 --> 00:52:28,190
+What have we got?
+
+692
+00:52:31,330 --> 00:52:35,950
+Web development or software development, which one do you prefer?
+
+693
+00:52:35,980 --> 00:52:37,360
+Ooh, that's a really hard one.
+
+694
+00:52:38,300 --> 00:52:41,120
+I like.
+
+695
+00:52:41,120 --> 00:52:42,770
+I like both, actually.
+
+696
+00:52:43,190 --> 00:52:43,580
+I don't know.
+
+697
+00:52:43,580 --> 00:52:46,010
+I don't have a strong feeling towards it.
+
+698
+00:52:46,220 --> 00:52:46,980
+I mean, okay.
+
+699
+00:52:47,000 --> 00:52:50,030
+So he's a bit of a a secret.
+
+700
+00:52:50,030 --> 00:52:53,090
+I don't really like JavaScript that much.
+
+701
+00:52:53,750 --> 00:53:00,410
+I think if you're somebody who's played with a lot of the newer languages that have been like developed
+
+702
+00:53:00,440 --> 00:53:05,420
+recently rather than a language that's all that's just had new things bolted on, like JavaScript.
+
+703
+00:53:05,810 --> 00:53:07,340
+You realize like how nice it is.
+
+704
+00:53:07,340 --> 00:53:10,250
+Like Swift is lovely, Kotlin is nice.
+
+705
+00:53:10,250 --> 00:53:19,310
+Dart like they're all really nice languages, python but JavaScript but web development you can do with
+
+706
+00:53:19,310 --> 00:53:20,660
+Python with JavaScript.
+
+707
+00:53:20,690 --> 00:53:23,690
+That's really your choice these days with so many frameworks.
+
+708
+00:53:26,060 --> 00:53:27,140
+What else have we got?
+
+709
+00:53:28,460 --> 00:53:32,960
+Can you say something about UI UX designing?
+
+710
+00:53:34,010 --> 00:53:35,710
+UI UX designing.
+
+711
+00:53:36,650 --> 00:53:38,620
+It's really important.
+
+712
+00:53:39,620 --> 00:53:41,140
+Oh, this is a good tip.
+
+713
+00:53:41,150 --> 00:53:44,780
+Don't think about you on UX at the end.
+
+714
+00:53:46,520 --> 00:53:49,640
+A friend of mine is a UX designer and she's really, really good.
+
+715
+00:53:49,640 --> 00:53:53,680
+But like she says, always what happens is like, companies will bring her in at the very end.
+
+716
+00:53:53,690 --> 00:53:57,020
+They're like, Oh, to sprinkle you like UX magic dust.
+
+717
+00:53:57,020 --> 00:53:58,210
+And it's like, No, that doesn't work.
+
+718
+00:53:58,220 --> 00:54:00,440
+You have to start from the very beginning.
+
+719
+00:54:00,590 --> 00:54:03,230
+So super important.
+
+720
+00:54:04,430 --> 00:54:06,590
+Like read more about it.
+
+721
+00:54:06,710 --> 00:54:08,640
+Try out loads of apps.
+
+722
+00:54:08,660 --> 00:54:13,190
+I know that these days people kind of like just have seven apps on their phone and they don't really
+
+723
+00:54:13,190 --> 00:54:14,450
+add any other ones.
+
+724
+00:54:14,690 --> 00:54:21,650
+But try out apps, try out that user experience, and then just make a note of the ones that you really
+
+725
+00:54:21,650 --> 00:54:22,220
+like.
+
+726
+00:54:22,520 --> 00:54:30,290
+Like recently in the UK, there's a bank startup called Monzo, and when you get their bank card in
+
+727
+00:54:30,290 --> 00:54:33,170
+the mail, when you're setting it up.
+
+728
+00:54:33,260 --> 00:54:38,390
+So when you're doing that with like a normal bank, like HSBC or whatever, you have to like call up
+
+729
+00:54:38,390 --> 00:54:40,040
+the customer service.
+
+730
+00:54:40,040 --> 00:54:44,270
+You have to go into the branch, they type some stuff, you fill in some forms.
+
+731
+00:54:44,480 --> 00:54:46,130
+This Monzo card came in.
+
+732
+00:54:46,580 --> 00:54:52,850
+I had to download the Monzo app and then it was literally like using NFC touch to a phone, and then
+
+733
+00:54:52,850 --> 00:54:54,260
+it was like, it's all set up.
+
+734
+00:54:55,140 --> 00:54:56,210
+That was amazing.
+
+735
+00:54:56,220 --> 00:54:58,110
+That is good UX.
+
+736
+00:54:58,110 --> 00:54:59,820
+That is some fantastic us.
+
+737
+00:55:02,550 --> 00:55:09,960
+Last question I'm going to take I'm going to pick the last question before we take off.
+
+738
+00:55:09,960 --> 00:55:11,280
+Let's see,
+
+739
+00:55:14,460 --> 00:55:17,720
+what's the last question?
+
+740
+00:55:17,730 --> 00:55:19,110
+Oh, so hard.
+
+741
+00:55:22,180 --> 00:55:23,140
+La la, la.
+
+742
+00:55:27,170 --> 00:55:27,580
+Okay.
+
+743
+00:55:27,620 --> 00:55:33,420
+I'm going to pick you because I see you in the Q&A doing 100 days of Python all the time.
+
+744
+00:55:33,440 --> 00:55:37,820
+Matea, you're like really, really strong on the motivation.
+
+745
+00:55:37,820 --> 00:55:42,530
+So your question is, how do you make prices for software?
+
+746
+00:55:42,560 --> 00:55:44,210
+Like how do you price software?
+
+747
+00:55:44,210 --> 00:55:45,770
+I think is what you mean.
+
+748
+00:55:48,020 --> 00:55:53,450
+I mean, theoretically, what people say is price your software at the price that people are willing
+
+749
+00:55:53,450 --> 00:55:54,380
+to pay for it.
+
+750
+00:55:54,800 --> 00:56:03,530
+But I mean, I'm not really the right person to ask because I don't really like doing marketing or really
+
+751
+00:56:03,530 --> 00:56:04,670
+like doing sales.
+
+752
+00:56:04,670 --> 00:56:08,150
+I just don't like when I make my courses.
+
+753
+00:56:08,150 --> 00:56:12,290
+I kind of think if it's something that people want, then they'll get it.
+
+754
+00:56:12,290 --> 00:56:16,280
+Like, I don't want to like.
+
+755
+00:56:16,980 --> 00:56:21,200
+I don't want to, like, tell people to buy something that they don't need or they don't want.
+
+756
+00:56:21,210 --> 00:56:28,800
+You know, like I think the marketing team wanted me to do this AMA so that we could promote the new
+
+757
+00:56:28,800 --> 00:56:30,210
+100 days of Python course.
+
+758
+00:56:30,210 --> 00:56:34,140
+But they're going to hate me because I haven't done any of that, and I'm not planning to.
+
+759
+00:56:34,560 --> 00:56:36,450
+Yeah, I mean, check it out.
+
+760
+00:56:36,450 --> 00:56:37,920
+It's in the description below.
+
+761
+00:56:38,610 --> 00:56:44,820
+If you want to get the 100 days of Python course, you can get it for whatever price is there.
+
+762
+00:56:45,150 --> 00:56:45,840
+But.
+
+763
+00:56:47,340 --> 00:56:53,520
+You know, I think you should price your product depending on its appeal.
+
+764
+00:56:53,520 --> 00:57:00,030
+So if it's something that has mass appeal, then, you know, you can afford to make it a bit cheaper
+
+765
+00:57:00,030 --> 00:57:04,340
+if it's something that has only very few people interested in it.
+
+766
+00:57:04,350 --> 00:57:11,070
+Like, for example, if tomorrow I wanted to build a software for people who are livestreaming on YouTube
+
+767
+00:57:11,070 --> 00:57:15,510
+so that they can play music as a DJ.
+
+768
+00:57:15,540 --> 00:57:17,520
+Like I don't know how many people are interested in it.
+
+769
+00:57:17,520 --> 00:57:18,390
+Maybe a lot actually.
+
+770
+00:57:18,390 --> 00:57:19,020
+I don't know.
+
+771
+00:57:19,230 --> 00:57:23,880
+But if it's something that's really niche, then you've got to price it more because you know, considering
+
+772
+00:57:23,880 --> 00:57:25,920
+the amount of time that it takes to develop.
+
+773
+00:57:26,430 --> 00:57:37,080
+But I mean, a good example is that our team thought really hard about how we price our courses.
+
+774
+00:57:37,080 --> 00:57:42,870
+And one of the things that we thought about is that.
+
+775
+00:57:43,620 --> 00:57:51,120
+You know, if we can afford to make it cheaper than we will, because, yes, people will buy it for
+
+776
+00:57:51,120 --> 00:57:52,080
+$200.
+
+777
+00:57:52,080 --> 00:57:57,270
+And yes, you know, six people worked on this project for almost two years.
+
+778
+00:57:57,270 --> 00:58:02,870
+And they, you know, they should bring out a product that's worth a lot.
+
+779
+00:58:02,880 --> 00:58:11,280
+But at the same time, you know, like a lot of people around the world have very different living conditions.
+
+780
+00:58:11,280 --> 00:58:15,600
+I know that I lived in Malawi for a while in Africa.
+
+781
+00:58:15,600 --> 00:58:22,290
+And, you know, I know like in villages and, you know, people don't have a lot.
+
+782
+00:58:22,560 --> 00:58:27,750
+So what you might think is a lot is what you might think is a little is actually a lot to some other
+
+783
+00:58:27,750 --> 00:58:28,050
+people.
+
+784
+00:58:28,050 --> 00:58:33,660
+So we really wanted to be able to make choices that anybody can afford.
+
+785
+00:58:34,800 --> 00:58:39,390
+So I would just say, you know, really depends depends on you.
+
+786
+00:58:40,620 --> 00:58:48,270
+So I think this is going to be the last question, unless there's something fun in here.
+
+787
+00:58:48,300 --> 00:58:51,210
+Can I work at Upper Income Day?
+
+788
+00:58:52,440 --> 00:58:56,880
+Well, I mean, there's COVID, but there's also like remote positions.
+
+789
+00:58:57,480 --> 00:59:00,510
+We're thinking of maybe hiring some interns at some point.
+
+790
+00:59:02,040 --> 00:59:04,510
+But I don't really know how it'll work.
+
+791
+00:59:04,530 --> 00:59:07,310
+Maybe we'll announce it as, like, an educational announcement.
+
+792
+00:59:07,320 --> 00:59:09,990
+I don't know, but we'll think about that.
+
+793
+00:59:10,410 --> 00:59:10,770
+All right.
+
+794
+00:59:10,770 --> 00:59:17,040
+So it's now way, way past time and my tummies kind of rumbling.
+
+795
+00:59:17,490 --> 00:59:18,510
+You know how it is.
+
+796
+00:59:19,650 --> 00:59:25,890
+The girl is hungry, so I'm going to probably sign off and.
+
+797
+00:59:26,730 --> 00:59:28,660
+So thanks, you guys.
+
+798
+00:59:28,680 --> 00:59:33,810
+All 1000 of you guys or more who joined in for the live stream today.
+
+799
+00:59:33,810 --> 00:59:45,330
+And I hope you will carry on coding and I hope you all the success in the world from your instructor,
+
+800
+00:59:45,330 --> 00:59:46,320
+Angela.
+
+801
+00:59:46,620 --> 00:59:47,220
+Good night.
+
+802
+00:59:47,250 --> 00:59:48,120
+Good morning.
+
+803
+00:59:48,120 --> 00:59:49,350
+Wherever you are.
+
+804
+00:59:50,410 --> 00:59:51,220
+By.
+

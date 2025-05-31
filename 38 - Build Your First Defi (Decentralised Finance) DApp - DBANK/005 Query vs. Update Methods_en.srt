@@ -1,0 +1,425 @@
+1
+00:00:00,120 --> 00:00:05,040
+Now, one of the things that you might have noticed is every single time we call one of these functions
+
+2
+00:00:05,040 --> 00:00:12,420
+topUp or withdrawl, it seems to take an absolute age for it actually to be implemented.
+
+3
+00:00:13,080 --> 00:00:15,930
+All I want to do is subtract 1o from 100.
+
+4
+00:00:15,960 --> 00:00:19,500
+Why did it take a good 3 seconds for this to happen?
+
+5
+00:00:20,220 --> 00:00:27,930
+And the reason for this is because these methods, topUp and withdrawal, in ICP lingo, is known as an
+
+6
+00:00:27,930 --> 00:00:35,550
+update method, because what it's doing is it's updating the state of some sort of variable within our
+
+7
+00:00:35,550 --> 00:00:36,270
+canister.
+
+8
+00:00:36,690 --> 00:00:41,280
+So in this case, it's updating what's held inside this currentValue.
+
+9
+00:00:41,910 --> 00:00:48,030
+And that means we're going to have to write to the blockchain, which means it's a more computationally
+
+10
+00:00:48,030 --> 00:00:50,370
+expensive operation,
+
+11
+00:00:50,790 --> 00:00:54,900
+so that's why it takes a bit longer for it to actually happen.
+
+12
+00:00:55,560 --> 00:01:03,900
+Now, very often when we're writing code, say we're building a game or something that requires sort
+
+13
+00:01:03,900 --> 00:01:05,280
+of a live update,
+
+14
+00:01:05,700 --> 00:01:09,630
+we don't really have the time to wait for that.
+
+15
+00:01:10,230 --> 00:01:13,830
+But in those cases, usually we're not trying to update any sort of state.
+
+16
+00:01:13,830 --> 00:01:18,450
+We're just trying to get its value to read the value of a variable.
+
+17
+00:01:18,630 --> 00:01:26,010
+So in these ICP canisters, they differentiate between what's called query and update methods.
+
+18
+00:01:26,520 --> 00:01:34,350
+So query calls basically allow the user to query the current state or some piece of state within the
+
+19
+00:01:34,350 --> 00:01:36,450
+canister without changing it.
+
+20
+00:01:36,480 --> 00:01:40,920
+So as long as you're not trying to change a variable or update the state of something, then you can
+
+21
+00:01:40,920 --> 00:01:43,320
+use these ultra fast query calls.
+
+22
+00:01:43,950 --> 00:01:52,950
+And if you wanted to, however, actually update the state, then this is going to happen much slower
+
+23
+00:01:53,280 --> 00:01:56,100
+and then you actually use what's called an update call.
+
+24
+00:01:56,580 --> 00:01:58,940
+So how do we create a query call?
+
+25
+00:01:58,950 --> 00:02:05,100
+How do we make sure that we actually tap into this ultra-fast read-only methods?
+
+26
+00:02:05,580 --> 00:02:07,950
+Well, again, we have our public func.
+
+27
+00:02:08,490 --> 00:02:16,350
+But in addition, we add another keyword which is called query and that goes before the func keyword.
+
+28
+00:02:16,770 --> 00:02:23,130
+Then we get to name our function, which I'm just going to call checkBalance, because that's what
+
+29
+00:02:23,130 --> 00:02:24,090
+we want to do.
+
+30
+00:02:24,120 --> 00:02:30,600
+We want to be able to check what's currently held inside this variable, currentValue.
+
+31
+00:02:31,410 --> 00:02:38,130
+And you'll notice that I'm getting an error here because I haven't actually capped off my previous function.
+
+32
+00:02:38,670 --> 00:02:46,650
+So unlike JavaScript, in Motoko, there has to be a semicolon between all of the function declarations.
+
+33
+00:02:47,040 --> 00:02:49,050
+So there's one here between these two,
+
+34
+00:02:49,050 --> 00:02:53,190
+and I have to add this one here between these two for that error to go away.
+
+35
+00:02:54,090 --> 00:02:58,680
+Now, if it happens to be the final one, then you don't have to add it.
+
+36
+00:02:58,690 --> 00:03:05,070
+But I think just for consistency sake, it's usually a good idea to add a semicolon at the end of each
+
+37
+00:03:05,100 --> 00:03:05,610
+function.
+
+38
+00:03:05,970 --> 00:03:08,010
+Now inside checkBalance,
+
+39
+00:03:08,010 --> 00:03:11,760
+what we want to do is we want it to return an output.
+
+40
+00:03:12,090 --> 00:03:19,080
+So we want it to look inside our container and tell us what is the value of this variable.
+
+41
+00:03:19,680 --> 00:03:25,050
+So over here, in order to specify that this function is going to have a return value,
+
+42
+00:03:25,320 --> 00:03:32,580
+we just have to add a colon and then the data type of the output, which in this case is a natural number.
+
+43
+00:03:32,970 --> 00:03:35,180
+So I'm going to write Nat right here.
+
+44
+00:03:35,640 --> 00:03:42,840
+In addition to returning a natural number, you can see that I have an error here because it says the
+
+45
+00:03:42,840 --> 00:03:49,110
+shared query function must have syntactic return type of async and then some sort of type.
+
+46
+00:03:49,650 --> 00:03:57,000
+So basically whenever you have a function that has an output, the output has to come out asynchronously.
+
+47
+00:03:57,180 --> 00:03:58,110
+What does that mean?
+
+48
+00:03:58,350 --> 00:04:04,350
+A good analogy for synchronous and asynchronous when it comes to computer programs is you can imagine
+
+49
+00:04:04,350 --> 00:04:08,190
+a synchronous program running like trains on a single track.
+
+50
+00:04:08,640 --> 00:04:12,840
+So this first train has to move before the second train can actually go anywhere.
+
+51
+00:04:13,200 --> 00:04:14,330
+This is synchronous.
+
+52
+00:04:14,340 --> 00:04:18,510
+There's only a single track for the programs to execute.
+
+53
+00:04:18,510 --> 00:04:21,750
+Each operation has to happen before the next one can go.
+
+54
+00:04:22,500 --> 00:04:29,010
+Now, when it comes to asynchronous, it's almost like we have multiple tracks and the trains are kind
+
+55
+00:04:29,010 --> 00:04:30,270
+of freed from each other.
+
+56
+00:04:30,540 --> 00:04:33,150
+They can go whenever they need to at their own pace.
+
+57
+00:04:33,600 --> 00:04:39,900
+Now, when it comes to actually seeing synchronous and asynchronous in real life, you can imagine the synchronous
+
+58
+00:04:39,900 --> 00:04:46,980
+as your dialup modem that's loading up each image on the website one by one, and nothing really can
+
+59
+00:04:46,980 --> 00:04:48,960
+happen until everything's been loaded.
+
+60
+00:04:49,140 --> 00:04:53,670
+So you, as the user can't interact with the website, you can't click away, you can't click on a new
+
+61
+00:04:53,670 --> 00:04:56,190
+link before everything is done.
+
+62
+00:04:56,190 --> 00:04:59,280
+It's basically frozen until everything is loaded up.
+
+63
+00:04:59,990 --> 00:05:05,060
+When it comes to asynchronous loading on the web, this is what we see every day on the modern web.
+
+64
+00:05:05,420 --> 00:05:10,880
+When you hit load, you can see these different images and different components can load in their own
+
+65
+00:05:10,880 --> 00:05:11,270
+time.
+
+66
+00:05:11,510 --> 00:05:17,720
+This GET request is shot out to all of these different resource locations and then the resources can come
+
+67
+00:05:17,720 --> 00:05:22,160
+back once they're actually done and show up on screen in no particular order.
+
+68
+00:05:22,610 --> 00:05:28,820
+This means that it frees up the user interaction with the website so you can click away on a link even
+
+69
+00:05:28,820 --> 00:05:30,530
+before all the photos are loaded.
+
+70
+00:05:30,890 --> 00:05:35,060
+And it also means that the fastest processes are not being held up by the slowest ones.
+
+71
+00:05:35,540 --> 00:05:37,460
+Coming back to our function,
+
+72
+00:05:37,700 --> 00:05:46,370
+the return from a function inside the canister has to be asynchronously returned.
+
+73
+00:05:46,400 --> 00:05:48,530
+So that's why we're adding that keyword here.
+
+74
+00:05:49,160 --> 00:05:55,490
+So it's the async keyword and then the data type. And now we have to actually specify what is going
+
+75
+00:05:55,490 --> 00:05:56,390
+to be returned.
+
+76
+00:05:56,540 --> 00:06:02,570
+So we're going to use the return keyword and then we're going to say, well, let's return the current
+
+77
+00:06:02,570 --> 00:06:03,320
+Value.
+
+78
+00:06:03,710 --> 00:06:09,350
+This is basically just a read-only operation; we're
+not modifying any variable
+
+79
+00:06:09,350 --> 00:06:11,800
+in here. We're not changing anything's state.
+
+80
+00:06:12,320 --> 00:06:17,480
+And what this allows us to do is to quickly get the value of this variable.
+
+81
+00:06:17,810 --> 00:06:26,240
+And you can see once I go ahead and deploy this, just how quick these read-only query functions are.
+
+82
+00:06:26,600 --> 00:06:30,170
+So let's go ahead and refresh our candid UI.
+
+83
+00:06:30,440 --> 00:06:37,910
+You can see we've got our new function, which is called checkBalance, and this one has a query button
+
+84
+00:06:37,910 --> 00:06:38,930
+associated with it.
+
+85
+00:06:39,350 --> 00:06:45,440
+So if I go ahead and press on it, you can see that it gives me the value of my currentValue
+
+86
+00:06:45,830 --> 00:06:49,190
+and that happened in 0.014 seconds.
+
+87
+00:06:49,640 --> 00:06:55,790
+Now, in comparison, if I decided to call a update function, for example, our topUp or withdrawl
+
+88
+00:06:56,270 --> 00:06:57,350
+and I hit call,
+
+89
+00:06:57,680 --> 00:07:01,260
+you can see this takes something like around 2 to 3 seconds,
+
+90
+00:07:01,280 --> 00:07:03,170
+so in this case, 2.14 seconds.
+
+91
+00:07:03,950 --> 00:07:08,810
+And this is the difference between the query functions and the update functions.
+
+92
+00:07:09,050 --> 00:07:14,390
+And this is something really important to be aware of when you are writing applications for the Internet
+
+93
+00:07:14,390 --> 00:07:14,960
+computer.
+
+94
+00:07:15,230 --> 00:07:20,750
+To really leverage this really quick ability to read the state of your application.
+
+95
+00:07:20,900 --> 00:07:26,600
+If you want to read up more on it, I will link to this page in the documentation where it talks a bit
+
+96
+00:07:26,600 --> 00:07:29,840
+more about the difference between query and update methods.
+
+97
+00:07:29,960 --> 00:07:35,600
+But the main part you have to understand is that the update calls will go via the blockchain, so it
+
+98
+00:07:35,600 --> 00:07:38,990
+will require consensus, which is why it takes a long time.
+
+99
+00:07:39,350 --> 00:07:46,280
+The query calls are adapted to not actually require to modify anything on the blockchain.
+
+100
+00:07:46,580 --> 00:07:49,000
+So it can be super, super fast.
+
+101
+00:07:49,040 --> 00:07:51,980
+You can read things from your application very quickly.
+
+102
+00:07:52,100 --> 00:07:58,520
+Now, in the next lesson, I want to talk about this idea of orthogonal persistence that is available
+
+103
+00:07:58,520 --> 00:08:05,930
+to us in the Internet computer so that we can see how state is preserved between different updates of
+
+104
+00:08:05,930 --> 00:08:06,710
+our cannister.
+
+105
+00:08:07,100 --> 00:08:08,510
+So for all of that and more,
+
+106
+00:08:08,540 --> 00:08:09,620
+I'll see you in the next lesson.
+

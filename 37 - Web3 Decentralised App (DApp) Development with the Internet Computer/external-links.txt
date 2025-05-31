@@ -1,0 +1,30 @@
+
+001 Dfinity
+https://dfinity.org/
+
+001 Crypto-Funds-Infographic
+https://cryptofundresearch.com/cryptocurrency-funds-overview-infographic/
+
+002 Caesar-Cipher
+https://csis.gmu.edu/albanese/labs/caesar_cypher.php
+
+002 SHA-265
+https://www.movable-type.co.uk/scripts/sha256.html
+
+002 Blockchain-Demo
+https://guggero.github.io/blockchain-demo/#!/block
+
+002 Comparing-the-Difficulty-of-Factorisation-Paper
+https://eprint.iacr.org/2020/697.pdf
+
+004 Etherscan
+https://etherscan.io/tx/0x674779579a8e456fc1f6c8fdf41ef942eb93001d6b8f5ad6c6c59cbc76bef161
+
+004 Dfinity-Consensus-System
+https://dfinity.org/pdf-viewer/pdfs/viewer?file=../library/dfinity-consensus.pdf
+
+006 Mac-Installation-Instructions
+https://bit.ly/3Kcphlu
+
+007 Windows-Installation-Guide-Google-Docs-Website-
+https://docs.google.com/document/d/e/2PACX-1vTNicu-xuf4EiLAehHIqgfpjAnPjzqMGT-xpZVvYaAWNyvzYK_Ceve_me4PVRIxpzH7ea5PAX9NxGwY/pub

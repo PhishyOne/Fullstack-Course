@@ -1,0 +1,424 @@
+1
+00:00:00,300 --> 00:00:08,310
+In this lesson I want to introduce you to a new ES6 concept and that's something called arrow functions
+
+2
+00:00:08,340 --> 00:00:12,780
+or you might also hear people refer to it as the fat arrow.
+
+3
+00:00:12,780 --> 00:00:19,340
+Essentially all that arrow functions are is a shorter way of writing a Javascript function.
+
+4
+00:00:19,380 --> 00:00:20,860
+It's not so complicated.
+
+5
+00:00:21,240 --> 00:00:27,510
+So go ahead and fork the starting sandbox and let's tackle this concept of arrow functions together.
+
+6
+00:00:29,160 --> 00:00:33,660
+Now we've already seen quite a few ways of writing functions in JavaScript right?
+
+7
+00:00:33,680 --> 00:00:42,090
+Let's say I had a function. Let's create a function that just squares a number, we'll take a number let's
+
+8
+00:00:42,090 --> 00:00:47,070
+call it x and then we'll return x multiplied by x.
+
+9
+00:00:47,070 --> 00:00:48,600
+That's it, simple.
+
+10
+00:00:48,600 --> 00:00:53,280
+This is the most basic way of writing a Javascript function.
+
+11
+00:00:53,280 --> 00:00:55,450
+But there are other ways.
+
+12
+00:00:55,470 --> 00:01:04,050
+So for example if we activate our numbers array again ,whenever we've needed to use a function as an
+
+13
+00:01:04,050 --> 00:01:09,810
+input to another function we've also seen that it's quite helpful to use an anonymous function to
+
+14
+00:01:09,870 --> 00:01:12,730
+make it simpler and easier to read.
+
+15
+00:01:12,750 --> 00:01:21,870
+For example, if I wanted to loop through my numbers and I call my map function to go ahead and square
+
+16
+00:01:21,900 --> 00:01:30,910
+each of the numbers inside that array and then I can save this to a new array called newNumbers and
+
+17
+00:01:30,910 --> 00:01:40,950
+then log it to the console. And we get a new array with each number being squared, so the power of two.
+
+18
+00:01:41,020 --> 00:01:49,210
+This is basically us passing in this function as it is and you've seen in the last lesson and many other
+
+19
+00:01:49,210 --> 00:01:55,930
+lessons that we can simply just put a function inside the parentheses just as well. And we can even cut
+
+20
+00:01:55,930 --> 00:02:00,790
+down on the width of our lines by deleting the name of our function.
+
+21
+00:02:00,790 --> 00:02:08,800
+So now we have an anonymous function. And if we refresh our console, you can see it does exactly the same
+
+22
+00:02:08,800 --> 00:02:11,810
+thing but now it just doesn't have a name anymore.
+
+23
+00:02:12,040 --> 00:02:17,530
+And because it lives inside another function it usually doesn't need to have a name.
+
+24
+00:02:17,530 --> 00:02:26,330
+It's usually easy enough to look at what it does and see its functionality. Now arrow functions take
+
+25
+00:02:26,330 --> 00:02:29,180
+it just one step further.
+
+26
+00:02:29,180 --> 00:02:33,410
+It lets us actually delete this function keyword.
+
+27
+00:02:33,410 --> 00:02:39,260
+And instead we replace it with a equals sign and a right angle bracket.
+
+28
+00:02:39,260 --> 00:02:42,740
+So now these are the inputs of our function
+
+29
+00:02:42,890 --> 00:02:46,360
+and this is the body of our function.
+
+30
+00:02:46,520 --> 00:02:54,950
+And the only thing that denotes that this whole thing is a function is that so called fat arrow.
+
+31
+00:02:54,950 --> 00:03:00,610
+Now be careful with the syntax because if you add a space there then it's no longer a fat arrow.
+
+32
+00:03:00,740 --> 00:03:04,550
+And if this is just a single line that's also not a fat arrow.
+
+33
+00:03:04,670 --> 00:03:09,200
+So it has to be the equals and the right angle bracket combined together.
+
+34
+00:03:09,200 --> 00:03:12,420
+Now we can make this even shorter if we want to.
+
+35
+00:03:12,440 --> 00:03:20,150
+So with arrow functions if we have more than one input say we had an x and a y and we simply multiplied
+
+36
+00:03:20,540 --> 00:03:28,490
+x by y in the body of our function, then in this case we have two input parameters and we definitely
+
+37
+00:03:28,490 --> 00:03:31,250
+need a set of parentheses around them.
+
+38
+00:03:31,460 --> 00:03:39,290
+But if you only have one input or one parameter, you can actually just get rid of the parentheses as
+
+39
+00:03:39,290 --> 00:03:39,850
+well.
+
+40
+00:03:39,860 --> 00:03:43,440
+This is exactly the same as before.
+
+41
+00:03:43,700 --> 00:03:51,920
+On top of that, if you have only a single line statement where you're only returning a single expression
+
+42
+00:03:51,950 --> 00:04:00,380
+such as this, you can actually delete the return keyword and delete these curly braces so you end up
+
+43
+00:04:00,590 --> 00:04:03,580
+with inline code that looks like this.
+
+44
+00:04:03,770 --> 00:04:13,310
+Now our map function is taking each item in our numbers array and multiplying it by itself and then
+
+45
+00:04:13,340 --> 00:04:15,680
+creating a new array.
+
+46
+00:04:15,950 --> 00:04:23,510
+But the syntax is now much much shorter and that means there are pros and cons.
+
+47
+00:04:23,600 --> 00:04:32,270
+It might be that for a beginner coming to Javascript this is really hard to understand. And especially
+
+48
+00:04:32,270 --> 00:04:39,020
+in cases where you have people on your team who are more junior, having code like this is not always
+
+49
+00:04:39,020 --> 00:04:39,480
+great.
+
+50
+00:04:39,980 --> 00:04:47,570
+So depending on your project, your use case, your team, your own level of comfort with this kind of shortened
+
+51
+00:04:47,570 --> 00:04:56,450
+syntax, then you can choose to use it but you don't have to. Just be aware that because in React we use
+
+52
+00:04:56,450 --> 00:05:04,160
+these array functions like map, filter, reduce a lot, then in these cases you will see a lot of people
+
+53
+00:05:04,220 --> 00:05:10,490
+using arrow functions inside just because it makes it so much simpler and you can achieve things just
+
+54
+00:05:10,550 --> 00:05:15,490
+in one line. But it does take a little bit of getting used to.
+
+55
+00:05:15,530 --> 00:05:23,300
+So as a challenge, I want you to go ahead and comment out this line of code maybe keep it around as reference
+
+56
+00:05:23,730 --> 00:05:25,930
+and I want you to uncomment 
+
+57
+00:05:26,030 --> 00:05:30,270
+each of these functions starting from map then filter the reduce.
+
+58
+00:05:30,350 --> 00:05:37,790
+I want you to convert this current format of anonymous functions to arrow functions and to simplify
+
+59
+00:05:37,790 --> 00:05:39,990
+them as much as you can.
+
+60
+00:05:40,070 --> 00:05:48,190
+And once you're done with that, then go into your App.jsx and go ahead and do the same for our
+
+61
+00:05:48,230 --> 00:05:56,530
+actual React code where we're using the map function to create custom entry components.
+
+62
+00:05:56,750 --> 00:06:01,610
+And if you get stuck or if you have any problems then come back and we'll work through the solution
+
+63
+00:06:01,610 --> 00:06:02,810
+together.
+
+64
+00:06:02,810 --> 00:06:06,200
+Pause the video and try to give those two parts of the challenge a go.
+
+65
+00:06:10,270 --> 00:06:10,590
+All right.
+
+66
+00:06:10,620 --> 00:06:16,290
+So the first one we're tackling is the old map function and the first thing we're gonna do is delete
+
+67
+00:06:16,290 --> 00:06:23,300
+the function keyword and add a fat arrow in between the input and the body of the function.
+
+68
+00:06:23,400 --> 00:06:30,030
+Next we're going to see if we have multiple lines of code in our block of code and we don't. We actually
+
+69
+00:06:30,030 --> 00:06:32,400
+just have a simple expression.
+
+70
+00:06:32,400 --> 00:06:38,800
+So let's go ahead and delete this return keyword as well as the curly braces
+
+71
+00:06:39,000 --> 00:06:44,540
+and that semicolon and put it all onto the same line.
+
+72
+00:06:44,800 --> 00:06:51,090
+And now we notice that we've only got a single input so we can delete those parentheses as well.
+
+73
+00:06:51,180 --> 00:06:53,910
+That's the first one completed.
+
+74
+00:06:53,910 --> 00:06:55,610
+Next let's move on to filter.
+
+75
+00:07:00,140 --> 00:07:04,370
+And it should end up looking like this. Now
+
+76
+00:07:04,380 --> 00:07:10,620
+reduce is a little bit different because here we've now got two inputs; the accumulator and the current
+
+77
+00:07:10,620 --> 00:07:11,490
+number.
+
+78
+00:07:11,520 --> 00:07:18,680
+That means once we delete the function keyword and add our fat arrow, we can't actually delete these parentheses.
+
+79
+00:07:18,720 --> 00:07:26,790
+It needs it when there are more than two inputs. But we do only have a single line being returned so
+
+80
+00:07:26,850 --> 00:07:34,570
+we can go ahead and delete everything and end up with just a single line statement like this.
+
+81
+00:07:36,130 --> 00:07:42,640
+Finally you've got find and find index which is pretty standard and it should end up looking like
+
+82
+00:07:42,640 --> 00:07:44,090
+this.
+
+83
+00:07:44,110 --> 00:07:49,720
+So now let's go ahead and comment all of this code out and actually use our arrow function knowledge
+
+84
+00:07:50,080 --> 00:07:52,040
+in our App.jsx.
+
+85
+00:07:52,090 --> 00:07:58,360
+So here we've got a function called createEntry which is taking each of the emoji terms that's being
+
+86
+00:07:58,360 --> 00:08:05,980
+mapped through here and using the emoji terms properties such as id, emoji name, meaning and mapping
+
+87
+00:08:05,980 --> 00:08:16,180
+them over to a prop. The solution to this challenge is first to just cut this function and replace it
+
+88
+00:08:16,210 --> 00:08:24,640
+inside here. And then we're going to further simplify this by removing the function keyword, adding a
+
+89
+00:08:24,640 --> 00:08:32,919
+fat arrow, deleting the name of the function, deleting the parentheses around our single input and then
+
+90
+00:08:32,980 --> 00:08:40,780
+we can even go as far to delete the return keyword and the closing curly braces.
+
+91
+00:08:40,780 --> 00:08:48,850
+And the reason is because our entry component is treated as basically a single line of code. Even though
+
+92
+00:08:48,880 --> 00:08:54,040
+they're placed on different lines just to make it easy to read, effectively
+
+93
+00:08:54,040 --> 00:09:01,750
+all of these props are just all on the same line and we've only got a single element being returned
+
+94
+00:09:01,870 --> 00:09:03,040
+like so.
+
+95
+00:09:03,040 --> 00:09:10,600
+So if you wanted to, you could even delete these two but it's usually good practice in React to have
+
+96
+00:09:10,630 --> 00:09:17,500
+a set of parentheses when you're returning a component that has many different properties.
+
+97
+00:09:17,500 --> 00:09:19,450
+Did you manage to get this right?
+
+98
+00:09:19,450 --> 00:09:25,690
+If not be sure to review the early parts and make sure that you've completed each of these exercises
+
+99
+00:09:26,140 --> 00:09:28,650
+as well as maybe read around the topic.
+
+100
+00:09:28,840 --> 00:09:34,630
+So there's a really good article that I linked to from the Mozilla team where they talk about arrow
+
+101
+00:09:34,630 --> 00:09:39,790
+functions in depth, some of the history and it's a really interesting piece of reading and it'll give
+
+102
+00:09:39,790 --> 00:09:46,120
+you a lot of color and background to how arrow functions work and why they were introduced. But in the
+
+103
+00:09:46,120 --> 00:09:46,970
+next lesson,
+
+104
+00:09:46,990 --> 00:09:52,990
+now that we've leveled up our Javascript, we're going to be heading back into our React coding. For all
+
+105
+00:09:52,990 --> 00:09:54,040
+of that and more,
+
+106
+00:09:54,190 --> 00:09:54,780
+I'll see there.
+

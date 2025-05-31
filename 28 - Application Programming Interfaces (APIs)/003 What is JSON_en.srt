@@ -1,0 +1,816 @@
+1
+00:00:00,680 --> 00:00:08,330
+So in the last lesson, we saw that when we made a request to our API and when we got our data back that
+
+2
+00:00:08,330 --> 00:00:11,930
+it came back in the format of a JSON.
+
+3
+00:00:12,020 --> 00:00:15,080
+So who is JSON?
+
+4
+00:00:15,110 --> 00:00:17,480
+Unfortunately, it's not this JSON.
+
+5
+00:00:17,510 --> 00:00:21,350
+The better question is actually what is JSON?
+
+6
+00:00:21,530 --> 00:00:25,300
+And JSON stands for JavaScript Object Notation.
+
+7
+00:00:25,310 --> 00:00:26,960
+So what is it?
+
+8
+00:00:27,350 --> 00:00:35,570
+It's a way to format data that can be sent over the internet in a readable but also efficient way.
+
+9
+00:00:35,690 --> 00:00:41,030
+And as the name suggests, it's structured after a JavaScript Object.
+
+10
+00:00:41,060 --> 00:00:47,430
+So we've seen previously that you can create JavaScript objects with key and value pairs.
+
+11
+00:00:47,450 --> 00:00:54,980
+You separate them with a colon and you can have multiple properties in each object simply by adding
+
+12
+00:00:54,980 --> 00:00:57,470
+a comma after each line.
+
+13
+00:00:57,590 --> 00:01:05,250
+You can also have arrays inside your object and you can nest an object inside another object.
+
+14
+00:01:06,030 --> 00:01:10,860
+And it's just a really good way for us to be able to structure complex pieces of data.
+
+15
+00:01:11,220 --> 00:01:18,770
+Now, if you compare this JavaScript object with a JSON, you can see it looks pretty much identical.
+
+16
+00:01:18,780 --> 00:01:21,110
+The structure is complete, the the same.
+
+17
+00:01:21,120 --> 00:01:24,330
+The only thing that changes is the keys,
+
+18
+00:01:24,330 --> 00:01:31,080
+Instead of being a JavaScript key which doesn't actually need any quotes around it at all, it's now
+
+19
+00:01:31,110 --> 00:01:32,610
+turned into a string.
+
+20
+00:01:32,610 --> 00:01:39,180
+So every key is a string and the value can be strings, it can be numbers, it could be arrays and it
+
+21
+00:01:39,180 --> 00:01:40,680
+could be any of those things.
+
+22
+00:01:40,680 --> 00:01:45,990
+And once a JSON is laid out properly like this, you can see it's very readable
+
+23
+00:01:45,990 --> 00:01:47,790
+and it's easy to understand that.
+
+24
+00:01:47,790 --> 00:01:56,640
+In terms of Jack Bauer's education, he actually has two degrees, one from UCLA and one from UC Berkeley.
+
+25
+00:01:57,240 --> 00:02:02,040
+So the key difference is that a JSON is serialized into a string.
+
+26
+00:02:02,070 --> 00:02:07,480
+As for most of the cases, when you're encountering JSON's it's because some piece of data is being
+
+27
+00:02:07,510 --> 00:02:13,930
+transferred across the Internet, whereas a JavaScript object has a much more relaxed kind of notation
+
+28
+00:02:13,930 --> 00:02:20,260
+because it can be interpreted by the editor or by the code interpreter.
+
+29
+00:02:20,560 --> 00:02:27,130
+And the idea is, let's say you go to your favorite furniture store and you want to buy a wardrobe for
+
+30
+00:02:27,130 --> 00:02:28,120
+your bedroom.
+
+31
+00:02:28,120 --> 00:02:34,750
+Now that wardrobe would probably be structured like this if it was in fact a JavaScript object.
+
+32
+00:02:34,750 --> 00:02:42,370
+So it would have the number of doors specified as properties, number of drawers and color.
+
+33
+00:02:42,370 --> 00:02:45,940
+And this is a very simple JavaScript object.
+
+34
+00:02:45,970 --> 00:02:52,210
+Now what if you wanted to move that wardrobe to your house and you want to go from the furniture store
+
+35
+00:02:52,210 --> 00:02:53,560
+to your house?
+
+36
+00:02:53,560 --> 00:02:57,360
+Well, it's not that easy to tie a big wardrobe to the roof of your car,
+
+37
+00:02:57,370 --> 00:02:58,210
+I've tried that,
+
+38
+00:02:58,210 --> 00:02:59,080
+don't do that.
+
+39
+00:02:59,080 --> 00:03:04,930
+But it is much easier if that wardrobe came in a flat pack.
+
+40
+00:03:04,930 --> 00:03:11,320
+So it could be reduced down to its minimal size without all of that air in the middle.
+
+41
+00:03:11,320 --> 00:03:18,490
+So you don't have to transfer a large object that is the genius behind IKEA, but also it's the genius
+
+42
+00:03:18,490 --> 00:03:25,660
+behind JSON's, because instead of that large JavaScript object, we now have a flat pack in the form
+
+43
+00:03:25,660 --> 00:03:27,130
+of a JSON.
+
+44
+00:03:27,160 --> 00:03:36,250
+It is a string from the beginning to the end, and every single aspect of that notation is serialized
+
+45
+00:03:36,250 --> 00:03:40,210
+so that it can be its minimal size when transferred across the internet.
+
+46
+00:03:40,240 --> 00:03:45,070
+The syntax keeps all of the meaning and then when it gets transferred to the other side and when it
+
+47
+00:03:45,070 --> 00:03:51,730
+needs to be used, it can then be re-expanded into a usable format such as a JavaScript object.
+
+48
+00:03:52,090 --> 00:03:58,180
+When you get a complex JSON sent to you, it's usually in a format that's really difficult to read as
+
+49
+00:03:58,180 --> 00:04:02,530
+a human because it's in its flat pack notation.
+
+50
+00:04:02,800 --> 00:04:08,880
+And so to make it more human readable, you can use something called a JSON Visualizer and one that
+
+51
+00:04:08,880 --> 00:04:16,500
+I recommend that's free to use on the internet is at jsonviewer.stack.hu and you can simply paste
+
+52
+00:04:16,500 --> 00:04:24,120
+in your JSON as text and then you can go to the viewer tab to view it in a way that's more human-intuitive.
+
+53
+00:04:24,150 --> 00:04:32,850
+So you can see this JSON has three objects in the initial array, and this is a JSON that represents
+
+54
+00:04:32,850 --> 00:04:38,450
+three recipes for different types of Tacos: Chicken Taco, Beef Taco and Fish Taco.
+
+55
+00:04:38,460 --> 00:04:46,320
+And within each of the recipes you can then expand the ingredients to see the protein, the salsa and
+
+56
+00:04:46,320 --> 00:04:47,220
+the toppings.
+
+57
+00:04:47,220 --> 00:04:52,170
+Now the toppings is further subdivided into different objects in the array.
+
+58
+00:04:52,200 --> 00:04:56,850
+We've got Lettuce, you've got Cheese, and you've got Guacamole and Sour Cream.
+
+59
+00:04:56,970 --> 00:05:02,940
+And you can see how this kind of deep nesting makes a lot more sense when we can expand and contract
+
+60
+00:05:02,940 --> 00:05:04,410
+using a JSON viewer.
+
+61
+00:05:04,410 --> 00:05:09,940
+But when it's simply flat packed, like how it would be transferred, then it's really difficult to
+
+62
+00:05:09,940 --> 00:05:12,820
+see exactly what's going on as a human.
+
+63
+00:05:12,820 --> 00:05:17,410
+Although maybe you have more superpowers than I do, and this makes total sense to you,
+
+64
+00:05:17,410 --> 00:05:21,790
+but for most of us, this is a lot easier to understand and visualize.
+
+65
+00:05:22,720 --> 00:05:30,100
+When you're writing code and you want to send a JSON across the internet, for some reason you will
+
+66
+00:05:30,100 --> 00:05:32,860
+need to perform what's called serialization,
+
+67
+00:05:32,860 --> 00:05:39,570
+turning a JavaScript object, your big wardrobe into a JSON, into a flat pack.
+
+68
+00:05:39,580 --> 00:05:48,190
+And the way you do this with code is using a method from the JSON module and you would write something
+
+69
+00:05:48,190 --> 00:05:56,380
+like this "JSON.stringify ('and then in here you put your JavaScript object'). And what it's going to
+
+70
+00:05:56,380 --> 00:05:59,140
+do is essentially that flat packing process.
+
+71
+00:05:59,140 --> 00:06:06,370
+It's going to make this JavaScript object into a string, but a string that has kept all of the commas
+
+72
+00:06:06,370 --> 00:06:13,750
+and quotes and colons to be able to represent all of the different nesting and relationships in that
+
+73
+00:06:13,750 --> 00:06:14,560
+object.
+
+74
+00:06:15,100 --> 00:06:21,520
+Now the opposite direction when you want to unpack a JSON, when you are back home and you've got your
+
+75
+00:06:21,520 --> 00:06:27,920
+flat pack and you're ready to assemble your wardrobe, this process is done using another JSON method,
+
+76
+00:06:27,920 --> 00:06:29,570
+which is called parse.
+
+77
+00:06:29,600 --> 00:06:32,990
+And inside here is where you put your JSON,
+
+78
+00:06:32,990 --> 00:06:40,790
+And once you run the parse method, it turns this JSON back into a JavaScript object. So you can handle
+
+79
+00:06:40,790 --> 00:06:43,550
+it just as you would with any other JavaScript object.
+
+80
+00:06:43,580 --> 00:06:52,070
+You can write something like data.ingredients and then you would be able to access that property
+
+81
+00:06:52,070 --> 00:06:55,400
+just as if it was a normal JavaScript object.
+
+82
+00:06:55,640 --> 00:06:58,430
+Let's practice some of this in an exercise.
+
+83
+00:06:58,460 --> 00:07:02,120
+Download the zipped file from this current lesson, 5.2 JSON.zip.
+
+84
+00:07:03,180 --> 00:07:09,330
+And once you've extracted and opened it inside VS Code, you'll see that I've included the recipe I showed
+
+85
+00:07:09,330 --> 00:07:14,580
+you earlier in the format of a complex, deeply nested JSON.
+
+86
+00:07:14,850 --> 00:07:20,940
+This is what you would see if you go into the recipe.json and again, you can copy it and put it into
+
+87
+00:07:20,940 --> 00:07:25,500
+the JSON Viewer to be able to see its structure a little bit better,
+
+88
+00:07:26,280 --> 00:07:30,600
+but you can also see it in its really flat-pack condensed format
+
+89
+00:07:30,600 --> 00:07:38,340
+if you go into the index.js. And you can see the recipeJSON simply as one long string taking up very
+
+90
+00:07:38,340 --> 00:07:42,870
+little space and as you can imagine, easily transferred across the internet.
+
+91
+00:07:43,470 --> 00:07:51,240
+The challenge for you is to build a website where we use this JSON data to show people how to make these
+
+92
+00:07:51,240 --> 00:07:52,830
+different types of tacos.
+
+93
+00:07:53,100 --> 00:07:58,380
+So the website is called Taco Town, and the first thing I want you to do is to cd into your project
+
+94
+00:07:58,380 --> 00:08:04,740
+folder and then build the node modules using the "npm install" command.
+
+95
+00:08:04,830 --> 00:08:13,440
+Once you have done that, I want you to go ahead and use nodemon to run the solution.js file and
+
+96
+00:08:13,440 --> 00:08:15,390
+then you can see it in localhost.
+
+97
+00:08:15,420 --> 00:08:21,450
+You can see we've got this beautiful Mexican website where we can teach people how to make different
+
+98
+00:08:21,480 --> 00:08:22,710
+types of tacos.
+
+99
+00:08:22,740 --> 00:08:29,170
+You can pick your favorite taco ingredient minus fish and it will show you what goes into a fish taco
+
+100
+00:08:29,200 --> 00:08:31,360
+with all of the ingredients laid out.
+
+101
+00:08:31,780 --> 00:08:40,870
+This is the end result that we're trying to build, and we're doing this by utilizing that complex JSON
+
+102
+00:08:40,870 --> 00:08:44,140
+that we've got in here called recipeJSON.
+
+103
+00:08:44,930 --> 00:08:50,680
+So I want you to go through each of the steps one by one to complete this challenge.
+
+104
+00:08:50,690 --> 00:08:52,580
+First step, hopefully you've already done.
+
+105
+00:08:52,610 --> 00:08:56,000
+Take a look at what the final solution looks like.
+
+106
+00:08:56,330 --> 00:09:01,580
+Don't look inside the solution.js or solution.ejs because those are the answers,
+
+107
+00:09:01,580 --> 00:09:05,780
+instead, use the index.ejs and index.js files.
+
+108
+00:09:06,020 --> 00:09:10,220
+But in order to complete the challenge, we need to use some of that knowledge.
+
+109
+00:09:10,220 --> 00:09:15,860
+We learned about JSONs and some of the tools that we've learned for how to deal with JSONs.
+
+110
+00:09:16,160 --> 00:09:23,990
+So once you've familiarized with the structure of the JSON, the goal is to write some code in the app.post
+
+111
+00:09:23,990 --> 00:09:29,120
+so that you can make this website behave like the solution website.
+
+112
+00:09:29,240 --> 00:09:38,600
+So what happens when I click on each of these buttons is we get a post request being sent to the recipe
+
+113
+00:09:38,600 --> 00:09:43,310
+route, right here and it'll be caught within these curly braces.
+
+114
+00:09:43,430 --> 00:09:51,000
+Now, you have to think about what to do when that request comes through and how to handle it, because
+
+115
+00:09:51,000 --> 00:09:57,660
+depending on the button that the user pressed, it will have a different value being sent over which
+
+116
+00:09:57,660 --> 00:10:01,020
+you can access by using the body-parser middleware.
+
+117
+00:10:01,350 --> 00:10:07,650
+Hopefully, this is all familiar to you If you've skipped some of the previous modules on EJS and Express,
+
+118
+00:10:07,650 --> 00:10:09,780
+then this might seem confusing,
+
+119
+00:10:09,780 --> 00:10:16,080
+so go back there and make sure you've completed those lessons and have a think about what you need to
+
+120
+00:10:16,080 --> 00:10:23,520
+do in order to process the request that comes through and how to grab the necessary pieces of data from
+
+121
+00:10:23,520 --> 00:10:29,790
+the recipeJSON and how you can send it over to your index.js.
+
+122
+00:10:29,940 --> 00:10:36,780
+Now, once the data gets sent in here, you need to figure out if there is data being sent over, then
+
+123
+00:10:36,780 --> 00:10:43,860
+show all of the ingredients, but otherwise just show an h2 that tells people to pick from one of the
+
+124
+00:10:43,860 --> 00:10:44,820
+options.
+
+125
+00:10:44,940 --> 00:10:50,880
+Now in the ingredients list, we're going to need to show people the protein name, the protein preparation,
+
+126
+00:10:50,880 --> 00:10:53,370
+the salsa name, and every other topping.
+
+127
+00:10:53,370 --> 00:10:59,310
+And remember, if you look inside the json, you can see this is the protein name, protein preparation,
+
+128
+00:10:59,310 --> 00:11:00,270
+salsa,
+
+129
+00:11:00,270 --> 00:11:06,480
+and then the toppings are a series of items inside an array.
+
+130
+00:11:06,510 --> 00:11:12,600
+You need to be pretty familiar with how to work with JavaScript arrays, how to work with JSONs, how
+
+131
+00:11:12,600 --> 00:11:18,840
+to turn a JSON into a JavaScript object so that you can send it over here and process it.
+
+132
+00:11:18,840 --> 00:11:26,340
+But essentially this is the final outcome you're trying to achieve and I recommend coming back here
+
+133
+00:11:26,340 --> 00:11:31,170
+frequently to figure out if your version matches the final version.
+
+134
+00:11:31,170 --> 00:11:37,530
+And just in case you're interested, which I'm sure a lot of you are, this beautiful Mexican background
+
+135
+00:11:37,530 --> 00:11:45,390
+I got by going to pattern.monster, where you can generate different patterns in CSS or SVG for use in
+
+136
+00:11:45,390 --> 00:11:46,680
+your website backgrounds.
+
+137
+00:11:46,680 --> 00:11:54,060
+And I simply searched for a Mexican background and simply randomized it until I found one that I liked
+
+138
+00:11:54,060 --> 00:11:58,680
+and I copied the CSS in order to use in the main.css.
+
+139
+00:11:58,830 --> 00:12:00,240
+That's the challenge.
+
+140
+00:12:00,270 --> 00:12:01,350
+Pause the video.
+
+141
+00:12:01,380 --> 00:12:02,640
+Give this a go now.
+
+142
+00:12:06,100 --> 00:12:08,350
+All right, let's run through the solution together.
+
+143
+00:12:08,440 --> 00:12:16,300
+The first thing that we needed to do was to review what the solution looked like, review what the JSON
+
+144
+00:12:16,300 --> 00:12:21,820
+is structured like, and then we can go ahead and complete the app.post.
+
+145
+00:12:21,970 --> 00:12:29,260
+When we get a POST request, we're able to tap into the req.body because we're using the body-parser
+
+146
+00:12:29,260 --> 00:12:36,250
+middleware. And what gets sent over is the choice that the user made
+
+147
+00:12:36,250 --> 00:12:38,490
+when they clicked on one of these buttons.
+
+148
+00:12:38,500 --> 00:12:45,550
+You get something that has a key of choice and a value of whichever one of these buttons they clicked
+
+149
+00:12:45,550 --> 00:12:47,570
+on chicken, beef or fish.
+
+150
+00:12:47,590 --> 00:12:53,440
+So using that knowledge, we can simply write a JavaScript "switch statement" to check which choice they
+
+151
+00:12:53,440 --> 00:12:53,890
+made,
+
+152
+00:12:53,920 --> 00:12:56,440
+i s it chicken, beef or fish?
+
+153
+00:12:56,440 --> 00:13:00,580
+And then we can send over the relevant piece of data.
+
+154
+00:13:00,790 --> 00:13:06,980
+If we take a look at the structure of our data, we can view it in the JSON Viewer.
+
+155
+00:13:07,010 --> 00:13:13,640
+You can see that there are three objects that we can get hold of and each representing a different recipe
+
+156
+00:13:13,670 --> 00:13:15,380
+chicken, beef or fish.
+
+157
+00:13:15,620 --> 00:13:21,000
+All we need to do in our POST request is to parse that JSON.
+
+158
+00:13:21,020 --> 00:13:29,030
+Remember, this is the process where we can turn our flat-pack JSON into an actual piece of JavaScript
+
+159
+00:13:29,030 --> 00:13:34,010
+object, which is in our case the full wardrobe.
+
+160
+00:13:35,870 --> 00:13:42,200
+We put the recipeJSON in here, which could be from a third-party API. For simplicity's sake,
+
+161
+00:13:42,200 --> 00:13:48,320
+I've simply included it here as a constant so we don't have to deal with the requests that we're going
+
+162
+00:13:48,320 --> 00:13:50,090
+to learn about in the coming lessons.
+
+163
+00:13:50,090 --> 00:13:56,690
+But once we get hold of our JSON, we parse it into a JavaScript object and then depending on the choice
+
+164
+00:13:56,690 --> 00:14:06,560
+the user made, we pick the item out of that JSON, just as if it were items in a JavaScript array.
+
+165
+00:14:06,560 --> 00:14:14,360
+And then we set that data and we send it over when we render our EJS file. At the bottom here we've got
+
+166
+00:14:14,360 --> 00:14:21,020
+our res.redirect which is going to go into the app.get and it's going to send over the data under the key
+
+167
+00:14:21,020 --> 00:14:22,100
+of recipe.
+
+168
+00:14:22,340 --> 00:14:29,160
+Then going into our .ejs file we can pick up that recipe and check to see if it exists.
+
+169
+00:14:29,180 --> 00:14:35,240
+If it does exist, we're going to show the recipe name and all the ingredients, but otherwise we're
+
+170
+00:14:35,340 --> 00:14:40,020
+simply going to show them this h2 that asks them to pick one of the buttons.
+
+171
+00:14:40,380 --> 00:14:47,970
+This comes from our EJS knowledge and more importantly, we're parsing the data that we're getting hold
+
+172
+00:14:47,970 --> 00:14:54,510
+of from that recipe in order to include it in different parts of our ingredients.
+
+173
+00:14:54,990 --> 00:15:01,830
+If we zoom in on one of these items that gets sent over, we know that when I click on this chicken
+
+174
+00:15:01,830 --> 00:15:06,780
+button, it's going to send over the chicken recipe in its entirety.
+
+175
+00:15:06,780 --> 00:15:11,070
+And this is essentially the recipe object.
+
+176
+00:15:11,070 --> 00:15:17,670
+So if we tap into recipe.name, we'll be able to get the Chicken Taco name, which goes into the
+
+177
+00:15:17,670 --> 00:15:18,690
+h2.
+
+178
+00:15:18,870 --> 00:15:24,510
+And then in the ingredients list, the first thing we wanted was the protein and the protein preparation.
+
+179
+00:15:24,510 --> 00:15:30,780
+So if we zoom in on the ingredients, we've got the protein, got the name and preparation.
+
+180
+00:15:30,810 --> 00:15:38,130
+This first list item consists of recipe.ingredients.protein.name, and that is how we manage
+
+181
+00:15:38,130 --> 00:15:49,530
+to go from recipe, which is what gets sent over to the .ejs file to ingredients, from ingredients to protein,
+
+182
+00:15:49,530 --> 00:15:54,510
+from protein to name, and also to preparation.
+
+183
+00:15:54,510 --> 00:16:08,790
+So recipe.ingredients.protein.name is how we can get hold of this piece of data.
+
+184
+00:16:09,480 --> 00:16:18,090
+And because we sent over our JavaScript object, we can drill down through the object exactly like so.
+
+185
+00:16:18,750 --> 00:16:22,500
+That's how we dealt with the protein name, protein preparation,
+
+186
+00:16:22,500 --> 00:16:28,920
+and then we have our salsa name and then we can use a forEach loop in order to loop through each of
+
+187
+00:16:28,920 --> 00:16:29,730
+the toppings.
+
+188
+00:16:29,730 --> 00:16:36,030
+Because notice here, denoted by this little different symbol, this is not an object, this is an array
+
+189
+00:16:36,030 --> 00:16:36,840
+of objects.
+
+190
+00:16:36,870 --> 00:16:43,200
+We can loop through each of the toppings and get hold of the quantity and name so that we can display
+
+191
+00:16:43,200 --> 00:16:43,650
+it here.
+
+192
+00:16:43,650 --> 00:16:46,950
+One cup of Lettuce. Half a cup of Cheese.
+
+193
+00:16:47,610 --> 00:16:55,320
+By looping through each of the toppings, we can create a li loop for the topping quantity and the topping
+
+194
+00:16:55,320 --> 00:16:55,890
+name.
+
+195
+00:16:56,430 --> 00:17:04,230
+If this part was what tripped you up or was difficult, then be sure to review the module where we went
+
+196
+00:17:04,230 --> 00:17:06,480
+into this in a lot more detail.
+
+197
+00:17:06,839 --> 00:17:13,230
+But hopefully, with a lot of hard work and perseverance, you managed to get your website to work and
+
+198
+00:17:13,230 --> 00:17:16,170
+you now have a Taco Town website.
+
+199
+00:17:19,109 --> 00:17:26,040
+And hopefully, in the process, you've learned a bit more about how to view JSONs, how to convert JSONs
+
+200
+00:17:26,040 --> 00:17:32,760
+into a format that we can use and pass around in our code and how to drill through the JSON for the
+
+201
+00:17:32,760 --> 00:17:36,030
+relevant pieces of information that you want to display.
+
+202
+00:17:36,660 --> 00:17:43,890
+In the next lesson, we're going to be talking more about how to make requests from our server side
+
+203
+00:17:43,890 --> 00:17:52,600
+to an external API so that we can interact with third-party APIs straight from our server back end.
+
+204
+00:17:52,620 --> 00:17:55,890
+So for all of that and we'll, I'll see you on the next lesson.
+

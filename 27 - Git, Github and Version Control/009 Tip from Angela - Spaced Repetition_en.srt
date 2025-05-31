@@ -1,0 +1,196 @@
+1
+00:00:00,420 --> 00:00:01,050
+Hey.
+
+2
+00:00:01,110 --> 00:00:04,590
+Well done on achieving yet another module.
+
+3
+00:00:04,590 --> 00:00:10,210
+You're doing really really good and I'm here cheering for you all the time
+
+4
+00:00:10,230 --> 00:00:10,580
+even--
+
+5
+00:00:10,920 --> 00:00:16,280
+even though you can't see it, I'm actually here just cheering for you.
+
+6
+00:00:16,280 --> 00:00:21,270
+Now I want to talk about the idea of space repetition.
+
+7
+00:00:21,430 --> 00:00:32,340
+Now there's a lot of research that's gone into how humans learn and one of the most well tested techniques
+
+8
+00:00:32,670 --> 00:00:34,010
+is space repetition.
+
+9
+00:00:34,020 --> 00:00:39,440
+It's the idea that if you learn something just once, you're probably going to forget it.
+
+10
+00:00:39,990 --> 00:00:47,850
+But if you learn something and then you come back to it in a week to review it and then a month to review
+
+11
+00:00:47,850 --> 00:00:51,720
+it and then a year to review it then that knowledge is yours.
+
+12
+00:00:51,720 --> 00:00:52,400
+You own it.
+
+13
+00:00:52,740 --> 00:00:55,410
+So it's the same with programming.
+
+14
+00:00:56,040 --> 00:01:03,360
+If you've learned a new concept let's say if else statements and you never use it again.
+
+15
+00:01:03,360 --> 00:01:05,280
+You've just heard how it works
+
+16
+00:01:05,280 --> 00:01:10,020
+you've seen what it does and then you never actually use it?
+
+17
+00:01:10,940 --> 00:01:12,320
+You're not going to remember it.
+
+18
+00:01:12,350 --> 00:01:16,400
+You're not going to remember how to use it the next time you come across it.
+
+19
+00:01:16,400 --> 00:01:19,880
+You're not going to remember to use it when you actually need to
+
+20
+00:01:19,880 --> 00:01:21,120
+in a program of your own.
+
+21
+00:01:21,740 --> 00:01:29,660
+So as a part of the course I try really hard to add in more repetition and I know sometimes it feels
+
+22
+00:01:29,660 --> 00:01:31,700
+like it's repetitive
+
+23
+00:01:31,700 --> 00:01:32,080
+right?
+
+24
+00:01:32,330 --> 00:01:37,220
+But you know if that is the case you can always listen at 2X speed.
+
+25
+00:01:37,220 --> 00:01:43,250
+You can change the toggle of the player so that I speak much faster and you can get through more of the
+
+26
+00:01:43,250 --> 00:01:43,840
+content
+
+27
+00:01:43,850 --> 00:01:51,080
+if you're just reviewing it. But it's there for a reason. It's to try and remind you of the concept, to try
+
+28
+00:01:51,080 --> 00:01:53,880
+and enact this kind of space repetition.
+
+29
+00:01:54,320 --> 00:02:00,590
+But you can also do it yourself like if you keep a list of the things that you've done and at regular
+
+30
+00:02:00,590 --> 00:02:07,460
+intervals increasing intervals, say a day, a week, a month, you just come back to those concepts just review
+
+31
+00:02:07,490 --> 00:02:08,800
+it once more.
+
+32
+00:02:09,229 --> 00:02:16,760
+You will be able to keep that knowledge in your long term memory and turn it into a skill rather than
+
+33
+00:02:16,760 --> 00:02:23,090
+kind of like you know when you cram for exams and you just learn everything once and then like a week
+
+34
+00:02:23,090 --> 00:02:25,750
+down the line, you forgotten everything like this is true for me.
+
+35
+00:02:25,760 --> 00:02:34,250
+I've crammed-- firstly I've had so time where it feels like it's impossible to study everything in that amount
+
+36
+00:02:34,250 --> 00:02:36,010
+of time.
+
+37
+00:02:36,260 --> 00:02:43,750
+I remember when I was doing my end of med school exams I had four days of full time exams.
+
+38
+00:02:43,760 --> 00:02:50,900
+It was like 9 to 5 with an hour lunch break of just exams on everything from like biochemistry to clinical
+
+39
+00:02:50,900 --> 00:02:54,380
+medicine to like just everything under the sun.
+
+40
+00:02:54,740 --> 00:03:02,270
+And I had to cram. I crammed so much knowledge and you know not like you know let alone now like many
+
+41
+00:03:02,270 --> 00:03:06,900
+years on, but even like a week down the line it was all gone.
+
+42
+00:03:06,920 --> 00:03:14,490
+It was like as if like there was no point doing it, doing that like cramming. So review the crux of
+
+43
+00:03:14,490 --> 00:03:22,400
+the topics that you learn on a regular basis. Try to use it in some sort of format like make a small
+
+44
+00:03:23,180 --> 00:03:30,230
+program or make a small quiz for yourself or feel something really really simple that you've already
+
+45
+00:03:30,230 --> 00:03:33,400
+built in the course but just do it by yourself.
+
+46
+00:03:33,410 --> 00:03:42,170
+Those are the moments when you're going to level up your skill and those are way more important than
+
+47
+00:03:42,260 --> 00:03:49,360
+listening to me like I'm just going to say like if you do the work and you actually write the programs,
+
+48
+00:03:49,520 --> 00:03:52,910
+that's really where it's most important.
+
+49
+00:03:52,910 --> 00:04:01,000
+So have a go at doing that and I'm going to be here continuing to cheer on you in the background.
+

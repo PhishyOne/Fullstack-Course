@@ -1,0 +1,668 @@
+1
+00:00:00,840 --> 00:00:08,340
+In the previous lesson, we managed to get the balance checking mechanism to work on our frontend and
+
+2
+00:00:08,340 --> 00:00:09,150
+our backend.
+
+3
+00:00:09,720 --> 00:00:19,050
+Now it's time to tackle this full set so that anyone can get some free tokens from the central pool,
+
+4
+00:00:19,320 --> 00:00:22,530
+just like how you claimed the free ICP tokens.
+
+5
+00:00:23,010 --> 00:00:28,350
+To do that, let's create a new public function which we'll call payOut.
+
+6
+00:00:29,370 --> 00:00:37,710
+And this function is not going to take any inputs, but it is going to asynchronously return some piece
+
+7
+00:00:37,710 --> 00:00:38,370
+of text.
+
+8
+00:00:39,060 --> 00:00:43,140
+And by default, it's just going to return the word Success.
+
+9
+00:00:44,130 --> 00:00:50,160
+This will then be able to be used when we call this function on the frontend, and we can replace the
+
+10
+00:00:50,160 --> 00:00:55,860
+words inside the button here with whatever it is that we got returned.
+
+11
+00:00:55,950 --> 00:01:03,300
+So if it was successful to faucet this amount to the user, then will replace this 'gimme gimme' with
+
+12
+00:01:03,300 --> 00:01:03,930
+success.
+
+13
+00:01:04,739 --> 00:01:06,570
+So that's the purpose of that return.
+
+14
+00:01:07,260 --> 00:01:14,010
+Now, how do we get hold of who to send the money to or who to send the tokens to?
+
+15
+00:01:14,460 --> 00:01:24,360
+Well, in Motoko, there is something called a shared function, and this basically allows methods declared
+
+16
+00:01:24,360 --> 00:01:27,840
+inside an actor to be called by other actors.
+
+17
+00:01:28,320 --> 00:01:34,710
+Now, by default, all public methods are shared anyways, but there's something that we can use inside
+
+18
+00:01:34,710 --> 00:01:37,200
+this shared method that's really useful.
+
+19
+00:01:37,770 --> 00:01:47,370
+We can use it to identify the principal ID of the entity that called a particular function.
+
+20
+00:01:48,090 --> 00:01:54,570
+So we can do that by writing the keyword shared and then adding a parameter called msg.
+
+21
+00:01:55,170 --> 00:02:03,720
+And whenever something, some canister or some user calls this method, then their principal ID is going
+
+22
+00:02:03,720 --> 00:02:09,060
+to be embedded inside this msg parameter and it's the caller property.
+
+23
+00:02:09,840 --> 00:02:16,170
+That means we can use this to get hold of the entity that called a particular function.
+
+24
+00:02:16,680 --> 00:02:23,880
+And if we can get hold of that, well, then we can assign that principal ID a particular amount and
+
+25
+00:02:23,880 --> 00:02:27,180
+add them to our ledger in our balances HashMap.
+
+26
+00:02:27,570 --> 00:02:30,570
+Let's go ahead and make this function shared.
+
+27
+00:02:30,870 --> 00:02:36,270
+And then inside the parentheses we add that parameter, which is called msg.
+
+28
+00:02:37,140 --> 00:02:44,730
+Now let's go ahead and use our debug print to print out what is the msg.caller in our case.
+
+29
+00:02:45,300 --> 00:02:48,600
+So we're going to use the Debug.print and then debug_show and
+
+30
+00:02:48,840 --> 00:02:55,740
+I'm going to pass in the msg.caller. And we need to import debug in order to use it.
+
+31
+00:03:01,560 --> 00:03:08,340
+Now let's hit save and let's go ahead and deploy our canister with these updated changes.
+
+32
+00:03:09,000 --> 00:03:20,460
+And in our command line over here, we can call that method payOut by writing dfx canister call and
+
+33
+00:03:20,460 --> 00:03:28,740
+then the canister name is token and then the name of the function is called payOut and notice the way
+
+34
+00:03:28,740 --> 00:03:29,600
+that it's spelt.
+
+35
+00:03:29,610 --> 00:03:35,640
+Make sure that it matches what you've got in your main.mo and then we can go ahead and hit enter.
+
+36
+00:03:37,740 --> 00:03:45,090
+Now, once that's done, you can see here we get the return of success, which doesn't really mean anything
+
+37
+00:03:45,090 --> 00:03:47,220
+because everything will return success right now.
+
+38
+00:03:47,640 --> 00:03:54,720
+But if you take a look at the panel where you've got your dfx start, where you've got the simulated ICP
+
+39
+00:03:54,720 --> 00:03:59,640
+blockchain, you should be able to see the id of the caller.
+
+40
+00:04:00,330 --> 00:04:04,710
+So in this case, the caller ID is my user, right?
+
+41
+00:04:04,740 --> 00:04:11,190
+If you match it up, you'll see that my user principal ID is this and that's what got printed out when
+
+42
+00:04:11,190 --> 00:04:13,830
+I printed the msg.caller.
+
+43
+00:04:14,460 --> 00:04:16,370
+Now let's try something a little bit different.
+
+44
+00:04:16,380 --> 00:04:19,620
+Let's call this message from our frontend.
+
+45
+00:04:19,950 --> 00:04:26,130
+So inside our faucet.jsx, let's go ahead and tap into that function.
+
+46
+00:04:26,460 --> 00:04:32,340
+So let's first import everything that's inside our token bridge.
+
+47
+00:04:32,700 --> 00:04:39,150
+So import token from ../../../ declarations/token.
+
+48
+00:04:39,930 --> 00:04:50,460
+And inside the async function to when the click is handled, we're going to use await token.payOut.
+
+49
+00:04:51,690 --> 00:04:57,690
+And this is going to trigger this function but it's going to trigger it from the frontend.
+
+50
+00:04:57,690 --> 00:05:04,410
+So it's going to be the user that's using the website and then hopefully we should get this debug print
+
+51
+00:05:04,410 --> 00:05:05,640
+triggered down here.
+
+52
+00:05:06,000 --> 00:05:07,410
+Let's go ahead and hit save.
+
+53
+00:05:07,410 --> 00:05:13,140
+And because we just made some changes to the frontend, not the backend, we can simply hit save and
+
+54
+00:05:13,140 --> 00:05:14,040
+it should refresh.
+
+55
+00:05:14,370 --> 00:05:19,140
+And now if I click on Gimme Gimme, then I go back to my command line,
+
+56
+00:05:19,140 --> 00:05:25,980
+you can see that this time there's a different principal ID that got printed. And this is the ID
+
+57
+00:05:26,310 --> 00:05:33,990
+of an anonymous user that's using the frontend website, instead of the actual user ID of myself.
+
+58
+00:05:34,530 --> 00:05:41,190
+So you can see, depending on who called that function, the msg.caller will reflect the principal
+
+59
+00:05:41,190 --> 00:05:44,040
+ID of that user or canister.
+
+60
+00:05:44,520 --> 00:05:50,610
+We can use this fact to transfer that particular ID some tokens.
+
+61
+00:05:51,030 --> 00:06:01,230
+To do that, we can simply tap into our balances HashMap and we can use the put method to put a key
+
+62
+00:06:01,230 --> 00:06:02,580
+and value pair in.
+
+63
+00:06:03,210 --> 00:06:07,650
+The key is going to be whoever it is that called this function,
+
+64
+00:06:07,650 --> 00:06:18,060
+so the principal ID of the msg.caller, and the value is going to be however amount we want to transfer
+
+65
+00:06:18,060 --> 00:06:18,450
+to them.
+
+66
+00:06:19,050 --> 00:06:27,150
+Now, inside my faucet, I've promised people that they can get 10,000 DANG coins, so I often have
+
+67
+00:06:27,150 --> 00:06:28,350
+coin and token mixed it up.
+
+68
+00:06:28,350 --> 00:06:30,360
+So if you want you can change that to token.
+
+69
+00:06:30,360 --> 00:06:33,420
+It doesn't really matter, but the amount I've set is 10,000.
+
+70
+00:06:33,870 --> 00:06:36,570
+Let's go ahead and set that here as well.
+
+71
+00:06:37,980 --> 00:06:46,770
+So we're going to give whoever calls our payOut method from the faucet 10,000 tokens and we're going
+
+72
+00:06:46,770 --> 00:06:53,190
+to do that using balances.put. Because we've got our check balance functionality already set up,
+
+73
+00:06:53,190 --> 00:06:55,530
+we can actually check to see if this works.
+
+74
+00:06:55,650 --> 00:07:05,940
+So if I go ahead and hit save and I deploy my updated code inside the payOut function, then I can go
+
+75
+00:07:05,940 --> 00:07:15,900
+ahead and check what is the balance of my user's principal. So I can paste that in there, check balance,
+
+76
+00:07:15,900 --> 00:07:26,340
+and you can see this has 1 billion DANG tokens, but I can also check the anonymous user who's actually
+
+77
+00:07:26,340 --> 00:07:28,400
+using this website.
+
+78
+00:07:28,620 --> 00:07:32,310
+If I paste that principal ID in here, click check balance,
+
+79
+00:07:32,310 --> 00:07:38,820
+you can see that this account has a balance of zero DANG. But as soon as I click Gimme Gimme, which
+
+80
+00:07:38,820 --> 00:07:44,820
+will faucet 10,000 DANG tokens into this account, afterwards,
+
+81
+00:07:44,820 --> 00:07:52,110
+if I go ahead and click Check Balance, then you can see we successfully transferred 10,000 tokens into
+
+82
+00:07:52,320 --> 00:07:53,970
+this user's account.
+
+83
+00:07:54,750 --> 00:07:58,080
+So we've managed to get the faucet functionality somewhat working.
+
+84
+00:07:58,650 --> 00:08:02,010
+Now there's a couple of user experience things I want to improve here.
+
+85
+00:08:02,280 --> 00:08:08,760
+The first thing I want to change is when I click on this button, it actually takes a little while to
+
+86
+00:08:08,760 --> 00:08:12,870
+perform this method. Because it's an update method
+
+87
+00:08:12,870 --> 00:08:19,410
+instead of a query method, it takes something like 2-3 seconds, and we don't want the user to be pressing
+
+88
+00:08:19,410 --> 00:08:22,680
+this continuously because it's just going to mess up our backend.
+
+89
+00:08:23,280 --> 00:08:30,390
+What we want to do is to be able to press it and then to disable the button until this functionality
+
+90
+00:08:30,390 --> 00:08:31,350
+has completed.
+
+91
+00:08:32,039 --> 00:08:35,340
+To do that we can go into our faucet frontend,
+
+92
+00:08:35,340 --> 00:08:36,400
+so the faucet.jsx,
+
+93
+00:08:37,909 --> 00:08:49,760
+and inside here we can set a new constant which I'll call isDisabled and the setter will be setDisable
+
+94
+00:08:50,810 --> 00:08:54,050
+and this is going to need to useState.
+
+95
+00:08:54,500 --> 00:09:00,740
+So we're going to import that in here as well, which hopefully should happen automatically because
+
+96
+00:09:00,740 --> 00:09:07,310
+you're using VSCode. And the initial state we're going to set it to is going to be false.
+
+97
+00:09:07,910 --> 00:09:10,070
+So we don't want the button to be disabled.
+
+98
+00:09:10,760 --> 00:09:15,800
+So this is the button, we've got the button ID, we've got the onClick,
+
+99
+00:09:16,130 --> 00:09:23,660
+and I'm going to add one more, which is the disabled attribute and I'm going to set that equal to the
+
+100
+00:09:23,660 --> 00:09:27,920
+isDisabled state using the state hook up here.
+
+101
+00:09:28,400 --> 00:09:33,800
+So now as soon as the user clicks the button, we're going to set it to disabled.
+
+102
+00:09:33,890 --> 00:09:37,670
+So we're going to say setDisable to true.
+
+103
+00:09:38,360 --> 00:09:45,500
+And then once the token payout has completed, then we can setDisable back to false again.
+
+104
+00:09:46,310 --> 00:09:52,190
+Alternatively, you can actually just omit this line because well, you know, once they've clicked
+
+105
+00:09:52,190 --> 00:09:57,950
+it once, should they really be allowed to tap faucet many times? So you could actually just keep
+
+106
+00:09:57,950 --> 00:10:03,110
+it disabled. And we can see how this works on the frontend.
+
+107
+00:10:03,500 --> 00:10:05,960
+Now if I click on it, you can see it turns gray and
+
+108
+00:10:06,000 --> 00:10:07,730
+I can't click on it any more.
+
+109
+00:10:07,970 --> 00:10:13,760
+And that means this button will stop working and I can't keep requesting DANG to this account.
+
+110
+00:10:14,060 --> 00:10:23,570
+One last consideration is we've transferred 10,000 tokens to the msg.caller, so the user of the website
+
+111
+00:10:23,570 --> 00:10:29,300
+right now, but what if they go ahead and spend that money and then they come back and they want to
+
+112
+00:10:29,300 --> 00:10:30,890
+get 10,000 tokens again?
+
+113
+00:10:31,280 --> 00:10:38,750
+Well, that shouldn't really be allowed because the idea is that you get 10,000 tokens to play with
+
+114
+00:10:38,750 --> 00:10:43,820
+and you can mess around with the website or do whatever it is you want with these tokens,
+
+115
+00:10:44,150 --> 00:10:46,520
+but it's not like an endless stream, right?
+
+116
+00:10:46,790 --> 00:10:52,550
+Because otherwise you're just giving people free money and it will really affect the token economics
+
+117
+00:10:52,550 --> 00:10:54,470
+of your particular token.
+
+118
+00:10:55,100 --> 00:10:59,360
+So let's add in a check into our main.mo.
+
+119
+00:10:59,870 --> 00:11:09,860
+What we can check for is to see if inside our balances HashMap, does this key actually exist?
+
+120
+00:11:10,160 --> 00:11:18,230
+We can use the get method to get hold of the value that's associated with msg.caller.
+
+121
+00:11:18,980 --> 00:11:27,140
+And the way that the get method works, if you remember, is that if that key doesn't actually exist,
+
+122
+00:11:27,140 --> 00:11:28,460
+it will return null.
+
+123
+00:11:29,090 --> 00:11:32,360
+If it does exist, then it will return the associated value.
+
+124
+00:11:33,200 --> 00:11:39,530
+What we can check inside this if statement is if the balances.get parsing in the current msg.
+
+125
+00:11:39,530 --> 00:11:50,480
+caller is equal to null, then that means that this person has actually never requested any tokens.
+
+126
+00:11:50,480 --> 00:11:53,150
+They don't actually exist in our ledger.
+
+127
+00:11:53,660 --> 00:11:58,550
+In that case, we're going to go ahead and transfer them these 10,000 tokens,
+
+128
+00:11:59,060 --> 00:12:01,220
+their starting tokens to play with.
+
+129
+00:12:01,910 --> 00:12:02,330
+But,
+
+130
+00:12:03,310 --> 00:12:10,900
+otherwise we're going to say, well, actually, you've already claimed the tokens,
+
+131
+00:12:10,990 --> 00:12:11,350
+right?
+
+132
+00:12:12,830 --> 00:12:20,060
+And now what we can do is we can output these two different pieces of text from our method.
+
+133
+00:12:20,780 --> 00:12:28,370
+And that means we can get hold of this result either success or already claimed on our frontend here
+
+134
+00:12:28,850 --> 00:12:32,720
+and we can use that to set the button text right here.
+
+135
+00:12:33,650 --> 00:12:39,320
+If we go ahead and create a new constant called buttonText
+
+136
+00:12:40,910 --> 00:12:43,250
+and we'll have a setText.
+
+137
+00:12:44,870 --> 00:12:54,140
+Then we can use state and set that to initially start with the gimme gimme. And after they've pressed
+
+138
+00:12:54,140 --> 00:12:58,250
+on the button, however, we're going to change this
+
+139
+00:12:59,120 --> 00:13:07,280
+depending on whatever it is that we got back from this method. We can create a new const called result
+
+140
+00:13:07,730 --> 00:13:11,300
+and set it equal to the outcome of this method.
+
+141
+00:13:11,840 --> 00:13:19,880
+And then we can use the setText setter to set the button text to whatever we got back from the result
+
+142
+00:13:19,880 --> 00:13:28,310
+here. And now, because we've updated the backend, let's test this out by first doing dfx deploy and
+
+143
+00:13:28,310 --> 00:13:29,990
+see if this actually works.
+
+144
+00:13:30,950 --> 00:13:38,270
+Remember that at the moment we have no persistence, so our balances HashMap gets overwritten every
+
+145
+00:13:38,270 --> 00:13:40,640
+single time we do dfx deploy.
+
+146
+00:13:41,240 --> 00:13:49,250
+That means if I take this user's principle id, so this frontend user's principal ID, and I check the balance,
+
+147
+00:13:49,550 --> 00:13:51,560
+it should have zero
+
+148
+00:13:51,560 --> 00:13:52,010
+DANG.
+
+149
+00:13:52,850 --> 00:13:59,510
+If I go ahead and click Gimme Gimme, then it should return with the result once it's done.
+
+150
+00:13:59,840 --> 00:14:01,460
+So it says it was successful.
+
+151
+00:14:01,850 --> 00:14:05,720
+And now if I check the balance again, it should now have 10,000
+
+152
+00:14:05,720 --> 00:14:06,110
+DANG.
+
+153
+00:14:06,320 --> 00:14:12,860
+But if I try to click that button again, which I actually can't because it's disabled, but notice
+
+154
+00:14:12,860 --> 00:14:17,720
+that whenever you have a button that's disabled, if the user just refreshes the website, the state
+
+155
+00:14:17,720 --> 00:14:18,650
+will get reset.
+
+156
+00:14:19,250 --> 00:14:26,240
+But now if we check the faucet again, it actually tells us, wait a minute, your user ID already
+
+157
+00:14:26,240 --> 00:14:27,560
+exists on our ledger.
+
+158
+00:14:27,890 --> 00:14:32,660
+So that means you've already claimed your tokens and you shouldn't be allowed to claim it again.
+
+159
+00:14:33,080 --> 00:14:41,600
+So we've now managed to create our faucet by giving 10,000 of our custom tokens to anyone using our
+
+160
+00:14:41,600 --> 00:14:42,170
+website.
+
+161
+00:14:42,590 --> 00:14:48,470
+And we've also added in some security and some user experience touches to make this work properly.
+
+162
+00:14:49,310 --> 00:14:53,690
+In the next lesson, we're going to tackle the last panel here, which is the transfer.
+
+163
+00:14:54,290 --> 00:15:00,410
+The idea is once you've claimed your 10,000 tokens, well you can actually then transfer that from your
+
+164
+00:15:00,410 --> 00:15:02,480
+account to any other account.
+
+165
+00:15:02,990 --> 00:15:08,240
+Let's say that you didn't actually need your 10,000 and you wanted to transfer it to a friend who needed
+
+166
+00:15:08,240 --> 00:15:12,590
+2000 DANG tokens, or you could do that using this transfer area.
+
+167
+00:15:13,100 --> 00:15:15,920
+So for all of that and more, I'll see you on the next lesson.
+

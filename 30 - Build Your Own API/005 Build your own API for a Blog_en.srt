@@ -1,0 +1,688 @@
+1
+00:00:00,680 --> 00:00:01,070
+All right.
+
+2
+00:00:01,070 --> 00:00:06,710
+It's time for the final project of the module and we're going to be building a blog API.
+
+3
+00:00:06,740 --> 00:00:11,510
+Notice how we're building the API for the blog in this case, and we're not actually building the front
+
+4
+00:00:11,510 --> 00:00:12,050
+end.
+
+5
+00:00:12,140 --> 00:00:19,880
+What I mean by the blog API, well, we're going to cover all of the Http requests apart from put.
+
+6
+00:00:19,910 --> 00:00:25,250
+These two are both update methods and we can choose which one we want to do.
+
+7
+00:00:25,250 --> 00:00:31,780
+But in this case, what we want to do is only to have get post, patch and delete.
+
+8
+00:00:31,790 --> 00:00:38,090
+And what this is going to enable us to do is to allow our front end, which I've already built a very
+
+9
+00:00:38,090 --> 00:00:46,430
+simple example for you to connect to our back end, our server, and it's going to be able to display
+
+10
+00:00:46,430 --> 00:00:49,010
+all of the blog posts in order.
+
+11
+00:00:49,040 --> 00:00:55,460
+It's going to display their titles, their date of creation, their author and their content, which
+
+12
+00:00:55,490 --> 00:00:57,530
+for now is pretty short.
+
+13
+00:00:57,650 --> 00:01:05,250
+In addition, we will have all of the Crud methods such as Create, so we'll be able to create a new
+
+14
+00:01:05,250 --> 00:01:10,860
+post and you'll see that show up at the bottom.
+
+15
+00:01:10,860 --> 00:01:17,670
+We'll be able to update posts so it will display the existing title, content and author.
+
+16
+00:01:17,700 --> 00:01:22,740
+Or if we take a look at one of the larger blog posts, you can see that more clearly.
+
+17
+00:01:22,740 --> 00:01:27,990
+And we should be able to change this by making a patch request.
+
+18
+00:01:27,990 --> 00:01:36,540
+So only changing one part or a couple of parts of the entire post and we're only providing the updates.
+
+19
+00:01:37,140 --> 00:01:39,180
+So that is our patch requests.
+
+20
+00:01:39,180 --> 00:01:43,350
+And you can see I've now secretly taken over this blog post.
+
+21
+00:01:43,380 --> 00:01:44,430
+It's not by me.
+
+22
+00:01:44,910 --> 00:01:46,770
+And finally we can also delete.
+
+23
+00:01:46,770 --> 00:01:48,990
+So let me just delete this test post.
+
+24
+00:01:49,020 --> 00:01:51,390
+You can see it's now gone.
+
+25
+00:01:51,390 --> 00:01:56,640
+If you go ahead and download the starting project, the blog project from this current lesson, extract
+
+26
+00:01:56,640 --> 00:02:00,090
+it and open it up inside vs code.
+
+27
+00:02:00,090 --> 00:02:06,210
+You'll see that there are the usual things that you're familiar with, so you'll need to run npm I in
+
+28
+00:02:06,210 --> 00:02:11,220
+this current folder directory in order to install all your node modules before you get started.
+
+29
+00:02:11,220 --> 00:02:16,470
+And then if you take a look inside the Index.js, which is where you're going to be writing your code,
+
+30
+00:02:16,470 --> 00:02:23,670
+completing these five challenges in order to make the get post patch and delete requests to work.
+
+31
+00:02:23,670 --> 00:02:29,490
+And you'll see that what's happening is that we'll have two servers running simultaneously, one from
+
+32
+00:02:29,490 --> 00:02:34,560
+Server.js, which is going to act as the back end that makes the API requests.
+
+33
+00:02:34,560 --> 00:02:41,730
+So if you imagine somebody using your API and building a back end and the other one which is the Index.js,
+
+34
+00:02:41,760 --> 00:02:46,320
+which is going to be our back end for our actual API.
+
+35
+00:02:46,350 --> 00:02:52,200
+So this is the one that actually responds to the API requests from external servers.
+
+36
+00:02:52,200 --> 00:02:53,730
+So this is quite important.
+
+37
+00:02:53,760 --> 00:02:57,510
+We can't run two pieces of code on the same port.
+
+38
+00:02:57,510 --> 00:03:01,860
+That doesn't really work in order to get up and running and to test it out.
+
+39
+00:03:01,860 --> 00:03:09,330
+What I recommend is to go ahead and firstly CD into the project folder and then make sure that you've
+
+40
+00:03:09,330 --> 00:03:16,830
+run NPM I to install everything in there and then use Nodemon to run the Server.js.
+
+41
+00:03:16,950 --> 00:03:22,950
+And once you've got that up and running you should be able to visit localhost 3000 and it will tell
+
+42
+00:03:22,950 --> 00:03:24,600
+you error fetching posts.
+
+43
+00:03:24,600 --> 00:03:33,030
+That is because there is currently nothing running on the port where the server.js is looking for the
+
+44
+00:03:33,030 --> 00:03:33,720
+API.
+
+45
+00:03:33,750 --> 00:03:40,830
+So port 4000 localhost 4000 and this is what we're going to try and do with our index.js.
+
+46
+00:03:40,830 --> 00:03:49,680
+So you can go ahead and create a new terminal and again do all the required preamble.
+
+47
+00:03:49,680 --> 00:03:59,280
+So CD over and then Nodemon index dot JS Unfortunately, even though our API is now running on localhost
+
+48
+00:03:59,280 --> 00:04:06,870
+4000, this is still not going to work because we don't have any of the routes defined just yet.
+
+49
+00:04:06,990 --> 00:04:16,110
+What you can do instead is you can do a control C to stop this and use nodemon to run solution dot JS,
+
+50
+00:04:16,110 --> 00:04:18,810
+which is also going to go on to Port 4000.
+
+51
+00:04:18,810 --> 00:04:25,740
+And now if you refresh your localhost 3000, the server for the website is now actually reaching to
+
+52
+00:04:25,740 --> 00:04:26,670
+the API.
+
+53
+00:04:26,700 --> 00:04:35,460
+So localhost 3000 is hitting up localhost 4000 and it's now all working because all of the routes have
+
+54
+00:04:35,460 --> 00:04:38,250
+been defined in that solution.
+
+55
+00:04:38,250 --> 00:04:44,940
+Dot JS So you can compare and contrast, but while you're working on your own code, when you need to
+
+56
+00:04:44,940 --> 00:04:51,750
+test it, you'll need to stop this because you can't run two pieces of code on the same port and this
+
+57
+00:04:51,750 --> 00:04:54,810
+is what will happen if you try to do that.
+
+58
+00:04:54,810 --> 00:04:59,940
+So let me try and run Nodemon Index.js alongside.
+
+59
+00:05:00,160 --> 00:05:00,610
+Solution.
+
+60
+00:05:01,030 --> 00:05:02,650
+We get this error.
+
+61
+00:05:02,680 --> 00:05:09,850
+You can see apps crashed and if you scroll up, you can see the code is in use.
+
+62
+00:05:10,030 --> 00:05:15,700
+And this is because you will see the error that says address already in use.
+
+63
+00:05:15,700 --> 00:05:23,590
+So you should realize that this is because we have this solution JS running on localhost 4000.
+
+64
+00:05:23,590 --> 00:05:33,460
+So if we want to run our index.js then we have to first stop this one by using control C and then we
+
+65
+00:05:33,460 --> 00:05:38,590
+can try to stop this one and then try it again.
+
+66
+00:05:38,590 --> 00:05:42,370
+So now that that port is now freed up, then we can use it.
+
+67
+00:05:42,370 --> 00:05:46,630
+So essentially at any time point you should really only have two terminals open.
+
+68
+00:05:46,630 --> 00:05:53,530
+One should be running localhost 3000, which is going to be running the website that is hitting up our
+
+69
+00:05:53,530 --> 00:06:01,010
+API and the other one localhost 4000, which is the server where the API requests are handled.
+
+70
+00:06:01,010 --> 00:06:06,020
+And if you want to test your index.js, that's what's going to run on localhost 4000.
+
+71
+00:06:06,050 --> 00:06:13,460
+If you want to see what the solution would do in order to serve up the API to the front end, then you
+
+72
+00:06:13,460 --> 00:06:15,200
+run the nodemon solution.
+
+73
+00:06:15,200 --> 00:06:22,520
+Dot JS The goal is for you to be able to complete this independently based off what you have seen in
+
+74
+00:06:22,520 --> 00:06:23,150
+this module.
+
+75
+00:06:23,150 --> 00:06:28,760
+So we have to gets a post, a patch and a delete and it should be relatively straightforward, but you
+
+76
+00:06:28,760 --> 00:06:33,710
+might need to review some of the lessons in the previous parts of this module.
+
+77
+00:06:33,830 --> 00:06:38,240
+I'm going to let you pause the video and I'm going to let you get on with it.
+
+78
+00:06:38,240 --> 00:06:44,780
+You'll know once everything works because you'll be able to run Nodemon Index.js and it will allow you
+
+79
+00:06:44,780 --> 00:06:46,820
+to create a new post.
+
+80
+00:06:46,850 --> 00:06:51,320
+It will add the post to the bottom of our blog list.
+
+81
+00:06:51,350 --> 00:06:53,540
+It will allow you to edit new posts.
+
+82
+00:06:53,540 --> 00:07:00,620
+You can update them as you wish and you'll see them update in here.
+
+83
+00:07:00,620 --> 00:07:07,550
+You can delete posts as you click on the delete button and that's all the functionality there is in
+
+84
+00:07:07,550 --> 00:07:08,690
+this blog post.
+
+85
+00:07:08,690 --> 00:07:15,140
+So pause the video and see if you can figure out all of the challenges for this project.
+
+86
+00:07:18,180 --> 00:07:18,570
+All right.
+
+87
+00:07:18,600 --> 00:07:24,090
+Hopefully this was relatively straightforward given that you have completed the previous parts of this
+
+88
+00:07:24,090 --> 00:07:29,910
+module and we've gone through most of these routes in creating an API, get post, patch and delete.
+
+89
+00:07:30,000 --> 00:07:36,780
+If we take a look through the solution code, you'll see that it is relatively straightforward to get
+
+90
+00:07:36,780 --> 00:07:37,710
+all posts.
+
+91
+00:07:37,830 --> 00:07:44,370
+All we're doing is returning the posts as a Json using res.json and posts.
+
+92
+00:07:44,370 --> 00:07:51,360
+Is this array that we've already created here as a in-memory data store where we've got the ID, the
+
+93
+00:07:51,360 --> 00:07:58,650
+title, the content, the author and the date, and in later modules, when we cover databases, we'll
+
+94
+00:07:58,650 --> 00:08:03,180
+take this out of the current memory and we will store it on a database.
+
+95
+00:08:03,180 --> 00:08:08,670
+But for now, this is great for learning how to build our API without getting bogged down in all the
+
+96
+00:08:08,670 --> 00:08:10,170
+rest of the database stuff.
+
+97
+00:08:11,350 --> 00:08:16,690
+We've got our get, which is get all posts, which is relatively easy.
+
+98
+00:08:16,780 --> 00:08:25,840
+We've got the get a specific post by ID, so we have an ID path parameter and then we try to find it
+
+99
+00:08:25,840 --> 00:08:28,180
+inside the post array.
+
+100
+00:08:28,180 --> 00:08:33,970
+And then if we do find it, then we go ahead and return that post as a Json.
+
+101
+00:08:33,970 --> 00:08:38,320
+But if we don't, then we turn 404 and the message post not found.
+
+102
+00:08:38,650 --> 00:08:49,270
+When the user posts a new post, we can see that the server.js will try to hit up our API at the API
+
+103
+00:08:49,300 --> 00:08:51,220
+URL forward slash posts.
+
+104
+00:08:51,220 --> 00:08:58,990
+So that means that in our index.js we have to also make sure that that route exists at that endpoint.
+
+105
+00:08:59,170 --> 00:09:05,950
+And when it does, we try to get hold of all the things that are sent over, including the body title,
+
+106
+00:09:05,980 --> 00:09:08,080
+body content, body author.
+
+107
+00:09:08,170 --> 00:09:15,200
+And remember, we're able to do this because we're using the middleware body parser, especially this
+
+108
+00:09:15,200 --> 00:09:18,800
+part where we get Ahold of the URL encoded form data.
+
+109
+00:09:18,800 --> 00:09:26,180
+And as always, you can explore the different parts of the form so you can see that in the views folder.
+
+110
+00:09:26,180 --> 00:09:32,390
+You'll see that in the modified EJS, we've got two forms, one which is an edit form for the patch
+
+111
+00:09:32,390 --> 00:09:39,470
+request and one is a new post form for the post requests and you can see what are the names of each
+
+112
+00:09:39,470 --> 00:09:40,550
+of these fields.
+
+113
+00:09:40,550 --> 00:09:43,160
+So content author title.
+
+114
+00:09:43,160 --> 00:09:49,610
+And that is of course what we need to target when we are getting hold of body dot something.
+
+115
+00:09:49,610 --> 00:09:58,280
+So this part has to match whatever is in that modified form and then the date we're simply using new
+
+116
+00:09:58,310 --> 00:10:02,480
+date to use the JavaScript date model to create the current date and time.
+
+117
+00:10:02,480 --> 00:10:08,240
+And we saw all of that as a post object which we push onto the array.
+
+118
+00:10:09,160 --> 00:10:17,170
+And the ID we simply synthesize a by adding one to the last ID, which is this variable we're tracking
+
+119
+00:10:17,170 --> 00:10:21,520
+here, and we increase it each time we create a new post.
+
+120
+00:10:21,790 --> 00:10:29,170
+The patch request is similar in terms of the fact that we get hold of the data from the modified EJS
+
+121
+00:10:29,200 --> 00:10:39,850
+with the same name for each of the fields and we try to grab that data in our route and we use it to
+
+122
+00:10:39,850 --> 00:10:41,210
+update the post.
+
+123
+00:10:41,230 --> 00:10:46,570
+So first we find the post with the ID that we are looking for.
+
+124
+00:10:46,570 --> 00:10:49,450
+So that's passed in as a path parameter.
+
+125
+00:10:49,450 --> 00:10:55,840
+And then if that post doesn't exist, then we simply straight up return a 404 post not found.
+
+126
+00:10:56,050 --> 00:11:02,050
+But if it does exist, then we look to see, well, did we get a new title?
+
+127
+00:11:02,050 --> 00:11:05,230
+Did we get a new content or did we get a new author?
+
+128
+00:11:05,260 --> 00:11:10,190
+And if so, we go ahead and replace those relevant parts.
+
+129
+00:11:11,130 --> 00:11:15,560
+And then we send back the updated post as a Json.
+
+130
+00:11:15,570 --> 00:11:21,500
+And then finally, as a part of the delete request, we get hold of the ID that is deleted.
+
+131
+00:11:21,510 --> 00:11:32,430
+So if we take a look at the Index.js next to the delete button, it's an anchor tag that links to slash
+
+132
+00:11:32,460 --> 00:11:40,200
+API, slash post slash delete, slash the id of the current post because this is a for each loop using
+
+133
+00:11:40,200 --> 00:11:48,210
+our EJS and for each of the posts in that array, we assign the post ID already to that URL.
+
+134
+00:11:48,210 --> 00:11:54,540
+So that's going to hit up the server.js where if you take a look at the delete, it's going to go to
+
+135
+00:11:54,540 --> 00:12:02,370
+this endpoint and then it's going to send a request to our back end, our API and under slash forward
+
+136
+00:12:02,370 --> 00:12:09,840
+post forward slash request params ID, which is what it gets sent in the path parameter right here from
+
+137
+00:12:09,840 --> 00:12:12,550
+the server running on localhost 3000.
+
+138
+00:12:12,580 --> 00:12:14,530
+The one making the API requests.
+
+139
+00:12:14,560 --> 00:12:20,200
+Then we're able to make that delete request in our back end right here.
+
+140
+00:12:20,620 --> 00:12:27,280
+And essentially we're just finding the index, making sure the index actually exists and then splicing
+
+141
+00:12:27,280 --> 00:12:30,970
+the post to remove that particular post with that index.
+
+142
+00:12:31,510 --> 00:12:39,520
+And now we're getting closer to getting the two servers to communicate to each other, the Server.js,
+
+143
+00:12:39,550 --> 00:12:46,600
+which is the website making the API requests and the solution dot JS, which in your case is Index.js,
+
+144
+00:12:46,600 --> 00:12:52,300
+which is the back end of our API that we're building that's handling those API requests.
+
+145
+00:12:52,840 --> 00:13:00,910
+You can imagine this as somebody who wants to use your blog API writing this website and hitting up
+
+146
+00:13:00,910 --> 00:13:08,140
+your API in order to handle all of the complicated parts of creating and saving blog posts.
+
+147
+00:13:09,280 --> 00:13:13,180
+And this gets really close to real life.
+
+148
+00:13:13,180 --> 00:13:19,180
+And as you'll see later on when we start merging our front end and back end, you'll see this all coming
+
+149
+00:13:19,210 --> 00:13:19,950
+together.
+
+150
+00:13:19,960 --> 00:13:23,680
+But this will take a little bit of time to wrap your head around.
+
+151
+00:13:23,680 --> 00:13:26,410
+So don't worry if you didn't get it the first time.
+
+152
+00:13:26,410 --> 00:13:32,830
+If you got stuck at any point, be sure to review the solution code, but also review all of the different
+
+153
+00:13:32,830 --> 00:13:34,060
+parts of the code base.
+
+154
+00:13:34,450 --> 00:13:37,720
+There's nothing in here that you haven't seen before.
+
+155
+00:13:37,750 --> 00:13:43,360
+You've seen JS files, You've seen how the back end of a website should work.
+
+156
+00:13:43,390 --> 00:13:49,570
+You've seen how we can make these Axios requests, you've seen how we can create our own APIs.
+
+157
+00:13:49,570 --> 00:13:55,360
+It just takes a little bit of time for everything to come together in your own mind, and that's okay.
+
+158
+00:13:55,390 --> 00:13:57,430
+Don't beat yourself up about it.
+
+159
+00:13:57,430 --> 00:14:00,010
+It takes us all time to read code.
+
+160
+00:14:00,010 --> 00:14:06,850
+And in fact, I would say it takes longer to read code, a lot longer than to write code because you're
+
+161
+00:14:06,850 --> 00:14:09,050
+having to understand somebody else's logic.
+
+162
+00:14:09,080 --> 00:14:12,560
+You're having to understand how a lot of different pieces play together.
+
+163
+00:14:12,560 --> 00:14:15,980
+But just try practicing this a few more times.
+
+164
+00:14:15,980 --> 00:14:22,610
+If you didn't get it the first time, try it again with the explanation and looking at different parts
+
+165
+00:14:22,610 --> 00:14:24,170
+of the code base.
+
+166
+00:14:24,260 --> 00:14:32,480
+So hopefully you were able to build out the blog API and you have a functioning blog up and running
+
+167
+00:14:32,480 --> 00:14:36,590
+and you might even create some cool APIs of your own.
+
+168
+00:14:36,590 --> 00:14:44,420
+If you do, be sure to either hit me up on Twitter or head into the Q and A and Post to all of the other
+
+169
+00:14:44,420 --> 00:14:46,490
+students and show us what you've built.
+
+170
+00:14:46,520 --> 00:14:51,710
+Maybe we'll be able to use it and we'll be able to build cool projects based on your work.
+
+171
+00:14:51,710 --> 00:14:53,420
+So I hope you enjoyed this module.
+
+172
+00:14:53,420 --> 00:14:54,380
+I'll see you on the next one.
+

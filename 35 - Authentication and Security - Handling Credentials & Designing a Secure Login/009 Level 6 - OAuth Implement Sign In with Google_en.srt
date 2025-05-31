@@ -1,0 +1,1632 @@
+1
+00:00:00,230 --> 00:00:06,200
+Hey guys, in this lesson we're going to be upgrading our authentication one more level.
+
+2
+00:00:06,200 --> 00:00:13,160
+And this is something that you can either have alongside your previous local strategy where you allow
+
+3
+00:00:13,160 --> 00:00:17,360
+people to authenticate using username, password or email and password.
+
+4
+00:00:17,360 --> 00:00:24,170
+And you have this alongside or as some modern websites do these days, they don't actually even allow
+
+5
+00:00:24,170 --> 00:00:30,710
+people to register using username and password or make it really, really small so that people mostly
+
+6
+00:00:30,710 --> 00:00:32,450
+go for the social logins.
+
+7
+00:00:32,479 --> 00:00:35,180
+Now what exactly is OAuth?
+
+8
+00:00:35,180 --> 00:00:42,980
+You might have heard of this terms, but all it is, it's simply a open standard for token based authorization.
+
+9
+00:00:42,980 --> 00:00:45,110
+Now what did all of that mean?
+
+10
+00:00:45,110 --> 00:00:46,220
+Well let me explain.
+
+11
+00:00:46,220 --> 00:00:48,110
+So you've heard of Facebook right.
+
+12
+00:00:48,110 --> 00:00:50,690
+But let's say that we're building a different web app.
+
+13
+00:00:50,690 --> 00:00:56,060
+Let's say we're building a social network that's going to be the new Facebook, and it's going to be
+
+14
+00:00:56,060 --> 00:00:57,350
+called Facebook.
+
+15
+00:00:57,350 --> 00:01:04,190
+And Bray's book is an awesome social network for people who have braces.
+
+16
+00:01:04,190 --> 00:01:10,640
+Now, when you're a new user who's signing up for Brace Book, you probably won't have any friends in
+
+17
+00:01:10,640 --> 00:01:11,510
+the beginning, right?
+
+18
+00:01:11,510 --> 00:01:17,300
+And nobody likes a social network where you have no social connections and nobody wants to feel like
+
+19
+00:01:17,300 --> 00:01:18,470
+they have no friends.
+
+20
+00:01:18,470 --> 00:01:26,150
+So what can we do as the developers of Brace Book to make this process of joining our social network
+
+21
+00:01:26,180 --> 00:01:27,260
+a little bit easier?
+
+22
+00:01:27,260 --> 00:01:34,610
+Well, we can ask the user for permission to access their Facebook account and see which friends they
+
+23
+00:01:34,610 --> 00:01:40,400
+have on Facebook are already users of our service by Facebook.
+
+24
+00:01:40,400 --> 00:01:47,120
+So now once the user sign up, they'll already see that three of their friends are already on Facebook
+
+25
+00:01:47,120 --> 00:01:54,050
+and they're ready to get started in a new life of socializing with their B braced friends.
+
+26
+00:01:54,050 --> 00:01:56,450
+Now, how would this work exactly?
+
+27
+00:01:56,450 --> 00:02:03,560
+Well, on our login page, we can ask the user to sign in either manually where they don't get the benefit
+
+28
+00:02:03,560 --> 00:02:10,940
+of instantly connecting with their friends who have braces, or we can get them to log in with Facebook.
+
+29
+00:02:10,940 --> 00:02:18,980
+And in this case, what would happen is we would make a Get request to Facebook asking them for this
+
+30
+00:02:18,980 --> 00:02:26,540
+user's friends on Facebook and Facebook would return with a post request with that list of users and
+
+31
+00:02:26,540 --> 00:02:27,230
+emails.
+
+32
+00:02:27,230 --> 00:02:29,960
+So this might be a really simplified version of that.
+
+33
+00:02:29,960 --> 00:02:36,290
+It's just a straight up table of this particular user's friends on Facebook and all of their emails.
+
+34
+00:02:36,290 --> 00:02:44,030
+So then this gets passed over to our server, where we can compare it against our database of users
+
+35
+00:02:44,030 --> 00:02:49,130
+and see whether, if we have any matching users who have the same email addresses.
+
+36
+00:02:49,130 --> 00:02:57,320
+So now we know that for this user, we have three friends of theirs who are already on Facebook, and
+
+37
+00:02:57,320 --> 00:03:02,090
+we'll be able to automatically add them as a friend onto Facebook.
+
+38
+00:03:02,090 --> 00:03:05,540
+And it's also a similar scenario if you are signing up to LinkedIn.
+
+39
+00:03:05,540 --> 00:03:12,290
+For example, if you couldn't be bothered to type in all of your contacts email addresses to find on
+
+40
+00:03:12,290 --> 00:03:19,010
+LinkedIn and add them individually, then what LinkedIn might do is it asks you to log in via Google,
+
+41
+00:03:19,010 --> 00:03:27,230
+and it will look through all of your contacts on Gmail in order to add them automatically to LinkedIn.
+
+42
+00:03:27,230 --> 00:03:36,080
+So by using OAuth, we're able to access pieces of information on these third party websites, such
+
+43
+00:03:36,080 --> 00:03:39,620
+as their friends emails or their contacts on Gmail.
+
+44
+00:03:39,620 --> 00:03:46,850
+But in our case, because we're talking about authentication and leveling up the security of our authentication,
+
+45
+00:03:46,850 --> 00:03:55,490
+another really big benefit involves delegating the task of managing passwords securely to these companies
+
+46
+00:03:55,490 --> 00:03:57,140
+like Facebook and Google.
+
+47
+00:03:57,140 --> 00:04:04,160
+As we mentioned before, every day or so yet another company gets hacked, and these companies tend
+
+48
+00:04:04,160 --> 00:04:10,460
+to be kind of low tech companies, companies that are not Facebook, Google, Amazon who are really
+
+49
+00:04:10,460 --> 00:04:17,300
+known for having great engineers, great teams who are able to implement all of these levels of security
+
+50
+00:04:17,300 --> 00:04:19,370
+for the authentication on their website.
+
+51
+00:04:19,370 --> 00:04:25,880
+And they probably have thought about hashing and salting passwords or other data that they're storing.
+
+52
+00:04:25,880 --> 00:04:26,960
+But there's more.
+
+53
+00:04:26,960 --> 00:04:32,120
+There are things such as not only salting the passwords, but also peppering the passwords.
+
+54
+00:04:32,120 --> 00:04:40,370
+Some companies also encrypt the entire database containing the hashed passwords, and have a wide array
+
+55
+00:04:40,370 --> 00:04:47,180
+of complex mathematical solutions to keep their user passwords under lock and key.
+
+56
+00:04:47,210 --> 00:04:53,420
+Now, as a web developer, we could implement all of those things that I just spoke about and address
+
+57
+00:04:53,420 --> 00:04:58,760
+all of the edge cases, but it would take us a lot of time and a lot of development hours.
+
+58
+00:04:58,760 --> 00:04:59,810
+So what?
+
+59
+00:04:59,930 --> 00:05:05,780
+Why not simply delegate this task to a large company like Facebook and Google?
+
+60
+00:05:05,780 --> 00:05:11,210
+So then every time we log in our user, we simply ask them to log in on Facebook.
+
+61
+00:05:11,210 --> 00:05:16,130
+And Facebook will then authenticate them using their own secure methods.
+
+62
+00:05:16,130 --> 00:05:22,550
+And once that's done, Facebook sends us back a message saying this user is authenticated.
+
+63
+00:05:22,580 --> 00:05:27,830
+There are real Facebook user and they have got their correct username and passwords.
+
+64
+00:05:27,830 --> 00:05:30,440
+So go ahead and authenticate them as well.
+
+65
+00:05:30,440 --> 00:05:33,380
+And that will make our lives a lot easier.
+
+66
+00:05:33,380 --> 00:05:35,300
+We'll have a lot less liability.
+
+67
+00:05:35,300 --> 00:05:40,880
+And this is the way that you're seeing a lot of websites going where they only have third party login
+
+68
+00:05:40,880 --> 00:05:43,820
+like login with Twitter, Facebook, Google, GitHub.
+
+69
+00:05:43,910 --> 00:05:49,010
+But in order for us to be able to do all of this, we need to learn about OAuth.
+
+70
+00:05:49,010 --> 00:05:53,870
+That is the glue that binds all of this together and makes it actually tick.
+
+71
+00:05:53,870 --> 00:05:57,140
+Now, what exactly is special about OAuth?
+
+72
+00:05:57,140 --> 00:06:03,740
+Because there's a lot of other open standards that does something similar to this, but OAuth is quite
+
+73
+00:06:03,740 --> 00:06:05,030
+special in three ways.
+
+74
+00:06:05,030 --> 00:06:10,760
+The first way is that it allows you to grant a granular level of access.
+
+75
+00:06:10,760 --> 00:06:11,900
+What does that mean?
+
+76
+00:06:11,900 --> 00:06:19,040
+That means that when your user logs in with Facebook, you can request specific things from their Facebook
+
+77
+00:06:19,040 --> 00:06:19,850
+account.
+
+78
+00:06:19,850 --> 00:06:25,820
+So you could say that for my app, I only really need their profile and email address.
+
+79
+00:06:25,820 --> 00:06:31,730
+But say if you were Tinder and you wanted to know who all their friends were so you don't accidentally
+
+80
+00:06:31,730 --> 00:06:36,080
+match them up, then you might want to know also their list of friends.
+
+81
+00:06:36,080 --> 00:06:38,480
+So this is what I mean by granularity.
+
+82
+00:06:38,480 --> 00:06:44,570
+The app developer can determine what kind of data do they need from the user's Facebook account and
+
+83
+00:06:44,570 --> 00:06:46,370
+request those accordingly.
+
+84
+00:06:46,610 --> 00:06:53,540
+Now, the second thing about OAuth is it allows for either read only or read and write access.
+
+85
+00:06:53,540 --> 00:07:00,170
+So in the case of Facebook, this means that you can either ask them to just retrieve pieces of information
+
+86
+00:07:00,170 --> 00:07:01,670
+about their Facebook account.
+
+87
+00:07:01,670 --> 00:07:02,780
+So what's their name?
+
+88
+00:07:02,780 --> 00:07:03,980
+What's their email?
+
+89
+00:07:03,980 --> 00:07:05,270
+Who are their friends?
+
+90
+00:07:05,480 --> 00:07:09,260
+Or you can ask for write access as well.
+
+91
+00:07:09,260 --> 00:07:16,400
+Say for example, in this case, if WordPress wanted to be able to post to Facebook on this user's account,
+
+92
+00:07:16,400 --> 00:07:20,240
+then they would need to ask for, read and write access.
+
+93
+00:07:20,240 --> 00:07:26,930
+And the third thing is that the third party that you're using to authenticate your users should be able
+
+94
+00:07:26,930 --> 00:07:31,100
+to revoke access at any point on their website.
+
+95
+00:07:31,100 --> 00:07:36,110
+So that means if you're authenticating with Facebook, the user should be able to go into their Facebook
+
+96
+00:07:36,110 --> 00:07:43,430
+account and de-authorize the access that they granted to your website, say, Facebook, and they don't
+
+97
+00:07:43,430 --> 00:07:48,320
+actually have to go on to your website where maybe you're less keen to give up this access.
+
+98
+00:07:48,320 --> 00:07:54,770
+So now that we've looked at what's special about OAuth, the next thing to talk about is, well, how
+
+99
+00:07:54,770 --> 00:07:57,290
+does it actually work in reality?
+
+100
+00:07:57,290 --> 00:08:04,700
+So the first step is to actually tell this third party, be it Facebook, Twitter or Google, about
+
+101
+00:08:04,700 --> 00:08:08,150
+our web application because they don't know about us.
+
+102
+00:08:08,150 --> 00:08:08,690
+Right?
+
+103
+00:08:08,690 --> 00:08:15,200
+So we have to set up our app in their developer console, and in return we get what's called an app
+
+104
+00:08:15,200 --> 00:08:22,730
+ID or a client ID, and we or our website is then the client, which will make the request to Facebook
+
+105
+00:08:22,730 --> 00:08:24,710
+to authenticate our user.
+
+106
+00:08:24,740 --> 00:08:30,080
+Now, once you've set up your app, the next step happens when the user tries to log on to your website.
+
+107
+00:08:30,080 --> 00:08:36,890
+So when the user hits up facebook.com and they want to authenticate, we give them an option to log
+
+108
+00:08:36,890 --> 00:08:38,270
+in with Facebook.
+
+109
+00:08:38,360 --> 00:08:45,140
+So once they click on that option, then we'll take them to the actual Facebook website so that they
+
+110
+00:08:45,140 --> 00:08:52,310
+are seeing a familiar interface, a trustworthy interface, and they will log in to Facebook using their
+
+111
+00:08:52,310 --> 00:08:53,570
+Facebook credentials.
+
+112
+00:08:53,570 --> 00:09:00,710
+And without OAuth, what we would have to do is to ask the user, hey, what's your login credentials
+
+113
+00:09:00,710 --> 00:09:01,430
+for Facebook?
+
+114
+00:09:01,430 --> 00:09:03,440
+Can you give me your Facebook password?
+
+115
+00:09:03,440 --> 00:09:05,300
+Nobody wants to do that.
+
+116
+00:09:05,300 --> 00:09:08,210
+That seems super sketchy and really insecure.
+
+117
+00:09:08,210 --> 00:09:15,530
+So OAuth makes that step a lot easier because it gets them to log in on the website that they actually
+
+118
+00:09:15,530 --> 00:09:17,510
+trust, which is Facebook, right?
+
+119
+00:09:17,510 --> 00:09:20,600
+Something that they've been using for a long time now.
+
+120
+00:09:20,600 --> 00:09:28,400
+Once the user logs in on this third party, then they have to review the permissions that our website
+
+121
+00:09:28,400 --> 00:09:29,420
+is asking for.
+
+122
+00:09:29,420 --> 00:09:36,080
+So for example, you might want your profile and email address and they review that and they're like
+
+123
+00:09:36,080 --> 00:09:38,210
+okay I'll grant that permission.
+
+124
+00:09:38,210 --> 00:09:45,530
+So now that they've granted the permission and they've successfully logged in on Facebook, then our
+
+125
+00:09:45,530 --> 00:09:49,880
+website will receive an authorization code from Facebook.
+
+126
+00:09:49,880 --> 00:09:56,120
+And this allows us to check to make sure that the user actually successfully signed on to Facebook.
+
+127
+00:09:56,120 --> 00:09:58,670
+They had the right username and password.
+
+128
+00:09:58,670 --> 00:09:59,420
+So we're now.
+
+129
+00:09:59,540 --> 00:10:04,100
+Able to authenticate them and log them on to our website.
+
+130
+00:10:04,100 --> 00:10:12,980
+But if we wanted to go a step further, we can also exchange our authentication code for an access token.
+
+131
+00:10:12,980 --> 00:10:19,280
+And when we receive that access token from Facebook, we would save it into our database, because this
+
+132
+00:10:19,280 --> 00:10:24,230
+is the token that we can use if we want to request for pieces of information.
+
+133
+00:10:24,230 --> 00:10:30,050
+Subsequently, this access token is valid for a lot longer than the authentication token.
+
+134
+00:10:30,050 --> 00:10:35,930
+So the way you should see it is that the authentication code or the auth code is kind of like a ticket.
+
+135
+00:10:35,930 --> 00:10:41,420
+Write a ticket that you're going to use once to enter the cinema, but the access token is kind of more
+
+136
+00:10:41,420 --> 00:10:42,560
+like a year pass.
+
+137
+00:10:42,560 --> 00:10:48,860
+And it comes with benefits like backstage access, where you get to request pieces of data from Facebook,
+
+138
+00:10:48,860 --> 00:10:55,220
+including their friend list or their username or their password, whatever it may be that they granted
+
+139
+00:10:55,220 --> 00:10:57,050
+you permission to access.
+
+140
+00:10:57,050 --> 00:11:02,930
+So the auth code is what we need to authenticate the user that they successfully manage the login through
+
+141
+00:11:02,930 --> 00:11:09,770
+Facebook and the access token is what we'll use to access pieces of information that are stored on that
+
+142
+00:11:09,770 --> 00:11:15,500
+user's account on this third party's website, for example, their email or their friends list.
+
+143
+00:11:15,590 --> 00:11:22,370
+All right, so enough theory, let's get started implementing it and adding login with Google to our
+
+144
+00:11:22,370 --> 00:11:23,090
+website.
+
+145
+00:11:23,270 --> 00:11:30,500
+Now, hopefully you haven't skipped over the previous text lesson where we showed you how to set up
+
+146
+00:11:30,500 --> 00:11:32,990
+the Google OAuth credentials.
+
+147
+00:11:32,990 --> 00:11:34,130
+You'll need those.
+
+148
+00:11:34,130 --> 00:11:39,230
+And it's very, very important that you follow it step by step and get it to work.
+
+149
+00:11:39,410 --> 00:11:44,600
+Hopefully, if you have completed that though, you will have filled out your M file and you would have
+
+150
+00:11:44,600 --> 00:11:50,000
+replaced the placeholders in the Google Client ID and Google Client secret sections.
+
+151
+00:11:50,210 --> 00:11:56,180
+And once you've done that, then we're ready to go into our index.js and start writing up some code.
+
+152
+00:11:56,180 --> 00:12:03,650
+Now, hopefully you've already run npm install on this current project, and all of the modules are
+
+153
+00:12:03,650 --> 00:12:04,550
+installed.
+
+154
+00:12:05,060 --> 00:12:12,110
+Now, the only new module that we've added into this project in this upgrade is the passport Google
+
+155
+00:12:12,110 --> 00:12:12,980
+OAuth.
+
+156
+00:12:12,980 --> 00:12:17,360
+And this is going to allow us to create the Google login strategy.
+
+157
+00:12:17,360 --> 00:12:25,280
+So we can import the Google strategy from the passport Google OAuth two module.
+
+158
+00:12:25,280 --> 00:12:31,700
+And we can go ahead and configure it just below our previous passport dot use.
+
+159
+00:12:31,700 --> 00:12:33,860
+So this is our local strategy.
+
+160
+00:12:33,860 --> 00:12:38,000
+And just below it we're going to say passport dot use.
+
+161
+00:12:38,000 --> 00:12:41,960
+And this is going to set up our passport authentication middleware.
+
+162
+00:12:41,960 --> 00:12:46,040
+And this one is going to be a Google based strategy.
+
+163
+00:12:46,040 --> 00:12:50,720
+We're going to first give the strategy a name which we'll call Google.
+
+164
+00:12:50,720 --> 00:12:56,750
+And then we can go ahead and create the actual asynchronous function.
+
+165
+00:12:56,750 --> 00:13:01,190
+And then we can go ahead and set up our new Google strategy.
+
+166
+00:13:01,190 --> 00:13:05,990
+The first thing in this strategy is a set of options.
+
+167
+00:13:05,990 --> 00:13:17,570
+And that includes the client ID, which is going to be set from the process dot env dot Google underscore
+
+168
+00:13:17,570 --> 00:13:19,970
+client underscore ID.
+
+169
+00:13:20,150 --> 00:13:23,060
+Let me just double check that I've spelled that correct.
+
+170
+00:13:23,060 --> 00:13:25,250
+Yep I think that's pretty much the same.
+
+171
+00:13:25,250 --> 00:13:27,860
+I'm going to copy the next line so I don't have to type it out.
+
+172
+00:13:27,860 --> 00:13:31,790
+And the next one is called the Client Secret.
+
+173
+00:13:32,690 --> 00:13:35,900
+Now the spelling of all these things matter a huge deal.
+
+174
+00:13:35,900 --> 00:13:40,670
+So try to make sure that you haven't got anything that you've made a typo here on.
+
+175
+00:13:40,670 --> 00:13:46,070
+And if in doubt, you can always check the solution file for exactly how it's meant to be spelled.
+
+176
+00:13:47,000 --> 00:13:55,280
+And then we have our callback URL, which in our case, if you remember previously we had set to http
+
+177
+00:13:55,280 --> 00:14:01,670
+colon forward slash forward slash localhost colon 3000.
+
+178
+00:14:01,670 --> 00:14:06,890
+And then it's forward slash auth forward slash Google forward slash secrets.
+
+179
+00:14:09,000 --> 00:14:13,740
+And then finally we need to add something called the user profile URL.
+
+180
+00:14:13,770 --> 00:14:18,030
+And this is actually found right at the bottom of the file.
+
+181
+00:14:18,030 --> 00:14:24,900
+And this is the one that we're going to use to be able to get hold of the user's profile information.
+
+182
+00:14:24,990 --> 00:14:26,130
+And there you have it.
+
+183
+00:14:26,160 --> 00:14:27,960
+We've now set up all of the settings.
+
+184
+00:14:27,960 --> 00:14:29,760
+So let's add a comma.
+
+185
+00:14:29,760 --> 00:14:36,510
+And now let's add the callback function which gets triggered once the process succeeds.
+
+186
+00:14:36,510 --> 00:14:42,510
+So once they actually manage to log in with their Google account, there's something called an access
+
+187
+00:14:42,510 --> 00:14:45,090
+token which we don't actually need to use.
+
+188
+00:14:45,090 --> 00:14:48,480
+So also something called a refresh token which we don't need to use.
+
+189
+00:14:48,480 --> 00:14:54,000
+It's something that can help us keep that user signed in or track their session as we go along.
+
+190
+00:14:54,060 --> 00:14:56,430
+And then we have something called the profile.
+
+191
+00:14:56,430 --> 00:15:01,590
+And finally that thing that we use a lot in passport, which is the callback.
+
+192
+00:15:02,040 --> 00:15:07,980
+Now we are in the same section as what we've got here.
+
+193
+00:15:08,070 --> 00:15:13,530
+And we can now get hold of parts of the Google profile.
+
+194
+00:15:13,530 --> 00:15:19,830
+And for now, what I'm going to do is I'm just going to console, log that profile to show you what
+
+195
+00:15:19,830 --> 00:15:21,210
+it contains.
+
+196
+00:15:21,210 --> 00:15:25,320
+And we're going to try and get this login page to trigger.
+
+197
+00:15:25,320 --> 00:15:30,060
+So for that to happen, we of course need a get route to do that.
+
+198
+00:15:30,060 --> 00:15:36,300
+So just below the end of the other get routes I'm going to write a new App.get.
+
+199
+00:15:36,390 --> 00:15:44,280
+It's going to be hit up when the user clicks on the new sign up with Google and sign in with Google
+
+200
+00:15:44,280 --> 00:15:50,940
+buttons in our login and register ejs so it hits up forward slash auth, forward slash Google.
+
+201
+00:15:51,240 --> 00:15:54,150
+So it's the same for register and login.
+
+202
+00:15:54,150 --> 00:15:56,400
+We want them to both hit up the same route.
+
+203
+00:15:56,400 --> 00:15:58,800
+And then we're going to use the passport middleware.
+
+204
+00:15:58,800 --> 00:16:02,220
+So passport dot authenticate.
+
+205
+00:16:02,220 --> 00:16:07,320
+And then we're going to specify the strategy we want to authenticate with.
+
+206
+00:16:07,320 --> 00:16:13,830
+And remember we set up the authentication down here to be called the Google strategy.
+
+207
+00:16:13,830 --> 00:16:16,710
+So we're going to use that right here.
+
+208
+00:16:16,710 --> 00:16:18,930
+So passport dot authenticate.
+
+209
+00:16:18,930 --> 00:16:22,110
+The strategy we want to use is the Google strategy.
+
+210
+00:16:22,110 --> 00:16:28,800
+And then once that's done then we can go ahead and add in some options.
+
+211
+00:16:28,800 --> 00:16:33,630
+We're going to say what are the things that we need to get from this login.
+
+212
+00:16:33,630 --> 00:16:35,700
+And it's going to be the scope.
+
+213
+00:16:35,700 --> 00:16:37,500
+So this is an array.
+
+214
+00:16:37,500 --> 00:16:42,000
+We want their profile and we want their email.
+
+215
+00:16:42,540 --> 00:16:47,700
+So adding both of these things in will mean that when the user logs in we'll tell them we're going to
+
+216
+00:16:47,700 --> 00:16:50,520
+try and grab hold of your public profile and your email.
+
+217
+00:16:50,520 --> 00:16:51,600
+Hope that's okay.
+
+218
+00:16:51,600 --> 00:16:57,210
+If they consent and they log in, then we should be able to receive it down here.
+
+219
+00:16:57,210 --> 00:17:02,940
+And it should go into this strategy because it's called Google Strategy.
+
+220
+00:17:02,940 --> 00:17:04,859
+And we specified it here.
+
+221
+00:17:04,920 --> 00:17:11,369
+This is a good point to note that you probably notice previously that when we authenticated on the login,
+
+222
+00:17:11,369 --> 00:17:16,560
+we use the passport local authentication method.
+
+223
+00:17:16,560 --> 00:17:18,150
+And this is an optional thing.
+
+224
+00:17:18,150 --> 00:17:21,720
+If you only have one strategy, you don't actually have to name it because they're all the same.
+
+225
+00:17:21,720 --> 00:17:27,990
+But in our case, because we now have two strategies, it's a good idea to add the word local for our
+
+226
+00:17:27,990 --> 00:17:35,670
+local strategy just before the new strategy gets created, and Google for our Google strategy, so that
+
+227
+00:17:35,670 --> 00:17:40,980
+when you run the middleware and you say passport dot authenticate, you can specify which strategy the
+
+228
+00:17:40,980 --> 00:17:46,230
+code should go into, should it go into the Google strategy, which is here, which is going to console
+
+229
+00:17:46,230 --> 00:17:51,810
+log the profile, or should it go into the local strategy which is going to console, log the username
+
+230
+00:17:51,810 --> 00:17:57,930
+from the form submission and you'll be able to see this is how these different blocks of code actually
+
+231
+00:17:57,930 --> 00:17:59,070
+gets triggered.
+
+232
+00:17:59,070 --> 00:18:02,130
+And this is kind of behind the scenes how passport works.
+
+233
+00:18:02,160 --> 00:18:03,300
+Let's give this a go.
+
+234
+00:18:03,300 --> 00:18:05,100
+And hopefully it works.
+
+235
+00:18:05,250 --> 00:18:08,280
+Let's go ahead and start up our server.
+
+236
+00:18:10,820 --> 00:18:15,260
+And go to our register screen and click on this new button.
+
+237
+00:18:15,260 --> 00:18:17,030
+Sign up with Google.
+
+238
+00:18:17,030 --> 00:18:23,030
+And now I've got the classic Google sign in screen, which I thankfully didn't have to code up.
+
+239
+00:18:23,030 --> 00:18:30,320
+This all comes from Google, and then I'm going to click to the account that I have a Google sign in
+
+240
+00:18:30,320 --> 00:18:33,800
+with, and I'm going to go ahead and sign in.
+
+241
+00:18:33,800 --> 00:18:37,250
+Now notice it says that Google hasn't verified this app.
+
+242
+00:18:37,250 --> 00:18:41,990
+Now, app verification can take anywhere between one month and three months.
+
+243
+00:18:41,990 --> 00:18:43,970
+So we're just doing tutorial.
+
+244
+00:18:43,970 --> 00:18:45,680
+We're keeping it in localhost.
+
+245
+00:18:45,680 --> 00:18:48,050
+It doesn't actually matter for us in this case.
+
+246
+00:18:48,050 --> 00:18:53,450
+If you're developing a production app, then you'll need to wait for that process and submit it on that
+
+247
+00:18:53,450 --> 00:18:57,440
+console platform that I showed you in the previous text lesson.
+
+248
+00:18:57,440 --> 00:19:00,860
+So in our case, what we're going to do is we're going to click on continue.
+
+249
+00:19:01,460 --> 00:19:06,920
+And if you accidentally clicked on the right button you can always go back and just click on it again.
+
+250
+00:19:06,920 --> 00:19:12,020
+So now it's going to say that signing in to this application called secrets.
+
+251
+00:19:12,020 --> 00:19:20,120
+And by continuing Google share your name, email address and some other profile things with this application
+
+252
+00:19:20,120 --> 00:19:21,650
+we built the application.
+
+253
+00:19:21,650 --> 00:19:23,510
+We are receiving the information.
+
+254
+00:19:23,510 --> 00:19:25,190
+So in our case it doesn't really matter.
+
+255
+00:19:25,190 --> 00:19:26,690
+We're just doing some testing.
+
+256
+00:19:26,690 --> 00:19:28,640
+Let's click continue.
+
+257
+00:19:29,240 --> 00:19:35,300
+And now it's trying to make a Get request to this location which we haven't written in our server yet.
+
+258
+00:19:35,480 --> 00:19:37,550
+So let's go ahead and do that.
+
+259
+00:19:37,550 --> 00:19:40,910
+Let's go back to our code and below the previous app.get.
+
+260
+00:19:40,910 --> 00:19:46,070
+Let's add forward slash auth forward slash Google forward slash secrets.
+
+261
+00:19:46,070 --> 00:19:53,330
+And in this case we're going to run passport dot authenticate using the Google strategy.
+
+262
+00:19:53,810 --> 00:19:56,420
+And we're going to add some options.
+
+263
+00:19:56,420 --> 00:19:58,220
+Just like what we've got down here.
+
+264
+00:19:58,220 --> 00:20:02,960
+The success redirect and the failure redirect.
+
+265
+00:20:02,960 --> 00:20:07,820
+So success redirect should similarly as login go to secrets.
+
+266
+00:20:07,820 --> 00:20:16,130
+And the failure redirect should go also in the same vein as the code below, go to login.
+
+267
+00:20:16,130 --> 00:20:19,460
+Let's save that code and let's try it again.
+
+268
+00:20:19,460 --> 00:20:23,390
+Let's go back to our register page.
+
+269
+00:20:23,390 --> 00:20:25,070
+Sign up with Google.
+
+270
+00:20:25,340 --> 00:20:27,230
+Click on the account.
+
+271
+00:20:27,230 --> 00:20:28,790
+Continue.
+
+272
+00:20:28,790 --> 00:20:30,380
+Continue.
+
+273
+00:20:31,220 --> 00:20:40,940
+And now, if we take a look inside our terminal, you'll see that that person's profile has now been
+
+274
+00:20:40,940 --> 00:20:43,340
+printed into our console.
+
+275
+00:20:43,880 --> 00:20:53,090
+So includes things like their picture, their name, their email, and a whole bunch of things that
+
+276
+00:20:53,090 --> 00:20:58,580
+they allowed you to have access to, which we can then save in our application.
+
+277
+00:20:58,610 --> 00:21:03,050
+That's the next part of the code that we're going to do.
+
+278
+00:21:03,080 --> 00:21:07,820
+What happens when we end up inside this callback?
+
+279
+00:21:07,820 --> 00:21:14,300
+How can we save their data into our database and be able to identify them in our system?
+
+280
+00:21:14,720 --> 00:21:20,930
+First we're going to add a try catch block as we have previously done.
+
+281
+00:21:20,930 --> 00:21:27,530
+And then we're going to use a await to make a DB query.
+
+282
+00:21:29,570 --> 00:21:42,170
+And we're going to use the command select all from users where email is equal to dollar one.
+
+283
+00:21:42,170 --> 00:21:47,930
+And the email is going to come from that profile that we printed out just now.
+
+284
+00:21:47,930 --> 00:21:50,510
+So it's profile dot email.
+
+285
+00:21:50,510 --> 00:21:55,160
+And just to verify you can see that we printed out the profile.
+
+286
+00:21:55,160 --> 00:22:03,590
+And indeed inside the profile there is a property called email which is what we need to save into our
+
+287
+00:22:03,590 --> 00:22:04,370
+server.
+
+288
+00:22:04,400 --> 00:22:12,290
+So the first thing we want to check is to create a result that checks to see if that email already exists
+
+289
+00:22:12,290 --> 00:22:13,520
+in our database.
+
+290
+00:22:14,150 --> 00:22:27,440
+Now we can use an if statement to check if result dot rows dot length is equal to zero, in which case
+
+291
+00:22:27,440 --> 00:22:32,300
+that means we don't have any users by that email in our system.
+
+292
+00:22:32,300 --> 00:22:36,290
+Then we're going to create a new user.
+
+293
+00:22:36,890 --> 00:22:41,960
+So we're going to again use await db dot query.
+
+294
+00:22:42,290 --> 00:22:46,190
+And the query in this case is going to be an Insert query.
+
+295
+00:22:46,190 --> 00:22:50,000
+So we're going to insert into the users table.
+
+296
+00:22:50,150 --> 00:22:54,920
+And we're going to add to the two columns email and password.
+
+297
+00:22:55,640 --> 00:23:00,980
+And the values that we're going to add are going to be dollar one and dollar two.
+
+298
+00:23:02,640 --> 00:23:04,860
+And let's add that at the end.
+
+299
+00:23:04,860 --> 00:23:08,040
+So dollar one is the email which is easy.
+
+300
+00:23:08,040 --> 00:23:10,380
+It's profile dot email.
+
+301
+00:23:10,620 --> 00:23:15,570
+Now what you want to set as their password depends on you.
+
+302
+00:23:15,570 --> 00:23:20,820
+So some people because there is no password we don't get the user's password from Google.
+
+303
+00:23:20,820 --> 00:23:21,990
+And that's the whole point of it.
+
+304
+00:23:21,990 --> 00:23:23,070
+We don't have to store it.
+
+305
+00:23:23,070 --> 00:23:27,450
+So some people store their user ID to identify them.
+
+306
+00:23:27,450 --> 00:23:35,250
+Some people store a word such as Google, just so that when you look through the database, you know
+
+307
+00:23:35,250 --> 00:23:40,800
+why it is they don't have a suitable password is because they are a Google sign in user.
+
+308
+00:23:40,800 --> 00:23:42,360
+So it really depends.
+
+309
+00:23:42,360 --> 00:23:47,310
+In my case, I'm going to set it as Google to be able to differentiate them from the local login users
+
+310
+00:23:47,310 --> 00:23:48,990
+and to make sure that they don't.
+
+311
+00:23:48,990 --> 00:23:54,360
+Then try to log in with the same email that they logged in using the Google login.
+
+312
+00:23:54,930 --> 00:23:59,520
+But it really is something that is up to you individually.
+
+313
+00:23:59,640 --> 00:24:06,240
+Now that we've created the new user, we can now finally use that callback and we're going to pass null
+
+314
+00:24:06,240 --> 00:24:07,800
+for no errors.
+
+315
+00:24:07,800 --> 00:24:14,160
+And then we're going to pass the new user into that callback, so that when we serialize and deserialize
+
+316
+00:24:14,160 --> 00:24:19,830
+that user, we can then access it in the same location when we go to the secrets.
+
+317
+00:24:19,830 --> 00:24:27,960
+So that requests dot user gets populated with the details that we add in from this new user that we
+
+318
+00:24:27,960 --> 00:24:28,860
+created.
+
+319
+00:24:29,040 --> 00:24:35,400
+Remember, with the local login strategy, we get hold of the user that's stored in our database and
+
+320
+00:24:35,400 --> 00:24:37,890
+add it to the session.
+
+321
+00:24:37,890 --> 00:24:43,770
+And in our Google strategy, we get hold of the new user that we've just added.
+
+322
+00:24:43,770 --> 00:24:52,920
+And because this actually is the result from this query, you'll remember that it's not just the result,
+
+323
+00:24:52,920 --> 00:24:56,790
+it's actually dot rows at position zero.
+
+324
+00:24:57,480 --> 00:25:00,270
+Next we're going to add a L statement.
+
+325
+00:25:00,270 --> 00:25:06,690
+And this L statement is in the case where we already have the existing user.
+
+326
+00:25:06,750 --> 00:25:15,780
+And that's because this is if result equals zero then that means that user is new and we add them in.
+
+327
+00:25:15,780 --> 00:25:18,570
+But otherwise that means the user already exists.
+
+328
+00:25:18,570 --> 00:25:23,220
+And we can tap into the result in order to add to the callback.
+
+329
+00:25:23,220 --> 00:25:25,440
+So we don't force them to log in again.
+
+330
+00:25:25,440 --> 00:25:34,650
+We also say there's no error and we simply tap in to result dot rows, and we grab the zeroth one as
+
+331
+00:25:34,650 --> 00:25:36,300
+the user that we register.
+
+332
+00:25:36,300 --> 00:25:41,100
+So now finally, we can use our catch to catch any errors.
+
+333
+00:25:41,100 --> 00:25:45,090
+And we can use a callback to pass that error through.
+
+334
+00:25:45,090 --> 00:25:50,700
+And that is all we need to do in order to set up our Google strategy.
+
+335
+00:25:50,700 --> 00:25:58,020
+Now, there's quite a few moving parts in this, so I would not be surprised if you made a typo or a
+
+336
+00:25:58,020 --> 00:26:01,470
+mistake or order or something is wrong.
+
+337
+00:26:01,470 --> 00:26:02,010
+So what?
+
+338
+00:26:02,010 --> 00:26:08,700
+I recommend you to do is to use the VS code compare, just to make sure that you haven't made any typos
+
+339
+00:26:08,700 --> 00:26:09,540
+or any issues.
+
+340
+00:26:09,540 --> 00:26:13,590
+So you can do this by right clicking on the current file that you're writing.
+
+341
+00:26:13,590 --> 00:26:19,230
+So your index.js and select this line select for compare.
+
+342
+00:26:19,230 --> 00:26:20,640
+This is your file.
+
+343
+00:26:20,640 --> 00:26:24,840
+And then I want you to right click on solution JS and select the other one.
+
+344
+00:26:24,840 --> 00:26:26,370
+Compare with selected.
+
+345
+00:26:26,400 --> 00:26:31,830
+I know it's confusing, but just listen to me a few more times and you'll probably understand what's
+
+346
+00:26:31,830 --> 00:26:32,460
+going on.
+
+347
+00:26:32,460 --> 00:26:36,810
+But this way we've got our index.js on the left side.
+
+348
+00:26:36,810 --> 00:26:42,510
+The solution dot JS on the right side, and you'll be able to see any of the differences between your
+
+349
+00:26:42,510 --> 00:26:44,130
+file and the solution file.
+
+350
+00:26:44,130 --> 00:26:46,590
+So here are some things that might be different.
+
+351
+00:26:47,100 --> 00:26:54,720
+If in your file there's something extra, then you'll see it show up as red, meaning this is deleted
+
+352
+00:26:54,720 --> 00:26:57,030
+in the solution file.
+
+353
+00:26:57,030 --> 00:27:03,900
+Or if there is something extra on the solution file, you'll see it as green, which means this is something
+
+354
+00:27:03,900 --> 00:27:06,210
+that's extra compared to your file.
+
+355
+00:27:06,210 --> 00:27:09,240
+Now, some of these things might just be an order kind of thing.
+
+356
+00:27:09,240 --> 00:27:14,220
+For example, if I change the order here to here, you'll see it show up as red.
+
+357
+00:27:14,220 --> 00:27:17,760
+Here line ten is deleted, but line four is added.
+
+358
+00:27:17,760 --> 00:27:24,990
+And you can read through this just to see what the differences are and be able to understand what's
+
+359
+00:27:24,990 --> 00:27:26,250
+actually going on.
+
+360
+00:27:26,250 --> 00:27:31,950
+And the most important part is of course this app.use Google strategy.
+
+361
+00:27:31,950 --> 00:27:38,850
+So check to see if you have the shouldn't really be anything that's different compared to the solution
+
+362
+00:27:38,850 --> 00:27:42,030
+code in your case, because we're using Process.env.
+
+363
+00:27:42,030 --> 00:27:45,360
+So we're not taking into account any of these unique aspects.
+
+364
+00:27:45,360 --> 00:27:47,430
+That's in your environment variable file.
+
+365
+00:27:47,430 --> 00:27:51,090
+So hopefully you can match up and find all the issues.
+
+366
+00:27:51,090 --> 00:27:57,570
+This is a really neat way that I hope will help you, but otherwise we are ready to test things out.
+
+367
+00:27:57,570 --> 00:28:01,320
+Let's hit save and hopefully Nodemon is still listening.
+
+368
+00:28:01,600 --> 00:28:03,790
+To all changes and updating things.
+
+369
+00:28:03,790 --> 00:28:04,120
+Yep.
+
+370
+00:28:04,120 --> 00:28:10,360
+So let's go to our server and let's go to register sign up with Google.
+
+371
+00:28:10,360 --> 00:28:18,940
+And if we check our database and update it you'll see the new user has been added in.
+
+372
+00:28:18,940 --> 00:28:22,720
+So this is the email and this is the password that we set for them.
+
+373
+00:28:22,720 --> 00:28:31,930
+And now if I go into secrets and I refresh it or I close down the browser and reopen the browser, you'll
+
+374
+00:28:31,930 --> 00:28:37,210
+see it's still cached my session even though I'm logging in with a Google login.
+
+375
+00:28:37,810 --> 00:28:44,290
+Now, the final thing we want to do before we finish is we want to make this logout button work, because
+
+376
+00:28:44,290 --> 00:28:48,040
+otherwise we can't test our other login methods.
+
+377
+00:28:48,040 --> 00:28:52,540
+But also it's pretty useful for our regular users in passport.
+
+378
+00:28:52,540 --> 00:28:55,030
+The log out method is really simple.
+
+379
+00:28:55,030 --> 00:28:59,800
+You'll see if you go into the secrets page, which is where the log out button exists.
+
+380
+00:28:59,800 --> 00:29:02,980
+It goes to Forward slash log out.
+
+381
+00:29:02,980 --> 00:29:08,110
+So this will be a get request that we can create in our server.
+
+382
+00:29:09,320 --> 00:29:13,130
+Going to the end of all of the other get requests.
+
+383
+00:29:13,130 --> 00:29:16,130
+Let's go ahead and create another app.get.
+
+384
+00:29:16,130 --> 00:29:19,370
+And we're going to say forward slash logout.
+
+385
+00:29:19,670 --> 00:29:24,410
+And here we're going to set up our request response callback.
+
+386
+00:29:24,410 --> 00:29:27,350
+And we're going to tap into the request object.
+
+387
+00:29:27,350 --> 00:29:31,280
+And there's something in there that's actually called log out.
+
+388
+00:29:31,310 --> 00:29:37,940
+Now it's important that you choose this one which is all lowercase rather than this one.
+
+389
+00:29:38,810 --> 00:29:43,730
+And then we can go ahead and add our callback.
+
+390
+00:29:43,730 --> 00:29:45,530
+So error.
+
+391
+00:29:45,920 --> 00:29:50,240
+And inside here we're going to check if there is an error.
+
+392
+00:29:50,240 --> 00:29:54,560
+In which case we will simply just console log the error.
+
+393
+00:29:55,250 --> 00:30:01,430
+And otherwise we're going to raise redirect to forward slash.
+
+394
+00:30:01,430 --> 00:30:04,760
+So the home page is where we're going to go after we log out.
+
+395
+00:30:05,000 --> 00:30:08,930
+If you've never seen this syntax before this is simply just a one liner.
+
+396
+00:30:09,050 --> 00:30:13,760
+So we've got an if we've got the condition and then we've got what should happen.
+
+397
+00:30:13,760 --> 00:30:16,220
+If that's true all in one line.
+
+398
+00:30:16,220 --> 00:30:20,450
+And let's go back to our secrets page.
+
+399
+00:30:20,510 --> 00:30:23,390
+Let's make sure that we can actually sign in.
+
+400
+00:30:23,390 --> 00:30:27,560
+And now if we click log out, it takes us to the home page.
+
+401
+00:30:27,560 --> 00:30:32,090
+And if we try to go to secrets again it's not going to let us.
+
+402
+00:30:32,090 --> 00:30:33,470
+So there you have it.
+
+403
+00:30:33,470 --> 00:30:35,540
+We've got login with email password.
+
+404
+00:30:35,540 --> 00:30:37,160
+We've got login with Google.
+
+405
+00:30:37,160 --> 00:30:39,380
+And we now have log out.
+
+406
+00:30:39,380 --> 00:30:48,410
+All that's left to do is for you to be able to show a secret for each user, and for each user to be
+
+407
+00:30:48,410 --> 00:30:53,270
+able to add their own secrets, and that will complete this project.
+
+408
+00:30:53,270 --> 00:30:56,030
+So for all of that and more, I'll see you on the next lesson.
+

@@ -1,0 +1,532 @@
+1
+00:00:00,210 --> 00:00:07,230
+Hey guys. In this lesson I want to talk a bit more about handling events in React. How you can detect
+
+2
+00:00:07,290 --> 00:00:13,740
+when the user interacts with your app or your components and how you can use React to render different
+
+3
+00:00:13,740 --> 00:00:15,950
+things depending on those events.
+
+4
+00:00:17,040 --> 00:00:22,050
+And this is the functionality that you will have built by the end of the lesson. As we mouse over the
+
+5
+00:00:22,050 --> 00:00:23,640
+button it turns to black
+
+6
+00:00:23,670 --> 00:00:29,460
+and when we mouse away from it it turns to white. And in order to be able to implement this functionality
+
+7
+00:00:29,550 --> 00:00:34,830
+we'll bring together many other concepts that we've covered in the past lessons including conditional
+
+8
+00:00:34,830 --> 00:00:40,230
+rendering, inline styling, mouse events and managing state.
+
+9
+00:00:40,390 --> 00:00:46,660
+So go ahead and fork the starting sandbox and then we can get started.
+
+10
+00:00:46,690 --> 00:00:53,170
+I've got a very simple form that I've created here which you'll notice is partly borrowed from our previous
+
+11
+00:00:53,230 --> 00:00:55,340
+log in and registration screen.
+
+12
+00:00:55,450 --> 00:00:58,930
+All it has is an  that currently just says hello.
+
+13
+00:00:58,930 --> 00:01:06,090
+It has an inputs of type text and a placeholder that is asking for a name to be typed in.
+
+14
+00:01:06,130 --> 00:01:08,830
+Finally it's also got a submit button.
+
+15
+00:01:08,830 --> 00:01:11,630
+So just three components, very simple.
+
+16
+00:01:11,680 --> 00:01:18,820
+Now we've already seen previously that you can tap into very simple events such as when a button gets
+
+17
+00:01:18,820 --> 00:01:23,210
+clicked via the attributes for those HMTL elements.
+
+18
+00:01:23,410 --> 00:01:27,370
+So the attribute that we've already been using is the onClick.
+
+19
+00:01:27,370 --> 00:01:36,520
+And remember again when we're converting HMTL elements into JSX or React Components the names
+
+20
+00:01:36,610 --> 00:01:39,910
+of the attributes gets turned into camel case.
+
+21
+00:01:39,970 --> 00:01:46,930
+So when the button gets clicked then we want to trigger some code. So we might have a function in our
+
+22
+00:01:47,320 --> 00:01:50,540
+app which is called handleClick.
+
+23
+00:01:50,680 --> 00:01:59,050
+And when this function gets fired all we're going to do for now is just to print clicked. And then I'm
+
+24
+00:01:59,050 --> 00:02:06,250
+just going to pass the name of this function as the action that should be initiated when this button
+
+25
+00:02:06,310 --> 00:02:07,680
+gets clicked.
+
+26
+00:02:07,690 --> 00:02:13,370
+Now whenever I click on the submit button, you'll notice in the console we get the word clicked logged.
+
+27
+00:02:13,900 --> 00:02:17,080
+And this happens every single time I press on this button.
+
+28
+00:02:17,110 --> 00:02:23,860
+This is a clue that we can actually tap into this function and trigger any sort of code we want that
+
+29
+00:02:23,860 --> 00:02:27,420
+is tied to this button being clicked.
+
+30
+00:02:27,420 --> 00:02:29,680
+Now what kind of things might we want to do?
+
+31
+00:02:29,680 --> 00:02:34,390
+Well maybe we want to change the text that's in our .
+
+32
+00:02:34,390 --> 00:02:39,550
+So for example instead of just having the word hello in here, maybe I'll have a variable called heading
+
+33
+00:02:39,580 --> 00:02:46,180
+Text. And this headingText is of course something that's going to have state because it's going to change
+
+34
+00:02:46,600 --> 00:02:48,940
+when the button gets clicked.
+
+35
+00:02:48,940 --> 00:02:56,350
+So I'm going to create my new stateful headingText and also a method for setting the headingText.
+
+36
+00:02:56,350 --> 00:02:58,760
+So I've got headingText and setHeadingText
+
+37
+00:02:58,810 --> 00:03:04,510
+and this is the common way that people tend to name these state variables and also the function for
+
+38
+00:03:04,510 --> 00:03:07,870
+setting the state when they're using hooks.
+
+39
+00:03:08,140 --> 00:03:15,490
+And then I'm going to set it to use state. And as soon as I hit enter my use state gets imported from
+
+40
+00:03:15,490 --> 00:03:19,360
+React automatically because I'm using code sandbox.
+
+41
+00:03:19,360 --> 00:03:24,540
+But if you're not using code sandbox, just be sure to remember to add that import.
+
+42
+00:03:24,560 --> 00:03:28,590
+This useState is of course a function and inside the parentheses
+
+43
+00:03:28,600 --> 00:03:33,150
+I get to give it a starting value. So let's set it to the string
+
+44
+00:03:33,190 --> 00:03:34,960
+Hello.
+
+45
+00:03:35,020 --> 00:03:38,560
+Now to start with my  just says hello.
+
+46
+00:03:38,680 --> 00:03:44,830
+And then what I want to happen is when this button gets clicked, I want to be at to change this word
+
+47
+00:03:44,890 --> 00:03:46,540
+to submited.
+
+48
+00:03:46,630 --> 00:03:53,470
+Well I can do that using my setHeadingText function that I created and I'm going to change the heading
+
+49
+00:03:53,470 --> 00:03:55,840
+text to submited.
+
+50
+00:03:55,840 --> 00:04:03,850
+So now whenever I click on this button, my  gets updated to a new value which is the word submitted.
+
+51
+00:04:04,390 --> 00:04:06,580
+But what other events are there?
+
+52
+00:04:06,580 --> 00:04:13,390
+What else can we respond to other than a button being clicked?If you take a look at the documentation
+
+53
+00:04:13,390 --> 00:04:19,750
+on w3schools.com on HTML event attributes, you can see that there's loads of them that you can choose
+
+54
+00:04:19,750 --> 00:04:27,820
+from. And one that may be quite useful for us is something called on a mouse out and on mouse over.
+
+55
+00:04:28,300 --> 00:04:36,820
+This allows us to detect when the mouse is hovering over or has hovered out of a particular element.
+
+56
+00:04:36,820 --> 00:04:37,150
+All right.
+
+57
+00:04:37,150 --> 00:04:44,110
+So at this point I want to pose a more difficult challenge to you. See if you can add the on mouse over
+
+58
+00:04:44,230 --> 00:04:53,170
+and on mouse out attributes to our button here so that the end result is to be able to have your mouse
+
+59
+00:04:53,290 --> 00:04:59,750
+hover over the submit button and for it to change its background color from white to black.
+
+60
+00:04:59,950 --> 00:05:05,260
+But then as soon as your mouse leaves the button, the background color of the button changes back to
+
+61
+00:05:05,260 --> 00:05:12,580
+white. And you're going to be using these two attributes. If you already know how to tackle this challenge,
+
+62
+00:05:12,640 --> 00:05:14,180
+pause the video now.
+
+63
+00:05:14,230 --> 00:05:15,960
+If not I'll give you another hint
+
+64
+00:05:16,000 --> 00:05:17,110
+after a few seconds.
+
+65
+00:05:21,710 --> 00:05:22,030
+All right.
+
+66
+00:05:22,090 --> 00:05:24,040
+Here's my first hint.
+
+67
+00:05:24,130 --> 00:05:30,740
+Remember that you can change the appearance of an HTML element by using the style attribute.
+
+68
+00:05:30,910 --> 00:05:38,470
+So you can set it to, for example, a new object where the key is the style that you want to change,
+
+69
+00:05:38,470 --> 00:05:41,920
+so in this case it's background color.
+
+70
+00:05:42,070 --> 00:05:48,700
+But remember because this is Javascript, we have to use the camel cased version of it and then we set
+
+71
+00:05:48,700 --> 00:05:50,820
+that equal to a string.
+
+72
+00:05:50,830 --> 00:05:53,400
+So I'm going to set that equal to black.
+
+73
+00:05:53,620 --> 00:06:01,060
+And now you'll see that my button changes to the black color. But of course this is not the goal.
+
+74
+00:06:01,090 --> 00:06:03,070
+The goal is for it to change it to black
+
+75
+00:06:03,070 --> 00:06:08,500
+only when my mouse is hovering inside and then change it back to white where my mouse is not hovering
+
+76
+00:06:08,500 --> 00:06:09,050
+inside.
+
+77
+00:06:09,400 --> 00:06:14,220
+So you'll have to use the on mouse out and on mouse over events
+
+78
+00:06:14,410 --> 00:06:20,830
+and also the style attribute to change the background color to black or to white.
+
+79
+00:06:21,400 --> 00:06:27,430
+But in addition, you'll have to think about how you're going to manage state and also how to conditionally
+
+80
+00:06:27,760 --> 00:06:30,640
+render a different background color.
+
+81
+00:06:30,700 --> 00:06:33,750
+So there's a lot of things in there but I'm sure you can do it.
+
+82
+00:06:33,790 --> 00:06:35,830
+Pause the video and try to give it a go.
+
+83
+00:06:36,010 --> 00:06:42,250
+And once you're done, come back and we'll walk through it together.
+
+84
+00:06:42,320 --> 00:06:42,620
+All right.
+
+85
+00:06:42,650 --> 00:06:45,030
+So here's the solution to the challenge.
+
+86
+00:06:45,050 --> 00:06:51,690
+So the first thing to do is to apply the onmouseover event to our button.
+
+87
+00:06:51,740 --> 00:06:55,600
+So that's going to go in just as onClick was added,
+
+88
+00:06:55,640 --> 00:06:57,710
+so it's going to be a attribute.
+
+89
+00:06:57,920 --> 00:07:05,640
+And remember because we are in JSX, these names are all camel cased. So onmouseover and we're going
+
+90
+00:07:05,640 --> 00:07:09,170
+to make it trigger a function. And that function
+
+91
+00:07:09,200 --> 00:07:14,630
+I'm going to create just below my handle click and you can call in anything but I'm going to call it
+
+92
+00:07:14,720 --> 00:07:24,510
+handleMouseOver. And that is what will trigger when the user hovers their mouse over this button. And
+
+93
+00:07:24,510 --> 00:07:27,150
+to check and make sure that actually works,
+
+94
+00:07:27,150 --> 00:07:30,780
+let's go ahead and log moused over.
+
+95
+00:07:30,780 --> 00:07:38,400
+And now as soon as you see my cursor move into the boundary of the button, then we get the log 'Moused
+
+96
+00:07:38,430 --> 00:07:43,220
+over'. And this happens every single time my mouse goes from out to in.
+
+97
+00:07:43,380 --> 00:07:43,650
+All right.
+
+98
+00:07:43,680 --> 00:07:50,730
+So we've now confirmed that our mouse over event is being handled correctly and we're able to trigger this
+
+99
+00:07:50,730 --> 00:07:52,980
+function when that happens.
+
+100
+00:07:52,980 --> 00:08:00,750
+The next thing we want to do is to create some sort of variable that can hold state namely the state
+
+101
+00:08:00,900 --> 00:08:05,430
+of whether if we should change the background color.
+
+102
+00:08:05,430 --> 00:08:12,300
+So I'm going to create a new constant and I'm going to call that state isMousedOver.
+
+103
+00:08:15,470 --> 00:08:23,710
+And I'm also going to add a function to be able to set it. So setMouseOver. And then I'm gonna make it
+
+104
+00:08:23,740 --> 00:08:29,400
+equal to useState and the starting value is going to be false.
+
+105
+00:08:29,410 --> 00:08:35,020
+So normally when the website loads up your mouse is not gonna be inside the button right?
+
+106
+00:08:35,230 --> 00:08:43,450
+But when our mouse over is triggered calling this method handleMouseOver, then and only then are we going
+
+107
+00:08:43,450 --> 00:08:46,600
+to set our mouse over.
+
+108
+00:08:46,660 --> 00:08:53,090
+So call the method that we created here and then we're going to set it to true.
+
+109
+00:08:53,320 --> 00:09:02,080
+Now we're able to use this isMousedOver to see what colour we should render the background of the button.
+
+110
+00:09:02,080 --> 00:09:11,020
+So that means if the isMousedOver property is equal to true, then we're going to set the background
+
+111
+00:09:11,020 --> 00:09:17,170
+color to black but if it's not true i.e. else then we're going to set it to white.
+
+112
+00:09:17,170 --> 00:09:22,110
+So now if you go ahead and refresh this, you'll see that it starts out being white
+
+113
+00:09:22,120 --> 00:09:27,210
+but as soon as my mouse goes in and hovers over the button, it changes the black.
+
+114
+00:09:27,400 --> 00:09:33,940
+But unfortunately we have no way of changing it back at the moment because we haven't yet implemented
+
+115
+00:09:34,210 --> 00:09:36,730
+the on mouse out event.
+
+116
+00:09:36,760 --> 00:09:38,330
+So let's go ahead and do that.
+
+117
+00:09:38,410 --> 00:09:44,200
+And remember if you got stuck previously and you couldn't get the on mouse over to work, now that you've
+
+118
+00:09:44,200 --> 00:09:45,510
+seen how it's done
+
+119
+00:09:45,610 --> 00:09:53,690
+go ahead and see if you can go back and add the on mouse out event. The on mouse out event is added the
+
+120
+00:09:53,690 --> 00:09:55,800
+same way as on mouse over.
+
+121
+00:09:55,940 --> 00:10:03,740
+So we'll just have to make sure we spell it right, onMouseOut, and we're going to get it to trigger another
+
+122
+00:10:03,740 --> 00:10:05,240
+function.
+
+123
+00:10:05,240 --> 00:10:14,560
+And this one I'm going to call handleMouseOut and inside this function, I'm going to set isMousedOver
+
+124
+00:10:14,560 --> 00:10:16,210
+property back to false.
+
+125
+00:10:16,480 --> 00:10:23,950
+So I'm going to call setMouseOver and set it to false. And then I'm going to make sure I call this
+
+126
+00:10:23,950 --> 00:10:26,620
+function when onMouseOut is triggered.
+
+127
+00:10:27,190 --> 00:10:33,790
+So now when I hover of the button, it turns black. When my mouse leaves it it turns white again. And we're
+
+128
+00:10:33,790 --> 00:10:40,270
+able to do this because of all the knowledge that we've built up including conditional rendering using
+
+129
+00:10:40,270 --> 00:10:48,520
+the ternary operator here, setting inline styles in our component, using event listeners such as on mouse
+
+130
+00:10:48,520 --> 00:10:57,900
+over on mouse out, as well as setting and using state. Now in the next lesson, we're going to be looking
+
+131
+00:10:57,900 --> 00:11:05,520
+more at how to use forms in React. And how to be able to receive and handle the events that arise from
+
+132
+00:11:05,580 --> 00:11:07,840
+these inputs in a form.
+
+133
+00:11:07,860 --> 00:11:10,140
+So for all of that and more, I'll see you there.
+

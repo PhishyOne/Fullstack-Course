@@ -1,0 +1,108 @@
+1
+00:00:00,360 --> 00:00:06,100
+Now I know a lot of you are taking this course because you want to build your own project, your own app.
+
+2
+00:00:06,360 --> 00:00:12,300
+Now what are some of the things to think about when you want to pursue this path of becoming an entrepreneur
+
+3
+00:00:12,390 --> 00:00:14,370
+or starting a startup?
+
+4
+00:00:14,370 --> 00:00:17,480
+Now one of the first things to think about...
+
+5
+00:00:17,840 --> 00:00:25,950
+now one of the most important things is to know what are the most core features of this product. Really
+
+6
+00:00:25,960 --> 00:00:27,000
+get clarity.
+
+7
+00:00:27,000 --> 00:00:34,170
+Map it out, draw it out, write out all the bullets, all the functionality that you want and then simplify
+
+8
+00:00:34,170 --> 00:00:41,400
+it. Boil it down to the core fundamental thing that is different about your product and how it's going
+
+9
+00:00:41,400 --> 00:00:43,330
+to stand out in the market.
+
+10
+00:00:43,350 --> 00:00:49,570
+And once you've got that clarity then try to build that simplest version of your product.
+
+11
+00:00:49,590 --> 00:00:51,280
+Don't start right at the end.
+
+12
+00:00:51,480 --> 00:00:56,670
+I often hear students who say I want to build something that is a cross between Facebook and Twitter
+
+13
+00:00:57,030 --> 00:01:02,450
+with a sprinkle of Snapchat and that project is probably not going to happen.
+
+14
+00:01:02,560 --> 00:01:06,750
+If it does, it's not going to go well because it's too ambitious to start with.
+
+15
+00:01:07,020 --> 00:01:12,960
+What you want to do is you want to start off building something like a skateboard, and then you build
+
+16
+00:01:12,960 --> 00:01:19,890
+something more like a pushbike and then you go up to a bicycle and then you go up to a car. Instead of
+
+17
+00:01:19,890 --> 00:01:24,670
+just you know setting your ambitions on 'I'm going to build this fantastic Ferrari'
+
+18
+00:01:24,840 --> 00:01:31,250
+and then when your motivation kind of wanes you only built four wheels and nobody can use it.
+
+19
+00:01:31,290 --> 00:01:35,250
+It's not going to motivate you to keep building and you'll probably give up on the project.
+
+20
+00:01:35,700 --> 00:01:37,050
+So start small.
+
+21
+00:01:37,080 --> 00:01:42,470
+Start with the core functionality. Build it and then get feedback.
+
+22
+00:01:42,770 --> 00:01:48,090
+The quicker that you can get into this feedback loop where people are using your product and giving
+
+23
+00:01:48,090 --> 00:01:53,790
+you tips on what else they would like to see or what are the things that are not working so well in
+
+24
+00:01:53,790 --> 00:02:01,260
+the app or what are the things that would really improve their user experience, then you can start improving
+
+25
+00:02:01,260 --> 00:02:07,050
+on it and then you're getting into a product development cycle. And that is really really crucial for
+
+26
+00:02:07,050 --> 00:02:08,750
+success as an entrepreneur.
+
+27
+00:02:09,270 --> 00:02:13,950
+So have a think about some of those things I said and see if you can apply them to your project.
+

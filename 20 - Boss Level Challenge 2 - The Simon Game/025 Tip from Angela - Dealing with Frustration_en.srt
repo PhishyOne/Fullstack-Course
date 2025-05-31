@@ -1,0 +1,128 @@
+1
+00:00:00,280 --> 00:00:02,250
+Hey. It’s Angela here again.
+
+2
+00:00:02,320 --> 00:00:09,740
+And I'm here to give you a virtual pat on the back for getting this far and completing the last module.
+
+3
+00:00:09,750 --> 00:00:17,950
+Now, today I want to talk about what you should do when you feel really frustrated, like when you feel
+
+4
+00:00:18,130 --> 00:00:24,990
+overwhelmed with all the things that you need to know and they all seem impossible,
+
+5
+00:00:25,050 --> 00:00:32,380
+and you’re getting stuck on like, you know, thing after thing, and you just feel like frustrated.
+
+6
+00:00:32,380 --> 00:00:34,920
+What should you do?
+
+7
+00:00:34,960 --> 00:00:38,500
+The first thing you should do is take a break.
+
+8
+00:00:38,500 --> 00:00:42,270
+You've probably been staring at that piece of code for too long.
+
+9
+00:00:42,400 --> 00:00:47,500
+And, you know, like sometimes when I stare at my own name like for too long it starts looking weird, like
+
+10
+00:00:48,110 --> 00:00:53,100
+is that really how you spell Angela, like A n g l?
+
+11
+00:00:53,440 --> 00:01:00,730
+Like you know like if you are not getting a moment to just let your brain think about something else
+
+12
+00:01:01,150 --> 00:01:04,420
+it will get stuck much much easier.
+
+13
+00:01:04,480 --> 00:01:06,430
+So take a break.
+
+14
+00:01:06,730 --> 00:01:07,730
+You know, sometimes sleep on it.
+
+15
+00:01:07,840 --> 00:01:12,210
+The best solutions come to me when I think about my problem
+
+16
+00:01:12,250 --> 00:01:17,560
+before I go to sleep, and then the next morning I wake up and I try to tackle that thing that I got stuck
+
+17
+00:01:17,560 --> 00:01:23,130
+on yesterday. For some miraculous reason it's like I set my brain is like working on it while I'm sleeping.
+
+18
+00:01:23,290 --> 00:01:27,750
+But the next day solutions come to me just so much easier.
+
+19
+00:01:27,970 --> 00:01:34,900
+So take a break, let your brain rest, go and exercise, go for like a jog around the block, or, you know, a
+
+20
+00:01:34,900 --> 00:01:43,840
+fast paced walk if you're not already into jogging like I am. I try to go for like a 30 minute swim at the
+
+21
+00:01:43,840 --> 00:01:54,490
+local pool if I can and just like the sort of silence underwater when I'm swimming and just being enveloped
+
+22
+00:01:54,490 --> 00:02:04,390
+by water somehow really helps me clear my thoughts and it makes me feel more calm and when I come back
+
+23
+00:02:04,390 --> 00:02:07,690
+to my problem I just seem to be better at solving it.
+
+24
+00:02:08,110 --> 00:02:15,220
+So don't be so hard on yourself. Don’t just sit there and rip your hair out and be like “Why can't I do
+
+25
+00:02:15,220 --> 00:02:17,700
+this? Why is my code not working?”
+
+26
+00:02:17,740 --> 00:02:20,410
+We've all been there before but it's not the right thing to do.
+
+27
+00:02:20,920 --> 00:02:22,040
+Take a break.
+
+28
+00:02:22,040 --> 00:02:23,220
+Have a moment to yourself.
+
+29
+00:02:23,230 --> 00:02:24,450
+Think about something else.
+
+30
+00:02:24,460 --> 00:02:26,830
+Look at something else and then come back to it.
+
+31
+00:02:26,890 --> 00:02:29,340
+It’s always going to be there for you.
+
+32
+00:02:29,530 --> 00:02:30,640
+Your problems don’t just run away. 
+

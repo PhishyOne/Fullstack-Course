@@ -1,0 +1,1404 @@
+1
+00:00:00,240 --> 00:00:06,960
+In the last lesson, we managed to get our minted NFT to show up on our frontend website.
+
+2
+00:00:07,440 --> 00:00:11,160
+That NFT however was minted through the command line.
+
+3
+00:00:11,490 --> 00:00:19,500
+So we basically initialized a new canister and passing in a bunch of inputs that resulted in this NFT.
+
+4
+00:00:20,040 --> 00:00:27,360
+Now we want to be able to let our users mint their own images, to upload images, and then to create
+
+5
+00:00:27,360 --> 00:00:31,320
+these canisters programmatically and to be able to mint them on the fly.
+
+6
+00:00:31,650 --> 00:00:33,960
+So that's what we're going to be tackling in this lesson.
+
+7
+00:00:35,140 --> 00:00:40,570
+The first thing is we're going to be working on this Minter.jsx.
+
+8
+00:00:40,930 --> 00:00:47,350
+So at the moment it's just got some playing HTML and we want to be able to show that through our app
+
+9
+00:00:47,350 --> 00:00:48,180
+jsx.
+
+10
+00:00:48,640 --> 00:00:51,430
+So I'm going to go ahead and comment out my item here.
+
+11
+00:00:51,820 --> 00:00:56,260
+And instead in between the header and footer, I'm going to add the Minter.
+
+12
+00:00:56,530 --> 00:01:00,610
+So again, selecting it from the dropdown, it will auto import it at the top
+
+13
+00:01:00,940 --> 00:01:07,330
+and then we're going to set this as a self-closing tag as with all our React components. And let's hit
+
+14
+00:01:07,330 --> 00:01:09,160
+save and just see what it looks like.
+
+15
+00:01:09,820 --> 00:01:13,600
+This is a very simple form with basically just two fields.
+
+16
+00:01:14,110 --> 00:01:18,160
+We've got an upload image where we can click on this button,
+
+17
+00:01:18,160 --> 00:01:23,020
+it'll bring up our finder and you'll be able to choose an image to upload.
+
+18
+00:01:23,620 --> 00:01:29,110
+Now we've also got the section where we can add our collection name and collection number and whatever
+
+19
+00:01:29,110 --> 00:01:31,930
+it is you want to show up as the title of the NFT.
+
+20
+00:01:32,410 --> 00:01:36,910
+And then we've got this little button here, which once we click it, should trigger all of the background
+
+21
+00:01:36,910 --> 00:01:40,840
+stuff and get our NFT minted and our cannister created.
+
+22
+00:01:41,350 --> 00:01:43,640
+So this is what it looks like right now.
+
+23
+00:01:44,410 --> 00:01:51,790
+The first thing we want to do is to be able to pull in all of the information that's entered into this
+
+24
+00:01:51,790 --> 00:01:53,260
+form right here.
+
+25
+00:01:54,640 --> 00:02:00,970
+You'll notice that we've got our two inputs here; our input for uploading and our input for the name.
+
+26
+00:02:01,450 --> 00:02:04,240
+Now the name is a lot easier, so let's work on that first.
+
+27
+00:02:05,960 --> 00:02:13,820
+Whereas normally we would use our value and our on change attributes here in order to safely keep track
+
+28
+00:02:13,820 --> 00:02:16,310
+of what's entered into the input,
+
+29
+00:02:16,910 --> 00:02:21,650
+in this case, we're actually going to use something a little bit different, and we're going to use
+
+30
+00:02:21,650 --> 00:02:29,270
+something called useForm, which comes from a module that we installed called the React Hook Form.
+
+31
+00:02:29,810 --> 00:02:36,940
+And this is a really nice way of pulling in data that's been uploaded or entered into a form. To begin,
+
+32
+00:02:36,950 --> 00:02:42,760
+let's go ahead and register the form, and we do it in a very similar way to how we would use our use
+
+33
+00:02:42,760 --> 00:02:43,220
+state.
+
+34
+00:02:43,580 --> 00:02:48,680
+So we create a new constant, but instead of opening up square brackets, we're going to open up curly
+
+35
+00:02:48,680 --> 00:02:49,190
+braces.
+
+36
+00:02:49,760 --> 00:02:56,690
+The first component is going to be called register, and this is going to be an object that we can tap
+
+37
+00:02:56,690 --> 00:03:02,840
+into in order to register and add in all of the inputs that the user creates on our form.
+
+38
+00:03:03,470 --> 00:03:07,340
+And then the second input is the action, right?
+
+39
+00:03:07,340 --> 00:03:10,280
+So this one is going to be the handleSubmit.
+
+40
+00:03:10,580 --> 00:03:15,860
+Basically, it's going to be the function that's going to be called when the submit button gets triggered.
+
+41
+00:03:16,460 --> 00:03:19,940
+And we're going to set it equal to useForm.
+
+42
+00:03:20,540 --> 00:03:27,410
+Now, useForm is not one of the native React hooks, so we actually have to import it.
+
+43
+00:03:27,830 --> 00:03:33,980
+So we're going to say import and then we're going to open up a set of curly braces, useForm and we're going
+
+44
+00:03:33,980 --> 00:03:38,600
+to import it from react-hook
+
+45
+00:03:38,900 --> 00:03:40,250
+-form.
+
+46
+00:03:42,020 --> 00:03:46,430
+So now we can use form and we're going to initialize it to empty.
+
+47
+00:03:47,570 --> 00:03:51,620
+So now comes to the stage where we actually register our inputs.
+
+48
+00:03:52,190 --> 00:03:55,130
+Right over here where we have our inputs,
+
+49
+00:03:55,550 --> 00:04:02,560
+we can add another line by hitting enter and we're going to add to the objects that are already registered.
+
+50
+00:04:02,570 --> 00:04:07,700
+So we're going to use that triple dot notation that you've seen before in JavaScript lessons.
+
+51
+00:04:08,390 --> 00:04:14,300
+And I'm going to add to that register object, and then I'm going to give it a name so that we can identify
+
+52
+00:04:14,300 --> 00:04:14,990
+it later on.
+
+53
+00:04:15,410 --> 00:04:18,579
+And this I'm going to call the name.
+
+54
+00:04:19,709 --> 00:04:26,730
+And then after that, we can add some options and I'm going to add a required option and I'm going to
+
+55
+00:04:26,730 --> 00:04:29,310
+set that to true. This way
+
+56
+00:04:29,310 --> 00:04:34,860
+it makes sure that users will actually enter something into here instead of leaving it blank.
+
+57
+00:04:36,030 --> 00:04:41,580
+So now that we've registered this name, we've got to trigger the handle
+
+58
+00:04:41,580 --> 00:04:49,020
+Submit at some point in our code. And in our code, we've got this Mint MFT button which is actually formed
+
+59
+00:04:49,020 --> 00:04:50,130
+by a span.
+
+60
+00:04:50,760 --> 00:04:56,640
+We can add an onClick to this span in order to make it trigger our handleSubmit.
+
+61
+00:04:59,440 --> 00:05:02,800
+And let me just make sure that I've actually spelt this correctly.
+
+62
+00:05:03,400 --> 00:05:12,070
+And then inside this method, we pass in the name of a method that we've got that will actually handle
+
+63
+00:05:12,070 --> 00:05:12,820
+the submitting.
+
+64
+00:05:13,330 --> 00:05:19,060
+So I'm going to create a new asynchronous function here, which I'm going to call onSubmit.
+
+65
+00:05:20,680 --> 00:05:24,490
+And this is going to be passed the data from our form.
+
+66
+00:05:25,300 --> 00:05:31,780
+So we can now tell our handleSubmit that that's the method that you should call and pass in all of
+
+67
+00:05:31,780 --> 00:05:39,520
+the components that were registered into the form data. In terms of the flow of data,
+
+68
+00:05:39,880 --> 00:05:47,590
+first, the user types something into this input which gets registered as an object into all of the data.
+
+69
+00:05:48,040 --> 00:05:54,730
+And then once this button is clicked, then it's going to trigger the handleSubmit, which comes from
+
+70
+00:05:54,730 --> 00:06:00,730
+our useForm hook and it's going to trigger the onSubmit button, which we've defined here passing
+
+71
+00:06:00,730 --> 00:06:01,780
+in the data.
+
+72
+00:06:02,260 --> 00:06:09,040
+So now in order to make sure that this actually works, let's go ahead and console.log our data.
+
+73
+00:06:09,550 --> 00:06:15,700
+So we're going to say data. and then we're going to give the name that we registered here, which
+
+74
+00:06:15,700 --> 00:06:18,250
+is name, data.name.
+
+75
+00:06:18,940 --> 00:06:21,700
+And let's go ahead and see what that looks like.
+
+76
+00:06:22,450 --> 00:06:25,330
+Let's hit save and go over here,
+
+77
+00:06:25,630 --> 00:06:26,640
+type something.
+
+78
+00:06:26,650 --> 00:06:32,950
+I'll just type hello and then click Mint NFT and you can see what I typed show up down here in the
+
+79
+00:06:32,950 --> 00:06:33,850
+console log.
+
+80
+00:06:34,660 --> 00:06:41,200
+So now that we've made it work for the text input where we enter the name of our collection,
+
+81
+00:06:41,590 --> 00:06:45,220
+let's go ahead and make it work for our upload input as well.
+
+82
+00:06:45,730 --> 00:06:54,280
+So we do basically exactly the same thing. We add to the end of our object through using register, and
+
+83
+00:06:54,280 --> 00:06:58,000
+we give it a name that we'll be able to use it to identify with,
+
+84
+00:06:58,360 --> 00:07:04,420
+and I'm just going to call it image. And I'm going to set the required property to true as well.
+
+85
+00:07:07,200 --> 00:07:10,200
+Both of these will be obligatory inputs.
+
+86
+00:07:11,630 --> 00:07:19,100
+Again handleSubmit will call onSubmit passing in all the data, and if I go ahead and console.log the
+
+87
+00:07:19,340 --> 00:07:25,220
+data.image and hit save and go over to here.
+
+88
+00:07:25,730 --> 00:07:33,050
+And if you take a look at the current Udemy lesson, you'll find a download to a collection of cryptodunks
+
+89
+00:07:33,410 --> 00:07:35,180
+that I've created for you.
+
+90
+00:07:35,450 --> 00:07:42,260
+They're absolutely tiny because they are 20 pixel by 20 pixel large, but we're going to enlarge them
+
+91
+00:07:42,260 --> 00:07:44,480
+on our frontend so you don't have to worry about that.
+
+92
+00:07:44,990 --> 00:07:50,270
+So once you've downloaded and extracted the folder, you'll be able to open it and just choose any one
+
+93
+00:07:50,270 --> 00:07:51,140
+of these to upload.
+
+94
+00:07:51,650 --> 00:07:55,850
+And it doesn't really matter what name I'm going to give it because I'm only logging the image.
+
+95
+00:07:56,240 --> 00:08:02,840
+Now, if I click on the button and submit those inputs, then you can see that what gets printed here
+
+96
+00:08:02,840 --> 00:08:09,560
+when I print data.image is a file list because you can upload multiple files, right?
+
+97
+00:08:09,980 --> 00:08:16,010
+So the first item in our file, the zeroth item, is our image cryptodunk3.png.
+
+98
+00:08:16,670 --> 00:08:18,560
+So that works perfectly.
+
+99
+00:08:19,340 --> 00:08:26,450
+Now let's go ahead and delete our console logs and actually use this data to mint our NFT.
+
+100
+00:08:27,260 --> 00:08:35,960
+First, I'm going to create a new const called name and I'm going to set it to the data.name, which
+
+101
+00:08:35,960 --> 00:08:39,710
+is what I used to register the contents of that input.
+
+102
+00:08:40,429 --> 00:08:45,980
+And then I'm going to create a new const called image, which is going to be set to data.image.
+
+103
+00:08:45,980 --> 00:08:49,010
+But remember just now we saw that it was an array.
+
+104
+00:08:49,460 --> 00:08:53,090
+We have to get hold of the first item in that array.
+
+105
+00:08:53,300 --> 00:08:59,720
+So we're going to add the [0]. Because this data image contains a whole bunch of data
+
+106
+00:08:59,720 --> 00:09:05,000
+that we don't actually want to store on the blockchain, including the file name and file size and all
+
+107
+00:09:05,000 --> 00:09:05,990
+of that metadata,
+
+108
+00:09:06,410 --> 00:09:12,770
+we're going to strip it down into just the bare bones, actual byte data so that we can store that data
+
+109
+00:09:12,770 --> 00:09:16,100
+on the blockchain and be able to pull it out and display it.
+
+110
+00:09:16,790 --> 00:09:23,840
+Let's go ahead and create a new a constant, which I'm going to call the imageByteData.
+
+111
+00:09:25,130 --> 00:09:31,490
+And I'm going to create an array which is going to be an array of Nat8 numbers or something that
+
+112
+00:09:31,490 --> 00:09:36,470
+can be converted into Nat8 numbers that we can put in here eventually.
+
+113
+00:09:37,160 --> 00:09:42,320
+In order to do that, we're going to use the three dot notation to add to an empty array.
+
+114
+00:09:42,770 --> 00:09:51,800
+And inside here I'm going to create a new Uint8array and I'm going to initialize it by calling
+
+115
+00:09:51,800 --> 00:09:56,900
+await and I'm going to use the image.arrayBuffer.
+
+116
+00:10:01,060 --> 00:10:05,470
+And we end that method call with a set of parentheses.
+
+117
+00:10:06,040 --> 00:10:12,460
+The ArrayBuffer object can be used to represent generic binary data, and we're going to store the
+
+118
+00:10:12,460 --> 00:10:15,430
+binary data for our image that's uploaded.
+
+119
+00:10:15,940 --> 00:10:24,580
+We can create it either from scratch or tap into the blob.arrayBuffer, and as it says, it returns
+
+120
+00:10:24,580 --> 00:10:25,180
+a Promise.
+
+121
+00:10:25,180 --> 00:10:28,180
+So that's why we need to use the await in front of this.
+
+122
+00:10:29,180 --> 00:10:37,070
+And it basically turns the contents of our blob as binary data into an array buffer containing our binary
+
+123
+00:10:37,070 --> 00:10:37,550
+data.
+
+124
+00:10:38,330 --> 00:10:44,150
+So once we've done that, making sure that there's no typos in that line of code because it's a bit
+
+125
+00:10:44,150 --> 00:10:50,510
+complex with all of these things, if you want, you can actually split this off into a separate line
+
+126
+00:10:50,510 --> 00:10:52,070
+if it's easier for you to see.
+
+127
+00:10:52,580 --> 00:11:00,380
+So you can say image.arrayBuffer and store that in a const which we can set as the image array.
+
+128
+00:11:00,830 --> 00:11:07,280
+And then we can turn that image array into a Uint array and then store it inside this constant which will
+
+129
+00:11:07,280 --> 00:11:11,090
+be able to match this Nat8 array data type.
+
+130
+00:11:12,880 --> 00:11:19,600
+So now all that's left to do is to tap into our backend and actually mint this NFT.
+
+131
+00:11:20,200 --> 00:11:26,620
+You might think that's done through the NFT actor class, but actually we're going to write the code
+
+132
+00:11:26,620 --> 00:11:31,250
+in our main.mo file because this is our main backend.
+
+133
+00:11:31,270 --> 00:11:34,270
+This is going to store these NFTs as a HashMap.
+
+134
+00:11:34,630 --> 00:11:41,710
+We're going to go via this to programmatically create new canisters and do something similar to what
+
+135
+00:11:41,710 --> 00:11:44,420
+we did in the command line, but from our backend,
+
+136
+00:11:44,420 --> 00:11:47,020
+so backend-to-backend kind of interaction.
+
+137
+00:11:48,090 --> 00:11:51,150
+Inside this canister in our main.mo,
+
+138
+00:11:51,150 --> 00:11:57,630
+we're going to create a new function, and it's going to be a public shared function
+
+139
+00:11:59,120 --> 00:12:03,620
+passing in the message so that we can tap into the msg.caller later on.
+
+140
+00:12:04,760 --> 00:12:13,640
+And then this function is going to be called mint, and it's going to need the image data in the format
+
+141
+00:12:13,640 --> 00:12:17,240
+of an array of Nat8 numbers.
+
+142
+00:12:17,480 --> 00:12:21,980
+It's really important that you don't just leave it as Nat. It has to be Nat8 for all our files to be
+
+143
+00:12:21,980 --> 00:12:29,510
+compatible. And then it's also going to take the name of the NFT as well, which is going to come in
+
+144
+00:12:29,510 --> 00:12:31,010
+in the format of text.
+
+145
+00:12:31,700 --> 00:12:39,710
+And then once this minting is all done, we're going to asynchronously actually return an output and
+
+146
+00:12:39,710 --> 00:12:45,950
+the output is going to be the principal of the newly minted canister.
+
+147
+00:12:47,180 --> 00:12:50,080
+We've got some errors here because we're not returning anything yet.
+
+148
+00:12:50,090 --> 00:12:54,650
+And also in order to use this principal type, we have to import it.
+
+149
+00:12:55,160 --> 00:13:00,770
+So let's go ahead and add that to the top here and import this principal type.
+
+150
+00:13:01,550 --> 00:13:04,670
+And now let's actually write the logic for this.
+
+151
+00:13:05,630 --> 00:13:10,310
+Firstly, let's create the owner of the NFT.
+
+152
+00:13:10,670 --> 00:13:12,500
+So we're going to say let owner,
+
+153
+00:13:12,860 --> 00:13:19,040
+and this is going to need to be a principal data type, but we're going to set equal to the msg.
+
+154
+00:13:19,260 --> 00:13:19,870
+caller.
+
+155
+00:13:19,880 --> 00:13:28,310
+So this is why we made this a shared function, so that we can access the identity of the user who called
+
+156
+00:13:28,310 --> 00:13:29,000
+this method.
+
+157
+00:13:29,090 --> 00:13:34,520
+Now, because it's going to be called from the frontend over here when that onSubmit gets triggered,
+
+158
+00:13:35,000 --> 00:13:42,230
+then that means, if you remember from our previous lessons on authentication, if we authenticate the
+
+159
+00:13:42,230 --> 00:13:48,950
+user and log in the user on the frontend, then when we trigger this, it will pass in their principal
+
+160
+00:13:48,950 --> 00:13:49,250
+ID.
+
+161
+00:13:50,360 --> 00:13:54,440
+So that is going to be set as the owner of the NFT.
+
+162
+00:13:54,860 --> 00:13:59,480
+Now we're not going to deal with the authentication because we've covered that extensively before.
+
+163
+00:13:59,840 --> 00:14:06,860
+So this is just going to come in as the anonymous user who has a defined principal which we're going
+
+164
+00:14:06,860 --> 00:14:09,350
+to set as the owner of the NFT.
+
+165
+00:14:10,370 --> 00:14:15,740
+Now, the next stage is the programmatic creation of our NFT canister.
+
+166
+00:14:16,160 --> 00:14:22,700
+And we're able to do that because we've created it as an actor class so we can initialize it and then pass
+
+167
+00:14:22,700 --> 00:14:29,990
+in all of the data that it needs in order to hold onto this as a unique token with a unique identifier
+
+168
+00:14:30,320 --> 00:14:32,750
+and all of the image data.
+
+169
+00:14:33,910 --> 00:14:38,560
+In order to initialize that, we have to first import that file.
+
+170
+00:14:39,460 --> 00:14:45,640
+I'm going to say import and then I'm going to give that file a name, which I'll call the NFTActor
+
+171
+00:14:45,640 --> 00:14:46,120
+Class.
+
+172
+00:14:46,720 --> 00:14:50,320
+And we're going to be able to find it by going one step up,
+
+173
+00:14:50,410 --> 00:14:59,290
+so ../, and then going into the NFT folder and then /nft.
+
+174
+00:15:00,280 --> 00:15:05,200
+So now all the errors should disappear because it can actually see that, nft.
+
+175
+00:15:05,200 --> 00:15:10,120
+mo, and we can use it here to initialize it.
+
+176
+00:15:10,810 --> 00:15:20,590
+I'm going to create a new constant called newNFT and I'm going to set it equal to the NFTActorClass
+
+177
+00:15:21,040 --> 00:15:21,640
+.
+
+178
+00:15:21,970 --> 00:15:29,680
+and then from that actor class, I'm going to initialize a new NFT which requires some inputs to be
+
+179
+00:15:29,680 --> 00:15:31,150
+able to be initialized.
+
+180
+00:15:32,170 --> 00:15:37,540
+So at the moment, if you take a look at this, we need to supply the name, the owner and the content,
+
+181
+00:15:37,870 --> 00:15:39,880
+and I'm going to do it in that order.
+
+182
+00:15:40,330 --> 00:15:46,030
+So the first thing I'm going to supply is the name that gets passed in to this method.
+
+183
+00:15:46,780 --> 00:15:48,730
+Next is the owner,
+
+184
+00:15:49,120 --> 00:15:51,220
+so I'm going to pass in this principle.
+
+185
+00:15:51,580 --> 00:15:57,700
+And finally, it's the content which is again passed in to this method as the imgData.
+
+186
+00:15:58,720 --> 00:16:01,810
+The initialization is going to be asynchronous.
+
+187
+00:16:02,260 --> 00:16:06,130
+So that's why this is telling you that it's going to return asynchronously.
+
+188
+00:16:06,460 --> 00:16:10,960
+As with all of the async method calls, we have to add the keyword await.
+
+189
+00:16:11,680 --> 00:16:16,630
+Now we've managed to get rid of that error, but we've still got an error here because we haven't yet
+
+190
+00:16:16,630 --> 00:16:18,790
+returned even though we promised to.
+
+191
+00:16:19,300 --> 00:16:26,470
+So let's just silence that error for now by actually getting hold of the principal ID of this newly
+
+192
+00:16:26,470 --> 00:16:27,640
+created canister.
+
+193
+00:16:28,300 --> 00:16:33,910
+Let's create a new constant, which I'm going to call the newNFTPrincipal.
+
+194
+00:16:36,540 --> 00:16:39,900
+And this is going to come from the newly created canister.
+
+195
+00:16:40,320 --> 00:16:46,680
+But at the moment, there's no easy way of getting hold of the canister ID of a newly minted NFT.
+
+196
+00:16:47,280 --> 00:16:53,040
+So the easiest way to do this is to bind the this keyword to this actor class.
+
+197
+00:16:53,310 --> 00:16:57,270
+So this now then represents this entire actor class.
+
+198
+00:16:57,690 --> 00:17:05,390
+And we can create a public query function which is going to allow us to get hold of the canister ID.
+
+199
+00:17:05,790 --> 00:17:12,619
+So I'm going to call it getCanisterID and return asynchronously a principal.
+
+200
+00:17:13,170 --> 00:17:19,500
+And what we're going to return is going to be the principal of this actor class.
+
+201
+00:17:19,920 --> 00:17:28,380
+And we can get hold of it through the principal.fromActor method, which is going to take an actor
+
+202
+00:17:28,380 --> 00:17:30,690
+and give you back the principal of that actor.
+
+203
+00:17:31,170 --> 00:17:37,200
+And normally, if this was just an actor, not an actor class, we can actually simply just pass in
+
+204
+00:17:37,200 --> 00:17:38,550
+the name of the actor.
+
+205
+00:17:39,000 --> 00:17:46,050
+But because this expects all of these inputs, by binding it to this, we can simply pass in this actor
+
+206
+00:17:46,530 --> 00:17:47,280
+right here.
+
+207
+00:17:48,360 --> 00:17:50,010
+Now, back over here,
+
+208
+00:17:50,010 --> 00:17:51,390
+we can call await
+
+209
+00:17:52,590 --> 00:18:01,620
+newNFT, which is the newly minted one, and we can call getCanisteID to get it back. And we can return
+
+210
+00:18:01,620 --> 00:18:03,090
+that as the output.
+
+211
+00:18:04,430 --> 00:18:06,770
+So now all our errors should be gone,
+
+212
+00:18:07,040 --> 00:18:12,350
+but there's one thing that we still have to think about which is a more sort of practical component.
+
+213
+00:18:13,130 --> 00:18:20,960
+If you remember, every single time we created a new canister on the actual live Internet computer network,
+
+214
+00:18:21,290 --> 00:18:28,070
+we had to allocate it some cycles. And when we create canisters programmatically like we're doing here,
+
+215
+00:18:28,370 --> 00:18:30,140
+we have to do the same thing.
+
+216
+00:18:30,560 --> 00:18:37,310
+So if we do this on our localhost, our local version of dfx, it won't really mind because it's not going
+
+217
+00:18:37,310 --> 00:18:40,280
+to care because it doesn't actually do the accounting.
+
+218
+00:18:40,700 --> 00:18:46,460
+But once we deploy this live onto the Internet computer, we will need to make sure that it gets some
+
+219
+00:18:46,460 --> 00:18:50,390
+cycles in order for it to actually be created on the live network.
+
+220
+00:18:51,500 --> 00:19:00,470
+The way that we can add cycles currently, at least in 2022, is through something called the Experimental
+
+221
+00:19:00,470 --> 00:19:01,760
+Cycles module.
+
+222
+00:19:02,360 --> 00:19:06,320
+And the way that we do this is simply by writing Cycles.add,
+
+223
+00:19:08,610 --> 00:19:14,880
+and hopefully if you manage to select the add method and hit enter, it will automatically import the
+
+224
+00:19:14,880 --> 00:19:18,330
+cycles from the Experimental Cycles module.
+
+225
+00:19:18,870 --> 00:19:25,820
+Now the reason why it's experimental is because the team and the people involved in governance for Dfinity
+
+226
+00:19:25,850 --> 00:19:32,160
+haven't actually yet decided how exactly they're going to implement this cycles module in the future.
+
+227
+00:19:32,610 --> 00:19:37,740
+So right now, this is the only way to do it, and it's pretty simple.
+
+228
+00:19:37,860 --> 00:19:42,600
+All you do is you say cycles.add, and then you specify how many cycles you want.
+
+229
+00:19:43,200 --> 00:19:48,900
+Now it costs 100 billion cycles to create a new canister.
+
+230
+00:19:50,010 --> 00:19:57,530
+And in addition, we're going to give it 500 million cycles in order to keep it up and running.
+
+231
+00:19:57,540 --> 00:20:01,860
+So the final number will look something like this.
+
+232
+00:20:02,820 --> 00:20:11,790
+And once we've added it, then those cycles will come from this main canister and be allocated for the
+
+233
+00:20:11,790 --> 00:20:14,130
+next canister that gets created.
+
+234
+00:20:14,850 --> 00:20:18,300
+We can check this by actually using a debug.
+
+235
+00:20:18,690 --> 00:20:22,440
+So let's go ahead and import the debug module.
+
+236
+00:20:24,150 --> 00:20:30,770
+And use the debug_show to show how many cycles we had before,
+
+237
+00:20:30,780 --> 00:20:33,510
+so Cycles.balance.
+
+238
+00:20:34,970 --> 00:20:41,750
+And let's copy and paste this to add it on the line after we've created the canister.
+
+239
+00:20:43,000 --> 00:20:49,540
+Now that we've created our method and completed it in the main.mo, let's go ahead and call it
+
+240
+00:20:49,540 --> 00:20:54,610
+and pass on all of the bits and bobs that we've collected from the users inputs.
+
+241
+00:20:55,300 --> 00:20:59,800
+In order to call the methods from our main, we have to import it.
+
+242
+00:21:00,310 --> 00:21:05,200
+So I'm going to import my canister, which is called
+
+243
+00:21:06,570 --> 00:21:11,640
+opend, which is specified in the dfx.json.
+
+244
+00:21:17,070 --> 00:21:19,940
+And then I can add in its location.
+
+245
+00:21:19,950 --> 00:21:26,010
+So it's going to be ../../../ and
+
+246
+00:21:26,010 --> 00:21:27,600
+we should see declarations.
+
+247
+00:21:28,020 --> 00:21:33,210
+And then I'm going to select the opend folder like this.
+
+248
+00:21:34,500 --> 00:21:37,590
+And below all of these lines, inside the onSubmit
+
+249
+00:21:37,890 --> 00:21:44,490
+I'm going to create a const which is going to hold the new and newNFTID and it's going to come from me
+
+250
+00:21:44,490 --> 00:21:51,450
+calling the await and then the opend. and then the name of our method here, which is called
+
+251
+00:21:51,810 --> 00:21:56,970
+mint passing in these two pieces of information, imgData and the name.
+
+252
+00:21:57,570 --> 00:22:00,010
+So opend.mint
+
+253
+00:22:00,210 --> 00:22:03,300
+and then the first thing is the image.
+
+254
+00:22:03,360 --> 00:22:08,910
+So I'm going to pass in the imageByteDaata and the second is the name.
+
+255
+00:22:09,450 --> 00:22:19,440
+Now all of our constants are active and all that's left is to go ahead and console.log our newNFTID.
+
+256
+00:22:21,810 --> 00:22:27,660
+And because it's going to come back as a principal, I'm going to use the toText, which comes from
+
+257
+00:22:27,660 --> 00:22:29,900
+the principal type.
+
+258
+00:22:29,910 --> 00:22:32,700
+So let's go ahead and import that as well.
+
+259
+00:22:33,480 --> 00:22:42,810
+And now hopefully, if everything works, I should be able to view the cycles being printed over here.
+
+260
+00:22:43,230 --> 00:22:50,610
+And also once all of that's done and successful, on my frontend on my console, I should see the new
+
+261
+00:22:50,610 --> 00:22:53,580
+new NFT's principal ID being printed as well.
+
+262
+00:22:54,330 --> 00:23:01,920
+So let's hit save and let's go ahead and deploy all our changes to our canisters and our front end
+
+263
+00:23:01,920 --> 00:23:06,240
+by going to our read me and copying that command line command.
+
+264
+00:23:07,350 --> 00:23:13,110
+So let's go ahead and paste it, and this is going to hopefully update all of our code and make sure
+
+265
+00:23:13,110 --> 00:23:14,220
+that actually works.
+
+266
+00:23:17,260 --> 00:23:20,010
+So once that's done, let's head over to our front end,
+
+267
+00:23:20,020 --> 00:23:29,410
+choose one of the pictures from our crypto dunks, give it a name, give it a serial number if you want,
+
+268
+00:23:29,770 --> 00:23:31,150
+and then click mint.
+
+269
+00:23:36,620 --> 00:23:43,820
+And if we take a look over here, you can see that the first print is how many cycles we had in our
+
+270
+00:23:43,820 --> 00:23:46,510
+balance for our main canister,
+
+271
+00:23:47,000 --> 00:23:53,090
+and the second print is what's happened to the balance after we've allocated it to this new canister
+
+272
+00:23:53,510 --> 00:23:55,400
+and you can see it reduced.
+
+273
+00:23:56,950 --> 00:24:05,710
+And on the front end we've got the canister ID of the new NFT being printed, which means we can actually
+
+274
+00:24:05,710 --> 00:24:11,750
+use that to display the NFT. Because once this is done, we want to be able to show it right?
+
+275
+00:24:11,770 --> 00:24:13,390
+Otherwise, how would the user know?
+
+276
+00:24:14,050 --> 00:24:21,850
+That means we can tap into our item.jsx and to render it once we're done with creation.
+
+277
+00:24:22,750 --> 00:24:29,860
+So here we can say if the NFT principal, (don't worry we don't have this yet, we're going to create
+
+278
+00:24:29,860 --> 00:24:33,370
+it a little bit later on) is equal to an empty string,
+
+279
+00:24:33,970 --> 00:24:37,570
+well, then we're going to return all of this,
+
+280
+00:24:37,780 --> 00:24:45,100
+so going all the way down to the very last closing parentheses and add in our closing brace.
+
+281
+00:24:45,640 --> 00:24:52,960
+But otherwise, namely, if it's not an empty string and we've actually given it some value, then we're
+
+282
+00:24:52,960 --> 00:24:54,460
+going to render something else.
+
+283
+00:24:55,090 --> 00:24:58,720
+And the something else is going to come from the read me.
+
+284
+00:24:59,200 --> 00:25:02,920
+So if you scroll down in the read me, you can look at it through preview.
+
+285
+00:25:03,340 --> 00:25:10,270
+I've got the minter else HTML which is basically all the HTML that's going to go into the else statement.
+
+286
+00:25:10,270 --> 00:25:14,890
+And I want you to just simply copy and paste it in because it's got a whole bunch of class names.
+
+287
+00:25:14,890 --> 00:25:16,690
+I don't want you to type it all out.
+
+288
+00:25:17,500 --> 00:25:24,700
+Now, what we've got here is it's going to change the form from what it was previously into one that
+
+289
+00:25:24,700 --> 00:25:28,000
+just has an H3 with a title that says Minted!,
+
+290
+00:25:28,210 --> 00:25:34,690
+so to tell them that it was successful. And then inside this second div, which says horizontal-center,
+
+291
+00:25:35,080 --> 00:25:40,900
+we're going to render our item. Again selecting the item from the dropdown, hit enter so that it gets
+
+292
+00:25:40,900 --> 00:25:41,710
+imported,
+
+293
+00:25:42,190 --> 00:25:46,300
+and then we're going to close it off as a self-closing tag.
+
+294
+00:25:46,930 --> 00:25:54,850
+And remember that this item that we created here takes an id as a prop which accepts a text principle,
+
+295
+00:25:55,240 --> 00:25:58,660
+which, if you remember, we already have printed in here.
+
+296
+00:25:59,110 --> 00:26:07,150
+So now all we need to do is to use our React useState hook to create that constant that we specified
+
+297
+00:26:07,150 --> 00:26:17,080
+here which is the nftPrincipal, and the setNFTPrincipal and useState and set it to an empty string
+
+298
+00:26:17,080 --> 00:26:17,740
+to begin with.
+
+299
+00:26:18,280 --> 00:26:24,910
+So when our component Minter first loads up, the state of this is going to be an empty string, which
+
+300
+00:26:24,910 --> 00:26:27,250
+means it's going to render our form.
+
+301
+00:26:27,790 --> 00:26:35,710
+But as soon as we've managed to get hold of the ID by calling this minting function, then we can set
+
+302
+00:26:35,860 --> 00:26:46,960
+our NFT principle to the new NFT ID. And we can also use that to pass in as the prop. And we're going
+
+303
+00:26:46,960 --> 00:26:51,430
+to set the ID to the NFT principal.
+
+304
+00:26:51,850 --> 00:26:58,900
+But remember, this has a principal format, so we have to turn it to a text format in order to match
+
+305
+00:26:59,200 --> 00:27:01,580
+with what's expected over here,
+
+306
+00:27:02,050 --> 00:27:05,350
+so similar to what we had previously in our app component.
+
+307
+00:27:06,250 --> 00:27:07,480
+A couple of things are important.
+
+308
+00:27:07,480 --> 00:27:15,490
+Make sure that you spelt the prop as id and make sure that you're passing in the nftPrincipal which
+
+309
+00:27:15,490 --> 00:27:17,290
+is set over here,
+
+310
+00:27:17,590 --> 00:27:22,750
+so the nftPrincipal.toText. Now let's hit save and let's try it out.
+
+311
+00:27:23,110 --> 00:27:24,850
+So here's our frontend.
+
+312
+00:27:24,850 --> 00:27:26,770
+Let's choose one of the files.
+
+313
+00:27:27,100 --> 00:27:27,880
+Give it a name.
+
+314
+00:27:29,110 --> 00:27:29,510
+Click
+
+315
+00:27:29,530 --> 00:27:30,070
+Mint.
+
+316
+00:27:35,420 --> 00:27:41,600
+And it tells us that nothing was returned from render, which says a return statement is missing.
+
+317
+00:27:41,900 --> 00:27:43,270
+So let's check our code,
+
+318
+00:27:43,280 --> 00:27:46,280
+and indeed, in our if statement we've got our return
+
+319
+00:27:46,280 --> 00:27:49,280
+but in our else, I've actually forgotten this.
+
+320
+00:27:49,640 --> 00:27:54,950
+So there are a lot of potential mistakes even when we try to avoid them.
+
+321
+00:27:55,280 --> 00:27:59,600
+Sometimes they happen, but it's good to know and see it so that you know what's going on.
+
+322
+00:28:00,200 --> 00:28:01,370
+So let's try that again.
+
+323
+00:28:05,970 --> 00:28:09,300
+And you can see now we've got our minted title,
+
+324
+00:28:09,300 --> 00:28:11,790
+we've got the new NFT showing up,
+
+325
+00:28:12,090 --> 00:28:16,470
+we've got its name and the owner all working correctly.
+
+326
+00:28:17,280 --> 00:28:22,950
+The only thing that's left is to give the user an indication when that NFT is being minted.
+
+327
+00:28:23,280 --> 00:28:29,040
+So ideally, we'd really want a loader in here when that minting process gets triggered.
+
+328
+00:28:30,510 --> 00:28:37,560
+And again, if you head over to the readme and scroll down, you should see the loader HTML, which
+
+329
+00:28:37,560 --> 00:28:46,290
+you can copy wholesale and we're going to be pasting it into our Minter. And I want it to show up just
+
+330
+00:28:46,290 --> 00:28:48,300
+above our H3 title here.
+
+331
+00:28:48,690 --> 00:28:55,380
+So inside the div that's got the class name minter-container and above the H3, we're going to paste in
+
+332
+00:28:55,380 --> 00:29:03,210
+our div. Now we're going to give this a hidden attribute and I'm going to set that to be called LoaderHidden,
+
+333
+00:29:04,020 --> 00:29:07,230
+which we're going to useState to keep track of.
+
+334
+00:29:09,500 --> 00:29:11,870
+And the setLoaderHidden
+
+335
+00:29:14,810 --> 00:29:22,520
+to update it's state. Now we're going to start the LoaderHidden with true so that it doesn't show up, and
+
+336
+00:29:22,520 --> 00:29:29,210
+then as soon as our form is submitted, so they press that button, we're going to set the loader hidden
+
+337
+00:29:29,210 --> 00:29:33,320
+to be false so the user can see the loader showing up.
+
+338
+00:29:33,740 --> 00:29:40,610
+And then once we've got our newNFTID back, then we're going to set the loader hidden back to true
+
+339
+00:29:40,610 --> 00:29:42,740
+again so that it disappears off the screen.
+
+340
+00:29:43,520 --> 00:29:49,820
+Now let's try this finally, and you can see the full functionality of our minting process.
+
+341
+00:29:50,300 --> 00:29:52,040
+So let's choose a file,
+
+342
+00:29:53,000 --> 00:29:53,870
+give it a name.
+
+343
+00:29:56,460 --> 00:30:01,560
+And as soon as I click on Mint, you can see our loader show up which gives the user an indication
+
+344
+00:30:01,560 --> 00:30:02,880
+that something is happening.
+
+345
+00:30:02,880 --> 00:30:04,050
+You don't have to keep pressing.
+
+346
+00:30:04,500 --> 00:30:12,720
+And finally, we get our minted NFT showing up and with all of the canister details being pulled in
+
+347
+00:30:12,720 --> 00:30:15,480
+and displayed through the item component.
+
+348
+00:30:16,230 --> 00:30:24,030
+So now users can actually mint NFTs on the internet computer using our OpenD website.
+
+349
+00:30:24,870 --> 00:30:31,380
+Now in the next lesson, we're going to figure out how we can display all of these NFTs that we mint
+
+350
+00:30:31,860 --> 00:30:35,220
+in the My NFTs section of this website.
+
+351
+00:30:36,060 --> 00:30:38,640
+So for all of that and more, I'll see you there.
+

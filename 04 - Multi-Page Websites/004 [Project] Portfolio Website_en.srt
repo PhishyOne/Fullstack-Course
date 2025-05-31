@@ -1,0 +1,436 @@
+1
+00:00:00,200 --> 00:00:00,650
+All right.
+
+2
+00:00:00,650 --> 00:00:04,070
+Well done on making it to the end of the section.
+
+3
+00:00:04,070 --> 00:00:06,840
+And it's time for your project.
+
+4
+00:00:06,860 --> 00:00:12,540
+In this project, we're going to be building your very first Web Developer Portfolio.
+
+5
+00:00:12,560 --> 00:00:16,520
+It's a website where you're going to be able to show off all of your work.
+
+6
+00:00:16,760 --> 00:00:24,530
+Most web developers and designers out there will have their own website where they actually show people
+
+7
+00:00:24,530 --> 00:00:31,100
+what they've built before and link to those websites that they've created so that if somebody wanted
+
+8
+00:00:31,100 --> 00:00:37,370
+to hire you, they would be able to look at this page, see what you've done, and then maybe contact
+
+9
+00:00:37,370 --> 00:00:39,290
+you or learn more about you.
+
+10
+00:00:39,290 --> 00:00:45,200
+And this is the website we're going to make, but we're going to make a very simple version of it using
+
+11
+00:00:45,200 --> 00:00:46,670
+just HTML.
+
+12
+00:00:46,700 --> 00:00:52,820
+What you need to learn in order to do this and hopefully you already know how to do this, but we need
+
+13
+00:00:52,820 --> 00:00:54,710
+to be able to take screenshots.
+
+14
+00:00:54,740 --> 00:01:01,680
+Now on your computer, it will be different whether if you're on Windows or if you're on a Mac or if
+
+15
+00:01:01,680 --> 00:01:02,690
+you're on Linux.
+
+16
+00:01:02,700 --> 00:01:08,070
+What I want you to do, if you don't know how to take screenshots on your particular computer, is just
+
+17
+00:01:08,070 --> 00:01:14,550
+to go into Google and search for how to take screenshot on Windows Mac or Linux, depending on what
+
+18
+00:01:14,580 --> 00:01:16,080
+system you're working on.
+
+19
+00:01:16,530 --> 00:01:23,730
+Once you've figured that out, then we can proceed to download the Portfolio Project zip file and extract
+
+20
+00:01:23,730 --> 00:01:26,400
+it and open it inside VS Code.
+
+21
+00:01:26,430 --> 00:01:29,160
+There's quite a lot of files I've got in here.
+
+22
+00:01:29,160 --> 00:01:35,650
+If you take a look inside the goal.png, this is what we're trying to create a very simple HTML
+
+23
+00:01:35,670 --> 00:01:37,800
+only portfolio website.
+
+24
+00:01:38,010 --> 00:01:44,400
+It's got a title, it's got a subtitle, it's got some horizontal rules, but we've also got the two
+
+25
+00:01:44,400 --> 00:01:49,740
+projects that we've built so far: the Movie Ranking Project from Section 2 and the Birthday Invite
+
+26
+00:01:49,740 --> 00:01:51,750
+project from Section 3.
+
+27
+00:01:51,990 --> 00:01:58,530
+What we're going to do is we're going to add an image which is a screenshot of each of those projects,
+
+28
+00:01:58,530 --> 00:02:01,680
+and we're also going to link to each of those projects,
+
+29
+00:02:01,680 --> 00:02:04,890
+and also an About Me and Contact Me page.
+
+30
+00:02:05,010 --> 00:02:11,970
+If you look inside the public folder, I've actually already got the movie-ranking.html and the
+
+31
+00:02:11,970 --> 00:02:14,070
+birthday-invite.html.
+
+32
+00:02:14,250 --> 00:02:19,110
+Notice that the code here is the project code that you've written before,
+
+33
+00:02:19,350 --> 00:02:26,490
+what I recommend is to actually replace the code here with your own code because it will probably be
+
+34
+00:02:26,490 --> 00:02:27,510
+a little bit different.
+
+35
+00:02:27,510 --> 00:02:32,670
+You might have customized it, you might have made it look a lot better than the standard version,
+
+36
+00:02:32,670 --> 00:02:35,580
+and your birthday is probably not on the 12th of May.
+
+37
+00:02:35,670 --> 00:02:41,910
+Similar with the Movie Ranking, your top three movies is probably different and I want you to take
+
+38
+00:02:41,910 --> 00:02:46,740
+the code that you've previously written because we're taking this portfolio website seriously, right?
+
+39
+00:02:46,770 --> 00:02:51,450
+We're actually going to show off what we've done so far, which is actually a lot already.
+
+40
+00:02:51,450 --> 00:02:58,470
+And I want you to customize the About page, the Contact Me page, basically make it your own web page
+
+41
+00:02:58,470 --> 00:03:03,510
+because later on we're going to be putting this live on the Internet, which you can share with anybody
+
+42
+00:03:03,510 --> 00:03:04,350
+in the world.
+
+43
+00:03:04,350 --> 00:03:06,960
+So let's take this project seriously.
+
+44
+00:03:07,680 --> 00:03:15,600
+What I mentioned about screenshots, the reason why we're doing it is so that when we look at our website,
+
+45
+00:03:15,630 --> 00:03:21,960
+we can see a little preview of the project that it's going to link to so that people can see which ones
+
+46
+00:03:21,960 --> 00:03:25,080
+they actually want to go and take a closer look at.
+
+47
+00:03:25,140 --> 00:03:30,390
+And in order to do this, we're going to right-click on the files that you've got, say, the birthday-
+
+48
+00:03:30,390 --> 00:03:32,490
+invite, show preview,
+
+49
+00:03:32,490 --> 00:03:40,650
+and once our preview is up, we're going to take a screenshot of it using whichever method you've discovered.
+
+50
+00:03:40,650 --> 00:03:47,370
+And once you've got that screenshot, then you can go ahead and drag it into the assets folder.
+
+51
+00:03:47,370 --> 00:03:50,970
+And inside the asset folder there's the images folder.
+
+52
+00:03:50,970 --> 00:03:57,840
+So there you have your screenshot and then you can go ahead and rename it to a sensible name, whatever
+
+53
+00:03:57,840 --> 00:03:59,460
+it is you want.
+
+54
+00:03:59,460 --> 00:04:05,520
+And this is how we're going to end up with some preview images for our website.
+
+55
+00:04:05,550 --> 00:04:10,470
+Now you can see there's already some images I've got in there, so in case your screenshot doesn't work
+
+56
+00:04:10,470 --> 00:04:15,540
+or you can't figure out how to use it, or you simply just want to do this project quickly, then you
+
+57
+00:04:15,540 --> 00:04:19,350
+can of course use the images I've already included for you.
+
+58
+00:04:19,529 --> 00:04:26,910
+But what you need to do is a seven-step process and I've added seven to-do's in there.
+
+59
+00:04:26,910 --> 00:04:33,090
+Just like any real web developer working professionally, you would split your big task, creating this
+
+60
+00:04:33,090 --> 00:04:38,370
+portfolio website into smaller tasks such as here are seven to-do's.
+
+61
+00:04:38,370 --> 00:04:43,290
+So first step, create the HTML boilerplate using what you learned from the last lesson.
+
+62
+00:04:43,290 --> 00:04:45,960
+Change the title to whatever it is you want.
+
+63
+00:04:45,960 --> 00:04:52,560
+Add your previous projects' HTML into the public folder, so replace the code in here with your own.
+
+64
+00:04:52,590 --> 00:04:57,330
+Then take screenshots of your projects and add it to the images folder here.
+
+65
+00:04:57,330 --> 00:04:59,880
+Rename them and make sure you've got them
+
+66
+00:04:59,920 --> 00:05:00,850
+ready to go.
+
+67
+00:05:00,880 --> 00:05:07,630
+Then go ahead and add some titles or subtitles, your portfolio, your web developer, whatever it is
+
+68
+00:05:07,630 --> 00:05:15,940
+you want to do, using what you've learned from previous lessons, then add a link to the project pages.
+
+69
+00:05:16,030 --> 00:05:19,180
+For example, the Movie Ranking Project link here,
+
+70
+00:05:19,180 --> 00:05:20,400
+this is an anchor tag.
+
+71
+00:05:20,410 --> 00:05:27,160
+This is the Birthday Invite Project anchor tag, and these two should link to their respective web pages,
+
+72
+00:05:27,160 --> 00:05:31,260
+so birthday-invite.html or movie-ranking.html.
+
+73
+00:05:31,270 --> 00:05:36,730
+And then we want to add the images in order to show off the previews.
+
+74
+00:05:36,760 --> 00:05:41,860
+Now, I've got a hint in here because you might find that when you take a screenshot, the image ends
+
+75
+00:05:41,860 --> 00:05:47,650
+up being massive and it doesn't really render properly like what we see in the goal here.
+
+76
+00:05:47,650 --> 00:05:53,620
+So a small, tiny image instead it might take up the entire page and it will look very, very awkward.
+
+77
+00:05:53,650 --> 00:06:00,500
+So one of the things you can do is set an attribute on the image element, which is the height, and
+
+78
+00:06:00,500 --> 00:06:06,860
+you can set it to 200, which means it'll be 200 pixels high and it will automatically figure out the
+
+79
+00:06:06,860 --> 00:06:07,400
+width.
+
+80
+00:06:07,400 --> 00:06:13,280
+And if you want to learn more about this, I've included a link to the Developer Documentation so you
+
+81
+00:06:13,280 --> 00:06:16,570
+can read up on that attribute and see how it works.
+
+82
+00:06:16,580 --> 00:06:22,700
+Now, once you've made the image show up and made it smaller, the final thing to do is to add the Contact
+
+83
+00:06:22,700 --> 00:06:27,050
+Me and About Me page links at the very bottom down here.
+
+84
+00:06:27,050 --> 00:06:28,940
+So maybe add a horizontal rule.
+
+85
+00:06:28,940 --> 00:06:35,690
+You can add whichever HTML elements you like because this is your project, this is your portfolio.
+
+86
+00:06:35,690 --> 00:06:41,480
+And of course, in later lessons, when we learn more about styling and CSS, we can jazz this up,
+
+87
+00:06:41,480 --> 00:06:48,680
+but at this stage, we're just aiming for a very simple HTML-only project page like this.
+
+88
+00:06:48,680 --> 00:06:55,760
+So I'm going to leave you to it and I want you to really put some time and energy into this portfolio
+
+89
+00:06:55,760 --> 00:06:59,390
+because it's going to be shown off to the entire world.
+
+90
+00:06:59,480 --> 00:07:01,880
+Pause the video and give that a go.
+
+91
+00:07:04,290 --> 00:07:06,810
+Now, I want to briefly run through my solution with you,
+
+92
+00:07:06,810 --> 00:07:10,020
+but remember, this is just an example.
+
+93
+00:07:10,020 --> 00:07:13,410
+It's your website and you can make it however you like.
+
+94
+00:07:13,500 --> 00:07:18,000
+But a couple of things to note is firstly, I've got my HTML boilerplate here.
+
+95
+00:07:18,000 --> 00:07:25,420
+I've removed the unnecessary meta tags, I've changed my title, I've added in some h1's and h2's,
+
+96
+00:07:25,440 --> 00:07:28,560
+and horizontal rules just to separate some of the content,
+
+97
+00:07:28,560 --> 00:07:36,480
+but more importantly, I've got my anchor tags in. This anchor tag links to the movie-ranking html,
+
+98
+00:07:36,480 --> 00:07:41,910
+and this is embedded inside an h3 so that it will be a little bit bigger.
+
+99
+00:07:42,120 --> 00:07:47,910
+And I've got an image that will show off the preview of that particular web page.
+
+100
+00:07:47,910 --> 00:07:53,850
+And at the very bottom, I've got my two other pages, my About and Contact.
+
+101
+00:07:53,850 --> 00:07:57,510
+In this case, what the preview looks like is like this.
+
+102
+00:07:57,540 --> 00:08:01,200
+When I click on this link, it goes to one of my projects.
+
+103
+00:08:01,230 --> 00:08:08,740
+This link goes to one of my other projects and at the bottom, I've got the About Me and Contact Me pages
+
+104
+00:08:08,740 --> 00:08:11,920
+that will tell people a little bit more about myself.
+
+105
+00:08:12,250 --> 00:08:19,390
+Hopefully you've created something similar and in the next lesson there's a bonus lesson where I want
+
+106
+00:08:19,390 --> 00:08:24,790
+to show you how to put this live onto the Internet so that you can share it with your friends and share
+
+107
+00:08:24,790 --> 00:08:27,580
+it with us; the other students and myself,
+
+108
+00:08:27,580 --> 00:08:31,300
+so we can see the beautiful portfolio website that you've built.
+
+109
+00:08:31,420 --> 00:08:34,840
+So for all of that and more, I'll see you on the next lesson.
+

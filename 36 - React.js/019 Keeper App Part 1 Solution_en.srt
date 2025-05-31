@@ -1,0 +1,672 @@
+1
+00:00:00,260 --> 00:00:00,660
+All right.
+
+2
+00:00:00,690 --> 00:00:03,360
+So how did you get on with that challenge?
+
+3
+00:00:03,360 --> 00:00:04,200
+Was it easy?
+
+4
+00:00:04,200 --> 00:00:05,620
+Was it hard?
+
+5
+00:00:05,660 --> 00:00:10,560
+If it was really easy and you've managed to complete everything and you've gotten it to look like this,
+
+6
+00:00:10,890 --> 00:00:14,670
+then feel free to just skip this lesson and continue in the curriculum.
+
+7
+00:00:14,670 --> 00:00:19,890
+But if you got stuck at a certain point or if you want to see me go through the solution then continue
+
+8
+00:00:19,890 --> 00:00:20,550
+watching
+
+9
+00:00:20,700 --> 00:00:23,140
+and let's run through the solution together.
+
+10
+00:00:23,160 --> 00:00:24,390
+First step is easy enough.
+
+11
+00:00:24,390 --> 00:00:26,160
+Create a new React app.
+
+12
+00:00:26,160 --> 00:00:28,140
+We've done this a million times.
+
+13
+00:00:28,140 --> 00:00:30,820
+So let's go ahead and just do that quickly.
+
+14
+00:00:31,170 --> 00:00:31,800
+As always,
+
+15
+00:00:31,800 --> 00:00:38,010
+let's just start out by rendering a h1 and just check to see that it actually works and it gets
+
+16
+00:00:38,010 --> 00:00:43,380
+shown on screen in the element with id of root.
+
+17
+00:00:43,470 --> 00:00:49,320
+And once we can see it in there, then we can go ahead and continue onto the next step.
+
+18
+00:00:49,380 --> 00:00:53,330
+So we're going to be creating a App.jsx component.
+
+19
+00:00:53,340 --> 00:00:59,310
+Now notice how in the instructions I've always added the JSX extension for the file names.
+
+20
+00:00:59,310 --> 00:01:02,550
+Now this currently is a point of contention.
+
+21
+00:01:02,610 --> 00:01:09,510
+The official AirBnB style guide which a lot of people follow for creating React components advises us
+
+22
+00:01:09,600 --> 00:01:10,950
+to do this.
+
+23
+00:01:10,950 --> 00:01:17,520
+And the reason is because when you have these files say Atlassian, Bitbucket or some other services
+
+24
+00:01:17,850 --> 00:01:24,810
+it needs to recognize this extension in order to highlight the syntax in the correct way. But actually
+
+25
+00:01:24,810 --> 00:01:30,150
+in terms of the functionality for React apps, you can actually just leave it as App.js and have
+
+26
+00:01:30,180 --> 00:01:34,270
+all of your files just as Javascript files.
+
+27
+00:01:34,320 --> 00:01:39,360
+So this is something that a lot of people argue about and I've recently started removing the x from
+
+28
+00:01:39,360 --> 00:01:41,700
+my App.js files as well.
+
+29
+00:01:41,700 --> 00:01:46,500
+But at the end of the day, it really doesn't matter as long as you pick one and you stick to it and you're
+
+30
+00:01:46,500 --> 00:01:49,110
+consistent about it then that's absolutely fine.
+
+31
+00:01:49,920 --> 00:01:56,040
+So in order to create a App.js component, I'm already going to start creating a components folder
+
+32
+00:01:56,790 --> 00:02:06,150
+and that way I can create my new App.js file inside my components folder. And inside here I'm going
+
+33
+00:02:06,150 --> 00:02:09,470
+to be creating the very root of my component tree.
+
+34
+00:02:09,509 --> 00:02:17,160
+So I'm going to import React from react and then I'm going to create a functional component called App
+
+35
+00:02:17,670 --> 00:02:21,930
+and this is going to simply return a div.
+
+36
+00:02:25,340 --> 00:02:28,940
+And inside this div, let's just make sure that it works. Again
+
+37
+00:02:28,970 --> 00:02:34,790
+let's create an h1 called Hello App to differentiate it from the old content and then let's go ahead
+
+38
+00:02:34,790 --> 00:02:37,820
+and export this as the default.
+
+39
+00:02:37,880 --> 00:02:42,800
+So the only thing that we actually have inside this file is just our app function.
+
+40
+00:02:42,800 --> 00:02:47,070
+So it makes sense to export it just as the default export.
+
+41
+00:02:47,360 --> 00:02:54,170
+Now let's hit save and let's head back to our index.js. Instead of rendering our h1 Hello world,
+
+42
+00:02:54,430 --> 00:02:58,580
+I'm going to render that app component that we built just now.
+
+43
+00:02:58,580 --> 00:03:02,000
+But in order for it to be recognized, we of course have to import it.
+
+44
+00:03:02,060 --> 00:03:10,760
+So import app from ./components/App and I'm gonna leave off the js at the end.
+
+45
+00:03:10,760 --> 00:03:15,660
+Now you can see it's working because we can see Hello App instead sort of Hello world.
+
+46
+00:03:15,680 --> 00:03:17,250
+So now we can tick off
+
+47
+00:03:17,270 --> 00:03:21,270
+step 2. Step 3 is to create a header
+
+48
+00:03:21,290 --> 00:03:27,950
+.jsx component that renders a header element. Again that means we're going to be creating a new component
+
+49
+00:03:28,040 --> 00:03:34,390
+inside our already created components folder. And it's going to be called header.jsx.
+
+50
+00:03:34,620 --> 00:03:39,980
+Now inside our header.jsx we're going to do all the classic things that we always have to do
+
+51
+00:03:39,980 --> 00:03:48,110
+inside any component which is to import and then create the component which is a Header function and
+
+52
+00:03:48,230 --> 00:03:58,690
+then we're going to export it as the default. The header is going to be inserted into the app component
+
+53
+00:03:59,050 --> 00:04:03,430
+instead of the h1. And inside this header component,
+
+54
+00:04:03,430 --> 00:04:10,380
+we need to render a header element and a keeper app name inside an h1.
+
+55
+00:04:10,480 --> 00:04:17,570
+So instead of returning nothing, let's go ahead and return a header element and remember that the HTML
+
+56
+00:04:17,570 --> 00:04:26,570
+elements are lowercase and our custom components are always capitalized with Pascal case.
+
+57
+00:04:27,010 --> 00:04:32,980
+So this way React can differentiate when you are trying to use a custom React component versus when
+
+58
+00:04:32,980 --> 00:04:39,460
+you're just trying to tap into the native HTML elements. Inside this header HTML element I'm
+
+59
+00:04:39,460 --> 00:04:45,610
+going to create an h1 element and this is just going to say keeper because that's what I'm going
+
+60
+00:04:45,610 --> 00:04:49,790
+to name my app. You might name it something else, it really doesn't matter.
+
+61
+00:04:49,930 --> 00:04:57,740
+But now we're going to try and render this header component inside our App.js instead of this h
+
+62
+00:04:57,740 --> 00:04:59,320
+1 right here.
+
+63
+00:04:59,500 --> 00:05:06,010
+So let's go ahead and add this as a self closing tag and in order for us to use it, we of course have
+
+64
+00:05:06,010 --> 00:05:15,190
+to import the header component from the ./header file. And now once we refresh our website, you
+
+65
+00:05:15,190 --> 00:05:21,620
+can see that our header has gone in with all of the styling and all of the bells and whistles.
+
+66
+00:05:21,820 --> 00:05:28,420
+And the reason for this is because inside are public folder, we've got a styles.css file which
+
+67
+00:05:28,420 --> 00:05:35,740
+says that the header elements should always have a yellow background, has this margin, padding and the
+
+68
+00:05:35,740 --> 00:05:37,750
+box shadow at the bottom.
+
+69
+00:05:37,750 --> 00:05:44,880
+The h1 elements inside a header component should have this colour and the McLaren font family.
+
+70
+00:05:44,980 --> 00:05:51,280
+So we're seeing all of these styles being applied just because we are using the same HTML elements which
+
+71
+00:05:51,370 --> 00:05:59,230
+are being targeted in our CSS. If in your case you don't see the styling being applied, then it might be
+
+72
+00:05:59,230 --> 00:06:07,150
+because you are actually not using the elements that are being targeted in your styles.css. If this
+
+73
+00:06:07,150 --> 00:06:12,400
+was something that you got stuck on, then it might be a chance to go back to your code and see if you
+
+74
+00:06:12,400 --> 00:06:16,240
+can continue the challenge with this knowledge in hand.
+
+75
+00:06:16,240 --> 00:06:22,480
+Now that we've completed step 3, it's time to move on to step 4. And step 4 is to create
+
+76
+00:06:22,570 --> 00:06:30,130
+a footer component that renders a footer element to show a copyright message with a dynamically updated
+
+77
+00:06:30,250 --> 00:06:30,880
+year.
+
+78
+00:06:30,880 --> 00:06:38,830
+So let's go and create a new footer.jsx and do all of the housekeeping.
+
+79
+00:06:41,410 --> 00:06:49,120
+And in terms of the footer, all we want to return is just a simple paragraph element. But the paragraph
+
+80
+00:06:49,150 --> 00:06:56,790
+element is hopefully going to write some text dynamically. So it's going to say something like copyright
+
+81
+00:06:56,830 --> 00:07:02,110
+and then maybe you can add in the copyright symbol if you wanted to, you can either copy it from here
+
+82
+00:07:02,590 --> 00:07:10,090
+or you can search in Google for the copyright symbol and just copy it from here.
+
+83
+00:07:10,150 --> 00:07:12,060
+Either way you should be able to get that symbol.
+
+84
+00:07:12,490 --> 00:07:18,400
+But the important part is that in the instructions we mentioned that we wanted a dynamically created
+
+85
+00:07:18,400 --> 00:07:18,690
+year.
+
+86
+00:07:18,700 --> 00:07:24,460
+So instead of just typing in 2019 in which case it's going to be out of date pretty soon
+
+87
+00:07:24,600 --> 00:07:29,920
+and there are developers who feel really strongly about hating on websites that don't have a dynamic
+
+88
+00:07:29,920 --> 00:07:30,650
+footer.
+
+89
+00:07:30,790 --> 00:07:36,970
+There's even a website created called updateyourfooter.com so that you have a dynamic timestamp.
+
+90
+00:07:37,390 --> 00:07:43,090
+And they've got javascript snippets, PHP snippets, basically trying to encourage web developers to
+
+91
+00:07:43,090 --> 00:07:47,100
+always use a dynamic year in their footer.
+
+92
+00:07:47,170 --> 00:07:50,250
+So we already know how to create a dynamic year
+
+93
+00:07:50,310 --> 00:07:50,870
+right?
+
+94
+00:07:50,890 --> 00:07:56,320
+We create a new date object with Javascript and then we use the get full year method.
+
+95
+00:07:56,320 --> 00:07:59,470
+So let's go ahead and apply it in our code.
+
+96
+00:07:59,530 --> 00:08:06,820
+You can either do this inline right here using a set of JSX curly braces or you can create a
+
+97
+00:08:06,820 --> 00:08:15,360
+constant here called the current year maybe and set it to equal a new Date object and then we get
+
+98
+00:08:15,400 --> 00:08:20,090
+full year, call that method in order to store it inside this constant.
+
+99
+00:08:20,320 --> 00:08:22,750
+And then you can just insert it in here.
+
+100
+00:08:23,230 --> 00:08:31,190
+Alternatively you could have it inline by just putting this code inside here of course. Now the proof
+
+101
+00:08:31,250 --> 00:08:32,450
+is really in the pudding.
+
+102
+00:08:32,450 --> 00:08:38,809
+So let's go ahead and save our footer.jsx and import it into our app.
+
+103
+00:08:41,659 --> 00:08:45,200
+And render it just below the header,
+
+104
+00:08:46,510 --> 00:08:47,100
+like so.
+
+105
+00:08:48,120 --> 00:08:55,190
+And if you have the same appearance as I have and you're miffed as to, "how can I get it down at the bottom?
+
+106
+00:08:55,200 --> 00:08:56,210
+how can I get it
+
+107
+00:08:56,250 --> 00:08:58,020
+this particular color?"
+
+108
+00:08:58,020 --> 00:09:03,950
+Well it's probably because we're not actually applying any styling to the text in our footer.
+
+109
+00:09:03,990 --> 00:09:11,230
+So in order to investigate, you can head into the styles.css and see how these styles are being targeted.
+
+110
+00:09:11,250 --> 00:09:17,280
+So for example notice how we've got a position absolute test-align center which should theoretically
+
+111
+00:09:17,280 --> 00:09:19,890
+center a HTML element.
+
+112
+00:09:19,890 --> 00:09:27,480
+But notice how that is targeting a footer HTML element. And also the text color of this kind of
+
+113
+00:09:27,600 --> 00:09:35,650
+gray color that you see here is targeting paragraph elements inside a footer element.
+
+114
+00:09:35,790 --> 00:09:41,040
+So it's really likely that you might have had the same problem because it's very easy enough to just
+
+115
+00:09:41,040 --> 00:09:46,590
+render a paragraph tag. But if you're not getting the styling it might be because you're not wrapping
+
+116
+00:09:46,590 --> 00:09:53,630
+it inside a footer element which is what is used inside these styles.css
+
+117
+00:09:53,790 --> 00:09:59,770
+in order to convey all of this styling, the centering and the color etc.
+
+118
+00:09:59,790 --> 00:10:08,010
+So that's a common source of confusion. But now we've completed step 4 and all we have left is to
+
+119
+00:10:08,010 --> 00:10:09,570
+create a Note component
+
+120
+00:10:09,570 --> 00:10:16,010
+and style the Note component. The Note component is probably going to go in between the header and the
+
+121
+00:10:16,020 --> 00:10:18,410
+footer, in the middle here.
+
+122
+00:10:18,450 --> 00:10:22,000
+So let's go ahead and create this new Note.
+
+123
+00:10:22,000 --> 00:10:26,090
+jsx component, import React from react,
+
+124
+00:10:26,090 --> 00:10:28,140
+export it as the default
+
+125
+00:10:28,140 --> 00:10:34,310
+and let's think about what it is that we need to write in order to create a new Note. So we want to have
+
+126
+00:10:34,310 --> 00:10:42,010
+a h1 and a paragraph which is going to denote the title and the content stored inside a div group.
+
+127
+00:10:42,080 --> 00:10:47,330
+And this is a very common way of grouping a component using a single divider
+
+128
+00:10:47,330 --> 00:10:47,900
+right?
+
+129
+00:10:48,140 --> 00:10:56,290
+Let's go ahead and add an h1 which we'll just call, 'This is the title' and then let's add a paragraph,
+
+130
+00:10:56,300 --> 00:11:02,690
+'This is the content' and it doesn't really matter what you put in here as long as you've got some content
+
+131
+00:11:02,750 --> 00:11:04,710
+that can be shown on screen.
+
+132
+00:11:04,730 --> 00:11:08,710
+Now let's go into our App.js, import our note
+
+133
+00:11:11,350 --> 00:11:15,310
+and add it in between the header and the footer.
+
+134
+00:11:15,310 --> 00:11:16,420
+So here it is.
+
+135
+00:11:16,510 --> 00:11:19,650
+But why does that not look like this?
+
+136
+00:11:19,660 --> 00:11:23,440
+Well we need to look for clues inside the styles.css.
+
+137
+00:11:24,230 --> 00:11:24,930
+Here,
+
+138
+00:11:25,060 --> 00:11:32,930
+you'll notice that there is a class style called note and it defines things such as a box-shadow, border-
+
+139
+00:11:32,930 --> 00:11:36,550
+radius, padding and how it should be arranged.
+
+140
+00:11:36,640 --> 00:11:42,520
+And then we've also got styles for s associated with the note class, paragraphs associated with
+
+141
+00:11:42,520 --> 00:11:43,660
+the note class.
+
+142
+00:11:43,660 --> 00:11:49,750
+So it seems like we need to apply this class style to our note component.
+
+143
+00:11:49,750 --> 00:11:58,180
+This is a quick tip. You might think that you can actually apply the style inside your custom component.
+
+144
+00:11:58,240 --> 00:12:01,200
+You might say something like class name,
+
+145
+00:12:01,270 --> 00:12:05,450
+remember that's the React way of targeting a particular
+
+146
+00:12:05,460 --> 00:12:10,580
+CSS class, and class name equals
+
+147
+00:12:10,660 --> 00:12:11,670
+note right?
+
+148
+00:12:12,220 --> 00:12:20,020
+But unfortunately this does not actually do what you expect it to do. That note style is not in fact
+
+149
+00:12:20,020 --> 00:12:26,080
+being applied and we're going to learn about this a little bit later on when we learn about React properties
+
+150
+00:12:26,530 --> 00:12:34,990
+but essentially whenever you are applying a HTML attribute such as class name or style or onClick or
+
+151
+00:12:34,990 --> 00:12:40,840
+all of those things, they shouldn't go into your custom component, so the components that you've created
+
+152
+00:12:40,840 --> 00:12:48,190
+like note or header or footer. Instead they need to be applied to a HTML element such as our div
+
+153
+00:12:48,250 --> 00:12:49,150
+here.
+
+154
+00:12:49,180 --> 00:12:56,860
+So if I go ahead and add my class name right here with the name of note, you'll see that this now works
+
+155
+00:12:56,890 --> 00:13:01,100
+predictably. And we're going to be talking about this a little bit later on
+
+156
+00:13:01,150 --> 00:13:06,910
+so remember that when you're using HTML attributes they can only be applied to HTML elements
+
+157
+00:13:07,120 --> 00:13:15,130
+even if it's inside the JSX and not your custom created React elements.
+
+158
+00:13:15,220 --> 00:13:22,030
+So now that we've completed everything in our challenge, we can take a look at the final website we've
+
+159
+00:13:22,030 --> 00:13:27,970
+created using what we've learnt about React. And you can see that it looks pretty much exactly the same
+
+160
+00:13:28,150 --> 00:13:31,420
+as the sample app that I gave you to compare against.
+
+161
+00:13:32,260 --> 00:13:34,430
+How did you get on with this challenge?
+
+162
+00:13:34,630 --> 00:13:40,000
+If there was anything that was confusing, I recommend to just take a moment and play around with the
+
+163
+00:13:40,000 --> 00:13:45,520
+code and change some things or or switch things around just so that you really get to grips with it
+
+164
+00:13:45,520 --> 00:13:46,960
+before moving on.
+
+165
+00:13:46,960 --> 00:13:54,220
+This is kind of a checkpoint or a save point if you will and it's a good idea to even just take a break
+
+166
+00:13:54,220 --> 00:14:01,150
+and have a think about it before you move on. But once you're done then head back and in the next lesson
+
+167
+00:14:01,420 --> 00:14:04,620
+we're going to be learning about React properties.
+
+168
+00:14:04,620 --> 00:14:07,030
+So for all of that and more, I see there.
+

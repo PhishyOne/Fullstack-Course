@@ -1,0 +1,700 @@
+1
+00:00:00,630 --> 00:00:00,930
+All right.
+
+2
+00:00:00,930 --> 00:00:07,020
+So now that we've heard all about how awesome Javascript can be then it's really time to give it a spin
+
+3
+00:00:07,350 --> 00:00:14,460
+and see how we can start adding behavior to our web site by learning and using just a little bit of Javascript.
+
+4
+00:00:14,460 --> 00:00:19,920
+So I want you to open up a brand new tab inside Chrome and we're going to go into the menu under View
+
+5
+00:00:20,010 --> 00:00:25,290
+and then we're going to go into Developer and you can navigate to the Javascript Console.
+
+6
+00:00:25,290 --> 00:00:31,290
+Now this is pretty cool because it allows you to start writing Javascript straight away and it will
+
+7
+00:00:31,290 --> 00:00:33,300
+run them as you hit enter.
+
+8
+00:00:33,360 --> 00:00:36,180
+So for example we can write something like alert,
+
+9
+00:00:36,180 --> 00:00:40,740
+and then we're going to open up some round brackets or parentheses, and we're going to tell it what we
+
+10
+00:00:40,740 --> 00:00:41,840
+want it to alert us.
+
+11
+00:00:41,850 --> 00:00:43,780
+So let's just get it to write Hello.
+
+12
+00:00:43,980 --> 00:00:48,200
+And then at the end we're going to close everything off with this semi-colon.
+
+13
+00:00:48,210 --> 00:00:52,240
+So now if I hit Enter, Chrome will run this line of code,
+
+14
+00:00:52,380 --> 00:00:58,640
+and as you can see it brings up a pop up, and that pop up has the message of Hello.
+
+15
+00:00:58,890 --> 00:01:01,690
+Now if you hit OK the pop up will disappear,
+
+16
+00:01:01,740 --> 00:01:04,560
+and that is the end of our alert.
+
+17
+00:01:04,560 --> 00:01:09,360
+Now while the console is useful it has one downside.
+
+18
+00:01:09,360 --> 00:01:16,650
+So, for example, if I wanted two alerts to happen, for example I want one pop up to say Hello, and then I
+
+19
+00:01:16,650 --> 00:01:18,790
+want another pop up straight afterwards,
+
+20
+00:01:18,840 --> 00:01:23,920
+so say World, as soon as I hit Enter my first line is already executed,
+
+21
+00:01:23,970 --> 00:01:31,030
+and I don't get to go to the next line and finish off what I was writing, which was a multi line instruction.
+
+22
+00:01:31,080 --> 00:01:36,250
+So the way that you can get around this is by holding down Shift and hitting Enter,
+
+23
+00:01:36,300 --> 00:01:38,260
+and that takes you on to the next line,
+
+24
+00:01:38,490 --> 00:01:42,500
+and so you can now write World!,
+
+25
+00:01:42,510 --> 00:01:44,340
+close off the round brackets,
+
+26
+00:01:44,400 --> 00:01:46,880
+and then finally add a semi-colon.
+
+27
+00:01:46,890 --> 00:01:53,250
+So now if I hit Enter it will execute the first pop up which says Hello, and when I dismiss that one
+
+28
+00:01:53,340 --> 00:01:59,310
+it will straight away execute the next line of code, which is a pop up that should say World.
+
+29
+00:01:59,310 --> 00:02:03,810
+Now this is a little bit cumbersome and very often when you're typing inside the console and you're
+
+30
+00:02:03,810 --> 00:02:09,600
+writing multi line code you forget to hold down Shift and you hit Enter and you've lost all of your progress,
+
+31
+00:02:09,900 --> 00:02:11,050
+and it's a little bit painful.
+
+32
+00:02:11,070 --> 00:02:17,030
+So I want to show you another way of writing Javascript code that can be executed inside Chrome.
+
+33
+00:02:17,070 --> 00:02:23,340
+So if you go ahead and go to the next tab which is Sources, and if you click on it you get taken to this
+
+34
+00:02:23,340 --> 00:02:23,840
+tab.
+
+35
+00:02:23,880 --> 00:02:27,210
+Now on the left corner you see this little arrow.
+
+36
+00:02:27,270 --> 00:02:30,420
+And I want you to click on it and go to Snippets.
+
+37
+00:02:30,420 --> 00:02:35,610
+Now this is a little bit of a hidden area in Chrome as not a lot of people even know about it.
+
+38
+00:02:35,790 --> 00:02:39,080
+But it's really really useful for what we're trying to do.
+
+39
+00:02:39,120 --> 00:02:44,310
+Now once you're here, you're going to create a new snippet by clicking on this + New snippet button,
+
+40
+00:02:44,820 --> 00:02:49,320
+and you're going to call your script index.js, or whatever it is that you want to call it.
+
+41
+00:02:49,440 --> 00:02:57,090
+So now you can see that we've got these Javascript files and it's showing up over here almost like what
+
+42
+00:02:57,090 --> 00:02:59,180
+we've got going on inside Atom.
+
+43
+00:02:59,280 --> 00:03:01,450
+So I'm going to close off the hello.js,
+
+44
+00:03:01,530 --> 00:03:06,930
+and I'm going to remove it so that we only have one file and it's less confusing.
+
+45
+00:03:06,930 --> 00:03:10,720
+Now inside this file here I can start writing code.
+
+46
+00:03:11,160 --> 00:03:21,450
+So, for example, I can say alert Hello, and then alert World, and I can write as many lines of code as I
+
+47
+00:03:21,450 --> 00:03:22,620
+wish.
+
+48
+00:03:22,620 --> 00:03:31,870
+And once I'm done I can go over to the bottom right corner here and I can press it to run my code.
+
+49
+00:03:31,890 --> 00:03:37,410
+So this is slightly different from how Console works. Console is kind of intended for you to test out
+
+50
+00:03:37,500 --> 00:03:44,790
+lines of code, so you write one line, you hit Enter, you test it out, but the snippet editor is meant to execute
+
+51
+00:03:44,790 --> 00:03:49,140
+your code only once you finish writing the entire script.
+
+52
+00:03:49,140 --> 00:03:56,390
+So now if I hit this button it will run my code and I will get one alert and then another alert.
+
+53
+00:03:56,430 --> 00:04:03,180
+And you can see that it's actually converting it into these instructions line by line inside the console.
+
+54
+00:04:03,180 --> 00:04:09,060
+So this snippets editor is what we'll be using in the next few lessons as we learn more about Javascript,
+
+55
+00:04:09,240 --> 00:04:12,810
+and we'll use it to complete some of the exercises and challenges.
+
+56
+00:04:12,810 --> 00:04:19,600
+Now how do we know which instructions the browser will listen to and which instructions are just gobbledygook,
+
+57
+00:04:19,760 --> 00:04:27,380
+you know, say if I said say Hello, then it's not really going to work because it's not a real command.
+
+58
+00:04:27,390 --> 00:04:34,080
+So once it goes through Hello and World, then my code actually crashes, and in the console
+
+59
+00:04:34,110 --> 00:04:39,450
+I get this error message that says Uncaught ReferenceError: say is not defined.
+
+60
+00:04:39,480 --> 00:04:45,720
+So to translate that to English, the browser is basically trying to tell you that I have no idea
+
+61
+00:04:45,900 --> 00:04:51,020
+what this say keyword is that you're trying to tell me and it's not a real instruction.
+
+62
+00:04:51,030 --> 00:04:52,960
+I don't know what you want me to do.
+
+63
+00:04:53,100 --> 00:04:59,490
+You have to look at the proper keywords and use something that I can accept and I can execute.
+
+64
+00:04:59,510 --> 00:05:01,960
+So how do we know what those keywords are?
+
+65
+00:05:02,140 --> 00:05:10,870
+Well if we head over to our trusty MDN Web Docs, and we select Javascript as our technology, then you
+
+66
+00:05:10,870 --> 00:05:18,520
+can see that we've got all the information that we need in the world in order to get started using Javascript.
+
+67
+00:05:18,520 --> 00:05:24,340
+Now, you can either scroll through the left menu and look through all the different sections that they've compiled
+
+68
+00:05:24,340 --> 00:05:25,070
+for you,
+
+69
+00:05:25,150 --> 00:05:31,870
+or we can just go straight in and start searching for this alert that we've used. So you can see that
+
+70
+00:05:31,870 --> 00:05:38,830
+the first result I get back is something called Window.alert, and if you click on it it tells you
+
+71
+00:05:38,860 --> 00:05:46,570
+that this is a method that displays an alert dialog, which is a pop up, with the optional specified content
+
+72
+00:05:46,690 --> 00:05:47,940
+and an OK button.
+
+73
+00:05:48,190 --> 00:05:51,240
+So the syntax looks somewhat like this.
+
+74
+00:05:51,400 --> 00:05:55,190
+And they give you an example of what code you would need to write
+
+75
+00:05:55,240 --> 00:05:57,030
+and what it would produce.
+
+76
+00:05:57,070 --> 00:06:02,590
+So you can see that the full version of triggering a pop up is by saying window.alert,
+
+77
+00:06:02,770 --> 00:06:08,320
+and sometimes you'll see programmers writing that out, but in most cases most people will go with the
+
+78
+00:06:08,320 --> 00:06:15,610
+shorter version, which is simply just using the keyword alert, and then enclosing your message inside
+
+79
+00:06:15,700 --> 00:06:17,800
+the round brackets or parentheses.
+
+80
+00:06:18,040 --> 00:06:21,960
+So let's take a look at this line of code in more detail.
+
+81
+00:06:21,970 --> 00:06:24,950
+Now the alert in this case is a keyword,
+
+82
+00:06:25,060 --> 00:06:27,700
+and as we mentioned before, the keywords are special.
+
+83
+00:06:27,700 --> 00:06:30,280
+You can't just use any word you wish.
+
+84
+00:06:30,280 --> 00:06:33,180
+It has to be something that the browser knows about.
+
+85
+00:06:33,490 --> 00:06:39,100
+And in this case the browser knows that when you write alert you're trying to tell it to create a pop
+
+86
+00:06:39,100 --> 00:06:39,390
+up.
+
+87
+00:06:39,430 --> 00:06:44,900
+And this is also known as a function because it's a little bit of functionality.
+
+88
+00:06:44,920 --> 00:06:51,250
+It gets the browser to do something, not like what we've done so far, which is just to change the appearance
+
+89
+00:06:51,280 --> 00:06:52,400
+of the web site,
+
+90
+00:06:52,420 --> 00:06:58,460
+this is actually a little bit of behavior which we got by writing Javascript code.
+
+91
+00:06:58,690 --> 00:07:01,920
+The middle part here in green is the message.
+
+92
+00:07:01,960 --> 00:07:08,320
+This is what we want to show up in the pop up and you can change that message to anything you wish and
+
+93
+00:07:08,320 --> 00:07:10,810
+it doesn't matter what you write, it could be gobbledygook
+
+94
+00:07:10,810 --> 00:07:16,390
+for all the browser cares, but it will faithfully display that message in the pop up.
+
+95
+00:07:16,420 --> 00:07:24,160
+And finally at the end there is this semi-colon and that denotes the end of this sentence or the end
+
+96
+00:07:24,220 --> 00:07:30,070
+of your instruction, so that the browser doesn't get confused between one line and the next line and
+
+97
+00:07:30,070 --> 00:07:32,930
+doesn't combine it into a single line of instruction.
+
+98
+00:07:32,980 --> 00:07:41,110
+So it might seem a little bit confusing why we have these semicolons and parentheses and these quotation
+
+99
+00:07:41,110 --> 00:07:41,770
+marks.
+
+100
+00:07:41,830 --> 00:07:47,950
+But all it is is just a part of the grammar of the programming language.
+
+101
+00:07:47,950 --> 00:07:56,320
+So just as in English we could type out something like say: "hello".
+
+102
+00:07:56,470 --> 00:08:03,840
+and this as a human we will know that it's trying to tell us to say the word hello, in programming.
+
+103
+00:08:03,850 --> 00:08:05,200
+it's exactly the same.
+
+104
+00:08:05,200 --> 00:08:11,040
+We need some of these symbols to tell the browser or the computer what it should do.
+
+105
+00:08:11,050 --> 00:08:15,370
+So for example the semi-colon is just like the full stop in English.
+
+106
+00:08:15,370 --> 00:08:21,640
+This is the end of the sentence or the end of the instruction. And the quotation marks works exactly
+
+107
+00:08:21,640 --> 00:08:29,320
+the same. It denotes that whatever is between the quotation marks is not a part of the functionality
+
+108
+00:08:29,590 --> 00:08:30,470
+or the code.
+
+109
+00:08:30,520 --> 00:08:37,860
+It's simply just a quote or, as we would say in programming, a string, a string of characters.
+
+110
+00:08:37,870 --> 00:08:43,770
+Now the round brackets or the parentheses dictate what should be the message.
+
+111
+00:08:43,780 --> 00:08:49,810
+So everything that's in between the opening and closing brackets are the things that will be included
+
+112
+00:08:49,990 --> 00:08:51,740
+in the alert pop up.
+
+113
+00:08:51,820 --> 00:08:58,150
+And finally the alert is just a keyword that the browser recognizes and knows what it should do when
+
+114
+00:08:58,150 --> 00:09:00,320
+it sees that in the command.
+
+115
+00:09:00,580 --> 00:09:06,760
+So as you can see in different languages we might have different syntax or different symbols that we
+
+116
+00:09:06,760 --> 00:09:07,380
+use.
+
+117
+00:09:07,570 --> 00:09:10,290
+And that's exactly the same thing in programming as well.
+
+118
+00:09:10,300 --> 00:09:17,530
+So looking at Ruby code or Python or Java you'll see that sometimes you have different syntax or different
+
+119
+00:09:17,530 --> 00:09:18,930
+symbols are used.
+
+120
+00:09:19,210 --> 00:09:25,390
+But at the end of the day it's just a way of trying to create grammar so that the computer can better
+
+121
+00:09:25,390 --> 00:09:28,500
+understand what it is that we're trying to tell it to do.
+
+122
+00:09:28,690 --> 00:09:34,030
+Now there's a couple of important things I want you to notice and the first is that when you type quotation
+
+123
+00:09:34,030 --> 00:09:41,500
+marks in a word processor for example word or Google Docs then you actually get very different symbols
+
+124
+00:09:41,590 --> 00:09:44,080
+from what you use in programming.
+
+125
+00:09:44,080 --> 00:09:50,890
+And the reason is because in programming the open quotation and the closing quotation are the same symbol,
+
+126
+00:09:50,980 --> 00:09:55,580
+whereas in a word processor we care more about how it looks,
+
+127
+00:09:55,600 --> 00:10:01,320
+so the open quote and the closing quote are actually completely different symbols, and if you try to
+
+128
+00:10:01,320 --> 00:10:05,550
+run this line of code using these symbols then it won't work.
+
+129
+00:10:05,610 --> 00:10:10,740
+But thankfully whenever you're typing inside a text editor that's intended for code,
+
+130
+00:10:10,890 --> 00:10:18,420
+so, for example, the snippets tool, or in Atom, then it will automatically give you the programming quotes
+
+131
+00:10:18,690 --> 00:10:21,020
+instead of the stylistic quotes.
+
+132
+00:10:21,210 --> 00:10:27,990
+It only is a problem when you copy and paste things from things like Word or from Notes, and you have
+
+133
+00:10:27,990 --> 00:10:31,010
+to be careful about what symbols you're copying in,
+
+134
+00:10:31,260 --> 00:10:37,260
+which is one of the reasons that typing code out and getting more practice is always better than just
+
+135
+00:10:37,260 --> 00:10:39,040
+copying and pasting.
+
+136
+00:10:39,150 --> 00:10:45,750
+The other thing I want to show you is that when I write code in the coming lessons modules I will write
+
+137
+00:10:45,750 --> 00:10:52,800
+it so that there is no space between the keyword, the round braces, the quotation marks and also the
+
+138
+00:10:52,800 --> 00:10:53,580
+semicolons.
+
+139
+00:10:53,580 --> 00:10:55,800
+There's no spaces in between here.
+
+140
+00:10:56,040 --> 00:11:03,330
+Now you can also add spaces, as many as you wish, but in this course I want to show you the best practice
+
+141
+00:11:03,660 --> 00:11:06,270
+in terms of stylistic choices.
+
+142
+00:11:06,270 --> 00:11:12,570
+So I want to teach you the way that most programmers will structure their code and while it doesn't
+
+143
+00:11:12,570 --> 00:11:18,960
+change the behavior of your code it will make your code much more uniform with every other programmer’s
+
+144
+00:11:18,960 --> 00:11:25,560
+code, and it'll make it more readable and make it easier for other people to understand your code.
+
+145
+00:11:25,560 --> 00:11:33,210
+Now the other stylistic choice is that when you have the hello inside quotation marks you can either
+
+146
+00:11:33,210 --> 00:11:38,530
+choose to use single quotes or double quotes. The browser and the computer doesn't care.
+
+147
+00:11:38,550 --> 00:11:46,500
+It treats it as the same. But, as a style convention, most Javascript programmers in this case will use
+
+148
+00:11:46,500 --> 00:11:49,920
+the double quotes over the single quotes. And later on
+
+149
+00:11:49,920 --> 00:11:52,770
+I'll show you cases where the single quotes are preferred.
+
+150
+00:11:53,010 --> 00:11:59,220
+But when we're talking about a quote, a string, a piece of text, basically something that we're writing
+
+151
+00:11:59,520 --> 00:12:02,700
+and we're telling the computer that this is not code,
+
+152
+00:12:02,700 --> 00:12:09,450
+this is just text, so that it doesn't treat it as a keyword like alert, then we're going to be using
+
+153
+00:12:09,510 --> 00:12:10,780
+the double quotes.
+
+154
+00:12:10,890 --> 00:12:17,310
+Now if all of this seems very confusing in terms of which style choices to make then I want you to know
+
+155
+00:12:17,310 --> 00:12:24,210
+that in this course I will be teaching you best practice in terms of structuring your code and your syntax.
+
+156
+00:12:24,240 --> 00:12:30,930
+But if you're writing code by yourself and you ever get confused about which stylistic choices to make
+
+157
+00:12:31,260 --> 00:12:37,110
+then I want you to take a look at this web site and bookmark it because it's going to be really really
+
+158
+00:12:37,110 --> 00:12:43,980
+useful in the coming months and years as you develop into a fully fledged Javascript developer.
+
+159
+00:12:44,040 --> 00:12:50,700
+And this is a living document that's been compiled by lots and lots of people, some people who are really
+
+160
+00:12:50,700 --> 00:12:53,270
+influential in the community as well.
+
+161
+00:12:53,370 --> 00:12:59,580
+And essentially the key message is that all code in any codebase should look like a single person typed
+
+162
+00:12:59,580 --> 00:13:02,190
+it, no matter how many people contributed.
+
+163
+00:13:02,190 --> 00:13:08,610
+So that means that everybody has to stick to the same style so that the whole project looks consistent.
+
+164
+00:13:08,610 --> 00:13:14,190
+Now it might be that at the current stage this document is a little bit too advanced, especially if you're
+
+165
+00:13:14,190 --> 00:13:20,310
+learning programming for the first time. But after you complete this course, and as you start going on
+
+166
+00:13:20,310 --> 00:13:26,640
+to build your own projects then this is a really handy reference guide to just look back at every so
+
+167
+00:13:26,640 --> 00:13:33,930
+often to check to make sure that you are using the right syntax and the right structure. And for me it's
+
+168
+00:13:33,930 --> 00:13:40,890
+a little bit like the book The Elements of Style which is a writing style guide for writing in English.
+
+169
+00:13:40,920 --> 00:13:47,100
+And every so often, after, you know, a year or so, I tend to read this small book just to refresh myself
+
+170
+00:13:47,190 --> 00:13:55,110
+on, you know, whether if I'm using the correct grammatical style, whether I'm using the Oxford comma, and
+
+171
+00:13:55,140 --> 00:14:02,190
+it's exactly the same for code. So it's not a large document, and it's something that you can browse through
+
+172
+00:14:02,580 --> 00:14:05,720
+as you get more and more experienced in programming.
+
+173
+00:14:05,720 --> 00:14:11,160
+Now in the next lesson we're going to continue our Javascript learning, and I'm going to talk about different
+
+174
+00:14:11,160 --> 00:14:16,800
+data types and the primitive data types that we can use when we're writing Javascript code.
+
+175
+00:14:17,010 --> 00:14:20,040
+So for all of that and more, I’ll see you on the next lesson.
+

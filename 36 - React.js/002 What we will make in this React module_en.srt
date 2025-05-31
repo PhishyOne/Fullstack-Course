@@ -1,0 +1,72 @@
+1
+00:00:00,680 --> 00:00:04,970
+Now let's first take a look at all the things that you'll be making in this module.
+
+2
+00:00:04,970 --> 00:00:12,410
+So one of the projects is a registration screen like this one, as well as a real time clock app,
+
+3
+00:00:12,410 --> 00:00:17,930
+in addition to a dictionary for emojis and a beautiful To-Do list.
+
+4
+00:00:18,140 --> 00:00:24,350
+But of course the big project that we're working towards is a app called Keeper which is a clone of
+
+5
+00:00:24,350 --> 00:00:31,010
+Google Keep so that whenever you have any new ideas then you can simply take a note and add it to your
+
+6
+00:00:31,070 --> 00:00:33,650
+own Keeper app. In order to be able to do this
+
+7
+00:00:33,650 --> 00:00:38,660
+you're going to be learning a lot of new technologies and tools and especially how to work with the
+
+8
+00:00:38,660 --> 00:00:45,470
+React framework including things such as JSX, Props, Components, Containers, how to work with the Virtual
+
+9
+00:00:45,470 --> 00:00:51,500
+DOM. But you're also going to be learning about state management and declarative programming including
+
+10
+00:00:51,500 --> 00:00:58,220
+the use of React hooks such as useState. And the other big thing about this module is that it's going
+
+11
+00:00:58,220 --> 00:01:03,300
+to teach you a lot of ES6 or ES2015 concepts.
+
+12
+00:01:03,380 --> 00:01:08,140
+So we're going to get deeper into JavaScript and we're going to learn about things such as destructuring,
+
+13
+00:01:08,240 --> 00:01:12,280
+the spread operator, map and filter, import export.
+
+14
+00:01:12,350 --> 00:01:17,580
+So as you can see, it's yet another jam packed module that's ready for you to learn.
+
+15
+00:01:17,690 --> 00:01:23,300
+And by the end of the module, you're going to be well versed in React and ready to build some beautiful
+
+16
+00:01:23,300 --> 00:01:26,630
+frontends using this wonderful framework.
+
+17
+00:01:26,630 --> 00:01:29,810
+I hope you're as excited as I am to get started.
+
+18
+00:01:29,810 --> 00:01:33,650
+Head over to the next lesson and let's start writing some React code right away.
+

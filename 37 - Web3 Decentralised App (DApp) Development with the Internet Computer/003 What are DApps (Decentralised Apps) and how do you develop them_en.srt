@@ -1,0 +1,484 @@
+1
+00:00:00,840 --> 00:00:07,530
+So now that we know what Dapps or decentralized applications are, let's talk about how we can actually
+
+2
+00:00:07,530 --> 00:00:10,530
+create them and what new opportunities they offer us.
+
+3
+00:00:10,860 --> 00:00:14,010
+So as we mentioned, dapps are the backbone of Web3.
+
+4
+00:00:14,310 --> 00:00:19,680
+This is how we're going to bring about the next iteration of the Internet by creating these decentralized
+
+5
+00:00:19,710 --> 00:00:20,490
+applications.
+
+6
+00:00:21,090 --> 00:00:27,660
+And this brings about a huge change in the way that companies are formed and new tech startups are built.
+
+7
+00:00:27,900 --> 00:00:33,810
+For example, in the old way, you'd first build your start-up, build the technology, deploy it,
+
+8
+00:00:33,810 --> 00:00:35,450
+and then raise VC funding.
+
+9
+00:00:35,460 --> 00:00:37,950
+Hopefully they like your idea and they like your product.
+
+10
+00:00:38,340 --> 00:00:44,160
+And then you would at some point down the line, if you're really lucky, maybe IPO and cash out.
+
+11
+00:00:44,760 --> 00:00:51,660
+Now in the new Web3 way, we're looking at something that completely flips this model of creating
+
+12
+00:00:51,660 --> 00:00:52,950
+businesses on its head.
+
+13
+00:00:53,220 --> 00:00:58,140
+In this case, you're building your startup, you're building the technology, but then you can already
+
+14
+00:00:58,140 --> 00:01:06,000
+start releasing tokens to the public or to funds like VCs, and you can start selling tokens that enable
+
+15
+00:01:06,000 --> 00:01:08,880
+people to use and interact your technology.
+
+16
+00:01:09,120 --> 00:01:12,750
+And you're able to start raising money for your dapp from day one.
+
+17
+00:01:12,900 --> 00:01:18,360
+And the way that you run your company is also transformed by the blockchain because you can form what's
+
+18
+00:01:18,360 --> 00:01:24,600
+called these decentralized autonomous organizations, which kind of replaces the board of directors
+
+19
+00:01:24,840 --> 00:01:28,900
+as well as the entire organizational chart of a company.
+
+20
+00:01:28,920 --> 00:01:32,490
+So you can have people who are token holders.
+
+21
+00:01:32,520 --> 00:01:38,910
+They're special tokens called governance tokens, which allows you to vote on what the company or
+
+22
+00:01:38,910 --> 00:01:41,970
+the dapp should do in the future.
+
+23
+00:01:42,360 --> 00:01:49,860
+So in these DAOs, you're able to start controlling how the company functions and you allow users to
+
+24
+00:01:49,860 --> 00:01:53,850
+contribute to the roadmap of your decentralized application.
+
+25
+00:01:53,970 --> 00:02:00,450
+And in a way, everybody's incentives are aligned, because if this application does really well, then
+
+26
+00:02:00,450 --> 00:02:02,330
+the token price will go up,
+
+27
+00:02:02,340 --> 00:02:03,720
+it'll become more valuable.
+
+28
+00:02:04,050 --> 00:02:10,530
+And in order to do that, the company has to do valuable things, which means that you have to make
+
+29
+00:02:10,530 --> 00:02:11,430
+good decisions.
+
+30
+00:02:11,580 --> 00:02:17,370
+So everybody in the DAOs is incentivized to participate and try and help the organization along.
+
+31
+00:02:17,730 --> 00:02:21,540
+Now, what does it mean for you as an individual entrepreneur?
+
+32
+00:02:21,960 --> 00:02:27,880
+Now, let's say that you decided to build Dropbox and you build a really great product.
+
+33
+00:02:27,900 --> 00:02:29,940
+You raise a series A funding
+
+34
+00:02:29,940 --> 00:02:35,370
+after coming out of Y Combinator, you are literally the hottest thing on the block and you managed
+
+35
+00:02:35,370 --> 00:02:38,010
+to raise a total of $6 million.
+
+36
+00:02:38,010 --> 00:02:40,070
+And this at the time was really, really huge.
+
+37
+00:02:40,080 --> 00:02:43,350
+It was a really successful fundraising round for Dropbox.
+
+38
+00:02:43,800 --> 00:02:49,440
+Now, if you don't know what Dropbox is, it's basically a way for you to store your files off of your
+
+39
+00:02:49,440 --> 00:02:54,350
+computer on the cloud, somewhere else, so that you're able to access it no matter where you are.
+
+40
+00:02:54,510 --> 00:02:56,310
+Kind of like Google Drive today.
+
+41
+00:02:56,790 --> 00:03:00,300
+So Dropbox has this amazing funding round.
+
+42
+00:03:00,720 --> 00:03:07,800
+But let's compare that to a Web3 competitor. Filecoin does pretty much similar to what Dropbox
+
+43
+00:03:07,800 --> 00:03:08,160
+does.
+
+44
+00:03:08,460 --> 00:03:13,650
+It allows you to store all your files in a decentralized way in the cloud,
+
+45
+00:03:13,830 --> 00:03:19,770
+but instead of having it hosted by a single company, namely Dropbox, it's actually hosted across millions
+
+46
+00:03:19,770 --> 00:03:21,720
+of computers across the Internet.
+
+47
+00:03:22,110 --> 00:03:28,050
+And that way you have a massive amount of redundancy and you able to retrieve your file no matter where
+
+48
+00:03:28,050 --> 00:03:30,540
+you are, as long as you have access to the Internet.
+
+49
+00:03:31,020 --> 00:03:37,050
+Now, they raised an initial coin offering, which is where they allowed the public to buy up their
+
+50
+00:03:37,050 --> 00:03:39,360
+coins, which they had minted.
+
+51
+00:03:39,780 --> 00:03:48,720
+And in this initial coin offering, they managed to raise $257 million, which makes Dropbox's $6 million
+
+52
+00:03:48,720 --> 00:03:51,000
+suddenly look very, very little.
+
+53
+00:03:51,180 --> 00:03:59,040
+So when you're creating decentralized apps, you're able to raise funding earlier and oftentimes raise
+
+54
+00:03:59,040 --> 00:04:04,350
+even more than through traditional means, like going to venture capitalists or going to angel investors.
+
+55
+00:04:04,620 --> 00:04:09,810
+And the future of decentralized applications is really exciting.
+
+56
+00:04:09,840 --> 00:04:17,279
+Anything you can imagine that revolves around a trustless system that is decentralized, that allows
+
+57
+00:04:17,880 --> 00:04:23,670
+both the users as well as the creators to benefit, can be achieved.
+
+58
+00:04:23,700 --> 00:04:29,250
+So, for example, instead of having Uber drivers being ripped off by Uber, you could have user-and-
+
+59
+00:04:29,250 --> 00:04:36,180
+driver owned version of Uber, where everybody who is driving for the company or using the company to
+
+60
+00:04:36,180 --> 00:04:43,440
+get around is able to get access to the tokens to govern, to determine, how the company should be
+
+61
+00:04:43,440 --> 00:04:47,220
+run and also effectively own shares in that company
+
+62
+00:04:47,460 --> 00:04:52,800
+once it gets more and more successful. You can also realize crazy ideas like you could have racing
+
+63
+00:04:52,800 --> 00:04:58,410
+games on the internet and everybody puts in, you know, maybe a dollar in order to participate in the
+
+64
+00:04:58,410 --> 00:04:59,590
+game and then at the
+
+65
+00:04:59,680 --> 00:05:04,240
+end of the game, you have cash prizes going towards those who have won the game.
+
+66
+00:05:04,960 --> 00:05:09,160
+Now, another really massive benefit of Web3 is pseudonymity.
+
+67
+00:05:09,880 --> 00:05:16,290
+This idea that you can be identified by a handle or by a username, where you can have your privacy,
+
+68
+00:05:16,300 --> 00:05:21,580
+you don't have to reveal your real name or your address or where you live, but you can create things
+
+69
+00:05:21,580 --> 00:05:27,390
+that benefit other people and be recognized and rewarded by your pseudonym.
+
+70
+00:05:27,400 --> 00:05:32,710
+And this is a great equalizer because it means it doesn't matter who you are, what race you are, what
+
+71
+00:05:32,710 --> 00:05:35,050
+gender you are, how old you are,
+
+72
+00:05:35,080 --> 00:05:39,820
+you're able to be recognized for what you do rather than who you are.
+
+73
+00:05:40,120 --> 00:05:47,320
+For example, I saw this article in Forbes where they interviewed three teenagers who created a decentralized
+
+74
+00:05:47,350 --> 00:05:53,230
+finance project called Rari Capital, which makes lending and borrowing on blockchain easier.
+
+75
+00:05:53,500 --> 00:05:55,390
+And they're only 18 or 19.
+
+76
+00:05:55,690 --> 00:05:59,980
+Imagine trying to get VC funding when you're only 18 and you haven't even gone to university.
+
+77
+00:06:00,310 --> 00:06:04,990
+And when these guys started out building on the blockchain, they were actually only 16.
+
+78
+00:06:05,230 --> 00:06:11,470
+And I remember how hard it was to be taken seriously when I was 15 or 16, whenever I had to call somebody
+
+79
+00:06:11,470 --> 00:06:13,600
+or when I had to show up somewhere
+
+80
+00:06:13,600 --> 00:06:18,820
+and they they sort of looked at you like, you are so young, like, what could you possibly know?
+
+81
+00:06:19,120 --> 00:06:24,670
+But instead, you know, with pseudonymity, you can build for the web3 and it doesn't matter
+
+82
+00:06:24,670 --> 00:06:25,540
+if you're 12
+
+83
+00:06:25,840 --> 00:06:31,900
+as long as you're able to produce valuable things, people will recognize and respect you and you can
+
+84
+00:06:31,900 --> 00:06:35,680
+raise funding and be judged only on your work.
+
+85
+00:06:36,190 --> 00:06:40,090
+So now I hope you're ready and pumped to start building Dapps.
+
+86
+00:06:40,360 --> 00:06:41,590
+So where do we start?
+
+87
+00:06:41,770 --> 00:06:45,070
+Well, the first thing you'll encounter is you have to make a choice.
+
+88
+00:06:45,370 --> 00:06:48,160
+You have to pick a chain to build on.
+
+89
+00:06:48,580 --> 00:06:52,570
+Do you go for Avalanche or Polkadot or Solana?
+
+90
+00:06:52,900 --> 00:06:53,800
+How do you choose?
+
+91
+00:06:54,370 --> 00:06:59,980
+Well, currently the largest number of dapps are built on Ethereum
+
+92
+00:07:00,280 --> 00:07:02,500
+and this is just because it was the first one around.
+
+93
+00:07:02,830 --> 00:07:08,860
+It was the first chain which had these smart contracts, and you can write code that can be embedded
+
+94
+00:07:08,860 --> 00:07:10,510
+into the blockchain.
+
+95
+00:07:10,600 --> 00:07:16,840
+But Etherium has a number of fundamental problems that prevents it from being a good choice for creating
+
+96
+00:07:16,840 --> 00:07:18,070
+Dapps for web3.
+
+97
+00:07:18,580 --> 00:07:21,070
+And the biggest problem is scaling.
+
+98
+00:07:21,070 --> 00:07:28,270
+You can't store data on Ethereum, and it's very costly to perform computation on the Ethereum network.
+
+99
+00:07:28,540 --> 00:07:35,170
+So, for example, Nfts, which are minted on Ethereum, are not even stored on the blockchain.
+
+100
+00:07:35,440 --> 00:07:42,370
+Instead, what you get is a URL and the actual data, the actual image for the NFT is stored somewhere
+
+101
+00:07:42,370 --> 00:07:46,240
+else. That somewhere else could be using ipfs through file coin
+
+102
+00:07:46,240 --> 00:07:51,910
+but often the images for an NFT are just stored on a company's private servers owned by, say, Amazon
+
+103
+00:07:51,990 --> 00:07:52,530
+AWS.
+
+104
+00:07:52,960 --> 00:07:59,200
+So the biggest problems with developing decentralized applications on Ethereum is the fact that it's
+
+105
+00:07:59,200 --> 00:08:01,690
+very costly to do computation on there.
+
+106
+00:08:01,900 --> 00:08:08,860
+It's very costly to store anything on there, and it's nearly impossible to actually have a proper back
+
+107
+00:08:08,860 --> 00:08:14,470
+end with a database, which is why a lot of decentralized applications running on Ethereum are actually
+
+108
+00:08:14,470 --> 00:08:17,050
+made up of a patchwork of different services.
+
+109
+00:08:17,530 --> 00:08:23,260
+For example, even the website follows a dapps with all their CSS, JavaScript and images are usually
+
+110
+00:08:23,260 --> 00:08:24,960
+hosted on Amazon AWS.
+
+111
+00:08:26,110 --> 00:08:29,650
+So this is where the Internet computer comes in.
+
+112
+00:08:29,740 --> 00:08:38,350
+Back in even 2014, where most of us were not really aware of the blockchain or how it works, or even
+
+113
+00:08:38,350 --> 00:08:40,450
+had the smarts to buy a bitcoin,
+
+114
+00:08:40,510 --> 00:08:47,800
+the team at Dfinity started building the internet computer and the idea is to build a scalable cloud
+
+115
+00:08:47,800 --> 00:08:49,900
+computer that runs on a blockchain.
+
+116
+00:08:50,020 --> 00:08:57,160
+So it has all of the benefits of a trustless decentralized system, but also it allows you to perform
+
+117
+00:08:57,160 --> 00:09:05,020
+fast computations, store data directly on the blockchain and to be able to create fully-fledged applications
+
+118
+00:09:05,020 --> 00:09:05,620
+on chain.
+
+119
+00:09:05,980 --> 00:09:10,750
+So this is what we're going to be working with in this module to create decentralized applications.
+
+120
+00:09:11,230 --> 00:09:16,030
+And in the next lesson, I'm going to talk a bit more about how it works and how we can get started
+
+121
+00:09:16,300 --> 00:09:18,070
+building decentralized apps on it.
+

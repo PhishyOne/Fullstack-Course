@@ -1,0 +1,2184 @@
+1
+00:00:01,510 --> 00:00:08,430
+Hi, guys, welcome to our very first AMA for the Udemy iOS 11 course.
+
+2
+00:00:08,740 --> 00:00:14,770
+So we've been doing a few of these on other platforms and we thought it might be fun to get you guys
+
+3
+00:00:14,860 --> 00:00:17,390
+to ask some questions and do it here as well.
+
+4
+00:00:17,830 --> 00:00:19,070
+I hope you'll enjoy this.
+
+5
+00:00:19,510 --> 00:00:21,280
+I certainly had fun making this.
+
+6
+00:00:21,580 --> 00:00:27,130
+And in the future we're going to be putting out new announcements announcing for more
+
+7
+00:00:27,130 --> 00:00:29,800
+AMAs so keep your eyes peeled for those announcements.
+
+8
+00:00:30,130 --> 00:00:36,250
+And if you have any questions for any future episodes, then please put them there.
+
+9
+00:00:37,180 --> 00:00:40,780
+So let's tackle some of these questions.
+
+10
+00:00:40,990 --> 00:00:45,880
+We've had loads and loads of questions come in and I can only answer so many.
+
+11
+00:00:46,060 --> 00:00:49,510
+And my team has picked out some choice questions.
+
+12
+00:00:49,660 --> 00:00:54,270
+So for AMAs, we've chosen some questions that might apply to everybody.
+
+13
+00:00:54,580 --> 00:00:57,580
+So usually they're not specifically technical,
+
+14
+00:00:57,580 --> 00:01:01,180
+they're not about one specific bug or, you know, some issue.
+
+15
+00:01:01,360 --> 00:01:06,910
+We're going to try and keep that within the Q&A section so that they're of maximum benefit for the students
+
+16
+00:01:06,910 --> 00:01:07,810
+who come across it.
+
+17
+00:01:08,020 --> 00:01:15,520
+But for these AMAs or ask me anything, I'm really looking for questions that might appeal to everybody
+
+18
+00:01:15,520 --> 00:01:18,730
+or questions that are more generic.
+
+19
+00:01:19,180 --> 00:01:20,240
+So I'm ready,
+
+20
+00:01:20,620 --> 00:01:27,160
+hope you are ready too. Let's get started for our very first round of Udemy AMAs.
+
+21
+00:01:27,700 --> 00:01:32,240
+So the first question comes from Handel Callender.
+
+22
+00:01:32,620 --> 00:01:34,540
+I'm going to be murdering some names today.
+
+23
+00:01:34,780 --> 00:01:41,050
+Just I'd like to put that out there to begin with. So I can speak a number of languages
+
+24
+00:01:41,530 --> 00:01:46,750
+but names are difficult sometimes, so I apologize in advance.
+
+25
+00:01:47,110 --> 00:01:48,700
+So hi, Angela, how are you doing?
+
+26
+00:01:48,760 --> 00:01:50,350
+I've got two questions.
+
+27
+00:01:50,380 --> 00:01:53,290
+Are you looking forward to the new Star Trek television show?
+
+28
+00:01:53,680 --> 00:01:56,830
+And in other words, are you a sci fi fan?
+
+29
+00:01:57,160 --> 00:02:02,320
+And the second question is, what strategies do you have for really soaking in programming concepts?
+
+30
+00:02:03,040 --> 00:02:05,920
+OK, so let's tackle them one at a time.
+
+31
+00:02:06,550 --> 00:02:08,860
+So am I looking forward to the Star Trek show?
+
+32
+00:02:09,039 --> 00:02:12,280
+I have to say, I've never really gotten into Star Trek.
+
+33
+00:02:13,180 --> 00:02:19,720
+I think the reason is because every time I saw it on TV, it always seemed to me like it was a bunch
+
+34
+00:02:19,720 --> 00:02:21,880
+of people having a lot of meetings.
+
+35
+00:02:22,300 --> 00:02:30,330
+There were like a lot of meetings every single episode, and I just wasn't able to really get into it.
+
+36
+00:02:30,760 --> 00:02:35,620
+I'm a huge sci fi fan, but I've never really managed to get into Star Trek.
+
+37
+00:02:35,860 --> 00:02:39,310
+But I'm a huge fan of sci fi as a genre.
+
+38
+00:02:39,310 --> 00:02:43,990
+And, you know, in the last few years we've seen some really, really great stuff come out.
+
+39
+00:02:44,410 --> 00:02:53,350
+So my favorite movies are so things like EX Machina, the recent Blade Runner 2049 was also slow but
+
+40
+00:02:53,350 --> 00:02:53,770
+good.
+
+41
+00:02:53,770 --> 00:03:01,330
+It was a slow burner, but I really enjoyed it and Oh my God, Arrival, which is amazing.
+
+42
+00:03:01,330 --> 00:03:02,140
+Incredible.
+
+43
+00:03:02,140 --> 00:03:06,280
+So, yeah, definitely a sci fi fan. Don't know very much about Star Trek.
+
+44
+00:03:06,790 --> 00:03:13,330
+OK, so the second question is about programming concepts and how do you really soak it in,
+
+45
+00:03:13,330 --> 00:03:15,070
+I guess. So
+
+46
+00:03:15,070 --> 00:03:17,320
+I think this is a really, really good question
+
+47
+00:03:18,040 --> 00:03:22,750
+and this is something that we talk about quite a lot in our in-person boot camps.
+
+48
+00:03:22,900 --> 00:03:31,330
+And I remember once coming across a rated AMA with Elon Musk not so long ago, where he answered this
+
+49
+00:03:31,330 --> 00:03:33,490
+question about how he learns things.
+
+50
+00:03:33,490 --> 00:03:35,650
+And I thought it was really, really good.
+
+51
+00:03:36,010 --> 00:03:44,050
+So what he said was basically, you know, to look at knowledge as if it were this huge semantic tree,
+
+52
+00:03:44,050 --> 00:03:44,860
+I think he called it.
+
+53
+00:03:45,280 --> 00:03:50,500
+And the idea is that you first tackle the trunk and the fundamentals,
+
+54
+00:03:50,770 --> 00:03:51,100
+tight?
+
+55
+00:03:51,100 --> 00:03:56,620
+And then once you've understood all of that, then you move on to the large branches, then the smaller
+
+56
+00:03:56,620 --> 00:03:57,220
+branches.
+
+57
+00:03:57,490 --> 00:04:04,180
+And only then do you go on to learn about the things such as the leaves, the flowers, the decorative elements,
+
+58
+00:04:04,480 --> 00:04:10,210
+because it's very easy when you're learning anything to learn about the things that will impress people.
+
+59
+00:04:10,720 --> 00:04:15,340
+And I've suddenly been guilty of that myself, too.
+
+60
+00:04:15,610 --> 00:04:20,529
+The problem is that when you learn these kind of superficial things that don't have any attachment to
+
+61
+00:04:20,529 --> 00:04:25,750
+a fundamental understanding, the leaves don't really have anything to hang on to.
+
+62
+00:04:26,110 --> 00:04:29,290
+And I think that was a really, really good point that he made.
+
+63
+00:04:29,290 --> 00:04:34,930
+And I think it's a really good guiding principle for learning anything, not just programming.
+
+64
+00:04:35,110 --> 00:04:36,310
+So that's one point.
+
+65
+00:04:36,730 --> 00:04:42,580
+The other thing I would say is that with programming specifically, you really got to start thinking
+
+66
+00:04:42,580 --> 00:04:49,270
+about making your own projects because, you know, you can do a lot of tutorials and you can do a lot
+
+67
+00:04:49,270 --> 00:04:52,090
+of challenges or even algorithmic problems.
+
+68
+00:04:52,240 --> 00:04:53,710
+You can tackle all of that.
+
+69
+00:04:53,920 --> 00:05:00,550
+But until you start making things that you want to make, your own projects that you thought,
+
+70
+00:05:00,620 --> 00:05:07,640
+of, then you know, that's really the point when you make the big leaps, when you start really
+
+71
+00:05:07,640 --> 00:05:09,210
+making your knowledge your own.
+
+72
+00:05:09,660 --> 00:05:18,530
+So one of the things I always urge our students in our in-person bootcamps is to go away, is to learn
+
+73
+00:05:18,530 --> 00:05:24,890
+these skills, but go away and think of some apps and something really simple that they want to make.
+
+74
+00:05:25,220 --> 00:05:31,130
+You know, it could be a time, it could be a calculator or, you know, you might have some sort of spin
+
+75
+00:05:31,130 --> 00:05:31,520
+on tha,
+
+76
+00:05:31,520 --> 00:05:31,790
+right?
+
+77
+00:05:31,790 --> 00:05:40,340
+Like one of our students made an alarm clock that wakes you up one minute earlier every day so that
+
+78
+00:05:40,610 --> 00:05:45,890
+eventually, after a month, he would be able to reach his target wake up time of six o'clock.
+
+79
+00:05:46,580 --> 00:05:50,330
+So it's things like these that are not so difficult to make,
+
+80
+00:05:50,330 --> 00:05:56,110
+they're not something like, you know, Facebook with Twitter bolted on and a little pinch of Snapchat.
+
+81
+00:05:56,480 --> 00:05:57,860
+They're not those things.
+
+82
+00:05:58,700 --> 00:06:04,790
+And it's really important that when you first start building your own projects, don't go nuts. Don't
+
+83
+00:06:04,790 --> 00:06:12,020
+start making something that's completely crazy or something that's really, really complex, because
+
+84
+00:06:12,020 --> 00:06:19,190
+inevitably you will come across, you know, the known unknowns and the unknown unknowns and you're
+
+85
+00:06:19,190 --> 00:06:20,900
+probably going to give up on it.
+
+86
+00:06:21,050 --> 00:06:27,350
+And, you know, certainly when I think back to when I first started doing iOS development, there have
+
+87
+00:06:27,350 --> 00:06:33,410
+been so many projects that were really good and they were probably built quite well.
+
+88
+00:06:33,410 --> 00:06:37,910
+But I was too ambitious to start with.
+
+89
+00:06:37,910 --> 00:06:43,550
+And they always failed and they became too complex, too unmanageable, too unwieldy.
+
+90
+00:06:43,820 --> 00:06:46,400
+And you inevitably end up giving up on them.
+
+91
+00:06:46,640 --> 00:06:51,620
+So don't do that, really make a minimum viable product.
+
+92
+00:06:52,160 --> 00:06:54,890
+It doesn't have to be really flashy,
+
+93
+00:06:54,890 --> 00:06:56,940
+you know. It doesn't have to be a Ferrari.
+
+94
+00:06:56,940 --> 00:06:59,060
+It could just be a kickboard.
+
+95
+00:06:59,090 --> 00:07:06,590
+It could just be a skateboard, even. Just keep it really, really simple and make that one thing that
+
+96
+00:07:06,590 --> 00:07:13,220
+works by itself and then add on or bolt on features to it.
+
+97
+00:07:13,610 --> 00:07:19,310
+But if you have something that's incomplete and you're still working on features, it's really, really
+
+98
+00:07:19,310 --> 00:07:24,110
+disheartening when you end up getting stuck and when you have bugs and it's just... it's not fun.
+
+99
+00:07:24,200 --> 00:07:30,740
+So my advice would be to make your own project make something really simple and just make it work.
+
+100
+00:07:31,040 --> 00:07:36,770
+And then from thereon, at the point where you can submit it to the App Store and then carry on working
+
+101
+00:07:36,770 --> 00:07:39,590
+on new features and bolt on things to it.
+
+102
+00:07:39,830 --> 00:07:46,010
+So that's a really, really good way of not just learning how to program, but really understanding
+
+103
+00:07:46,010 --> 00:07:46,520
+everything
+
+104
+00:07:46,520 --> 00:07:49,850
+and, you know, along the way, you're going to have to find out stuff.
+
+105
+00:07:49,850 --> 00:07:52,070
+You're not going to know how to do everything.
+
+106
+00:07:52,340 --> 00:07:58,100
+And no course on, you know, on the planet is going to be able to teach you every single thing,
+
+107
+00:07:58,100 --> 00:07:58,420
+right?
+
+108
+00:07:58,850 --> 00:08:04,460
+And I think certainly, you know, I've made a point of definitely not including every single API.
+
+109
+00:08:05,840 --> 00:08:12,860
+But the important thing is that once you understand where to look, i.e. Stack Overflow or Google or
+
+110
+00:08:12,860 --> 00:08:19,430
+Apple documentation, then you start embarking on a new journey of not just being a learner developer,
+
+111
+00:08:19,640 --> 00:08:24,050
+but being somebody who is able to figure out your own problems.
+
+112
+00:08:24,260 --> 00:08:28,280
+And the next step really is just getting very, very good at Googling.
+
+113
+00:08:28,550 --> 00:08:37,340
+Most great developers have a really essential skill that is good at Googling; knowing what
+
+114
+00:08:37,340 --> 00:08:42,440
+keywords to put in that will get you the relevant results and trawling through that and looking for
+
+115
+00:08:42,440 --> 00:08:43,299
+your solution.
+
+116
+00:08:43,730 --> 00:08:46,520
+That is a really, really key skill to acquire.
+
+117
+00:08:46,740 --> 00:08:51,950
+So don't ever let anyone make you feel that, you know, looking something up is shameful.
+
+118
+00:08:51,950 --> 00:08:52,810
+It's really not.
+
+119
+00:08:53,090 --> 00:08:58,160
+I've worked in teams and certainly friends of mine work in teams as well, where if Stack Overflow is
+
+120
+00:08:58,160 --> 00:09:00,260
+down, they just go to the pub, have a drink.
+
+121
+00:09:00,260 --> 00:09:01,370
+It's not worth it.
+
+122
+00:09:02,480 --> 00:09:09,200
+That's just you know, that's just an illustration of, I guess, the fact that programmers are lazy,
+
+123
+00:09:09,860 --> 00:09:14,480
+but also that, you know, you don't have to reinvent the wheel.
+
+124
+00:09:14,480 --> 00:09:19,730
+You just have to find out how to use it and how to put that wheel on and how to fix it.
+
+125
+00:09:21,020 --> 00:09:22,530
+So next question.
+
+126
+00:09:23,510 --> 00:09:28,550
+So this is from Glen-udemy and he
+
+127
+00:09:28,550 --> 00:09:29,540
+or she.
+
+128
+00:09:30,570 --> 00:09:34,100
+I guess there's not many Glenns who are women. Anyways,
+
+129
+00:09:36,030 --> 00:09:41,190
+how do you suggest we go about getting a paying job doing this i.e. iOS development?
+
+130
+00:09:42,090 --> 00:09:48,420
+Well, I feel pretty comfortable with Swift iOS. I know my skills are not yet pro level, so any entry
+
+131
+00:09:48,420 --> 00:09:50,820
+level position would be fantastic suggestions.
+
+132
+00:09:51,090 --> 00:09:52,170
+Very much appreciated.
+
+133
+00:09:52,180 --> 00:09:52,740
+Thank you.
+
+134
+00:09:53,580 --> 00:09:53,880
+All right.
+
+135
+00:09:53,880 --> 00:09:55,380
+This is a really good question.
+
+136
+00:09:55,380 --> 00:10:02,330
+How do you get a job as a developer if you don't have any experience working as developer,
+
+137
+00:10:02,400 --> 00:10:02,660
+right?
+
+138
+00:10:03,030 --> 00:10:04,890
+So here's something slightly off topic.
+
+139
+00:10:04,890 --> 00:10:11,490
+But one of the things I realized is that recently I got really into resistance training and my goals
+
+140
+00:10:11,880 --> 00:10:14,430
+is to be able to do 10 chin-ups.
+
+141
+00:10:15,180 --> 00:10:18,400
+And, you know, I don't know if you've seen, you know, these arms.
+
+142
+00:10:18,400 --> 00:10:21,390
+They're not really the largest of guns out there.
+
+143
+00:10:21,390 --> 00:10:22,980
+But, you know, I'm determined.
+
+144
+00:10:22,980 --> 00:10:24,170
+So I'm going to get there.
+
+145
+00:10:24,570 --> 00:10:31,740
+But one of the things I realize is that to be able to do more pullups, I tried, you know, doing more
+
+146
+00:10:31,740 --> 00:10:37,080
+arm related exercises, trying to use various machines around the gym.
+
+147
+00:10:37,350 --> 00:10:44,340
+But at the end of the day, to be able to get better at doing chin-ups, I realized that ultimately
+
+148
+00:10:44,340 --> 00:10:46,800
+I just have to do more chin-ups.
+
+149
+00:10:47,220 --> 00:10:52,320
+And if you want to be able to do more pushups, you just have to do more push-ups and eventually you'll
+
+150
+00:10:52,320 --> 00:10:52,740
+get there.
+
+151
+00:10:53,010 --> 00:10:56,010
+And it's exactly the same with development.
+
+152
+00:10:56,340 --> 00:11:01,830
+To get better at development, to become a pro developer, you have to do more development and you have
+
+153
+00:11:01,830 --> 00:11:08,730
+to do it in the context of, you know, maybe a job or collaborating with other people in a team and
+
+154
+00:11:08,730 --> 00:11:13,950
+all of these skills that you need to acquire by simply doing more of it.
+
+155
+00:11:14,340 --> 00:11:16,050
+So here's the dilemma.
+
+156
+00:11:16,050 --> 00:11:22,620
+How do you get a job as an iOS developer if you don't have a portfolio and you don't have a track record
+
+157
+00:11:22,830 --> 00:11:24,160
+that you can fall back on?
+
+158
+00:11:24,480 --> 00:11:26,670
+Well, you've got to build it up, right.
+
+159
+00:11:27,390 --> 00:11:33,960
+So one of the first steps that I would recommend you, Glenn, or anybody else who's interested in this
+
+160
+00:11:33,960 --> 00:11:43,170
+topic is to simply go on to websites, freelance websites such as Upwork, oDesk or even something
+
+161
+00:11:43,170 --> 00:11:47,480
+like Fiverr and just offer your services as an iOS developer.
+
+162
+00:11:47,850 --> 00:11:49,850
+You're not going to make a lot of money from this.
+
+163
+00:11:49,860 --> 00:11:52,050
+You know, I can say that for sure.
+
+164
+00:11:52,060 --> 00:11:55,670
+You're offering your services to build up your portfolio.
+
+165
+00:11:55,980 --> 00:12:01,620
+And the key thing, though, is that you're working with real projects, you're working with real clients,
+
+166
+00:12:01,860 --> 00:12:04,860
+and you have to work with real specs.
+
+167
+00:12:05,010 --> 00:12:10,740
+So even though you're not getting paid a lot, but you're actually learning on the job, which is really,
+
+168
+00:12:10,740 --> 00:12:11,670
+really important.
+
+169
+00:12:12,000 --> 00:12:14,350
+So this is not a get rich quick formula.
+
+170
+00:12:14,640 --> 00:12:19,080
+This is very much a get rich really, really slowly formula.
+
+171
+00:12:19,440 --> 00:12:26,070
+But once you do have those skills, once you've built those portfolio sites and you've got a good working
+
+172
+00:12:26,070 --> 00:12:32,820
+relationship with your client that you can rely on for reviews and testimonials, then you're in a way
+
+173
+00:12:32,820 --> 00:12:38,700
+stronger position and you can leverage that to start charging more and more per hour until you get to
+
+174
+00:12:38,700 --> 00:12:45,930
+the point where you are proficient in iOS development or whatever it is that you can reach your, you know,
+
+175
+00:12:46,020 --> 00:12:48,750
+personal target amount that you want to earn.
+
+176
+00:12:49,260 --> 00:12:57,900
+So the first step is working really, really hard for not a lot of money, but for a lot of skills and
+
+177
+00:12:57,900 --> 00:12:58,830
+a lot of learning.
+
+178
+00:12:59,220 --> 00:13:06,960
+And throughout this journey, you're going to come across clients who are really annoying and but also
+
+179
+00:13:06,960 --> 00:13:13,860
+clients who are really awesome and people who have really, really interesting projects that you'll
+
+180
+00:13:13,860 --> 00:13:16,560
+get to build and you can call your own.
+
+181
+00:13:16,890 --> 00:13:21,690
+And along the way, you're going to come across hurdles that you're going to overcome and you'll learn
+
+182
+00:13:21,690 --> 00:13:27,330
+so much more and so much faster by doing this rather than just simply looking for a junior development
+
+183
+00:13:27,570 --> 00:13:28,690
+role at a company.
+
+184
+00:13:29,040 --> 00:13:31,530
+So this is my recommendation.
+
+185
+00:13:31,530 --> 00:13:34,560
+Obviously, you know, it's your life and totally up to you.
+
+186
+00:13:34,560 --> 00:13:39,830
+But this is what I think is the best way of going about this.
+
+187
+00:13:40,380 --> 00:13:40,710
+All right.
+
+188
+00:13:40,710 --> 00:13:49,410
+Let's go on to the next question from Roland Gavrilescu, that was probably not it.
+
+189
+00:13:49,440 --> 00:13:51,600
+OK, so hi.
+
+190
+00:13:51,600 --> 00:13:54,060
+And when and how did you start learning
+
+191
+00:13:54,060 --> 00:13:55,250
+iOS development?
+
+192
+00:13:55,590 --> 00:14:00,300
+I will also be a UCL student from next week and want to ask you, how did you spend your time at
+
+193
+00:14:00,300 --> 00:14:03,390
+UCL and what would you have done differently?
+
+194
+00:14:03,780 --> 00:14:04,490
+OK, cool.
+
+195
+00:14:04,500 --> 00:14:05,830
+So hi, Roland.
+
+196
+00:14:06,060 --> 00:14:09,510
+And you have made a very wise choice in going to UCL.
+
+197
+00:14:09,510 --> 00:14:10,920
+It's a great university.
+
+198
+00:14:10,920 --> 00:14:12,990
+I'm sure you're going to have a fantastic time.
+
+199
+00:14:13,350 --> 00:14:17,430
+Everybody is really, really cool, really chill and really awesome there.
+
+200
+00:14:17,670 --> 00:14:23,790
+Unlike some of the other London universities. Obviously there's a healthy bit of rivalry, but it's
+
+201
+00:14:23,910 --> 00:14:29,220
+I genuinely had a really, really good time there. Although I think my experience will probably be
+
+202
+00:14:29,220 --> 00:14:29,580
+slightly
+
+203
+00:14:29,630 --> 00:14:36,860
+different from yours, unless you're also doing the same degree. So I completed a medical degree there
+
+204
+00:14:36,860 --> 00:14:43,580
+while I was at UCL. So medical degrees are pretty much like 9-5 jobs where you have to pay
+
+205
+00:14:43,580 --> 00:14:44,120
+to work.
+
+206
+00:14:45,710 --> 00:14:50,720
+So it's slightly different from other people's student experiences where you just, I don't know, just
+
+207
+00:14:50,720 --> 00:14:52,250
+got drunk and partied all the time.
+
+208
+00:14:52,790 --> 00:14:55,370
+But, yeah, it was it was really good.
+
+209
+00:14:56,210 --> 00:15:01,940
+So your first question was how did I get into iOS development and when and how?
+
+210
+00:15:01,940 --> 00:15:02,770
+I think so.
+
+211
+00:15:02,780 --> 00:15:09,590
+I first got into iOS development in 2011 while I was at med school.
+
+212
+00:15:10,130 --> 00:15:17,510
+And the reason was because I really, really, really wanted to build this medical app that basically
+
+213
+00:15:17,510 --> 00:15:26,240
+gave you a whole set of symptoms and signs and you could test your diagnosis skills by using the app.
+
+214
+00:15:26,480 --> 00:15:31,910
+And that was the main motivation of why I wanted to learn iOS development.
+
+215
+00:15:32,390 --> 00:15:41,000
+But I mean, having started learning to code when I was around 12 or 13, having that background in
+
+216
+00:15:41,000 --> 00:15:44,930
+programming certainly helped me pick up those skills.
+
+217
+00:15:44,940 --> 00:15:53,390
+So I think one of my first games was a really, really terrible implementation of... I'm almost afraid
+
+218
+00:15:53,390 --> 00:16:01,370
+to look up my old code just because I know that I'm going to really be very embarrassed.
+
+219
+00:16:01,490 --> 00:16:03,560
+But hey, you know as well, what can you say?
+
+220
+00:16:03,900 --> 00:16:10,040
+So back then I was using visual basic and then I moved on to C++ because I wanted to make video games.
+
+221
+00:16:11,060 --> 00:16:18,260
+And using that background really helped me learn iOS development very quickly.
+
+222
+00:16:18,560 --> 00:16:23,000
+And certainly for you guys, you know, even though you're learning Swift, it doesn't really matter
+
+223
+00:16:23,000 --> 00:16:29,210
+because if you go away and you decide that, you know, you need another language like Java or, you
+
+224
+00:16:29,210 --> 00:16:34,790
+know, Haskell or whatever it is, you'll realize that a lot of the foundations that you've
+
+225
+00:16:34,790 --> 00:16:40,250
+built up, you know what we're talking about before, the branch and the trunk, you have all of that
+
+226
+00:16:40,250 --> 00:16:46,490
+already because you already understand how variables work, what data types are, how methods work out,
+
+227
+00:16:46,760 --> 00:16:54,560
+how to parse, how to pass, how you can pass messages around and all of these things will be there.
+
+228
+00:16:54,560 --> 00:16:59,320
+So you're just putting on those decorations, those little, you know, Christmas baubles, right?
+
+229
+00:16:59,660 --> 00:17:01,700
+You don't have to learn everything from scratch.
+
+230
+00:17:01,700 --> 00:17:07,290
+And it's a lot quicker and a lot easier for any future development ambitions you have.
+
+231
+00:17:07,790 --> 00:17:13,250
+So looking back on my student days, one of the courses that really impacted me actually was I did a
+
+232
+00:17:13,250 --> 00:17:17,089
+neuroscience degree in addition to my medical degree.
+
+233
+00:17:17,450 --> 00:17:22,520
+And one of the courses within that degree was computational neuroscience.
+
+234
+00:17:22,849 --> 00:17:29,450
+And it was all about reinforcement learning, supervised, unsupervised learning, basically how we
+
+235
+00:17:29,450 --> 00:17:32,860
+can use computers to simulate what we know about the brain.
+
+236
+00:17:33,140 --> 00:17:36,260
+And it was so, so fascinating.
+
+237
+00:17:36,500 --> 00:17:45,860
+And that really reignited my interest in computing and I.T. and technology and got me back programming
+
+238
+00:17:46,160 --> 00:17:51,290
+and, you know, really realizing something that I loved a long time ago as well.
+
+239
+00:17:52,520 --> 00:17:59,870
+So what I would recommend is that if you're taking a degree at a university, really go for courses
+
+240
+00:17:59,870 --> 00:18:05,420
+that have some breadth. When you get out into the real world, whether you're going to get a job or whether
+
+241
+00:18:05,420 --> 00:18:10,670
+if you're going to work in startup or you're going to, you know, be a founder, the thing that you
+
+242
+00:18:10,670 --> 00:18:18,800
+realize is that, you know, getting an A or getting, you know, 100% on one of your tests don't
+
+243
+00:18:18,800 --> 00:18:22,610
+matter as much as you think it does when you're a student.
+
+244
+00:18:23,300 --> 00:18:29,570
+But the things that matter in real life are, you know, your breadth of knowledge, and university can
+
+245
+00:18:29,570 --> 00:18:35,830
+be great at introducing you to things that you never even realized that you needed to learn.
+
+246
+00:18:36,230 --> 00:18:44,390
+So, you know, a big part of putting together this course was putting together the curriculum of things
+
+247
+00:18:44,390 --> 00:18:50,300
+that I thought were really essential to, you know, somebody who's learning development or on their
+
+248
+00:18:50,300 --> 00:18:52,110
+journey to becoming a developer.
+
+249
+00:18:52,520 --> 00:18:58,670
+So and then the tutorials were really built around all of those fundamental things that I wanted to
+
+250
+00:18:58,670 --> 00:18:59,070
+teach.
+
+251
+00:18:59,600 --> 00:19:01,910
+So at university, it's a similar thing.
+
+252
+00:19:01,910 --> 00:19:08,150
+You have an expert, you know, your professor who's putting together this course based on things
+
+253
+00:19:08,150 --> 00:19:12,790
+that they know are important, which you might not have any clue about.
+
+254
+00:19:12,800 --> 00:19:19,970
+And as great as online learning is, and there are so many really amazing YouTube tutorials, the thing
+
+255
+00:19:19,970 --> 00:19:24,400
+that it falls down on is not building that curriculum for you.
+
+256
+00:19:24,710 --> 00:19:27,540
+And university is very good at doing that.
+
+257
+00:19:28,160 --> 00:19:28,880
+So,
+
+258
+00:19:29,030 --> 00:19:35,210
+I would cherish your time there, so I'm sure many people won't agree with me on this, but I would
+
+259
+00:19:35,210 --> 00:19:38,030
+say don't aim for perfection in your grades.
+
+260
+00:19:38,510 --> 00:19:46,580
+Just try to meet as many people as you can and have a great experience and learn a large breadth of knowledge
+
+261
+00:19:46,730 --> 00:19:53,570
+rather than trying to memorize everything and, you know, aim for that 100%
+
+262
+00:19:53,570 --> 00:19:55,110
+or aim for those high grades.
+
+263
+00:19:55,310 --> 00:20:00,750
+I mean, that's certainly something that I was tempted towards and I would say fell down on, so.
+
+264
+00:20:01,100 --> 00:20:01,490
+All right.
+
+265
+00:20:01,490 --> 00:20:07,650
+So the next question is from Abhiji Sarode.
+
+266
+00:20:07,910 --> 00:20:13,850
+I have a feeling that my team are pulling some sort of prank on me by selecting all the questions that
+
+267
+00:20:13,850 --> 00:20:16,070
+have very difficult-to-pronounce names.
+
+268
+00:20:16,640 --> 00:20:16,970
+All right.
+
+269
+00:20:16,970 --> 00:20:20,240
+So let's see what Abhijit says. Okay. 
+
+270
+00:20:20,250 --> 00:20:23,200
+Hey, Angela, what's your approach to learning new technology?
+
+271
+00:20:23,600 --> 00:20:26,810
+What do you do when you get stuck while learning new stuff?
+
+272
+00:20:27,140 --> 00:20:30,500
+What are some timesaving hacks you use while developing?
+
+273
+00:20:30,650 --> 00:20:30,980
+All right.
+
+274
+00:20:30,980 --> 00:20:32,420
+So that's a lot of questions there.
+
+275
+00:20:32,930 --> 00:20:41,060
+Firstly is that working in tech means that you are constantly having to learn new things. If you stay
+
+276
+00:20:41,060 --> 00:20:41,640
+still
+
+277
+00:20:41,660 --> 00:20:48,440
+Technology does not and you will become outdated. Even if you are an 18-year-old and you know about the
+
+278
+00:20:48,440 --> 00:20:49,820
+coolest technology.
+
+279
+00:20:50,030 --> 00:20:55,910
+You know, I come across so many React native developers who, you know, became React native developers
+
+280
+00:20:55,910 --> 00:20:56,600
+a year ago
+
+281
+00:20:57,020 --> 00:21:02,360
+and they're getting really cushy and really comfortable with that one technology and not wanting to
+
+282
+00:21:02,480 --> 00:21:04,430
+diversify or look at anything else.
+
+283
+00:21:05,570 --> 00:21:09,300
+The important thing is that you always have to be learning.
+
+284
+00:21:09,620 --> 00:21:18,620
+So what I try to do is try to consistently allocate an amount of time every single day for learning
+
+285
+00:21:18,620 --> 00:21:20,660
+something that I'm not comfortable with.
+
+286
+00:21:21,140 --> 00:21:29,420
+So for me, because I have the luxury of allocating my own time from 9 AM, so start of the workday,
+
+287
+00:21:29,420 --> 00:21:37,820
+to 11 AM is two hours that are blocked out just for learning and there for learning things I'm not
+
+288
+00:21:37,820 --> 00:21:38,410
+good at.
+
+289
+00:21:38,630 --> 00:21:45,770
+And it's really, really important to make yourself get into these uncomfortable situations where you
+
+290
+00:21:45,770 --> 00:21:54,200
+have to perform or you have to do something that you don't know very well or that you are not an expert
+
+291
+00:21:54,200 --> 00:21:54,620
+in,
+
+292
+00:21:54,650 --> 00:21:55,000
+right?
+
+293
+00:21:55,040 --> 00:21:57,950
+So for me, that means getting up to date with new technologies,
+
+294
+00:21:59,120 --> 00:22:05,870
+for example, recently our company collaborated with Amazon to build a Alexa tutorial.
+
+295
+00:22:06,560 --> 00:22:09,680
+So how you can use NodeJS to create Alexa skills.
+
+296
+00:22:10,040 --> 00:22:16,490
+And in order to build this entire thing for Amazon, I basically had to brush up on a lot of stuff that
+
+297
+00:22:16,490 --> 00:22:18,380
+I wasn't that comfortable with.
+
+298
+00:22:18,570 --> 00:22:21,500
+So I think, you know, the saying that if you don't learn, you die.
+
+299
+00:22:21,500 --> 00:22:23,150
+It's really, really true.
+
+300
+00:22:23,150 --> 00:22:26,150
+Maybe you don't physically die, but your brain does.
+
+301
+00:22:26,150 --> 00:22:28,670
+And I see this with, you know, a lot of people.
+
+302
+00:22:28,850 --> 00:22:34,250
+So, you know, they're always looking for the next relaxing thing to do or, you know, the next holiday
+
+303
+00:22:34,250 --> 00:22:34,850
+to go on
+
+304
+00:22:34,850 --> 00:22:36,560
+and there's nothing wrong with that.
+
+305
+00:22:36,560 --> 00:22:41,360
+But in order to improve and in order to get better, you have to look for struggle.
+
+306
+00:22:41,720 --> 00:22:44,690
+And the more that you struggle, the better that you get.
+
+307
+00:22:44,870 --> 00:22:49,340
+And so one of the things that I look for in life constantly is a struggle,
+
+308
+00:22:49,340 --> 00:22:52,910
+you know. Where can I apply myself that I'm not comfortable with?
+
+309
+00:22:53,300 --> 00:22:58,880
+And I also look for situations where people ask me to do something, hey, you know, can you give this
+
+310
+00:22:58,880 --> 00:23:00,920
+talk to 3,000 people?
+
+311
+00:23:01,160 --> 00:23:02,690
+It's tomorrow, by the way.
+
+312
+00:23:03,680 --> 00:23:06,050
+And yeah, it's recorded for posterity.
+
+313
+00:23:06,680 --> 00:23:11,840
+So in these situations where you think to yourself, "Oh, my God, I can't do that."
+
+314
+00:23:11,840 --> 00:23:14,390
+That's really... that's awful.
+
+315
+00:23:14,390 --> 00:23:15,180
+I can't do that.
+
+316
+00:23:15,200 --> 00:23:15,950
+No way.
+
+317
+00:23:16,370 --> 00:23:23,270
+Those are the moments where if you do say yes, you stand to learn and gain the most.
+
+318
+00:23:23,690 --> 00:23:23,990
+All right.
+
+319
+00:23:23,990 --> 00:23:29,200
+So back on track, what do you do when you're learning something new?
+
+320
+00:23:29,570 --> 00:23:34,140
+So the first thing I do is look for similarities to things that I already know.
+
+321
+00:23:34,430 --> 00:23:39,260
+So, for example, developing for Amazon Alexa, I was already pretty comfortable with NodeJS.
+
+322
+00:23:39,470 --> 00:23:45,050
+So it was more a matter of getting used to their APIs and the incredibly poor documentation.
+
+323
+00:23:46,040 --> 00:23:52,490
+But finding the things that I already knew meant that, you know, I could start hanging my branches
+
+324
+00:23:52,490 --> 00:23:56,390
+onto my trunks and hanging my leaves onto my branches.
+
+325
+00:23:56,720 --> 00:23:59,020
+And this does not just apply to programming.
+
+326
+00:23:59,030 --> 00:24:04,850
+Of course, you know, when I was learning how to wind board, I was looking at and remembering
+
+327
+00:24:04,850 --> 00:24:09,530
+you know, how similar this was to windsurfing, which I really knew how to do.
+
+328
+00:24:09,800 --> 00:24:15,050
+So look for those parts of the new skill which you already sort of have a little bit of.
+
+329
+00:24:15,460 --> 00:24:19,820
+For example, if you already know French and you're trying to learn Spanish, you know, a lot of the
+
+330
+00:24:19,820 --> 00:24:21,610
+words are really quite similar.
+
+331
+00:24:21,620 --> 00:24:27,020
+And so if you first start by identifying those parts that you already know and those parts you
+
+332
+00:24:27,020 --> 00:24:28,610
+really are comfortable with,
+
+333
+00:24:28,730 --> 00:24:34,240
+and then you can use that to build upon and start extending into this new skill.
+
+334
+00:24:34,510 --> 00:24:34,870
+All right.
+
+335
+00:24:34,870 --> 00:24:38,780
+So the next question comes from Misha Espinoza.
+
+336
+00:24:39,280 --> 00:24:42,100
+"I'd like to know your habits to stay productive.
+
+337
+00:24:42,400 --> 00:24:48,940
+What do you do and what do you avoid and how to implement a system to stay focused"
+
+338
+00:24:49,840 --> 00:24:54,200
+OK, so, Misha, you have asked a question that is very close to my heart.
+
+339
+00:24:54,490 --> 00:24:57,870
+This is something I think about almost on a daily basis.
+
+340
+00:24:57,880 --> 00:25:04,340
+I'm trying to optimize my daily routines so that I can be as effective as possible.
+
+341
+00:25:04,930 --> 00:25:10,600
+So one of the first things that you realize is that we are being distracted
+
+342
+00:25:10,780 --> 00:25:17,170
+as you know, people living in 2017, we are constantly at the beck and call
+
+343
+00:25:17,170 --> 00:25:18,250
+of notifications.
+
+344
+00:25:18,790 --> 00:25:25,270
+So, you know, I have an Apple Watch, I have a phone, I have my laptop, which are all connected
+
+345
+00:25:25,270 --> 00:25:29,650
+to the Internet, and they all try to ping me all the time.
+
+346
+00:25:29,650 --> 00:25:32,440
+And people are always in demand of your time.
+
+347
+00:25:32,950 --> 00:25:39,820
+So you have to be really, really almost militant about protecting that time and protecting your attention
+
+348
+00:25:39,820 --> 00:25:40,220
+span.
+
+349
+00:25:40,660 --> 00:25:50,320
+So what I do is when I'm working on something creative or when I'm programming, I turn off all notifications
+
+350
+00:25:50,320 --> 00:25:53,020
+on my phone, on my watch, on my laptop.
+
+351
+00:25:53,230 --> 00:25:58,540
+If I'm doing a project and something I'm really comfortable with, say iOS development, I will actually pull
+
+352
+00:25:58,540 --> 00:26:00,190
+the plug on the Internet as well
+
+353
+00:26:01,360 --> 00:26:07,660
+if I'm not testing or if I'm not using any services. It just means that you get to protect that precious
+
+354
+00:26:07,660 --> 00:26:13,330
+focus that you have and not have to spend your attention on anything else.
+
+355
+00:26:14,410 --> 00:26:17,050
+So the other thing is definitely attention.
+
+356
+00:26:17,050 --> 00:26:25,210
+So I look at attention as you having a set number of blocks, say you know, it's like if you have ten
+
+357
+00:26:25,210 --> 00:26:28,540
+dollars to spend every day, it's the same thing with attention.
+
+358
+00:26:28,540 --> 00:26:31,060
+You probably have ten blocks of attention to spend every day.
+
+359
+00:26:31,420 --> 00:26:36,550
+And if you waste that on things that are inconsequential, like, you know, figuring what am I going
+
+360
+00:26:36,550 --> 00:26:41,860
+to eat in the morning or what am I going to wear, then you're already using up attention blocks, right?
+
+361
+00:26:41,860 --> 00:26:48,970
+And you have to be really, really stingy with your attention in order to do stuff and be productive
+
+362
+00:26:48,970 --> 00:26:54,400
+and, you know, be creative or do things that are worth bringing into the world.
+
+363
+00:26:54,940 --> 00:26:58,810
+So one of the things is that in the morning, I don't choose what I wear.
+
+364
+00:26:59,080 --> 00:27:02,560
+I have a lot of shirts that are pretty much identical.
+
+365
+00:27:03,460 --> 00:27:09,190
+And I just pick out the same colored shirt. And I just pick out something that's
+
+366
+00:27:09,190 --> 00:27:13,630
+clean, that pretty much look the same as what I wore yesterday.
+
+367
+00:27:14,620 --> 00:27:19,840
+And I eat pretty much the same thing every single morning, which is just a tin of sardines.
+
+368
+00:27:19,840 --> 00:27:23,050
+So high protein, low carbohydrates, good for focus.
+
+369
+00:27:23,410 --> 00:27:30,730
+And then that means that I've managed to get through the beginning of my day without having to make
+
+370
+00:27:30,730 --> 00:27:32,740
+any decisions at all.
+
+371
+00:27:33,070 --> 00:27:39,010
+And that helps me conserve my attention, energy that I can use on creating app or thinking about how
+
+372
+00:27:39,010 --> 00:27:42,250
+to explain, you know, certain difficult concepts for you guys.
+
+373
+00:27:42,520 --> 00:27:47,350
+And it just means that you're so much more purposeful with your attention rather than just, you know,
+
+374
+00:27:47,350 --> 00:27:49,540
+wasting it and giving it out everywhere.
+
+375
+00:27:49,990 --> 00:27:50,290
+All right.
+
+376
+00:27:50,290 --> 00:27:55,510
+So the next question is from Stephanie Kendall and she says, "Angela, thank you so much for creating
+
+377
+00:27:55,510 --> 00:27:58,650
+this course. I was very excited to see a female teaching this class, too.
+
+378
+00:27:59,050 --> 00:28:05,410
+That leads me to my AMA question, do you face any specific challenges being a female in this industry?
+
+379
+00:28:05,680 --> 00:28:10,030
+Any encouragement or advice to women pursuing a career as a developer?"
+
+380
+00:28:10,690 --> 00:28:11,490
+OK, cool.
+
+381
+00:28:11,500 --> 00:28:13,840
+That is a really good question.
+
+382
+00:28:13,840 --> 00:28:22,000
+And I literally just flew back from Beijing a few days ago giving a talk to 3,000 people on
+
+383
+00:28:22,000 --> 00:28:22,870
+this exact topic.
+
+384
+00:28:23,410 --> 00:28:27,010
+So I remember what I said about earlier on? Somebody asking you to do something tomorrow?
+
+385
+00:28:27,670 --> 00:28:28,420
+Yeah, that was it.
+
+386
+00:28:28,840 --> 00:28:34,900
+But this is something that I get asked quite often and here is how I think about this problem.
+
+387
+00:28:35,060 --> 00:28:41,550
+So throughout life, you will come across many rejections, many bad things that happen to you, people
+
+388
+00:28:41,560 --> 00:28:45,700
+treating you unfairly or people not giving you what you want.
+
+389
+00:28:46,660 --> 00:28:50,860
+You know, you not achieving the things that you want because, you know, there's somebody in your
+
+390
+00:28:50,860 --> 00:28:55,720
+way and you can interpret this in any way you choose.
+
+391
+00:28:56,170 --> 00:29:01,090
+So, for example, I've been to many interviews where I've been rejected, as have everybody,
+
+392
+00:29:01,090 --> 00:29:01,390
+right?
+
+393
+00:29:01,400 --> 00:29:11,290
+So there was a great story from Jack Ma, the founder of the Ali Group, like probably billionaire
+
+394
+00:29:11,290 --> 00:29:13,120
+Trillionaire, whatever he is.
+
+395
+00:29:13,450 --> 00:29:18,310
+But he once applied for a job in the U.S. to work in KFC.
+
+396
+00:29:18,700 --> 00:29:25,150
+And I think out of 21 people who applied, 20 people got the job and he was the one that
+
+397
+00:29:25,150 --> 00:29:25,640
+did not.
+
+398
+00:29:26,200 --> 00:29:28,630
+So you can interpret any of these like
+
+399
+00:29:28,710 --> 00:29:32,610
+events or things that happen to you in any way you choose.
+
+400
+00:29:33,150 --> 00:29:39,840
+So I've been to a lot of interviews where I've been rejected. And it's very easy and it's very tempting
+
+401
+00:29:40,020 --> 00:29:43,830
+to think about it in a way like, oh, you know, it's because I'm a woman,
+
+402
+00:29:44,010 --> 00:29:45,540
+it's because I'm Asian,
+
+403
+00:29:45,540 --> 00:29:48,660
+it's because I'm not, you know, it's because I'm too young.
+
+404
+00:29:48,660 --> 00:29:52,830
+it's because I'm too old or a whole bunch of things.
+
+405
+00:29:52,830 --> 00:29:56,190
+But at the end of the day, that doesn't help anybody.
+
+406
+00:29:56,190 --> 00:29:57,300
+That doesn't help you,
+
+407
+00:29:57,300 --> 00:30:01,830
+certainly, you know, I can't change my gender.
+
+408
+00:30:01,840 --> 00:30:09,830
+I can't change my age or my ethnicity, at least not easily.
+
+409
+00:30:11,100 --> 00:30:13,050
+So why make it about that,
+
+410
+00:30:13,260 --> 00:30:13,600
+rght?
+
+411
+00:30:13,770 --> 00:30:20,130
+I can honestly say that I guess I've been lucky or I guess the way that I see the world, I've never
+
+412
+00:30:20,130 --> 00:30:23,970
+felt discriminated in any job that I've ever done.
+
+413
+00:30:24,300 --> 00:30:29,910
+But I mean, that doesn't mean I haven't had horrible bosses or haven't had people who've been mean
+
+414
+00:30:29,910 --> 00:30:34,650
+or people who rejected me or, you know, denied me of things I wanted.
+
+415
+00:30:35,070 --> 00:30:42,330
+But I didn't make that about my gender or my ethnicity or anything like that.
+
+416
+00:30:43,020 --> 00:30:49,740
+You know, I realized that sometimes I didn't get the job maybe because I wasn't suited, and other
+
+417
+00:30:49,740 --> 00:30:55,820
+times because maybe I was partying until 1 AM in the morning and I didn't have time to prepare,
+
+418
+00:30:55,830 --> 00:30:56,190
+right?
+
+419
+00:30:56,580 --> 00:30:59,460
+And in which case I don't deserve the job.
+
+420
+00:30:59,460 --> 00:31:04,770
+It didn't matter if I was a white male in my 40s, I still wouldn't have deserved that job,
+
+421
+00:31:04,770 --> 00:31:04,990
+right?
+
+422
+00:31:05,400 --> 00:31:11,250
+So I think it's far more empowering to think about these problems or, you know, things that happen
+
+423
+00:31:11,250 --> 00:31:16,080
+to you that aren't desirable in a way that you can control,
+
+424
+00:31:16,230 --> 00:31:16,590
+right?
+
+425
+00:31:16,860 --> 00:31:19,830
+I can control how much I prep for an interview.
+
+426
+00:31:20,160 --> 00:31:26,070
+I can control how hard I work to understand, you know, their business. Or, you know, for technical
+
+427
+00:31:26,070 --> 00:31:26,850
+interviews,
+
+428
+00:31:26,850 --> 00:31:33,450
+I can choose to spend more time and, you know, be the best or polish up my portfolio. All of these
+
+429
+00:31:33,450 --> 00:31:39,840
+kind of things that are way more helpful than just, you know, thinking to yourself that it might be
+
+430
+00:31:39,840 --> 00:31:42,390
+because of something that you can't change.
+
+431
+00:31:42,630 --> 00:31:46,530
+But, you know, I'm not saying that there aren't problems in the world.
+
+432
+00:31:46,530 --> 00:31:47,630
+Of course there are.
+
+433
+00:31:47,640 --> 00:31:53,310
+And, you know, we do have to tackle them using policy and all of these things.
+
+434
+00:31:53,310 --> 00:32:00,750
+But on a more personal level, it's way more helpful if you choose to interpret these events in a way
+
+435
+00:32:00,750 --> 00:32:03,960
+that you can change and that is within your own control.
+
+436
+00:32:04,380 --> 00:32:12,060
+So my words of encouragement for any woman or man or child or anybody really going into development
+
+437
+00:32:12,060 --> 00:32:15,930
+is that, you know, look for commonalities that you have with people.
+
+438
+00:32:16,260 --> 00:32:21,780
+For example, in our current company, we're way more divided by, you know, Android versus iOS or
+
+439
+00:32:22,110 --> 00:32:30,420
+Mac versus PC or Rick versus Morty than we are, you know, by our genders or colors
+
+440
+00:32:30,420 --> 00:32:32,930
+and it's because, you know, we choose to interpret it that way.
+
+441
+00:32:33,570 --> 00:32:35,580
+So make your own choices.
+
+442
+00:32:35,580 --> 00:32:36,690
+It's your own stage.
+
+443
+00:32:36,690 --> 00:32:41,490
+You decide where you put the limelight and focus on things that you can change rather than things that
+
+444
+00:32:41,490 --> 00:32:42,340
+you can't change.
+
+445
+00:32:42,690 --> 00:32:43,050
+All right.
+
+446
+00:32:43,050 --> 00:32:48,960
+So I've been recording for quite a while, and there is literally nobody left in the office anymore.
+
+447
+00:32:49,260 --> 00:32:53,910
+So I will try and keep the short and I'll put some of these questions on the next AMA.
+
+448
+00:32:54,780 --> 00:32:58,740
+But let's answer this last one from Bonn
+
+449
+00:32:59,130 --> 00:33:01,350
+Elimanco.
+
+450
+00:33:02,130 --> 00:33:03,330
+That was not a bad attempt,
+
+451
+00:33:03,330 --> 00:33:03,630
+right?
+
+452
+00:33:04,620 --> 00:33:07,130
+And what is your morning ritual?
+
+453
+00:33:07,170 --> 00:33:07,440
+All right.
+
+454
+00:33:07,440 --> 00:33:11,430
+So what I do in the morning? This is an ideal day.
+
+455
+00:33:11,430 --> 00:33:16,350
+This is not every single day as much as I would love it to be something,
+
+456
+00:33:16,360 --> 00:33:18,600
+sometimes things just happen in life.
+
+457
+00:33:18,600 --> 00:33:22,680
+Sometimes I'm on a flight and I feel horrible.
+
+458
+00:33:22,680 --> 00:33:29,850
+So the thing with morning ritual is that people don't tell you is, you know, don't feel bad for missing
+
+459
+00:33:29,850 --> 00:33:31,830
+a few days or screwing up here and there.
+
+460
+00:33:32,190 --> 00:33:34,890
+It's the it's the trying that counts,
+
+461
+00:33:34,890 --> 00:33:35,190
+right?
+
+462
+00:33:35,400 --> 00:33:42,660
+So I wake up usually around 6:30 AM or 7 AM and the first thing I do is ten press-ups, proper press-
+
+463
+00:33:42,660 --> 00:33:47,580
+ups. None of this, you know, sort of wingy girl press-up stuff, stuff like proper press-ups.
+
+464
+00:33:48,000 --> 00:33:54,150
+And that kind of gets the blood going and makes me feel a lot more awake and less likely to go back
+
+465
+00:33:54,150 --> 00:33:54,810
+in bed,
+
+466
+00:33:54,810 --> 00:33:55,140
+right?
+
+467
+00:33:55,500 --> 00:34:00,480
+I think I think once you've got shoes on, it's a lot harder to get back into bed.
+
+468
+00:34:01,260 --> 00:34:05,460
+So after that I meditate for about twenty minutes.
+
+469
+00:34:05,460 --> 00:34:11,489
+So that means I set a timer for twenty minutes, during which time I tried desperately to not think
+
+470
+00:34:11,489 --> 00:34:14,040
+about what am I going to eat, what am I going to eat, what am I going to eat?
+
+471
+00:34:14,250 --> 00:34:17,940
+Some days it is just like that and I can't help it. By now
+
+472
+00:34:17,940 --> 00:34:23,310
+if you guys have watched a lot of the videos in my course, you'll realize that I think about food a
+
+473
+00:34:23,310 --> 00:34:23,790
+lot.
+
+474
+00:34:24,270 --> 00:34:25,739
+But I also go to the gym a lot.
+
+475
+00:34:25,739 --> 00:34:26,489
+So it's OK.
+
+476
+00:34:26,830 --> 00:34:27,840
+There's always going to be...
+
+477
+00:34:27,989 --> 00:34:28,480
+it's got to be
+
+478
+00:34:28,530 --> 00:34:29,530
+balance in life, right?
+
+479
+00:34:29,550 --> 00:34:38,880
+Everybody has to have something they're into. So, I meditate for 20 minutes. So personally I do TM,
+
+480
+00:34:39,000 --> 00:34:45,420
+transcendental meditation, it seems to me like the one type of meditation where you don't have to
+
+481
+00:34:45,840 --> 00:34:47,760
+believe in a lot of stuff.
+
+482
+00:34:48,570 --> 00:34:50,310
+So I find that quite helpful.
+
+483
+00:34:50,670 --> 00:34:58,350
+And I think over the years of meditating, I've definitely found that you've become a way more purposeful
+
+484
+00:34:58,350 --> 00:34:58,900
+person.
+
+485
+00:34:59,190 --> 00:35:04,770
+So it's very easy when you're aggravated by people such as certain clients, you know.
+
+486
+00:35:06,010 --> 00:35:13,660
+That design, I don't know how I feel about this app, I feel like it's not quite there yet.
+
+487
+00:35:14,510 --> 00:35:18,600
+I'm like, OK, I'm glad that you feel so much.
+
+488
+00:35:18,970 --> 00:35:20,260
+But anyways, yeah.
+
+489
+00:35:20,260 --> 00:35:27,550
+So sometimes you are prone to automatic responses where you just get angry or get annoyed or, you know,
+
+490
+00:35:27,820 --> 00:35:29,560
+don't like what you're hearing.
+
+491
+00:35:30,880 --> 00:35:37,510
+But I think with meditation is far more it allows you to be outside your own body and look at yourself
+
+492
+00:35:37,780 --> 00:35:40,570
+doing these things or interacting with people.
+
+493
+00:35:40,570 --> 00:35:45,790
+And, you know, you sort of ask yourself, like, if I react this way, does it help me, does it
+
+494
+00:35:46,270 --> 00:35:46,810
+hinder me,
+
+495
+00:35:46,810 --> 00:35:48,470
+does it give me any benefit?
+
+496
+00:35:48,490 --> 00:35:55,930
+And usually the answer to all of these instantaneous instant gratification type of responses or lashing
+
+497
+00:35:55,930 --> 00:35:57,670
+out, you know, it's never really useful.
+
+498
+00:35:57,700 --> 00:36:01,270
+So meditation has been great for that.
+
+499
+00:36:01,300 --> 00:36:07,480
+So then after I meditate, I try to do a little bit of journaling about just, you know, just basically
+
+500
+00:36:07,480 --> 00:36:08,170
+brain dump.
+
+501
+00:36:09,040 --> 00:36:11,340
+Any thoughts that I've got in my head.
+
+502
+00:36:11,680 --> 00:36:18,490
+It's very easy to be varying in your head, you know.. that I tried to put it down on paper and once on paper
+
+503
+00:36:18,490 --> 00:36:20,110
+I can tell myself, oh, it's there.
+
+504
+00:36:20,110 --> 00:36:22,470
+You know, I don't have to worry about it anymore.
+
+505
+00:36:22,480 --> 00:36:26,350
+Somebody else, namely my notebook, is taking care of the worrying for me.
+
+506
+00:36:28,240 --> 00:36:31,180
+And that usually takes about 10, 15 minutes.
+
+507
+00:36:31,180 --> 00:36:38,770
+And then the next thing is, I bring up Medium or Hacker News or Product Hunt and look at what's happening
+
+508
+00:36:38,770 --> 00:36:40,810
+in the world in terms of tech.
+
+509
+00:36:41,170 --> 00:36:49,120
+Look at some of the interesting tech news, things that people build, new GitHub repos, just basically
+
+510
+00:36:49,120 --> 00:36:49,780
+news.
+
+511
+00:36:49,780 --> 00:36:54,970
+And I eat my kind of sardines alongside that.
+
+512
+00:36:55,840 --> 00:36:58,840
+So that's basically my morning routine.
+
+513
+00:36:58,840 --> 00:37:01,180
+It obviously changes quite a bit.
+
+514
+00:37:01,450 --> 00:37:08,140
+I would love to be able to add a little bit more exercise to it, but with current experimentation,
+
+515
+00:37:08,140 --> 00:37:10,720
+it doesn't seem to have benefited me all that much.
+
+516
+00:37:11,200 --> 00:37:13,330
+So it's constantly in flux.
+
+517
+00:37:13,330 --> 00:37:19,960
+And, certainly my morning routine this year has been different from last year and last.
+
+518
+00:37:20,260 --> 00:37:23,980
+But I'm constantly trying to squeeze out that extra bit of productivity.
+
+519
+00:37:24,950 --> 00:37:31,930
+So if you guys are interested in productivity hacks, which I am hugely interested in, I wrote this
+
+520
+00:37:31,930 --> 00:37:38,060
+article, which I can link in this video to some of the hacks I found that were really, really useful.
+
+521
+00:37:39,010 --> 00:37:39,750
+All right, cool.
+
+522
+00:37:39,760 --> 00:37:45,230
+So my tummy is rumbling and I'm going to go and grab something to eat.
+
+523
+00:37:45,340 --> 00:37:48,190
+The office is now completely deserted.
+
+524
+00:37:48,460 --> 00:37:53,070
+It's just myself talking to myself, which everybody is obviously used to.
+
+525
+00:37:54,310 --> 00:38:00,490
+So I look forward to answering more of your questions in next month's AMA.
+
+526
+00:38:01,000 --> 00:38:07,000
+I'm going to be sending out the newsletter as well later perhaps this week or next week.
+
+527
+00:38:07,270 --> 00:38:09,010
+So keep your eyes peeled for that.
+
+528
+00:38:09,010 --> 00:38:11,500
+If you haven't signed up, then go ahead and sign up for it.
+
+529
+00:38:11,500 --> 00:38:18,160
+It's full of terrible jokes that I've thought of, as well as some of the articles I've read, I've come
+
+530
+00:38:18,160 --> 00:38:24,100
+across, that are really good in terms of our iOS programming, app design, a whole bunch of interesting
+
+531
+00:38:24,100 --> 00:38:24,400
+stuff.
+
+532
+00:38:25,300 --> 00:38:32,470
+So if you have a question for the next AMA, then just go and find the most recent announcement and
+
+533
+00:38:32,470 --> 00:38:36,550
+add your question there and I will have a look at it.
+
+534
+00:38:36,550 --> 00:38:43,180
+And my team will pick out some choice ones that maybe I haven't answered in this one for the next session.
+
+535
+00:38:43,570 --> 00:38:50,710
+But meanwhile, I hope you guys are all doing great. Looking at the Q&A sections and looking at some
+
+536
+00:38:50,710 --> 00:38:53,800
+of the things that you guys have been emailing me that you've built,
+
+537
+00:38:53,800 --> 00:38:59,410
+I think everybody seems to be doing a great job and just want to say, keep going.
+
+538
+00:38:59,560 --> 00:39:06,670
+I'm here for you in the Q&A section as well as on AMAs and also in the newsletters I send out.
+
+539
+00:39:07,090 --> 00:39:12,190
+And, you know, don't if you get stuck, don't give up.
+
+540
+00:39:12,520 --> 00:39:19,540
+Just keep going or ask a question or go on to Stack Overflow and, you know, power through and you
+
+541
+00:39:19,540 --> 00:39:21,160
+will eventually get there.
+
+542
+00:39:21,160 --> 00:39:27,190
+And I look forward to seeing more of all of the awesome things that you guys have been building or are
+
+543
+00:39:27,190 --> 00:39:34,750
+going to build and publishing it and shouting all about it to all to everybody I know and all my students.
+
+544
+00:39:35,170 --> 00:39:39,670
+So good luck and I'll see you back in the course and maybe next month as well.
+
+545
+00:39:40,000 --> 00:39:40,540
+All right.
+
+546
+00:39:40,540 --> 00:39:41,320
+Bye, guys.
+

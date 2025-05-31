@@ -1,0 +1,624 @@
+1
+00:00:00,350 --> 00:00:00,890
+All right guys.
+
+2
+00:00:00,900 --> 00:00:07,350
+In the last lesson, you saw how we can handle simple events such as clicking on a button or hovering
+
+3
+00:00:07,440 --> 00:00:08,510
+over it.
+
+4
+00:00:08,550 --> 00:00:14,850
+Now in this lesson I want to talk about some more complex events such as the events that arise from
+
+5
+00:00:14,850 --> 00:00:16,300
+within a form.
+
+6
+00:00:16,470 --> 00:00:21,330
+Now when you're creating web apps, it's pretty common that you're going to be creating forms for log
+
+7
+00:00:21,330 --> 00:00:24,180
+in, for registration, for contact
+
+8
+00:00:24,180 --> 00:00:29,600
+and there's some peculiarities. In order to really understand how forms work
+
+9
+00:00:29,700 --> 00:00:34,680
+we need to incorporate our knowledge about setting state and using state.
+
+10
+00:00:35,310 --> 00:00:42,780
+So in this lesson I want to tackle how you can get the user inputs from the input element and how you
+
+11
+00:00:42,780 --> 00:00:50,220
+can use the submit button in order to use the information that the user is typed in. Just as we had the
+
+12
+00:00:50,310 --> 00:00:54,750
+onClick event that we could add to our submit button,
+
+13
+00:00:54,750 --> 00:01:03,540
+we also have a event on the inputs called onChange and this is triggered every single time the value
+
+14
+00:01:03,540 --> 00:01:04,989
+of the input changes,
+
+15
+00:01:05,040 --> 00:01:12,990
+so when the user types something new inside. So we can create a function called handleChange which is
+
+16
+00:01:12,990 --> 00:01:17,390
+going to be triggered every time the input is changed.
+
+17
+00:01:17,910 --> 00:01:26,910
+Let's go ahead and log Changed and let's pass the name of this function over to our onChange.
+
+18
+00:01:26,910 --> 00:01:35,610
+Now when I start typing inside this input namely changing it, you'll see that my handle change gets called
+
+19
+00:01:36,060 --> 00:01:39,930
+every time I add a new letter.
+
+20
+00:01:39,960 --> 00:01:46,290
+Now this is not very useful because what we're more interested in is actually what the user is typed
+
+21
+00:01:46,380 --> 00:01:49,330
+rather than the fact that they have started typing.
+
+22
+00:01:49,500 --> 00:01:56,060
+The other thing to know is that when your input element triggers the function that's stored in the on
+
+23
+00:01:56,060 --> 00:01:56,940
+Change,
+
+24
+00:01:57,150 --> 00:02:05,700
+it also passes over an object. And that object corresponds to the event that triggered this onChange.
+
+25
+00:02:06,420 --> 00:02:11,650
+And we can log various things related to that event.
+
+26
+00:02:11,680 --> 00:02:20,410
+For example, we can log event.target.value and remember that the event is the event which triggered
+
+27
+00:02:20,410 --> 00:02:21,550
+the onChange,
+
+28
+00:02:21,550 --> 00:02:28,480
+the target is the element that triggered this event and the value or any of the other properties on
+
+29
+00:02:28,480 --> 00:02:29,400
+the target
+
+30
+00:02:29,500 --> 00:02:33,800
+are the things that correspond to the value of some of these attributes.
+
+31
+00:02:34,060 --> 00:02:40,720
+For example in addition to event.target.value, we can also get hold of the placeholder of the element
+
+32
+00:02:40,750 --> 00:02:45,000
+that triggered the event or the type of the element that triggered the event.
+
+33
+00:02:45,100 --> 00:02:51,840
+And if I hit save and start typing, you'll see that every time I enter a new letter the first thing that's
+
+34
+00:02:51,940 --> 00:02:54,940
+printed is the value.
+
+35
+00:02:54,960 --> 00:02:57,750
+The second is my place holder.
+
+36
+00:02:58,020 --> 00:03:00,660
+And the third is the type.
+
+37
+00:03:00,660 --> 00:03:04,410
+And this happens every time I type a new letter.
+
+38
+00:03:04,500 --> 00:03:11,310
+So let's get rid of these other two and focus on our event.target.value.
+
+39
+00:03:11,310 --> 00:03:18,480
+If I start typing, you can see that every single time I type a new letter handleChange is being triggered
+
+40
+00:03:18,750 --> 00:03:21,450
+passing over the event that triggered the change
+
+41
+00:03:21,630 --> 00:03:29,730
+and I'm logging the current value which corresponds to the text that exists in this particular input.
+
+42
+00:03:29,730 --> 00:03:37,320
+Now what if I wanted to use this value that the user is typed somewhere else inside my app or my component?
+
+43
+00:03:37,690 --> 00:03:40,360
+So if I wanted to change my hello,
+
+44
+00:03:40,440 --> 00:03:41,900
+so instead of saying hello
+
+45
+00:03:41,940 --> 00:03:46,140
+it actually corresponds to what's being typed in the input.
+
+46
+00:03:46,140 --> 00:03:50,530
+Well to do that I of course need to have state in my app.
+
+47
+00:03:50,580 --> 00:03:52,870
+So let's go ahead and create a new constant
+
+48
+00:03:52,920 --> 00:03:58,020
+and then let's destructure our output four our useState to hold two things.
+
+49
+00:03:58,020 --> 00:04:05,650
+One is going to be the name and the second is going to be the function setName which is going to help
+
+50
+00:04:05,650 --> 00:04:08,910
+me update this name constant.
+
+51
+00:04:09,720 --> 00:04:16,209
+I'm going to set this to use state and when I call this function I'm going to provide a starting value
+
+52
+00:04:16,540 --> 00:04:20,250
+which is actually just going to be nothing, an empty string.
+
+53
+00:04:20,410 --> 00:04:28,490
+And remember to add useState to the import when you're using this function. Now I can use this constant
+
+54
+00:04:28,490 --> 00:04:32,990
+name inside my H1. And I'm going to add it right at the end
+
+55
+00:04:33,020 --> 00:04:39,470
+after the hello. So opening up a set of curly braces, inserting the value of the variable name inside
+
+56
+00:04:39,800 --> 00:04:47,420
+here at the end and now what I'm gonna do is whenever a handle change gets called, I'm going to call
+
+57
+00:04:47,420 --> 00:04:54,320
+setName and I'm gonna pass over the value of event.target.value.
+
+58
+00:04:54,320 --> 00:05:03,050
+So now when I start writing, you can see that I'm updating the state of that name variable and then it's
+
+59
+00:05:03,050 --> 00:05:05,320
+being added to my 
+
+60
+00:05:05,540 --> 00:05:14,510
+as I type. Now there's just one thing to remember about forms. In HTML, the elements themselves are
+
+61
+00:05:14,510 --> 00:05:17,750
+responsible for handling their own state.
+
+62
+00:05:17,750 --> 00:05:22,870
+For example you might remember that there's a attribute called value.
+
+63
+00:05:22,870 --> 00:05:28,310
+And this corresponds to what is currently inside the input.
+
+64
+00:05:28,310 --> 00:05:34,880
+Now in HTML this value is normally handled by the input property and it sets it to whatever is being
+
+65
+00:05:34,880 --> 00:05:35,710
+typed in here.
+
+66
+00:05:36,320 --> 00:05:43,630
+But in React what you should really do is set the value to the variable that comes from the event.
+
+67
+00:05:43,640 --> 00:05:45,320
+target.value.
+
+68
+00:05:45,320 --> 00:05:46,100
+In our case
+
+69
+00:05:46,130 --> 00:05:47,740
+that would of course be this thing
+
+70
+00:05:47,780 --> 00:05:55,760
+name. This way we have one single source of truth which is the state of name.
+
+71
+00:05:56,310 --> 00:06:02,680
+So whenever we use it inside other components or when we have it as the value of the inputs, they're
+
+72
+00:06:02,700 --> 00:06:08,000
+all corresponding to the same thing and they're all going to match up.
+
+73
+00:06:08,310 --> 00:06:13,290
+And this in React lingo is called a controlled component.
+
+74
+00:06:13,650 --> 00:06:20,220
+And I highly recommend you to take a look at this link which I'll add in the course resources and have
+
+75
+00:06:20,220 --> 00:06:27,210
+a brief read just of this paragraph where they talk about this concept of controlled components. And
+
+76
+00:06:27,210 --> 00:06:33,420
+don't worry if you're seeing this documentation in 2019 when I'm recording this, they're still showing
+
+77
+00:06:33,420 --> 00:06:38,010
+class components. But in the future hopefully they'll update this to show hooks instead.
+
+78
+00:06:38,430 --> 00:06:40,460
+But the concept is the same.
+
+79
+00:06:40,620 --> 00:06:48,510
+We have to add the value that comes from our state as the value attributes of our inputs and keeping
+
+80
+00:06:48,600 --> 00:06:51,300
+a single source of truth.
+
+81
+00:06:51,480 --> 00:06:56,440
+And that's basically all there is to this idea of controlled components.
+
+82
+00:06:56,640 --> 00:06:58,910
+Now here's a challenge for you.
+
+83
+00:06:59,040 --> 00:07:07,530
+What if I wanted to be able to type in a name and then only when I click on the Submit button does it
+
+84
+00:07:07,530 --> 00:07:09,840
+get added to my ?
+
+85
+00:07:09,930 --> 00:07:16,200
+See if you can use what you've learned in this lesson and the last lesson to complete this challenge.
+
+86
+00:07:16,710 --> 00:07:23,310
+Just as a hint, you're going to need to detect events in the submit button.
+
+87
+00:07:23,310 --> 00:07:31,890
+You're probably going to need another variable to keep track of state and you might have to also have
+
+88
+00:07:31,890 --> 00:07:36,100
+a mess around with your code until you can get it to work.
+
+89
+00:07:36,240 --> 00:07:40,590
+Pause a video now, give it a go and then come back and we'll walk through the answer together.
+
+90
+00:07:44,100 --> 00:07:44,440
+All right.
+
+91
+00:07:44,500 --> 00:07:50,290
+So the first thing we need to do is we're probably going to need to add a onClick listener to our submit
+
+92
+00:07:50,290 --> 00:07:51,220
+button.
+
+93
+00:07:51,430 --> 00:07:59,350
+And when this button gets clicked, we're going to trigger a function which I'll call handleClick.
+
+94
+00:07:59,350 --> 00:08:02,670
+Now handleClick doesn't need to look at the event data,
+
+95
+00:08:02,680 --> 00:08:04,110
+it doesn't really care.
+
+96
+00:08:04,120 --> 00:08:08,050
+It just need to be triggered when the user presses on this button.
+
+97
+00:08:08,050 --> 00:08:10,640
+So that's what we're going to pass in here,
+
+98
+00:08:10,690 --> 00:08:12,240
+handleClick.
+
+99
+00:08:12,430 --> 00:08:17,230
+And when that button is clicked, what do we want to happen?
+
+100
+00:08:17,230 --> 00:08:23,800
+Well it's only in that moment when we want to take the value of the event.target.value that came
+
+101
+00:08:23,800 --> 00:08:27,700
+from the input and then put it inside the .
+
+102
+00:08:27,760 --> 00:08:35,919
+So instead of using the name variable which is always going to be updated as we change the value of
+
+103
+00:08:35,919 --> 00:08:43,900
+this input, instead maybe we can use a different variable. Maybe we can call it headingText. And we can
+
+104
+00:08:43,900 --> 00:08:49,700
+keep track of the state of headingText by using our usestate hook.
+
+105
+00:08:49,900 --> 00:08:56,770
+And we'll have another method called setHeading and we'll set that equal to useState and the initial
+
+106
+00:08:56,770 --> 00:08:59,880
+value is also going to be an empty string.
+
+107
+00:08:59,920 --> 00:09:02,500
+We don't want anything to show up after the word hello.
+
+108
+00:09:03,340 --> 00:09:11,000
+But, when the submit button is clicked and we want to handle that click well then we want to set our
+
+109
+00:09:11,000 --> 00:09:16,090
+heading to the value of our name.
+
+110
+00:09:16,090 --> 00:09:22,750
+So we're using this name variable and setting it as the heading text.
+
+111
+00:09:22,780 --> 00:09:29,200
+So a quick note here is that when you're writing a function you can simply just use the name of the
+
+112
+00:09:29,200 --> 00:09:30,200
+variable.
+
+113
+00:09:30,250 --> 00:09:32,910
+You don't need the curly braces around it.
+
+114
+00:09:33,010 --> 00:09:39,670
+And in fact if you do add the curly braces, then you're going to set your heading text to be a Javascript
+
+115
+00:09:39,880 --> 00:09:44,930
+object rather than just a value, like so.
+
+116
+00:09:44,950 --> 00:09:46,740
+So that's the thing to be careful about.
+
+117
+00:09:46,810 --> 00:09:56,590
+And if in doubt, you can always use the log statement to log what { name } looks like which
+
+118
+00:09:56,590 --> 00:10:04,220
+is an object versus what just the name property is which is just the actual value.
+
+119
+00:10:04,450 --> 00:10:11,050
+Once we've set the heading then the value of name at this moment in time is going to become the heading
+
+120
+00:10:11,050 --> 00:10:14,610
+text and then the heading text should display in our .
+
+121
+00:10:14,800 --> 00:10:23,130
+And if we check it out and click submit then you can see this is how it's meant to work. Did you manage
+
+122
+00:10:23,130 --> 00:10:24,110
+to get it right?
+
+123
+00:10:24,240 --> 00:10:29,290
+If not head back to your code and see if you can fix it and get it to work.
+
+124
+00:10:29,490 --> 00:10:37,050
+Now the very last thing I want to show you regarding forms is normally we're used to putting our inputs
+
+125
+00:10:37,140 --> 00:10:41,970
+and our submit buttons inside an HTML form component
+
+126
+00:10:42,240 --> 00:10:51,670
+and so it would look something like this. And maybe you would have the button type being set to submit
+
+127
+00:10:52,150 --> 00:10:58,140
+so that if you had multiple buttons it's only this one that would trigger the submission of the form.
+
+128
+00:10:58,750 --> 00:11:06,430
+But even if I didn't have this type submit, notice what happens when I have a button inside a form component
+
+129
+00:11:06,820 --> 00:11:08,110
+and I click on it.
+
+130
+00:11:08,590 --> 00:11:16,540
+So if I go ahead and type my name in here, I'm expecting it to show up in the , but if I click on submit
+
+131
+00:11:16,540 --> 00:11:24,700
+right now see how it added it to the  but then it quickly refreshed the app. And this is the default
+
+132
+00:11:24,700 --> 00:11:31,570
+behavior of form components in HTML. They refresh in order to submit, make a post request or make
+
+133
+00:11:31,570 --> 00:11:35,010
+a get request and refreshes the page.
+
+134
+00:11:35,290 --> 00:11:44,710
+And what happens is when you click on the button inside the form especially if this is the submit button,
+
+135
+00:11:45,280 --> 00:11:50,800
+then it actually triggers a method on the form called onSubmit.
+
+136
+00:11:50,950 --> 00:11:59,590
+So you can in fact set this to the handler or whatever it is you decide to do when that button gets
+
+137
+00:11:59,590 --> 00:12:00,120
+clicked
+
+138
+00:12:00,580 --> 00:12:07,600
+and this has the same effect. When the button gets clicked inside the form it triggers the onSubmit
+
+139
+00:12:07,660 --> 00:12:12,710
+of the form and calls the function that you have designated.
+
+140
+00:12:12,730 --> 00:12:16,460
+So now we haven't actually improved anything,
+
+141
+00:12:16,540 --> 00:12:22,380
+it still refreshes. But we can now address it inside the handleClick function.
+
+142
+00:12:22,510 --> 00:12:28,270
+So we know that we get an event passed whenever one of these event handlers get triggered.
+
+143
+00:12:28,270 --> 00:12:34,990
+So we can catch that event inside this function and right at the end of the function once we've done
+
+144
+00:12:34,990 --> 00:12:41,560
+everything it is that we want to do, we can get the event to call preventDefault.
+
+145
+00:12:41,830 --> 00:12:49,480
+And this is a method that basically prevents the default next behavior of the event which in our case
+
+146
+00:12:49,510 --> 00:12:55,660
+if it's coming from the form's onClick here, that is going to be refreshing the page.
+
+147
+00:12:55,660 --> 00:13:01,510
+So now if I go ahead and type in my name and click submit, you'll notice that it gets added to the heading
+
+148
+00:13:01,810 --> 00:13:04,720
+without the default behavior of the submission.
+
+149
+00:13:05,200 --> 00:13:11,650
+So that's just a quick note that comes in really handy when you're working with forms in React. In the
+
+150
+00:13:11,650 --> 00:13:12,450
+next lesson
+
+151
+00:13:12,460 --> 00:13:19,300
+I want to take you on a brief tour and compare using classes vs. hooks to manage states.
+
+152
+00:13:19,390 --> 00:13:22,810
+We saw classes being mentioned in the React documentation.
+
+153
+00:13:22,870 --> 00:13:28,820
+So I want to demystify the concept and talk about why React is moving to hooks instead.
+
+154
+00:13:29,140 --> 00:13:34,540
+And after that, we're going to learn how to manage more complex states including how to save JavaScript
+
+155
+00:13:34,630 --> 00:13:37,200
+objects using the useState hook.
+
+156
+00:13:37,210 --> 00:13:39,930
+So for all of that and more, I'll see you there.
+

@@ -1,0 +1,408 @@
+1
+00:00:00,170 --> 00:00:04,490
+Now, a website would be pretty boring if it had no images on it, right?
+
+2
+00:00:04,490 --> 00:00:11,330
+So in this lesson we're going to learn how we can add images to our website using the image element.
+
+3
+00:00:11,720 --> 00:00:13,430
+Now this is what it looks like.
+
+4
+00:00:13,430 --> 00:00:14,660
+It's pretty simple.
+
+5
+00:00:14,660 --> 00:00:20,630
+And you'll notice that similar to the anchor tag or the anchor element that we learned about in the
+
+6
+00:00:20,630 --> 00:00:27,950
+last lesson, the main component of an image tag that renders the image is this attribute, which is
+
+7
+00:00:27,950 --> 00:00:30,410
+called source or src.
+
+8
+00:00:30,950 --> 00:00:38,810
+And what this does is it tells the image element what is the source of the image.
+
+9
+00:00:39,710 --> 00:00:47,510
+And that's why after the equal sign, the value is going to be the location of the image.
+
+10
+00:00:48,650 --> 00:00:56,300
+One last thing to notice about the image tag is, unlike the anchor tag, it doesn't have a closing
+
+11
+00:00:56,330 --> 00:00:56,960
+tag.
+
+12
+00:00:56,960 --> 00:01:03,540
+Instead, it is a self closing tag, also known as a void element.
+
+13
+00:01:03,570 --> 00:01:09,390
+Remember, previously we learned about void elements where we learnt that you can have horizontal rule
+
+14
+00:01:09,390 --> 00:01:12,540
+elements, you can also have break elements.
+
+15
+00:01:12,540 --> 00:01:19,230
+And similarly the image element is also a void element that doesn't have a closing tag.
+
+16
+00:01:19,230 --> 00:01:23,150
+Because if you think about it, what is the text content of an image?
+
+17
+00:01:23,170 --> 00:01:24,390
+Doesn't really make sense, right?
+
+18
+00:01:24,390 --> 00:01:29,970
+The main content is actually the image that will be rendered from the source.
+
+19
+00:01:30,390 --> 00:01:31,800
+What does this look like?
+
+20
+00:01:31,800 --> 00:01:39,810
+Well, here's an example image element where we've set the source to a real life live photo on the Internet.
+
+21
+00:01:40,110 --> 00:01:44,940
+Now, when this code is rendered in a website, it will display a random image.
+
+22
+00:01:44,940 --> 00:01:48,570
+So in this case, the random image I got was a forest.
+
+23
+00:01:48,780 --> 00:01:56,430
+And the reason why it's random is because I'm getting these photos from a source called picsum.photos.
+
+24
+00:01:56,430 --> 00:02:02,460
+So if you type this into your browser, you should see a website and the idea is kind of like the Lorem
+
+25
+00:02:02,460 --> 00:02:05,310
+ipsum for placeholder photos.
+
+26
+00:02:05,310 --> 00:02:11,220
+So when you don't really care what the photo is, but you need a photo on your website as you're creating
+
+27
+00:02:11,220 --> 00:02:17,070
+it in order to see what it would look like, then you could use this website and you could put in the
+
+28
+00:02:17,100 --> 00:02:21,390
+URL, which is the standard one like here.
+
+29
+00:02:21,390 --> 00:02:26,040
+And then after a forward slash, you can add in the size of your image.
+
+30
+00:02:26,040 --> 00:02:32,640
+So in this case, I'm saying I want a square that is 200 pixels by 200 pixels.
+
+31
+00:02:32,880 --> 00:02:38,400
+It gives me a random image from its data bank, for example, in this case of a forest.
+
+32
+00:02:38,670 --> 00:02:47,160
+The other attribute for an image tag that's super important and one that you should always have is the,
+
+33
+00:02:47,160 --> 00:02:48,480
+"alt" attribute.
+
+34
+00:02:48,690 --> 00:02:53,820
+And the alt attribute stands for Alternative Text Description.
+
+35
+00:02:54,030 --> 00:02:59,910
+This is really important because people who are blind or visually impaired, they don't look at the
+
+36
+00:02:59,910 --> 00:03:01,440
+Internet the same way we do.
+
+37
+00:03:01,440 --> 00:03:03,780
+They often use something called a screen reader.
+
+38
+00:03:03,780 --> 00:03:10,830
+And what the screen reader is going to do when it hits an image is it will look at the alternative text
+
+39
+00:03:10,830 --> 00:03:11,760
+provided.
+
+40
+00:03:11,760 --> 00:03:17,460
+So in this case, I've provided that this is a forest at sunset or sunrise.
+
+41
+00:03:17,460 --> 00:03:22,830
+I'm not quite sure, but that means that the person with visual impairment will get this read out to
+
+42
+00:03:22,830 --> 00:03:26,760
+them and it will help them understand what the website's all about.
+
+43
+00:03:26,790 --> 00:03:29,400
+So what is this process like?
+
+44
+00:03:29,610 --> 00:03:36,840
+As an example, I'm using the Silktide Toolbar, which is a Chrome browser extension, to simulate what
+
+45
+00:03:36,870 --> 00:03:40,530
+a person with visual impairment might hear as they're browsing,
+
+46
+00:03:40,530 --> 00:03:42,420
+in this case, the BBC website.
+
+47
+00:03:42,510 --> 00:03:48,300
+As I click through next, you can see it describes the different things that are on screen.
+
+48
+00:03:48,300 --> 00:03:53,670
+And if I go over to the image, it describes the image for me.
+
+49
+00:03:55,380 --> 00:03:58,740
+"Item 2, Dolphin leaping from the sea - image.
+
+50
+00:03:58,770 --> 00:04:01,470
+So where is it getting this description from?
+
+51
+00:04:01,470 --> 00:04:08,070
+Well, if we right click on the image and inspect it, and if we look for the image, which I think
+
+52
+00:04:08,100 --> 00:04:14,490
+should be down here, you can see as I highlight different parts, it shows me which part.
+
+53
+00:04:14,490 --> 00:04:22,350
+So in this element, I'm probably going to find an image at the end right here and you can see the alt
+
+54
+00:04:22,380 --> 00:04:25,590
+text saying, "Dolphin leaping from the sea."
+
+55
+00:04:25,590 --> 00:04:30,630
+And that is what gets read out from the screen reader helping somebody with blindness
+
+56
+00:04:30,660 --> 00:04:33,570
+be able to understand what's on this website.
+
+57
+00:04:34,410 --> 00:04:40,860
+Now, if you want to check out this tool, it's a Chrome browser extension called Silktide and it should
+
+58
+00:04:40,860 --> 00:04:48,030
+be a free plugin, but it might only work on Mac or certain versions of Windows, but it's not so much
+
+59
+00:04:48,030 --> 00:04:55,590
+about the tool, but I wanted to show you how important it is the alt text that you provide for accessibility
+
+60
+00:04:55,590 --> 00:04:58,620
+and for disabled users browsing your website.
+
+61
+00:04:58,710 --> 00:04:59,730
+Now let's try
+
+62
+00:04:59,780 --> 00:05:02,930
+an exercise and create some images of our own.
+
+63
+00:05:03,080 --> 00:05:10,280
+Download the zip file from this current lesson and go ahead and drag it into your Web Development Project
+
+64
+00:05:10,280 --> 00:05:13,400
+folder and open it inside VS Code.
+
+65
+00:05:13,610 --> 00:05:21,110
+If you take a look inside the index.html, you can see I've provided to you two image URL examples that
+
+66
+00:05:21,110 --> 00:05:22,320
+you can use.
+
+67
+00:05:22,340 --> 00:05:28,610
+And what we're aiming for is to find out if you're a cat person or if you're a dog person.
+
+68
+00:05:28,760 --> 00:05:34,430
+I want you to create a h1 that says, "I'm a cat person," or "I'm a dog person."
+
+69
+00:05:34,430 --> 00:05:39,350
+And also I want you to add an image element straight afterwards.
+
+70
+00:05:39,380 --> 00:05:44,970
+Now, you can use the URL for the dog or for the cat.
+
+71
+00:05:44,990 --> 00:05:50,960
+It doesn't really matter at the end of the day, as long as you've understood how to create images.
+
+72
+00:05:51,140 --> 00:05:52,640
+That's the challenge.
+
+73
+00:05:52,670 --> 00:05:55,760
+Pause the video and give that a go.
+
+74
+00:05:58,260 --> 00:05:58,680
+All right.
+
+75
+00:05:58,680 --> 00:06:02,280
+So personally, I'm more of a dog kind of person.
+
+76
+00:06:02,280 --> 00:06:08,680
+And if you're also a dog person, then you might see my little Easter egg that I've buried in there.
+
+77
+00:06:08,700 --> 00:06:16,570
+So first, let's go ahead and create our h1, and then we're going to create our image.
+
+78
+00:06:16,590 --> 00:06:22,530
+Remember, we create an image tag and it's a self-closing tag.
+
+79
+00:06:22,560 --> 00:06:33,630
+Then we add in our source as the image source, and we're going to put our URL right inside there.
+
+80
+00:06:34,110 --> 00:06:40,650
+Now, already, if we go ahead and show preview, you can see our little dog digging in the sand
+
+81
+00:06:40,680 --> 00:06:46,350
+because if you've noticed, this is actually a gif image.
+
+82
+00:06:46,620 --> 00:06:52,200
+GIF images work exactly the same way as normal images, JPEGs or PNGs.
+
+83
+00:06:52,230 --> 00:06:57,780
+As long as you put it into the source, it will be rendered in a website and it will start animating
+
+84
+00:06:57,880 --> 00:06:58,990
+all by itself.
+
+85
+00:06:58,990 --> 00:07:01,810
+And you get a cute little dog digging through the sand.
+
+86
+00:07:02,110 --> 00:07:08,500
+Now if you're a cat person, then this is just a static jpeg because cats are more chill.
+
+87
+00:07:09,790 --> 00:07:12,880
+So I hope you managed to get that part right.
+
+88
+00:07:13,120 --> 00:07:17,530
+But we haven't finished creating our image element yet.
+
+89
+00:07:17,560 --> 00:07:20,530
+Remember what I said about the alt tag?
+
+90
+00:07:20,530 --> 00:07:25,990
+It's a good idea to always add an alt tag to describe our image when we can.
+
+91
+00:07:26,020 --> 00:07:31,990
+Now, there are some cases where you don't create an alt tag because it's not really relevant to somebody
+
+92
+00:07:31,990 --> 00:07:36,400
+reading through the content of a website and you can in fact leave it blank.
+
+93
+00:07:36,850 --> 00:07:38,710
+But in this case, it's very simple,
+
+94
+00:07:38,710 --> 00:07:43,630
+we've got a puppy who is digging through the sand.
+
+95
+00:07:44,800 --> 00:07:51,970
+And now when we take a look at our preview, then nothing visually for us changes.
+
+96
+00:07:51,970 --> 00:07:57,550
+But behind the scenes, we will help our visually impaired friends to be able to understand our website
+
+97
+00:07:57,550 --> 00:07:58,900
+just a little bit better.
+
+98
+00:07:59,230 --> 00:08:03,310
+So I hope you managed to achieve either of these goals.
+
+99
+00:08:03,310 --> 00:08:09,130
+And once you're ready, we can head over to the next lesson where we've got the final project to create
+
+100
+00:08:09,160 --> 00:08:14,410
+a birthday invite website using all the skills that we've learned so far.
+
+101
+00:08:14,410 --> 00:08:16,250
+So all of that and more,
+
+102
+00:08:16,270 --> 00:08:17,110
+I'll see you there.
+

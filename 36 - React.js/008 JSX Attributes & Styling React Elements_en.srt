@@ -1,0 +1,688 @@
+1
+00:00:00,290 --> 00:00:00,950
+Hey guys.
+
+2
+00:00:01,290 --> 00:00:09,820
+So far our React websites have looked pretty ugly and it's because we haven't been able to add any CSS
+
+3
+00:00:09,820 --> 00:00:11,250
+styling.
+
+4
+00:00:11,250 --> 00:00:16,920
+We've been using these standard HTML elements that were rendering using React.
+
+5
+00:00:17,040 --> 00:00:23,970
+So in this lesson I want to talk about how to style your React elements and how you can use attributes
+
+6
+00:00:24,390 --> 00:00:26,690
+in JSX.
+
+7
+00:00:26,700 --> 00:00:35,670
+Go ahead and get hold of your own copy of this current code sandbox and then go ahead and fork it.
+
+8
+00:00:35,910 --> 00:00:41,970
+So if you remember from our lessons on CSS, let's say that we wanted to change this
+
+9
+00:00:42,000 --> 00:00:45,300
+h1's color to red,
+
+10
+00:00:45,390 --> 00:00:51,450
+then we might go into our styles.css and create a class style.
+
+11
+00:00:51,810 --> 00:00:57,850
+So let's just call it heading and then we change the color to red.
+
+12
+00:00:57,870 --> 00:01:00,030
+So pretty simple style.
+
+13
+00:01:00,180 --> 00:01:08,460
+Now if we head back into our index.js, if this was actually an HTML file then adding that class
+
+14
+00:01:08,460 --> 00:01:15,320
+to this h1 would be as easy as adding a class attribute and setting it to heading.
+
+15
+00:01:15,330 --> 00:01:18,170
+Now in this case it still works.
+
+16
+00:01:18,270 --> 00:01:26,850
+And when we apply this heading class style from over here into our h1, you can see that it does in fact
+
+17
+00:01:26,910 --> 00:01:28,800
+change the color to red.
+
+18
+00:01:29,010 --> 00:01:31,230
+But let's see what problems we get.
+
+19
+00:01:31,230 --> 00:01:39,330
+If I pop this out in a new window and we go ahead and hit COMMAND + OPTION +I to bring up all Chrome developer
+
+20
+00:01:39,330 --> 00:01:46,920
+tools and in the console here you'll see that you get a warning saying invalid DOM property class, did
+
+21
+00:01:46,920 --> 00:01:48,680
+you mean 'className'?
+
+22
+00:01:49,290 --> 00:01:57,000
+So remember that this, even though it looks like HTML, it's still being rendered down to JavaScript. And
+
+23
+00:01:57,060 --> 00:02:04,800
+in JavaScript the property to access all of the classes that exist on an element is a property called
+
+24
+00:02:04,890 --> 00:02:07,000
+class name.
+
+25
+00:02:07,050 --> 00:02:14,520
+Now React has done some handling behind the scenes so that even if you did leave this as class, it
+
+26
+00:02:14,520 --> 00:02:16,170
+would still work.
+
+27
+00:02:16,350 --> 00:02:20,240
+But there are some hairy situations that you might get yourself into.
+
+28
+00:02:20,790 --> 00:02:27,390
+And the proper name of this attribute is class name. And you'll see that as soon as I change this to
+
+29
+00:02:27,390 --> 00:02:30,540
+class name and we go back and reload this site
+
+30
+00:02:30,540 --> 00:02:35,090
+now that warning goes away. While we here
+
+31
+00:02:35,190 --> 00:02:41,910
+if you're curious what this warning is about and why it's telling us that in our inde.js file
+
+32
+00:02:42,300 --> 00:02:46,350
+on line 1, it doesn't recognize this angle bracket.
+
+33
+00:02:46,860 --> 00:02:53,850
+Well the reason is because it doesn't know that this index.js file is in fact a JSX file
+
+34
+00:02:54,060 --> 00:03:00,630
+that includes HTML elements rather than just a bog standard normal JavaScript file.
+
+35
+00:03:00,630 --> 00:03:04,370
+So how can we tell it that this is a JSX file?
+
+36
+00:03:04,380 --> 00:03:10,630
+Well if we go into our index.html and the place where we're importing our script here,
+
+37
+00:03:10,830 --> 00:03:19,320
+normally when we add a JavaScript script we provide the source and we provide the type as a text file
+
+38
+00:03:19,350 --> 00:03:25,680
+with Javascript code. But in our case this is still a text file but it's now JSX code.
+
+39
+00:03:25,680 --> 00:03:33,530
+So we've got to change this to JSX and if we hit save we go back and reload our website.
+
+40
+00:03:33,600 --> 00:03:40,080
+You'll notice that warning is now gone because it knows that this is a JSX file that can includes
+
+41
+00:03:40,170 --> 00:03:42,890
+HTML-like code.
+
+42
+00:03:43,050 --> 00:03:50,400
+The other thing that some of you guys might have noticed is that when we add an attribute in normal
+
+43
+00:03:50,460 --> 00:03:59,460
+HTML, it's not camelcase like this where the first word is lowercase and the next words are capitalized
+
+44
+00:04:00,030 --> 00:04:01,710
+like the end for name here.
+
+45
+00:04:02,310 --> 00:04:05,520
+Instead it looks like this.
+
+46
+00:04:05,550 --> 00:04:09,350
+So here I've got a list of all the HTML global attributes.
+
+47
+00:04:09,420 --> 00:04:13,470
+So these attributes can be used on any HTML element.
+
+48
+00:04:13,470 --> 00:04:16,950
+And one of these is called contenteditable.
+
+49
+00:04:16,950 --> 00:04:20,800
+And notice how it's not camel cased, it's all one word.
+
+50
+00:04:20,970 --> 00:04:27,900
+But when we head back to our JSX file the convention that you should follow is to name it like as
+
+51
+00:04:27,900 --> 00:04:29,360
+if it's Javascript.
+
+52
+00:04:29,490 --> 00:04:36,930
+So if it's called contenteditable then we're going to call it contentEditable and you can see that
+
+53
+00:04:36,930 --> 00:04:43,610
+already the auto suggest from the JSX code completion is telling me to write it
+
+54
+00:04:43,680 --> 00:04:47,850
+camel case like so and let's set it to true.
+
+55
+00:04:47,850 --> 00:04:57,930
+Now if I hit save and go ahead and click on my h1 you can see that it's now a editable element. And if
+
+56
+00:04:57,930 --> 00:05:06,570
+we set it to false then this is not editable like a normal h1 should be.
+
+57
+00:05:06,570 --> 00:05:13,770
+So if I change this back to the HTML attributes style where everything is not camelcase and
+
+58
+00:05:13,770 --> 00:05:14,820
+I hit save,
+
+59
+00:05:14,910 --> 00:05:18,540
+you'll notice that it no longer works the same. Again
+
+60
+00:05:18,660 --> 00:05:27,930
+I lose my Javascript powers. So remember that whenever you're writing attributes in HTML  to make them
+
+61
+00:05:28,020 --> 00:05:29,320
+camel cased.
+
+62
+00:05:29,700 --> 00:05:37,300
+Anything that you know of from HTML attributes you have to change it to the camel case version.
+
+63
+00:05:37,380 --> 00:05:44,070
+So if I go ahead and make my h1 editable again by setting this to true and I start typing some mumbo
+
+64
+00:05:44,070 --> 00:05:50,120
+jumbo, you can see that normally if you're within Chrome you get your spellcheck activated.
+
+65
+00:05:50,250 --> 00:05:57,270
+Go ahead and pause the video and take a look at this list of global attributes to see if there's a way
+
+66
+00:05:57,270 --> 00:06:02,820
+for you to turn off the spellcheck so that we no longer get these red underline
+
+67
+00:06:02,820 --> 00:06:06,420
+happening here. Pause the video and try to complete this challenge.
+
+68
+00:06:09,230 --> 00:06:09,630
+All right.
+
+69
+00:06:09,650 --> 00:06:16,880
+So as you can see we have a attribute called spellcheck and we can specify whether if the element is to
+
+70
+00:06:16,880 --> 00:06:24,710
+have it's spelling checked. Let's go ahead and convert this attribute all lowercase into camel case and
+
+71
+00:06:24,770 --> 00:06:28,010
+add it as an attribute in our JSX file.
+
+72
+00:06:28,430 --> 00:06:33,530
+So already we've got spellcheck being suggested to us and I'm going to set it to false.
+
+73
+00:06:33,590 --> 00:06:41,330
+So now when I start editing my h1 and writing some complete gibberish, it's not trying to check
+
+74
+00:06:41,390 --> 00:06:49,220
+my spelling anymore. So the most common attribute that you're gonna be adding is going to be the class
+
+75
+00:06:49,220 --> 00:06:56,250
+name because this is the preferred way to add styling to your React elements.
+
+76
+00:06:56,450 --> 00:07:03,020
+And as you'll see in the next lesson, while there are other ways that we can style these elements including
+
+77
+00:07:03,080 --> 00:07:11,180
+inline styling the documentation still recommends to apply all your styling through classes that you
+
+78
+00:07:11,180 --> 00:07:20,380
+specify within a CSS file and then applying it to your JSX file using this class name attribute.
+
+79
+00:07:20,390 --> 00:07:26,480
+Now remember that just because we're using React to create these HTML  elements and we're learning
+
+80
+00:07:26,480 --> 00:07:34,550
+about how to use these attributes in JSX, the rest of what you've learned about CSS or HTML doesn't
+
+81
+00:07:34,670 --> 00:07:36,380
+just become invalid
+
+82
+00:07:36,380 --> 00:07:36,710
+right?
+
+83
+00:07:37,100 --> 00:07:45,530
+So for example I've got a ul here with a bunch of list items and I can just as I would in normal CSS
+
+84
+00:07:45,860 --> 00:07:54,230
+target the ul elements on my page just by writing the word ul and then I go ahead and change the color
+
+85
+00:07:54,260 --> 00:07:56,150
+to blue.
+
+86
+00:07:56,240 --> 00:08:06,120
+And now when I go back and refresh my page my ul or my unordered list should turn blue.
+
+87
+00:08:06,170 --> 00:08:08,920
+So in this case I'm not adding any attribute.
+
+88
+00:08:09,110 --> 00:08:16,040
+I'm simply saying that on the page if there are any unordered list items make sure that everything inside
+
+89
+00:08:16,130 --> 00:08:23,050
+all of its children gets turned blue. So you can target classes using CSS,
+
+90
+00:08:23,140 --> 00:08:30,610
+you can target IDs and you can target HTML  elements directly as well. Although in reality, it'd be very
+
+91
+00:08:30,610 --> 00:08:32,950
+rare for you to just broad-stroke
+
+92
+00:08:32,950 --> 00:08:41,860
+tell all of the UI elements from now until forever to have a particular style like what we've done here.
+
+93
+00:08:41,980 --> 00:08:48,590
+Now I'm going to go ahead and delete this unordered lists and I'm going to replace it with a div.
+
+94
+00:08:48,640 --> 00:08:59,500
+Now inside this div I'm going to add three image elements and these are images I found in Google to
+
+95
+00:08:59,530 --> 00:09:05,710
+replace each of those things that I've listed in my unordered list.
+
+96
+00:09:05,740 --> 00:09:08,590
+Now here's a challenge for you.
+
+97
+00:09:09,100 --> 00:09:18,100
+I want you to do the same thing namely create three image elements like what I've done here and to find
+
+98
+00:09:18,550 --> 00:09:27,250
+images via google image search and then to copy the image address and paste it in as the source of the
+
+99
+00:09:27,250 --> 00:09:28,230
+image.
+
+100
+00:09:28,300 --> 00:09:38,320
+But here's the catch. I want you to use CSS to change each of these images to have the same size, to be
+
+101
+00:09:38,410 --> 00:09:50,300
+squares 100 pixels by 100 pixels. Pause the video and try to complete this challenge.
+
+102
+00:09:50,570 --> 00:09:50,900
+All right.
+
+103
+00:09:50,930 --> 00:09:58,090
+So we know that in order to change each of these images to 100 by 100, we have to change something
+
+104
+00:09:58,100 --> 00:09:59,560
+in our CSS.
+
+105
+00:09:59,660 --> 00:10:07,520
+Now what I want to do is I want to create a class which I'll called food-img and remember that
+
+106
+00:10:07,550 --> 00:10:15,260
+in CSS the convention for all of these essentially variable names that you're creating is what's called
+
+107
+00:10:15,410 --> 00:10:16,520
+kebab case.
+
+108
+00:10:16,520 --> 00:10:20,620
+So they're all lowercase and they're separated by a dash.
+
+109
+00:10:20,660 --> 00:10:26,870
+Now for all of the elements which get the food-img class I'm going to change its height to 100 pixels
+
+110
+00:10:27,530 --> 00:10:32,260
+and its width to a 100 pixels as well.
+
+111
+00:10:32,300 --> 00:10:40,880
+Now all I have to do is to apply that class to all three of these image elements. And a neat trick inside
+
+112
+00:10:40,970 --> 00:10:49,040
+code sandbox is you can hold down the OPTION or ALT key on your keyboard and take your cursor to all
+
+113
+00:10:49,040 --> 00:10:54,640
+the places where you want to type simultaneously you can see it's now flashing on three lines.
+
+114
+00:10:54,890 --> 00:11:03,110
+And here I'm going to add a new attribute called class name and I'm going to set that to equal to that
+
+115
+00:11:03,110 --> 00:11:07,730
+class name that I created just now which is called food-img.
+
+116
+00:11:07,850 --> 00:11:16,370
+And now when we hit save and we refresh our website you can see that they are now all rendered as 100
+
+117
+00:11:16,370 --> 00:11:29,330
+by 100 pixel images because my CSS is being applied. Now you can also insert JavaScript as an attribute.
+
+118
+00:11:29,370 --> 00:11:37,440
+So for example let's use a service called Lorem Picsum where they generate stylish random images
+
+119
+00:11:37,560 --> 00:11:43,600
+just by tapping into a particular URL and specifying the size.
+
+120
+00:11:43,620 --> 00:11:49,510
+So I'm gonna go ahead and copy this URL for the image and then I'm going to create it as a constant and
+
+121
+00:11:49,560 --> 00:11:57,000
+I'm going to call it img.  And then inside here I'm going to paste a string that holds the URL for
+
+122
+00:11:57,060 --> 00:11:59,580
+a random photo from Picsum.
+
+123
+00:11:59,850 --> 00:12:10,650
+And now inside my div I'm gonna create a image element and I'm gonna add the source to be equal to this
+
+124
+00:12:10,710 --> 00:12:14,100
+particular image constant.
+
+125
+00:12:14,130 --> 00:12:18,840
+So as soon as I do that you can see that it shows up over here
+
+126
+00:12:18,840 --> 00:12:24,690
+and if I hit save in fact, you'll see that this closing tag for the image element should disappear and
+
+127
+00:12:24,690 --> 00:12:30,660
+it turns into a self closing tag because there are no children or there's nothing in between the opening
+
+128
+00:12:30,660 --> 00:12:32,250
+and closing tags.
+
+129
+00:12:32,250 --> 00:12:42,270
+Now remember that normally if you wrote code like this in HTML  where it just has the opening part and
+
+130
+00:12:42,270 --> 00:12:45,900
+no closing part, HTML will forgive you for this.
+
+131
+00:12:45,960 --> 00:12:54,450
+You can see that if I go ahead and cut this out of my JSX file and paste it into my actual HTML 
+
+132
+00:12:54,630 --> 00:13:03,210
+inside this div, you can see that it will work if I have this backslash which denotes a self closing
+
+133
+00:13:03,630 --> 00:13:06,810
+HTML  element or if I don't,
+
+134
+00:13:06,810 --> 00:13:13,150
+which is actually just the opening tag. HTML is really very forgiving
+
+135
+00:13:13,350 --> 00:13:20,400
+but JSX is not so forgiving. If you don't have this closing tag then this is not valid
+
+136
+00:13:20,400 --> 00:13:29,730
+JSX and you will get an error telling you "Unterminated JSX contents" and we have to add a termination
+
+137
+00:13:29,730 --> 00:13:32,700
+to say that this is the end of this element.
+
+138
+00:13:34,440 --> 00:13:44,400
+In this lesson we've seen how we can use Javascript properties as attributes in our JSX, so all of
+
+139
+00:13:44,400 --> 00:13:51,000
+the attributes that you are already familiar with from HTML such as src or href
+
+140
+00:13:51,030 --> 00:13:57,600
+or all of those things you can use in your JSX. But for all of the attributes that have more than one
+
+141
+00:13:57,600 --> 00:14:04,640
+word, then you have to turn it into a camelcased version of it in order for it to work.
+
+142
+00:14:04,650 --> 00:14:12,960
+We also saw that you can use Javascript expressions as the values for the attributes as long as you
+
+143
+00:14:12,960 --> 00:14:16,520
+include them inside a set of curly braces.
+
+144
+00:14:16,620 --> 00:14:23,760
+So for example Picsum allows you to turn all the images into grayscale by appending this query
+
+145
+00:14:23,760 --> 00:14:26,500
+"?grayscale" to the end of the URL.
+
+146
+00:14:26,610 --> 00:14:35,700
+So in our case we can simply change our Javascript expression to be the image URL plus the
+
+147
+00:14:35,700 --> 00:14:37,480
+?grayscale.
+
+148
+00:14:37,860 --> 00:14:47,940
+And now when you refresh it should show you all the images but converted to grayscale. And we're able
+
+149
+00:14:47,940 --> 00:14:56,670
+to do this because we're able to use Javascript as the value of our attributes. Now if you're wondering
+
+150
+00:14:56,700 --> 00:14:58,720
+why we're getting so many warnings
+
+151
+00:14:58,740 --> 00:15:06,930
+well it's because code sandbox comes pre-built with a linter from eslint. So it will pick up on the
+
+152
+00:15:06,930 --> 00:15:09,250
+things that you're not doing quite right.
+
+153
+00:15:09,270 --> 00:15:16,590
+So for example in terms of our image elements, we should always have a alt text that describes to people
+
+154
+00:15:16,650 --> 00:15:23,340
+who aren't able to see, who are looking at these websites through screen readers etc., what these images
+
+155
+00:15:23,640 --> 00:15:24,600
+are actually of.
+
+156
+00:15:25,050 --> 00:15:31,460
+So if we add some alt text in all of these places, we'll write
+
+157
+00:15:31,630 --> 00:15:33,450
+alt equals
+
+158
+00:15:35,650 --> 00:15:40,460
+something space and we can say that this one is random,
+
+159
+00:15:40,570 --> 00:15:46,980
+this one is bacon and this one is jamon
+
+160
+00:15:47,560 --> 00:15:50,290
+and this one is going to be noodles.
+
+161
+00:15:50,920 --> 00:15:58,060
+So now we get rid of all our warnings from the linter and we provide people with screen readers, who can't
+
+162
+00:15:58,060 --> 00:16:05,090
+see, a better description of what's actually on the screen. So I'm going to include the code in this completed
+
+163
+00:16:05,090 --> 00:16:07,940
+lesson as a link in the course resources.
+
+164
+00:16:08,330 --> 00:16:13,670
+So if there's anything that you want to mess around with and especially revisit some of those topics
+
+165
+00:16:13,670 --> 00:16:18,920
+that we discussed in this lesson and trying it out for yourself if you haven't already.
+
+166
+00:16:18,920 --> 00:16:25,700
+If this is at all confusing I really recommend to just delete the whole thing and then try to recreate
+
+167
+00:16:25,820 --> 00:16:32,510
+the end website yourself and see if you can achieve the same results using the things that you've learned
+
+168
+00:16:32,540 --> 00:16:38,210
+in this lesson. And you can always refer to this completed code whenever you need to.
+
+169
+00:16:38,420 --> 00:16:45,860
+Just take a moment, take a breath and try to get used to this idea of using these attributes and using
+
+170
+00:16:45,860 --> 00:16:49,220
+it to style you'll React elements.
+
+171
+00:16:49,640 --> 00:16:54,770
+Once you're done and comfortable, then head over to the next lesson where we're going to talk more about
+
+172
+00:16:54,950 --> 00:16:57,080
+inline styling in JSX.
+

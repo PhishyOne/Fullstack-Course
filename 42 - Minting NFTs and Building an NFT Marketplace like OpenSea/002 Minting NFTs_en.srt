@@ -1,0 +1,776 @@
+1
+00:00:00,240 --> 00:00:00,630
+All right.
+
+2
+00:00:00,630 --> 00:00:02,340
+So let's get started.
+
+3
+00:00:02,410 --> 00:00:09,600
+And to get started, I want you to head over to the course resources in this Udemy lesson and download
+
+4
+00:00:09,600 --> 00:00:19,620
+the open starter compressed zip file and then go ahead and unzip it and move the folder to your project
+
+5
+00:00:19,620 --> 00:00:20,070
+folder.
+
+6
+00:00:21,360 --> 00:00:27,270
+So I'm going to drag it into my ic-projects and then I'm going to open it up inside VSCode.
+
+7
+00:00:28,320 --> 00:00:35,610
+Now if you take a look through the source folder, you'll see that we've got a main.mo file which
+
+8
+00:00:35,610 --> 00:00:37,140
+has basically nothing in it.
+
+9
+00:00:37,920 --> 00:00:45,960
+And then we've got our assets file which contains most of the frontend with a lot of the HTML already
+
+10
+00:00:45,960 --> 00:00:47,190
+written for you.
+
+11
+00:00:47,730 --> 00:00:54,930
+There's quite a lot of styling involved in this project, so there's long sort of class names, but
+
+12
+00:00:55,230 --> 00:01:02,160
+if you just see them for what they are, which is just individual HTML elements with some styling applied,
+
+13
+00:01:02,640 --> 00:01:04,290
+then it's pretty simple.
+
+14
+00:01:05,129 --> 00:01:12,720
+The part that we're going to focus on is to make sure that our backend and our frontend actually works
+
+15
+00:01:12,720 --> 00:01:13,590
+together nicely.
+
+16
+00:01:13,980 --> 00:01:16,710
+So we're going to be walking you through that step by step.
+
+17
+00:01:17,160 --> 00:01:23,430
+The first thing we're going to do in our project, though, is to actually create a new canister file.
+
+18
+00:01:23,790 --> 00:01:29,700
+Normally, we've always been working within the main.mo file, but in this case, because we're
+
+19
+00:01:29,700 --> 00:01:39,030
+building an NFT and each NFT is a new instantiated canister on the Internet computer blockchain, we
+
+20
+00:01:39,030 --> 00:01:44,670
+actually shouldn't really be building it within the main file because this is going to be the backend
+
+21
+00:01:44,670 --> 00:01:47,460
+for our NFT marketplace.
+
+22
+00:01:47,700 --> 00:01:49,560
+So it's the e-commerce part.
+
+23
+00:01:50,700 --> 00:01:55,110
+So the first thing we're going to do inside this source folder is we're going to create a new folder
+
+24
+00:01:55,470 --> 00:01:57,390
+which I'm going to call NFT.
+
+25
+00:01:58,020 --> 00:02:04,170
+And inside here I'm going to create a new file called nft.mo.
+
+26
+00:02:04,650 --> 00:02:06,210
+So this is our nft.
+
+27
+00:02:06,210 --> 00:02:06,990
+mo File.
+
+28
+00:02:07,800 --> 00:02:14,460
+In addition to creating the actual Motoko file, we also have to add it to the dfx.json.
+
+29
+00:02:14,880 --> 00:02:18,540
+So you can see in this JSON file, we've got all our canisters listed here.
+
+30
+00:02:18,960 --> 00:02:22,230
+We've got opend, which is the main.mo file,
+
+31
+00:02:23,370 --> 00:02:28,050
+we've got the opend_assets, which is our canister for our frontend,
+
+32
+00:02:28,590 --> 00:02:31,350
+and now we're going to add one more canister.
+
+33
+00:02:31,620 --> 00:02:35,490
+So you can either add it after this one or for simplicity's sake,
+
+34
+00:02:35,490 --> 00:02:42,570
+and I think it be less bug-prone, if you add it after this first opend canister after the comma, then
+
+35
+00:02:42,630 --> 00:02:46,020
+we can create our nft canister.
+
+36
+00:02:48,810 --> 00:02:50,610
+So let's add a comma here.
+
+37
+00:02:50,610 --> 00:02:58,440
+And then inside here we're going to declare our main, which is going to be the source of the location
+
+38
+00:02:58,440 --> 00:03:04,080
+of our source file for this canister, which is going to be inside the source folder, this one.
+
+39
+00:03:04,800 --> 00:03:12,060
+And then we have to go into the NFT folder, so /NFT/nft
+
+40
+00:03:12,060 --> 00:03:12,720
+.mo.
+
+41
+00:03:13,260 --> 00:03:17,430
+This is what you should have if you've named everything the same as me.
+
+42
+00:03:18,210 --> 00:03:24,900
+And then we're going to give it a type for the type of code that's inside there.
+
+43
+00:03:25,350 --> 00:03:27,270
+And it will be Motoko.
+
+44
+00:03:28,680 --> 00:03:29,010
+Cool.
+
+45
+00:03:29,490 --> 00:03:36,810
+Now we can go back to our nft.mo and we're going to create a new actor which we'll call NFT.
+
+46
+00:03:37,620 --> 00:03:45,570
+And then inside this actor, I'm going to add a simple debug just to make sure that it actually works.
+
+47
+00:03:45,990 --> 00:03:54,600
+So as usual, we import our debug from mo:base/Debug, and I'm going to do a debug.
+
+48
+00:03:54,660 --> 00:03:58,230
+print and I'm going to print
+
+49
+00:03:58,740 --> 00:03:59,910
+It works.
+
+50
+00:04:02,130 --> 00:04:07,440
+Once that's done, let's try and get it to actually initialize and work.
+
+51
+00:04:08,040 --> 00:04:12,090
+So bring up your terminal by going to new terminal.
+
+52
+00:04:12,450 --> 00:04:19,740
+And the first thing we're going to do is we're going to run npm install. And this is going to install
+
+53
+00:04:19,740 --> 00:04:24,610
+all of the pre-added requirements in the package.json.
+
+54
+00:04:24,630 --> 00:04:29,760
+There's quite a lot of things in there, and we've used a lot of those things before.
+
+55
+00:04:30,180 --> 00:04:38,430
+So if we go ahead and just run this command in our terminal in VSCode and grab a cup of tea, then
+
+56
+00:04:38,430 --> 00:04:40,530
+after a few minutes it should be done.
+
+57
+00:04:42,850 --> 00:04:43,150
+All right.
+
+58
+00:04:43,180 --> 00:04:51,400
+Once that's done and all our packages have installed, then we're ready to do the next part, which
+
+59
+00:04:51,400 --> 00:04:56,230
+is to spin up our local dfx with dfx start.
+
+60
+00:04:56,620 --> 00:05:05,080
+And once it's a running on localhost, then we can split off another terminal and here we can run dfx
+
+61
+00:05:05,140 --> 00:05:05,710
+deploy.
+
+62
+00:05:12,160 --> 00:05:18,160
+Now, once all your canisters are deployed, you should see over here in the panel where you've got
+
+63
+00:05:18,220 --> 00:05:20,540
+dfx start running printing
+
+64
+00:05:20,560 --> 00:05:27,670
+It works, and it comes from the canister, which is the ID for nft.mo.
+
+65
+00:05:28,090 --> 00:05:30,280
+So this is our NFT actor here.
+
+66
+00:05:31,240 --> 00:05:33,540
+If you manage to get to work here, then brilliant.
+
+67
+00:05:33,550 --> 00:05:40,330
+If it didn't work for you, one of the things you can try is try stopping the terminal here and then
+
+68
+00:05:40,330 --> 00:05:42,010
+rerunning dfx start.
+
+69
+00:05:42,700 --> 00:05:48,910
+Otherwise, check to make sure that you've got your dfx.json properly written and properly formatted
+
+70
+00:05:49,300 --> 00:05:53,560
+and that your files are named the same as mine.
+
+71
+00:05:53,980 --> 00:05:57,640
+And your file path is exactly how it should be.
+
+72
+00:05:57,970 --> 00:06:02,440
+There's many points of failure here, so just check a few things and go back in the video.
+
+73
+00:06:03,160 --> 00:06:10,360
+But once we've all gotten here and it says it works, then we can move on to actually creating the contract
+
+74
+00:06:10,360 --> 00:06:13,330
+for our new NFT canister.
+
+75
+00:06:14,110 --> 00:06:20,560
+This NFT is going to have to have a number of properties associated with it.
+
+76
+00:06:20,950 --> 00:06:23,890
+We might have a itemName, for example.
+
+77
+00:06:24,580 --> 00:06:27,610
+We might have a nftOwner.
+
+78
+00:06:28,660 --> 00:06:34,960
+We might also have something that will store the imageBytes, so the actual image data.
+
+79
+00:06:35,770 --> 00:06:41,830
+And in order to fill up these properties, we have to pass it in
+
+80
+00:06:41,860 --> 00:06:49,840
+when we create this new actor. Instead of simply creating our actors as we have done before, we're
+
+81
+00:06:49,840 --> 00:06:52,240
+going to create what's called an actor class.
+
+82
+00:06:52,930 --> 00:06:59,560
+Now, the reason why we're creating an actor class rather than a simple actor is because this is going
+
+83
+00:06:59,560 --> 00:07:03,070
+to allow us to create our canisters programmatically.
+
+84
+00:07:03,190 --> 00:07:09,070
+And that's really important if you're making a website that's going to allow people to mint their NFTs,
+
+85
+00:07:09,310 --> 00:07:15,580
+a place where they can upload that image and we can create that canister programmatically based on the
+
+86
+00:07:15,580 --> 00:07:18,460
+things that they've uploaded and the information they've provided.
+
+87
+00:07:19,760 --> 00:07:26,840
+So in order to change this to an actor class, we have to add the class keyword after the actor keyword
+
+88
+00:07:27,380 --> 00:07:33,850
+and then after the name of our actor class, we're going to provide the input,
+
+89
+00:07:34,370 --> 00:07:38,300
+so the data we're going to use to initialize this actor class.
+
+90
+00:07:38,930 --> 00:07:44,900
+Now, in our case, the things that we need is a piece of text for the name of the NFT.
+
+91
+00:07:45,560 --> 00:07:50,150
+We're going to need a owner, which is going to be passed in as a principal.
+
+92
+00:07:51,420 --> 00:07:57,660
+So that means we're going to have to import that principal type as well. And then we're going to need
+
+93
+00:07:57,690 --> 00:07:59,490
+to give it some content.
+
+94
+00:07:59,520 --> 00:08:07,710
+This is going to be the actual image data, which in our case we're going to store as an array of eight
+
+95
+00:08:07,710 --> 00:08:09,050
+bit natural numbers,
+
+96
+00:08:09,070 --> 00:08:12,150
+so Nat8 is the data type here.
+
+97
+00:08:13,820 --> 00:08:20,750
+We can actually store the image data in bytes through using an array of natural numbers.
+
+98
+00:08:21,290 --> 00:08:27,350
+Now the numbers will look pretty wild and you can take a look for yourself if you look in the read me.
+
+99
+00:08:28,220 --> 00:08:33,200
+You can see that it basically just looks like all of these random numbers.
+
+100
+00:08:33,650 --> 00:08:37,610
+But it's encoding the bits and bytes for our images.
+
+101
+00:08:38,600 --> 00:08:40,640
+Now, we're going to use the read me a little bit later on.
+
+102
+00:08:41,030 --> 00:08:45,680
+But right now, let's finish building up our NFT actor class.
+
+103
+00:08:46,950 --> 00:08:53,040
+What's going to happen is when we initialize this actor class, we're going to initialize it with all
+
+104
+00:08:53,040 --> 00:09:01,260
+of these values, and then we're going to use those values to set the properties for our NFT.
+
+105
+00:09:01,860 --> 00:09:05,940
+So our itemName is going to be equal to the name that's passed in,
+
+106
+00:09:06,300 --> 00:09:12,510
+the nftOwner is going to be equal to the owner that's passed in, and the imageBytes is going to be
+
+107
+00:09:12,510 --> 00:09:13,740
+equal to the content.
+
+108
+00:09:15,100 --> 00:09:20,920
+Now that we've defined all of this, we actually have all the code we need to create an NFT, believe
+
+109
+00:09:20,920 --> 00:09:28,000
+it or not, because each of these NFTs are going to have a unique thing which is going to be their unique
+
+110
+00:09:28,000 --> 00:09:29,020
+principal ID.
+
+111
+00:09:29,530 --> 00:09:34,990
+So whenever we create a canister, we know that we have these principal IDs that gets created.
+
+112
+00:09:35,470 --> 00:09:42,850
+For example, our main canister opend has this principal ID and the NFT canister which we minted
+
+113
+00:09:42,850 --> 00:09:45,100
+just now, has this particular ID.
+
+114
+00:09:45,790 --> 00:09:53,350
+And every single time we programmatically create a new NFT through building this actor class, then
+
+115
+00:09:53,350 --> 00:10:00,580
+it will be assigned a new, unique principal ID, which is going to uniquely identify that particular
+
+116
+00:10:00,580 --> 00:10:02,080
+image or resource.
+
+117
+00:10:02,590 --> 00:10:05,150
+And it cannot be exchanged for anything else.
+
+118
+00:10:05,170 --> 00:10:10,840
+It's not equitable to anything else, and hence it is how we create a non-fungible token.
+
+119
+00:10:11,920 --> 00:10:19,180
+Once we've created our NFT and it captures all of these pieces of information, we need some ways of
+
+120
+00:10:19,180 --> 00:10:20,470
+getting hold of it right?
+
+121
+00:10:20,650 --> 00:10:28,030
+So let's go ahead and add some query functions; public query func and the first one is going to be
+
+122
+00:10:28,030 --> 00:10:38,570
+getName and it's going to return asynchronously a piece of text that describes the name of our NFT.
+
+123
+00:10:38,950 --> 00:10:46,150
+So we'll just return the itemName property here and then we're going to build these query functions
+
+124
+00:10:46,150 --> 00:10:47,650
+for all the other properties.
+
+125
+00:10:47,890 --> 00:10:50,400
+Next, we're going to return the owner.
+
+126
+00:10:50,410 --> 00:10:58,750
+So we'll call this getOwner and this is going to asynchronously return the principal ID of the owner
+
+127
+00:10:59,050 --> 00:11:01,990
+and we're going to return the nftOwner property.
+
+128
+00:11:03,190 --> 00:11:12,430
+And finally, our last function for now at least, is going to be for us to get hold of our asset,
+
+129
+00:11:12,880 --> 00:11:13,810
+so getAsset.
+
+130
+00:11:14,380 --> 00:11:17,860
+And this is going to return our byte data.
+
+131
+00:11:17,860 --> 00:11:24,880
+So it's going to be an array of Nat8 numbers and we're going to return the imageBytes.
+
+132
+00:11:25,850 --> 00:11:34,070
+And with those few lines of code, we've actually created a simple contract for how to create a new
+
+133
+00:11:34,070 --> 00:11:38,120
+NFT programmatically using the Internet computer.
+
+134
+00:11:39,190 --> 00:11:42,160
+Now all we have to do is give it a spin.
+
+135
+00:11:42,970 --> 00:11:48,500
+So let's hit save and let's go ahead and deploy this canister.
+
+136
+00:11:49,060 --> 00:11:55,870
+But notice that you can't simply just do dfx deploy and the name of the canister is 
+
+137
+00:11:55,870 --> 00:11:56,520
+nft.
+
+138
+00:11:57,100 --> 00:12:01,300
+Now, if I go ahead and actually run this, you'll see it will give me an error.
+
+139
+00:12:02,320 --> 00:12:05,200
+And the error is quite mystifying.
+
+140
+00:12:05,680 --> 00:12:09,460
+Invalid data. Expected arguments, but found none.
+
+141
+00:12:10,150 --> 00:12:16,450
+And this is, of course, what I wanted to show you, which is that when you create a normal actor,
+
+142
+00:12:16,510 --> 00:12:21,460
+you can simply do dfx deploy because it doesn't expect any arguments.
+
+143
+00:12:21,910 --> 00:12:27,310
+But now that we're creating an actor class, we do need to provide all the arguments that we promise
+
+144
+00:12:27,320 --> 00:12:27,910
+to provide.
+
+145
+00:12:28,450 --> 00:12:31,090
+So we have to initialize it a little bit differently.
+
+146
+00:12:31,780 --> 00:12:34,720
+Now, if you take a look inside the read me file
+
+147
+00:12:34,930 --> 00:12:37,210
+and you can put it into preview mode if you want,
+
+148
+00:12:38,510 --> 00:12:43,880
+you can see that I've created the command line argument for you already.
+
+149
+00:12:44,570 --> 00:12:52,310
+So here we're using the -- to input the argument, and the argument goes in on the command line
+
+150
+00:12:52,310 --> 00:12:53,930
+and in quite a strange formatting.
+
+151
+00:12:54,350 --> 00:12:55,970
+It is just the way it is.
+
+152
+00:12:56,420 --> 00:12:58,940
+It has to go in between these quotes.
+
+153
+00:12:59,330 --> 00:13:03,980
+And then we've got a set of parentheses and we've got our three arguments.
+
+154
+00:13:04,550 --> 00:13:07,040
+The first one is the name,
+
+155
+00:13:07,340 --> 00:13:14,090
+so I'm going to call my NFT CryptoDunks and then I'll just add a number afterwards to simulate what
+
+156
+00:13:14,090 --> 00:13:24,290
+they have on Opensea. Next is the unique principal identifier of the owner right here, which I'm adding
+
+157
+00:13:24,290 --> 00:13:26,630
+in as a format like this.
+
+158
+00:13:27,140 --> 00:13:34,340
+Now, in your case, you should replace this with your actual principal, and you can find this out
+
+159
+00:13:34,340 --> 00:13:37,910
+by going to the terminal and writing dfx identity.
+
+160
+00:13:39,110 --> 00:13:46,640
+Again, try to not make too many typos like I am. And then it's get -principal.
+
+161
+00:13:47,510 --> 00:13:54,950
+And if you haven't made any typos, then it should output your own principal for you as the command line
+
+162
+00:13:54,950 --> 00:13:55,490
+user.
+
+163
+00:13:55,730 --> 00:14:03,980
+Now go ahead and copy that and you can paste that and then you can use it to replace what I've got inside
+
+164
+00:14:03,980 --> 00:14:04,310
+here.
+
+165
+00:14:04,430 --> 00:14:11,180
+So simply just delete that and then make sure that your principal ID goes in between these double quotes
+
+166
+00:14:11,180 --> 00:14:16,430
+after the word principal. And don't change any of the spacing or any other formatting here.
+
+167
+00:14:16,460 --> 00:14:17,960
+It can easily go wrong.
+
+168
+00:14:19,100 --> 00:14:29,000
+Once you've done that, then you can copy this entire thing from the dfx deploy all the way to the end.
+
+169
+00:14:29,540 --> 00:14:36,320
+And this is going to allow us to deploy all our canisters and provide this as an argument to any of
+
+170
+00:14:36,320 --> 00:14:40,760
+the canisters that needs it, which is going to be our NFT canister right here.
+
+171
+00:14:41,540 --> 00:14:48,920
+I'm going to copy everything here and then paste it into my command line and hopefully it's going to
+
+172
+00:14:48,920 --> 00:14:54,470
+create my brand new NFT and we're going to mint a new piece of artwork.
+
+173
+00:14:55,010 --> 00:15:02,150
+So the artwork data is stored in here and it's just a simple 10 by 10 pixel art.
+
+174
+00:15:02,480 --> 00:15:06,050
+So that way it doesn't have that many bits and bytes to store.
+
+175
+00:15:06,710 --> 00:15:12,710
+And in addition to the raw data, we provided all the other pieces of input that's required.
+
+176
+00:15:13,250 --> 00:15:16,880
+So hopefully we should get our successful deployed canisters.
+
+177
+00:15:17,690 --> 00:15:20,840
+Now, how can we check to make sure that it actually worked?
+
+178
+00:15:21,710 --> 00:15:23,860
+Well, we've got our query functions, right?
+
+179
+00:15:24,440 --> 00:15:32,450
+So we can go ahead and query our canister, which, if you remember, is called nft and we can get hold
+
+180
+00:15:32,450 --> 00:15:34,910
+of the name that we gave it, the owner or the asset.
+
+181
+00:15:35,510 --> 00:15:36,290
+Let's try that.
+
+182
+00:15:36,290 --> 00:15:44,690
+So we'll do dfx canister call and then the name of the canister which is nft and
+
+183
+00:15:44,690 --> 00:15:48,350
+then the name of the function which I'm going to call getName.
+
+184
+00:15:48,350 --> 00:15:53,690
+So it's get and then capital N and you don't have that, the parentheses, when you're calling the function
+
+185
+00:15:53,690 --> 00:15:54,500
+in the command line.
+
+186
+00:15:55,190 --> 00:16:01,910
+So let's hit enter and we get the result back, which is what I said just now when we created it.
+
+187
+00:16:01,910 --> 00:16:04,370
+CryptoDunks number 123.
+
+188
+00:16:05,060 --> 00:16:15,200
+And again, I can use the same thing to call getOwner and I can also call getAsset.
+
+189
+00:16:15,410 --> 00:16:21,140
+Although unless you are a computer, you won't be able to interpret this as an image.
+
+190
+00:16:21,140 --> 00:16:26,390
+It doesn't describe the rdb values, it doesn't describe anything that we can really relate to.
+
+191
+00:16:26,720 --> 00:16:30,110
+It's just the raw data in bytes.
+
+192
+00:16:30,680 --> 00:16:39,140
+In order to be able to view our newly minted NFT, we're going to have to build up the frontend, which
+
+193
+00:16:39,140 --> 00:16:41,330
+is what we're going to do in the next lesson.
+
+194
+00:16:41,690 --> 00:16:43,820
+So for all of that and more, I'll see you there.
+

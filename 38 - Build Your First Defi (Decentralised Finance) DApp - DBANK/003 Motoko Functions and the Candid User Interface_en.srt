@@ -1,0 +1,756 @@
+1
+00:00:00,210 --> 00:00:08,189
+Now in the last lesson we saw how we can use variables and constants in the Motoko programming language.
+
+2
+00:00:08,730 --> 00:00:16,800
+We also saw how we can import libraries from the Motoko-based library and use it to do things such as
+
+3
+00:00:16,800 --> 00:00:18,870
+printing into the console.
+
+4
+00:00:19,590 --> 00:00:25,710
+In this lesson, we're going to dig a little bit deeper and we're going to add a little bit more functionality
+
+5
+00:00:25,920 --> 00:00:29,490
+to our actor, which is the DBank canister that we control.
+
+6
+00:00:30,210 --> 00:00:36,960
+Now, one of the things that we're going to have to do if we are creating this money market is we're
+
+7
+00:00:36,960 --> 00:00:44,370
+going to have to let people be able to deposit their cryptocurrencies or money into our application.
+
+8
+00:00:45,000 --> 00:00:48,330
+And in order to do that, we're going to have to create a function.
+
+9
+00:00:48,870 --> 00:00:54,990
+So in the Motoko, functions are created with the func keyword similar to the Swift programming language,
+
+10
+00:00:54,990 --> 00:00:55,980
+if you ever use that.
+
+11
+00:00:56,550 --> 00:01:03,480
+And then the next thing is we get to give our function a name, which I'm going to call topUp, and
+
+12
+00:01:03,480 --> 00:01:09,750
+then we open up a set of curly brackets and we get to define what happens when this function is triggered.
+
+13
+00:01:10,380 --> 00:01:20,400
+So let's say for now, we're just going to increase the current value by $1 each time this topUp function
+
+14
+00:01:20,400 --> 00:01:25,860
+is called. To make it less confusing, let's first comment our previous debug print.
+
+15
+00:01:26,310 --> 00:01:33,240
+So when we've increased the current value, at the very end of the function before it finishes, we're
+
+16
+00:01:33,240 --> 00:01:38,040
+going to try and print the new value of this variable.
+
+17
+00:01:38,580 --> 00:01:45,420
+Go ahead, pause the video and write a print statement using Motoko to print out the current value at
+
+18
+00:01:45,420 --> 00:01:46,590
+the end of this function.
+
+19
+00:01:49,890 --> 00:01:50,280
+All right.
+
+20
+00:01:50,280 --> 00:01:57,510
+So again, we're going to use the Debug.print function and then we're going to need the debug_show to
+
+21
+00:01:57,510 --> 00:02:01,140
+be able to slot in this variable inside here.
+
+22
+00:02:01,860 --> 00:02:04,680
+Now, let's go ahead and actually use this function.
+
+23
+00:02:05,070 --> 00:02:09,360
+Just below where I've created this function, I'm going to call it.
+
+24
+00:02:09,600 --> 00:02:17,190
+And you'll see that you might get some errors here because we haven't closed off this function with a
+
+25
+00:02:17,190 --> 00:02:17,970
+semicolon.
+
+26
+00:02:18,300 --> 00:02:24,720
+So you have to be quite careful with this programming language where every function expects a semicolon
+
+27
+00:02:24,720 --> 00:02:25,680
+to cap it off.
+
+28
+00:02:27,220 --> 00:02:30,680
+So now we're going to describe how this function works,
+
+29
+00:02:30,700 --> 00:02:37,450
+then we're going to call it and if we go ahead and hit dfx deploy right now, you'll see that in the
+
+30
+00:02:37,690 --> 00:02:38,980
+printout we get
+
+31
+00:02:39,100 --> 00:02:46,570
+is the current value that's being printed right here on line 12 is now 101 because we've incremented
+
+32
+00:02:46,570 --> 00:02:49,060
+it by one and then we printed out the current value.
+
+33
+00:02:49,510 --> 00:02:55,350
+And that is all through calling this function inside our DBank canister.
+
+34
+00:02:56,050 --> 00:03:00,160
+Now this is what you would call a private function.
+
+35
+00:03:00,250 --> 00:03:06,670
+It's a function that's only accessible within this particular actor's curly braces.
+
+36
+00:03:07,300 --> 00:03:14,410
+Now, as you've seen before, when we had the Hello World application, when we first did our setup,
+
+37
+00:03:14,830 --> 00:03:18,730
+we can actually call functions within canisters from the outside.
+
+38
+00:03:19,030 --> 00:03:25,090
+So I'm just going to comment this line of code out and I want to be able to call this code from the
+
+39
+00:03:25,090 --> 00:03:25,960
+command line.
+
+40
+00:03:26,290 --> 00:03:30,550
+If we take a look at the documentation for that hello example that we've already run,
+
+41
+00:03:31,030 --> 00:03:38,500
+you can see it tells you that after you've hit deploy, you can use this structure in the command line
+
+42
+00:03:38,500 --> 00:03:45,640
+to get the canister to call a particular function within a particular canister.
+
+43
+00:03:46,240 --> 00:03:52,360
+Now you can also insert an input to that function, but in our case, we have no inputs.
+
+44
+00:03:52,360 --> 00:03:53,740
+It's empty in here.
+
+45
+00:03:53,740 --> 00:03:59,020
+So all we need to do is just to call the function. Following that format,
+
+46
+00:03:59,470 --> 00:04:07,630
+all we have to do is write dfx canister call, and then we have to put in the name of our project,
+
+47
+00:04:07,630 --> 00:04:10,480
+which you can see here is all lowercase dbank.
+
+48
+00:04:11,140 --> 00:04:18,130
+And then we're going to have to put in the name of our function, which is called topUp, and notice
+
+49
+00:04:18,130 --> 00:04:19,510
+how it's spelt.
+
+50
+00:04:20,250 --> 00:04:29,590
+Now there's just one problem, and that is the fact that this function is currently private to our actor
+
+51
+00:04:29,590 --> 00:04:37,240
+DBank, which, as I said, means that it can only be called from within these curly braces, like we
+
+52
+00:04:37,240 --> 00:04:37,750
+did here.
+
+53
+00:04:38,500 --> 00:04:43,510
+So that means when I go ahead and hit run here, I'm going to get an error
+
+54
+00:04:43,600 --> 00:04:51,190
+and it's going to tell me that this canister, which corresponds to my DBank canister, it has no update
+
+55
+00:04:51,190 --> 00:04:52,060
+method called topUp.
+
+56
+00:04:52,180 --> 00:04:56,530
+It actually cannot see this function because it's private.
+
+57
+00:04:57,130 --> 00:05:03,190
+So what can we do if we wanted to call this function for this canister from the outside?
+
+58
+00:05:03,460 --> 00:05:07,630
+Because in the future you can imagine you could have an application that's very complex with multiple
+
+59
+00:05:07,630 --> 00:05:08,290
+canisters.
+
+60
+00:05:08,680 --> 00:05:11,110
+How can you call a function within another canister?
+
+61
+00:05:11,680 --> 00:05:16,390
+Well, we have to add a modifier keyword up here called public.
+
+62
+00:05:17,290 --> 00:05:24,280
+And this is going to expose this function to the public, to outside this canister basically allowing
+
+63
+00:05:24,280 --> 00:05:28,510
+us to be able to call it from the outside, for example, from the command line here.
+
+64
+00:05:29,050 --> 00:05:32,770
+So let's go ahead and hit save on this file to update the changes.
+
+65
+00:05:33,130 --> 00:05:39,670
+And then we're going to have to use dfx deploy to make sure that this new code gets deployed into
+
+66
+00:05:39,670 --> 00:05:40,390
+the canister.
+
+67
+00:05:40,900 --> 00:05:48,130
+And then once that's done, we can try that command again where we say dfx canister call this top
+
+68
+00:05:48,130 --> 00:05:49,900
+Up function from our DBank.
+
+69
+00:05:50,290 --> 00:05:56,770
+And you can see now it has executed and we've got that 101 being printed over here again.
+
+70
+00:05:57,280 --> 00:06:05,080
+So this is how we can create a public function in a canister and how we can call it and get it to run
+
+71
+00:06:05,080 --> 00:06:06,160
+from the command line.
+
+72
+00:06:06,880 --> 00:06:12,130
+Now, what if we didn't want to have to type all of this out every single time?
+
+73
+00:06:12,490 --> 00:06:18,100
+What if there was a way that we could have a simple user interface to be able to just click a button
+
+74
+00:06:18,100 --> 00:06:24,700
+and get the functions in our canisters to run without having to type a whole bunch of stuff?
+
+75
+00:06:25,420 --> 00:06:33,620
+Well, the team have already thought of this, and this can be done using the candid UI.
+
+76
+00:06:33,730 --> 00:06:36,190
+Candid is called an interface description language.
+
+77
+00:06:36,520 --> 00:06:43,270
+And basically it's kind of like... I don't know if you've seen these API documentations which are interactive.
+
+78
+00:06:43,960 --> 00:06:50,680
+For example, if we take a look at the one for GitLab, you can see that there is a try it out section
+
+79
+00:06:50,860 --> 00:06:57,700
+where you can access certain paths or certain API endpoints and you can interact with these while you're
+
+80
+00:06:57,700 --> 00:06:59,080
+exploring the documentation.
+
+81
+00:06:59,350 --> 00:07:04,510
+So Candid basically provides a really easy way for us to interact with our canisters.
+
+82
+00:07:04,960 --> 00:07:08,800
+And it doesn't matter if the canister is written in Motoko or Rust.
+
+83
+00:07:09,190 --> 00:07:16,090
+Basically, instead of using our dfx command line, we can actually use Candid to specify input arguments
+
+84
+00:07:16,090 --> 00:07:23,230
+or get it to generate random input arguments or display return values from our canister methods.
+
+85
+00:07:23,440 --> 00:07:25,930
+And that means we can actually get a
+
+86
+00:07:26,150 --> 00:07:29,990
+UI to interact with instead of having to work with the command line all the time.
+
+87
+00:07:31,130 --> 00:07:34,940
+Let's try it out for our basic a new program.
+
+88
+00:07:35,210 --> 00:07:41,720
+So the first thing we have to do is we have to get the canister ID for this interface.
+
+89
+00:07:42,410 --> 00:07:47,420
+You can either go ahead and copy this code here from this link, which I'll provide in the course resources,
+
+90
+00:07:47,930 --> 00:07:51,590
+or alternatively it is just simply dfx canister id
+
+91
+00:07:52,160 --> 00:07:57,230
+and then this is two underscores Candid with a capital C underscore UI.
+
+92
+00:07:58,650 --> 00:08:06,510
+And once we put that into our terminal here, you can see we get a canister id back, which we're
+
+93
+00:08:06,510 --> 00:08:13,380
+going to need because we're going to go to the localhost server that's currently running and we're
+
+94
+00:08:13,380 --> 00:08:20,520
+going to add a question mark and then the query, which is CanisterId with capital I, and then we're
+
+95
+00:08:20,520 --> 00:08:24,390
+going to set it equal to whatever it is we got back from this command.
+
+96
+00:08:24,630 --> 00:08:26,010
+So let's try it out.
+
+97
+00:08:26,070 --> 00:08:32,370
+So I'm going to copy everything up until the equals sign and then after the equals sign, I'm going
+
+98
+00:08:32,370 --> 00:08:35,159
+to paste in what I got from here.
+
+99
+00:08:36,059 --> 00:08:43,049
+And now when I hit run, you can see it's asking me to provide another canister ID, so be careful
+
+100
+00:08:43,049 --> 00:08:48,390
+here. This ID that it wants is the canister ID for our program,
+
+101
+00:08:48,390 --> 00:08:58,170
+so in this case it's all DBank program. And we can get a hold of that ID by simply using the command
+
+102
+00:08:58,260 --> 00:09:03,350
+dfx canister ID and then provide the name of our canister.
+
+103
+00:09:03,360 --> 00:09:11,430
+So in our case it will be dfx canister id and the name of our canister is dbank, as you can see right
+
+104
+00:09:11,430 --> 00:09:11,730
+here.
+
+105
+00:09:12,240 --> 00:09:19,140
+So now let's hit enter and we'll copy this id which you can see is separate from the candid UI ID
+
+106
+00:09:19,950 --> 00:09:23,400
+and then I'm going to paste it into this field.
+
+107
+00:09:23,640 --> 00:09:24,540
+Don't worry about this one.
+
+108
+00:09:24,540 --> 00:09:28,530
+We don't have a did file and then we're going to go and hit the go button.
+
+109
+00:09:29,280 --> 00:09:32,820
+So now all Candid UI has been created.
+
+110
+00:09:32,820 --> 00:09:41,610
+We did absolutely zero front-end work, but this is automatically created by it reading our canister
+
+111
+00:09:41,610 --> 00:09:43,770
+code in here.
+
+112
+00:09:43,800 --> 00:09:49,770
+So you can see we have a single function that can be interacted with, which is called topUp and here
+
+113
+00:09:49,770 --> 00:09:50,610
+is where you see it.
+
+114
+00:09:51,180 --> 00:09:58,710
+So now instead of having to type dfx canister call, blah blah blah, I can actually simply just
+
+115
+00:09:58,740 --> 00:10:02,610
+tap the call button and it will run the same command.
+
+116
+00:10:03,420 --> 00:10:11,790
+Now once it's run, we can confirm that it worked by seeing the output here. You can see our current value
+
+117
+00:10:11,790 --> 00:10:19,110
+has been incremented yet again by one because we called it and we can keep doing that as many times
+
+118
+00:10:19,110 --> 00:10:19,680
+as we want.
+
+119
+00:10:20,040 --> 00:10:26,580
+And basically this candid ID simplifies how we interact with our canisters when we are testing and
+
+120
+00:10:26,790 --> 00:10:27,780
+writing our code.
+
+121
+00:10:28,230 --> 00:10:32,910
+So what if we wanted to change our function so that we can add an input?
+
+122
+00:10:32,910 --> 00:10:36,930
+Because normally when you top up, you don't just top up by $1 each time, right?
+
+123
+00:10:37,260 --> 00:10:42,420
+In order to add an input to our function, we're going to have to fill some stuff in these brackets.
+
+124
+00:10:42,750 --> 00:10:47,760
+So we're going to provide a name for the input, which I'm going to call amount.
+
+125
+00:10:48,330 --> 00:10:58,830
+And then in addition, we have to provide the data type of this input, which in our case can be a natural
+
+126
+00:10:58,830 --> 00:11:02,640
+number or shortened to nat data type.
+
+127
+00:11:03,300 --> 00:11:08,940
+So natural number, as I mentioned before, is any natural number that is positive,
+
+128
+00:11:09,090 --> 00:11:16,950
+so starting from zero, going up. Now instead of incrementing by one, we can increment by the amount that
+
+129
+00:11:16,950 --> 00:11:17,820
+was specified.
+
+130
+00:11:18,570 --> 00:11:27,240
+If I go ahead and save my file and then go ahead and run deploy again to update, then when I go back
+
+131
+00:11:27,240 --> 00:11:33,990
+over here and refresh, you can see we've now got a field that we can type into and it's telling us
+
+132
+00:11:33,990 --> 00:11:35,970
+is expecting a natural number.
+
+133
+00:11:36,420 --> 00:11:43,620
+So let's say I decide to top up $12. If I go ahead and hit call, you can see that this is going to run
+
+134
+00:11:44,040 --> 00:11:49,470
+and then we've now increased our total amount by 12.
+
+135
+00:11:49,830 --> 00:11:53,910
+So that is how we managed to add an input to our function.
+
+136
+00:11:54,480 --> 00:12:00,750
+Now some of you, I know, are really keen-eyed and you might have noticed something quite interesting.
+
+137
+00:12:01,470 --> 00:12:06,180
+Previous to the last deploy we were on $103.
+
+138
+00:12:06,750 --> 00:12:18,030
+After I deployed the new code, it went back down to 100, added the $12 that I topped up, and we're
+
+139
+00:12:18,030 --> 00:12:24,510
+back onto 112 instead of 103 + 12, which would have been 115.
+
+140
+00:12:25,050 --> 00:12:26,640
+So why is that?
+
+141
+00:12:26,940 --> 00:12:33,210
+Well, that is related to this concept called orthogonal persistence, which we're going to talk about
+
+142
+00:12:33,210 --> 00:12:36,240
+in a lot more detail in a future lesson.
+
+143
+00:12:36,420 --> 00:12:41,910
+But for now, let's just assume that every time we run dfx deploy, all our variables get wiped and get
+
+144
+00:12:41,910 --> 00:12:43,410
+reset to their initial values.
+
+145
+00:12:44,280 --> 00:12:51,090
+So now that we've created the topUp function and we've seen how we can allow the user to provide an
+
+146
+00:12:51,090 --> 00:12:54,600
+input to say how much they want to top up into dbank,
+
+147
+00:12:55,110 --> 00:12:57,600
+it's time for a challenge for you.
+
+148
+00:12:57,790 --> 00:13:05,530
+Which is to create a another function which will allow users to withdraw an amount from the current
+
+149
+00:13:05,530 --> 00:13:06,130
+value
+
+150
+00:13:07,000 --> 00:13:12,130
+and then once they've done that, we're going to decrease the current value by whichever amount they
+
+151
+00:13:12,130 --> 00:13:12,820
+provide it.
+
+152
+00:13:13,300 --> 00:13:16,360
+So try and create this function called withdrawl.
+
+153
+00:13:16,870 --> 00:13:21,970
+And again, this function requires an input, and then the function is going to decrease the current
+
+154
+00:13:21,970 --> 00:13:24,430
+value by whatever amount is specified.
+
+155
+00:13:24,730 --> 00:13:29,830
+And finally, make sure that you actually print out the final value of currentValue.
+
+156
+00:13:30,130 --> 00:13:34,000
+So pause the video here and see if you can create this function.
+
+157
+00:13:34,330 --> 00:13:40,240
+Once you're done, run the code and test it out on candid UI. And then afterwards we're going to run through
+
+158
+00:13:40,240 --> 00:13:41,280
+the solution together.
+
+159
+00:13:41,290 --> 00:13:41,620
+So,
+
+160
+00:13:41,650 --> 00:13:42,490
+pause the video now.
+
+161
+00:13:46,200 --> 00:13:46,560
+All right.
+
+162
+00:13:46,560 --> 00:13:53,370
+So again, because we need to access this function from the command line and from Candid UI, we're
+
+163
+00:13:53,370 --> 00:13:58,350
+going to make it a public function and then we're going to call it withdrawl.
+
+164
+00:13:58,890 --> 00:14:05,880
+And then we're going to provide an input, which again, I'll call amount and it will again be a
+
+165
+00:14:05,880 --> 00:14:06,660
+natural number,
+
+166
+00:14:06,660 --> 00:14:14,370
+so a positive number that we're going to withdraw from our bank. And simply we're just going to do the
+
+167
+00:14:14,370 --> 00:14:15,030
+opposite.
+
+168
+00:14:15,030 --> 00:14:22,950
+So the current value we're going to -=, so decrement, the currentValue by the amount that
+
+169
+00:14:22,950 --> 00:14:23,880
+was specified.
+
+170
+00:14:24,480 --> 00:14:31,560
+And then finally we're going to Debug.print the current value after the decrement has happened.
+
+171
+00:14:32,070 --> 00:14:37,830
+So if this is what you've done, then great. Let's go ahead and hit save to save our code and then
+
+172
+00:14:37,830 --> 00:14:42,420
+we're going to run dfx deploy to update our canister with the latest code.
+
+173
+00:14:42,960 --> 00:14:50,880
+And if we go back to our Candid UI and hit refresh, then you can see we've got our new function showing
+
+174
+00:14:50,880 --> 00:14:51,450
+up here,
+
+175
+00:14:51,510 --> 00:14:58,800
+our withdrawl function. And if I go ahead and specify an amount, say $10 to withdraw from the bank,
+
+176
+00:14:59,340 --> 00:15:02,010
+hit call and then go back over here,
+
+177
+00:15:02,340 --> 00:15:09,540
+you can see it's now decreased from 100, which is the current value by 10, which is what I specified.
+
+178
+00:15:09,840 --> 00:15:11,790
+And now it's on 90.
+
+179
+00:15:12,240 --> 00:15:13,620
+So there you have it.
+
+180
+00:15:13,620 --> 00:15:20,460
+We've got a withdrawl function, we've got a topUp function, and we're able to see these functions
+
+181
+00:15:20,460 --> 00:15:26,280
+and interact with them using our Candid UI user interface on the frontend.
+
+182
+00:15:26,580 --> 00:15:33,960
+Now there's just a couple of bugs that we've still got to iron out and the main issue is here in our
+
+183
+00:15:33,960 --> 00:15:40,530
+withdrawl function. If the user decides to withdraw a extraordinarily large amount, an amount that
+
+184
+00:15:40,530 --> 00:15:46,950
+we don't have in the bank, then you can see our current code is going to provide an error, something
+
+185
+00:15:46,950 --> 00:15:49,110
+called a natural subtraction underflow.
+
+186
+00:15:49,740 --> 00:15:55,710
+So in the next lesson, we're going to learn more about how to work with conditionals in Motoko and
+
+187
+00:15:55,710 --> 00:15:57,750
+make sure that we fix this issue.
+
+188
+00:15:58,080 --> 00:15:59,580
+So for all of that and more,
+
+189
+00:15:59,610 --> 00:16:00,690
+I'll see you in the next lesson.
+

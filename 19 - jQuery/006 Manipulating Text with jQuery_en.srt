@@ -1,0 +1,160 @@
+1
+00:00:00,420 --> 00:00:06,540
+Now in order to change the text of a selected element using JQuery, there's two ways of going about
+
+2
+00:00:06,540 --> 00:00:07,370
+this.
+
+3
+00:00:07,470 --> 00:00:16,500
+One is you can simply, say, select an element, then .text, and inside the parentheses you'll add the
+
+4
+00:00:16,500 --> 00:00:19,280
+new text that you want it to say,
+
+5
+00:00:19,560 --> 00:00:24,920
+so this will change our hello to a goodbye.
+
+6
+00:00:25,740 --> 00:00:33,090
+As we mentioned before, when we use jQuery to select an HTML element, it selects all of the elements
+
+7
+00:00:33,180 --> 00:00:36,500
+that match that selector on your web page.
+
+8
+00:00:36,510 --> 00:00:44,970
+So if we were to say .text on the buttons, then when we refresh our page, you can see that every single
+
+9
+00:00:44,970 --> 00:00:53,420
+button gets its text updated by simply selecting for all the elements that match this criteria,
+
+10
+00:00:53,610 --> 00:01:00,720
+and then we're using the .text method to change the text that's inside those buttons, which is this
+
+11
+00:01:00,720 --> 00:01:01,630
+part here.
+
+12
+00:01:01,860 --> 00:01:09,750
+Now, if you remember, when we learnt how to do this using plain old vanilla Javascript, we also had something
+
+13
+00:01:09,750 --> 00:01:13,550
+called innerHTML. And using innerHTML,
+
+14
+00:01:13,620 --> 00:01:21,060
+we were able to not just update text but we were also able to add HTML. But, as we’re using jQuery, it's
+
+15
+00:01:21,180 --> 00:01:22,310
+a little bit shorter.
+
+16
+00:01:22,470 --> 00:01:32,100
+So it's simply .html. And inside here we can add some tags, say for example if we wanted to add the
+
+17
+00:01:33,030 --> 00:01:38,730
+em tag to make our text emphasized, or rather italicised.
+
+18
+00:01:38,730 --> 00:01:47,070
+Now when we update our web site you can see that the HTML is also taken into consideration, because we're
+
+19
+00:01:47,070 --> 00:01:56,370
+using the .html method instead of simply the .text method which will interpret everything in between
+
+20
+00:01:56,370 --> 00:02:02,800
+the quotation marks as pure text and ignores all of the HTML tags.
+
+21
+00:02:02,850 --> 00:02:09,300
+Now by this point you would have noticed that most of the things that you do with jQuery are implemented
+
+22
+00:02:09,449 --> 00:02:14,910
+using methods, and we’re accessing it through the dot notation.
+
+23
+00:02:14,910 --> 00:02:18,780
+Now remember how, when we were learning about methods and functions,
+
+24
+00:02:18,780 --> 00:02:23,560
+we used it a lot to shorten our code and reduce repetition.
+
+25
+00:02:23,590 --> 00:02:26,460
+Well this is pretty much how jQuery works.
+
+26
+00:02:26,610 --> 00:02:33,730
+If you take a look at the library then you'll notice that jQuery is completely written in Javascript,
+
+27
+00:02:34,290 --> 00:02:41,610
+but it has all of these methods that shorten the code that we need to write and makes working with Javascript
+
+28
+00:02:41,760 --> 00:02:48,690
+to create our web sites much much quicker, much easier, and reduces repetitive strain injury from typing
+
+29
+00:02:48,690 --> 00:02:49,440
+so much.
+
+30
+00:02:49,710 --> 00:02:56,090
+So I hope that you also realize that without understanding how vanilla Javascript works, then jQuery
+
+31
+00:02:56,130 --> 00:02:58,550
+just seems like complete magic.
+
+32
+00:02:58,620 --> 00:03:06,150
+So it's really important that you needed to get a good foundation in Javascript before we started introducing
+
+33
+00:03:06,150 --> 00:03:12,360
+you to essentially what most web developers will use when they're writing Javascript, which is doing
+
+34
+00:03:12,360 --> 00:03:15,290
+it through jQuery or another library.
+
+35
+00:03:15,630 --> 00:03:20,790
+I hope that by this point you've already realized that this library can make your life as a developer
+
+36
+00:03:20,820 --> 00:03:25,620
+so much easier with less things to type and more intuitive syntax.
+
+37
+00:03:25,710 --> 00:03:30,070
+But in the next lesson we're going to dig into jQuery even further and we're going to learn how
+
+38
+00:03:30,070 --> 00:03:33,070
+we can manipulate attributes using jQuery.
+
+39
+00:03:33,090 --> 00:03:35,030
+So for all of that, stay tuned.
+
+40
+00:03:35,130 --> 00:03:36,200
+I'll see you on the next lesson.
+

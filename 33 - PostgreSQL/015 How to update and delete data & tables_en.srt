@@ -1,0 +1,864 @@
+1
+00:00:00,230 --> 00:00:07,420
+Hey guys, in previous lessons we saw how we can do creating and reading and inserting.
+
+2
+00:00:07,430 --> 00:00:13,640
+In this lesson, I want to talk a little bit about the update and delete methods that we can use when
+
+3
+00:00:13,640 --> 00:00:15,110
+it comes to our database.
+
+4
+00:00:15,110 --> 00:00:21,950
+So we're going to be covering the alter, drop, update and delete commands in Postgres.
+
+5
+00:00:23,210 --> 00:00:30,650
+Alter is really used a lot when you want to change the schema of your table.
+
+6
+00:00:30,650 --> 00:00:38,720
+So you would use something like alter table and then insert the name of the table that you want to alter.
+
+7
+00:00:38,840 --> 00:00:44,390
+And then you can have a command that does something.
+
+8
+00:00:44,390 --> 00:00:47,000
+So what's an example of this?
+
+9
+00:00:47,390 --> 00:00:49,940
+One example is a rename.
+
+10
+00:00:49,940 --> 00:00:54,830
+We have a table called student and we wanted it to rename it to user.
+
+11
+00:00:54,830 --> 00:00:57,410
+So we alter the table student.
+
+12
+00:00:57,410 --> 00:01:01,100
+And then we apply this command.
+
+13
+00:01:01,100 --> 00:01:09,050
+Another option which is maybe slightly more common is you might want to change something about a particular
+
+14
+00:01:09,050 --> 00:01:09,890
+column.
+
+15
+00:01:09,890 --> 00:01:12,350
+Here we have two alter statements.
+
+16
+00:01:12,350 --> 00:01:14,030
+We want to alter the table.
+
+17
+00:01:14,030 --> 00:01:17,300
+And within that table we want to alter a column.
+
+18
+00:01:17,300 --> 00:01:22,430
+And we're altering the schema of the column so we can name the column.
+
+19
+00:01:22,430 --> 00:01:27,890
+And then we can say, well in this case we actually want to change the data type to something else.
+
+20
+00:01:27,890 --> 00:01:32,930
+So maybe it used to be text but now we want to change it to Varchar 20.
+
+21
+00:01:33,260 --> 00:01:36,200
+This is a two layer alter.
+
+22
+00:01:36,860 --> 00:01:43,820
+Another thing that you can do with alter is you can actually add a new column here.
+
+23
+00:01:43,820 --> 00:01:49,310
+This command says, let's alter the schema of contact detail and you'll remember that at the moment
+
+24
+00:01:49,310 --> 00:01:55,190
+contact detail contains telephone number and address these two columns.
+
+25
+00:01:55,190 --> 00:01:58,250
+But what if we wanted a third column called email?
+
+26
+00:01:58,250 --> 00:02:05,810
+Well we can alter the table and then we can use the add command to add a new column.
+
+27
+00:02:05,810 --> 00:02:07,700
+So it's going to be called email.
+
+28
+00:02:07,700 --> 00:02:10,220
+And it's going to be of data type text.
+
+29
+00:02:10,220 --> 00:02:17,690
+And that is going to create the new column inside that contact detail table.
+
+30
+00:02:18,410 --> 00:02:21,350
+Now there's a lot of theory on altering tables.
+
+31
+00:02:21,350 --> 00:02:26,960
+But let's actually complete an exercise to practice how this might work.
+
+32
+00:02:27,230 --> 00:02:28,790
+Here's an example.
+
+33
+00:02:29,000 --> 00:02:38,360
+If we had created a table called example and it has three columns A, B and C, all of which are storing
+
+34
+00:02:38,360 --> 00:02:39,350
+integers.
+
+35
+00:02:39,470 --> 00:02:44,570
+Now at the very end, if you remember, we can assign a constraint.
+
+36
+00:02:44,570 --> 00:02:51,590
+So we can say let's make the A and C entries always unique.
+
+37
+00:02:51,780 --> 00:03:01,930
+What this constraint does is it says these two a and C must be unique when combined together.
+
+38
+00:03:01,940 --> 00:03:08,920
+So let's say that in the first case we wanted A to be one, B to be one and C to be one.
+
+39
+00:03:08,930 --> 00:03:16,610
+What we're saying is we can have A again as one, but A and C cannot be the same.
+
+40
+00:03:16,610 --> 00:03:23,480
+So we've already got A1A1C, so we cannot have another 1A1C.
+
+41
+00:03:23,510 --> 00:03:25,940
+So in this case c has to be something else.
+
+42
+00:03:25,940 --> 00:03:27,350
+For example two.
+
+43
+00:03:27,560 --> 00:03:30,710
+And this is a really useful thing in many situations.
+
+44
+00:03:30,710 --> 00:03:33,920
+One example is error catching.
+
+45
+00:03:33,980 --> 00:03:40,730
+When we created our family travel tracker we have a table called Visited countries.
+
+46
+00:03:40,970 --> 00:03:48,530
+And this allows us to insert the user ID alongside with the country they have been to.
+
+47
+00:03:48,800 --> 00:03:50,060
+Previously.
+
+48
+00:03:50,060 --> 00:03:58,040
+We had assigned that each of these country codes must be unique, but in this case it can't be unique
+
+49
+00:03:58,040 --> 00:04:02,300
+because two family members might have been to the same country.
+
+50
+00:04:02,330 --> 00:04:04,040
+Maybe they weren't on the same trip.
+
+51
+00:04:04,040 --> 00:04:12,800
+But what does have to be unique is that the user ID and the country they went to has to be unique together,
+
+52
+00:04:12,800 --> 00:04:21,529
+so it can't be FR1FR1, because then we're storing duplicate data using what you know about how we would
+
+53
+00:04:21,529 --> 00:04:26,780
+create this table and make these two columns unique.
+
+54
+00:04:26,810 --> 00:04:36,800
+Think about how you can use an alter statement to apply this unique aspect to the country code and user
+
+55
+00:04:36,800 --> 00:04:44,870
+ID fields in your visited countries table, so you can select your visited countries table.
+
+56
+00:04:44,900 --> 00:04:51,860
+Click on the query tool and write your query here to apply that constraint.
+
+57
+00:04:52,100 --> 00:04:53,330
+Pause the video.
+
+58
+00:04:53,330 --> 00:04:54,230
+Give this a go.
+
+59
+00:04:57,220 --> 00:05:05,050
+In the previous code, we saw how we would add that unique constraint if we were at the stage of creation.
+
+60
+00:05:05,050 --> 00:05:08,920
+But right now we need to make an alteration.
+
+61
+00:05:08,920 --> 00:05:12,100
+So we're going to use the alter table command.
+
+62
+00:05:12,130 --> 00:05:14,620
+Add in the name of the table we want to change.
+
+63
+00:05:14,620 --> 00:05:20,170
+And then in this case we want to add a new constraint.
+
+64
+00:05:20,200 --> 00:05:24,070
+The final code that we need in order to achieve this looks like this.
+
+65
+00:05:24,100 --> 00:05:25,240
+Alter table.
+
+66
+00:05:25,240 --> 00:05:26,470
+Name the table.
+
+67
+00:05:26,470 --> 00:05:34,780
+Add a unique constraint, and inside the parentheses we have our two columns that need to be unique
+
+68
+00:05:34,780 --> 00:05:35,500
+together.
+
+69
+00:05:35,500 --> 00:05:38,610
+Just as here we have a and C need to be unique.
+
+70
+00:05:38,620 --> 00:05:44,560
+Here we're saying the user ID and the country code have to be a unique combination together.
+
+71
+00:05:46,320 --> 00:05:48,180
+Now going back to Postgres.
+
+72
+00:05:48,210 --> 00:05:51,180
+If I go ahead and run this command.
+
+73
+00:05:51,480 --> 00:05:54,720
+If we view our table, nothing much has changed.
+
+74
+00:05:54,720 --> 00:06:01,170
+But let's remember that the user with id one has already been to France.
+
+75
+00:06:01,200 --> 00:06:13,710
+If we try to make another insert into the visited countries table, and we're going to insert the user
+
+76
+00:06:13,710 --> 00:06:17,750
+ID and the country code.
+
+77
+00:06:17,760 --> 00:06:22,020
+So these are the two columns I'm going to insert into.
+
+78
+00:06:22,020 --> 00:06:28,110
+And the values are going to be ones that I know already exist in my table, which is user with ID of
+
+79
+00:06:28,110 --> 00:06:32,480
+one having been to the country of France or FR.
+
+80
+00:06:32,490 --> 00:06:43,380
+So now if I run this, you can see we get an error and it says that this combination fr and one already
+
+81
+00:06:43,380 --> 00:06:50,730
+exists and it violates our unique constraint where they have to be unique.
+
+82
+00:06:50,760 --> 00:06:58,320
+This prevents us from on our front end inserting data that could potentially be duplicated.
+
+83
+00:06:58,320 --> 00:07:06,360
+And when this error occurs, we can also send a message back to our website and inform the user that
+
+84
+00:07:06,360 --> 00:07:09,720
+they have inserted a duplicate value.
+
+85
+00:07:10,050 --> 00:07:17,220
+So alter tables can be really useful for realizing that maybe we need a particular constraint, or maybe
+
+86
+00:07:17,220 --> 00:07:23,370
+we need to change a particular column, or add a column, or delete a column, and we can change and
+
+87
+00:07:23,370 --> 00:07:30,690
+update our schema on a flexible as and when needed basis alongside alter table.
+
+88
+00:07:30,690 --> 00:07:34,800
+The next and slightly more dramatic version is a drop table.
+
+89
+00:07:35,010 --> 00:07:37,200
+A drop table does exactly that.
+
+90
+00:07:37,200 --> 00:07:43,260
+It drops the table with a particular name from our database.
+
+91
+00:07:43,380 --> 00:07:49,260
+You do have to be quite careful about this because as many bad things could potentially happen if you're
+
+92
+00:07:49,260 --> 00:07:50,220
+not careful.
+
+93
+00:07:50,520 --> 00:08:00,030
+In the previous case, when I had the SQL code in the queries or SQL in our starting project, and I
+
+94
+00:08:00,030 --> 00:08:06,750
+told you that you can run all of these commands in order to create the tables as needed, so the user
+
+95
+00:08:06,750 --> 00:08:09,360
+table and the visited countries table.
+
+96
+00:08:09,360 --> 00:08:14,880
+But of course, I knew that you already had a visited countries table in your database.
+
+97
+00:08:14,880 --> 00:08:20,150
+So that's why at the beginning of those commands I added a drop table.
+
+98
+00:08:20,160 --> 00:08:26,700
+It says drop table if exists, the names of the tables.
+
+99
+00:08:26,700 --> 00:08:31,470
+And in this case, if you had a visited countries table then it's going to delete it.
+
+100
+00:08:31,470 --> 00:08:34,080
+If you had a users table it's going to delete it.
+
+101
+00:08:34,440 --> 00:08:40,530
+But essentially this slightly constrains that drop command.
+
+102
+00:08:40,799 --> 00:08:46,800
+When we're performing a drop table, it's exactly the same as in pgadmin right clicking and then selecting
+
+103
+00:08:46,800 --> 00:08:47,610
+delete.
+
+104
+00:08:47,640 --> 00:08:50,520
+That's pretty simple and pretty straightforward.
+
+105
+00:08:50,550 --> 00:08:55,800
+Now we've seen some table level commands that allow us to update and delete.
+
+106
+00:08:55,830 --> 00:08:59,610
+What if we wanted to update a particular piece of data?
+
+107
+00:08:59,640 --> 00:09:06,870
+Well, in that case we actually use a different command instead of an alter we use an update command.
+
+108
+00:09:06,900 --> 00:09:14,640
+We specify the table name that we want to update, and then we use a set keyword to say we want to set
+
+109
+00:09:14,640 --> 00:09:25,140
+a particular column to have some new values, and we can narrow down the particular record in that column.
+
+110
+00:09:25,290 --> 00:09:35,310
+Remember we have lots of columns of data, but if we wanted to change a particular one of these records,
+
+111
+00:09:35,310 --> 00:09:39,510
+then we can use a condition to narrow it down.
+
+112
+00:09:39,510 --> 00:09:46,320
+We can say for example, the ID is equal to a well.
+
+113
+00:09:46,320 --> 00:09:54,180
+And then in that case, the record that we are updating is simply just narrow down to this particular
+
+114
+00:09:54,180 --> 00:09:54,750
+line.
+
+115
+00:09:54,750 --> 00:09:58,830
+And depending on your condition, you can update different parts of your table.
+
+116
+00:10:00,360 --> 00:10:07,200
+As a challenge, I want you to go into your users table and take a look at the existing data.
+
+117
+00:10:07,800 --> 00:10:14,880
+You should at this point, if you've been following along with the Family Travel Tracker, you should
+
+118
+00:10:14,880 --> 00:10:17,610
+have some users in this table.
+
+119
+00:10:17,640 --> 00:10:26,190
+The goal is we're going to change the name of the first user, and no matter what it is that you have,
+
+120
+00:10:26,190 --> 00:10:28,980
+we're going to change it to Angelina.
+
+121
+00:10:29,130 --> 00:10:32,680
+So that's the name that my friends used to call me when I was a kid.
+
+122
+00:10:32,700 --> 00:10:43,770
+So we're going to perform this using a SQL query instead of using the Pgadmin sort of graphic UI tools.
+
+123
+00:10:43,890 --> 00:10:52,110
+Using this template, see if you can come up with a way in order to change the user which has an ID
+
+124
+00:10:52,110 --> 00:10:57,420
+of one, and change the name to Angelina.
+
+125
+00:10:58,560 --> 00:11:01,980
+Pause the video and give this challenge a go.
+
+126
+00:11:05,000 --> 00:11:05,480
+All right.
+
+127
+00:11:05,510 --> 00:11:10,850
+Following along with this template we're going to update the users table.
+
+128
+00:11:10,880 --> 00:11:13,700
+We're going to set the name column.
+
+129
+00:11:13,700 --> 00:11:17,540
+And we're going to give it the value that we want to set it to.
+
+130
+00:11:17,870 --> 00:11:22,600
+The final stage is what record we want to change.
+
+131
+00:11:22,610 --> 00:11:29,140
+Because obviously we don't want to set the entire name column to all have the data of Angelina.
+
+132
+00:11:29,150 --> 00:11:34,160
+So we have this condition where ID is equal to one.
+
+133
+00:11:34,520 --> 00:11:37,640
+Let's run our query in Pgadmin.
+
+134
+00:11:38,480 --> 00:11:48,050
+Update the users table and set the name column to equal a new piece of data.
+
+135
+00:11:48,050 --> 00:11:49,210
+Angelina.
+
+136
+00:11:49,220 --> 00:11:55,070
+And we're going to add the condition where the ID is equal to one.
+
+137
+00:11:55,160 --> 00:12:00,470
+So now let's run this and you can see the query has returned successfully.
+
+138
+00:12:00,470 --> 00:12:09,500
+And if we go ahead and view our table, you can see that the first user, the user with ID of one now
+
+139
+00:12:09,500 --> 00:12:13,610
+has a new piece of data in the name column.
+
+140
+00:12:13,730 --> 00:12:16,520
+And that's done by our update method.
+
+141
+00:12:17,180 --> 00:12:25,610
+Now while we're on the topic of changing and updating columns and data, one really useful command that
+
+142
+00:12:25,610 --> 00:12:28,190
+I want to show you is called Order by.
+
+143
+00:12:28,340 --> 00:12:35,450
+And this allows us to retrieve data from our database ordered by some sort of condition.
+
+144
+00:12:35,540 --> 00:12:42,770
+For example, with our users table, what if we wanted to get back the data with some sort of condition,
+
+145
+00:12:42,770 --> 00:12:49,670
+like an alphabetical order, so that Angelina comes back and then Jack comes back next?
+
+146
+00:12:49,670 --> 00:12:56,810
+But we can also switch this around so that we actually change it to have a descending order.
+
+147
+00:12:57,200 --> 00:13:01,520
+We can have it ascending, and we can also have it descending.
+
+148
+00:13:01,520 --> 00:13:06,350
+And the way that we write our order by is, is by using.
+
+149
+00:13:06,350 --> 00:13:12,470
+In this case, we're selecting everything from our table and we're specifying which table.
+
+150
+00:13:12,470 --> 00:13:18,290
+And then we use the command order by and then apply our condition.
+
+151
+00:13:18,530 --> 00:13:27,440
+The condition in this case for example is the ID column needs to be ascending order.
+
+152
+00:13:27,440 --> 00:13:34,970
+So if it was number then it would be 1258 whatever it is sorted in ascending order.
+
+153
+00:13:35,000 --> 00:13:41,740
+Now there is another version which is descending which is DSC.
+
+154
+00:13:41,900 --> 00:13:47,810
+And that would mean that the data comes back sorted by the ID field.
+
+155
+00:13:47,810 --> 00:13:51,680
+But now it's actually going to come back in this order.
+
+156
+00:13:51,680 --> 00:13:54,320
+It's going to come back in a descending order.
+
+157
+00:13:54,680 --> 00:13:55,910
+As a challenge.
+
+158
+00:13:55,910 --> 00:14:06,350
+I want you to figure out if you can sort the users table by the name column and sort it in a descending
+
+159
+00:14:06,350 --> 00:14:06,950
+order.
+
+160
+00:14:06,950 --> 00:14:10,670
+So right now you can see our first piece of data is Angelina.
+
+161
+00:14:10,700 --> 00:14:12,690
+Second piece of data is Jack.
+
+162
+00:14:12,710 --> 00:14:17,260
+Now in your table you might have different data, but hopefully you've got some data.
+
+163
+00:14:17,270 --> 00:14:23,540
+If not, go ahead and insert it into there, insert some names and just pick a random color that you
+
+164
+00:14:23,540 --> 00:14:24,050
+want.
+
+165
+00:14:24,050 --> 00:14:33,020
+But what we want is to write some query so that we can have that data return in descending order, ordered
+
+166
+00:14:33,020 --> 00:14:34,430
+by the name column.
+
+167
+00:14:34,430 --> 00:14:38,270
+So pause and have a think about how you might do that.
+
+168
+00:14:41,000 --> 00:14:41,450
+All right.
+
+169
+00:14:41,450 --> 00:14:46,280
+So we are selecting everything from the users table.
+
+170
+00:14:46,280 --> 00:14:52,550
+And we're using the order by keyword in order to sort our data.
+
+171
+00:14:52,550 --> 00:14:56,420
+That comes back by the name column.
+
+172
+00:14:56,420 --> 00:15:00,860
+And we want it ordered in a descending order.
+
+173
+00:15:00,950 --> 00:15:10,280
+If we go ahead and apply this code here and go ahead and hit run, then you can see now the data comes
+
+174
+00:15:10,280 --> 00:15:15,860
+back sorted by this column, and it's in descending alphabetical order.
+
+175
+00:15:16,250 --> 00:15:22,640
+Ascending and descending when it comes to text is alphabetical and when it comes to numbers is obviously
+
+176
+00:15:22,640 --> 00:15:25,430
+from smaller to larger or larger to smaller.
+
+177
+00:15:26,100 --> 00:15:33,420
+So now let's cover the final command when we want to delete data from our table.
+
+178
+00:15:33,450 --> 00:15:39,270
+Notice when we wanted to delete a entire table, the command was drop.
+
+179
+00:15:39,270 --> 00:15:41,640
+Drop the table from the database.
+
+180
+00:15:41,640 --> 00:15:45,930
+But when we want to delete data then the command is delete.
+
+181
+00:15:45,960 --> 00:15:48,060
+The template looks something like this.
+
+182
+00:15:48,060 --> 00:15:52,410
+Delete from and then the name of the table that you want to delete.
+
+183
+00:15:52,410 --> 00:15:57,480
+And of course you probably want to apply some sort of condition.
+
+184
+00:15:57,810 --> 00:16:07,560
+An example of this is let's say in our visited countries, one of our users has actually made a mistake
+
+185
+00:16:07,560 --> 00:16:13,350
+and they've actually never been to a particular country they said they've been to.
+
+186
+00:16:13,470 --> 00:16:22,290
+So in my case, I've got this entry where user with user ID two has been to a u, a u for Australia,
+
+187
+00:16:22,290 --> 00:16:24,210
+but they actually never went there.
+
+188
+00:16:24,210 --> 00:16:30,960
+So Jack has never been to Australia as far as I know, from the law of the 24 TV series.
+
+189
+00:16:31,860 --> 00:16:37,050
+So let's try and amend that using the delete command.
+
+190
+00:16:37,440 --> 00:16:41,440
+Look inside your own visited countries table in Pgadmin.
+
+191
+00:16:41,460 --> 00:16:50,910
+Select at random one of these rows that you want to delete, and I want you to look at the user ID and
+
+192
+00:16:50,910 --> 00:16:52,260
+the country code.
+
+193
+00:16:52,260 --> 00:16:59,370
+And I want you to select that row based on its ID and then delete it using the delete command.
+
+194
+00:16:59,400 --> 00:17:00,540
+Pause the video.
+
+195
+00:17:00,540 --> 00:17:01,650
+Give that a go.
+
+196
+00:17:04,020 --> 00:17:10,109
+We're going to be deleting from the visited countries and in my case, the ID or the condition that
+
+197
+00:17:10,109 --> 00:17:13,380
+I want to select is where the ID is equal to six.
+
+198
+00:17:13,650 --> 00:17:17,640
+Here this is the entry with an ID of six.
+
+199
+00:17:17,640 --> 00:17:19,810
+That's the one I want to delete.
+
+200
+00:17:19,829 --> 00:17:24,750
+I can go ahead and say delete from.
+
+201
+00:17:24,750 --> 00:17:36,480
+And then the name of my table which is visited countries and the condition where ID is equal to six.
+
+202
+00:17:36,570 --> 00:17:41,190
+Let's run this and then view all the rows of our table.
+
+203
+00:17:41,190 --> 00:17:46,830
+And you can see that entry where Jack has supposedly been to Australia has now been removed.
+
+204
+00:17:47,310 --> 00:17:53,370
+Another option to perform this query is to use the and combination.
+
+205
+00:17:53,370 --> 00:17:58,680
+So we could say delete from and then it's visited countries.
+
+206
+00:18:01,100 --> 00:18:07,850
+And we set the condition in this case to say where the user ID is equal to one.
+
+207
+00:18:07,850 --> 00:18:14,420
+So the first user and the country code is equal to fr.
+
+208
+00:18:14,450 --> 00:18:18,170
+So this is the situation where user one has been to France.
+
+209
+00:18:18,170 --> 00:18:26,720
+So now if we run this and we view our data, you can see that condition allows us to specify two parts.
+
+210
+00:18:26,720 --> 00:18:34,250
+And it means that that entry, that first entry ID one has been removed because it was user ID one country
+
+211
+00:18:34,250 --> 00:18:35,450
+code fr.
+
+212
+00:18:35,720 --> 00:18:43,940
+You can use lots of different ways of constraining how you want to delete or update or alter your tables.
+
+213
+00:18:43,970 --> 00:18:50,210
+And now you have pretty much all of the power of Postgres in your hands, which means you're ready to
+
+214
+00:18:50,210 --> 00:18:54,830
+start attempting a big project using Postgres.
+
+215
+00:18:54,860 --> 00:18:57,020
+That's what we're going to do in the next lesson.
+
+216
+00:18:57,020 --> 00:18:57,650
+I'll see you there.
+

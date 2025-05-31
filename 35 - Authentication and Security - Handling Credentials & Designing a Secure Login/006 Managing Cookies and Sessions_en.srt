@@ -1,0 +1,1632 @@
+1
+00:00:00,330 --> 00:00:04,950
+Hey guys, in this lesson we're going to talk all about cookies and sessions.
+
+2
+00:00:04,950 --> 00:00:12,510
+Now just a word of warning here during the lesson, if you continue watching, you may start to feel
+
+3
+00:00:12,510 --> 00:00:14,460
+that you get a little bit hungry.
+
+4
+00:00:14,460 --> 00:00:20,730
+So don't blame me if I've just completely derailed your diet plan, because in this lesson, we're going
+
+5
+00:00:20,730 --> 00:00:25,350
+to talk all about cookies and their yummy goodness.
+
+6
+00:00:25,350 --> 00:00:31,320
+Not really the type of cookies that we're talking about that relates to web development are more similar
+
+7
+00:00:31,320 --> 00:00:39,330
+to fortune cookies, because they have a message that's packaged inside, and you can pass these around
+
+8
+00:00:39,330 --> 00:00:41,880
+and they can be broken to reveal the message.
+
+9
+00:00:41,880 --> 00:00:47,160
+You've probably come across cookies before, but if you haven't, I just want to show you how it works
+
+10
+00:00:47,160 --> 00:00:48,060
+in practice.
+
+11
+00:00:48,060 --> 00:00:54,900
+So let's say we go on to Amazon and we search for the switch, right, the Nintendo Switch.
+
+12
+00:00:54,900 --> 00:01:00,150
+And we decide to go ahead and add it to basket.
+
+13
+00:01:00,150 --> 00:01:05,430
+So now when we look inside our basket you can see we have one item the switch.
+
+14
+00:01:05,430 --> 00:01:05,820
+Right.
+
+15
+00:01:05,820 --> 00:01:10,350
+And then we're going to do something that all e-commerce sites hate.
+
+16
+00:01:10,350 --> 00:01:15,600
+We're going to go and navigate away and abandon our shopping cart.
+
+17
+00:01:15,630 --> 00:01:24,330
+Now this to any e-commerce website is a real crime because the user obviously wanted to buy something.
+
+18
+00:01:24,330 --> 00:01:29,970
+But then at some point they got distracted by something else abandoning their card without checking
+
+19
+00:01:29,970 --> 00:01:30,360
+out.
+
+20
+00:01:30,360 --> 00:01:32,670
+So what does Amazon do?
+
+21
+00:01:32,670 --> 00:01:40,980
+Well, as soon as you added that item to the cart, Amazon has created a cookie and has stored that
+
+22
+00:01:40,980 --> 00:01:42,480
+cookie on your browser.
+
+23
+00:01:42,480 --> 00:01:46,410
+So how can we go and view that cookie well, inside Chrome?
+
+24
+00:01:46,410 --> 00:01:50,610
+If you go to settings and you search for cookie.
+
+25
+00:01:51,300 --> 00:01:56,790
+If you scroll right to the bottom, it shows you that there's something relating to cookies inside content
+
+26
+00:01:56,790 --> 00:01:57,570
+settings.
+
+27
+00:01:57,570 --> 00:02:03,780
+So if we go over there and we click on cookies, you can see there's this option to see all cookies
+
+28
+00:02:03,780 --> 00:02:05,310
+and site data.
+
+29
+00:02:05,310 --> 00:02:10,139
+And now you can see that Amazon has not added just one cookie.
+
+30
+00:02:10,139 --> 00:02:17,850
+Just by doing that very small act of adding a Nintendo Switch to our Amazon basket, Amazon has told
+
+31
+00:02:17,850 --> 00:02:24,690
+our browser to save all sorts of information about ourselves, and if we click on amazon.co.uk, you
+
+32
+00:02:24,690 --> 00:02:31,860
+can see there's the session token, the session ID and these cookies don't necessarily contain any actual
+
+33
+00:02:31,860 --> 00:02:32,640
+information.
+
+34
+00:02:32,670 --> 00:02:39,720
+Say this user wanted to buy a Nintendo Switch, but what they do contain is an ID number, and this
+
+35
+00:02:39,720 --> 00:02:47,370
+ID will be used to fetch all of those things that you added to your cart during this browsing session
+
+36
+00:02:47,370 --> 00:02:48,510
+on Amazon.
+
+37
+00:02:48,510 --> 00:02:57,270
+And this is why, if you decide to go and close down your browser and you open it back up and let's
+
+38
+00:02:57,270 --> 00:03:04,980
+head back to amazon.co.uk, you can see that my switch is still inside the basket, so they haven't
+
+39
+00:03:04,980 --> 00:03:06,060
+forgotten this.
+
+40
+00:03:06,060 --> 00:03:12,120
+So that means the next time I go on to Amazon, that Nintendo Switch is still going to be in my shopping
+
+41
+00:03:12,120 --> 00:03:12,840
+basket.
+
+42
+00:03:12,840 --> 00:03:17,820
+However, if we go into those cookies for Amazon.
+
+43
+00:03:19,210 --> 00:03:22,060
+And we go ahead and delete it.
+
+44
+00:03:22,060 --> 00:03:25,600
+So let's go back to course cookies and site data.
+
+45
+00:03:25,600 --> 00:03:31,660
+We find the one that is directly related to Amazon and we remove all of these.
+
+46
+00:03:31,690 --> 00:03:39,250
+Now if we go and refresh this website, you can see we've forced it to forget our last browsing session.
+
+47
+00:03:39,250 --> 00:03:42,550
+And it doesn't know about that Nintendo Switch anymore.
+
+48
+00:03:42,640 --> 00:03:49,540
+Now on the internet, cookies are used widely to save these browsing sessions, and it goes beyond just
+
+49
+00:03:49,540 --> 00:03:52,090
+saving your last actions on the website.
+
+50
+00:03:52,090 --> 00:03:59,920
+When Amazon ads those cookies to my browser, it also means that when I go and visit another website,
+
+51
+00:03:59,920 --> 00:04:08,230
+say if I go on to Facebook, then it knows who I am and what items I wanted to buy on Amazon, and it
+
+52
+00:04:08,230 --> 00:04:13,150
+will try to remind me of that thing that I wanted to buy on Amazon.
+
+53
+00:04:13,150 --> 00:04:15,070
+And it's kind of creepy.
+
+54
+00:04:15,070 --> 00:04:18,670
+But this is essentially how retargeting ads work.
+
+55
+00:04:18,670 --> 00:04:25,540
+Once a user comes to your website, initiate some sort of buying behavior, and then they decide to
+
+56
+00:04:25,540 --> 00:04:32,170
+abandon cart, you save what it is that they wanted, and then on other websites, or when they come
+
+57
+00:04:32,170 --> 00:04:36,790
+back onto your website, you remind them about that thing that they wanted to buy.
+
+58
+00:04:36,790 --> 00:04:40,150
+And this is all done through cookies and sessions.
+
+59
+00:04:40,150 --> 00:04:46,270
+If we review this from a web development point of view, it means that, say, on day one when I go
+
+60
+00:04:46,270 --> 00:04:55,000
+into Chrome and I type in Amazon.com, my browser will make a Get request to Amazon's server requesting
+
+61
+00:04:55,000 --> 00:04:56,170
+for their home page.
+
+62
+00:04:56,170 --> 00:05:03,700
+Amazon Server will then respond to that request and send over the HTML, CSS, and JavaScript files
+
+63
+00:05:03,700 --> 00:05:07,600
+that are needed for my browser to be able to render the Amazon website.
+
+64
+00:05:07,600 --> 00:05:11,230
+And then let's say that we decided to add a computer to our cart.
+
+65
+00:05:11,230 --> 00:05:18,670
+Well, that is equivalent to making a Post request to Amazon server saying that I would like to buy
+
+66
+00:05:18,670 --> 00:05:19,600
+a computer.
+
+67
+00:05:19,600 --> 00:05:20,170
+Right.
+
+68
+00:05:20,170 --> 00:05:27,040
+And it's at this moment in time when Amazon servers will create a cookie that contains that data.
+
+69
+00:05:27,040 --> 00:05:34,750
+This user wanted to buy a computer, and when it responds to the post request, that cookie gets sent
+
+70
+00:05:34,750 --> 00:05:38,740
+along and the browser gets told to save that cookie.
+
+71
+00:05:38,740 --> 00:05:45,130
+So that means that if I now get distracted and I decide to go on to Facebook or whatever it may be,
+
+72
+00:05:45,130 --> 00:05:51,310
+but if I come back tomorrow, that cookie is still saved on my browser.
+
+73
+00:05:51,670 --> 00:05:59,230
+The next time that I make a Get request to Amazon server, that cookie gets sent along with my Get request
+
+74
+00:05:59,230 --> 00:06:07,450
+to allow the server to be able to identify who I am and see if I had any previous sessions on Amazon.
+
+75
+00:06:07,450 --> 00:06:13,450
+And it's the equivalent of cracking open that fortune cookie, revealing what were the previous things
+
+76
+00:06:13,450 --> 00:06:14,710
+that I wanted to buy.
+
+77
+00:06:14,710 --> 00:06:21,580
+So in this case it was a computer and then they could respond with the HTML, CSS, JavaScript and also
+
+78
+00:06:21,580 --> 00:06:27,100
+render my cart so that the computer is already added in the cart.
+
+79
+00:06:27,100 --> 00:06:31,930
+There are lots of different types of cookies, but the types of cookies that we're going to be looking
+
+80
+00:06:31,930 --> 00:06:36,580
+at are the ones that are used to establish and maintain a session.
+
+81
+00:06:36,580 --> 00:06:42,070
+A session is a period of time when a browser interacts with a server.
+
+82
+00:06:42,130 --> 00:06:47,620
+Usually when you log in to a website, that's when your session starts, and that's when your fortune
+
+83
+00:06:47,620 --> 00:06:49,000
+cookie gets created.
+
+84
+00:06:49,000 --> 00:06:54,220
+And inside that fortune cookie, you'll have your user credentials that says, this user is logged in
+
+85
+00:06:54,220 --> 00:06:56,650
+and has been successfully authenticated.
+
+86
+00:06:56,650 --> 00:07:02,590
+So that means as you continue to browse the website, you won't be asked to log in again when you try
+
+87
+00:07:02,590 --> 00:07:08,350
+to access a page that requires authentication, because they can always check against that active cookie
+
+88
+00:07:08,350 --> 00:07:15,130
+that you have on your browser, and it maintains your authentication for this browsing session until
+
+89
+00:07:15,130 --> 00:07:19,240
+the point when you log out, which is when this session ends.
+
+90
+00:07:19,240 --> 00:07:23,620
+And the cookie that's related to this session gets destroyed.
+
+91
+00:07:23,620 --> 00:07:30,670
+We're going to be implementing cookies and sessions into our website, and we're going to be doing it
+
+92
+00:07:30,670 --> 00:07:33,070
+using something called passport.
+
+93
+00:07:33,070 --> 00:07:39,970
+Now, if you talk about NodeJS and authentication, it's almost impossible to not mention passport.
+
+94
+00:07:39,970 --> 00:07:47,050
+And it's something that's very, very flexible and it allows you to authenticate your users using either
+
+95
+00:07:47,050 --> 00:07:53,260
+a local strategy like what we're doing right now, which is username and password, or use a whole bunch
+
+96
+00:07:53,260 --> 00:07:56,920
+of other services such as Google, Facebook, LinkedIn, Twitter.
+
+97
+00:07:56,920 --> 00:08:03,160
+And it makes it a lot easier for you to be able to plug these different ways of authentication into
+
+98
+00:08:03,160 --> 00:08:04,060
+your website.
+
+99
+00:08:04,240 --> 00:08:10,420
+Let's get started learning about passport and learning about how we can implement cookies and sessions.
+
+100
+00:08:11,330 --> 00:08:18,380
+Again in this lesson there is an associated download and that's a zip file that when you unzip it should
+
+101
+00:08:18,380 --> 00:08:22,550
+be a folder with files called 9.3 sessions and cookies.
+
+102
+00:08:22,700 --> 00:08:24,740
+As always extract it.
+
+103
+00:08:24,740 --> 00:08:35,750
+Open a vscode run npm install once you have navigated to the correct location, and you'll notice that
+
+104
+00:08:35,750 --> 00:08:42,950
+we've added a couple of new packages in the dependencies for this project compared to last time.
+
+105
+00:08:42,950 --> 00:08:48,950
+The first one is something called Express Session, which is the package that we're going to use to
+
+106
+00:08:48,950 --> 00:08:55,220
+enable this kind of session persistence, which allows us to save a cookie on the user's browser.
+
+107
+00:08:55,220 --> 00:09:01,490
+And the next time they try to access our website, we check that cookie and make sure that we can bypass
+
+108
+00:09:01,490 --> 00:09:03,290
+that whole login process.
+
+109
+00:09:03,620 --> 00:09:09,890
+Another tool that we're using in order to work with Express Session is called passport and Passport.
+
+110
+00:09:09,890 --> 00:09:17,180
+JS is a really neat library because it allows us to add lots of different authentication strategies
+
+111
+00:09:17,180 --> 00:09:20,360
+into one project very easily.
+
+112
+00:09:20,360 --> 00:09:28,250
+You can see that there are 500 plus strategies, and that includes a lot of the most commonly used ones.
+
+113
+00:09:28,250 --> 00:09:32,840
+For example, if you wanted to allow people to log in with Twitter, if you wanted people to log in
+
+114
+00:09:32,840 --> 00:09:40,550
+with Facebook or Google or GitHub or Microsoft or just a whole bunch of different strategies, you can
+
+115
+00:09:40,550 --> 00:09:46,940
+implement passport and you'll be able to add each one of these strategies very easily, just as if you're
+
+116
+00:09:46,940 --> 00:09:48,020
+playing Lego.
+
+117
+00:09:48,020 --> 00:09:53,750
+So we're going to get started by implementing something called Passport Local, because at the moment
+
+118
+00:09:53,750 --> 00:10:00,590
+the only strategy we have is local login, which means username and password, or in our case it's email
+
+119
+00:10:00,590 --> 00:10:01,400
+and password.
+
+120
+00:10:02,150 --> 00:10:10,160
+To use it, we need the passport module as well as passport local and also express session.
+
+121
+00:10:10,160 --> 00:10:13,880
+So don't worry about spelling it wrong, don't worry about typing it wrong.
+
+122
+00:10:13,880 --> 00:10:16,310
+It's already included in the package.json.
+
+123
+00:10:16,310 --> 00:10:22,580
+So once you do that npm install, those modules will get added automatically into your node modules
+
+124
+00:10:22,580 --> 00:10:23,420
+folder.
+
+125
+00:10:23,690 --> 00:10:29,900
+The code in index.js is completely the same as before, but I want to walk you through step by step
+
+126
+00:10:29,900 --> 00:10:39,260
+how we can implement cookies, sessions and all in the package of using the passport local strategy.
+
+127
+00:10:40,160 --> 00:10:46,070
+The first thing we're going to do is we're going to import something called session from our Package
+
+128
+00:10:46,070 --> 00:10:48,140
+express session.
+
+129
+00:10:48,140 --> 00:10:56,150
+And this is going to allow us to set up a new session to start saving user login sessions.
+
+130
+00:10:56,540 --> 00:10:59,660
+So we're going to use this as a middleware.
+
+131
+00:10:59,660 --> 00:11:01,280
+So use App.use.
+
+132
+00:11:01,280 --> 00:11:08,450
+And then we tap into the session and we create a new instance and pass in some options.
+
+133
+00:11:08,600 --> 00:11:10,460
+What are the options we're going to add.
+
+134
+00:11:10,460 --> 00:11:13,250
+Most important we need a secret.
+
+135
+00:11:13,250 --> 00:11:17,360
+And this is the secret that's used to sign the session cookie.
+
+136
+00:11:17,360 --> 00:11:22,010
+So if you remember what we talked about encryption this is quite important.
+
+137
+00:11:22,010 --> 00:11:26,930
+You can consider this as the key that's used to keep the session secret.
+
+138
+00:11:26,930 --> 00:11:30,230
+Because we're bypassing the login process.
+
+139
+00:11:30,230 --> 00:11:36,710
+We need to make sure that we are doing everything that we can in order to make sure that we are protecting
+
+140
+00:11:36,710 --> 00:11:38,420
+the user's login information.
+
+141
+00:11:39,260 --> 00:11:42,560
+You can set this to any string you like.
+
+142
+00:11:42,560 --> 00:11:48,530
+So for example, I'm just going to call it top secret word.
+
+143
+00:11:49,250 --> 00:11:54,980
+And in this case you can replace that with whatever you like, just as long as you make sure you add
+
+144
+00:11:54,980 --> 00:11:55,550
+one.
+
+145
+00:11:55,970 --> 00:11:59,840
+Next we're going to set Resave to false.
+
+146
+00:11:59,900 --> 00:12:05,570
+And what this option does is whether if we want to force a session to be saved into the store.
+
+147
+00:12:05,600 --> 00:12:13,130
+The great thing about session is you compare it with Postgres and you can save the session to your database.
+
+148
+00:12:13,130 --> 00:12:15,260
+At the moment I'm not going to do that.
+
+149
+00:12:15,260 --> 00:12:21,380
+So I'm going to set this resave to false because we're going to save it in our app on our server for
+
+150
+00:12:21,380 --> 00:12:21,740
+now.
+
+151
+00:12:21,740 --> 00:12:28,520
+If you wanted to persist this, then you can look up how to use Express session with a Postgres store
+
+152
+00:12:28,520 --> 00:12:29,660
+to store it.
+
+153
+00:12:29,660 --> 00:12:36,740
+And that means that even if your server was reset or if you updated your server and restarted it, it
+
+154
+00:12:36,740 --> 00:12:41,300
+would still work for the user because that information would be on the database for now.
+
+155
+00:12:41,300 --> 00:12:43,520
+I think this should do just fine.
+
+156
+00:12:43,520 --> 00:12:48,080
+So the final one I'm going to set is something called save uninitialized.
+
+157
+00:12:48,080 --> 00:12:56,180
+And again this is to do with the whether or not we want to force a session to be saved to the store.
+
+158
+00:12:57,110 --> 00:13:05,870
+And I'm going to set this to true so that we actually store the uninitialized sessions into our server
+
+159
+00:13:05,870 --> 00:13:06,560
+memory.
+
+160
+00:13:07,520 --> 00:13:13,520
+Now, once we've done all of that, the next thing we're going to do is we're going to use passport.
+
+161
+00:13:13,520 --> 00:13:18,260
+So I'm going to import passport from the passport module.
+
+162
+00:13:18,260 --> 00:13:27,080
+And it's really important that your passport module goes after your session initialization.
+
+163
+00:13:27,080 --> 00:13:34,040
+So you should have already created your session before you use the next lines of code.
+
+164
+00:13:34,040 --> 00:13:39,290
+This is really important if you get the order wrong in our middleware, because we know it gets run
+
+165
+00:13:39,290 --> 00:13:40,520
+from top to bottom.
+
+166
+00:13:40,610 --> 00:13:45,170
+If you haven't got a session that you've already set up, and then you try to do the next thing, which
+
+167
+00:13:45,170 --> 00:13:46,550
+is again middleware.
+
+168
+00:13:46,550 --> 00:13:50,900
+So app.use and then it's passport dot initialize.
+
+169
+00:13:50,990 --> 00:13:55,250
+And that requires some parentheses because it's a method.
+
+170
+00:13:55,250 --> 00:14:00,740
+And then it's App.use passport dot session.
+
+171
+00:14:01,340 --> 00:14:07,160
+This has to happen after we already have a session that's already ongoing.
+
+172
+00:14:07,160 --> 00:14:08,840
+Otherwise it's not going to work.
+
+173
+00:14:09,020 --> 00:14:13,400
+So just make sure that you've got the right order in your code as well.
+
+174
+00:14:13,820 --> 00:14:18,380
+So now that we've done all of that, I'm going to show you what's a really cool thing that you can do.
+
+175
+00:14:18,380 --> 00:14:22,070
+Because we're now using passport and sessions.
+
+176
+00:14:22,220 --> 00:14:28,340
+At the moment we're deciding whether or not to show the user secrets or eggs, depending on whether
+
+177
+00:14:28,340 --> 00:14:31,610
+or not they've passed either registration or login.
+
+178
+00:14:31,610 --> 00:14:35,510
+But in most cases, you would probably want a route, right?
+
+179
+00:14:35,510 --> 00:14:42,560
+You would want an app.get that goes to forward slash secrets so that the user can hit up that path straight
+
+180
+00:14:42,560 --> 00:14:44,090
+away in their URL.
+
+181
+00:14:44,090 --> 00:14:49,790
+But this has its own challenges, because how do we know if they are already logged in?
+
+182
+00:14:49,790 --> 00:14:56,000
+Well, if we have a active session that's saved in a cookie, then we can straight away show them that
+
+183
+00:14:56,000 --> 00:14:56,600
+page.
+
+184
+00:14:56,600 --> 00:14:59,720
+But if we don't, then we shouldn't show it to them.
+
+185
+00:15:00,200 --> 00:15:09,290
+The way we do this is we can use something that gets saved into the request, which is called is authenticated.
+
+186
+00:15:09,290 --> 00:15:17,120
+And this comes from passport and it allows us to check is the current user who's logged in in the current
+
+187
+00:15:17,120 --> 00:15:20,120
+session authenticated already.
+
+188
+00:15:20,150 --> 00:15:25,970
+And if that turns out to be true, then we can show them the secrets page.
+
+189
+00:15:26,660 --> 00:15:35,330
+So we can say if this is true then in that case we'll just render the secrets dot js.
+
+190
+00:15:37,260 --> 00:15:44,490
+But otherwise so else we're going to raise dot redirect to the login route.
+
+191
+00:15:44,490 --> 00:15:48,570
+That way they'll have to log in first before they see this.
+
+192
+00:15:48,840 --> 00:15:57,390
+If we go ahead and start up our server as it is, you'll see that if I try to go to that route forward
+
+193
+00:15:57,390 --> 00:16:02,910
+slash secrets, it's going to redirect me straight into the login page.
+
+194
+00:16:02,940 --> 00:16:09,030
+And if you open up the Chrome developer tools so you can either go through settings or you can use the
+
+195
+00:16:09,030 --> 00:16:13,980
+shortcut which I taught you previously, you'll be able to see that under cookies.
+
+196
+00:16:13,980 --> 00:16:17,580
+You may or may not see localhost 3000.
+
+197
+00:16:17,760 --> 00:16:18,180
+All right.
+
+198
+00:16:18,180 --> 00:16:25,200
+So how can we implement login for the user who we already have stored on our database right here.
+
+199
+00:16:25,200 --> 00:16:26,370
+We saw that previously.
+
+200
+00:16:26,370 --> 00:16:28,860
+We can use their email and password to log in.
+
+201
+00:16:28,860 --> 00:16:35,910
+But now we want to be able to authenticate that session and start it up in passport.
+
+202
+00:16:36,120 --> 00:16:42,930
+So the first thing we're going to do is we're going to import and then add a set of curly braces to
+
+203
+00:16:42,930 --> 00:16:45,360
+import something called strategy.
+
+204
+00:16:45,390 --> 00:16:49,500
+And this strategy comes from passport dash local.
+
+205
+00:16:49,500 --> 00:16:53,070
+So this is actually also known as a local strategy.
+
+206
+00:16:53,460 --> 00:16:58,110
+Now the next thing we're going to do is we're going to scroll all the way to the bottom just above our
+
+207
+00:16:58,110 --> 00:16:59,220
+app.listen.
+
+208
+00:16:59,220 --> 00:17:04,530
+And we're going to tap into passport and say passport dot use.
+
+209
+00:17:04,530 --> 00:17:09,599
+And we're going to use this to register a strategy.
+
+210
+00:17:10,410 --> 00:17:15,030
+And the strategy is going to be a new strategy.
+
+211
+00:17:15,030 --> 00:17:19,859
+So we can create a new object from this class called strategy.
+
+212
+00:17:19,859 --> 00:17:26,400
+And inside here we're going to call something called verify.
+
+213
+00:17:27,000 --> 00:17:30,390
+That's a function called verify.
+
+214
+00:17:30,990 --> 00:17:38,310
+And it takes three parameters a username a password.
+
+215
+00:17:39,720 --> 00:17:47,040
+And a callback, which in the passport world is always written as c b.
+
+216
+00:17:48,740 --> 00:17:56,240
+So now we can open up our curly braces and start adding some code into this strategy.
+
+217
+00:17:56,390 --> 00:18:03,440
+The fact that it's a local strategy means it's trying to validate whether if a user already has the
+
+218
+00:18:03,440 --> 00:18:07,190
+right password, if their email exists in the database already.
+
+219
+00:18:07,190 --> 00:18:13,220
+So basically everything that we've already tried to do inside our login route.
+
+220
+00:18:13,220 --> 00:18:20,600
+So we can actually cut this entire try catch block and we can paste it straight in here.
+
+221
+00:18:20,810 --> 00:18:24,770
+There's one thing that we need to remember about passport.
+
+222
+00:18:24,770 --> 00:18:32,630
+It can automatically through the use of this verify function, grab hold of the username and password
+
+223
+00:18:32,630 --> 00:18:36,950
+from the form that submits the login request.
+
+224
+00:18:36,950 --> 00:18:42,890
+So if we look in login you'll see that there is a field called username and a field called password.
+
+225
+00:18:42,890 --> 00:18:52,610
+And as long as that matches and we have username and password ID and also username and password in the
+
+226
+00:18:52,610 --> 00:18:58,520
+name attribute here, then what it's going to do is it's going to automatically grab it.
+
+227
+00:18:58,520 --> 00:19:02,630
+And we can in fact confirm this by console logging this.
+
+228
+00:19:02,870 --> 00:19:10,790
+And instead of us having to use body parser and grab hold of all of that stuff by using request.body
+
+229
+00:19:10,850 --> 00:19:14,720
+or username, etc., body parser automates that for us.
+
+230
+00:19:15,230 --> 00:19:22,130
+The other thing we need to take a look at is because our database queries are asynchronous, so we need
+
+231
+00:19:22,130 --> 00:19:24,530
+to wait for them to happen before we continue.
+
+232
+00:19:24,560 --> 00:19:28,610
+We need to change this verify function to an asynchronous function.
+
+233
+00:19:28,610 --> 00:19:31,520
+So that's an async function called verify.
+
+234
+00:19:32,150 --> 00:19:35,660
+And as always how do I know all of this.
+
+235
+00:19:35,660 --> 00:19:39,050
+Of course it's through reading the documentation.
+
+236
+00:19:39,050 --> 00:19:45,890
+If you go into the documentation section and you go to their tutorials and go to username and password,
+
+237
+00:19:45,890 --> 00:19:48,830
+then you'll see that there's several sections that we can skip.
+
+238
+00:19:48,830 --> 00:19:50,570
+We've already got a starting project.
+
+239
+00:19:50,570 --> 00:19:52,670
+We've already got our login prompt.
+
+240
+00:19:52,700 --> 00:19:55,340
+Now this is where we're at at the moment.
+
+241
+00:19:55,340 --> 00:19:58,700
+We're working through this verify password section.
+
+242
+00:19:58,700 --> 00:20:03,290
+Now they use a different package to hash the passwords.
+
+243
+00:20:03,290 --> 00:20:05,540
+We're using Bcrypt and they're using crypto.
+
+244
+00:20:05,540 --> 00:20:10,760
+And in fact more projects use Bcrypt in the real world then crypto.
+
+245
+00:20:10,760 --> 00:20:12,110
+So don't worry about that.
+
+246
+00:20:12,110 --> 00:20:17,600
+You are in good company and we're kind of just working through this verify function at the moment.
+
+247
+00:20:18,140 --> 00:20:25,610
+One of the important things to realize about how passport works is it gets triggered whenever we try
+
+248
+00:20:25,610 --> 00:20:27,740
+to authenticate a user.
+
+249
+00:20:27,740 --> 00:20:30,530
+So it falls into this verify function.
+
+250
+00:20:30,530 --> 00:20:38,540
+And the first thing we try to do as we did before is we're going to see if we have a user with the current
+
+251
+00:20:38,540 --> 00:20:39,350
+email.
+
+252
+00:20:39,350 --> 00:20:46,970
+And we're going to change this from email to username as well, so that we actually use the username
+
+253
+00:20:46,970 --> 00:20:48,830
+that comes from the form.
+
+254
+00:20:49,280 --> 00:20:56,660
+And if we do, namely the length is greater than zero, then we set them as the current user, including
+
+255
+00:20:56,660 --> 00:21:02,570
+all of the result that comes back from the database, which remember includes things such as their ID,
+
+256
+00:21:02,600 --> 00:21:04,610
+their email, their password hash.
+
+257
+00:21:04,850 --> 00:21:12,500
+Next, we use our Bcrypt to compare their password that was entered in the form versus the password
+
+258
+00:21:12,500 --> 00:21:15,350
+that was saved on the system.
+
+259
+00:21:15,350 --> 00:21:19,220
+And if that happens to be the same.
+
+260
+00:21:19,220 --> 00:21:25,400
+So let's go ahead and change this login password to the password from here.
+
+261
+00:21:25,700 --> 00:21:34,730
+And if that comparison succeeds then we will end up with a result that is equal to true here.
+
+262
+00:21:34,730 --> 00:21:43,370
+Instead of simply res dot rendering secrets dot js, we're going to try and pass a callback.
+
+263
+00:21:43,370 --> 00:21:49,070
+So we're going to return from this function which is this verify function.
+
+264
+00:21:49,070 --> 00:21:52,160
+And we're going to return by calling the callback.
+
+265
+00:21:52,160 --> 00:21:54,050
+That's one of these inputs.
+
+266
+00:21:54,050 --> 00:21:58,700
+And the callback is going to firstly include any errors.
+
+267
+00:21:58,700 --> 00:22:02,450
+Well if this result was true then that will be null.
+
+268
+00:22:02,450 --> 00:22:03,560
+No errors.
+
+269
+00:22:03,560 --> 00:22:09,380
+And then the next thing we're going to pass over is the details of the actual user.
+
+270
+00:22:09,380 --> 00:22:16,940
+So we can save the details of the user from our database lookup, pass it through the callback.
+
+271
+00:22:16,940 --> 00:22:25,460
+And that means when we redirect to the next stage, which is to go to the forward slash secrets in the
+
+272
+00:22:25,460 --> 00:22:33,320
+request already we will have the is authenticated set to true, and we even have access to something
+
+273
+00:22:33,320 --> 00:22:34,730
+called a user.
+
+274
+00:22:34,730 --> 00:22:37,460
+So I'm going to console log this a little bit later on.
+
+275
+00:22:37,460 --> 00:22:40,760
+But I'm just going to write it out so that you can see what it looks like.
+
+276
+00:22:40,760 --> 00:22:48,110
+Request dot user will have the details that we have saved into it from this part where we got the user
+
+277
+00:22:48,110 --> 00:22:48,230
+from.
+
+278
+00:22:48,430 --> 00:22:52,630
+The database, and then we added the user in to the callback.
+
+279
+00:22:52,810 --> 00:22:55,240
+What if things go wrong?
+
+280
+00:22:55,240 --> 00:23:02,350
+Well, if there was an error instead of console logging it, then we should return the callback and
+
+281
+00:23:02,350 --> 00:23:03,910
+pass the error here.
+
+282
+00:23:04,000 --> 00:23:11,590
+And also if the password was incorrect, then we should also return a callback.
+
+283
+00:23:11,590 --> 00:23:18,580
+And in this case it's not really an error because there's nothing wrong with what's happened with passport
+
+284
+00:23:18,580 --> 00:23:20,350
+or with authentication.
+
+285
+00:23:20,350 --> 00:23:24,730
+It's actually a user error, which is not strictly an error.
+
+286
+00:23:24,790 --> 00:23:31,180
+And here we can set this second value the user to false.
+
+287
+00:23:31,180 --> 00:23:37,420
+And this basically tells us when we try to get hold of the user or when we check is it authenticated
+
+288
+00:23:37,420 --> 00:23:38,530
+to false.
+
+289
+00:23:38,530 --> 00:23:43,300
+And that means we know that the user is not authenticated.
+
+290
+00:23:43,540 --> 00:23:48,490
+And then finally we've got this last res.send which we're going to change into the same format.
+
+291
+00:23:48,490 --> 00:23:52,780
+Return the callback, and we're going to set this as a error.
+
+292
+00:23:52,780 --> 00:23:56,290
+And we're going to set the error to user not found.
+
+293
+00:23:56,860 --> 00:24:01,930
+And we might as well do it in case our database query goes wrong as well.
+
+294
+00:24:04,660 --> 00:24:11,800
+That's all there is to setting up our local strategy basically takes it out of the app.post and puts
+
+295
+00:24:11,800 --> 00:24:16,540
+it into a separate section, which can be reused at any part of our code.
+
+296
+00:24:16,720 --> 00:24:22,540
+The last thing we need to do is just before the App.listen, we're going to write something called passport
+
+297
+00:24:22,540 --> 00:24:27,130
+dot serialize user, and this takes a function.
+
+298
+00:24:27,130 --> 00:24:31,360
+So let's add another set of parentheses inside the first set of parentheses.
+
+299
+00:24:31,360 --> 00:24:34,960
+And we get to serialize a user.
+
+300
+00:24:34,960 --> 00:24:43,030
+So that means that we can save the data of the user who's logged in to local storage.
+
+301
+00:24:45,430 --> 00:24:51,370
+And we can use the callback to pass over any of the details of the user.
+
+302
+00:24:51,550 --> 00:24:58,540
+Now, there is another passport related method that we need just to make this work, which is called
+
+303
+00:24:58,540 --> 00:25:00,280
+deserialize user.
+
+304
+00:25:00,310 --> 00:25:02,410
+And it's exactly the same code.
+
+305
+00:25:02,410 --> 00:25:05,470
+It just passes along the user's information.
+
+306
+00:25:05,470 --> 00:25:12,160
+And all that this does is it saves the user's information such as their ID, their email to the local
+
+307
+00:25:12,160 --> 00:25:18,220
+session, and then when you want to get hold of the user, it deserializes it back into a way that you
+
+308
+00:25:18,220 --> 00:25:22,150
+can access the user's information through that session.
+
+309
+00:25:22,150 --> 00:25:29,920
+Coming back to our App.post, instead of handling everything inside a asynchronous function as we normally
+
+310
+00:25:29,920 --> 00:25:36,190
+do, grabbing hold of the request, sending back a response, etc., we're actually going to ignore
+
+311
+00:25:36,190 --> 00:25:39,700
+all of that, and we're going to use passport as middleware.
+
+312
+00:25:39,700 --> 00:25:47,500
+So that means that straight after the comma, after the route, we're going to use passport dot authenticate.
+
+313
+00:25:47,500 --> 00:25:55,480
+And this is the method that is going to trigger the strategy down here as long as we tell it to.
+
+314
+00:25:55,510 --> 00:26:02,860
+So we're going to say use the local strategy in order to authenticate this particular request.
+
+315
+00:26:02,860 --> 00:26:07,090
+And what this is going to do is we're going to set some options.
+
+316
+00:26:07,090 --> 00:26:09,910
+First is a success redirect.
+
+317
+00:26:09,910 --> 00:26:12,190
+Where do you want to redirect the user.
+
+318
+00:26:12,190 --> 00:26:19,120
+If everything went well and they are successfully authenticated we redirect them to forward slash secrets.
+
+319
+00:26:19,120 --> 00:26:21,700
+Now what about a failure redirect.
+
+320
+00:26:21,700 --> 00:26:27,190
+Well if they got the password wrong, if it didn't work for any sort of reason, we're going to redirect
+
+321
+00:26:27,190 --> 00:26:29,770
+them back into the login page.
+
+322
+00:26:30,400 --> 00:26:33,790
+If all of that's a bit confusing, let's first just try it out.
+
+323
+00:26:33,790 --> 00:26:35,050
+So let's hit save.
+
+324
+00:26:35,050 --> 00:26:37,810
+Make sure that we've got our server already running.
+
+325
+00:26:37,960 --> 00:26:42,760
+And let's go ahead and make sure that this actually works.
+
+326
+00:26:43,370 --> 00:26:43,820
+All right.
+
+327
+00:26:43,820 --> 00:26:45,470
+So now let's go ahead and test it out.
+
+328
+00:26:45,470 --> 00:26:48,950
+Let's go to our login page which we have added.
+
+329
+00:26:48,950 --> 00:26:52,670
+I'm going to put in my user with my email and password.
+
+330
+00:26:52,670 --> 00:26:58,850
+And you can see as soon as I click login it takes me to the secrets page which meant everything went
+
+331
+00:26:58,850 --> 00:26:59,900
+well.
+
+332
+00:26:59,900 --> 00:27:08,600
+And we can actually catch that thing that I told you about the user that got serialized into the session,
+
+333
+00:27:08,600 --> 00:27:15,140
+and then deserialized when we need to access it by tapping into Request.user, we can console log it.
+
+334
+00:27:15,140 --> 00:27:20,030
+When we actually head over to the secrets page, let's go back to our login page.
+
+335
+00:27:20,030 --> 00:27:24,950
+Click login and you can see that Request.user being printed here.
+
+336
+00:27:24,950 --> 00:27:32,960
+It gives me their ID, their email, their password, and all of these things are stored whenever a
+
+337
+00:27:32,960 --> 00:27:35,510
+authenticated request is made.
+
+338
+00:27:36,050 --> 00:27:42,110
+And this also means if I try to go to the secrets route again, if I try to hit refresh on this page,
+
+339
+00:27:42,110 --> 00:27:50,330
+or if I just go to it, or even if I close down my tab and reopen a new tab, you can see that my session
+
+340
+00:27:50,330 --> 00:27:51,740
+is now saved.
+
+341
+00:27:51,740 --> 00:27:59,030
+And if you go into the Chrome Developer tools, which remember is over here under More Tools Developer
+
+342
+00:27:59,030 --> 00:28:02,420
+Tools, you'll be able to go to the application tab.
+
+343
+00:28:02,420 --> 00:28:10,190
+And here you can see under the cookies section that for our URL localhost 3000, we've added a cookie
+
+344
+00:28:10,190 --> 00:28:13,670
+into here that helps us to persist this session.
+
+345
+00:28:13,670 --> 00:28:15,920
+This is why this is saved.
+
+346
+00:28:16,460 --> 00:28:19,670
+Now you might be wondering, well, how long is that session saved?
+
+347
+00:28:19,670 --> 00:28:25,070
+What if I closed down the browser and then I try to go to this again?
+
+348
+00:28:25,070 --> 00:28:26,330
+Will that work?
+
+349
+00:28:26,330 --> 00:28:27,380
+Well, no.
+
+350
+00:28:27,650 --> 00:28:31,190
+As you can see, I typed it in again and it told me to log in.
+
+351
+00:28:31,190 --> 00:28:35,390
+That's because that session cookie has now expired.
+
+352
+00:28:35,390 --> 00:28:38,210
+So how do we set the expiry?
+
+353
+00:28:38,210 --> 00:28:43,910
+Well, we can go into where we have our app.use and we have our session.
+
+354
+00:28:43,910 --> 00:28:46,790
+One of the options is cookie.
+
+355
+00:28:46,970 --> 00:28:50,780
+And the cookie can have an option called max age.
+
+356
+00:28:50,780 --> 00:28:57,260
+And this specifies a number in milliseconds to use when calculating the expiry.
+
+357
+00:28:57,260 --> 00:29:05,900
+If we start out with 1000 milliseconds as one second, and then we times it by 60 to get one minute,
+
+358
+00:29:05,900 --> 00:29:13,670
+and then we times it by 60 to get one hour, and then maybe we times it by 24 to get one day.
+
+359
+00:29:13,670 --> 00:29:17,390
+Then we end up with a one day length cookie.
+
+360
+00:29:17,390 --> 00:29:25,790
+So now if I repeat that experiment again let's go ahead and log in, copy our URL and close down this
+
+361
+00:29:25,790 --> 00:29:28,970
+browser and then put it back in here.
+
+362
+00:29:28,970 --> 00:29:31,160
+You can see my cookie is still valid.
+
+363
+00:29:31,160 --> 00:29:32,720
+It's still working.
+
+364
+00:29:32,720 --> 00:29:37,790
+So that's just one thing that you can mess around with depending on what your needs are.
+
+365
+00:29:38,210 --> 00:29:44,030
+The final thing we need to do for our session is what about the registration route?
+
+366
+00:29:44,030 --> 00:29:49,460
+We've got this strategy for login, which is all very well and good, but right now our register route
+
+367
+00:29:49,460 --> 00:29:51,620
+still tries to do a rerender.
+
+368
+00:29:52,310 --> 00:30:00,140
+We can update this very, very easily using another method that we get as a part of using passport.
+
+369
+00:30:00,650 --> 00:30:06,680
+We're going to change here is instead of simply just inserting the user and not caring about the results,
+
+370
+00:30:06,680 --> 00:30:13,700
+we're going to change this to say insert into the user the new email and password.
+
+371
+00:30:13,700 --> 00:30:20,990
+But we're also going to use that returning SQL command in order to return everything that we get back
+
+372
+00:30:20,990 --> 00:30:23,360
+from the record that we just inserted.
+
+373
+00:30:23,360 --> 00:30:27,980
+So that means that we can actually get hold of the new user.
+
+374
+00:30:27,980 --> 00:30:37,220
+Through this result of this database query, the user gets inserted and then it comes back in the result
+
+375
+00:30:37,220 --> 00:30:40,280
+because we're using that returning function.
+
+376
+00:30:40,280 --> 00:30:48,800
+And then we can simply set the new user to equal the result dot rows.
+
+377
+00:30:48,800 --> 00:30:51,860
+And we're going to tap into the first row.
+
+378
+00:30:52,400 --> 00:31:03,320
+And now instead of using Rest render secrets we're going to use request dot login which comes from passport.
+
+379
+00:31:03,320 --> 00:31:05,930
+And remember it is this particular login.
+
+380
+00:31:05,930 --> 00:31:07,910
+So I is lowercase.
+
+381
+00:31:07,910 --> 00:31:09,890
+This is important.
+
+382
+00:31:09,890 --> 00:31:16,040
+And inside here we're going to pass the user that we're going to save to the session.
+
+383
+00:31:16,280 --> 00:31:19,880
+That is going to be the same as the user we created just now.
+
+384
+00:31:19,880 --> 00:31:27,950
+And then it also allows us to add a callback in the case of what to do once everything is done.
+
+385
+00:31:27,950 --> 00:31:36,260
+If there are any errors, it'll be captured in here and we can simply console log any errors if it exists.
+
+386
+00:31:36,260 --> 00:31:42,920
+Otherwise we can do a res dot redirect and we can redirect to the secrets.
+
+387
+00:31:43,170 --> 00:31:47,130
+Route and once we've called request dot login.
+
+388
+00:31:47,130 --> 00:31:54,540
+This automatically authenticates our user, passes this user's information into the session Serializes
+
+389
+00:31:54,540 --> 00:31:55,410
+Deserializes.
+
+390
+00:31:55,410 --> 00:32:00,480
+And when we get over here, we'll still be able to log that user right here.
+
+391
+00:32:00,480 --> 00:32:06,000
+We can check if they're authenticated just the same as when we do our login route.
+
+392
+00:32:06,000 --> 00:32:10,170
+And I'm going to show you this by creating a new user.
+
+393
+00:32:10,170 --> 00:32:14,340
+So let's go to the register route and let's create a new user.
+
+394
+00:32:14,340 --> 00:32:20,550
+So I don't have this email in my database yet I'm going to register her goes straight to the secrets
+
+395
+00:32:20,550 --> 00:32:21,150
+page.
+
+396
+00:32:21,150 --> 00:32:28,560
+And you'll see that user being printed right here from this line in the app.get of the secrets route.
+
+397
+00:32:29,640 --> 00:32:37,440
+This is a really neat way of being able to get hold of your user data at any route or any part of your
+
+398
+00:32:37,440 --> 00:32:42,480
+server, and it's really useful when you want to check information for that user.
+
+399
+00:32:42,480 --> 00:32:48,450
+When you want to persist, user sessions, etc. even though it doesn't add a lot in terms of security,
+
+400
+00:32:48,450 --> 00:32:51,240
+it's a really important part of all modern websites.
+
+401
+00:32:51,240 --> 00:32:55,080
+When we do authentication that we actually persist their sessions.
+
+402
+00:32:55,230 --> 00:32:59,280
+In the next lesson, we're going to talk about something called environment variables.
+
+403
+00:32:59,280 --> 00:33:05,730
+And you can see even when you were creating this session, it tells you that this secret should be stored
+
+404
+00:33:05,730 --> 00:33:11,370
+in an environment variable so that it doesn't get added to your repository.
+
+405
+00:33:11,370 --> 00:33:17,340
+And that is what we're going to discuss in the next lesson, how we create environment variables, how
+
+406
+00:33:17,340 --> 00:33:20,220
+we prevent them from being exposed to other people.
+
+407
+00:33:20,220 --> 00:33:24,960
+Because after all, this is an encryption key and it is very, very top secret.
+
+408
+00:33:24,960 --> 00:33:27,570
+So for all of that and more, I'll see you there.
+

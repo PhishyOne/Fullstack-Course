@@ -1,0 +1,356 @@
+1
+00:00:00,330 --> 00:00:00,970
+Hey guys.
+
+2
+00:00:00,970 --> 00:00:03,020
+It's Angela from the App Brewery
+
+3
+00:00:03,030 --> 00:00:07,640
+and today I have a really exciting module to share with you.
+
+4
+00:00:07,650 --> 00:00:14,910
+We're going to be learning about React and in this gigantic 10 hour module, we're going to be teaching
+
+5
+00:00:14,910 --> 00:00:21,240
+you the ins and out of this web framework and how you can use it to build beautiful user interfaces
+
+6
+00:00:21,330 --> 00:00:23,760
+for your websites and web apps.
+
+7
+00:00:23,760 --> 00:00:30,570
+Now I know that you guys have been clamoring to learn about this and it's no wonder because even according
+
+8
+00:00:30,570 --> 00:00:37,500
+to Stack Overflow and the latest survey, React JS is both one of the most loved and the most wanted
+
+9
+00:00:37,500 --> 00:00:43,500
+web frameworks out there beating out Angular, Vue and a lot of other great frameworks.
+
+10
+00:00:43,590 --> 00:00:46,380
+But what exactly is React anyways?
+
+11
+00:00:46,380 --> 00:00:52,390
+Well they define it on their website as a JavaScript library for building user interfaces.
+
+12
+00:00:52,410 --> 00:00:55,620
+So it's a front end framework essentially.
+
+13
+00:00:55,620 --> 00:01:02,340
+And the idea is to make it easier and faster to build beautiful user interfaces such as the ones on
+
+14
+00:01:02,390 --> 00:01:03,520
+Airbnb.
+
+15
+00:01:03,820 --> 00:01:09,990
+And then one of the best things about React is it makes it so easy to create these repetitive elements
+
+16
+00:01:10,050 --> 00:01:17,460
+such as these tiles that you see on Airbnb. Each of these sections have different pieces of information,
+
+17
+00:01:17,730 --> 00:01:25,230
+but each of them individually such as the rating or the superhost tag, these all worked very similarly
+
+18
+00:01:25,260 --> 00:01:26,770
+from listing to listing.
+
+19
+00:01:27,300 --> 00:01:33,870
+So if you have a whole bunch of these that you need to render then you can simply create a single component
+
+20
+00:01:34,260 --> 00:01:40,590
+and customize it with different pieces of data to create an entire user interface like the one that
+
+21
+00:01:40,680 --> 00:01:49,410
+Airbnb has. Effectively, you end up breaking down a very complex user interface structure into a component
+
+22
+00:01:49,410 --> 00:01:50,210
+tree.
+
+23
+00:01:50,250 --> 00:01:57,360
+So for example here, I've got the entire web app represented as a component inside that I've got a nav
+
+24
+00:01:57,360 --> 00:02:00,030
+bar component which can be customized.
+
+25
+00:02:00,030 --> 00:02:06,870
+I've got a ToDoList component and inside that I've got ListItem components and then I've got Checkbox
+
+26
+00:02:06,930 --> 00:02:13,620
+and ItemText component each of which can be reused and customized so that you end up coding less but
+
+27
+00:02:13,620 --> 00:02:16,770
+creating more beautiful user interfaces.
+
+28
+00:02:17,310 --> 00:02:21,690
+And it also vastly simplifies the structure of your website.
+
+29
+00:02:22,140 --> 00:02:28,530
+So if you think back to using Bootstrap just to create a simple Navbar like this, we have to write a
+
+30
+00:02:28,530 --> 00:02:31,020
+whole bunch of HTML like this.
+
+31
+00:02:31,290 --> 00:02:36,810
+And it makes it really hard to organize our code and make sense of what's actually going on when things
+
+32
+00:02:36,840 --> 00:02:37,950
+go wrong.
+
+33
+00:02:37,980 --> 00:02:45,240
+Now in React however, we have a whole bunch of different components represented each as if they were
+
+34
+00:02:45,240 --> 00:02:46,560
+an HTML element.
+
+35
+00:02:46,860 --> 00:02:53,370
+So it's effectively like we're creating our own custom HTML elements defining the styling and defining
+
+36
+00:02:53,370 --> 00:02:55,400
+the functionality of each of them.
+
+37
+00:02:55,560 --> 00:03:01,830
+And then we can slot them in, like HTML elements, inside an overall structure keeping the code for our
+
+38
+00:03:01,830 --> 00:03:06,520
+web app incredibly clean and incredibly reusable and modular.
+
+39
+00:03:06,870 --> 00:03:13,890
+So these are all great things for programming clean code and creating apps that scale really well even
+
+40
+00:03:13,890 --> 00:03:20,340
+when it gets really big and complex. Effectively you can think of these components as different ingredients
+
+41
+00:03:20,370 --> 00:03:26,310
+that go into a burger and depending on what it is that you need, you can chop and change these components
+
+42
+00:03:26,580 --> 00:03:30,680
+and customize the components depending on what you need.
+
+43
+00:03:30,780 --> 00:03:36,020
+And this is achieved partly through mixing of the different types of files.
+
+44
+00:03:36,180 --> 00:03:39,870
+So I know that previously we've always tried to keep our HTML, 
+
+45
+00:03:39,890 --> 00:03:40,380
+CSS
+
+46
+00:03:40,410 --> 00:03:47,760
+and JavaScript separate. But React does and what it really benefits from is actually combining small
+
+47
+00:03:47,760 --> 00:03:55,740
+amounts of each of these types of files into a single component so that each component has its own styling,
+
+48
+00:03:55,770 --> 00:04:01,740
+its own functionality that it controls, and you can create several of these components to each perform
+
+49
+00:04:01,770 --> 00:04:08,410
+a different function and have a different appearance. For example this is what enables the Twitter web
+
+50
+00:04:08,410 --> 00:04:15,840
+site to be able to load the feed screen without the rest of the page visibly updating at all.
+
+51
+00:04:15,840 --> 00:04:18,339
+You can see that this page is not refreshing.
+
+52
+00:04:18,480 --> 00:04:24,180
+It's only when you reach the bottom of the feed that it detects that you've reached the bottom and then
+
+53
+00:04:24,180 --> 00:04:31,320
+it makes a request to the server to populate this feed component with more data while the rest of your
+
+54
+00:04:31,320 --> 00:04:35,600
+app stays as it is without needing any changes.
+
+55
+00:04:35,610 --> 00:04:39,870
+This is also what enables websites to be incredibly interactive.
+
+56
+00:04:39,990 --> 00:04:46,020
+If you think back to the old days where we had Facebook and you had these requests, say friend requests
+
+57
+00:04:46,020 --> 00:04:51,680
+or poke requests or whatever it may be, you had to refresh the page in order to see the updates.
+
+58
+00:04:51,960 --> 00:04:58,320
+But these days it's all handled through notifications and we have each component listening for changes
+
+59
+00:04:58,320 --> 00:05:05,650
+in the server and updating itself and its own appearance and data and being able to talk to the server
+
+60
+00:05:05,650 --> 00:05:07,030
+independently.
+
+61
+00:05:07,030 --> 00:05:12,670
+So imagine if every single part of this Facebook website was its own component.
+
+62
+00:05:12,970 --> 00:05:15,460
+So the news feed is its own component,
+
+63
+00:05:15,460 --> 00:05:17,670
+each of the posts are its own component.
+
+64
+00:05:17,770 --> 00:05:23,530
+So if there's a new comment for example on a post, then that post will be have to update itself without
+
+65
+00:05:23,530 --> 00:05:26,230
+affecting any of the rest of the website.
+
+66
+00:05:26,260 --> 00:05:30,290
+And this really is one of the greatest things about the React framework.
+
+67
+00:05:30,490 --> 00:05:37,240
+Now the other really awesome thing that it does is it's able to re-render these changes really efficiently
+
+68
+00:05:37,690 --> 00:05:40,590
+and it does this by comparing changes,
+
+69
+00:05:40,600 --> 00:05:42,010
+so what we might call diffing.
+
+70
+00:05:42,310 --> 00:05:48,400
+So whenever a change happens, say a new piece of data comes in or the user does something, then it's going
+
+71
+00:05:48,400 --> 00:05:56,440
+to compare the new version of the DOM tree that you want to be rendered with the old version that's
+
+72
+00:05:56,440 --> 00:06:01,320
+already showing up and it will do this kind of spot-the-difference thing where it spots that
+
+73
+00:06:01,360 --> 00:06:01,870
+'Oh OK.
+
+74
+00:06:01,870 --> 00:06:06,320
+The only thing that's changed is that this input has gone from empty to checked.
+
+75
+00:06:06,460 --> 00:06:10,240
+So this is the only component that I'm going to re render.'
+
+76
+00:06:10,240 --> 00:06:17,000
+And this obviously is more efficient and will make your web app seem more interactive and much faster.
+
+77
+00:06:17,200 --> 00:06:23,700
+Now of course React is not the only frontend framework out there. So, why am I talking about React?
+
+78
+00:06:23,950 --> 00:06:29,560
+Well even if you look at this Google Trends chart which looks at how often people search for each of
+
+79
+00:06:29,560 --> 00:06:36,770
+these things, you can see that React has clearly overtaken Angular and Vue over the past two years.
+
+80
+00:06:36,970 --> 00:06:43,540
+And if you look at Stack Overflow surveys, the most popular web framework is currently React JS just
+
+81
+00:06:43,540 --> 00:06:50,560
+below jQuery. But that's not all because React is being used at loads of places that you might want
+
+82
+00:06:50,560 --> 00:06:57,340
+a job at, say Airbnb or Uber, Facebook, Netflix. And it's probably one of the fastest growing and most
+
+83
+00:06:57,550 --> 00:06:59,650
+in demand skills out there.
+
+84
+00:06:59,650 --> 00:07:06,520
+In fact if you look at indeed and you search for a job for full stack developer or frontend engineer,
+
+85
+00:07:06,970 --> 00:07:14,350
+very frequently you will see a requirement for React and Node, both things that we cover in this course
+
+86
+00:07:14,710 --> 00:07:17,460
+and is really important to know about.
+
+87
+00:07:17,500 --> 00:07:20,890
+I hope I've gotten you excited to learn this technology.
+
+88
+00:07:20,890 --> 00:07:26,360
+So without further ado, let's get started and see what it's all about and get stuck in
+
+89
+00:07:26,360 --> 00:07:28,030
+using React JS.
+

@@ -1,0 +1,336 @@
+1
+00:00:00,880 --> 00:00:05,860
+Now another way that we could have completed the challenge is by using a for loop.
+
+2
+00:00:05,980 --> 00:00:13,450
+Now a for loop works similarly to a while loop, but instead of testing a condition, we’re specifying the
+
+3
+00:00:13,450 --> 00:00:19,120
+number of times that we want the loop to run. And the syntax looks something like this.
+
+4
+00:00:19,150 --> 00:00:22,380
+So we have the keyword for and then a set of parentheses.
+
+5
+00:00:22,570 --> 00:00:28,140
+And the first statement in the parentheses, we’re defining a starting point for the for loop.
+
+6
+00:00:28,210 --> 00:00:31,460
+So in this case we're starting at 0.
+
+7
+00:00:31,600 --> 00:00:34,410
+The next step, we're defining the end point,
+
+8
+00:00:34,450 --> 00:00:36,490
+so we're ending when i
+
+9
+00:00:36,490 --> 00:00:37,800
+is less than 2.
+
+10
+00:00:37,930 --> 00:00:42,410
+And the last thing we have to tell the for loop is what is the change,
+
+11
+00:00:42,670 --> 00:00:44,830
+which direction are we changing i.
+
+12
+00:00:44,900 --> 00:00:47,770
+Is i increasing by 1 each time,
+
+13
+00:00:47,860 --> 00:00:52,080
+or you can increase it by 2 or 3, or you can even decrease i 
+
+14
+00:00:52,330 --> 00:00:53,500
+every single time.
+
+15
+00:00:53,500 --> 00:00:58,330
+So if we take a look back at the while loop that we should now be familiar with,
+
+16
+00:00:58,540 --> 00:01:03,890
+you can see that the for loop is essentially just a reshuffling of all the elements of the while loop.
+
+17
+00:01:03,910 --> 00:01:11,350
+So we're changing the while keyword to the for keyword, and then the var creation goes into the parentheses,
+
+18
+00:01:11,500 --> 00:01:13,380
+defining the starting point,
+
+19
+00:01:13,390 --> 00:01:18,860
+so we're starting from 1. Then the next thing inside the parentheses is the ending point of the for loop,
+
+20
+00:01:18,910 --> 00:01:21,870
+so we'll end once i is less than 2.
+
+21
+00:01:21,880 --> 00:01:27,520
+And finally, if we're using the while loop, we have to include the code that changes i inside the while
+
+22
+00:01:27,520 --> 00:01:28,180
+loop.
+
+23
+00:01:28,180 --> 00:01:34,930
+Now it's integrated into the declaration for the for loop so that when we create the for loop we already
+
+24
+00:01:34,930 --> 00:01:37,580
+define the starting point, the ending point,
+
+25
+00:01:37,720 --> 00:01:39,640
+how much i is going to change,
+
+26
+00:01:39,730 --> 00:01:43,180
+and the code that should be carried out every single time the loop runs.
+
+27
+00:01:43,180 --> 00:01:48,920
+So, as you can see, the for loop is essentially what we would call in programming syntactic sugar.
+
+28
+00:01:49,180 --> 00:01:56,440
+It just sweetens up the syntax and makes it a little bit easier for developers and programmers to write.
+
+29
+00:01:56,440 --> 00:01:59,680
+So let's take a look at this for loop in action.
+
+30
+00:01:59,860 --> 00:02:04,400
+So, in our case, we've got a for loop where we start off with the variable i 
+
+31
+00:02:04,420 --> 00:02:11,680
+that’s equal to 1, and we’re ending when i is less than 2, and we're incrementing by 1 each time.
+
+32
+00:02:11,680 --> 00:02:15,370
+And inside the for loop we're simply logging the value of i.
+
+33
+00:02:15,460 --> 00:02:20,840
+So once we get to this line, the computer will run this code and create a variable
+
+34
+00:02:21,100 --> 00:02:23,480
+i, and it will set it to equal 1.
+
+35
+00:02:23,530 --> 00:02:24,960
+That's the beginning value.
+
+36
+00:02:25,240 --> 00:02:31,510
+The next step is it reaches the second part of the for loop where it checks to see whether the current
+
+37
+00:02:31,510 --> 00:02:36,800
+value of i is less than 2. And 1 is in fact less than 2,
+
+38
+00:02:36,940 --> 00:02:40,970
+so it proceeds to run the code inside the for loop,
+
+39
+00:02:40,970 --> 00:02:47,500
+so inside those curly braces. And in this case it console.logs the value of i, which currently we know to
+
+40
+00:02:47,500 --> 00:02:49,720
+be equal to 1.
+
+41
+00:02:49,720 --> 00:02:52,680
+Now once it's gotten to the end of the for loop,
+
+42
+00:02:52,840 --> 00:02:57,640
+this is the point where the third value in that for loop is carried out,
+
+43
+00:02:57,640 --> 00:03:00,580
+so in this case i is incremented by 1.
+
+44
+00:03:00,650 --> 00:03:07,450
+So i is now equal to 2. And it's really important that you know when this happens. This happens exactly
+
+45
+00:03:07,450 --> 00:03:10,460
+at the point where the closing curly braces,
+
+46
+00:03:10,480 --> 00:03:12,860
+so where the arrow is pointing right now.
+
+47
+00:03:13,180 --> 00:03:21,040
+And now the code loops back to run the for loop again, and the first thing it does is it checks whether
+
+48
+00:03:21,160 --> 00:03:23,600
+it should continue running the loop.
+
+49
+00:03:23,710 --> 00:03:27,600
+So currently i is equal to 2. 2 is not less than 2,
+
+50
+00:03:27,730 --> 00:03:34,680
+so the conditions are not met and the code exits the for loop and instead goes to the next line.
+
+51
+00:03:34,690 --> 00:03:40,690
+So if we take a look at the code for our function fizzBuzz, this is how it looks at the moment using
+
+52
+00:03:40,690 --> 00:03:41,920
+the while loop.
+
+53
+00:03:41,920 --> 00:03:48,220
+Now if we wanted to use the for loop instead, then we can change the keyword from while to for, and inside
+
+54
+00:03:48,220 --> 00:03:52,090
+the parentheses, we first declare the variable that we're going to use to count.
+
+55
+00:03:52,090 --> 00:03:55,200
+So we can cut that from there and paste it here instead.
+
+56
+00:03:55,450 --> 00:04:02,830
+So now, inside the for loop, we're creating a counter, called count, starting point from 1 and ends at
+
+57
+00:04:02,890 --> 00:04:04,330
+100.
+
+58
+00:04:04,360 --> 00:04:08,900
+The next thing that we have to add is how are we going to change the counter.
+
+59
+00:04:09,130 --> 00:04:15,010
+And in this case we're actually changing it by increasing it by 1 each time.
+
+60
+00:04:15,010 --> 00:04:18,130
+Now of course you can decrease it by 1 each time as well,
+
+61
+00:04:18,130 --> 00:04:20,279
+so you could say count minus minus.
+
+62
+00:04:20,540 --> 00:04:26,100
+And this would work, say for example, if you're counting down from 100 to 1.
+
+63
+00:04:26,140 --> 00:04:31,580
+So then you would have the opposite code where count starts off being 100
+
+64
+00:04:31,810 --> 00:04:37,490
+and it decreases by 1 each time until it is no longer greater than 1.
+
+65
+00:04:37,510 --> 00:04:43,840
+So the for loop is really flexible like that and allows you to count in any direction and increase
+
+66
+00:04:43,840 --> 00:04:48,070
+your count by 2 or by 3 or by any number you wish really.
+
+67
+00:04:48,080 --> 00:04:54,970
+And now if I run my code and I call the function fizzBuzz, you can see that it does exactly the same
+
+68
+00:04:54,970 --> 00:05:01,390
+thing as we had with the while loop, but it's less wordy, more concise, and this is the format that most
+
+69
+00:05:01,390 --> 00:05:05,130
+programmers will prefer for a use case like this.
+
+70
+00:05:05,140 --> 00:05:10,120
+Now a lot of students wonder in which cases do I use the while loop and in which cases should I use
+
+71
+00:05:10,120 --> 00:05:10,890
+the for loop.
+
+72
+00:05:10,930 --> 00:05:17,840
+Keep in mind that while is essentially checking for a state, so it's while something is true,
+
+73
+00:05:18,130 --> 00:05:22,410
+so that can be while player one is alive.
+
+74
+00:05:22,660 --> 00:05:29,620
+And essentially you want to repeatedly run an instruction while the program is in a certain state. But 
+
+75
+00:05:29,620 --> 00:05:32,900
+for the full loop you're essentially trying to iterate.
+
+76
+00:05:33,220 --> 00:05:38,440
+You're trying to run a piece of code many many times and you're going to use the for loop to define
+
+77
+00:05:38,440 --> 00:05:39,760
+how many times.
+
+78
+00:05:39,760 --> 00:05:46,720
+So with practice you'll find that that you'll gravitate toward one or the other type of loops while
+
+79
+00:05:46,720 --> 00:05:49,180
+you're writing code with different purposes.
+
+80
+00:05:49,180 --> 00:05:52,840
+So in the next lesson I've got yet another challenge for you.
+
+81
+00:05:52,900 --> 00:05:57,210
+And you can see the last challenge in the modules as somewhat of a boss level.
+
+82
+00:05:57,220 --> 00:06:01,390
+It's probably going to be the hardest but the most interesting also.
+
+83
+00:06:01,570 --> 00:06:04,640
+So it's an interactive challenge complete with code checking.
+
+84
+00:06:04,660 --> 00:06:08,370
+So once you're ready head over to the next lesson and complete the challenge.
+

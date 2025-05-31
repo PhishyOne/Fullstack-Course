@@ -1,0 +1,276 @@
+1
+00:00:00,140 --> 00:00:03,290
+All right guys, welcome to a brand new module.
+
+2
+00:00:03,290 --> 00:00:08,780
+And in this module we're going to tackle the topic of Authentication.
+
+3
+00:00:08,780 --> 00:00:13,550
+And it's something that is often thought of as incredibly complicated,
+
+4
+00:00:13,550 --> 00:00:15,230
+but it doesn't have to be.
+
+5
+00:00:15,230 --> 00:00:21,650
+And we're going to take it step by step from beginning to end so that you get an overview of the entire
+
+6
+00:00:21,650 --> 00:00:24,710
+process of setting up authentication from scratch.
+
+7
+00:00:24,770 --> 00:00:27,680
+So why do we need to authenticate?
+
+8
+00:00:27,680 --> 00:00:35,570
+Well, as we're creating our website or web app for users to use, then these users are going to start
+
+9
+00:00:35,570 --> 00:00:38,390
+generating data in the website.
+
+10
+00:00:38,390 --> 00:00:45,020
+They might like certain posts, they might interact with other users, there might be messages created
+
+11
+00:00:45,020 --> 00:00:46,700
+or recipes created,
+
+12
+00:00:46,700 --> 00:00:49,940
+there's always going to be some user data created.
+
+13
+00:00:49,940 --> 00:00:56,960
+And in order to associate those pieces of data with individual users, we need to create an Account
+
+14
+00:00:56,960 --> 00:00:58,100
+for each user.
+
+15
+00:00:58,100 --> 00:01:02,600
+So they would sign up to our website using a username and a password.
+
+16
+00:01:02,600 --> 00:01:09,440
+And we would essentially create kind of like an ID card for them to uniquely identify them on our database
+
+17
+00:01:09,440 --> 00:01:14,600
+and to save all of the data that they generate onto that account.
+
+18
+00:01:14,600 --> 00:01:20,660
+So the next time that they come back onto the website, they'll be able to use their username and password
+
+19
+00:01:20,660 --> 00:01:28,100
+and log in to our website and be able to access all of those possibly private pieces of information.
+
+20
+00:01:28,100 --> 00:01:33,350
+So this way you don't end up with everybody being able to see, you know, what private messages you're
+
+21
+00:01:33,350 --> 00:01:37,220
+sending around on Facebook or see your direct messages on Twitter.
+
+22
+00:01:37,220 --> 00:01:38,960
+So that's pretty simple.
+
+23
+00:01:38,960 --> 00:01:45,260
+Now, the other reason why you might want to add authentication to your website is to restrict access
+
+24
+00:01:45,260 --> 00:01:49,700
+to certain areas of the website, depending on the status of the user.
+
+25
+00:01:49,700 --> 00:01:57,350
+So for example, if you were Spotify or Netflix and you charge a subscription for accessing certain
+
+26
+00:01:57,350 --> 00:02:03,050
+parts of the website, then once the user pays, you have to update their account in your database to
+
+27
+00:02:03,050 --> 00:02:09,770
+say that they have paid and they'll be allowed to access the TV shows or songs that they're entitled
+
+28
+00:02:09,770 --> 00:02:10,190
+to.
+
+29
+00:02:10,520 --> 00:02:17,960
+Those are some of the reasons why you might want to add authentication to your website, but authentication
+
+30
+00:02:17,960 --> 00:02:20,570
+can be done in a number of ways.
+
+31
+00:02:20,570 --> 00:02:27,170
+Creating a website where we sign up and log in users seems simple enough, but the difficult part of
+
+32
+00:02:27,170 --> 00:02:32,420
+authentication comes from how secure you're going to make your website.
+
+33
+00:02:32,420 --> 00:02:40,970
+And we're going to tackle this problem of authentication by going through the different levels of security.
+
+34
+00:02:40,970 --> 00:02:47,300
+So we're going to go from very basic creating an account, adding the user to our database, saving
+
+35
+00:02:47,300 --> 00:02:53,630
+their username and password to enable them to log in all the way up to covering things such as OAuth
+
+36
+00:02:53,630 --> 00:03:00,260
+and social logins, including creating things such as sessions and cookies and hashing and encrypting
+
+37
+00:03:00,260 --> 00:03:05,960
+passwords and it's going to be more than you'd ever want to know about this topic, but it's really,
+
+38
+00:03:05,960 --> 00:03:10,940
+really important that you learn it in the beginning, because later on, once you've understood and
+
+39
+00:03:10,940 --> 00:03:17,210
+you've built authentication from the bottom up, then I'm going to show you some ways of simplifying
+
+40
+00:03:17,210 --> 00:03:21,500
+and making your life easier using third-party libraries like Passport.
+
+41
+00:03:21,500 --> 00:03:27,200
+So we're going to learn how to progress from essentially a website that's basically secured with a Cheeto
+
+42
+00:03:27,230 --> 00:03:34,430
+to something that is a lot more serious and more consistent with industry standards of good security
+
+43
+00:03:34,430 --> 00:03:35,330
+on a website.
+
+44
+00:03:35,330 --> 00:03:43,580
+If you're not interested in learning how to authenticate users from the very basics all the way up to
+
+45
+00:03:43,580 --> 00:03:50,240
+the most complicated, if you just want to skip ahead right to the end where we cover OAuth using third-
+
+46
+00:03:50,240 --> 00:03:55,070
+party social logins such as Google or Facebook, then feel free to do that.
+
+47
+00:03:55,070 --> 00:04:01,400
+But I strongly, strongly recommend that you follow along the entire tutorial, not only because there's
+
+48
+00:04:01,400 --> 00:04:07,280
+some pretty good jokes coming up, if I might say so myself, but also because it will help you build
+
+49
+00:04:07,280 --> 00:04:13,910
+a foundation of knowledge around this topic so that when you see it in the wild, you won't be stumped.
+
+50
+00:04:14,390 --> 00:04:20,300
+Once you're ready, we're going to get started building a website that keeps secrets.
+
+51
+00:04:20,300 --> 00:04:21,290
+Makes sense, right?
+
+52
+00:04:21,290 --> 00:04:22,190
+Authentication.
+
+53
+00:04:22,730 --> 00:04:26,540
+There is an app called Whisper that you might have come across,
+
+54
+00:04:26,540 --> 00:04:33,770
+and it's a really simple concept, that basically allows people to submit their secrets anonymously.
+
+55
+00:04:33,770 --> 00:04:42,200
+So whatever they post are not associated with a email or a username, and it means that people can express
+
+56
+00:04:42,200 --> 00:04:44,330
+themselves, I guess, more freely.
+
+57
+00:04:44,330 --> 00:04:50,480
+It's quite a fun website, and this is what we're going to try and replicate by the end of this module.
+
+58
+00:04:50,480 --> 00:04:54,290
+So the structure of our website is really, really simple.
+
+59
+00:04:54,290 --> 00:04:59,600
+It has a home page which has two buttons that allows you to.
+
+60
+00:04:59,890 --> 00:05:03,790
+Either go towards register or go towards login.
+
+61
+00:05:03,790 --> 00:05:09,610
+And once the user has been registered or logged in and they have been authenticated, then they are
+
+62
+00:05:09,610 --> 00:05:12,340
+able to access the secrets page.
+
+63
+00:05:12,340 --> 00:05:18,550
+So I've kept the remainder of the website pretty simple because we're going to be focusing on a pretty
+
+64
+00:05:18,550 --> 00:05:19,660
+complex topic.
+
+65
+00:05:19,660 --> 00:05:26,470
+So I've created some starting files for you to download so that we can focus our efforts on learning
+
+66
+00:05:26,470 --> 00:05:30,910
+authentication and not get distracted by things like Bootstrap and styling.
+
+67
+00:05:30,910 --> 00:05:36,460
+Once you're ready, head over to the next lesson, and then we're going to get started with our Level 1
+
+68
+00:05:36,460 --> 00:05:38,980
+Security Authentication.
+
+69
+00:05:38,980 --> 00:05:40,480
+So I'll see you there.
+

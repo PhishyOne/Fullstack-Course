@@ -1,0 +1,696 @@
+1
+00:00:00,570 --> 00:00:07,110
+In the beginning of this module I was extolling the virtues of React component and how wonderful it
+
+2
+00:00:07,110 --> 00:00:15,850
+is to be able to break down a large web site into individual compact and reusable components.
+
+3
+00:00:15,900 --> 00:00:20,060
+But up until now we've actually not used any components.
+
+4
+00:00:20,100 --> 00:00:22,320
+So in this lesson that's what we're going to tackle.
+
+5
+00:00:22,320 --> 00:00:24,680
+We're going to learn all about React components.
+
+6
+00:00:24,990 --> 00:00:30,720
+So go ahead and get the starting version of the sandbox from the course resources and then fork it 
+
+7
+00:00:30,810 --> 00:00:33,120
+to have your own copy.
+
+8
+00:00:33,240 --> 00:00:40,770
+So if you remember previously when we had our code for the styling practice, you saw that it's kind of
+
+9
+00:00:40,770 --> 00:00:42,440
+getting out of hand right?
+
+10
+00:00:42,450 --> 00:00:48,330
+We actually have to scroll to be up to see the entire page. And a lot of research has actually found
+
+11
+00:00:48,330 --> 00:00:53,730
+that the more that you have to scroll and the longer a single file is, the harder it is to understand
+
+12
+00:00:53,730 --> 00:00:55,310
+the code that's in it.
+
+13
+00:00:55,410 --> 00:01:04,890
+So components really allow us to split up a large file or a complex web structure into smaller components.
+
+14
+00:01:04,890 --> 00:01:10,920
+And we also get the added benefit of reusing each of these components when we need the same functionality
+
+15
+00:01:11,040 --> 00:01:13,410
+which happens a lot on web.
+
+16
+00:01:13,410 --> 00:01:19,020
+So in the starting file, I've got this h1 and a unordered list,
+
+17
+00:01:19,020 --> 00:01:25,350
+so this is a bit of code that I've gotten from one of the previous lessons. And I want to show you how
+
+18
+00:01:25,350 --> 00:01:31,380
+we can actually split up this entire website into smaller components.
+
+19
+00:01:31,380 --> 00:01:35,170
+So the first thing I'm going to do is I'm going to create a heading component.
+
+20
+00:01:35,310 --> 00:01:41,490
+Now while at the moment it's just a simple h1 element and you would question yourself like, 'Do I really
+
+21
+00:01:41,490 --> 00:01:43,750
+need to split this into a separate component?'
+
+22
+00:01:43,860 --> 00:01:49,470
+But in reality as you can imagine once you've added all the styles and you'd probably have a div around
+
+23
+00:01:49,470 --> 00:01:53,110
+the heading you might have some sort of navigation bar.
+
+24
+00:01:53,190 --> 00:01:58,530
+I've kept the code intentionally simple just so we can easily see at a glance what's happening, but know
+
+25
+00:01:58,530 --> 00:02:04,170
+that in reality your head heading component is probably a lot longer and a lot more complex and definitely
+
+26
+00:02:04,170 --> 00:02:06,880
+worth splitting into a separate component.
+
+27
+00:02:06,930 --> 00:02:13,030
+So if I want to create a component that just has this h1, I would start by creating a function.
+
+28
+00:02:13,170 --> 00:02:20,130
+So I would give my function a name and notice how in this case its React convention to give your components
+
+29
+00:02:20,250 --> 00:02:27,930
+a name that is in Pascal case which means that every single word has the first letter capitalized.
+
+30
+00:02:28,110 --> 00:02:35,100
+And so in my case let me call this component heading and let's open up a set of parentheses and open
+
+31
+00:02:35,100 --> 00:02:37,400
+up a set of curly braces.
+
+32
+00:02:37,410 --> 00:02:45,540
+Now in this heading function, all that it's going to do is to return a HTML element that is created using
+
+33
+00:02:45,540 --> 00:02:46,470
+Javascript.
+
+34
+00:02:46,620 --> 00:02:52,440
+So I'm going to cut this h1 and I'm going to make it the output of my heading function.
+
+35
+00:02:52,650 --> 00:02:56,600
+So it's just going to return this h1.
+
+36
+00:02:57,270 --> 00:03:06,200
+Now I can use this custom heading component inside my React code as if it was an HTML  element.
+
+37
+00:03:06,630 --> 00:03:12,390
+So I'm going to insert it back where I had it before right here, and I'm going to create it just as I
+
+38
+00:03:12,390 --> 00:03:15,650
+would for any other HTML  tag, like so.
+
+39
+00:03:16,080 --> 00:03:22,860
+But notice where this React convention comes in handy. All of our components have names which start with
+
+40
+00:03:22,890 --> 00:03:25,130
+a capital letter using Pascal case.
+
+41
+00:03:25,710 --> 00:03:32,550
+And this allows React to differentiate between the custom components that we're building versus the
+
+42
+00:03:32,610 --> 00:03:39,990
+HTML elements that we're trying to get hold of that exists in the DOM. Now that we've created our heading
+
+43
+00:03:39,990 --> 00:03:44,850
+component and we've inserted in here as if it was an HTML element
+
+44
+00:03:44,850 --> 00:03:49,140
+you can see it shows up in our website in exactly the same position.
+
+45
+00:03:49,350 --> 00:03:55,020
+And what's happening behind the scenes is once it gets to this line, it looks for this custom component
+
+46
+00:03:55,020 --> 00:04:03,060
+called heading which it finds right here and then it triggers this function and outputs the h1 to replace
+
+47
+00:04:03,060 --> 00:04:05,900
+it in the location of this component.
+
+48
+00:04:05,910 --> 00:04:12,690
+Now remember that by convention again if we have a HTML element that has no children,
+
+49
+00:04:12,690 --> 00:04:20,910
+so nothing in between the opening and closing tags, then best practice is to actually have a self closing
+
+50
+00:04:20,910 --> 00:04:21,670
+tag.
+
+51
+00:04:21,750 --> 00:04:28,530
+So the name of the component, a space, a forward slash and the closing angle bracket. And in fact even
+
+52
+00:04:28,530 --> 00:04:33,980
+if you didn't do this and if you're in code sandbox and you've got the linter in place, if you hit save
+
+53
+00:04:34,050 --> 00:04:37,080
+it'll actually just replace it for you.
+
+54
+00:04:37,080 --> 00:04:43,170
+Now if you're wondering where I'm getting hold of all of these supposed best practices, this is the AirBn
+
+55
+00:04:43,170 --> 00:04:51,780
+B React JSX style guide, and it's generally accepted to be a good reference as to how to for example,
+
+56
+00:04:51,780 --> 00:04:56,790
+name things in your code or what to do with spacing
+
+57
+00:04:56,790 --> 00:05:04,050
+for example having a single space after the component and then the closing tags. So be sure to bookmark
+
+58
+00:05:04,080 --> 00:05:10,610
+this and refer to it whenever you are in doubt as to how you should be writing or structuring your code.
+
+59
+00:05:10,620 --> 00:05:16,470
+Now at the end of the day of course the compiler in the browser doesn't actually care, but it's a case
+
+60
+00:05:16,470 --> 00:05:21,900
+of having your code being easily readable by other programmers as well as to make it easy to understand
+
+61
+00:05:21,900 --> 00:05:24,210
+what's going on when you come back to it later on.
+
+62
+00:05:25,590 --> 00:05:33,960
+So in this case I've split off the heading into a separate component called heading but it's still living
+
+63
+00:05:33,960 --> 00:05:36,240
+inside my index.js right?
+
+64
+00:05:36,450 --> 00:05:41,870
+And you can imagine that if I had a very large website and I had all of my components cluttering index
+
+65
+00:05:41,870 --> 00:05:44,150
+.js that would be terrible.
+
+66
+00:05:44,190 --> 00:05:52,650
+So we're going to use a ES6 feature where we import our heading component from a separate file and it's
+
+67
+00:05:52,650 --> 00:05:56,350
+going to be very similar to what we're doing with React and ReactDOM.
+
+68
+00:05:56,400 --> 00:06:01,140
+But in this case we're going to be doing all of the importing and exporting ourselves.
+
+69
+00:06:01,200 --> 00:06:07,890
+So inside our source folder, I'm going to click on this icon to create a new file as it suggests and
+
+70
+00:06:07,890 --> 00:06:14,560
+that file is going to be called heading which is the name of my component, '.jsx'.
+
+71
+00:06:14,700 --> 00:06:21,600
+So I'm going to start using this JSX file name to denote all of my components which are going to
+
+72
+00:06:21,600 --> 00:06:23,330
+be written in JSX.
+
+73
+00:06:23,760 --> 00:06:29,850
+Again if you take a look at the convention we will usually leave index.js as a plain JavaScript
+
+74
+00:06:29,850 --> 00:06:34,140
+file even if we're using some React and some JSX in it.
+
+75
+00:06:34,140 --> 00:06:42,190
+And then we would have all of our components separated into individual files with the JSX extension.
+
+76
+00:06:42,300 --> 00:06:50,100
+Let's go ahead and move our heading component and cut it out of index.js and paste it into our
+
+77
+00:06:50,100 --> 00:06:51,000
+heading.
+
+78
+00:06:51,030 --> 00:06:58,170
+jsx. Now if you remember from previous lessons, I mentioned that in order to actually write this code
+
+79
+00:06:58,230 --> 00:07:05,100
+which is not actually Javascript it's in fact JSX because we have these HTML  elements which are
+
+80
+00:07:05,130 --> 00:07:11,850
+intermingling with actual Javascript code and we're only able to do this because the React module actually
+
+81
+00:07:11,850 --> 00:07:18,510
+converts this into real Javascript using real JavaScript functions such as document.createElement
+
+82
+00:07:18,690 --> 00:07:19,790
+etc..
+
+83
+00:07:19,830 --> 00:07:26,000
+So in order to use this code we of course have to import React from the React module.
+
+84
+00:07:26,010 --> 00:07:31,230
+So I'm going to copy that line and paste it at the top here and you're going to be doing this every
+
+85
+00:07:31,230 --> 00:07:40,770
+time you create a new React component. Now that we've imported React so we're able to write JSX code
+
+86
+00:07:41,250 --> 00:07:47,800
+and we've got this heading function which is a component that we want to use inside our index.js
+
+87
+00:07:47,850 --> 00:07:48,960
+right here,
+
+88
+00:07:49,020 --> 00:07:52,650
+how do we actually get this file to know about this file?
+
+89
+00:07:52,650 --> 00:07:59,300
+Well we have to use the ES6 import export functionality. In the file where we've got our component
+
+90
+00:07:59,340 --> 00:08:05,370
+we're going to export this heading function as the default export.
+
+91
+00:08:05,370 --> 00:08:13,140
+So I'm going to write 'export default Heading' and notice how I'm not going to add the parentheses because
+
+92
+00:08:13,140 --> 00:08:16,050
+this is going to make it return immediately,
+
+93
+00:08:16,050 --> 00:08:19,740
+instead I actually want to use it as a component
+
+94
+00:08:19,860 --> 00:08:27,850
+so inside a HTML tag like so. I've got my export default heading and now I can cap it off with a semicolon.
+
+95
+00:08:27,900 --> 00:08:35,070
+Now this file is creating a heading function and exporting it to whichever file needs it.
+
+96
+00:08:35,100 --> 00:08:39,460
+This is the file that needs it and in order to use it I'm going to import it.
+
+97
+00:08:39,480 --> 00:08:44,670
+So I'm going to import heading from that heading.jsx file.
+
+98
+00:08:44,790 --> 00:08:46,620
+So I'm going to use the relative path
+
+99
+00:08:46,680 --> 00:08:49,450
+so ./, and then heading.
+
+100
+00:08:49,500 --> 00:08:50,600
+jsx
+
+101
+00:08:50,730 --> 00:08:56,610
+But of course in ES6 the extension of the file is actually optional.
+
+102
+00:08:56,670 --> 00:09:03,690
+So if you had a file called heading.js or heading.jsx, you can actually remove the entire
+
+103
+00:09:03,750 --> 00:09:06,590
+extension and just have the name of the file.
+
+104
+00:09:06,690 --> 00:09:13,350
+It'll be able to figure out and find this file just with this amount of information.
+
+105
+00:09:13,350 --> 00:09:21,060
+Now all of our errors are gone and I've now got my heading being rendered in my website using ReactDOM
+
+106
+00:09:21,510 --> 00:09:27,450
+and I'm using my custom heading component which came from the heading file which is the heading.
+
+107
+00:09:27,450 --> 00:09:34,170
+jsx file that I've got right here and it's being created as a function that has an output.
+
+108
+00:09:34,260 --> 00:09:36,930
+Here's your turn to try it out.
+
+109
+00:09:36,930 --> 00:09:45,090
+I want you to create a custom component called list which will comprise of this unordered list and all
+
+110
+00:09:45,090 --> 00:09:47,110
+of the three items in it.
+
+111
+00:09:47,220 --> 00:09:54,570
+Try and see if you can remember how we imported heading from the heading file, how we created our custom
+
+112
+00:09:54,570 --> 00:09:55,540
+component.
+
+113
+00:09:55,740 --> 00:10:01,680
+And if you're successful you should you have to delete all of this and simply just have a list component
+
+114
+00:10:01,680 --> 00:10:05,580
+here and our website should work just as it did before.
+
+115
+00:10:05,670 --> 00:10:08,100
+Pause the  video now and try to give this a go.
+
+116
+00:10:12,860 --> 00:10:13,160
+All right.
+
+117
+00:10:13,190 --> 00:10:18,950
+So here's our unordered list which we want to split off into a separate file.
+
+118
+00:10:18,950 --> 00:10:24,080
+So I'm going to go ahead and create a new file inside my source folder.
+
+119
+00:10:24,080 --> 00:10:28,280
+Make sure that you don't press on this button because that's just going to create a new folder and you
+
+120
+00:10:28,280 --> 00:10:29,440
+won't get to do anything with it.
+
+121
+00:10:29,870 --> 00:10:33,350
+So click on this button and let's create a new component.
+
+122
+00:10:33,350 --> 00:10:41,180
+And we said we'd call it list. .jsx is going to be the extension and then hit enter to create it.
+
+123
+00:10:41,180 --> 00:10:47,690
+Now inside all of our React components we mentioned that we need to import the React module in order
+
+124
+00:10:47,690 --> 00:10:50,130
+to actually be able to write JSX.
+
+125
+00:10:50,240 --> 00:10:56,060
+So we've got that import heading in there and then we're going to create a function that's going to
+
+126
+00:10:56,090 --> 00:10:59,420
+return this unordered list item.
+
+127
+00:10:59,480 --> 00:11:03,720
+So let's copy that and over here I'm gonna create my function called list.
+
+128
+00:11:04,460 --> 00:11:12,440
+And then inside this function I'm going to return everything that used to be in my index.js which
+
+129
+00:11:12,440 --> 00:11:15,520
+is my unordered list and the three list items.
+
+130
+00:11:15,560 --> 00:11:23,240
+So now all I have to do to ship this function over to here or any other file that needs it, is to export
+
+131
+00:11:23,240 --> 00:11:25,710
+it as the default.
+
+132
+00:11:25,910 --> 00:11:32,570
+And the thing that I want to export is of course this function called list, without the parentheses.
+
+133
+00:11:32,570 --> 00:11:41,000
+So now that I've created my custom component over here I can now replace all of this with my custom
+
+134
+00:11:41,090 --> 00:11:48,170
+list component which is again going to be a self closing tag because it has no children, so nothing in
+
+135
+00:11:48,170 --> 00:11:51,020
+between the open and closing tags.
+
+136
+00:11:51,050 --> 00:11:57,650
+Now I'm getting an error here because it says list is not defined and that is because we need to import
+
+137
+00:11:57,710 --> 00:12:01,940
+this list from that file ./list.
+
+138
+00:12:02,480 --> 00:12:07,580
+And that way it'll actually know about that function called list and be able to use it in here and
+
+139
+00:12:07,580 --> 00:12:12,480
+render it as the custom component.
+
+140
+00:12:12,560 --> 00:12:19,700
+Now normally what you'll see in the index.js of a lot of React apps is they don't actually have any
+
+141
+00:12:19,700 --> 00:12:25,120
+HTML elements like a div or an h1 or anything like that.
+
+142
+00:12:25,130 --> 00:12:34,220
+Instead, what you'll see is it just has a custom component called App. And instead of all of these things,
+
+143
+00:12:34,550 --> 00:12:44,030
+we would have a custom file called App.jsx and inside here we would have all import statements
+
+144
+00:12:44,120 --> 00:12:54,620
+our import React as well and we would render our component as a function called App which returns a div
+
+145
+00:12:55,010 --> 00:13:02,140
+which contains that heading custom component as well as the list custom component.
+
+146
+00:13:02,450 --> 00:13:12,980
+And then it will export this as the default export and be able to use it inside here by importing App
+
+147
+00:13:12,990 --> 00:13:13,680
+from ./App
+
+148
+00:13:17,000 --> 00:13:20,630
+So this is the most common structure that you'll see.
+
+149
+00:13:20,660 --> 00:13:24,920
+So index.js has pretty much no custom code
+
+150
+00:13:25,040 --> 00:13:32,900
+other than rendering the React app and then in our App.js we've got the start of our component
+
+151
+00:13:32,900 --> 00:13:38,510
+tree and then we start seeing these HTML  elements as well as custom components.
+
+152
+00:13:38,510 --> 00:13:47,120
+So in this lesson we've seen how we can split up a very simple structure which we've got here into custom
+
+153
+00:13:47,180 --> 00:13:48,310
+components.
+
+154
+00:13:48,500 --> 00:13:51,830
+And this way our code is now a lot more modular.
+
+155
+00:13:51,890 --> 00:13:56,150
+Each of these files are a lot shorter and a lot more manageable.
+
+156
+00:13:56,150 --> 00:14:01,250
+And remember that each of these components can now be reused as and when we want to.
+
+157
+00:14:01,550 --> 00:14:06,950
+So if I wanted another list down here for some reason, then I can just create another list component
+
+158
+00:14:07,280 --> 00:14:11,460
+without having to write out or the uls or lis etc..
+
+159
+00:14:11,870 --> 00:14:18,410
+And as we learn more about these components and how to use things such as props, we'll be able to customize
+
+160
+00:14:18,410 --> 00:14:26,320
+these components to an even higher degree. The last thing I want to mention in this lesson is that usually
+
+161
+00:14:26,650 --> 00:14:34,150
+in React apps you will have a lot of component files. And as you can imagine if you have 20 or 30 of
+
+162
+00:14:34,150 --> 00:14:38,220
+these then this whole list is going to start needing some structure.
+
+163
+00:14:38,590 --> 00:14:45,850
+So the very basic thing we should do is to at least create a new directory called components and inside
+
+164
+00:14:45,910 --> 00:14:50,170
+this directory we'll drag in all of our React components.
+
+165
+00:14:50,170 --> 00:14:56,320
+Now of course as your app gets more complex then you would probably start splitting off this component
+
+166
+00:14:56,320 --> 00:15:06,190
+folder into even sub folders like a login screen component or a register screen component or subdivisions
+
+167
+00:15:06,280 --> 00:15:08,680
+just to make your files more easily manageable.
+
+168
+00:15:09,190 --> 00:15:15,640
+But now that we've moved all our components into a separate folder, our index.js is going to break
+
+169
+00:15:15,670 --> 00:15:20,030
+because our App.jsx is no longer at the same level.
+
+170
+00:15:20,200 --> 00:15:28,810
+So we now have to change this relative path to ./components/App and now everything starts
+
+171
+00:15:28,810 --> 00:15:36,270
+working again. In the next lesson we're going to get some more practice with React components and you're
+
+172
+00:15:36,270 --> 00:15:42,660
+going to be separating out some components from a index.js file that is clearly on its way to turning
+
+173
+00:15:42,660 --> 00:15:44,150
+into spaghetti code.
+
+174
+00:15:44,250 --> 00:15:46,730
+So for all of that and more, I'll see there.
+

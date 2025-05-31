@@ -1,0 +1,332 @@
+1
+00:00:00,120 --> 00:00:02,880
+All right guys, it's time for a challenge.
+
+2
+00:00:02,880 --> 00:00:08,160
+We covered quite a lot in the last lesson and I want to be sure that before we move on you're really
+
+3
+00:00:08,160 --> 00:00:13,530
+understanding what's going on behind the scenes here. Because as lessons progress things get more and
+
+4
+00:00:13,530 --> 00:00:14,430
+more complex
+
+5
+00:00:14,460 --> 00:00:20,550
+and if you don't have a firm grasp of the concept here then it's going to get harder next time.
+
+6
+00:00:21,060 --> 00:00:28,460
+So in this challenge, I've updated the App.jsx and I've renamed some of these things.
+
+7
+00:00:28,530 --> 00:00:34,680
+For example instead of the fullName, this is now named contact and setContact.
+
+8
+00:00:34,680 --> 00:00:40,230
+And the idea is that we want to be able to use these values that the user have typed into these three
+
+9
+00:00:40,230 --> 00:00:46,540
+inputs and put them into the  as well as a new paragraph element.
+
+10
+00:00:46,560 --> 00:00:49,610
+So your job is to make this code work basically.
+
+11
+00:00:50,190 --> 00:00:56,410
+And the final outcome should allow the user to type their first name which shows it in here,
+
+12
+00:00:56,580 --> 00:01:04,050
+their last name which shows it in the  and also an e-mail which will show up in a paragraph just below
+
+13
+00:01:04,050 --> 00:01:05,910
+the  like this.
+
+14
+00:01:05,910 --> 00:01:13,620
+So use the React developer tools to peek at what the state is looking like as you are changing your
+
+15
+00:01:13,620 --> 00:01:14,540
+code.
+
+16
+00:01:14,820 --> 00:01:20,130
+And remember to apply the things that we've talked about in the previous lessons including managing
+
+17
+00:01:20,130 --> 00:01:26,280
+state with Javascript objects, making use of the previous state when updating, working with forms in
+
+18
+00:01:26,280 --> 00:01:28,500
+React and handling events.
+
+19
+00:01:28,590 --> 00:01:33,600
+But I think at this point it's probably a good idea for me to leave you to just get on with it and see
+
+20
+00:01:33,600 --> 00:01:34,780
+how you get on.
+
+21
+00:01:34,890 --> 00:01:36,100
+Have a struggle with this
+
+22
+00:01:36,150 --> 00:01:45,350
+and then once you're done come back and we'll walk through the solution together.
+
+23
+00:01:45,440 --> 00:01:45,780
+All right.
+
+24
+00:01:45,810 --> 00:01:53,250
+So we've got this constant called contact and it's set to an object that has three properties. And we
+
+25
+00:01:53,250 --> 00:01:56,490
+can update contact using setContact.
+
+26
+00:01:56,490 --> 00:01:58,410
+So when do we want that to happen?
+
+27
+00:01:58,410 --> 00:02:01,920
+Well probably when each of these inputs gets changed.
+
+28
+00:02:02,190 --> 00:02:09,060
+So instead of typing the same thing out three times you can also just hold down the option key and click
+
+29
+00:02:09,150 --> 00:02:12,000
+to make your cursor work on multiple lines.
+
+30
+00:02:12,060 --> 00:02:19,860
+And here I'm going to add the onChange attribute and I'm going to set it to call a method called handle
+
+31
+00:02:19,860 --> 00:02:29,190
+Change which I'm going to define just right here. And I'm going to get past an event when each of those
+
+32
+00:02:29,190 --> 00:02:35,670
+inputs change. And inside this function, I'm going to create a new destructured object,
+
+33
+00:02:35,670 --> 00:02:42,390
+so with the curly braces. And the thing that I want to destructure is the event.target because I
+
+34
+00:02:42,390 --> 00:02:49,770
+know I've got event.target.name, .placeholder, .value and I only want to get a hold of the
+
+35
+00:02:49,800 --> 00:02:54,840
+.name and .value properties from this event.target.
+
+36
+00:02:54,840 --> 00:03:02,370
+So now that I've destructured this into two constants, I can now use it in my code and try to handle
+
+37
+00:03:02,460 --> 00:03:10,980
+this change. The next step is somehow updating this contact object but only updating the fields that
+
+38
+00:03:10,980 --> 00:03:12,400
+have changed.
+
+39
+00:03:12,540 --> 00:03:17,960
+Let's first call the method that updates the contact which is setContact.
+
+40
+00:03:18,030 --> 00:03:23,230
+And I know already that I'm going to need to get hold of the previous value of contact.
+
+41
+00:03:23,340 --> 00:03:31,740
+So let's go ahead and create a new arrow function here and tap in to the previous value or previous
+
+42
+00:03:31,740 --> 00:03:37,410
+contact whatever it is you decide to name it inside this arrow function.
+
+43
+00:03:37,410 --> 00:03:41,560
+And here you can log to see what the value of previous value is,
+
+44
+00:03:41,610 --> 00:03:43,290
+if you forget how it works.
+
+45
+00:03:43,290 --> 00:03:49,740
+But essentially what we want to do is we want to check to see if the name of the input is equal to f
+
+46
+00:03:49,740 --> 00:03:50,350
+Name
+
+47
+00:03:50,370 --> 00:03:52,910
+so this first input here.
+
+48
+00:03:53,130 --> 00:04:01,080
+Well then we want to go ahead and return an object where we only change the fName but else if the name
+
+49
+00:04:01,170 --> 00:04:09,690
+that was actually passed over happens to be the lName or if it happens to be the email,
+
+50
+00:04:09,700 --> 00:04:13,810
+well in these cases we probably want to return a different object.
+
+51
+00:04:14,010 --> 00:04:21,360
+So I'm going to again hold down option and click on each of these three places and I'm going to write
+
+52
+00:04:21,360 --> 00:04:28,440
+my return statement so I return an object in each of these cases. And then I'm going to add the names
+
+53
+00:04:28,650 --> 00:04:31,860
+and values of my properties.
+
+54
+00:04:38,320 --> 00:04:42,420
+In this case I'm actually returning the same thing in exactly three places,
+
+55
+00:04:43,060 --> 00:04:51,790
+but now I get to update it. If the name of the input was fName, well then the new value is probably going
+
+56
+00:04:51,790 --> 00:04:57,530
+to be this one. If the name was lName then the new value is going to be this one.
+
+57
+00:04:57,700 --> 00:05:05,360
+And if the name was email then the new value is going to be this one. Now that I've got this very very
+
+58
+00:05:05,420 --> 00:05:14,870
+long setContact I can go ahead and try out my app. So I'm going to open up my Chrome developer tools,
+
+59
+00:05:14,870 --> 00:05:22,050
+take a look at my components, select my app, expand the state of my object. First name when I start typing
+
+60
+00:05:22,070 --> 00:05:24,800
+you can see it goes in here, last name
+
+61
+00:05:24,830 --> 00:05:29,730
+when I start typing it only modifies last name without affecting anything else.
+
+62
+00:05:29,750 --> 00:05:35,150
+And finally email also works the same way. By peeking at this object
+
+63
+00:05:35,150 --> 00:05:42,720
+if you do have any unexpected things happening on screen then this can obviously help you out a lot.
+
+64
+00:05:42,740 --> 00:05:45,020
+Did you manage to get the solution right?
+
+65
+00:05:45,050 --> 00:05:50,420
+If not, be sure to head back to your code and try to make sure that it works using what you've learned
+
+66
+00:05:50,450 --> 00:05:51,980
+in this video.
+
+67
+00:05:51,980 --> 00:05:57,830
+And the idea is really to get comfortable with what's actually happening behind the scenes here where
+
+68
+00:05:57,830 --> 00:06:04,580
+we're checking for the name of the input that triggered the handleChange and then we're using the new
+
+69
+00:06:04,580 --> 00:06:12,700
+value from that event to populate a different field depending on which one was changed.
+
+70
+00:06:12,820 --> 00:06:19,810
+Now the last thing to remember to do is to add the value attribute to each of the inputs and keep them
+
+71
+00:06:19,810 --> 00:06:21,690
+tied to the state.
+
+72
+00:06:21,730 --> 00:06:29,440
+So I'm going to type out the value attribute here and then the first one is going to be contact.
+
+73
+00:06:29,470 --> 00:06:31,210
+fName,
+
+74
+00:06:31,210 --> 00:06:36,760
+the second is contact.lName and the last one is contact.
+
+75
+00:06:36,790 --> 00:06:37,360
+Email.
+
+76
+00:06:40,190 --> 00:06:40,730
+Now
+
+77
+00:06:40,780 --> 00:06:43,900
+tThis code is very very long.
+
+78
+00:06:43,990 --> 00:06:49,900
+And even though the idea here is to try to make sure that it really makes sense to you when you're learning
+
+79
+00:06:49,900 --> 00:06:54,090
+the new concepts, there's much much shorter ways of writing this.
+
+80
+00:06:54,160 --> 00:06:56,700
+That is what we're going to tackle in the next lesson.
+
+81
+00:06:56,710 --> 00:07:02,740
+I'm going to show you how we can reduce all of this down to just two or three lines by using something
+
+82
+00:07:02,740 --> 00:07:07,670
+from ES6 called the spread operator. So for all of that and more,
+
+83
+00:07:07,750 --> 00:07:08,340
+I'll see you there.
+

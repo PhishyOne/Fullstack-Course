@@ -1,0 +1,1296 @@
+1
+00:00:00,440 --> 00:00:05,740
+Now in the last lesson, we've somewhat created our front end with just HTML and CSS.
+
+2
+00:00:06,320 --> 00:00:12,950
+And also we've got our Motoko code, which is pretty much all set up. Now
+
+3
+00:00:12,950 --> 00:00:18,470
+we just need that bridge in between the two of them, which is our index.js, the JavaScript code
+
+4
+00:00:18,800 --> 00:00:23,390
+that's going to tell the frontend how it should interact with the backend.
+
+5
+00:00:23,720 --> 00:00:29,690
+So the first thing we need to do is we need to be able to expose the important parts of this Motoko
+
+6
+00:00:29,690 --> 00:00:36,860
+code to our index.js. And to do that we have to import the dbank module.
+
+7
+00:00:37,340 --> 00:00:44,270
+So what I'm going to say is import and then we're going to add the curly braces. Inside here
+
+8
+00:00:44,270 --> 00:00:52,400
+we're going to add the name of our module, which is our Dbank, and then we're going to specify where
+
+9
+00:00:52,400 --> 00:00:54,260
+this should be imported from.
+
+10
+00:00:54,770 --> 00:00:57,800
+Now, I'm going to use a relative path.
+
+11
+00:00:58,430 --> 00:01:02,930
+If you're not sure about relative and absolute paths, head back a few modules.
+
+12
+00:01:02,930 --> 00:01:09,410
+We talked about this in more detail. But we're going to go into the declarations folder which is right
+
+13
+00:01:09,410 --> 00:01:13,910
+here, and we're going to tap into the dbank folder.
+
+14
+00:01:14,360 --> 00:01:21,920
+And the files inside the declarations basically just exposes our Motoko code to our JavaScript in a
+
+15
+00:01:21,920 --> 00:01:28,400
+way that our JavaScript code is able to understand and is able to access and call these functions.
+
+16
+00:01:28,940 --> 00:01:32,150
+So it kind of just functions as a bridge between the two languages.
+
+17
+00:01:32,540 --> 00:01:40,040
+And then we're able to call and use these functions like checkBalance, compound, topUp and withdrawl.
+
+18
+00:01:41,840 --> 00:01:45,140
+So what do we want to address first on our frontend?
+
+19
+00:01:45,140 --> 00:01:51,530
+Well, I'd love to be able to update this line so that it's not just the placeholder text, to actually
+
+20
+00:01:51,530 --> 00:01:53,480
+show the current balance.
+
+21
+00:01:54,020 --> 00:02:00,260
+To do that, I'm going to tap into this query function, which is the checkBalance and this should
+
+22
+00:02:00,260 --> 00:02:05,270
+be able to happen pretty quickly and it should be able to return us the current value.
+
+23
+00:02:05,720 --> 00:02:11,300
+So I want this balance to be updated every time this page loads.
+
+24
+00:02:11,810 --> 00:02:17,360
+That means we're going to have to add in an event listener in JavaScript to listen for when the page
+
+25
+00:02:17,360 --> 00:02:18,080
+has loaded.
+
+26
+00:02:18,500 --> 00:02:26,660
+So let's tap into our window object, add event listener and the name of the event listener is load.
+
+27
+00:02:27,290 --> 00:02:33,260
+And this is basically going to get called when all the code on the page has finished loading up.
+
+28
+00:02:34,440 --> 00:02:44,040
+And when it has finished, then it's going to call a callback function and this function is going to
+
+29
+00:02:44,040 --> 00:02:44,770
+do something.
+
+30
+00:02:44,790 --> 00:02:47,760
+So let's just go ahead and do a console.log.
+
+31
+00:02:48,270 --> 00:02:48,570
+All right.
+
+32
+00:02:48,660 --> 00:02:50,910
+So that's a pretty simple bit of JavaScript code.
+
+33
+00:02:51,270 --> 00:02:52,740
+Let's go ahead and test it out.
+
+34
+00:02:52,770 --> 00:02:59,580
+So if we bring up our console, and make sure you're in the console tab and then let's go ahead and reload
+
+35
+00:02:59,580 --> 00:03:02,370
+the page, you can see it says finished loading.
+
+36
+00:03:02,910 --> 00:03:04,980
+So that's working and that's great.
+
+37
+00:03:05,160 --> 00:03:07,080
+Now let's go ahead and comment that out.
+
+38
+00:03:07,590 --> 00:03:16,170
+Now, instead of finished loading, what I want to do is I want to be able to update this span here.
+
+39
+00:03:16,590 --> 00:03:22,980
+So instead of having the value of 234, I want to change it to say, well, whatever
+
+40
+00:03:22,980 --> 00:03:25,590
+is the value of our currentValue here.
+
+41
+00:03:26,370 --> 00:03:32,970
+So to do that, let's go ahead and create a constant and I'll call that the currentAmount and we'll
+
+42
+00:03:32,970 --> 00:03:40,110
+set that equal to the dbank.checkBalance result.
+
+43
+00:03:40,920 --> 00:03:46,590
+So basically once we've checked the balance, we're going to assign it to this current amount and then
+
+44
+00:03:46,590 --> 00:03:53,970
+we're going to use the document.getElementById and then use the getElementById to grab hold of
+
+45
+00:03:53,970 --> 00:03:59,040
+that span, which has the ID of value, which you can see right here.
+
+46
+00:03:59,820 --> 00:04:08,220
+And then once we got hold of it, then we can change it's inner text to be equal to whatever is the current
+
+47
+00:04:08,220 --> 00:04:08,880
+Amount.
+
+48
+00:04:09,690 --> 00:04:12,960
+So let's go ahead and hit save and test this out.
+
+49
+00:04:14,650 --> 00:04:19,690
+And you can see once you refresh, that we've got something called an object promise here.
+
+50
+00:04:19,720 --> 00:04:21,290
+So what's happening here?
+
+51
+00:04:21,290 --> 00:04:23,410
+It's obviously not doing what we want it to.
+
+52
+00:04:24,250 --> 00:04:30,190
+Well, the reason is because the current value is returned asynchronously.
+
+53
+00:04:30,310 --> 00:04:34,300
+So that means we're not actually waiting for this result to come back.
+
+54
+00:04:34,300 --> 00:04:40,510
+And instead there is a promised object which can return at any point depending on how long it takes
+
+55
+00:04:40,510 --> 00:04:42,160
+to query the blockchain.
+
+56
+00:04:42,970 --> 00:04:49,930
+So what we have to do instead here is we have to turn this also into an asynchronous function so that
+
+57
+00:04:49,930 --> 00:04:57,730
+we can adapt, and we have to make this method call have the await keyword in front so that we basically
+
+58
+00:04:57,820 --> 00:05:05,440
+wait for the result to come back and then asynchronously update our element with the current amount
+
+59
+00:05:05,440 --> 00:05:06,910
+once it does return.
+
+60
+00:05:07,750 --> 00:05:13,540
+So let's hit save, let's refresh and you can see our current balance now shows up.
+
+61
+00:05:13,660 --> 00:05:19,990
+Now this is quite a few digits after the decimal place and it kind of is a bit too much and it clutters
+
+62
+00:05:19,990 --> 00:05:20,800
+up the screen.
+
+63
+00:05:21,280 --> 00:05:26,660
+What we want is to reduce it or round it to have only two decimal place accuracy.
+
+64
+00:05:27,310 --> 00:05:31,870
+If you can't remember how to do this using JavaScript, then it might be a good time to have a look
+
+65
+00:05:31,870 --> 00:05:35,830
+at the documentation or have a quick Google search on StackOverflow.
+
+66
+00:05:36,310 --> 00:05:38,960
+But I'm going to set this as a small challenge for you.
+
+67
+00:05:39,340 --> 00:05:44,680
+See if you can figure out how to modify the code here so that instead of having all of these decimal
+
+68
+00:05:44,680 --> 00:05:49,270
+places afterwards, we only have two decimal place accuracy.
+
+69
+00:05:49,810 --> 00:05:51,880
+Pause the video and give that challenge to go.
+
+70
+00:05:54,430 --> 00:06:01,000
+With JavaScript, we have this very helpful function called Math.round, and that means we can round
+
+71
+00:06:01,030 --> 00:06:02,110
+our current amount.
+
+72
+00:06:02,260 --> 00:06:08,740
+Now if we want to round it two decimal places, the easiest way is to simply multiply the current amount
+
+73
+00:06:08,740 --> 00:06:12,850
+by 100, round it so that there's no decimal places,
+
+74
+00:06:12,850 --> 00:06:18,700
+and then afterwards, once that's done, just simply divide it by 100 again. And now you can see it
+
+75
+00:06:18,700 --> 00:06:22,810
+update and we now have two decimal place accuracy.
+
+76
+00:06:23,050 --> 00:06:23,500
+Perfect.
+
+77
+00:06:23,650 --> 00:06:24,850
+Exactly what we want.
+
+78
+00:06:25,450 --> 00:06:32,560
+Now that we've gotten this past sorted, the next thing to do is to listen for when the user finalizes
+
+79
+00:06:32,560 --> 00:06:33,590
+their transaction
+
+80
+00:06:33,610 --> 00:06:40,360
+after typing in either an amount of top up or an amount to withdraw. And then trigger, the corresponding
+
+81
+00:06:40,360 --> 00:06:47,410
+top up or withdraw, bit of a typo here, functions inside our main.mo.
+
+82
+00:06:48,310 --> 00:06:56,140
+So let's go back to our index.js and we need to add an event listener to this form here that we've
+
+83
+00:06:56,140 --> 00:06:57,700
+got in our HTML.
+
+84
+00:06:58,210 --> 00:07:05,830
+The form has a input at the very end which has the type of submit so we can actually listen for that
+
+85
+00:07:05,830 --> 00:07:07,270
+event on this form.
+
+86
+00:07:08,080 --> 00:07:18,100
+Let's go ahead and get hold of the form so we can say document.querySelector, and this allows
+
+87
+00:07:18,100 --> 00:07:23,290
+us to select a an item inside our DOM.
+
+88
+00:07:23,740 --> 00:07:26,680
+And in this case, I'm just going to get a hold of the form.
+
+89
+00:07:27,070 --> 00:07:34,480
+So remember that with query selector you can use the pound sign for IDs, the dot for class, and if
+
+90
+00:07:34,480 --> 00:07:41,080
+you're trying to query for a HTML element, then all you have to do is just give its name.
+
+91
+00:07:41,680 --> 00:07:45,220
+So it's the same as how CSS selection works.
+
+92
+00:07:47,010 --> 00:07:54,150
+Once we've gotten hold of our form, let's go ahead and call add event listener so that we listen on
+
+93
+00:07:54,150 --> 00:07:59,190
+this element, and then we're going to listen for the event which is called submit.
+
+94
+00:07:59,370 --> 00:08:04,710
+Basically, this is going to be triggered when that submit button here gets tapped.
+
+95
+00:08:05,610 --> 00:08:09,750
+And once that happens, then we have to describe what should happen.
+
+96
+00:08:10,110 --> 00:08:17,640
+So we're going to create another async function, and this function is going to let us know what event
+
+97
+00:08:17,670 --> 00:08:18,300
+triggered it.
+
+98
+00:08:19,020 --> 00:08:27,180
+And inside this callback, let's first start out with a console.log so that we can just make sure it's
+
+99
+00:08:27,180 --> 00:08:32,760
+actually getting triggered when the submit button is pressed.
+
+100
+00:08:33,480 --> 00:08:42,659
+So now let's hit save and then we can go back and add a amount to top up or an amount to withdraw and
+
+101
+00:08:42,659 --> 00:08:48,570
+click on a button and you can see it says submitted, although sometimes it shows submitted very quickly
+
+102
+00:08:48,570 --> 00:08:50,250
+and then it kind of just disappears.
+
+103
+00:08:50,940 --> 00:08:58,680
+So that is because with forms there's a default action, which is to actually clear the form and submit
+
+104
+00:08:58,680 --> 00:08:59,340
+the values.
+
+105
+00:08:59,850 --> 00:09:06,120
+Now, if we want to remove that default action, then we can actually get hold of this event,
+
+106
+00:09:06,330 --> 00:09:14,490
+so the event of submit, and then we can call preventDefault on that.
+
+107
+00:09:14,970 --> 00:09:21,660
+So if we save again and let's go ahead and do that, you can see now it doesn't actually clear any of
+
+108
+00:09:21,660 --> 00:09:27,900
+our fields and we always see this submitted down here and it doesn't reload the page and get rid of
+
+109
+00:09:27,900 --> 00:09:28,050
+it.
+
+110
+00:09:28,950 --> 00:09:30,660
+Let's comment this console.log out.
+
+111
+00:09:31,020 --> 00:09:35,820
+The next step is to actually get hold of what the user typed in here or in here.
+
+112
+00:09:36,450 --> 00:09:40,470
+Let's create a new const and I'll call that inputAmount.
+
+113
+00:09:42,580 --> 00:09:50,140
+And I'll set it equal to whatever is inside that field, which is going to be document.getElement
+
+114
+00:09:50,140 --> 00:09:51,310
+ById.
+
+115
+00:09:51,730 --> 00:09:55,120
+And the id of it is input amount.
+
+116
+00:09:59,880 --> 00:10:02,550
+And then let's get hold of its value.
+
+117
+00:10:03,540 --> 00:10:07,620
+Now let's do the same thing to the withdraw amount
+
+118
+00:10:07,620 --> 00:10:12,870
+but for simplicity's sake, I'm just going to call it the output amount because I seem to keep making
+
+119
+00:10:12,900 --> 00:10:14,910
+typos on the withdraw.
+
+120
+00:10:16,020 --> 00:10:18,050
+So again, getElementById 
+
+121
+00:10:18,450 --> 00:10:19,920
+and I'm going to
+
+122
+00:10:21,230 --> 00:10:26,180
+go ahead and copy this id over so I don't make any typos in it.
+
+123
+00:10:26,750 --> 00:10:29,330
+And then let's get a hold of its value as well.
+
+124
+00:10:30,110 --> 00:10:35,450
+So now that we've got what the user typed in to the input amount or the output amount, the next step
+
+125
+00:10:35,450 --> 00:10:42,260
+is to actually use this to top up or withdraw from our funds in the main.mo.
+
+126
+00:10:42,770 --> 00:10:44,990
+So we basically want to trigger this function first,
+
+127
+00:10:44,990 --> 00:10:46,850
+right? Now, let's try it out.
+
+128
+00:10:46,850 --> 00:10:53,490
+Let's simply do what we did before, which is to use the await keyword and then we tap into the Dbank
+
+129
+00:10:53,900 --> 00:10:56,600
+and we call this topUp function.
+
+130
+00:10:57,230 --> 00:11:03,890
+This topUp function expects an input and the amount is going to be the inputAmount, whatever the
+
+131
+00:11:03,890 --> 00:11:04,940
+user typed in here.
+
+132
+00:11:06,050 --> 00:11:14,720
+Now if we go ahead and hit save and try to run this code, you'll see that we get an error and the error
+
+133
+00:11:14,720 --> 00:11:17,180
+says invalid float64 argument
+
+134
+00:11:17,180 --> 00:11:20,510
+and then it points to this number 10 that we added in here.
+
+135
+00:11:21,140 --> 00:11:22,520
+So what's happening?
+
+136
+00:11:23,030 --> 00:11:29,360
+Well, do you remember I said when we imported our Dbank did from the declarations,
+
+137
+00:11:29,870 --> 00:11:37,850
+it basically tells all JavaScript file which functions are available in our main.mo and how to call
+
+138
+00:11:37,850 --> 00:11:38,000
+it.
+
+139
+00:11:38,570 --> 00:11:46,010
+Now, in this case, the topUp function expects an input that has a data type of a 64 bit floating
+
+140
+00:11:46,010 --> 00:11:49,550
+point number, because that's what we've got right here.
+
+141
+00:11:50,150 --> 00:11:58,840
+But at the moment, the values that come out of an input with type number is by default a integer.
+
+142
+00:11:58,910 --> 00:12:02,330
+So we have to convert this into a floating point number.
+
+143
+00:12:02,930 --> 00:12:09,170
+And you can see that actually for these inputs, I've already added the step amount, which means that
+
+144
+00:12:09,170 --> 00:12:15,740
+you can actually enter a value with up to two decimal places of accuracy.
+
+145
+00:12:16,100 --> 00:12:21,770
+Now you can add more numbers afterwards in the input, but once it actually comes through, the value
+
+146
+00:12:21,770 --> 00:12:24,350
+will just be accurate to two decimal places.
+
+147
+00:12:24,650 --> 00:12:30,470
+So this input actually allows for floating-point numbers to be entered, but in order to convert it
+
+148
+00:12:30,470 --> 00:12:39,650
+into an actual floating-point number, we have to use the method parseFloat and it will parse this value
+
+149
+00:12:39,650 --> 00:12:41,690
+into a floating-point number.
+
+150
+00:12:42,140 --> 00:12:46,220
+And while we're at it, let's go ahead and do the same for the output value as well.
+
+151
+00:12:46,970 --> 00:12:53,630
+So now if we hit save and we try this out again, you can see that we no longer get any errors.
+
+152
+00:12:54,320 --> 00:12:56,240
+Click finalise transaction,
+
+153
+00:12:57,380 --> 00:13:02,840
+looks like nothing's happening, but all errors have gone away and it's actually behind the scenes done
+
+154
+00:13:02,840 --> 00:13:03,450
+what we want.
+
+155
+00:13:04,130 --> 00:13:10,400
+So in order to view what we've got, well, we actually have to do what is in these lines of code,
+
+156
+00:13:10,400 --> 00:13:10,660
+right?
+
+157
+00:13:10,670 --> 00:13:14,000
+We have to check balance and update that span again.
+
+158
+00:13:14,030 --> 00:13:18,580
+So for now, I'm just going to copy and paste those two lines right here,
+
+159
+00:13:18,620 --> 00:13:19,340
+hit save,
+
+160
+00:13:19,790 --> 00:13:22,730
+go back to my website and let's try it out.
+
+161
+00:13:22,730 --> 00:13:24,800
+Let's top it up by $10.
+
+162
+00:13:25,220 --> 00:13:31,250
+So the moment we're on 1446, click finalize transaction, and that jumps to 
+
+163
+00:13:31,250 --> 00:13:31,970
+1456.
+
+164
+00:13:32,240 --> 00:13:33,060
+So perfect.
+
+165
+00:13:33,080 --> 00:13:34,400
+It's actually working.
+
+166
+00:13:35,060 --> 00:13:41,990
+Now, one of the problems you might notice with our current code is when we type an amount to top up
+
+167
+00:13:41,990 --> 00:13:48,620
+and we click on this button, it looks like as if nothing is happening, but then it actually does work
+
+168
+00:13:48,620 --> 00:13:49,430
+behind the scenes.
+
+169
+00:13:49,760 --> 00:13:57,200
+So remember what we said about these update functions in the ICP taking a little bit of time.
+
+170
+00:13:57,740 --> 00:14:01,090
+So it can take anywhere between 2 to 3 seconds.
+
+171
+00:14:01,280 --> 00:14:06,020
+And we don't want the user to look at this frontend and think that nothing's happening because they'll
+
+172
+00:14:06,020 --> 00:14:10,310
+try and click this button lots of times, which is going to really mess up our backend.
+
+173
+00:14:10,820 --> 00:14:13,040
+So let's give them some clues.
+
+174
+00:14:13,940 --> 00:14:21,890
+So one of the things that we can do is as soon as they click the button submit, we can actually disable
+
+175
+00:14:21,890 --> 00:14:25,190
+that button. So we can tap into our button.
+
+176
+00:14:26,060 --> 00:14:36,140
+So let's create a new constant for it and we'll get hold of the event.target and we'll add the
+
+177
+00:14:36,140 --> 00:14:37,250
+querySelector.
+
+178
+00:14:37,550 --> 00:14:45,140
+So basically this is going to get hold of the form that we've got, that we're listening to, when it clicks
+
+179
+00:14:45,140 --> 00:14:45,740
+submit
+
+180
+00:14:45,950 --> 00:14:50,840
+and then we're going to query for the selector, which is our submit button.
+
+181
+00:14:51,050 --> 00:14:56,330
+And our Submit button handily has an id called a submit btn.
+
+182
+00:14:56,780 --> 00:15:01,160
+So let's go ahead and add that selector in there with the pound sign to select it.
+
+183
+00:15:01,850 --> 00:15:04,130
+And this is going to be our button.
+
+184
+00:15:05,060 --> 00:15:14,060
+So then as soon as basically the user types in the input, we can tap into our button and basically
+
+185
+00:15:14,060 --> 00:15:16,400
+say setAttribute
+
+186
+00:15:20,220 --> 00:15:27,090
+and we can set the disabled attribute, which you have, to true.
+
+187
+00:15:28,290 --> 00:15:35,130
+And then once we've done the top up and we've gotten hold of the actual new balance, then we can go
+
+188
+00:15:35,130 --> 00:15:37,020
+ahead and tap into that button again.
+
+189
+00:15:37,470 --> 00:15:41,790
+And instead of using setAttribute, we can use the removeAttribute
+
+190
+00:15:43,720 --> 00:15:50,500
+function. And we're going to again tap into the disabled attribute and we're basically just going to
+
+191
+00:15:50,500 --> 00:15:56,110
+remove it, because if you try to set the attribute to false, it's actually not going to work.
+
+192
+00:15:56,260 --> 00:16:02,800
+And this is because an element becomes disabled if the disabled attribute is set, so it doesn't have
+
+193
+00:16:02,800 --> 00:16:04,300
+to matter what its value is.
+
+194
+00:16:04,300 --> 00:16:06,130
+It could be true or it could be false.
+
+195
+00:16:06,130 --> 00:16:07,480
+It does the same thing.
+
+196
+00:16:07,480 --> 00:16:11,890
+The element basically just gets disabled, so we have to remove it completely
+
+197
+00:16:11,890 --> 00:16:14,770
+instead. Let's hit save on our code.
+
+198
+00:16:14,860 --> 00:16:16,330
+Let's try it again.
+
+199
+00:16:16,330 --> 00:16:25,180
+Refresh, add our $10, click finalize transaction, and you can see I've added some separate CSS to basically
+
+200
+00:16:25,540 --> 00:16:29,110
+tell the user when it is that you can't interact with it.
+
+201
+00:16:29,110 --> 00:16:35,020
+And as soon as this updates and we're back to being able to top up or withdraw, the button comes
+
+202
+00:16:35,020 --> 00:16:35,800
+back on line.
+
+203
+00:16:36,970 --> 00:16:43,210
+Now one last thing that would be nice is to actually remove this value once it's actually done right?
+
+204
+00:16:43,840 --> 00:16:52,390
+So to do that, we can tap into our document.getElementById, and then grab hold of our
+
+205
+00:16:54,270 --> 00:17:01,920
+input amount, which is the first input. And then we can set the value to basically just an empty
+
+206
+00:17:01,920 --> 00:17:02,370
+string.
+
+207
+00:17:03,660 --> 00:17:10,859
+So now if we try this again, when I click top up, my button gets disabled and then once it's back
+
+208
+00:17:10,859 --> 00:17:13,750
+on line, the input gets cleared as well.
+
+209
+00:17:13,770 --> 00:17:15,150
+So we're ready for the next step.
+
+210
+00:17:15,510 --> 00:17:19,829
+So I think in terms of user experience-wise, this is a lot better than what we had before.
+
+211
+00:17:20,940 --> 00:17:26,700
+So now that we've done the top up part, the natural thing that comes next is of course the withdraw.
+
+212
+00:17:27,390 --> 00:17:31,500
+Now there's just one problem that we have to tackle before we do that.
+
+213
+00:17:32,100 --> 00:17:37,980
+How does the code know that we're trying to top up or we're trying to withdraw?
+
+214
+00:17:38,400 --> 00:17:45,120
+Because right now the code is going to be carried out every single time the submit button gets pressed
+
+215
+00:17:45,120 --> 00:17:45,720
+on the form.
+
+216
+00:17:46,350 --> 00:17:52,590
+So if we leave this empty and we don't type anything in there and we click finalize transaction, you
+
+217
+00:17:52,590 --> 00:17:59,580
+can see that it not only messes with our current balance, but in our debug we can see that it's printing
+
+218
+00:17:59,580 --> 00:18:05,670
+nan, which comes from this debug print showing us the current value.
+
+219
+00:18:06,660 --> 00:18:08,640
+So what's actually going on here?
+
+220
+00:18:09,000 --> 00:18:14,730
+If we don't actually add any value to an input, it still has a value.
+
+221
+00:18:15,090 --> 00:18:17,090
+It's not a number value.
+
+222
+00:18:17,100 --> 00:18:21,240
+And if we pass that around to our backend, then it's going to mess everything up.
+
+223
+00:18:21,600 --> 00:18:24,420
+So we need to basically add some sort of condition,
+
+224
+00:18:24,720 --> 00:18:25,050
+right?
+
+225
+00:18:25,470 --> 00:18:32,640
+We need to make sure that we only top up when the user has typed something in here and we only withdraw
+
+226
+00:18:32,640 --> 00:18:34,320
+when the users type something in here.
+
+227
+00:18:34,950 --> 00:18:37,950
+So we can check that by using an if statement.
+
+228
+00:18:38,250 --> 00:18:41,040
+We can say if the document.
+
+229
+00:18:42,770 --> 00:18:44,560
+getElementById 
+
+230
+00:18:45,130 --> 00:18:50,860
+nd we type in the id of that inputAmount,
+
+231
+00:18:51,220 --> 00:18:55,240
+so remember it's the input and  it has an id of inputAmount.
+
+232
+00:18:55,480 --> 00:19:04,090
+Put that in here and then we get hold of its value and then we check the length of that value because
+
+233
+00:19:04,090 --> 00:19:07,570
+if it's an nan, the length will be equal to zero.
+
+234
+00:19:08,230 --> 00:19:16,870
+But if it so happens that in this case it's not equal to zero, then that means the user has basically
+
+235
+00:19:16,870 --> 00:19:18,670
+typed something in that field.
+
+236
+00:19:19,030 --> 00:19:22,530
+So then we can safely call our topUp function.
+
+237
+00:19:23,350 --> 00:19:29,410
+So now if we hit save and we leave this empty and we click finalize transaction, then we're not going
+
+238
+00:19:29,410 --> 00:19:30,400
+to have any problems.
+
+239
+00:19:30,880 --> 00:19:35,860
+Now in the process of showing you the problems around input validation, I've actually screwed up the data stored
+
+240
+00:19:35,860 --> 00:19:36,880
+on my canister.
+
+241
+00:19:37,240 --> 00:19:42,640
+So what I'm going to do is reset the data on my back end to how we had it in the beginning.
+
+242
+00:19:42,970 --> 00:19:45,280
+CurrentValue should equal 300.
+
+243
+00:19:46,360 --> 00:19:48,220
+So let's go ahead and uncomment
+
+244
+00:19:49,120 --> 00:19:54,580
+these two lines of code, reset everything to the beginning, and then let's go ahead and add a debug print
+
+245
+00:19:54,580 --> 00:20:00,370
+statement down here just to make sure that the current value is in fact being reset
+
+246
+00:20:00,640 --> 00:20:06,250
+because with the orthogonal persistance, sometimes if there isn't enough of a change in your code and
+
+247
+00:20:06,250 --> 00:20:10,750
+you hit deploy, then it doesn't actually update these stable variables.
+
+248
+00:20:11,200 --> 00:20:16,750
+So I'm going to save this file and then I'm going to end all of these processes with a control+
+
+249
+00:20:16,750 --> 00:20:20,980
+c. So this is the npm, this is the simulated ICP.
+
+250
+00:20:21,430 --> 00:20:25,240
+So now that both of them are ended, let's spin everything up again.
+
+251
+00:20:25,240 --> 00:20:34,900
+So dfx start over here and then over here we'll do the dfx deploy to make sure that this new code
+
+252
+00:20:35,050 --> 00:20:38,290
+gets updated and we reset the current value to 300.
+
+253
+00:20:39,040 --> 00:20:43,810
+And then once all of that's done, we can again use our npm start to spin up our server.
+
+254
+00:20:44,620 --> 00:20:51,760
+And now if we come back, you can see our current balance is being set back to $300. And now if we try
+
+255
+00:20:51,760 --> 00:20:58,630
+the same thing again, so leaving nothing inside the amount to top up box, click on finalize transaction,
+
+256
+00:20:59,020 --> 00:21:04,060
+you can see that instead of getting nan, it actually just doesn't trigger that line which breaks
+
+257
+00:21:04,060 --> 00:21:11,650
+our code, which is the top up by some sort of non value because the length is basically equal to zero.
+
+258
+00:21:12,160 --> 00:21:19,600
+So now that we figured out how to do this part and making sure that it actually works, then it's time
+
+259
+00:21:19,600 --> 00:21:24,610
+for you to create the other part, which is the withdrawal component.
+
+260
+00:21:24,640 --> 00:21:31,930
+So see if you can get the outputAmount that's typed in to here to be subtracted from the currentBalance
+
+261
+00:21:31,930 --> 00:21:35,500
+using the function that we've got in here, which is called withdraw.
+
+262
+00:21:35,830 --> 00:21:41,020
+Now, it's really easy to make typos with this word, and I've done it so many times, so just be careful
+
+263
+00:21:41,020 --> 00:21:41,410
+with it.
+
+264
+00:21:41,410 --> 00:21:47,830
+And whenever you need an ID or function name, it's actually easier to just copy and paste it. That way
+
+265
+00:21:47,830 --> 00:21:53,830
+you don't make a lot of typos like I do, and you don't have weird errors that you have to debug.
+
+266
+00:21:54,250 --> 00:21:57,430
+So pause the video and make the withdrawal component work.
+
+267
+00:21:58,990 --> 00:21:59,350
+All right.
+
+268
+00:21:59,350 --> 00:22:05,360
+So again, we're going to need an if statement because these are two completely separate conditions.
+
+269
+00:22:05,380 --> 00:22:11,140
+I'm just going to split out another if statement rather use an elseif because the logic seems a bit clearer
+
+270
+00:22:11,140 --> 00:22:17,680
+to me, but it doesn't matter if you use an elseif as long as you didn't use an else, because that's
+
+271
+00:22:17,680 --> 00:22:21,450
+only going to check that the inputAmount is in fact equal to zero.
+
+272
+00:22:21,820 --> 00:22:28,900
+So in this case, we're going to tap into the document.getElementById and then the ID in this
+
+273
+00:22:28,900 --> 00:22:32,390
+case is equal to withdrawal-amount so
+
+274
+00:22:32,410 --> 00:22:39,550
+I'm just going to copy and paste that in here, get hold of its value.length and check that it's
+
+275
+00:22:39,550 --> 00:22:40,660
+not equal to zero.
+
+276
+00:22:40,780 --> 00:22:46,180
+So make sure that they typed something in there. And then we're again going to use the await keyword
+
+277
+00:22:46,180 --> 00:22:56,590
+to call our withdraw function, and we're going to add the output amount as the input to this function.
+
+278
+00:22:58,060 --> 00:23:04,840
+Now once that's done, our code is already going to get hold of the new balance and update that span.
+
+279
+00:23:05,380 --> 00:23:10,570
+So the final thing we have to do is just to clear that input.
+
+280
+00:23:10,930 --> 00:23:19,060
+So document.getElementById, and then again put the withdraw amount input, set its value back to
+
+281
+00:23:19,060 --> 00:23:20,230
+an empty string.
+
+282
+00:23:21,910 --> 00:23:23,650
+So now let's test it out.
+
+283
+00:23:23,650 --> 00:23:33,880
+We can top up by $10, and we can withdraw by $10 and it's all working as expected.
+
+284
+00:23:34,960 --> 00:23:42,790
+Now, the final thing I want to add is to compound my value by the interest.
+
+285
+00:23:43,240 --> 00:23:51,220
+So we'll just tap into that compound function down here after either this if statement carries out or
+
+286
+00:23:51,220 --> 00:23:51,790
+this on.
+
+287
+00:23:52,300 --> 00:23:59,320
+But either way, once the user adds some money or takes some money away, we're going to compound the
+
+288
+00:23:59,320 --> 00:24:00,040
+value.
+
+289
+00:24:00,190 --> 00:24:04,090
+And if we go back over here, hit refresh,
+
+290
+00:24:04,090 --> 00:24:09,700
+now, you'll see that every time I top up, it's going to compound.
+
+291
+00:24:10,120 --> 00:24:16,570
+And because a lot of time has passed, the current balance is absolutely massive, which means we can
+
+292
+00:24:16,570 --> 00:24:21,700
+go back over here and reset the current value and startTime.
+
+293
+00:24:22,300 --> 00:24:31,150
+So to force this to reset, we have to first, if your code in main.mo has the currentValue and start
+
+294
+00:24:31,150 --> 00:24:32,980
+time not commented out,
+
+295
+00:24:32,980 --> 00:24:38,980
+you'll have to comment it out and then run deploy. And once that's been deployed and updated, then
+
+296
+00:24:38,980 --> 00:24:42,100
+you can come back and uncomment these two lines of code,
+
+297
+00:24:42,400 --> 00:24:48,790
+hit save and run dfx deploy again just so that we force this to be reset to 300.
+
+298
+00:24:49,480 --> 00:24:53,020
+And you can see in the print statement, we're back on $300.
+
+299
+00:24:53,680 --> 00:24:57,910
+So now let's go back to our front end.
+
+300
+00:24:57,910 --> 00:25:05,320
+And if we top up by 10, you can see the current balance will be slightly more than 310.
+
+301
+00:25:06,040 --> 00:25:12,700
+And if we withdraw by 10, again, you can see that we're adding a little bit of compound interest
+
+302
+00:25:12,970 --> 00:25:13,690
+each time.
+
+303
+00:25:14,290 --> 00:25:15,610
+So that's pretty neat.
+
+304
+00:25:16,150 --> 00:25:25,390
+Now, one last thing before we finish off this index.js is it would be nice to be able to take
+
+305
+00:25:25,390 --> 00:25:31,990
+out this repeated line of code because it's right here and it's also at the top here.
+
+306
+00:25:32,380 --> 00:25:35,200
+So I'm just going to create a async function.
+
+307
+00:25:43,500 --> 00:25:45,210
+And we'll just call it update.
+
+308
+00:25:46,320 --> 00:25:51,300
+So now we can simply just call update right here
+
+309
+00:25:55,140 --> 00:26:01,260
+and also up here we can delete these lines of code and instead just call update as well.
+
+310
+00:26:03,570 --> 00:26:03,860
+Cool.
+
+311
+00:26:04,010 --> 00:26:11,910
+And just to check and make sure that it still works, you can see the amount being added and also a
+
+312
+00:26:11,910 --> 00:26:13,860
+whole bunch more from the interest.
+
+313
+00:26:14,370 --> 00:26:17,190
+So our current balances growing really quickly.
+
+314
+00:26:18,030 --> 00:26:23,910
+Now, in reality, of course, it would be pretty crazy to have a 1% interest every second.
+
+315
+00:26:24,330 --> 00:26:28,980
+But because we're working with this over a short period of time, I wanted you to be able to see it
+
+316
+00:26:28,980 --> 00:26:29,550
+easily.
+
+317
+00:26:29,910 --> 00:26:30,870
+So there you have it.
+
+318
+00:26:30,990 --> 00:26:37,410
+We finished hooking up our ICP back end with our JavaScript frontend, and we've managed to get everything
+
+319
+00:26:37,410 --> 00:26:44,220
+that we've implemented in Motoko to be accessible to the user through the frontend with HTML, CSS
+
+320
+00:26:44,220 --> 00:26:45,450
+and JavaScript.
+
+321
+00:26:45,840 --> 00:26:50,670
+Now there were quite a few points in this lesson where potential errors could have occurred.
+
+322
+00:26:50,970 --> 00:26:55,080
+So if you head over to the next lesson, I've pointed out some of these potential issues.
+
+323
+00:26:55,230 --> 00:26:58,800
+But if everything went fine, then feel free to skip the next lesson
+
+324
+00:26:59,220 --> 00:27:06,900
+and I will see you back here where we learn how to deploy this onto the live internet computer blockchain.
+

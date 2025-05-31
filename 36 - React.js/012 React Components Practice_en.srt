@@ -1,0 +1,228 @@
+1
+00:00:00,890 --> 00:00:01,260
+All right.
+
+2
+00:00:01,280 --> 00:00:09,270
+So here's the starting file for the React components practice. And the aim of the game is to separate
+
+3
+00:00:09,360 --> 00:00:16,129
+out all of this code into a separate component. By the end
+
+4
+00:00:16,140 --> 00:00:21,850
+you should have a single component which is called App inside your index
+
+5
+00:00:21,890 --> 00:00:33,160
+.js. And then you should have two separate JSX files, a App.jsx and a heading.js
+
+6
+00:00:33,180 --> 00:00:39,330
+x. And you should be able to use what you learnt from the previous lessons to separate out a lot of this
+
+7
+00:00:39,330 --> 00:00:42,870
+logic into different components.
+
+8
+00:00:42,930 --> 00:00:47,300
+Pause the video, fork the sandbox and see how you get on.
+
+9
+00:00:53,380 --> 00:00:53,870
+All right.
+
+10
+00:00:53,900 --> 00:01:01,880
+So here I've got the original code and we're rendering a single h1 element which is the heading which
+
+11
+00:01:01,880 --> 00:01:09,210
+is showing up right here. And what we want to do is we want to clear out all of the code from our index.
+
+12
+00:01:09,330 --> 00:01:14,550
+js so that it's only rendering a App component.
+
+13
+00:01:14,540 --> 00:01:23,360
+So let's go ahead and cut this h1 element and move it over to our heading.jsx. And also
+
+14
+00:01:23,390 --> 00:01:26,330
+the code that's required to render the heading,
+
+15
+00:01:26,390 --> 00:01:29,760
+so all of this logic we're going to cut it out of our index.
+
+16
+00:01:29,780 --> 00:01:33,650
+jsx and move it over here as well.
+
+17
+00:01:33,680 --> 00:01:41,240
+Now remember we need our React module in order to render JSX. So let's go ahead and import React
+
+18
+00:01:41,510 --> 00:01:43,550
+from "react".
+
+19
+00:01:43,850 --> 00:01:50,460
+And now we're going to create a function that is going to be called heading.
+
+20
+00:01:50,690 --> 00:01:54,840
+And this function is going to enclose all of this code.
+
+21
+00:01:54,920 --> 00:01:59,360
+So I'm going to cut this part out and then move it to the bottom here.
+
+22
+00:01:59,540 --> 00:02:05,390
+The final thing we need to do is we need to give our function an output, so tell it what it needs to
+
+23
+00:02:05,390 --> 00:02:06,080
+return
+
+24
+00:02:06,560 --> 00:02:13,040
+and it's of course going to be this h1 with class name of heading with style that's dynamically
+
+25
+00:02:13,040 --> 00:02:20,030
+determined by a code above and the greeting is also determined by the time of day using our Javascript
+
+26
+00:02:20,030 --> 00:02:29,040
+code inside this adding component. The final thing we need to do with our heading component is to export
+
+27
+00:02:29,280 --> 00:02:39,530
+this heading function. So let's go ahead and export default heading and now we can save it and use it
+
+28
+00:02:39,650 --> 00:02:43,460
+inside our App.js. So our App.
+
+29
+00:02:43,460 --> 00:02:49,240
+js is going to be the starting point of our component tree.
+
+30
+00:02:49,340 --> 00:02:56,060
+So it's going to import from React and then it's simply going to have a function called App and we're
+
+31
+00:02:56,060 --> 00:02:59,510
+just going to return one component in this case.
+
+32
+00:02:59,510 --> 00:03:03,990
+So normally you would probably have a div with multiple components.
+
+33
+00:03:04,160 --> 00:03:09,890
+In our case we could have the div or we could simply leave it out because all we want to return is just
+
+34
+00:03:09,890 --> 00:03:15,590
+that custom heading component which of course comes from the heading.jsx file which we'll need
+
+35
+00:03:15,590 --> 00:03:21,650
+to import if we actually want to use it.
+
+36
+00:03:21,940 --> 00:03:29,230
+Finally we're going to export our app as the default export from this file and then we're going to go
+
+37
+00:03:29,230 --> 00:03:36,640
+back over into our index.js and we're going to try and use that app element inside the ReactDOM render
+
+38
+00:03:36,640 --> 00:03:37,220
+method.
+
+39
+00:03:37,270 --> 00:03:38,110
+So let's go ahead to
+
+40
+00:03:38,110 --> 00:03:43,660
+import App from ./App.
+
+41
+00:03:43,840 --> 00:03:50,650
+And remember what I said in the last lesson that normally you would have a directory called components
+
+42
+00:03:51,040 --> 00:03:54,430
+to store all of these JSX components
+
+43
+00:03:54,430 --> 00:04:03,260
+and in that case then instead of ./App, it would be ./components/App and we get
+
+44
+00:04:03,260 --> 00:04:09,200
+back exactly the same website that we had in the beginning, but now we've got a starting point for our
+
+45
+00:04:09,200 --> 00:04:15,060
+app which is the App.jsx component and then inside that App.jsx
+
+46
+00:04:15,110 --> 00:04:21,040
+we've got a child component which is the heading that is worked out from the custom code right here.
+
+47
+00:04:21,680 --> 00:04:23,410
+So did you manage to get it right?
+
+48
+00:04:23,480 --> 00:04:26,820
+If not be sure to have a review of the last lesson.
+
+49
+00:04:26,930 --> 00:04:34,280
+But in the next lesson, we're going to do a deep dive on this import and export keyword that we've been
+
+50
+00:04:34,280 --> 00:04:36,770
+seeing a lot in the last few lessons.
+
+51
+00:04:36,980 --> 00:04:40,470
+And this is something that comes from ES6.
+
+52
+00:04:40,610 --> 00:04:47,180
+If you're interested in learning more about how imports and exports and how modules work in ES6, then
+
+53
+00:04:47,180 --> 00:04:48,800
+head over to the next lesson.
+
+54
+00:04:48,920 --> 00:04:53,000
+But if you're already really familiar with this and you've already used it and you're comfortable with
+
+55
+00:04:53,000 --> 00:04:57,550
+it, then feel free to skip the next lesson and continue in the curriculum.
+
+56
+00:04:58,010 --> 00:04:59,480
+So whichever way you choose,
+
+57
+00:04:59,600 --> 00:05:01,040
+I'll see you on the next lesson.
+

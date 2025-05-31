@@ -1,0 +1,796 @@
+1
+00:00:00,230 --> 00:00:00,830
+Hey, guys.
+
+2
+00:00:00,830 --> 00:00:09,080
+In the last lesson we looked at how we can use the different types of EJS tags and to use it to run code
+
+3
+00:00:09,080 --> 00:00:11,180
+in our EJS templates.
+
+4
+00:00:11,210 --> 00:00:16,180
+In this lesson, we're going to dive a little bit deeper into passing data with EJS.
+
+5
+00:00:16,190 --> 00:00:19,880
+So from server to client-side and from client to server-side.
+
+6
+00:00:20,930 --> 00:00:25,650
+We've already seen passing data from server to the EJS file.
+
+7
+00:00:25,670 --> 00:00:28,280
+This is probably one of the simplest examples.
+
+8
+00:00:28,280 --> 00:00:36,950
+We do this using the res.render method and then we pass in firstly the name of the EJS file we want
+
+9
+00:00:36,950 --> 00:00:41,840
+to be rendered and then any sort of data that we want to render.
+
+10
+00:00:42,050 --> 00:00:51,380
+So this data has a property value which can then be picked up inside the EJS file and inserted using
+
+11
+00:00:51,380 --> 00:00:53,390
+the output EJS tag.
+
+12
+00:00:53,390 --> 00:01:01,080
+So then when this is actually rendered, we will get an h1 that says, "Hello Angela" and this data gets
+
+13
+00:01:01,080 --> 00:01:05,850
+pulled from here and inserted right into the placeholder.
+
+14
+00:01:06,630 --> 00:01:15,840
+We also saw how we can pass over more complex bits of data, for example, an actual array, and this
+
+15
+00:01:15,840 --> 00:01:23,730
+can simply be done by giving the data a name that can be accessed on the EJS side and then the actual piece
+
+16
+00:01:23,730 --> 00:01:25,770
+of data to be sent over.
+
+17
+00:01:25,770 --> 00:01:33,600
+And then in our EJS file we can pick up that array by the name that it was passed over as,
+
+18
+00:01:33,630 --> 00:01:39,330
+and then you saw how we could use a for loop or a for each loop in order to tap into each of the items
+
+19
+00:01:39,330 --> 00:01:45,210
+in the array and render it into the EJS file. Ending up with something like this.
+
+20
+00:01:45,540 --> 00:01:51,330
+What happens if there actually is no data on the EJS side? Here,
+
+21
+00:01:51,330 --> 00:01:52,470
+take a look at this code.
+
+22
+00:01:52,470 --> 00:02:00,360
+We're expecting an array called fruit that we can loop through, but if we check on the index.js,
+
+23
+00:02:00,390 --> 00:02:06,210
+we render the index.ejs file, but we forgot to pass over any data.
+
+24
+00:02:06,300 --> 00:02:08,220
+This can happen quite frequently.
+
+25
+00:02:08,220 --> 00:02:13,650
+Either the data is corrupted or there's some sort of bug in our code on our JavaScript side where we
+
+26
+00:02:13,650 --> 00:02:17,560
+don't actually send over what our EJS file expects.
+
+27
+00:02:17,580 --> 00:02:23,670
+Well, in JavaScript, normally you can prevent this situation and catch it by simply using an if statement.
+
+28
+00:02:23,670 --> 00:02:32,100
+You can say, "if this thing called fruit actually exists and is not undefined, then go ahead and run
+
+29
+00:02:32,100 --> 00:02:33,570
+the next bits of code."
+
+30
+00:02:33,660 --> 00:02:38,550
+Now you might think this would work, but unfortunately with EJS it does not.
+
+31
+00:02:38,580 --> 00:02:43,260
+This will actually crash our website and it won't render anything at all.
+
+32
+00:02:43,290 --> 00:02:45,090
+Now, what is the reason for this?
+
+33
+00:02:45,090 --> 00:02:50,600
+Well, the reason is because it's looking at this variable called fruits,
+
+34
+00:02:50,610 --> 00:02:56,760
+but in EJS land, unlike in JavaScript, it doesn't scope this variable.
+
+35
+00:02:56,760 --> 00:03:03,780
+What that means is it doesn't actually check to see, well, does this actually exist before it tries
+
+36
+00:03:03,780 --> 00:03:04,590
+to use it.
+
+37
+00:03:04,590 --> 00:03:08,760
+Instead it tries to use it and, "Oh, there's nothing.
+
+38
+00:03:08,760 --> 00:03:09,750
+It doesn't work.
+
+39
+00:03:09,750 --> 00:03:11,070
+Let's crash everything."
+
+40
+00:03:11,070 --> 00:03:17,610
+And this is one of the aspects of EJS as a templating language that you might not be used to if you're thinking
+
+41
+00:03:17,610 --> 00:03:20,160
+of it as just normal JavaScript.
+
+42
+00:03:20,160 --> 00:03:22,410
+So this is a good thing to be aware of.
+
+43
+00:03:22,740 --> 00:03:25,890
+So then what do we have to do to get around it?
+
+44
+00:03:25,920 --> 00:03:29,610
+Well, we can use this variable called locals.
+
+45
+00:03:29,640 --> 00:03:39,090
+What locals is, is basically a way to access all of the variables that get sent over with a
+
+46
+00:03:39,090 --> 00:03:39,840
+res.render.
+
+47
+00:03:39,870 --> 00:03:48,690
+Now you can also manually set res.locals and you can set it equal to some piece of data.
+
+48
+00:03:48,690 --> 00:03:59,310
+So you could say {data: 42} and that locals variable is what can be accessed in the rendered EJS file
+
+49
+00:03:59,400 --> 00:04:04,800
+By simply using something like fruits, the name of the variable that gets passed over with the
+
+50
+00:04:04,800 --> 00:04:05,600
+res.render(),
+
+51
+00:04:05,650 --> 00:04:12,720
+essentially, what we're doing is we're using the shorthand of locals.name of variable.
+
+52
+00:04:12,840 --> 00:04:20,730
+This locals variable always exists and that means that we can always use it to check for the existence
+
+53
+00:04:20,730 --> 00:04:23,190
+of variables that are passed over to EJS,
+
+54
+00:04:23,190 --> 00:04:29,370
+and if this in fact does exist, then we can use it as we would normally.
+
+55
+00:04:29,670 --> 00:04:35,640
+This is just something that's quite important to be aware of when you're passing data from the server
+
+56
+00:04:35,640 --> 00:04:37,430
+to the EJS side.
+
+57
+00:04:38,190 --> 00:04:40,320
+Now what about the opposite direction?
+
+58
+00:04:40,320 --> 00:04:46,620
+What if we want to pass data from the EJS side or from the client side back to the server?
+
+59
+00:04:46,740 --> 00:04:51,200
+Let's say we have a form on our website that we want users to fill in.
+
+60
+00:04:51,210 --> 00:04:55,800
+We want them to put in their first name and their last name, and then we want to be able to handle
+
+61
+00:04:55,800 --> 00:04:59,850
+that data in our server to do something with it, or to store it,
+
+62
+00:05:00,200 --> 00:05:01,870
+or to check it, whatever it may be,
+
+63
+00:05:01,880 --> 00:05:03,970
+h ow do we pass data backwards?
+
+64
+00:05:03,980 --> 00:05:10,340
+And as you've seen in previous examples, the easiest way to do this is through a POST request.
+
+65
+00:05:10,340 --> 00:05:18,710
+So this then exists on the EJS side as a form which has a destination also called an action, the method
+
+66
+00:05:18,710 --> 00:05:21,410
+that is going to be a POST request.
+
+67
+00:05:21,410 --> 00:05:31,580
+And when the form gets submitted then these pieces of data are labeled under their name attributes.
+
+68
+00:05:31,580 --> 00:05:38,210
+So fName is going to be equal to whatever the user types in here, and lName will be equal to whatever
+
+69
+00:05:38,210 --> 00:05:39,530
+the user types in here.
+
+70
+00:05:39,530 --> 00:05:48,080
+And when they click on the okay button, this app.post() gets triggered and inside the req.body,
+
+71
+00:05:48,080 --> 00:05:54,410
+when we've got body-parser enabled, we can access these different pieces of data and that's how we
+
+72
+00:05:54,410 --> 00:06:02,130
+get data from the client to the server side using EJS. It's pretty similar to how we would do with
+
+73
+00:06:02,130 --> 00:06:03,380
+normal HTML.
+
+74
+00:06:04,090 --> 00:06:09,970
+Now it's time to try an exercise where you practice passing data back and forth between the server and
+
+75
+00:06:09,970 --> 00:06:14,050
+client-side, client to server-side using EJS templates.
+
+76
+00:06:14,080 --> 00:06:21,730
+Download the starting file from this current lesson, and extract it and then open it up inside VS Code.
+
+77
+00:06:21,760 --> 00:06:28,690
+As always, the first thing we're going to do is go ahead and install all the required dependencies.
+
+78
+00:06:28,690 --> 00:06:30,160
+So I'm just going to run npm i
+
+79
+00:06:30,160 --> 00:06:37,960
+on this folder, we get our node modules installed and let's first take a look at the solution.
+
+80
+00:06:37,960 --> 00:06:48,820
+So let's use nodemon to run solution.js which will start up on localhost:3000 and you should see
+
+81
+00:06:48,820 --> 00:06:50,170
+something that looks like this.
+
+82
+00:06:50,170 --> 00:06:54,160
+So we've got an h1 asking to you to enter your name.
+
+83
+00:06:54,160 --> 00:06:56,350
+So let me go ahead and enter my name.
+
+84
+00:06:56,350 --> 00:06:56,650
+Click
+
+85
+00:06:56,650 --> 00:06:57,310
+Okay.
+
+86
+00:06:57,310 --> 00:07:03,730
+And then it tells me there are 8 letters in my name. So I can now try it with somebody else's name.
+
+87
+00:07:03,730 --> 00:07:08,020
+And our website basically counts the number of letters in a name.
+
+88
+00:07:08,020 --> 00:07:13,780
+This is what you're aiming to build and the rest of it I'm going to leave for you to figure out how
+
+89
+00:07:13,780 --> 00:07:14,410
+to do.
+
+90
+00:07:14,560 --> 00:07:22,960
+You're going to have to write some code in the app.get() in order to render the h1 in the body of your
+
+91
+00:07:23,080 --> 00:07:24,070
+EJS file.
+
+92
+00:07:24,070 --> 00:07:30,730
+And it could say something like Enter your name or whatever it is as an instruction,
+
+93
+00:07:30,730 --> 00:07:37,180
+and that happens when we don't have any data being passed over to the index.ejs,
+
+94
+00:07:37,180 --> 00:07:42,880
+but if we did have some data being passed over, namely the number of letters in the name, then we
+
+95
+00:07:42,880 --> 00:07:49,240
+want it to be an h1 that says, "There are 9 letters..." or how many letters "in your name."
+
+96
+00:07:49,240 --> 00:07:55,180
+So think about this carefully, because initially if I go ahead and quit my server and restart, there
+
+97
+00:07:55,180 --> 00:07:58,420
+won't be any data being passed over.
+
+98
+00:07:58,450 --> 00:08:02,560
+So my website doesn't yet know how many letters there are in the name.
+
+99
+00:08:02,560 --> 00:08:06,770
+So at this point, this will be the h1 that will be shown.
+
+100
+00:08:06,770 --> 00:08:13,070
+But as soon as I enter something into here, this data gets sent over to my server side.
+
+101
+00:08:13,100 --> 00:08:19,730
+My server is the one that works out how many letters there are in that name and then passes that number
+
+102
+00:08:19,730 --> 00:08:27,350
+back over to EJS so that we render a different h1, inserting that number into here.
+
+103
+00:08:27,800 --> 00:08:34,280
+Have a think about how you would complete this challenge, break down the problem and using what you've
+
+104
+00:08:34,280 --> 00:08:39,860
+learned so far in this module, complete this challenge yourself. Pause the video now.
+
+105
+00:08:43,549 --> 00:08:44,000
+All right.
+
+106
+00:08:44,000 --> 00:08:50,450
+So let's run through the solution together and hopefully you've already gone part of the way or the
+
+107
+00:08:50,450 --> 00:08:52,310
+entire way to solving this.
+
+108
+00:08:52,550 --> 00:09:00,530
+So the first thing we want to happen, is to have an h1 that says "Write your name below," and you can insert
+
+109
+00:09:00,530 --> 00:09:06,210
+some emojis or you can copy and paste it from the Internet, whatever it is you want to do.
+
+110
+00:09:06,230 --> 00:09:14,570
+And once we've got that h1, then we can figure out how to render this EJS from our index.js.
+
+111
+00:09:14,570 --> 00:09:18,110
+So that's of course going to be in the GET route
+
+112
+00:09:18,110 --> 00:09:27,020
+and so we can use our res.render and then the name of our file is index.ejs. Let's hit Save. Let's
+
+113
+00:09:27,020 --> 00:09:32,080
+go ahead and quit out of our server that was running our solution.
+
+114
+00:09:32,090 --> 00:09:35,540
+Now let's use Nodemon and run index.js.
+
+115
+00:09:35,840 --> 00:09:41,510
+Now let's refresh and you can see we've got this working. At the moment,
+
+116
+00:09:41,510 --> 00:09:44,070
+this form is not really connected to anything.
+
+117
+00:09:44,070 --> 00:09:49,470
+So when we hit, Okay, even though there is a POST route here, it doesn't send anything back,
+
+118
+00:09:49,470 --> 00:09:54,000
+so our website actually just hangs until the browser decides to kill it.
+
+119
+00:09:54,600 --> 00:09:59,060
+So let's write something in here to handle the data that gets sent over.
+
+120
+00:09:59,070 --> 00:10:03,960
+Now notice I've already inserted the body-parser code so you can use body-parser,
+
+121
+00:10:03,960 --> 00:10:06,750
+you don't have to write all of this extra code.
+
+122
+00:10:06,750 --> 00:10:12,510
+But remember when you're writing this website from scratch yourself, you need the body-parser middleware
+
+123
+00:10:12,510 --> 00:10:16,740
+in order to be able to access the body of the POST requests.
+
+124
+00:10:16,740 --> 00:10:23,910
+So now we can say req.body and we want to tap into the two things that we get back from the
+
+125
+00:10:23,910 --> 00:10:24,530
+form.
+
+126
+00:10:24,540 --> 00:10:27,540
+One is called fName for the first name,
+
+127
+00:10:27,570 --> 00:10:30,060
+the next one is the lName for the last name,
+
+128
+00:10:30,060 --> 00:10:35,490
+and notice in this case, I don't actually have any labels for my inputs,
+
+129
+00:10:35,490 --> 00:10:40,380
+instead, I've just put a placeholder which essentially will show up in the form.
+
+130
+00:10:40,380 --> 00:10:47,540
+So let's tap into the fName and the lName.
+
+131
+00:10:47,660 --> 00:10:56,630
+What I'm going to do is I'm going to create a new const, which is called numLetters, and
+
+132
+00:10:56,630 --> 00:11:01,610
+I'm going to set it to req.body.fName.length
+
+133
+00:11:02,710 --> 00:11:10,870
+which gives me the length of that string and I'm going to add the length to req.body and get
+
+134
+00:11:10,900 --> 00:11:14,680
+hold lName and also use .length.
+
+135
+00:11:15,370 --> 00:11:24,610
+This is simplified code that we could have probably written out in 3 or 4 lines depending on how comfortable
+
+136
+00:11:24,610 --> 00:11:26,270
+you feel with JavaScript.
+
+137
+00:11:26,290 --> 00:11:32,710
+You can split this out if you wish and you can console log each of the different parts. You console log
+
+138
+00:11:32,710 --> 00:11:33,790
+req.body.
+
+139
+00:11:33,820 --> 00:11:36,310
+You can console log req.body["fName"].
+
+140
+00:11:36,310 --> 00:11:40,230
+You can create a variable for the length of the first name.
+
+141
+00:11:40,240 --> 00:11:43,300
+Create a variable for the length of the surname, add it all together,
+
+142
+00:11:43,300 --> 00:11:46,960
+but essentially this is the final logic.
+
+143
+00:11:48,010 --> 00:11:53,320
+Let's go ahead and console log the numberOfLetters.
+
+144
+00:11:53,500 --> 00:11:57,280
+So if we go back Refresh, let's test it with my name.
+
+145
+00:11:57,280 --> 00:11:57,610
+Click.
+
+146
+00:11:57,610 --> 00:11:58,600
+Okay.
+
+147
+00:11:59,110 --> 00:12:06,880
+So then we go and take a look at our terminal and you see number 8 being printed out.
+
+148
+00:12:06,890 --> 00:12:11,810
+Now, if you get some weird errors or it doesn't work, try restarting the server.
+
+149
+00:12:11,810 --> 00:12:18,320
+Sometimes what happens is you enter the form on a non-updated version of your localhost:3000, so you
+
+150
+00:12:18,320 --> 00:12:23,180
+can try refreshing the website, going to the URL or simply restarting the server.
+
+151
+00:12:23,180 --> 00:12:27,920
+But either way, with these lines of code you should be able to console log the number of letters that's
+
+152
+00:12:27,920 --> 00:12:30,140
+being entered into the form.
+
+153
+00:12:30,140 --> 00:12:36,950
+And then the all-important thing is we need to send this variable back over to our EJS.
+
+154
+00:12:36,950 --> 00:12:50,270
+So let's go ahead and use the res.render() and we want to render our index.ejs and we want to pass
+
+155
+00:12:50,270 --> 00:12:57,980
+over this numberOfLetters as a variable,
+
+156
+00:12:57,980 --> 00:13:00,830
+and this is the value that's going to be passed over.
+
+157
+00:13:01,770 --> 00:13:06,240
+Now we can pick up that variable in our index.ejs.
+
+158
+00:13:06,240 --> 00:13:12,870
+So remember what it is that we called it, and we can put it into an h1.
+
+159
+00:13:12,870 --> 00:13:15,750
+So essentially we'll have two different h1's,
+
+160
+00:13:15,780 --> 00:13:22,020
+if we don't have that variable, numberOfLetters, then we want this h1 to show up,
+
+161
+00:13:22,020 --> 00:13:25,230
+but if we did, then we want this h1 to show up.
+
+162
+00:13:25,230 --> 00:13:30,480
+So we'll need some sort of if-statement that can check to see if this exists,
+
+163
+00:13:30,480 --> 00:13:38,610
+and if it does, let's render the h1 where we say something like, "There are this numberOfLetters
+
+164
+00:13:38,610 --> 00:13:39,960
+in your name."
+
+165
+00:13:43,410 --> 00:13:50,850
+Of course, in order for this to be rendered as actual code, we need our EJS angle bracket percentage
+
+166
+00:13:50,850 --> 00:13:54,900
+equals (<%=) and then the closing bracket as well.
+
+167
+00:13:54,990 --> 00:14:03,790
+And also our code which we need to be evaluated but not necessarily outputted, needs to have the brackets
+
+168
+00:14:03,790 --> 00:14:04,720
+around it.
+
+169
+00:14:05,350 --> 00:14:15,190
+So now if this variable exists, we want to show this h1, but otherwise, we want to show a different
+
+170
+00:14:15,190 --> 00:14:19,810
+h1 and that is going to be this h1.
+
+171
+00:14:19,840 --> 00:14:24,730
+So if we have this variable, then that means the form has already been completed and we can insert
+
+172
+00:14:24,730 --> 00:14:26,980
+the number of letters into the h1.
+
+173
+00:14:26,980 --> 00:14:32,470
+If we don't have that variable and it's empty, then that means the user must have accessed this website
+
+174
+00:14:32,470 --> 00:14:37,000
+for the first time and we want to give them some instructions as to what they should do.
+
+175
+00:14:37,150 --> 00:14:43,660
+Now, when I run this, it's going to break and you might already know why, but let's just test it
+
+176
+00:14:43,660 --> 00:14:43,840
+out.
+
+177
+00:14:43,840 --> 00:14:44,920
+Let's hit Save.
+
+178
+00:14:45,100 --> 00:14:51,310
+Let's go back to our website, refresh localhost:3000 and it crashes.
+
+179
+00:14:51,310 --> 00:14:57,880
+It tells us there's a ReferenceError and it says that on this line, there's a little pointy arrow here.
+
+180
+00:14:57,880 --> 00:15:01,810
+Line 12, numberOfLetters, is not defined.
+
+181
+00:15:01,810 --> 00:15:06,520
+So basically it tried to access numberOfLetters to know what to do with it,
+
+182
+00:15:06,520 --> 00:15:13,270
+and lo and behold, it doesn't exist because this is the first time the user is accessing the website
+
+183
+00:15:13,270 --> 00:15:17,650
+and they haven't yet entered a name for our server to work out the number of letters.
+
+184
+00:15:18,100 --> 00:15:27,430
+What we need to do is we need to change this to check for the locals variable to see if this thing actually
+
+185
+00:15:27,430 --> 00:15:34,960
+exists because we know this variable definitely always exists in EJS files, and if it does, then continue
+
+186
+00:15:34,960 --> 00:15:36,910
+with the code where we actually use it.
+
+187
+00:15:36,910 --> 00:15:40,390
+So let's hit Save. Let's go back, Refresh.
+
+188
+00:15:40,390 --> 00:15:46,810
+At the moment we know that numbeOfLetters doesn't exist, so we get this h1 but once we add in
+
+189
+00:15:46,810 --> 00:15:52,810
+our name and it gets calculated, then the different h1 gets rendered.
+
+190
+00:15:53,200 --> 00:15:55,810
+Did you manage to work this out?
+
+191
+00:15:56,020 --> 00:16:02,470
+If you didn't, be sure to take a look through the solution code and check your code and figure out
+
+192
+00:16:02,470 --> 00:16:08,950
+how you can fix your code to make it work and see if you have any typos or see if you have any logic
+
+193
+00:16:08,950 --> 00:16:09,670
+errors
+
+194
+00:16:09,670 --> 00:16:17,230
+but hopefully, by reviewing this lesson you will have understood how to pass data from the server side
+
+195
+00:16:17,230 --> 00:16:26,980
+into the client side via EJS templates, but also from the client side to the server side using templates
+
+196
+00:16:26,980 --> 00:16:27,760
+as well.
+
+197
+00:16:28,570 --> 00:16:36,310
+In the next lesson, we're going to look at how we can use EJS in Layouts and in Partials so that we
+
+198
+00:16:36,310 --> 00:16:42,850
+can save ourselves from writing extra code when we have bits of our website that will repeat.
+
+199
+00:16:42,850 --> 00:16:45,310
+So for all of that and more, I'll see you there.
+

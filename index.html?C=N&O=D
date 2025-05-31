@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <title>Mad Ducky Media</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon"
+href="/ducky/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap"
+rel="stylesheet">
+        <link rel="stylesheet" href="/ducky/styles.css">
+        <script type="text/javascript" src="/ducky/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/ducky/goalProgress.css" />
+    <script type="text/javascript" src="/ducky/goalProgress.js"></script>
+    </head>
+<body>
+<!--
+header.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->
+<div id="raw_include_HEADER_md"></div>
+    <h4 class='title'>Mad Ducky Media</h4>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="/media">Home</a></li> |
+            <li><a href="/media/Movies">Movies</a></li> |
+            <li><a href="/media/TV">TV Shows</a></li> |
+            <li><a href="/media/Tech_Education">Tech Edu</a></li> |
+            <li><a href="/media/Anime">Anime</a></li> |
+            <li><a href="/media/Comics">Comics</a></li><br/>
+            <li><a href="/media/Audio_Books">Audio Books</a></li> |
+            <li><a href="/media/Music">Music</a></li> |
+            <li><a href="/media/Games">Games</a></li> |
+            <li><a href="/media/Magazines">Magazines</a></li> |
+            <li><a href="/media/eBooks">eBooks</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+    <div class="welcome">
+    <h2>Welcome!</h2>
+    <p> Welcome to Mad Ducky Media! Discover a vast array of
+entertainment options, from movies to TV shows and a diverse selection
+of other media. Immerse yourself in a world of cinematic wonders and
+captivating series. Our collection caters to every taste and genre,
+ensuring there's something for everyone. Explore and enjoy an
+unparalleled assortment of entertainment right at your fingertips.
+Happy viewing at Mad Ducky Media! </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#server_funds').goalProgress({
+                goalAmount: 137,
+                currentAmount: 0,
+                textBefore: '$',
+                textAfter: ' Raised for the current month!'
+            });
+        });
+    </script>
+    <div id="server_funds"></div>
+    <div class="columns-container">
+<div class="column">
+        <h2>About the media!</h2>
+        <p>
+	All video files are encoded h265 with a crf of 30
+and 128k AAC 2 channel audio. Quality and compression are very
+important to us. Games arent guarenteed working but we do
+our best to label games in testing and delete confirmed non-functional
+games. If you want to make a request or find any media not properly working, please contact us.
+        </p>
+        </div>
+         <div class="column">
+            <h2>Donations</h2>
+	    <a class="donate"
+href="https://www.buymeacoffee.com/madduckymedia" target="_blank">Buy Us a
+Coffee!</a>
+            <p> 
+	    At Mad Ducky Media, we are a non-profit platform
+dedicated to bringing you an array of entertainment. We operate
+solely through the generosity of our community and rely on donations
+to sustain our mission. Your support allows us to continue providing
+an exceptional range of content. If you enjoy our offerings, please
+consider contributing to our cause. Every donation helps us thrive and
+enriches your experience.
+       </p>
+       </div>
+    </div>
+    <hr>
+    <h1>Directory:
+/media/Tech_Education/[GigaCourse.Com] Udemy - The Complete 2024 Web Development Bootcamp/</h1>
+<table id="list"><thead><tr><th style="width:55%"><a href="?C=N&amp;O=A">File Name</a>&nbsp;<a href="?C=N&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:20%"><a href="?C=S&amp;O=A">File Size</a>&nbsp;<a href="?C=S&amp;O=D">&nbsp;&darr;&nbsp;</a></th><th style="width:25%"><a href="?C=M&amp;O=A">Date</a>&nbsp;<a href="?C=M&amp;O=D">&nbsp;&darr;&nbsp;</a></th></tr></thead>
+<tbody><tr><td class="link"><a href="../?C=N&amp;O=D">Parent directory/</a></td><td class="size">-</td><td class="date">-</td></tr>
+<tr><td class="link"><a href="44%20-%20Next%20Steps/?C=N&amp;O=D" title="44 - Next Steps">44 - Next Steps/</a></td><td class="size">-</td><td class="date">2024-May-18 22:19</td></tr>
+<tr><td class="link"><a href="43%20-%20Optional%20Module%20Ask%20Angela%20Anything/?C=N&amp;O=D" title="43 - Optional Module Ask Angela Anything">43 - Optional Module Ask Angela Anything/</a></td><td class="size">-</td><td class="date">2024-May-18 22:19</td></tr>
+<tr><td class="link"><a href="42%20-%20Minting%20NFTs%20and%20Building%20an%20NFT%20Marketplace%20like%20OpenSea/?C=N&amp;O=D" title="42 - Minting NFTs and Building an NFT Marketplace like OpenSea">42 - Minting NFTs and Building an NFT Marketpla..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:17</td></tr>
+<tr><td class="link"><a href="41%20-%20Create%20Your%20Own%20Crypto%20Token/?C=N&amp;O=D" title="41 - Create Your Own Crypto Token">41 - Create Your Own Crypto Token/</a></td><td class="size">-</td><td class="date">2024-May-18 22:16</td></tr>
+<tr><td class="link"><a href="40%20-%20Building%20DApps%20on%20ICP%20with%20a%20React%20Frontend/?C=N&amp;O=D" title="40 - Building DApps on ICP with a React Frontend">40 - Building DApps on ICP with a React Frontend/</a></td><td class="size">-</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="39%20-%20Deploying%20to%20the%20ICP%20Live%20Blockchain/?C=N&amp;O=D" title="39 - Deploying to the ICP Live Blockchain">39 - Deploying to the ICP Live Blockchain/</a></td><td class="size">-</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="38%20-%20Build%20Your%20First%20Defi%20%28Decentralised%20Finance%29%20DApp%20-%20DBANK/?C=N&amp;O=D" title="38 - Build Your First Defi (Decentralised Finance) DApp - DBANK">38 - Build Your First Defi (Decentralised Finan..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:15</td></tr>
+<tr><td class="link"><a href="37%20-%20Web3%20Decentralised%20App%20%28DApp%29%20Development%20with%20the%20Internet%20Computer/?C=N&amp;O=D" title="37 - Web3 Decentralised App (DApp) Development with the Internet Computer">37 - Web3 Decentralised App (DApp) Development ..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:14</td></tr>
+<tr><td class="link"><a href="36%20-%20React.js/?C=N&amp;O=D" title="36 - React.js">36 - React.js/</a></td><td class="size">-</td><td class="date">2024-May-18 22:14</td></tr>
+<tr><td class="link"><a href="35%20-%20Authentication%20and%20Security%20-%20Handling%20Credentials%20%26%20Designing%20a%20Secure%20Login/?C=N&amp;O=D" title="35 - Authentication and Security - Handling Credentials & Designing a Secure Login">35 - Authentication and Security - Handling Cre..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:12</td></tr>
+<tr><td class="link"><a href="34%20-%20Capstone%20Project%20-%20Book%20Notes/?C=N&amp;O=D" title="34 - Capstone Project - Book Notes">34 - Capstone Project - Book Notes/</a></td><td class="size">-</td><td class="date">2024-May-18 22:11</td></tr>
+<tr><td class="link"><a href="33%20-%20PostgreSQL/?C=N&amp;O=D" title="33 - PostgreSQL">33 - PostgreSQL/</a></td><td class="size">-</td><td class="date">2024-May-18 22:11</td></tr>
+<tr><td class="link"><a href="32%20-%20SQL/?C=N&amp;O=D" title="32 - SQL">32 - SQL/</a></td><td class="size">-</td><td class="date">2024-May-18 22:10</td></tr>
+<tr><td class="link"><a href="31%20-%20Databases/?C=N&amp;O=D" title="31 - Databases">31 - Databases/</a></td><td class="size">-</td><td class="date">2024-May-18 22:10</td></tr>
+<tr><td class="link"><a href="30%20-%20Build%20Your%20Own%20API/?C=N&amp;O=D" title="30 - Build Your Own API">30 - Build Your Own API/</a></td><td class="size">-</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="29%20-%20Capstone%20Project%20-%20Use%20a%20Public%20API/?C=N&amp;O=D" title="29 - Capstone Project - Use a Public API">29 - Capstone Project - Use a Public API/</a></td><td class="size">-</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="28%20-%20Application%20Programming%20Interfaces%20%28APIs%29/?C=N&amp;O=D" title="28 - Application Programming Interfaces (APIs)">28 - Application Programming Interfaces (APIs)/</a></td><td class="size">-</td><td class="date">2024-May-18 22:09</td></tr>
+<tr><td class="link"><a href="27%20-%20Git%2C%20Github%20and%20Version%20Control/?C=N&amp;O=D" title="27 - Git, Github and Version Control">27 - Git, Github and Version Control/</a></td><td class="size">-</td><td class="date">2024-May-18 22:08</td></tr>
+<tr><td class="link"><a href="26%20-%20Capstone%20Project%20-%20Create%20a%20Blog%20web%20application/?C=N&amp;O=D" title="26 - Capstone Project - Create a Blog web application">26 - Capstone Project - Create a Blog web appli..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:08</td></tr>
+<tr><td class="link"><a href="25%20-%20EJS/?C=N&amp;O=D" title="25 - EJS">25 - EJS/</a></td><td class="size">-</td><td class="date">2024-May-18 22:08</td></tr>
+<tr><td class="link"><a href="24%20-%20Express.js%20with%20Node.js/?C=N&amp;O=D" title="24 - Express.js with Node.js">24 - Express.js with Node.js/</a></td><td class="size">-</td><td class="date">2024-May-18 22:08</td></tr>
+<tr><td class="link"><a href="23%20-%20Node.js/?C=N&amp;O=D" title="23 - Node.js">23 - Node.js/</a></td><td class="size">-</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="22%20-%20Backend%20Web%20Development/?C=N&amp;O=D" title="22 - Backend Web Development">22 - Backend Web Development/</a></td><td class="size">-</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="21%20-%20The%20Unix%20Command%20Line/?C=N&amp;O=D" title="21 - The Unix Command Line">21 - The Unix Command Line/</a></td><td class="size">-</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="20%20-%20Boss%20Level%20Challenge%202%20-%20The%20Simon%20Game/?C=N&amp;O=D" title="20 - Boss Level Challenge 2 - The Simon Game">20 - Boss Level Challenge 2 - The Simon Game/</a></td><td class="size">-</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="19%20-%20jQuery/?C=N&amp;O=D" title="19 - jQuery">19 - jQuery/</a></td><td class="size">-</td><td class="date">2024-May-18 22:07</td></tr>
+<tr><td class="link"><a href="18%20-%20Advanced%20Javascript%20and%20DOM%20Manipulation/?C=N&amp;O=D" title="18 - Advanced Javascript and DOM Manipulation">18 - Advanced Javascript and DOM Manipulation/</a></td><td class="size">-</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="17%20-%20Boss%20Level%20Challenge%201%20-%20The%20Dicee%20Game/?C=N&amp;O=D" title="17 - Boss Level Challenge 1 - The Dicee Game">17 - Boss Level Challenge 1 - The Dicee Game/</a></td><td class="size">-</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="16%20-%20The%20Document%20Object%20Model%20%28DOM%29/?C=N&amp;O=D" title="16 - The Document Object Model (DOM)">16 - The Document Object Model (DOM)/</a></td><td class="size">-</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="15%20-%20Intermediate%20Javascript/?C=N&amp;O=D" title="15 - Intermediate Javascript">15 - Intermediate Javascript/</a></td><td class="size">-</td><td class="date">2024-May-18 22:06</td></tr>
+<tr><td class="link"><a href="14%20-%20Introduction%20to%20Javascript%20ES6/?C=N&amp;O=D" title="14 - Introduction to Javascript ES6">14 - Introduction to Javascript ES6/</a></td><td class="size">-</td><td class="date">2024-May-18 22:05</td></tr>
+<tr><td class="link"><a href="13%20-%20Capstone%20Project%202%20-%20Personal%20Site/?C=N&amp;O=D" title="13 - Capstone Project 2 - Personal Site">13 - Capstone Project 2 - Personal Site/</a></td><td class="size">-</td><td class="date">2024-May-18 22:05</td></tr>
+<tr><td class="link"><a href="12%20-%20Web%20Design%20School%20-%20Create%20a%20Website%20that%20People%20Love/?C=N&amp;O=D" title="12 - Web Design School - Create a Website that People Love">12 - Web Design School - Create a Website that ..&gt;</a></td><td class="size">-</td><td class="date">2024-May-18 22:05</td></tr>
+<tr><td class="link"><a href="11%20-%20Bootstrap/?C=N&amp;O=D" title="11 - Bootstrap">11 - Bootstrap/</a></td><td class="size">-</td><td class="date">2024-May-18 22:04</td></tr>
+<tr><td class="link"><a href="10%20-%20Grid/?C=N&amp;O=D" title="10 - Grid">10 - Grid/</a></td><td class="size">-</td><td class="date">2024-May-18 22:04</td></tr>
+<tr><td class="link"><a href="09%20-%20Flexbox/?C=N&amp;O=D" title="09 - Flexbox">09 - Flexbox/</a></td><td class="size">-</td><td class="date">2024-May-18 22:03</td></tr>
+<tr><td class="link"><a href="08%20-%20Advanced%20CSS/?C=N&amp;O=D" title="08 - Advanced CSS">08 - Advanced CSS/</a></td><td class="size">-</td><td class="date">2024-May-18 22:03</td></tr>
+<tr><td class="link"><a href="07%20-%20Intermediate%20CSS/?C=N&amp;O=D" title="07 - Intermediate CSS">07 - Intermediate CSS/</a></td><td class="size">-</td><td class="date">2024-May-18 22:03</td></tr>
+<tr><td class="link"><a href="06%20-%20CSS%20Properties/?C=N&amp;O=D" title="06 - CSS Properties">06 - CSS Properties/</a></td><td class="size">-</td><td class="date">2024-May-18 22:02</td></tr>
+<tr><td class="link"><a href="05%20-%20Introduction%20to%20CSS/?C=N&amp;O=D" title="05 - Introduction to CSS">05 - Introduction to CSS/</a></td><td class="size">-</td><td class="date">2024-May-18 22:02</td></tr>
+<tr><td class="link"><a href="04%20-%20Multi-Page%20Websites/?C=N&amp;O=D" title="04 - Multi-Page Websites">04 - Multi-Page Websites/</a></td><td class="size">-</td><td class="date">2024-May-18 22:02</td></tr>
+<tr><td class="link"><a href="03%20-%20Intermediate%20HTML/?C=N&amp;O=D" title="03 - Intermediate HTML">03 - Intermediate HTML/</a></td><td class="size">-</td><td class="date">2024-May-18 22:01</td></tr>
+<tr><td class="link"><a href="02%20-%20Introduction%20to%20HTML/?C=N&amp;O=D" title="02 - Introduction to HTML">02 - Introduction to HTML/</a></td><td class="size">-</td><td class="date">2024-May-18 22:01</td></tr>
+<tr><td class="link"><a href="01%20-%20Front-End%20Web%20Development/?C=N&amp;O=D" title="01 - Front-End Web Development">01 - Front-End Web Development/</a></td><td class="size">-</td><td class="date">2024-May-18 22:01</td></tr>
+<tr><td class="link"><a href="0.%20Websites%20you%20may%20like/?C=N&amp;O=D" title="0. Websites you may like">0. Websites you may like/</a></td><td class="size">-</td><td class="date">2024-May-18 22:01</td></tr>
+<tr><td class="link"><a href="%5BGigaCourse.Com%5D.url" title="[GigaCourse.Com].url">[GigaCourse.Com].url</a></td><td class="size">49 B</td><td class="date">2024-May-18 22:01</td></tr>
+<tr><td class="link"><a href="%5BCourseClub.Me%5D.url" title="[CourseClub.Me].url">[CourseClub.Me].url</a></td><td class="size">122 B</td><td class="date">2024-May-18 22:01</td></tr>
+</tbody></table><div id="raw_include_README_md"></div>
+<footer>
+    Theme available on <a href="https://GitHub.com/Naereen/Nginx-Fancyindex-Theme">GitHub</a> by <a href="https://GitHub.com/Naereen">Naereen</a>, © 2015-18, released under <a href="https://lbesson.mit-license.org/">the MIT License</a>.
+</footer>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <script type="text/javascript" src="/ducky/addNginxFancyIndexForm.js"></script>
+    <script type="text/javascript" src="/ducky/showdown.min.js"></script>
+    <script type="text/javascript" defer>
+    var converter = new showdown.Converter({tables: true});
+    $( "#raw_include_HEADER_md" ).load( "HEADER.md", function (){
+        var elem = document.querySelector("#raw_include_HEADER_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+    $( "#raw_include_README_md" ).load( "README.md", function (){
+        var elem = document.querySelector("#raw_include_README_md");
+        // strip leading whitespace so it isn't evaluated as code
+        var text = elem.innerHTML;
+        // console.log("text =", text);
+        text = text.replace(/\n[ ]*/g, '\n');
+        // console.log("text =", text);
+        var html = converter.makeHtml(text);
+        // console.log("html =", html);
+        // here, have some HTML
+        elem.innerHTML = html;
+    });
+</script>
+</body>
+</html>
+<!--
+footer.html
+© 2015-18, Lilian Besson (Naereen) and contributors,
+open-sourced under the MIT License, https://lbesson.mit-license.org/
+hosted on GitHub, https://GitHub.com/Naereen/Nginx-Fancyindex-Theme
+-->

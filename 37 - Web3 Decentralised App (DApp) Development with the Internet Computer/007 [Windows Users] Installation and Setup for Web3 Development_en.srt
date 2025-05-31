@@ -1,0 +1,580 @@
+1
+00:00:00,900 --> 00:00:01,290
+All right.
+
+2
+00:00:01,290 --> 00:00:09,090
+So this lesson is for Windows users to install and set up for Internet computer development.
+
+3
+00:00:09,540 --> 00:00:13,140
+And it's a little bit long, I have to admit.
+
+4
+00:00:13,440 --> 00:00:21,210
+If you take a look at the doc, which I link to in this current Udemy lesson, then you'll see that
+
+5
+00:00:21,210 --> 00:00:27,450
+it's got quite a few pages that we have to get through in order to be able to get up and running for
+
+6
+00:00:27,450 --> 00:00:30,390
+working with Windows and the Internet computer.
+
+7
+00:00:30,810 --> 00:00:36,120
+But don't worry, I'm going to guide you step by step through everything that you need to do.
+
+8
+00:00:36,330 --> 00:00:43,410
+And even though it's quite long, as long as you follow the steps in the doc and watch the video before
+
+9
+00:00:43,410 --> 00:00:45,960
+you start, then it should be okay.
+
+10
+00:00:46,350 --> 00:00:52,080
+And if there's any changes down the line, I'll be updating this doc, so don't worry too much about
+
+11
+00:00:52,080 --> 00:00:52,290
+that.
+
+12
+00:00:53,220 --> 00:01:00,210
+Now, the first thing we need to do is to make sure that we've got the correct system requirements.
+
+13
+00:01:00,660 --> 00:01:08,040
+So if you go into the start section and search for system information, then you can see what the OS
+
+14
+00:01:08,040 --> 00:01:09,270
+version is you're running.
+
+15
+00:01:09,660 --> 00:01:17,370
+So at a minimum, you should be running Windows 10, version 2004 or above, and you can tell that that's
+
+16
+00:01:17,370 --> 00:01:18,300
+correct version
+
+17
+00:01:18,510 --> 00:01:26,850
+by looking at this version and seeing that it's 19041 or above and I've got 19044 here, so that's
+
+18
+00:01:26,850 --> 00:01:27,390
+perfect.
+
+19
+00:01:27,720 --> 00:01:31,080
+And also, if you're running Windows 11 or above, that's totally fine.
+
+20
+00:01:31,620 --> 00:01:35,760
+The second thing to check is to make sure that you're running 64 bit Windows.
+
+21
+00:01:35,760 --> 00:01:39,360
+So under system type you should see x64.
+
+22
+00:01:39,660 --> 00:01:42,480
+Unfortunately, it's not going to work very well with 32 bit.
+
+23
+00:01:42,480 --> 00:01:44,640
+So these are the two requirements.
+
+24
+00:01:45,360 --> 00:01:51,390
+Next, you're going to go and search for PowerShell and make sure that you open it as an administrator.
+
+25
+00:01:51,750 --> 00:01:53,130
+This is really important.
+
+26
+00:01:56,640 --> 00:02:03,900
+We're going to copy this line from the from the guideline docs and we're just going to paste it in.
+
+27
+00:02:03,900 --> 00:02:10,860
+It's just wsl --install but is easy to paste in so you don't make any typos. And it's going
+
+28
+00:02:10,860 --> 00:02:14,520
+to install something called the Windows sub machine for Linux.
+
+29
+00:02:15,060 --> 00:02:21,480
+Basically, it's going to give us a virtual Linux to work with allowing us to run up bash commands,
+
+30
+00:02:21,480 --> 00:02:26,490
+which are required when we're working with the Dfinity internet computer.
+
+31
+00:02:26,820 --> 00:02:32,190
+So this is going to take a little while to run, but once it's done, it'll tell you the request operation
+
+32
+00:02:32,190 --> 00:02:36,390
+is successful, but you have to restart your machine for it to take effect.
+
+33
+00:02:36,540 --> 00:02:38,640
+So go ahead and restart your computer.
+
+34
+00:02:41,130 --> 00:02:47,430
+And once it has restarted and launched again, it should automatically bring up this pane where you
+
+35
+00:02:47,430 --> 00:02:52,590
+need to set up a username and password for working with Ubuntu.
+
+36
+00:02:52,920 --> 00:02:55,920
+So go ahead and enter those pieces of information.
+
+37
+00:02:56,220 --> 00:02:59,640
+But remember when you type your password, it's not going to show up on screen.
+
+38
+00:02:59,910 --> 00:03:04,710
+So just be sure you know what you're typing and maybe keep it simple as well because we're going to
+
+39
+00:03:04,710 --> 00:03:10,080
+be using this password very, very shortly when we're installing other components.
+
+40
+00:03:11,010 --> 00:03:16,620
+Now, once that is complete, go ahead and open up Windows PowerShell as the administrator again.
+
+41
+00:03:17,070 --> 00:03:21,240
+And I want you to run the command that you see in the installation guide.
+
+42
+00:03:21,450 --> 00:03:27,180
+And this basically just checks to make sure that wsl was correctly installed.
+
+43
+00:03:27,390 --> 00:03:30,630
+As long as you see Ubuntu version two listed here,
+
+44
+00:03:30,990 --> 00:03:35,280
+you're ready to go to the next step, which is to install Visual Studio code.
+
+45
+00:03:35,850 --> 00:03:40,140
+So head over to the link that I've got for you in the installation guide.
+
+46
+00:03:40,530 --> 00:03:46,890
+And once you are there, you should be able to download the latest stable version of VSCode.
+
+47
+00:03:49,960 --> 00:03:54,580
+And then we can go ahead and click on the download to install it.
+
+48
+00:03:56,280 --> 00:04:03,180
+Now go through the installation wizard, accepting the agreement, choosing all of the defaults, and
+
+49
+00:04:03,180 --> 00:04:07,920
+make sure that you add a desktop icon so we can access Visual Studio code quickly.
+
+50
+00:04:08,580 --> 00:04:13,050
+Now, once the installation has completed, it will automatically launch.
+
+51
+00:04:13,590 --> 00:04:18,990
+And what we're going to do is we're going to install some required extensions to VSCode.
+
+52
+00:04:19,350 --> 00:04:26,550
+So head over to the installation guide and copy the first link for the Motoko extension and paste it
+
+53
+00:04:26,550 --> 00:04:27,600
+into the browser.
+
+54
+00:04:27,960 --> 00:04:33,600
+And if you click on install in your browser, then it should be able to bring up Visual Studio code
+
+55
+00:04:33,900 --> 00:04:37,470
+and allow you to open that link inside VSCode.
+
+56
+00:04:37,860 --> 00:04:42,180
+Now the reason because there's quite a few extension called Motoko, but we want the one that's from
+
+57
+00:04:42,180 --> 00:04:43,740
+the Dfinity Foundation.
+
+58
+00:04:44,760 --> 00:04:51,450
+And then we're going to install our remote wsl, which is going to allow us to use the terminal inside
+
+59
+00:04:51,450 --> 00:04:55,770
+VSCode and tap into that wsl that we installed earlier on.
+
+60
+00:05:01,510 --> 00:05:06,610
+Now finally we're ready to go ahead and install Node into wsl.
+
+61
+00:05:06,970 --> 00:05:12,250
+So this means that even if you have installed Node before on your Windows computer, you have to do
+
+62
+00:05:12,250 --> 00:05:17,980
+this again just so that we can work with wsl and Node and Dfinity and everything else.
+
+63
+00:05:18,430 --> 00:05:26,320
+So either over to the homebrew link that's in the installation guide or simply just copy that command
+
+64
+00:05:26,320 --> 00:05:34,000
+and open up Ubuntu from the start menu and paste that command in and run it During the installation
+
+65
+00:05:34,000 --> 00:05:39,080
+process it's going to ask you for the password that you set just a moment ago when you set up a Ubuntu
+
+66
+00:05:39,550 --> 00:05:44,770
+and you just need to type that in right now. When they ask you to confirm also go ahead and
+
+67
+00:05:44,770 --> 00:05:45,370
+hit enter.
+
+68
+00:05:45,820 --> 00:05:52,300
+Now once it's done installing homebrew, there's two steps that you have to complete and they show you
+
+69
+00:05:52,300 --> 00:05:54,520
+this in the next steps section.
+
+70
+00:05:54,910 --> 00:05:58,780
+Basically this is going to make homebrew available to use in the path.
+
+71
+00:05:59,050 --> 00:06:01,960
+It doesn't really matter if you don't understand what that means.
+
+72
+00:06:01,960 --> 00:06:06,040
+It's just a little bit of manual setup that's required.
+
+73
+00:06:13,820 --> 00:06:19,160
+And finally add that part that's underneath the install homebrew dependencies,
+
+74
+00:06:19,490 --> 00:06:27,530
+enter your password and type 'Y' when they ask you to and let it go through the full installation process.
+
+75
+00:06:28,100 --> 00:06:34,130
+Now once you see that dollar sign again, that means it's all done and we can now check and make sure
+
+76
+00:06:34,130 --> 00:06:36,560
+by typing in brew --version.
+
+77
+00:06:36,950 --> 00:06:42,740
+And if you see homebrew followed by some sort of version number, then that means everything was successful.
+
+78
+00:06:43,580 --> 00:06:47,510
+Now finally, we're going to use Homebrew to install Node version 16.
+
+79
+00:06:47,810 --> 00:06:53,810
+This is the latest stable version and this is the version that will work with the Internet computer.
+
+80
+00:06:54,110 --> 00:06:56,960
+So it's really important that you follow this command.
+
+81
+00:06:57,620 --> 00:07:00,470
+Now, if you get this error that I've got, node
+
+82
+00:07:00,470 --> 00:07:03,620
+16 is keg-only, which means it was not symlinked,
+
+83
+00:07:03,980 --> 00:07:10,820
+this is because you have another node version installed on your computer and all you have to do is simply
+
+84
+00:07:10,820 --> 00:07:17,690
+type brew link node@16 in order to link to this version that we just installed.
+
+85
+00:07:18,320 --> 00:07:21,050
+And now you can type node --version.
+
+86
+00:07:21,050 --> 00:07:26,000
+And as long as you get a version that starts with 16, then you are ready to roll.
+
+87
+00:07:26,540 --> 00:07:33,590
+Now finally we're ready to install dfx, so go ahead and copy that line of code that you see on
+
+88
+00:07:33,590 --> 00:07:38,840
+the installation guide and paste it into the Ubuntu command line.
+
+89
+00:07:39,470 --> 00:07:45,650
+Now it's going to take a little while to fetch dfx which is the package that's going to allow us to
+
+90
+00:07:45,650 --> 00:07:52,370
+work with the Internet computer locally. Once it has installed, then it's going to tell you where it
+
+91
+00:07:52,370 --> 00:07:57,620
+was installed and we have to manually set up the path to point to that location.
+
+92
+00:07:58,100 --> 00:08:06,710
+So in the installation guide, I've got this stub for you which I want you to paste into notepad and
+
+93
+00:08:06,710 --> 00:08:13,250
+replace the part which says 'replace with your installation path' with the installation path you got from
+
+94
+00:08:13,250 --> 00:08:15,410
+the dfx install.
+
+95
+00:08:15,860 --> 00:08:20,810
+So copy that, paste that in there, make sure there's no space between the colon and the first forward
+
+96
+00:08:20,810 --> 00:08:21,230
+slash.
+
+97
+00:08:21,680 --> 00:08:23,390
+Copy that entire command,
+
+98
+00:08:23,390 --> 00:08:27,380
+paste it back into Ubuntu, hit enter to run that command.
+
+99
+00:08:27,920 --> 00:08:34,190
+And now if you copy that line where it says echo and then a bunch of symbols, you should be able to
+
+100
+00:08:34,190 --> 00:08:41,210
+see that your dfx location was added to your path like I've got here.
+
+101
+00:08:41,720 --> 00:08:47,090
+Now, finally run dfx --version and you should see dfx 0.9.3.
+
+102
+00:08:47,390 --> 00:08:55,190
+And if you do, then that means dfx was successfully installed and you're ready to finally get started
+
+103
+00:08:55,190 --> 00:08:59,330
+by creating your first internet computer application.
+
+104
+00:09:01,540 --> 00:09:10,300
+So open up VSCode and click on that little green icon to the bottom left and select new wsl window.
+
+105
+00:09:10,870 --> 00:09:16,570
+Now, once you've done that, you can close down the previous window if you want, but make sure that
+
+106
+00:09:16,570 --> 00:09:21,550
+the window that you're working with says WSL: Ubuntu.
+
+107
+00:09:21,550 --> 00:09:25,210
+And if you hover over it, it should say running in Ubuntu.
+
+108
+00:09:25,600 --> 00:09:31,810
+Now go ahead and open up Ubuntu from the start menu again and we're going to create a directory called
+
+109
+00:09:31,810 --> 00:09:32,890
+ic-projects.
+
+110
+00:09:33,280 --> 00:09:39,640
+So you can either paste this command in from the installation instructions or you can type it out.
+
+111
+00:09:40,300 --> 00:09:48,640
+But we're basically creating this folder called ic-projects inside our main user folder, and then
+
+112
+00:09:48,700 --> 00:09:52,840
+we're going to cd or change directory into that newly created folder.
+
+113
+00:09:53,440 --> 00:09:59,080
+And inside that folder where we're going to be creating all of our Internet computer projects,
+
+114
+00:09:59,530 --> 00:10:01,920
+I want you to go ahead and type the command dfx
+
+115
+00:10:02,650 --> 00:10:04,150
+new hello.
+
+116
+00:10:04,570 --> 00:10:09,670
+And this is going to build us our sample Internet computer application called Hello.
+
+117
+00:10:10,150 --> 00:10:12,520
+And leave it in the background to do its thing.
+
+118
+00:10:12,880 --> 00:10:21,520
+And once it's built, you'll see the Dfinity logo show up and we can see where our folders and files
+
+119
+00:10:21,520 --> 00:10:29,770
+are by using the command that you can again copy from the installation instructions, but it's explorer
+
+120
+00:10:29,770 --> 00:10:38,410
+.exe . and you can see our hello folder with all of the template files that dfx created.
+
+121
+00:10:38,980 --> 00:10:45,580
+And we can now go back to VSCode, and select open folder, select the ic-projects/hello.
+
+122
+00:10:46,090 --> 00:10:50,050
+And it should now open up our project in VSCode.
+
+123
+00:10:50,710 --> 00:10:55,270
+Now if you take a look inside the source folder, you'll see all the source files for this project.
+
+124
+00:10:55,780 --> 00:10:59,450
+And we've got our main.mo which is our motoko file.
+
+125
+00:10:59,920 --> 00:11:04,960
+But at the moment, it doesn't actually have any syntax highlighting, which is what our Motoko extension
+
+126
+00:11:04,960 --> 00:11:05,890
+is supposed to do.
+
+127
+00:11:06,400 --> 00:11:11,680
+So if you head over to the extensions tab, you can see this extension is currently disabled.
+
+128
+00:11:12,100 --> 00:11:19,900
+And I want you to click on that button where it says install in WSL: Ubuntu so that we can make it actually
+
+129
+00:11:19,900 --> 00:11:22,130
+available in our WSL remote.
+
+130
+00:11:23,080 --> 00:11:28,540
+Now finally we can head back to our main.mo and you should see all the syntax highlighting.
+
+131
+00:11:29,020 --> 00:11:31,840
+Now there's also some HTML files and JS files,
+
+132
+00:11:32,170 --> 00:11:34,000
+but we're now ready to deploy.
+
+133
+00:11:34,240 --> 00:11:39,040
+So go into the terminal menu and then go to new terminal.
+
+134
+00:11:39,520 --> 00:11:45,340
+And here I want you to write to start dfx start in order to start the local Internet computer.
+
+135
+00:11:45,910 --> 00:11:52,810
+And now once you see this listing on something, something, then I want you to split out a new terminal
+
+136
+00:11:52,810 --> 00:12:00,940
+window by clicking on this button here and then type in dfx deploy in order to deploy this hello project
+
+137
+00:12:01,270 --> 00:12:05,080
+onto that local dfx that we just started.
+
+138
+00:12:05,830 --> 00:12:11,710
+Once it's done and you see a dollar sign again, you're going to type npm start to start up our server.
+
+139
+00:12:12,130 --> 00:12:17,140
+And if you scroll up, you actually see it tells you where the project is running.
+
+140
+00:12:17,620 --> 00:12:22,900
+So go ahead and copy that URL and paste it into your browser.
+
+141
+00:12:22,930 --> 00:12:29,290
+And once it loads up, you'll see your starter project, type in your name, click on the button and
+
+142
+00:12:29,290 --> 00:12:30,880
+you'll see the greeting show up.
+
+143
+00:12:31,060 --> 00:12:37,780
+And that means you have successfully installed and set up everything that's required to start developing
+
+144
+00:12:37,810 --> 00:12:39,340
+on the Internet computer.
+
+145
+00:12:40,060 --> 00:12:45,070
+So now you're ready to head over to the next lesson and we can get started writing some code.
+

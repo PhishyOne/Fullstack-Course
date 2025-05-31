@@ -1,0 +1,381 @@
+
+003 codesandbox.io
+https://codesandbox.io/
+
+004 Introduction-to-JSX-START
+https://codesandbox.io/p/sandbox/introduction-to-jsx-h8ub1
+
+004 Babel
+https://babeljs.io/
+
+004 Introduction-to-JSX-END
+https://codesandbox.io/p/sandbox/introduction-to-jsx-oofqn
+
+005 JSX-Code-Practice-START
+https://codesandbox.io/p/sandbox/jsx-code-challenge-zp681
+
+005 JSX-Code-Practice-END
+https://codesandbox.io/p/sandbox/jsx-code-challenge-completed-ot01f?file=%2Fsrc%2Findex.js
+
+006 Javascript-Expressions-in-JSX-ES6-Template-Literals-START
+https://codesandbox.io/p/sandbox/javascript-expressions-in-jsx-llr3w?file=%2Fsrc%2Findex.js
+
+006 Statements-Vs.Expressions
+https://www.youtube.com/watch?v=WVyCrI1cHi8&list=PL-xu4i_QDSxcoDNeh8rx5-pHCCTOg0XsI&ab_channel=Codexpanse
+
+006 Javascript-Expressions-in-JSX-ES6-Template-Literals-END
+https://codesandbox.io/p/sandbox/javascript-expressions-in-jsx-completed-fmhnm?file=%2Fsrc%2Findex.js
+
+007 Javascript-Expressions-in-JSX-Practice-START
+https://codesandbox.io/p/sandbox/javascript-expressions-in-jsx-practice-1fde0?file=%2Fsrc%2Findex.js
+
+007 Javascript-Expressions-in-JSX-Practice-END
+https://codesandbox.io/p/sandbox/javascript-expressions-in-jsx-practice-completed-71uik
+
+008 JSX-Attributes-Styling-React-Elements-START
+https://codesandbox.io/p/sandbox/jsx-attributes-and-styling-ekgvl?file=%2Fsrc%2Findex.js
+
+008 Standard-HTML-attributes
+https://www.w3schools.com/tags/ref_standardattributes.asp
+
+008 Lorem-Picsum
+https://picsum.photos/
+
+008 JSX-Attributes-Styling-React-Elements-END
+https://codesandbox.io/p/sandbox/jsx-attributes-and-styling-completed-kkycr?file=%2Fsrc%2Findex.js
+
+009 Inline-Styling-For-React-Elements-START
+https://codesandbox.io/p/sandbox/inline-styling-in-jsx-i1u11?file=%2Fsrc%2Findex.js
+
+009 CSS-Property-List
+https://www.w3schools.com/cssref/index.php
+
+009 CSS-font-size-Property
+https://www.w3schools.com/cssref/pr_font_font-size.php
+
+009 Inline-Styling-For-React-Elements-END
+https://codesandbox.io/p/sandbox/inline-styling-in-jsx-completed-159y7?file=%2Fsrc%2Findex.js
+
+010 React-Styling-Practice-START
+https://codesandbox.io/p/sandbox/react-styling-practice-zpc72?file=%2Fsrc%2Findex.js
+
+010 React-Styling-Practice-END
+https://codesandbox.io/p/sandbox/react-styling-practice-completed-xpn8u?file=%2Fsrc%2Findex.js
+
+011 React-Components-START
+https://codesandbox.io/p/sandbox/react-components-mtf58?file=%2Fsrc%2Findex.js
+
+011 Airbnb-Style-Guide-for-React
+https://github.com/airbnb/javascript/tree/master/react
+
+011 React-Components-END
+https://codesandbox.io/p/sandbox/react-components-completed-j66pt?file=%2Fsrc%2Findex.js
+
+012 React-Components-Practice-START
+https://codesandbox.io/p/sandbox/react-components-practice-3brog?file=%2Fsrc%2Findex.js
+
+012 React-Components-Practice-END
+https://codesandbox.io/p/sandbox/react-components-practice-completed-2ksvn?file=%2Fsrc%2Findex.js
+
+013 Javascript-ES6-Import-Export-and-Modules-START
+https://codesandbox.io/p/sandbox/es6-importexport-modules-2otbz?file=%2Fsrc%2Findex.js
+
+013 Node-require-vs-ES6-import-export
+https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export
+
+013 Javascript-ES6-Import-Export-and-Modules-END
+https://codesandbox.io/p/sandbox/es6-importexport-modules-completed-enyxr?file=%2Fsrc%2Findex.js%3A13%2C1
+
+014 Javascript-ES6-Import-Export-and-Modules-Practice-START
+https://codesandbox.io/p/sandbox/es6-importexport-practice-4j2p9?file=%2Fsrc%2Findex.js%3A15%2C34
+
+014 Javascript-ES6-Import-Export-and-Modules-Practice-END
+https://codesandbox.io/p/sandbox/es6-importexport-practice-completed-h1f0g
+
+015 Nodejs.org
+https://nodejs.org/en
+
+015 VS-Code
+https://code.visualstudio.com/
+
+015 Babel-syntax-highlighting-for-code-editors
+https://babeljs.io/docs/editors
+
+015 Sublime-Babel-by-Josh-Peng-VSCode
+https://github.com/joshpeng/Sublime-Babel-VSCode
+
+015 Create-a-new-react-app
+https://legacy.reactjs.org/docs/create-a-new-react-app.html
+
+015 Where-to-get-support-if-you-get-stuck
+https://react.dev/community
+
+016 Nodejs.org
+https://nodejs.org/en
+
+016 VS-Code
+https://code.visualstudio.com/
+
+016 Babel-syntax-highlighting-for-code-editors
+https://babeljs.io/docs/editors
+
+016 Sublime-Babel-by-Josh-Peng-VSCode
+https://github.com/joshpeng/Sublime-Babel-VSCode
+
+016 Create-a-new-react-app
+https://legacy.reactjs.org/docs/create-a-new-react-app.html
+
+016 Where-to-get-support-if-you-get-stuck
+https://react.dev/community
+
+018 Keeper-App-Project-Part-1-Challenge
+https://codesandbox.io/p/sandbox/keeper-app-part-1-starting-oplw1?file=%2Fsrc%2Findex.js
+
+019 Keeper-App-Part-1-Solution
+https://codesandbox.io/p/sandbox/keeper-app-part-1-completed-l1pp6?file=%2Fsrc%2Findex.js
+
+020 React-Props-Starting-Code
+https://codesandbox.io/p/sandbox/react-props-8xxq5
+
+020 React-Props-Completed-Code
+https://codesandbox.io/p/sandbox/react-props-completed-gslmr
+
+021 React-Props-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/react-props-practice-4khpy
+
+021 React-Props-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/react-props-practice-completed-c6fkx
+
+022 React-DevTools-Starting-Code
+https://codesandbox.io/p/sandbox/react-devtools-dk9gj
+
+022 Chrome-React-Dev-Tools
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+022 Firefox-React-Dev-Tools
+https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/
+
+022 React-DevTools-End-Code
+https://codesandbox.io/p/sandbox/react-devtools-completed-wku4k
+
+023 Mapping-Data-To-Components-Starting-Code
+https://codesandbox.io/p/sandbox/mapping-components-81wml
+
+023 Mapping-Data-To-Components-End-Code
+https://codesandbox.io/p/sandbox/mapping-components-completed-y6z4c
+
+024 Mapping-Data-To-Components-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/mapping-components-practice-6fkfr
+
+024 Emojimeanings.net
+https://www.emojimeanings.net/list-smileys-people-whatsapp
+
+024 The-Description-List-Element
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+
+024 Mapping-Data-To-Components-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/mapping-components-practice-completed-37h04
+
+025 Javascript-ES6-Map-Filter-Reduce-Starting-Code
+https://codesandbox.io/p/sandbox/mapfilterreduce-h7sm6
+
+025 Filter
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+025 Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+025 Reduce
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
+025 Find
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+025 FindIndex
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findindex
+
+025 Substring
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+025 Javascript-ES6-Map-Filter-Reduce-Completed-Code
+https://codesandbox.io/p/sandbox/mapfilterreduce-completed-3sm6u
+
+026 Javascript-ES6-Arrow-functions-Starting-Code
+https://codesandbox.io/p/sandbox/es6-arrow-functions-y8jhk
+
+026 Arrow-Functions
+https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/
+
+026 Javascript-ES6-Arrow-functions-Completed-Code
+https://codesandbox.io/p/sandbox/es6-arrow-functions-completed-gbtv7
+
+027 Keeper-App-Project-Part-2-Challenge
+https://codesandbox.io/p/sandbox/keeper-app-part-2-starting-b5w06
+
+027 Keeper-App-Project-Part-2-Solution
+https://codesandbox.io/p/sandbox/keeper-app-part-2-completed-4dr3p
+
+028 React-Conditional-Rendering-Starting-Code
+https://codesandbox.io/p/sandbox/conditional-rendering-yfdes
+
+028 Single-Responsibility-Principle
+https://en.wikipedia.org/wiki/Single_responsibility_principle
+
+028 Ternary-Operator-Docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+
+028 Using-the-Logical-in-React
+https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator
+
+028 React-Conditional-Rendering-Completed-Code
+https://codesandbox.io/p/sandbox/conditional-rendering-completed-ovu1v
+
+029 Conditional-Rendering-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/conditional-rendering-practice-uzp9m
+
+029 Conditional-Rendering-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/conditional-rendering-practice-completed-78b21
+
+030 State-In-React-Demo-Completed-Code
+https://codesandbox.io/p/sandbox/introduction-to-state-completed-kzfro
+
+031 React-Hooks-useState-Starting-Code
+https://codesandbox.io/p/sandbox/usestate-hook-wd3vs
+
+031 useState-Docs
+https://reactjs.org/docs/hooks-reference.html#usestate
+
+031 React-Hooks-useState-Completed-Code
+https://codesandbox.io/p/sandbox/usestate-hook-completed-ylxqj
+
+032 useState-Hook-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/usestate-hook-practice-k0g69
+
+032 useState-Hook-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/usestate-hook-practice-completed-t99f4
+
+033 Javascript-ES6-Object-Array-Destructuring-Challenge
+https://codesandbox.io/p/sandbox/es6-destructuring-ide4v
+
+033 Javascript-Destructuring
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+034 Javascript-ES6-Destructuring-Challenge-Solution
+https://codesandbox.io/p/sandbox/es6-destructuring-completed-zvjn9
+
+035 Event-Handling-in-React-Starting-Code
+https://codesandbox.io/p/sandbox/event-handling-in-react-2tltl
+
+035 HTML-Event-Attributes
+https://www.w3schools.com/tags/ref_eventattributes.asp
+
+035 Event-Handling-in-React-Completed-Code
+https://codesandbox.io/p/sandbox/event-handling-in-react-completed-61rti
+
+036 React-Forms-Starting-Code
+https://codesandbox.io/p/sandbox/react-forms-23oen
+
+036 Controlled-Components-in-Forms
+https://legacy.reactjs.org/docs/forms.html#controlled-components
+
+036 React-Forms-Completed-Code
+https://codesandbox.io/p/sandbox/react-forms-completed-4vy2h
+
+037 State-and-Lifecycle
+https://legacy.reactjs.org/docs/state-and-lifecycle.html
+
+037 Intro-to-Hooks
+https://legacy.reactjs.org/docs/hooks-intro.html
+
+037 Should-I-use-Hooks-classes-or-a-mix-of-both-
+https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both
+
+037 Class-Components-Vs.Hooks-Demo-Completed-Code
+https://codesandbox.io/p/sandbox/class-components-vs-hooks-m2lzf
+
+038 Changing-Complex-State-Starting-Code
+https://codesandbox.io/p/sandbox/changing-complex-state-ruz1e
+
+038 Synthetic-Events
+https://legacy.reactjs.org/docs/events.html
+
+038 Changing-Complex-State-Completed-Code
+https://codesandbox.io/p/sandbox/changing-complex-state-completed-3hyn7
+
+039 Changing-Complex-State-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/changing-complex-state-practice-8uqvh
+
+039 Changing-Complex-State-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/changing-complex-state-practice-completed-73221
+
+040 Javascript-ES6-Spread-Operator-Starting-Code
+https://codesandbox.io/p/sandbox/es6-spread-operator-fuc1n
+
+040 JS-ES6
+https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable?noredirect=1&lq=1
+
+040 Spread-Syntax
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+040 Javascript-ES6-Spread-Operator-Completed-Code
+https://codesandbox.io/p/sandbox/es6-spread-operator-completed-3w3pp
+
+041 Javascript-ES6-Spread-Operator-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/es6-spread-operator-practice-qjpji
+
+041 Javascript-ES6-Spread-Operator-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/es6-spread-operator-practice-completed-ecbsk
+
+042 Managing-a-Component-Tree-Starting-Code
+https://codesandbox.io/p/sandbox/managing-a-component-tree-mm4qj
+
+042 Line-Through-CSS-Property
+https://www.w3schools.com/cssref/pr_text_text-decoration.php
+
+042 UUID-Package
+https://www.npmjs.com/package/uuid
+
+042 Managing-a-Component-Tree-Completed-Code
+https://codesandbox.io/p/sandbox/managing-a-component-tree-completed-cmb9l
+
+043 Managing-a-Component-Tree-Practice-Starting-Code
+https://codesandbox.io/p/sandbox/managing-a-component-tree-practice-2hzdh
+
+043 Managing-a-Component-Tree-Practice-Completed-Code
+https://codesandbox.io/p/sandbox/managing-a-component-tree-practice-completed-oe6y7
+
+044 Keeper-App-Project-Part-3-Challenge
+https://codesandbox.io/p/sandbox/keeper-part-3-starting-v3p0j
+
+044 Keeper-App-Project-Part-3-Solution
+https://codesandbox.io/p/sandbox/keeper-part-3-completed-pogqj
+
+045 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9
+
+045 Course-Resources
+https://www.appbrewery.co/p/web-development-course-resources/
+
+045 React-Dependencies-Styling-the-Keeper-App-Starting-Code
+https://codesandbox.io/p/sandbox/using-pre-built-react-components-s13gn?file=%2Fsrc%2Fcomponents%2FApp.jsx
+
+045 Material-UI-Icons
+https://www.npmjs.com/package/@material-ui/icons
+
+045 Material-UI-Core
+https://www.npmjs.com/package/@material-ui/core
+
+045 Material-UI-Icons-Documentation
+https://mui.com/material-ui/icons/
+
+045 Material-UI-Floating-Action-Buttons
+https://mui.com/material-ui/react-button/#floating-action-buttons
+
+045 Zoom-Component-Docs
+https://material-ui.com/api/zoom/
+
+045 Transparent-Textures
+https://www.transparenttextures.com/
+
+045 React-Dependencies-Styling-the-Keeper-App-Completed-Code
+https://codesandbox.io/p/sandbox/using-pre-built-react-components-completed-58bxk

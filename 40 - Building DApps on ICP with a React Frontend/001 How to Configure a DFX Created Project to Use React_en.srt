@@ -1,0 +1,568 @@
+1
+00:00:00,210 --> 00:00:00,420
+All right.
+
+2
+00:00:00,420 --> 00:00:08,130
+So now that we've seen how we can build a Dapp using JavaScript, CSS and HTML, now it's time to spice
+
+3
+00:00:08,130 --> 00:00:14,910
+up our front end and be able to build an application on the ICP with an actual proper React frontend.
+
+4
+00:00:15,300 --> 00:00:21,690
+In the previous modules, we've talked a lot about React and we learned how to use it, how to build
+
+5
+00:00:21,690 --> 00:00:26,970
+modern applications using this fully featured frontend framework.
+
+6
+00:00:27,540 --> 00:00:34,110
+Now as you know, most of the websites these days are built using React as the frontend and the benefits
+
+7
+00:00:34,110 --> 00:00:34,680
+are many.
+
+8
+00:00:34,680 --> 00:00:41,010
+But the most important is that it allows us to add lots of features, lots of components very easily,
+
+9
+00:00:41,370 --> 00:00:47,580
+and be able to create a really modern-looking, beautiful frontend for our web applications.
+
+10
+00:00:47,940 --> 00:00:54,510
+And today most of the web3 applications are built using a React frontend as well.
+
+11
+00:00:54,510 --> 00:01:00,330
+So when we're building these decentralized apps, we're definitely not limited to just using plain
+
+12
+00:01:00,330 --> 00:01:01,950
+CSS and HTML.
+
+13
+00:01:02,070 --> 00:01:07,290
+So what we're going to be doing in this module is we're going to be taking that Keeper app which we
+
+14
+00:01:07,290 --> 00:01:13,530
+built using React in the React module of the course where you built it completely from scratch.
+
+15
+00:01:14,340 --> 00:01:17,880
+And essentially it mimics the Google Keep functionality.
+
+16
+00:01:17,880 --> 00:01:25,470
+So you can take some notes, you can add a title and go ahead and add it to your Google keep or your
+
+17
+00:01:25,470 --> 00:01:26,640
+keeper in this case.
+
+18
+00:01:27,210 --> 00:01:31,830
+And whenever you have an idea, whenever you want to jot down something, you can use the keeper app
+
+19
+00:01:31,830 --> 00:01:36,780
+to do that. Now because we built it using just React,
+
+20
+00:01:36,780 --> 00:01:42,480
+so we basically only had the front end for this application without a backend or database,
+
+21
+00:01:42,960 --> 00:01:49,710
+that means this application, when you refresh it, everything disappears and gets reset to the beginning,
+
+22
+00:01:50,040 --> 00:01:54,360
+which is not great if you actually want to be able to keep hold of your notes, right?
+
+23
+00:01:54,930 --> 00:02:01,950
+So in this module we're going to be adding an ICP backend and data persistance and storage for this
+
+24
+00:02:01,950 --> 00:02:07,830
+application to make it fully featured and also decentralized on the Internet computer blockchain.
+
+25
+00:02:08,220 --> 00:02:15,690
+Now there's quite a few steps involved in actually getting our ICP app to be able to use React.
+
+26
+00:02:15,780 --> 00:02:18,360
+So I'm going to show you step by step how to do it
+
+27
+00:02:18,720 --> 00:02:24,570
+and it'd be great if you could watch me do it and then pause the video and then do it yourself and then
+
+28
+00:02:24,570 --> 00:02:29,940
+keep going because there's quite a few steps and if you miss any of them, then it might not work properly.
+
+29
+00:02:30,480 --> 00:02:31,350
+To get started,
+
+30
+00:02:31,350 --> 00:02:38,400
+the first thing we're going to do is we're going to create a new ICP application, just as we did before.
+
+31
+00:02:38,880 --> 00:02:45,330
+So we're going to cd into, in my case it's called ic-projects and here we're going to create our 
+
+32
+00:02:45,330 --> 00:02:47,100
+new dfx project.
+
+33
+00:02:47,100 --> 00:02:50,910
+So we're going to say dfx new and then we're going to give it a name.
+
+34
+00:02:51,120 --> 00:02:56,070
+So in this case I'm going to call our new project dkeeper, and I recommend calling yours the same
+
+35
+00:02:56,070 --> 00:02:59,820
+name so that later on we don't get confused when we have to use this name.
+
+36
+00:02:59,820 --> 00:03:03,330
+I know it's not the best of names, but we're just going to bear with us.
+
+37
+00:03:03,330 --> 00:03:04,710
+But let's just go with it for now.
+
+38
+00:03:05,280 --> 00:03:12,180
+Hit enter and it should behind the scenes, create everything that's required for this project.
+
+39
+00:03:12,630 --> 00:03:15,180
+And you've done this before, so there's nothing new here.
+
+40
+00:03:16,200 --> 00:03:19,480
+And once you see the dfinity logo, then you are done.
+
+41
+00:03:19,500 --> 00:03:21,560
+So it's created it in there.
+
+42
+00:03:21,570 --> 00:03:26,460
+And if we just do a quick ls, you can see there it is right there, dkeeper.
+
+43
+00:03:26,670 --> 00:03:30,000
+Now, let's go ahead and open that inside VSCode.
+
+44
+00:03:30,240 --> 00:03:34,050
+So go ahead and open up code and then file, open.
+
+45
+00:03:34,770 --> 00:03:43,590
+And we're going to locate our ic-project, find our new dkeeper application and open it inside VSCode.
+
+46
+00:03:44,220 --> 00:03:52,080
+Now, this is a brand new templated ICP application, and we're going to have to do a few things to
+
+47
+00:03:52,080 --> 00:03:56,100
+modify it so that it can actually run our React application.
+
+48
+00:03:56,490 --> 00:04:00,600
+So we're going to go ahead and expand this folder called source.
+
+49
+00:04:00,990 --> 00:04:05,730
+And then inside here, there's dkeeper, which is where we have our main Motoko file.
+
+50
+00:04:05,970 --> 00:04:11,640
+You don't have to modify that right now, but inside the dkeeper assets, you've got the assets
+
+51
+00:04:11,640 --> 00:04:12,480
+and the source.
+
+52
+00:04:12,960 --> 00:04:19,290
+So we're going to be replacing the CSS file and also the index.html and index.js.
+
+53
+00:04:19,800 --> 00:04:23,550
+So I want you to go ahead and just delete these three files for now.
+
+54
+00:04:24,420 --> 00:04:26,370
+So right click and delete.
+
+55
+00:04:27,350 --> 00:04:32,600
+So now that we've deleted those files, we're going to have to replace them with the files from our 
+
+56
+00:04:32,600 --> 00:04:34,960
+dkeeper. In the course resources
+
+57
+00:04:34,970 --> 00:04:40,910
+you'll see a link to the finished Keeper project and if you're not familiar with React or this project,
+
+58
+00:04:40,910 --> 00:04:46,160
+I recommend you to actually complete the React module before you continue, because I'm going to
+
+59
+00:04:46,160 --> 00:04:50,870
+be assuming that you've actually learned and gone through that module that you're fully on board with
+
+60
+00:04:50,870 --> 00:04:52,040
+how React works.
+
+61
+00:04:52,430 --> 00:04:58,640
+So once you're here, then you can go ahead and click this down arrow to export all the files here as
+
+62
+00:04:58,640 --> 00:04:59,360
+a zip file.
+
+63
+00:04:59,780 --> 00:05:03,530
+Then go ahead and extract the zip file and open up that folder.
+
+64
+00:05:04,010 --> 00:05:09,560
+Now you'll see inside the public folder there's the index.html and the styles.css.
+
+65
+00:05:09,980 --> 00:05:16,850
+And then in the source folder we've got our components and index.js. Now coming back to our Visual Studio,
+
+66
+00:05:16,880 --> 00:05:19,340
+we're going to move some of these over.
+
+67
+00:05:20,000 --> 00:05:27,470
+So we're going to move our index.html into the source folder and our components and index.js also
+
+68
+00:05:27,470 --> 00:05:28,820
+goes into the source folder.
+
+69
+00:05:29,270 --> 00:05:36,380
+Now finally, the styles.css goes into the assets folder and now we've basically moved our entire
+
+70
+00:05:36,380 --> 00:05:40,100
+React frontend over to our dkeeper project.
+
+71
+00:05:40,190 --> 00:05:46,160
+So we've created a new ICP project on the command line, we've downloaded our files, we dragged them
+
+72
+00:05:46,160 --> 00:05:51,710
+into place and now we have to go ahead and update some of these files and change some of the contents.
+
+73
+00:05:52,070 --> 00:05:57,410
+Now one of the first things we have to do is we have to rename the extension for the index.js
+
+74
+00:05:57,860 --> 00:06:03,890
+for it to play nice with the webpack and how we're going to load our application.
+
+75
+00:06:04,190 --> 00:06:11,780
+We have to rename it so that instead of index.js we have index.jsx and this is a common extension
+
+76
+00:06:11,780 --> 00:06:18,350
+that you see with React components and also React websites, because as soon as I add the extension,
+
+77
+00:06:18,350 --> 00:06:21,920
+you can see that even VSCode knows that I'm using React for it.
+
+78
+00:06:22,220 --> 00:06:27,560
+Now once you've done that, we're going to go into the webpack.config.js.
+
+79
+00:06:27,890 --> 00:06:32,810
+We're going to modify a few things so that it will allow us to have the React frontend.
+
+80
+00:06:33,530 --> 00:06:40,790
+Now if you scroll down, you can see here on the first sort of comment section here in the module.export
+
+81
+00:06:40,790 --> 00:06:47,090
+entry, you can see that it's pointing to the JS file, which is our original index.js.
+
+82
+00:06:47,450 --> 00:06:50,990
+So we have to modify this as well now that we've renamed it,
+
+83
+00:06:50,990 --> 00:06:53,120
+and we're just going to add an 'x' right here.
+
+84
+00:06:53,540 --> 00:06:55,700
+So that becomes .jsx.
+
+85
+00:06:56,150 --> 00:07:04,730
+So we've renamed index.js to index.jsx and we've changed this line, line 51 on the webpack.
+
+86
+00:07:04,730 --> 00:07:08,060
+config.js into .jsx.
+
+87
+00:07:08,180 --> 00:07:11,900
+Now the line number might be different for you because you're doing this in the future,
+
+88
+00:07:12,230 --> 00:07:17,420
+so this file might change. But if you just scroll down and find this module.exports target web
+
+89
+00:07:17,690 --> 00:07:20,930
+and then in the entry section, that's the part you need to change.
+
+90
+00:07:21,590 --> 00:07:21,920
+Okay.
+
+91
+00:07:21,920 --> 00:07:26,180
+So now that we've changed that, there's a few more things we have to do. Scrolling down
+
+92
+00:07:26,180 --> 00:07:32,240
+you can see that there's a comment section here where it says if you're using React, then we should
+
+93
+00:07:32,240 --> 00:07:33,740
+uncomment this section.
+
+94
+00:07:34,010 --> 00:07:35,540
+So that's exactly what we're going to do.
+
+95
+00:07:35,840 --> 00:07:42,410
+So it's command+/ on Mac and control+/ on Windows so that we actually use the
+
+96
+00:07:42,410 --> 00:07:49,430
+typescript loader, which is going to happen behind the scenes in order to run and load our application.
+
+97
+00:07:49,880 --> 00:07:56,990
+So now that we're done with the webpack.config, let's go ahead and hit save to save those changes and
+
+98
+00:07:56,990 --> 00:08:00,740
+then we're going to add the ts or TypeScript config file.
+
+99
+00:08:00,950 --> 00:08:05,540
+So in the course resources, you'll be able to download a file called tsonfig.
+
+100
+00:08:05,750 --> 00:08:06,380
+json.
+
+101
+00:08:06,860 --> 00:08:12,680
+And once you've downloaded it, I want you to just go ahead and drag it into this dkeeper project.
+
+102
+00:08:12,860 --> 00:08:16,190
+So just go ahead and put it somewhere below the webpack.config.
+
+103
+00:08:16,190 --> 00:08:22,100
+js and you'll see that this just has some config for compiling our code specifying which versions
+
+104
+00:08:22,100 --> 00:08:24,170
+of JavaScript we're using,
+
+105
+00:08:24,170 --> 00:08:27,650
+and it's just a bunch of configurations so that we can actually run our frontend.
+
+106
+00:08:28,070 --> 00:08:35,210
+Now the final thing we have to do before we run our frontend is to go into the package.json, go ahead
+
+107
+00:08:35,210 --> 00:08:42,320
+and delete everything. And then again in the course resources there is a download for something called
+
+108
+00:08:42,320 --> 00:08:43,789
+package.txt.
+
+109
+00:08:43,789 --> 00:08:50,090
+And if you go ahead and open this package.txt, you can copy all of it and paste it into the package.
+
+110
+00:08:50,360 --> 00:08:55,250
+json so that we add the dependencies that we need for this project.
+
+111
+00:08:55,310 --> 00:09:01,820
+So now let's hit save and we are finally ready to actually test out our frontend and see if it actually works
+
+112
+00:09:01,820 --> 00:09:02,690
+on local host.
+
+113
+00:09:03,530 --> 00:09:14,030
+So let's open up a new terminal and let's use our dfx start to start the simulated local ICP blockchain.
+
+114
+00:09:14,360 --> 00:09:20,750
+And then once that's done, let's go ahead and open up another panel of our terminal and we're going
+
+115
+00:09:20,750 --> 00:09:26,710
+to do npm install and this is going to install the required dependencies that we've
+
+116
+00:09:26,840 --> 00:09:29,090
+specified in the package.json.
+
+117
+00:09:29,480 --> 00:09:34,760
+And if we go ahead and hit enter, it should take a little while and do that for us.
+
+118
+00:09:35,970 --> 00:09:39,500
+And once that's done, you can ignore some of these warnings.
+
+119
+00:09:39,510 --> 00:09:41,460
+It's just a couple of deprecations.
+
+120
+00:09:41,460 --> 00:09:47,310
+Some of the libraries that we were using creating dKeeper, have been deprecated and there are
+
+121
+00:09:47,320 --> 00:09:48,240
+newer versions.
+
+122
+00:09:48,540 --> 00:09:54,930
+But it's okay because our project works fine as it is, and if we try to upgrade things, it has its
+
+123
+00:09:54,930 --> 00:09:58,140
+own dependencies and you'll get into a bit of a hairball.
+
+124
+00:09:58,380 --> 00:10:00,030
+So we're just going to keep it as it is.
+
+125
+00:10:00,030 --> 00:10:04,320
+And because all it is is just the icons, it's not going to affect your project.
+
+126
+00:10:04,320 --> 00:10:06,660
+So don't worry too much about those warnings.
+
+127
+00:10:06,720 --> 00:10:12,330
+Now, once we've installed all of those things, we can finally go ahead and do dfx deploy and
+
+128
+00:10:12,330 --> 00:10:16,320
+deploy our cannisters onto the simulated ICP network.
+
+129
+00:10:16,560 --> 00:10:23,730
+Now, finally, when your canisters have been deployed, you can go ahead and run npm start and now
+
+130
+00:10:23,730 --> 00:10:31,440
+we can go to our browser and go to our localhost 8080, and you can see the front end of our React
+
+131
+00:10:31,440 --> 00:10:33,630
+application is now up and running.
+
+132
+00:10:34,230 --> 00:10:40,980
+Now this has no backend and it's got no sort of Motoko code or nothing really that we've done for
+
+133
+00:10:40,980 --> 00:10:42,480
+it on the ICP side.
+
+134
+00:10:42,810 --> 00:10:48,810
+But it's just to prove that our frontend has actually been linked up correctly and that we can actually
+
+135
+00:10:48,810 --> 00:10:50,250
+get it hosted locally.
+
+136
+00:10:50,730 --> 00:10:57,330
+So if we add, you can see these get added, and you can see our icons look fine and everything is working.
+
+137
+00:10:57,330 --> 00:11:02,550
+But again, if you hit refresh, everything gets deleted because there is no backend there and there
+
+138
+00:11:02,550 --> 00:11:03,330
+is no storage.
+
+139
+00:11:03,720 --> 00:11:10,020
+So in the next lesson, we're going to be tackling some of those things and we're going to be linking
+
+140
+00:11:10,020 --> 00:11:17,040
+this up with our main.mo so that we can actually persist the data that the user type in here and
+
+141
+00:11:17,040 --> 00:11:20,130
+store their data on the internet computer blockchain.
+
+142
+00:11:20,430 --> 00:11:23,340
+So for all of that and more, I'll see you on the next lesson.
+

@@ -1,0 +1,1644 @@
+1
+00:00:00,720 --> 00:00:08,460
+In the last lesson, we created the user interface for minting NFTs and programmatically creating these
+
+2
+00:00:08,730 --> 00:00:15,180
+new containers which contain all unique non-fungible tokens.
+
+3
+00:00:15,630 --> 00:00:18,820
+And when we minted it, we got our loader to work,
+
+4
+00:00:18,840 --> 00:00:25,980
+we got our frontend to be formatted. And once the canisters are created in the backend, then we can pull the
+
+5
+00:00:25,980 --> 00:00:29,550
+data in and show the user what they had just created.
+
+6
+00:00:29,910 --> 00:00:34,920
+Now if we keep minting these tokens, we want a way to be able to view all of them,
+
+7
+00:00:34,920 --> 00:00:35,280
+right?
+
+8
+00:00:35,400 --> 00:00:40,080
+And we want to do that inside this tab, which is called My NFTs.
+
+9
+00:00:40,650 --> 00:00:48,180
+So I want to be able to click on it and show me a gallery of all the NFTs that I own or that I've minted.
+
+10
+00:00:48,210 --> 00:00:53,790
+Now, at this point in time, the NFTs that you own will be the same as the ones you mint, because that's
+
+11
+00:00:53,790 --> 00:00:56,940
+the only way that where you get hold of NFTs at the moment.
+
+12
+00:00:57,840 --> 00:01:00,030
+How do we get this to actually work?
+
+13
+00:01:00,060 --> 00:01:03,450
+Well, firstly, we have to get this navigation to work.
+
+14
+00:01:03,960 --> 00:01:11,010
+And to do that, we're going to use something called React Router to route us through to these different
+
+15
+00:01:11,250 --> 00:01:15,630
+routes and display a different page depending on where we're going.
+
+16
+00:01:16,020 --> 00:01:22,170
+So we're going to now comment out this minter and take our homepage back online,
+
+17
+00:01:22,200 --> 00:01:27,570
+so this last one. And we don't need this NFTID hardcoded here anymore.
+
+18
+00:01:27,990 --> 00:01:30,390
+So I'm going to comment that out as well.
+
+19
+00:01:31,020 --> 00:01:34,890
+And now if we go back, you should see our home page like this
+
+20
+00:01:35,250 --> 00:01:38,160
+and these links are still yet inactive.
+
+21
+00:01:38,490 --> 00:01:39,900
+So let's go ahead and fix that.
+
+22
+00:01:40,500 --> 00:01:47,370
+Now we're rendering the header, and in the header, we want to add some code to be able to take the user
+
+23
+00:01:47,370 --> 00:01:50,730
+to a different route depending on which of these buttons they pressed on.
+
+24
+00:01:51,150 --> 00:01:58,590
+When I created the package.json, I added in a dependency which is called React Router Dom.
+
+25
+00:01:59,100 --> 00:02:05,040
+And in addition to the React Hook Form, these are all React utilities that are not from the main React
+
+26
+00:02:05,040 --> 00:02:10,650
+module, but they provide a lot of really useful functionality that you will find frequently needing
+
+27
+00:02:10,919 --> 00:02:13,080
+when you're creating websites.
+
+28
+00:02:13,710 --> 00:02:15,610
+Coming in to our header.jsx,
+
+29
+00:02:15,630 --> 00:02:20,620
+we're going to import something called a browser router from the React Router Dom.
+
+30
+00:02:20,640 --> 00:02:22,320
+So let's go ahead and import that.
+
+31
+00:02:26,560 --> 00:02:36,400
+And the location will be react-router-dom. And if that is all spelled correctly, then we should be able
+
+32
+00:02:36,400 --> 00:02:38,740
+to use it inside here.
+
+33
+00:02:39,100 --> 00:02:47,620
+So just above our very first div, we're going to add a BrowserRouter and we're going to wrap it around
+
+34
+00:02:47,620 --> 00:02:51,850
+the entire div. Coming down to the very bottom div
+
+35
+00:02:51,850 --> 00:02:54,580
+we're going to wrap it all inside this BrowserRouter.
+
+36
+00:02:55,210 --> 00:03:02,020
+And what this is going to do is it's going to allow us to define what are called links, and the links
+
+37
+00:03:02,530 --> 00:03:04,720
+or rather Link as you'll import
+
+38
+00:03:04,720 --> 00:03:12,340
+it, also comes from the React Router Dom, and we can put those around some pieces of text like what we've
+
+39
+00:03:12,340 --> 00:03:18,670
+got here and it'll allow us to turn this text into an actual link.
+
+40
+00:03:19,030 --> 00:03:27,700
+And each of these links have an attribute called to, where you can define the actual route that you want
+
+41
+00:03:27,700 --> 00:03:28,510
+to render.
+
+42
+00:03:28,900 --> 00:03:35,500
+So we're going to have a route which is discover, and we're going to have a route called Minter which
+
+43
+00:03:35,500 --> 00:03:38,680
+wraps around this piece of text here.
+
+44
+00:03:41,120 --> 00:03:48,230
+And we're also going to have a route down here which is going to be called collection because it's my
+
+45
+00:03:48,230 --> 00:03:50,000
+collection of NFTs, right?
+
+46
+00:03:50,690 --> 00:03:58,640
+Just check and make sure that you've got a different route set for each of these three buttons and that
+
+47
+00:03:58,640 --> 00:04:02,450
+your link wraps the piece of text and not the button.
+
+48
+00:04:03,410 --> 00:04:10,970
+I've added a little bit of styling to the text just so that it shows up nicely purple and looking clickable.
+
+49
+00:04:11,480 --> 00:04:18,170
+Now that we've got our three links in here, the final piece to this navigation is we need to put in
+
+50
+00:04:18,170 --> 00:04:19,459
+what's called a switch.
+
+51
+00:04:19,970 --> 00:04:27,170
+And basically the switch is going to look at which of these links were triggered and to render the appropriate
+
+52
+00:04:27,170 --> 00:04:29,660
+React component depending on which path.
+
+53
+00:04:30,140 --> 00:04:34,310
+And we of course have to import it also from the React Router
+
+54
+00:04:34,310 --> 00:04:37,640
+Dom. So make sure that you spelt it correctly.
+
+55
+00:04:37,640 --> 00:04:47,510
+It's got a capital S and then it's Switch, and then we're going to add it in here, right here. And inside
+
+56
+00:04:47,510 --> 00:04:51,800
+this Switch component, we're going to add some routes.
+
+57
+00:04:52,430 --> 00:05:01,280
+Route is yet another class that comes from the React Router Dom, and once we import it, we can create
+
+58
+00:05:01,610 --> 00:05:02,960
+a route component.
+
+59
+00:05:03,530 --> 00:05:10,820
+We need a total of four of them because we have three of these links here and we want one for the home
+
+60
+00:05:10,820 --> 00:05:11,750
+page as well.
+
+61
+00:05:12,050 --> 00:05:15,590
+So when we click here, it shows us the image and we click here
+
+62
+00:05:15,590 --> 00:05:18,500
+it shows us the various different pages and routes.
+
+63
+00:05:19,190 --> 00:05:27,830
+Now the route takes an attribute called path, and the path allows us to match to one of these links.
+
+64
+00:05:28,250 --> 00:05:31,340
+So basically it's going to look at what the path is.
+
+65
+00:05:31,340 --> 00:05:36,590
+So for example, if I had f/collection, then this would be the path.
+
+66
+00:05:36,740 --> 00:05:42,470
+And once it can match the path, then it will render whatever it is we tell it to
+
+67
+00:05:42,470 --> 00:05:47,360
+inside here. The first thing we want to match is the root route.
+
+68
+00:05:47,480 --> 00:05:51,740
+And in this case, what we want to do is we want to render this image.
+
+69
+00:05:51,830 --> 00:05:58,520
+So I'm going to cut this out from here and paste it in between this route component.
+
+70
+00:05:59,090 --> 00:06:03,290
+And in addition, I'll need to import it from here,
+
+71
+00:06:03,290 --> 00:06:04,910
+so I'm going to cut that line as well
+
+72
+00:06:06,230 --> 00:06:08,300
+and paste it up here.
+
+73
+00:06:12,080 --> 00:06:22,670
+So now the root path is going to render this image and I'm going to add the path for all the other routes
+
+74
+00:06:22,670 --> 00:06:23,150
+as well.
+
+75
+00:06:23,660 --> 00:06:33,350
+We've got the /discover and remember that these routes have to match to the to attribute
+
+76
+00:06:33,350 --> 00:06:34,130
+of your links.
+
+77
+00:06:34,460 --> 00:06:41,840
+So in the case of preventing typos, I would recommend just copying and pasting it into there.
+
+78
+00:06:42,470 --> 00:06:48,890
+Now I'm going to copy and paste this a few times and I'm going to add minter path and also the collection
+
+79
+00:06:48,890 --> 00:06:49,640
+path as well.
+
+80
+00:06:50,060 --> 00:06:56,510
+So we've now got four routes and with different paths. For the Discover route,
+
+81
+00:06:56,540 --> 00:07:02,480
+I'm just going to add an H1where it says Discover. We're going to come back to this a little
+
+82
+00:07:02,480 --> 00:07:08,570
+bit later on because this is going to be the page where we see all the NFTs that are listed for sale.
+
+83
+00:07:08,780 --> 00:07:14,450
+And until we manage to get our NFTs listed for sale, we can't actually work on this route yet.
+
+84
+00:07:14,990 --> 00:07:21,110
+But the next one though, the minter route, we can definitely work on. Again in between the open and closing
+
+85
+00:07:21,530 --> 00:07:26,420
+route component tags, we're going to add the component that's going to be rendered.
+
+86
+00:07:26,810 --> 00:07:29,840
+And in this case, it's going to be the minter component.
+
+87
+00:07:30,380 --> 00:07:33,470
+And if you select it, then hopefully it will auto import.
+
+88
+00:07:34,070 --> 00:07:38,630
+And finally, our very last route, which is the collection.
+
+89
+00:07:39,050 --> 00:07:44,420
+We're going to render the gallery component and again, make sure that got imported.
+
+90
+00:07:44,750 --> 00:07:48,960
+And if you take a look at the gallery component, it's really, really simple.
+
+91
+00:07:48,980 --> 00:07:54,970
+It's basically a bit of grid formatting and it's going to render a bunch of items.
+
+92
+00:07:54,980 --> 00:07:55,610
+At the moment,
+
+93
+00:07:55,610 --> 00:07:59,930
+we've just got one item in there and it's not even going to display properly because we haven't given it 
+
+94
+00:07:59,930 --> 00:08:00,530
+an ID.
+
+95
+00:08:01,010 --> 00:08:06,950
+But we're going to solve that very quickly in this current lesson, when we create the gallery of all
+
+96
+00:08:06,950 --> 00:08:10,250
+the NFTs that our current logged in user owns.
+
+97
+00:08:10,910 --> 00:08:15,080
+Coming back over here, we've got pretty much all of these routes set out.
+
+98
+00:08:15,230 --> 00:08:17,510
+And there's just one last thing I want to add.
+
+99
+00:08:18,170 --> 00:08:25,490
+When you use this route component and you've got these paths, the / will match pretty much
+
+100
+00:08:25,490 --> 00:08:26,270
+every path.
+
+101
+00:08:26,390 --> 00:08:32,840
+So whenever it sees anything with a forward slash, it'll go here first and it will get really confused.
+
+102
+00:08:33,260 --> 00:08:37,970
+So one thing we can do is, as you know, with switch statements, they're going to check from top to
+
+103
+00:08:37,970 --> 00:08:38,360
+bottom.
+
+104
+00:08:38,360 --> 00:08:44,900
+So you could move it all the way down here so that it's the very last one being checked so that it doesn't
+
+105
+00:08:44,900 --> 00:08:50,780
+match any of our previous routes, not just because it sees the / and it already immediately
+
+106
+00:08:50,780 --> 00:08:52,310
+thinks it should be the first one.
+
+107
+00:08:53,180 --> 00:09:00,440
+Alternatively, and I think this is a little bit better, we can add the keyword exact in front of the path
+
+108
+00:09:00,680 --> 00:09:07,070
+and this tells the router that unless you see this exact string, then don't match this route.
+
+109
+00:09:07,370 --> 00:09:10,490
+Now when do we want this to show up? Well, we want it
+
+110
+00:09:10,490 --> 00:09:12,410
+when the user first loads up the homepage.
+
+111
+00:09:12,920 --> 00:09:20,060
+But also we want the user to be able to click on this opend and to be able to render it.
+
+112
+00:09:20,210 --> 00:09:26,540
+So let's go ahead and add another link and it's going to link to the root route.
+
+113
+00:09:27,080 --> 00:09:34,010
+And I'm going to wrap this link around this H5 right here. Coming back to our frontend website,
+
+114
+00:09:34,310 --> 00:09:41,600
+you can see that when we go to our home page, our root route, even though it's no longer in here,
+
+115
+00:09:41,600 --> 00:09:45,410
+that main image, it's still being rendered from our router.
+
+116
+00:09:46,070 --> 00:09:49,490
+Now when we go to discover, we see an H1 for Discover.
+
+117
+00:09:49,520 --> 00:09:53,120
+When we go to Minter, we see our usual minting page.
+
+118
+00:09:53,480 --> 00:09:56,570
+And finally, when we go to My NFT, we've got blank
+
+119
+00:09:56,690 --> 00:10:03,680
+and that's because we've got some errors in our gallery. Because as I mentioned earlier on, the item
+
+120
+00:10:03,770 --> 00:10:12,800
+doesn't render without an ID. We can fix that quite easily by simply passing in the id prop and setting
+
+121
+00:10:12,800 --> 00:10:16,520
+it equal to our previous canisterID that we used.
+
+122
+00:10:17,060 --> 00:10:17,750
+Like so.
+
+123
+00:10:18,200 --> 00:10:25,100
+And now when you click on the My NFTs page, you can see it no longer is an empty screen.
+
+124
+00:10:25,580 --> 00:10:30,950
+This top text says Discover and it's because it's hardcoded in here.
+
+125
+00:10:31,400 --> 00:10:36,800
+Let's go ahead and make that something that we can pass in as some props.
+
+126
+00:10:37,490 --> 00:10:42,050
+So we'll add the props there and we'll call this props.title.
+
+127
+00:10:42,680 --> 00:10:48,800
+Now we have to go to the previous section in order to pass in that title. Right here where we've got
+
+128
+00:10:48,800 --> 00:10:49,580
+our gallery,
+
+129
+00:10:49,640 --> 00:10:54,790
+let's go ahead and say title= and we can name that page.
+
+130
+00:10:54,800 --> 00:10:58,280
+I'm going to call My NFTs, like
+
+131
+00:10:58,280 --> 00:11:02,270
+so. Now you can see that update dynamically.
+
+132
+00:11:02,450 --> 00:11:09,590
+And at the moment, this NFT is actually hardcoded to display here because remember inside gallery we
+
+133
+00:11:09,590 --> 00:11:10,730
+provided it's ID
+
+134
+00:11:11,610 --> 00:11:14,570
+hard-coded like this and it's only showing one item.
+
+135
+00:11:15,080 --> 00:11:21,650
+We want a whole bunch of items, as many items as the owner owns, to go in to the gallery.
+
+136
+00:11:22,100 --> 00:11:28,790
+To do that, we need to update our code a little bit in our main.mo, because at the moment
+
+137
+00:11:28,790 --> 00:11:35,370
+when we mint a new NFT, all we do is return the canister ID.
+
+138
+00:11:35,960 --> 00:11:40,100
+And in fact, I've got a typo right here and hopefully you don't.
+
+139
+00:11:40,100 --> 00:11:46,400
+But it should say newNFTPrincipal, although in this case it matched so it didn't actually create
+
+140
+00:11:46,400 --> 00:11:46,880
+an error.
+
+141
+00:11:47,780 --> 00:11:55,970
+In addition to minting the NFT, returning the principal ID, we also want to set up some form of data
+
+142
+00:11:55,970 --> 00:12:04,460
+store inside our opend canister that keeps track of which NFTs were minted and who the owners are.
+
+143
+00:12:04,970 --> 00:12:08,180
+And to do that, we're going to use our trusty HashMap.
+
+144
+00:12:08,390 --> 00:12:10,940
+So let's go ahead and import our HashMap.
+
+145
+00:12:15,400 --> 00:12:18,640
+And we're going to create a map of NFTs.
+
+146
+00:12:19,120 --> 00:12:22,180
+This is going to be a variable because we're going to be modifying it.
+
+147
+00:12:22,660 --> 00:12:25,660
+And I'm going to call it a map of NFTs.
+
+148
+00:12:26,320 --> 00:12:30,010
+And I'm going to set it equal to HashMap.HashMap.
+
+149
+00:12:30,550 --> 00:12:34,120
+And then I can add the data types that will be stored.
+
+150
+00:12:34,510 --> 00:12:37,420
+And it's going to be principals as keys.
+
+151
+00:12:37,840 --> 00:12:43,840
+And these are going to be the principals of each new canister that gets created for the NFT.
+
+152
+00:12:44,380 --> 00:12:49,930
+And then it's going to be linked to an NFT canister stored here.
+
+153
+00:12:50,500 --> 00:12:53,260
+So we have to import the NFTActorClass,
+
+154
+00:12:54,040 --> 00:12:58,630
+and this is going to come from the ../nft
+
+155
+00:13:00,510 --> 00:13:02,220
+/nft.
+
+156
+00:13:04,560 --> 00:13:10,840
+And we should now be able to tap into the NFTActorClass inside here.
+
+157
+00:13:11,250 --> 00:13:15,050
+And that is going to be the NFTActorClass 
+
+158
+00:13:15,510 --> 00:13:17,880
+.NFT data type.
+
+159
+00:13:19,000 --> 00:13:25,020
+And now finally, we can go ahead and initialize our HashMap in the same way that we've done before.
+
+160
+00:13:25,350 --> 00:13:31,710
+So we're going to be using principal.= to check the equality of any principal IDs that's passed
+
+161
+00:13:31,710 --> 00:13:34,710
+in to be checked against the key in our HashMap.
+
+162
+00:13:35,160 --> 00:13:38,690
+And we're going to be using principal.hash to hash those keys.
+
+163
+00:13:39,690 --> 00:13:46,110
+Once we've created our map of NFTs, we want to add to it every single time we create a new NFT.
+
+164
+00:13:46,560 --> 00:13:53,160
+So after this line, let newNFTPrincipal where we get hold of the id of the canister
+
+165
+00:13:53,160 --> 00:13:55,800
+that our new NFT is hosted on,
+
+166
+00:13:56,130 --> 00:14:07,170
+then we can get hold of our map of NFTs and we can use the put method to put a new item into that Hash
+
+167
+00:14:07,170 --> 00:14:07,470
+Map.
+
+168
+00:14:08,220 --> 00:14:17,910
+The key is going to be the newNFTPrincipal, and the value is going to be the new NFT that was minted
+
+169
+00:14:17,910 --> 00:14:23,310
+right here. In addition to having a map of NFTs,
+
+170
+00:14:23,680 --> 00:14:27,900
+it will be really handy if we had a map of owners.
+
+171
+00:14:30,320 --> 00:14:38,300
+Because this way we can have a map of the principal IDs of the owners of NFTs who have minted on our
+
+172
+00:14:38,300 --> 00:14:41,420
+website, and we can match them to the NFTs that they own.
+
+173
+00:14:41,720 --> 00:14:46,190
+And we can bring it up in the gallery when they click on my NFTs.
+
+174
+00:14:47,780 --> 00:14:51,800
+So this again, is going to be created using HashMap.HashMap.
+
+175
+00:14:52,220 --> 00:14:55,730
+The key is going to be the principal IDs of the owners.
+
+176
+00:14:56,150 --> 00:15:02,450
+Now, here comes the tricky part, because it's not going to be the same as our map of NFTs, where
+
+177
+00:15:02,450 --> 00:15:07,850
+each NFT principal is mapped to one single NFT.
+
+178
+00:15:08,330 --> 00:15:14,750
+But because each owner can own several NFTs, we actually want to create a list of NFTs here.
+
+179
+00:15:15,320 --> 00:15:18,800
+So we need to import the list type.
+
+180
+00:15:25,590 --> 00:15:33,450
+And we're going to specify the data type as list.list, and then the list is going to consist
+
+181
+00:15:33,450 --> 00:15:34,800
+of principals.
+
+182
+00:15:35,730 --> 00:15:43,680
+And then finally, after the weird-looking two double angle brackets, we can initialize this HashMap
+
+183
+00:15:43,680 --> 00:15:48,960
+in the same way we did before because the keys are also made of principals.
+
+184
+00:15:50,380 --> 00:15:56,170
+So now that we've got our map of owners, we again can't simply just use a put here.
+
+185
+00:15:56,920 --> 00:16:03,280
+Instead, we actually have to go through a few steps to get hold of the existing list that's stored
+
+186
+00:16:03,280 --> 00:16:09,490
+for a particular user and then update that list and then push it back into the HashMap.
+
+187
+00:16:09,880 --> 00:16:15,910
+So I'm going to split out a separate function. Underneath this first mint function,
+
+188
+00:16:16,240 --> 00:16:23,650
+I'm going to close it off with some semicolons, and I'm going to create a new private function, which
+
+189
+00:16:23,650 --> 00:16:27,610
+is called addToOwnershipMap.
+
+190
+00:16:28,720 --> 00:16:33,190
+And it's a really long-winded way of describing what it is that this function is going to do.
+
+191
+00:16:33,670 --> 00:16:39,970
+It's a private function because we don't want any other class or any other code from outside our main
+
+192
+00:16:39,970 --> 00:16:42,020
+.mo to be able to access it.
+
+193
+00:16:42,610 --> 00:16:45,340
+And the addToOwnershipMap is pretty simple.
+
+194
+00:16:45,520 --> 00:16:51,850
+The whole purpose is just to figure out how to add the newly created NFT to this map of owners.
+
+195
+00:16:52,390 --> 00:16:54,170
+So it's going to take some inputs.
+
+196
+00:16:54,190 --> 00:16:59,170
+First is going to be the owner, which is the principal of the owner of the NFT.
+
+197
+00:16:59,590 --> 00:17:06,300
+And then I'm also going to need the nftID, which is going to be yet another principal.
+
+198
+00:17:06,310 --> 00:17:11,109
+And this is the newly minted NFT that I want to add to our ownership map.
+
+199
+00:17:12,040 --> 00:17:20,200
+As I mentioned, the first thing we have to do is to actually get hold of the NFTs that the user currently
+
+200
+00:17:20,200 --> 00:17:20,859
+owns.
+
+201
+00:17:21,339 --> 00:17:23,589
+So I'm going to call this ownedNFTs,
+
+202
+00:17:24,609 --> 00:17:31,090
+and whenever you try to get hold of a value from a HashMap, because the principal that you supply
+
+203
+00:17:31,180 --> 00:17:38,970
+could actually be a brand new principal, it could be a new owner who's just minted their very first NFT
+
+204
+00:17:39,280 --> 00:17:42,490
+in which case they don't actually exist in our map of owners,
+
+205
+00:17:42,790 --> 00:17:49,030
+so when you provide the key of the owner's principal, it might actually not exist in HashMap, in
+
+206
+00:17:49,030 --> 00:17:51,700
+which case there will also be no value.
+
+207
+00:17:52,150 --> 00:18:01,150
+So this is why if we call mapOfOwners.get and provide the owner principal, what actually gets returned
+
+208
+00:18:01,150 --> 00:18:01,390
+here,
+
+209
+00:18:01,390 --> 00:18:05,470
+the data type of this, is a Motoko option.
+
+210
+00:18:05,650 --> 00:18:07,750
+So that's the one with the question mark on it,
+
+211
+00:18:07,990 --> 00:18:12,760
+and it means that it could be nil and it might not contain any data.
+
+212
+00:18:13,510 --> 00:18:21,940
+So the way to work with this is to use a switch statement in order to reduce that uncertainty.
+
+213
+00:18:22,810 --> 00:18:24,160
+You've seen this before.
+
+214
+00:18:24,310 --> 00:18:28,370
+We first have to provide the data type that we're expecting,
+
+215
+00:18:28,390 --> 00:18:31,510
+so it's a list of principles.
+
+216
+00:18:32,230 --> 00:18:39,430
+And immediately we get this error because on the left-hand side, we're saying that it has to be a list
+
+217
+00:18:39,430 --> 00:18:40,600
+of principals, 
+
+218
+00:18:40,990 --> 00:18:46,170
+but on the right-hand side, what we're actually getting is a optional list.
+
+219
+00:18:46,180 --> 00:18:47,800
+So it might be nil.
+
+220
+00:18:48,460 --> 00:18:52,000
+Now, what we have to do is add in that switch statement,
+
+221
+00:18:52,570 --> 00:19:00,040
+wrap this expression inside a set of parentheses, and then we open up a set of curly braces to define
+
+222
+00:19:00,430 --> 00:19:07,840
+what should we say the owneNFTs should be equal to in the case where this returns null?
+
+223
+00:19:08,440 --> 00:19:13,780
+And what should it be in the case where it actually does return a result?
+
+224
+00:19:15,250 --> 00:19:19,750
+In the first case, when it's null, we're going to return an empty list.
+
+225
+00:19:20,320 --> 00:19:25,480
+The way to write an empty list in Motoko is a little bit cumbersome.
+
+226
+00:19:26,470 --> 00:19:32,110
+I'm kind of used to writing empty arrays like this in most other languages, but in Motoko it's going
+
+227
+00:19:32,110 --> 00:19:34,090
+to be List.nil.
+
+228
+00:19:34,570 --> 00:19:40,840
+And then we provide the data type of the list, which is principal, and then we add a empty set of
+
+229
+00:19:40,840 --> 00:19:43,930
+parentheses to initialize this empty list.
+
+230
+00:19:44,590 --> 00:19:51,790
+In the second case where we've actually got a result, well then we're going to unwrap this optional
+
+231
+00:19:51,790 --> 00:19:58,150
+result and set the ownNFTs to the unwrapped version of that result.
+
+232
+00:19:58,420 --> 00:20:05,560
+So this is the safest way of dealing with options and the easiest ways at the moment anyways, when working
+
+233
+00:20:05,560 --> 00:20:06,280
+with Motoko.
+
+234
+00:20:06,970 --> 00:20:16,870
+Now that we finally got a solid version of the list, then what we can do is we can push our newly minted
+
+235
+00:20:16,870 --> 00:20:27,580
+NFT onto this list. So we can set the ownedNFTs to use the list.push in order to push the
+
+236
+00:20:27,580 --> 00:20:34,600
+nftID that's passed in to the ownedNFTs list.
+
+237
+00:20:35,990 --> 00:20:40,520
+And if I add my semicolon here, then that error should go away.
+
+238
+00:20:41,950 --> 00:20:50,710
+So what we've done here is we've safely gotten hold of the list of canister IDs that are owned by this
+
+239
+00:20:51,010 --> 00:21:00,580
+owner, and we've taken the previous version of that list, added the new nftID and then set that list
+
+240
+00:21:00,640 --> 00:21:04,210
+to equal the new updated version of the list.
+
+241
+00:21:04,450 --> 00:21:09,250
+So a little bit roundabout, but it is necessary in order to make it work.
+
+242
+00:21:09,790 --> 00:21:17,620
+Now finally, we can do our put into our map of owners where the key is going to be the owner, which
+
+243
+00:21:17,620 --> 00:21:27,490
+is the owner's principal id, and the value is going to be this newly updated list of nftIDs that that
+
+244
+00:21:27,490 --> 00:21:28,570
+owner owns,
+
+245
+00:21:28,660 --> 00:21:36,730
+so from here. And back up here, we actually have to call this method addToOwnershipMap in order to
+
+246
+00:21:36,730 --> 00:21:39,040
+trigger it when a new minting happens.
+
+247
+00:21:39,490 --> 00:21:48,310
+And we're going to pass in the owner as the first input and we're going to pass in the newNFTPrincipal
+
+248
+00:21:48,640 --> 00:21:50,200
+as the second input.
+
+249
+00:21:51,670 --> 00:21:56,830
+And once we add our semi-colon, then all our errors should go away
+
+250
+00:21:56,860 --> 00:22:04,270
+and we are now able to keep track of all the NFTs that are minted on our website and all the owners
+
+251
+00:22:04,270 --> 00:22:06,760
+and which NFTs they own.
+
+252
+00:22:07,690 --> 00:22:12,730
+And that's going to be really useful later on when we set up our buying and selling on the website as
+
+253
+00:22:12,730 --> 00:22:13,090
+well.
+
+254
+00:22:13,960 --> 00:22:22,090
+The final thing we need to do is to be able to bring this from the back end over to the frontend. In
+
+255
+00:22:22,090 --> 00:22:23,320
+our main.mo,
+
+256
+00:22:23,350 --> 00:22:32,140
+I'm going to create another method and this method is basically going to fetch that list of IDs and
+
+257
+00:22:32,140 --> 00:22:35,980
+turn it into an array that can be used on the frontend.
+
+258
+00:22:36,580 --> 00:22:46,270
+So this is going to be a public query function, func, and it's going to be called getOwnedNFTs and we're
+
+259
+00:22:46,270 --> 00:22:55,660
+going to pass in the principal ID of a user and hopefully we'll be able to return all of the NFTs that
+
+260
+00:22:55,660 --> 00:22:57,550
+that particular user owns.
+
+261
+00:22:57,970 --> 00:23:00,010
+So we're going to return that asynchronously
+
+262
+00:23:00,010 --> 00:23:07,990
+and it's going to be an array of principals which the syntax will look like this, square brackets and
+
+263
+00:23:07,990 --> 00:23:09,490
+then principal inside.
+
+264
+00:23:10,180 --> 00:23:13,210
+Now let's add our semicolon to make this error go away.
+
+265
+00:23:13,660 --> 00:23:17,800
+And we've got some more errors because we haven't yet returned what we promised to.
+
+266
+00:23:18,190 --> 00:23:19,990
+But we're going to very soon.
+
+267
+00:23:20,440 --> 00:23:30,070
+Now, what we want to do is we want to return what is contained as the value of the key that we're matching
+
+268
+00:23:30,070 --> 00:23:30,310
+with.
+
+269
+00:23:30,880 --> 00:23:36,100
+We're going to be sending over the user's ID, and using this mapOfOwners,
+
+270
+00:23:36,370 --> 00:23:43,870
+we're going to match the principal, get hold of the list of the NFT canister IDs and then return that
+
+271
+00:23:43,870 --> 00:23:44,800
+as an array.
+
+272
+00:23:45,640 --> 00:23:55,060
+Having done this just now, I want you to give this a go and try to get a hold of the list of NFT canister
+
+273
+00:23:55,060 --> 00:24:00,010
+IDs that belongs to this user that's coming in through the input.
+
+274
+00:24:00,520 --> 00:24:02,470
+Pause the video and give this a go.
+
+275
+00:24:04,970 --> 00:24:05,300
+All right.
+
+276
+00:24:05,300 --> 00:24:10,790
+So this is going to be extremely similar to what we did before to the extent where you could almost
+
+277
+00:24:10,790 --> 00:24:12,110
+just copy and paste it.
+
+278
+00:24:12,590 --> 00:24:18,560
+But I think at this stage, when the syntax is really unfamiliar, it's a really good idea to just write
+
+279
+00:24:18,560 --> 00:24:22,130
+everything out and wrap your head around it a second time.
+
+280
+00:24:22,400 --> 00:24:29,900
+So I'm going to call this variable userNFTs and I'm going to set it's data type to list.list
+
+281
+00:24:30,410 --> 00:24:32,000
+[Principal].
+
+282
+00:24:32,330 --> 00:24:35,330
+So a list containing principal data types.
+
+283
+00:24:35,930 --> 00:24:44,180
+And then I'm going to use the switch statement to call my mapOfOwner.get and here I'm going
+
+284
+00:24:44,180 --> 00:24:51,590
+to pass in the user that we got in the input and then I'm going to open up a set of curly braces in
+
+285
+00:24:51,590 --> 00:25:01,220
+the case where this list is null, then I'm going to return a empty list of principal data types and
+
+286
+00:25:01,220 --> 00:25:03,650
+initialize it with my parentheses.
+
+287
+00:25:04,190 --> 00:25:11,360
+And in the case where it's not null, then I'm going to unwrap the result and return the unwrapped version.
+
+288
+00:25:13,280 --> 00:25:22,670
+So now with our new userNFT, we can actually return it by using that method that we saw a little
+
+289
+00:25:22,670 --> 00:25:23,300
+while ago,
+
+290
+00:25:23,660 --> 00:25:31,460
+List.toArray which converts this userNFT list into an array.
+
+291
+00:25:32,240 --> 00:25:38,900
+And if I add the semicolon here then all my errors should go away and we should now be able to test
+
+292
+00:25:38,900 --> 00:25:40,340
+this on the frontend.
+
+293
+00:25:40,820 --> 00:25:49,400
+So I'm going to go to my header.jsx and here I want to first of all import the main.mo.
+
+294
+00:25:49,940 --> 00:25:58,640
+I'm going to import opend, all lowercase because as I mentioned before, that's the name of our canister
+
+295
+00:25:58,970 --> 00:26:08,390
+as defined in dfx.json and then the from is going to be the file path where I can find my declaration
+
+296
+00:26:08,390 --> 00:26:10,850
+folder/opend.
+
+297
+00:26:11,480 --> 00:26:15,980
+So now we can use this canister definition inside our header.
+
+298
+00:26:16,520 --> 00:26:25,760
+And what I'm going to do here is create a new async function which is called getNFTs and this is
+
+299
+00:26:25,760 --> 00:26:32,060
+going to allow us to tap into our await opend.
+
+300
+00:26:32,510 --> 00:26:38,390
+and then the name of our function down here that we just created is called getOwnedNFTs and we
+
+301
+00:26:38,390 --> 00:26:44,210
+have to pass in the principal of the user whose NFTs we are interested in.
+
+302
+00:26:45,020 --> 00:26:52,280
+As I mentioned before in our index.jsx in order to avoid dealing with the log in flow, because
+
+303
+00:26:52,640 --> 00:26:59,750
+this project is complicated enough as it is, for simplicity's sake, we're simply just using the anonymous
+
+304
+00:26:59,780 --> 00:27:05,640
+users principl, which I've defined as a constant in the index.
+
+305
+00:27:05,810 --> 00:27:06,530
+jsx.
+
+306
+00:27:06,530 --> 00:27:11,870
+And you should have a copy of these two lines of code in your index.jsx as well.
+
+307
+00:27:12,380 --> 00:27:21,020
+And it's exported as this constant called CURRENT_USER_ID which we can tap into. If I find it in the dropdown, and hit enter
+
+308
+00:27:21,200 --> 00:27:22,940
+it'll get imported.
+
+309
+00:27:23,750 --> 00:27:30,650
+So now we want to set this equal to a new constant, which is the userNFTIds.
+
+310
+00:27:32,000 --> 00:27:37,430
+Now we want to be able to console.log this just to confirm that it actually works.
+
+311
+00:27:37,850 --> 00:27:41,930
+So let's put the userNFTIds into a console log,
+
+312
+00:27:42,290 --> 00:27:48,080
+and finally we have to make sure that we actually trigger this function and it's going to be triggered
+
+313
+00:27:48,080 --> 00:27:51,440
+the first time that this component is rendered.
+
+314
+00:27:51,740 --> 00:27:59,630
+So we're going to use the useEffect hook. And as usual, our useEffect hook is going to take a fat arrow
+
+315
+00:27:59,630 --> 00:28:00,260
+function,
+
+316
+00:28:00,440 --> 00:28:07,040
+and then the second parameter is going to be an empty array to make sure that this function only gets
+
+317
+00:28:07,040 --> 00:28:13,250
+triggered once. And the function is going to get triggered to call our getNFTs.
+
+318
+00:28:13,550 --> 00:28:21,260
+And now if I hit save and also make sure that my main.mo is saved as well, then I can go ahead
+
+319
+00:28:21,260 --> 00:28:26,210
+and redeploy my canister to make these changes available on the frontend.
+
+320
+00:28:26,240 --> 00:28:31,910
+So going back over to our read me and copying our deploy code right here.
+
+321
+00:28:32,120 --> 00:28:37,100
+So let's redeploy our canisters and then we can check out the changes on the frontend.
+
+322
+00:28:37,550 --> 00:28:44,690
+Now if I go ahead and mint something new from my list of cryptodunks and once this is minted, I'm going
+
+323
+00:28:44,690 --> 00:28:46,250
+to pull up my console.
+
+324
+00:28:46,490 --> 00:28:52,700
+You can see that when we're printing our console log userNFTIds, it's giving us this array.
+
+325
+00:28:52,940 --> 00:28:58,400
+And because I've been testing this a few times, there's currently three items that have been minted
+
+326
+00:28:58,400 --> 00:29:00,110
+that belong to this current user.
+
+327
+00:29:00,350 --> 00:29:02,750
+Now you might just have one and that's totally normal.
+
+328
+00:29:02,930 --> 00:29:03,890
+So now
+
+329
+00:29:03,970 --> 00:29:12,550
+if we go into our My NFT IDs, we want to be able to pass this userNFTIds to that gallery component
+
+330
+00:29:12,880 --> 00:29:18,220
+and to render all of those IDs each as an individual item.
+
+331
+00:29:18,640 --> 00:29:24,370
+And I'm going to use the useState hook to hold this gallery component.
+
+332
+00:29:24,910 --> 00:29:30,130
+So let's create a new consent called the userOwnedGallery,
+
+333
+00:29:31,510 --> 00:29:35,590
+and the setOwnedGallery.
+
+334
+00:29:37,350 --> 00:29:41,430
+And it's going to start off with absolutely nothing,
+
+335
+00:29:41,430 --> 00:29:43,050
+so our useState will be empty.
+
+336
+00:29:43,710 --> 00:29:53,520
+And then once we've gotten a hold of our useNFTIds, then we're going to set the owned gallery to
+
+337
+00:29:53,520 --> 00:29:54,840
+what we have down here.
+
+338
+00:29:54,840 --> 00:30:01,080
+So I'm going to cut this out and replace it with that userOwnedGallery in here.
+
+339
+00:30:01,770 --> 00:30:05,580
+And I'm going to paste what I copied over into here.
+
+340
+00:30:06,030 --> 00:30:13,590
+Our title is going to be My NFTs and the other prop I'm going to pass in is something called ids.
+
+341
+00:30:13,920 --> 00:30:20,340
+These will be the idss of the NFTs that need to be rendered as item components, and we're going to pass
+
+342
+00:30:20,340 --> 00:30:23,010
+in the userNFTIds here.
+
+343
+00:30:26,240 --> 00:30:31,340
+And once we've done that, then we can go into our gallery and we'll be able to catch it inside the
+
+344
+00:30:31,340 --> 00:30:31,940
+props.
+
+345
+00:30:32,660 --> 00:30:39,740
+So now, instead of rendering each item individually, I want to be able to add something called items,
+
+346
+00:30:40,280 --> 00:30:43,790
+and these items are going to be rendered programmatically.
+
+347
+00:30:44,330 --> 00:30:52,730
+Let's create a const called items and a setter could setItems, and we're going to use state.
+
+348
+00:30:54,500 --> 00:30:56,810
+And just make sure that it gets imported.
+
+349
+00:30:57,860 --> 00:31:05,030
+Now, next, we're going to create a new function, which I'm going to call fetchNFTs.
+
+350
+00:31:06,470 --> 00:31:20,180
+And this function is going to look through our props and make sure that the props.ids is not equal to
+
+351
+00:31:20,510 --> 00:31:21,320
+undefined,
+
+352
+00:31:21,680 --> 00:31:31,670
+so hopefully we've passed in some IDs. Then we're going to call setItems in order to create some item
+
+353
+00:31:31,670 --> 00:31:32,360
+components.
+
+354
+00:31:33,020 --> 00:31:37,490
+Now the way we're going to do this is through the map function.
+
+355
+00:31:38,030 --> 00:31:43,550
+You've seen this before when we did Keeper, but we're going to do props.ids
+
+356
+00:31:44,640 --> 00:31:49,320
+and we're going to call the map function. In this map function,
+
+357
+00:31:49,470 --> 00:31:58,350
+it expects a callback where each of the items inside this array will be mapped to a new constant.
+
+358
+00:31:58,770 --> 00:32:01,920
+So let's create another set of parentheses inside the parentheses.
+
+359
+00:32:02,340 --> 00:32:12,780
+And here we'll be able to get the NFTid, which is each of the items inside this array as it loops
+
+360
+00:32:12,780 --> 00:32:13,240
+through it,
+
+361
+00:32:13,740 --> 00:32:18,090
+and then we can use the fat arrow to define what it is we want rendered.
+
+362
+00:32:18,480 --> 00:32:23,440
+And that requires opening up another set of parentheses, not curly braces
+
+363
+00:32:23,460 --> 00:32:30,300
+so be careful here with the syntax, and we're going to render the Item component.
+
+364
+00:32:30,750 --> 00:32:36,330
+And if you remember, the Item component expects a prop called ID.
+
+365
+00:32:37,110 --> 00:32:45,300
+So we're going to set its id to the NFTId that we're looping through like so.
+
+366
+00:32:45,840 --> 00:32:47,730
+And then we can close off that component.
+
+367
+00:32:48,480 --> 00:32:52,890
+You might also remember this from the Keeper project when we did our React module.
+
+368
+00:32:53,220 --> 00:32:57,720
+But when we're mapping through an array and rendering components like this,
+
+369
+00:32:58,110 --> 00:33:01,620
+React likes us to have a key prop set.
+
+370
+00:33:02,070 --> 00:33:10,400
+It doesn't really care what exactly this key is, as long as it uniquely identifies each of the components,
+
+371
+00:33:10,410 --> 00:33:11,460
+so they're different.
+
+372
+00:33:11,850 --> 00:33:15,720
+In our case, we're going to use this NFTId that we've got and
+
+373
+00:33:16,410 --> 00:33:23,240
+we're going to call toText on it, which of course comes from the principal module,
+
+374
+00:33:23,250 --> 00:33:25,830
+so we have to import that up here.
+
+375
+00:33:26,340 --> 00:33:33,900
+And that will basically turn each of the NFTIds to a text value that we can keep track of and uniquely
+
+376
+00:33:33,900 --> 00:33:36,030
+identify each item component.
+
+377
+00:33:36,630 --> 00:33:45,540
+Now finally, we're ready to use our useEffect and go ahead and add our callback
+
+378
+00:33:47,330 --> 00:33:56,180
+and also our empty parentheses, and inside the callback we'll call our fetchNFTs method.
+
+379
+00:33:56,630 --> 00:34:00,870
+The very last thing we have to change is our item.jsx,
+
+380
+00:34:00,890 --> 00:34:07,340
+but just a little bit, because remember that what we're getting hold of in the props.ids are actual
+
+381
+00:34:07,340 --> 00:34:11,960
+principal ids to loop through each one of them and pass it over as the id.
+
+382
+00:34:12,530 --> 00:34:18,380
+These are not text ids, they're actually the principal data type, which is why for the key, we actually
+
+383
+00:34:18,380 --> 00:34:20,000
+had to convert it to text.
+
+384
+00:34:20,780 --> 00:34:26,540
+So over here we're expecting that to be text instead of actual principal ids.
+
+385
+00:34:27,020 --> 00:34:32,810
+All we have to do is delete those parts and simply leave it as props.id.
+
+386
+00:34:33,710 --> 00:34:39,739
+Now let's hit save and let's go back and you should be able to see the NFTs rendered.
+
+387
+00:34:39,889 --> 00:34:48,199
+Now they're looking a little bit weird on different lines because I think this final div actually has
+
+388
+00:34:48,199 --> 00:34:53,780
+its closing div right here and our items need to go inside that grid
+
+389
+00:34:53,780 --> 00:34:56,480
+in order for this to be rendered correctly.
+
+390
+00:34:56,690 --> 00:35:01,880
+You might have made this mistake or you might not have, but just check if you have it looking weird
+
+391
+00:35:01,880 --> 00:35:02,330
+like that.
+
+392
+00:35:03,020 --> 00:35:11,930
+But now I've got all my nfts showing up in here, and if I go into the Minter and mint a brand new NFT,
+
+393
+00:35:12,110 --> 00:35:20,300
+once that NFT is minted, I should be able to go into My NFTs, and if I hit refresh, then you'll see that
+
+394
+00:35:20,300 --> 00:35:21,290
+NFT show up.
+
+395
+00:35:21,920 --> 00:35:24,920
+Now it's a bit weird having to click refresh.
+
+396
+00:35:25,010 --> 00:35:32,870
+So what we can do is in our header, in our browser router here in the opening component tag, we can
+
+397
+00:35:32,870 --> 00:35:36,230
+add an attribute called force refresh.
+
+398
+00:35:39,760 --> 00:35:44,350
+And we can set it to true like this.
+
+399
+00:35:45,100 --> 00:35:51,970
+And what this is going to do is it's going to refresh our header, which means our useEffect gets called,
+
+400
+00:35:51,970 --> 00:35:58,660
+which means it's going to fetch the NFTs again and it's going to push it into that collection route.
+
+401
+00:35:59,530 --> 00:36:01,150
+So let's test this out again.
+
+402
+00:36:02,320 --> 00:36:05,200
+Let's try and mint something we haven't got on here.
+
+403
+00:36:05,440 --> 00:36:08,140
+Let's do this guy with the weird stripy cap.
+
+404
+00:36:08,320 --> 00:36:14,320
+And you can see now, when I head over to My NFTs, it forces a refresh and that guy shows up in
+
+405
+00:36:14,320 --> 00:36:17,350
+here exactly like how we would expect it to.
+
+406
+00:36:18,190 --> 00:36:20,590
+Hopefully this has worked out alright for you.
+
+407
+00:36:20,620 --> 00:36:25,450
+If not, as always, the completed project up to here will be downloadable.
+
+408
+00:36:25,720 --> 00:36:33,010
+But in order to continue with our project, the next step is setting up our NFTs for sale and listing
+
+409
+00:36:33,010 --> 00:36:35,290
+them into the Discover page.
+
+410
+00:36:35,800 --> 00:36:37,360
+So for all of that and more,
+
+411
+00:36:37,510 --> 00:36:39,430
+I'll see you in the next lessons.
+

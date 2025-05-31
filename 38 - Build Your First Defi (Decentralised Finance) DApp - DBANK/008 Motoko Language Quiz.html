@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      code {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .quiz-content {
+        padding: 2.4rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0 auto;
+      }
+      .quiz-container {
+        margin: 0 auto;
+        max-width: 84rem;
+        padding: 0;
+      }
+      .question {
+        margin-bottom: 5rem;
+      }
+      .question span {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .question-prompt {
+        margin-top: 0.8rem;
+        font-weight: 700;
+      }
+      .question-answer {
+        margin-top: 1.6rem;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+      .question-answer label {
+        max-width: 80rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        min-width: 18rem;
+        border: solid #1c1d1f 2px;
+      }
+      .question-answer div {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+      }
+      .question-answer div:hover {
+        background-color: #f5f5f5;
+      }
+      .question-answer input {
+        display: none;
+      }
+      .question-answer span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.6rem;
+        top: 0;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+        border: 0.2rem solid #1c1d1f;
+        position: relative;
+      }
+      .selected {
+        background: #1c1d1f;
+        box-shadow: 0 0 0 0.4rem #fff inset;
+      }
+      .score {
+              position: fixed;
+            }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <div id="score" class="score">
+      <span>Score: N/A of N/A</span>
+    </div>
+    <div id="quiz-container" class="quiz-content"></div>
+
+    <script>
+      const quizData = {"pass_percent": 70, "questions": [{"_class": "assessment", "id": 45632188, "assessment_type": "multiple-choice", "prompt": {"question": "<p>Which of the following variables will have a <code>Nat</code> data type?</p>", "relatedLectureIds": ["31673308"], "feedbacks": ["https://smartcontracts.org/docs/base-libraries/Nat.html", "", ""], "answers": ["<p><code>var x = 3;</code> </p>", "<p><code>var y = 3.14;</code> </p>", "<p><code>var z = -4;</code> </p>"]}, "correct_response": ["a"], "section": "", "question_plain": "Which of the following variables will have a Nat data type?", "related_lectures": [{"_class": "lecture", "id": 31673308, "title": "Introduction to the Motoko Language", "created": "2022-04-04T09:37:22Z", "is_published": true, "asset": {"_class": "asset", "id": 40575876, "asset_type": "Video", "title": "D3.1_Variables_and_Constants_in_motoko.mp4", "created": "2022-04-04T09:22:14Z"}, "object_index": 330, "url": "/course/the-complete-web-development-bootcamp/learn/lecture/31673308"}]}, {"_class": "assessment", "id": 45634228, "assessment_type": "multiple-choice", "prompt": {"question": "<p>How do you update the value that's held in a variable in Motoko? </p>", "relatedLectureIds": ["31673308"], "feedbacks": ["", "", "", ""], "answers": ["<p>x = 89;</p>", "<p>x -&gt; -7;</p>", "<p>x := 4;</p>", "<p>x == 42;</p>"]}, "correct_response": ["c"], "section": "", "question_plain": "How do you update the value that's held in a variable in Motoko?", "related_lectures": [{"_class": "lecture", "id": 31673308, "title": "Introduction to the Motoko Language", "created": "2022-04-04T09:37:22Z", "is_published": true, "asset": {"_class": "asset", "id": 40575876, "asset_type": "Video", "title": "D3.1_Variables_and_Constants_in_motoko.mp4", "created": "2022-04-04T09:22:14Z"}, "object_index": 330, "url": "/course/the-complete-web-development-bootcamp/learn/lecture/31673308"}]}, {"_class": "assessment", "id": 45634392, "assessment_type": "multiple-choice", "prompt": {"question": "<p>What is the difference between a Query and an Update Method?</p>", "relatedLectureIds": ["31673322"], "feedbacks": ["", "https://smartcontracts.org/docs/developers-guide/concepts/canisters-code.html#query-update", ""], "answers": ["<p>A query method allows the user to change the state of a DApp, but an update method does not. </p>", "<p>Query methods are synchronous, read-only operations that are much, much faster than update methods. </p>", "<p>Update methods are less secure than query methods because they just come from a single node in the network. </p>"]}, "correct_response": ["b"], "section": "", "question_plain": "What is the difference between a Query and an Update Method?", "related_lectures": [{"_class": "lecture", "id": 31673322, "title": "Query vs. Update Methods", "created": "2022-04-04T09:38:36Z", "is_published": true, "asset": {"_class": "asset", "id": 40575870, "asset_type": "Video", "title": "D3.4_Query_vs_Update_methods.mp4", "created": "2022-04-04T09:22:14Z"}, "object_index": 333, "url": "/course/the-complete-web-development-bootcamp/learn/lecture/31673322"}]}, {"_class": "assessment", "id": 45634398, "assessment_type": "multiple-choice", "prompt": {"question": "<p>How would you call the function <code>callMe()</code> from the command line? </p><p><br></p><pre class=\"prettyprint linenums\">actor Rae {\n\n  func callMe() : async Text {\n      return \"Maybe\";\n  };\n\n}</pre>", "relatedLectureIds": ["31673322"], "feedbacks": ["", "", ""], "answers": ["<p><code>dfx canister call rae callMe</code> </p>", "<p><code>dfx canister rae call callMe</code> </p>", "<p><code>dfx canister call rae callMe()</code> </p>"]}, "correct_response": ["a"], "section": "", "question_plain": "How would you call the function callMe() from the command line? actor Rae {\n\n  func callMe() : async Text {\n      return \"Maybe\";\n  };\n\n}", "related_lectures": [{"_class": "lecture", "id": 31673322, "title": "Query vs. Update Methods", "created": "2022-04-04T09:38:36Z", "is_published": true, "asset": {"_class": "asset", "id": 40575870, "asset_type": "Video", "title": "D3.4_Query_vs_Update_methods.mp4", "created": "2022-04-04T09:22:14Z"}, "object_index": 333, "url": "/course/the-complete-web-development-bootcamp/learn/lecture/31673322"}]}, {"_class": "assessment", "id": 45634402, "assessment_type": "multiple-choice", "prompt": {"question": "<p>What does the <code>stable</code> keyword do?</p>", "relatedLectureIds": ["31673324"], "feedbacks": ["", "https://smartcontracts.org/docs/language-guide/upgrades.html", ""], "answers": ["<p>The stable keyword is used to create a constant. Values stored in constants cannot change. </p>", "<p>The values stored in a stable variable stay intact, even when the code changes during a canister upgrade. </p>", "<p>Stable variables are immutable.&nbsp; </p>"]}, "correct_response": ["b"], "section": "", "question_plain": "What does the stable keyword do?", "related_lectures": [{"_class": "lecture", "id": 31673324, "title": "Orthogonal Persistance", "created": "2022-04-04T09:38:52Z", "is_published": true, "asset": {"_class": "asset", "id": 40575872, "asset_type": "Video", "title": "D3.5_Orthogonal_persistnace_in_action.mp4", "created": "2022-04-04T09:22:14Z"}, "object_index": 334, "url": "/course/the-complete-web-development-bootcamp/learn/lecture/31673324"}]}]};
+      var correct = 0;
+      var total = 0;
+      const questionData = quizData.questions
+      const passPercent = quizData.pass_percent
+
+      function main() {
+        total = questionData.length;
+
+        var questions = [];
+        for (var i = 0; i < questionData.length; i++) {
+          var question = questionData[i];
+          var questionText = question.prompt.question;
+          var answers = question.prompt.answers;
+          var correctAnswer = question.correct_response[0];
+          var correctAnswerText = answers[correctAnswer.charCodeAt(0) - 97];
+          var questionObj = {
+            question: questionText,
+            correctAnswer: correctAnswerText,
+            answers: answers,
+            id: question.id,
+          };
+          questions.push(questionObj);
+        }
+
+        updateScore();
+
+        // display the questions
+        var questionsContainer = document.getElementById("quiz-container");
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var questionElement = document.createElement("form");
+          questionElement.className = "question";
+          questionElement.innerHTML =
+            "<span>Question " +
+            (i + 1) +
+            ":</span>" +
+            '<div class="question-prompt">' +
+            question.question +
+            "</div>";
+          questionElement.id = question.id;
+          questionElement.classList.add("quiz-container");
+          var answersElement = document.createElement("ul");
+          answersElement.className = "answers";
+          for (var j = 0; j < question.answers.length; j++) {
+            var answer = question.answers[j];
+            var answerElement = document.createElement("li");
+            answerElement.className = "answer";
+            answerElement.innerHTML =
+              '<label for="input-' +
+              question.id +
+              "-" +
+              j +
+              '"><div onclick="select(' +
+              question.id +
+              ", " +
+              j +
+              ')"><span></span><input id="input-' +
+              question.id +
+              "-" +
+              j +
+              '" type="radio" name="question' +
+              i +
+              '" value="' +
+              j +
+              '">' +
+              answer +
+              "</input></div></label>";
+            answerElement.classList.add("question-answer");
+            answersElement.appendChild(answerElement);
+          }
+
+          questionElement.appendChild(answersElement);
+
+          // add a submit button
+          var submitButton = document.createElement("button");
+          submitButton.className = "submit";
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.add("submit-button");
+
+          submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var questionElement = e.target.parentElement;
+            var questionId = questionElement.id;
+            var question = questions.filter(function (q) {
+              return q.id == questionId;
+            })[0];
+
+            // set the border color of all answers to black
+            var answers = questionElement.getElementsByClassName("answer");
+            for (var i = 0; i < answers.length; i++) {
+              console.log(answers[i]);
+              answers[i].children[0].style.borderColor = "#1c1d1f";
+            }
+
+            var answer = questionElement.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (answer) {
+              var answerIndex = answer.value;
+              var answerText = question.answers[answerIndex];
+              if (answerText == question.correctAnswer) {
+                answer.parentElement.parentElement.style.borderColor =
+                  "limegreen";
+                // alert("Correct!");
+                correct++;
+                updateScore();
+              } else {
+                answer.parentElement.parentElement.style.borderColor = "red";
+                // alert("Incorrect!");
+              }
+            } else {
+              alert("Please select an answer.");
+            }
+          });
+
+          // add button
+          questionElement.appendChild(submitButton);
+
+          questionsContainer.appendChild(questionElement);
+        }
+      }
+
+      function select(question, answer) {
+        var questionElement = document.getElementById(question);
+        var answers = questionElement.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          var span = answers[i].children[0].children[0].children[0];
+          var input = answers[i].children[0].children[0].children[1];
+          span.classList.remove("selected");
+          input.checked = false;
+        }
+        var span = answers[answer].children[0].children[0].children[0];
+        var input = answers[answer].children[0].children[0].children[1];
+        span.classList.add("selected");
+        input.checked = true;
+      }
+
+      function updateScore() {
+        var scoreElem = document.getElementById("score");
+        const score = (correct / total) * 100;
+        scoreElem.innerHTML = "Score: " + score + "/" + passPercent + "%";
+      }
+    </script>
+  </body>
+</html>

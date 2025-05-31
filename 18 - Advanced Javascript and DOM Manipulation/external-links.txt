@@ -1,0 +1,36 @@
+
+003 Adding-Event-Listeners
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+003 Events-and-Event-Listeners
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+004 Javascript-Wikipedia
+https://en.wikipedia.org/wiki/JavaScript
+
+006 Playing-Audio-With-Javascript-Stackoverflow
+https://stackoverflow.com/questions/9419263/how-to-play-audio
+
+006 HTML-Audio-Element
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
+
+011 Events-and-Event-Listeners
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+011 Creating-and-Triggering-Events
+https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events
+
+011 Keypress-Event
+https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event
+
+012 Javascript-Wikipedia
+https://en.wikipedia.org/wiki/JavaScript
+
+013 Javascript-Timeout-Function
+https://www.w3schools.com/jsref/met_win_settimeout.asp
+
+013 W3schools-SetTimeout-Demo
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout1
+
+014 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9

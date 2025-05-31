@@ -1,0 +1,804 @@
+1
+00:00:00,570 --> 00:00:00,900
+All right.
+
+2
+00:00:00,900 --> 00:00:07,050
+So now that we've managed to add notes, be able to pull the notes out from Motoku backend, but
+
+3
+00:00:07,050 --> 00:00:09,540
+also we need to be able to delete them.
+
+4
+00:00:10,080 --> 00:00:14,180
+As I showed you earlier, you can delete them right now, but that's just on the frontend.
+
+5
+00:00:14,190 --> 00:00:20,640
+As soon as you hit refresh and we pull in all of our notes from the blockchain, it doesn't actually
+
+6
+00:00:20,640 --> 00:00:21,150
+change.
+
+7
+00:00:21,660 --> 00:00:22,620
+Let's fix that.
+
+8
+00:00:23,220 --> 00:00:29,460
+Notice here in our app.jsx, we've got the deleteNote function and all it does at the moment is
+
+9
+00:00:29,460 --> 00:00:38,490
+it updates our constant notes using the setNotes method to filter through all of the notes and check
+
+10
+00:00:38,490 --> 00:00:45,090
+for the one that has the index that's selected and then basically get rid of it from the previous notes.
+
+11
+00:00:45,480 --> 00:00:53,940
+That is why this frontend appears to work, but we need to link it up with our main.mo so that
+
+12
+00:00:53,940 --> 00:00:59,610
+when we actually hit refresh and we pull in these notes that it actually persists.
+
+13
+00:00:59,880 --> 00:01:04,709
+So let's go ahead and go into our main.mo and create this function.
+
+14
+00:01:05,250 --> 00:01:10,110
+So it's going to be a public function so that we can reach into it from a JavaScript,
+
+15
+00:01:10,620 --> 00:01:13,140
+and I'm just going to call it removeNote.
+
+16
+00:01:14,040 --> 00:01:20,250
+And in order to know which one to remove, I'm going to add an ID, which is going to be a natural number
+
+17
+00:01:20,340 --> 00:01:22,200
+because it's going to be zero or above.
+
+18
+00:01:22,920 --> 00:01:26,850
+And let me just add the semicolon so I get rid of this error here.
+
+19
+00:01:27,270 --> 00:01:35,190
+Now, in order to remove a particular item with a particular ID or index from the list that we've got
+
+20
+00:01:35,190 --> 00:01:40,920
+here, we actually have to do a little bit of a grunt work of our own because if you look through the
+
+21
+00:01:40,920 --> 00:01:48,680
+documentation as of right now, in 2022, there actually isn't a utility function for the list in Motoko
+
+22
+00:01:48,990 --> 00:01:51,210
+that allows us to just remove that index.
+
+23
+00:01:52,590 --> 00:01:56,940
+So we have to figure out how to do it using the available methods.
+
+24
+00:01:57,360 --> 00:02:02,910
+And to be honest, it took me quite a while to actually figure out how to do this, but I think I've
+
+25
+00:02:02,910 --> 00:02:03,810
+figured it out now.
+
+26
+00:02:04,620 --> 00:02:12,780
+So firstly, we've got a method here called take which returns the first n elements of a given list.
+
+27
+00:02:13,290 --> 00:02:18,480
+If the given list has less than n elements, then this function returns a copy of the full list.
+
+28
+00:02:18,960 --> 00:02:21,600
+So we supply two arguments.
+
+29
+00:02:21,600 --> 00:02:26,910
+One is the list that we want to take from, and the next is the first n elements.
+
+30
+00:02:27,120 --> 00:02:30,690
+So I've created this Motoko playground that you can find
+
+31
+00:02:30,720 --> 00:02:35,730
+if you look in the course resources. And if you head over to the URL in the course resources, you should
+
+32
+00:02:35,730 --> 00:02:40,650
+see something like this with the code that I've written here.
+
+33
+00:02:41,040 --> 00:02:49,500
+So I've got this variable called notes, which is a list of text elements, and then I add A, B, C,
+
+34
+00:02:49,500 --> 00:02:52,290
+D sequentially into this list.
+
+35
+00:02:53,040 --> 00:02:59,040
+Now remember that we said that push actually doesn't append, but it actually pre-pends.
+
+36
+00:02:59,460 --> 00:03:02,400
+So what do you think notes actually looks like?
+
+37
+00:03:03,000 --> 00:03:04,110
+Because we can test this.
+
+38
+00:03:04,110 --> 00:03:09,720
+If I go ahead and deploy, it's going to bring up a candid UI for me to work with.
+
+39
+00:03:11,140 --> 00:03:16,720
+And once that's done deploying, you can see we've got our three public methods here: drop,
+
+40
+00:03:16,990 --> 00:03:23,200
+getNotes and take. getNotes is going to show me what the current state of the notes is.
+
+41
+00:03:23,860 --> 00:03:28,870
+If I go ahead and click query, you can see that it shows us what the lists currently look like.
+
+42
+00:03:29,530 --> 00:03:34,030
+Now if we go ahead and click on UI, you can sort of see it a little bit better
+
+43
+00:03:34,150 --> 00:03:41,470
+how the structure of a list is different from an array, because when we add it using push, we start
+
+44
+00:03:41,470 --> 00:03:45,880
+out by adding A and then we add B and then we add C and then we add D.
+
+45
+00:03:46,210 --> 00:03:53,110
+It actually got added to the beginning, so pre-pended to our list. But also it doesn't look like a
+
+46
+00:03:53,110 --> 00:03:56,740
+list because they're not within the same hierarchical level.
+
+47
+00:03:57,220 --> 00:04:03,850
+In fact, it's almost like we've got an array that has many, many layers of embedding, and that's
+
+48
+00:04:03,850 --> 00:04:11,080
+why we had to convert it into an array before we send it over to our JavaScript so that we can actually
+
+49
+00:04:11,080 --> 00:04:16,510
+convert it out of this format and into a format that can be easily understood by the JavaScript.
+
+50
+00:04:17,140 --> 00:04:23,500
+This is the first aspect that's probably pretty weird that when we push items onto this list in the
+
+51
+00:04:23,500 --> 00:04:27,550
+order of ABCD, they actually go in in reverse order.
+
+52
+00:04:28,900 --> 00:04:32,920
+Now the next thing I want to show you is how this take function works.
+
+53
+00:04:33,370 --> 00:04:36,580
+So if I decided to take 2, what happens?
+
+54
+00:04:36,580 --> 00:04:39,880
+What do you think will be the new value of notes?
+
+55
+00:04:40,330 --> 00:04:48,370
+Because here I'm running take and I'm taking whatever I enter in candid here from the list of notes
+
+56
+00:04:48,370 --> 00:04:52,900
+and then I set the note to update it to the new list.
+
+57
+00:04:53,530 --> 00:05:02,920
+So if I go ahead and call this function and once that's done, then I click query, then you can see
+
+58
+00:05:02,950 --> 00:05:10,570
+what it's done is I've just taken the first two items from the list, which is D and C, remember,
+
+59
+00:05:10,570 --> 00:05:12,790
+they get added in in reverse order.
+
+60
+00:05:13,300 --> 00:05:20,410
+So our goal is to figure out some sort of way to implement a method, kind of like a remove at index.
+
+61
+00:05:20,890 --> 00:05:29,230
+So if we want to remove at index 2 basically in this case remove the B from this list, then how do
+
+62
+00:05:29,230 --> 00:05:34,210
+we actually use all of these methods that list provides to be able to do something like this?
+
+63
+00:05:34,240 --> 00:05:36,580
+Well, the first step is we're going to use that take.
+
+64
+00:05:36,760 --> 00:05:45,520
+So if we say take 2, what happens is we take the first two elements and we turn that into the list.
+
+65
+00:05:46,120 --> 00:05:54,700
+So we end up with D and C. Now next we can use this drop function which drops the first n elements
+
+66
+00:05:54,700 --> 00:05:55,750
+from the given list.
+
+67
+00:05:56,290 --> 00:06:02,410
+So in our case, if our list is the first argument, the second argument is how many elements to drop
+
+68
+00:06:02,410 --> 00:06:03,070
+from the list.
+
+69
+00:06:03,820 --> 00:06:05,410
+So let's try this again.
+
+70
+00:06:05,410 --> 00:06:12,730
+If we deploy and go ahead and click upgrade our canister, because our notes is not stable, it will just
+
+71
+00:06:12,730 --> 00:06:14,170
+be reset to the original.
+
+72
+00:06:14,590 --> 00:06:16,000
+And once that's done,
+
+73
+00:06:17,260 --> 00:06:21,340
+if we click query, you can see we've got our DCBA back.
+
+74
+00:06:22,150 --> 00:06:31,000
+So now if I go ahead and use the drop method and I say drop 2 and I call this method, then if I query
+
+75
+00:06:31,000 --> 00:06:34,690
+my getNotes again, you can see I'm left with B and A.
+
+76
+00:06:35,050 --> 00:06:37,030
+So how does this drop method work?
+
+77
+00:06:37,510 --> 00:06:43,780
+Well, if we say drop 2, it's basically going to take the first two elements and drop it from the
+
+78
+00:06:43,780 --> 00:06:44,180
+list.
+
+79
+00:06:44,230 --> 00:06:48,190
+So then we end up with whatever else remains, which is B and A.
+
+80
+00:06:48,790 --> 00:06:52,690
+So we've dropped the first two elements from the list.
+
+81
+00:06:52,990 --> 00:06:58,870
+Then to summarize, if we want to build this new method that doesn't exist, remove (index: 2) to
+
+82
+00:06:58,870 --> 00:07:07,150
+get rid of this B, then we have to combine our take 2, which takes the first two items, with our
+
+83
+00:07:07,150 --> 00:07:10,000
+drop where we drop 2.
+
+84
+00:07:10,570 --> 00:07:13,360
+Now that's going to end up giving us B and A.
+
+85
+00:07:13,780 --> 00:07:20,500
+So if we actually want to remove the item at index two, which is the B, then we have to drop the index
+
+86
+00:07:20,500 --> 00:07:23,080
+plus one in order to get A.
+
+87
+00:07:23,260 --> 00:07:25,300
+So then it will drop the first three items.
+
+88
+00:07:25,900 --> 00:07:31,270
+And through using a final method that we have on the list, which is called append, which allows us
+
+89
+00:07:31,270 --> 00:07:39,250
+to join essentially two lists together, we can join what was the result of the take (2) with the drop (2)
+
+90
+00:07:39,250 --> 00:07:45,400
++ 1, and then we would end up with the result that we want D, C, A - B.
+
+91
+00:07:46,300 --> 00:07:52,090
+So we basically have to go through this slightly complicated process in order to be able to remove a
+
+92
+00:07:52,090 --> 00:07:56,990
+note from our list at the id which is the index that is passed in.
+
+93
+00:07:57,010 --> 00:08:03,370
+And I recommend, before you write the code to take a look at this playground. Just head over there,
+
+94
+00:08:03,370 --> 00:08:09,370
+deploy it, try out some different things and make sure you understand how drop and take actually works.
+
+95
+00:08:09,370 --> 00:08:16,150
+And then I want to set this to you as a challenge to write the function here so that when we get sent
+
+96
+00:08:16,150 --> 00:08:23,260
+over an id which could be 0, 1, 2, 3, basically the index of the item that needs to be
+
+97
+00:08:23,260 --> 00:08:23,860
+removed,
+
+98
+00:08:24,070 --> 00:08:29,680
+coming back to our slide here, if we wanted to remove B, then the index that you would get passed
+
+99
+00:08:29,680 --> 00:08:31,810
+is 2 because we start counting it 0.
+
+100
+00:08:31,810 --> 00:08:34,210
+So D is 0, C is 1, B is 2.
+
+101
+00:08:34,570 --> 00:08:41,710
+So when you get that 2, how do you actually remove that element at that index using those three methods
+
+102
+00:08:41,710 --> 00:08:45,550
+that we mentioned, which was take, drop and append?
+
+103
+00:08:45,670 --> 00:08:51,070
+Now, in addition to that, you'll also have to update the code in the app.js so that you actually
+
+104
+00:08:51,070 --> 00:08:55,900
+call that delete method and pass over that ID, which is going to be the index.
+
+105
+00:08:56,050 --> 00:09:00,490
+And if you manage to do all of that, then when you head back to the Keeper app, you should be able
+
+106
+00:09:00,490 --> 00:09:04,330
+to delete your notes and when you refresh they should not reappear.
+
+107
+00:09:04,630 --> 00:09:06,250
+So this is the challenge I'm sending you.
+
+108
+00:09:06,250 --> 00:09:07,270
+It's quite difficult.
+
+109
+00:09:07,540 --> 00:09:09,100
+Have a go, see if you can do it.
+
+110
+00:09:09,220 --> 00:09:14,410
+And then if you can't, or if you want to watch me walk you through it, then head back over here and
+
+111
+00:09:14,410 --> 00:09:14,980
+we'll do that.
+
+112
+00:09:15,430 --> 00:09:16,210
+Pause the video now.
+
+113
+00:09:18,220 --> 00:09:18,580
+All right.
+
+114
+00:09:18,580 --> 00:09:24,310
+So the first thing we said we're going to do is we're going to take our list, which is our notes,
+
+115
+00:09:24,700 --> 00:09:32,200
+and we're going to take the number of items that correspond to the ID that we want to remove.
+
+116
+00:09:32,470 --> 00:09:37,420
+To do that, we're going to use the List.take. Notice previously
+
+117
+00:09:37,420 --> 00:09:43,400
+every time we use the method from the list type, we've always had to use List.take and this List
+
+118
+00:09:43,400 --> 00:09:45,820
+.take expects two arguments:
+
+119
+00:09:45,820 --> 00:09:47,410
+one is the list you want to take from,
+
+120
+00:09:47,740 --> 00:09:53,470
+second is a natural number that corresponds to how many items you want to take from it,
+
+121
+00:09:53,560 --> 00:10:00,850
+so the n. Our list is notes and we want to take the index using this ID that we get passed.
+
+122
+00:10:00,910 --> 00:10:06,520
+Then I'm going to set it to equal a constant, which I'll call listFront because this will be the new
+
+123
+00:10:06,520 --> 00:10:07,600
+beginning of our list.
+
+124
+00:10:08,410 --> 00:10:14,260
+And then I'm going to create a listBack which is going to be created using list.drop.
+
+125
+00:10:14,620 --> 00:10:23,860
+So we're going to drop the list notes and we're going to drop the number that corresponds to the id
+
+126
+00:10:23,860 --> 00:10:25,450
+that we get plus one.
+
+127
+00:10:25,690 --> 00:10:30,250
+If this doesn't make sense to you, then just simply try it out.
+
+128
+00:10:30,700 --> 00:10:35,710
+Try it out using that playground and see what you actually get to be able to understand it.
+
+129
+00:10:36,310 --> 00:10:42,730
+But basically we're going through this three step process in order to remove an item when we're sent
+
+130
+00:10:42,760 --> 00:10:44,920
+the index of that item to remove.
+
+131
+00:10:45,340 --> 00:10:49,540
+The final step is we're going to reset our notes
+
+132
+00:10:49,690 --> 00:10:56,800
+so using that := sign, we're going to set it to the List.append and we're going to append
+
+133
+00:10:56,800 --> 00:10:59,770
+the listFront to the listBack.
+
+134
+00:11:00,220 --> 00:11:06,100
+And now through these three lines of code which you could if you want to simplify, but I think it's
+
+135
+00:11:06,100 --> 00:11:12,070
+easier to understand it when we split it out, then we achieve this remove at index functionality.
+
+136
+00:11:12,250 --> 00:11:20,890
+So we get sent the index and we use that index to update our notes to exclude that item by going through
+
+137
+00:11:20,890 --> 00:11:22,570
+this take and drop process.
+
+138
+00:11:22,750 --> 00:11:28,750
+And once we've done that, then we have to go back to our app.jsx and we're going to leave the
+
+139
+00:11:28,750 --> 00:11:34,480
+setNotes as it is because that's just going to handle the frontend and make things happen immediately.
+
+140
+00:11:34,900 --> 00:11:43,390
+But in addition, we're going to tap into our dkeeper and we're going to call that method that we created
+
+141
+00:11:43,390 --> 00:11:47,320
+just now, which is removeNote and we have to parse it
+
+142
+00:11:49,280 --> 00:11:54,290
+the value of the id that we get in this function.
+
+143
+00:11:54,530 --> 00:12:02,480
+Remember, that id comes from the index, which is indexed to correspond to the note that we want
+
+144
+00:12:02,480 --> 00:12:03,050
+to delete.
+
+145
+00:12:03,650 --> 00:12:10,220
+Finally, let's just cap that off and hit save and let's deploy our canister again.
+
+146
+00:12:10,790 --> 00:12:13,790
+Once that's done, let's head back over to our Keeper app.
+
+147
+00:12:14,090 --> 00:12:15,440
+Let's refresh.
+
+148
+00:12:15,470 --> 00:12:20,060
+And because we've redeployed our canister, our notes have been cleared.
+
+149
+00:12:20,330 --> 00:12:22,970
+So let's create our first note.
+
+150
+00:12:24,380 --> 00:12:24,800
+Add it.
+
+151
+00:12:25,340 --> 00:12:26,880
+Notice that it appears.
+
+152
+00:12:26,900 --> 00:12:27,260
+And then.
+
+153
+00:12:27,260 --> 00:12:28,660
+Now let's add another note.
+
+154
+00:12:32,070 --> 00:12:36,330
+And now I'm going to delete this first one so it immediately disappears.
+
+155
+00:12:36,330 --> 00:12:39,540
+And that is because of these lines of code.
+
+156
+00:12:39,930 --> 00:12:43,890
+But then if I refresh, notice how it doesn't reappear.
+
+157
+00:12:44,340 --> 00:12:47,460
+And that's because we're pulling it using the fetch data,
+
+158
+00:12:47,820 --> 00:12:55,230
+this removeNote at id has already removed the deleted note so that when we query for the list again,
+
+159
+00:12:55,590 --> 00:12:57,420
+then it doesn't show up in there.
+
+160
+00:12:57,570 --> 00:13:05,580
+And this way we've managed to implement the backend for our keeper to be able to add notes, to be
+
+161
+00:13:05,580 --> 00:13:12,600
+able to view them and have them persist, at least as long as we don't reset our backend.
+
+162
+00:13:13,170 --> 00:13:19,350
+And then to be able to delete them when we don't want them anymore and for that to persist as well.
+
+163
+00:13:19,530 --> 00:13:20,910
+Now, there's one final thing.
+
+164
+00:13:21,180 --> 00:13:27,600
+As you noticed, whenever I deploy or whenever I upgrade my canister, my notes get cleared.
+
+165
+00:13:27,960 --> 00:13:31,560
+And we can show that by updating something in the code.
+
+166
+00:13:31,570 --> 00:13:38,700
+Because remember, when you hit deploy and your code actually stays the same, it doesn't actually reset
+
+167
+00:13:38,700 --> 00:13:39,240
+the code.
+
+168
+00:13:39,780 --> 00:13:46,980
+So let's just go ahead and add a Debug.print to add a inconsequential line of code.
+
+169
+00:13:49,120 --> 00:13:52,700
+Now because this has updated the code of our main.mo,
+
+170
+00:13:53,050 --> 00:14:00,970
+if I go ahead and run dfx deploy, then it's actually going to force this code to upgrade our canister
+
+171
+00:14:01,510 --> 00:14:06,610
+which means this note's variable gets emptied out and gets to start from the beginning.
+
+172
+00:14:07,480 --> 00:14:11,290
+So now if I go back to my localhost, I hit refresh,
+
+173
+00:14:11,320 --> 00:14:13,750
+you'll notice that all the notes will disappear.
+
+174
+00:14:14,440 --> 00:14:18,350
+But we have one trick up our sleeve, and you've got it.
+
+175
+00:14:18,370 --> 00:14:20,110
+It's that stable keyword.
+
+176
+00:14:20,650 --> 00:14:23,140
+By turning this into a stable variable,
+
+177
+00:14:23,410 --> 00:14:30,670
+our list now persists across upgrades, which means that we've basically got a permanent storage solution
+
+178
+00:14:30,940 --> 00:14:32,260
+for our dkeeper app.
+
+179
+00:14:32,830 --> 00:14:41,530
+And now not only do we have a backend, because if I go ahead and hit deploy and I hit refresh, firstly
+
+180
+00:14:41,530 --> 00:14:45,190
+they don't disappear because we've got that storage on our backend.
+
+181
+00:14:45,550 --> 00:14:51,370
+But now if I go into my main.mo, I change the code significantly.
+
+182
+00:14:51,370 --> 00:14:54,730
+So delete that line for debug or add a line for debug,
+
+183
+00:14:55,030 --> 00:15:00,740
+basically either way forcing it to update my canister when I do dfx deploy.
+
+184
+00:15:01,420 --> 00:15:09,220
+So even though everything has now been upgraded and this code has now been refreshed, it doesn't matter
+
+185
+00:15:09,220 --> 00:15:14,860
+because if I go back once it's done and I hit refresh, all my notes are persisted.
+
+186
+00:15:15,160 --> 00:15:21,910
+It's as if I have a database in the backend, but I didn't really have to do anything other than add
+
+187
+00:15:21,910 --> 00:15:23,860
+that one stable keyword.
+
+188
+00:15:24,340 --> 00:15:28,630
+And that's something I think is super fantastic and really, really interesting.
+
+189
+00:15:29,080 --> 00:15:33,880
+It really means that we don't have to think so much about databases and getting things in and out.
+
+190
+00:15:33,880 --> 00:15:39,700
+And this is a really, really incredible way of writing code and creating applications.
+
+191
+00:15:40,330 --> 00:15:48,220
+So I hope you enjoyed building this to dkeeper app and taking the React frontend to combine it with
+
+192
+00:15:48,220 --> 00:15:53,590
+a internet computer blockchain-based backend and now being able to persist this.
+
+193
+00:15:54,040 --> 00:16:00,790
+So the main takeaways from this module was to show you how you can actually create apps writing 
+
+194
+00:16:00,790 --> 00:16:08,110
+Motoko on the ICP blockchain, but also incorporate beautiful advanced frontend, whatever it is you
+
+195
+00:16:08,110 --> 00:16:14,560
+want to do on the frontend using React, thus being able to take our web3 applications really into the
+
+196
+00:16:14,560 --> 00:16:21,640
+future and to be able to make it look as beautiful as any web2 application while retaining the power
+
+197
+00:16:21,970 --> 00:16:24,040
+of an application that runs on the blockchain.
+
+198
+00:16:25,030 --> 00:16:25,840
+I hope that was fun
+
+199
+00:16:26,170 --> 00:16:30,910
+and I'll see you on the next module where we're going to be creating our own cryptocurrencies and our
+
+200
+00:16:30,910 --> 00:16:32,440
+own tokens on ICP.
+
+201
+00:16:32,980 --> 00:16:35,440
+So for all of that and more, I'll see you on the next lesson.
+

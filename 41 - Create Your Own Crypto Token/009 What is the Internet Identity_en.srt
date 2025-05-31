@@ -1,0 +1,264 @@
+1
+00:00:00,420 --> 00:00:09,690
+Up to this point, we've been claiming our DANG tokens into the current logged in user of the frontend,
+
+2
+00:00:10,200 --> 00:00:14,070
+which happens in my case to have this principal ID.
+
+3
+00:00:15,060 --> 00:00:22,750
+Now the problem with this is this is actually just an anonymous user. It's actually not a real user at all.
+
+4
+00:00:23,190 --> 00:00:25,360
+And the reason is because we're not logged in.
+
+5
+00:00:25,380 --> 00:00:33,030
+So this user that's operating the website has no principal ID to give our backend to use.
+
+6
+00:00:33,750 --> 00:00:39,510
+Now you'll notice that when you logged in to, say, the network nervous system or when you initially
+
+7
+00:00:39,510 --> 00:00:48,930
+signed up to get your free cycles from ICP, you had to go through a login process and the login process
+
+8
+00:00:48,930 --> 00:00:52,170
+asked you to create an Internet identity.
+
+9
+00:00:52,560 --> 00:00:59,700
+And when you create an Internet identity, you able to assign a device to that Internet identity anchor
+
+10
+00:01:00,030 --> 00:01:07,410
+and it would ask you to verify your identity using either a USB security key or this current laptop
+
+11
+00:01:07,410 --> 00:01:11,640
+device, which in my case can let me log in using touch ID.
+
+12
+00:01:12,360 --> 00:01:20,790
+Now what exactly is this internet identity and how can we implement it in our website to allow authentication
+
+13
+00:01:20,790 --> 00:01:23,640
+of our users through the Internet identity?
+
+14
+00:01:24,210 --> 00:01:26,130
+That's what we're going to explore in this lesson.
+
+15
+00:01:26,280 --> 00:01:32,070
+Now, one of the things we were missing is this authentication ability on our website, and we're going
+
+16
+00:01:32,070 --> 00:01:34,860
+to do it using something that's called the Internet identity.
+
+17
+00:01:35,490 --> 00:01:42,180
+And the idea with the Internet identity is it's an anonymous blockchain authentication framework that
+
+18
+00:01:42,180 --> 00:01:44,130
+is supported by the Internet computer.
+
+19
+00:01:44,820 --> 00:01:49,590
+It's going to fill a similar role to say, log in with Facebook or log in with Google.
+
+20
+00:01:50,280 --> 00:01:58,020
+And the idea is that authentication and keeping your users' passwords secure is actually quite a difficult
+
+21
+00:01:58,020 --> 00:01:59,670
+task technologically.
+
+22
+00:01:59,970 --> 00:02:05,460
+And this is why you've heard of so many security breaches and data leaks, everything from Ashley Madison
+
+23
+00:02:05,460 --> 00:02:06,390
+to Equifax.
+
+24
+00:02:06,540 --> 00:02:11,850
+Even big companies aren't very good at keeping login information secure.
+
+25
+00:02:12,090 --> 00:02:19,740
+A better solution would be to offload this challenging task to a company that's good at technology,
+
+26
+00:02:20,070 --> 00:02:26,310
+so in this case, Facebook and Google, because they have the infrastructure and they have the investment
+
+27
+00:02:26,310 --> 00:02:31,670
+that's already made into authentication and keeping things secure using oath.
+
+28
+00:02:32,040 --> 00:02:36,540
+But if letting big tech companies know every aspect of your online life
+
+29
+00:02:36,870 --> 00:02:38,460
+doesn't sound like a good idea to you,
+
+30
+00:02:38,490 --> 00:02:44,550
+then this is where the internet identity comes in because it allows us to be anonymous. Using the Internet
+
+31
+00:02:44,550 --> 00:02:45,080
+identity
+
+32
+00:02:45,090 --> 00:02:48,570
+we can create as many of these anchors as we want.
+
+33
+00:02:48,990 --> 00:02:54,360
+And these anchors give us a pseudo-identity which we can be used to log in to decentralized apps.
+
+34
+00:02:54,930 --> 00:02:58,380
+But you can create as many of these anchors as you want or need.
+
+35
+00:02:58,800 --> 00:03:03,410
+And the Internet identity at this stage knows absolutely nothing about you.
+
+36
+00:03:03,420 --> 00:03:05,460
+There's no username, there's no password.
+
+37
+00:03:05,850 --> 00:03:08,030
+You don't need to provide an email to sign up.
+
+38
+00:03:08,040 --> 00:03:13,770
+There's no seed phrases, One-Time passwords, authenticator apps or email confirmations, which means
+
+39
+00:03:13,770 --> 00:03:18,240
+that companies won't be able to track you across services or even know who you are.
+
+40
+00:03:18,540 --> 00:03:24,750
+The Internet identity builds on this thing called the Web Authentication API, which is a specification
+
+41
+00:03:24,750 --> 00:03:32,160
+written by W3C and Fido with the participation of big companies like Google, Mozilla, Microsoft and
+
+42
+00:03:32,160 --> 00:03:32,650
+others.
+
+43
+00:03:33,120 --> 00:03:39,570
+This means that the technology that is behind it will be compatible with all modern browsers and operating
+
+44
+00:03:39,570 --> 00:03:40,140
+systems.
+
+45
+00:03:40,530 --> 00:03:46,560
+When you create an Internet identity, it's secured using chain key cryptography, the same framework
+
+46
+00:03:46,560 --> 00:03:53,820
+that powers the Internet computer. And it uses compatible cryptographically enabled devices such as the
+
+47
+00:03:53,820 --> 00:04:01,050
+fingerprint sensor on a laptop or the face id system on a phone to authenticate you, which from a
+
+48
+00:04:01,050 --> 00:04:06,600
+user's point of view makes the sign up and login super easy because you don't have to remember any passwords
+
+49
+00:04:06,600 --> 00:04:07,410
+or usernames.
+
+50
+00:04:07,770 --> 00:04:13,920
+All you have to do is just sign in using your biometric data like your face or your fingerprint, which
+
+51
+00:04:13,920 --> 00:04:15,120
+makes it super convenient
+
+52
+00:04:15,120 --> 00:04:20,610
+and it also eliminates the weakest point of online security, which, to be honest, is you.
+
+53
+00:04:20,640 --> 00:04:26,970
+It's the ability for you to generate secure enough usernames and passwords and to remember them.
+
+54
+00:04:27,360 --> 00:04:28,980
+So how does that actually work?
+
+55
+00:04:29,010 --> 00:04:36,600
+Well, when you add a device to an anchor and you generate a new Internet identity, a pair of cryptographic
+
+56
+00:04:36,600 --> 00:04:40,530
+keys, a private and public key, are generated.
+
+57
+00:04:40,830 --> 00:04:47,610
+The public key is stored on the Internet computer blockchain, while your private key remains locked
+
+58
+00:04:47,610 --> 00:04:49,380
+inside the authentication device,
+
+59
+00:04:49,710 --> 00:04:56,220
+so together with any sort of biometric data that secures the access to it, for example, touch ID. When
+
+60
+00:04:56,220 --> 00:04:59,940
+you log on to a decentralized app, both keys are
+
+61
+00:05:00,120 --> 00:05:07,320
+required to authorize the session and the authorization from the Internet identity then grants you access
+
+62
+00:05:07,650 --> 00:05:14,220
+as an application specific anonymous identity, which basically allows you to be pseudonymous across
+
+63
+00:05:14,220 --> 00:05:15,560
+many applications.
+
+64
+00:05:15,570 --> 00:05:19,290
+And it also lets you create as many of these pseudo identities as you need.
+
+65
+00:05:20,100 --> 00:05:26,190
+And if you want to learn more, you can take a look at this demo from the Dfinity team, where the founder
+
+66
+00:05:26,190 --> 00:05:29,070
+of Dfinity talks about how it works in more detail.
+

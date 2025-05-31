@@ -1,0 +1,304 @@
+1
+00:00:00,690 --> 00:00:07,590
+All right. So we know that the formula is weight in kilograms divided by height squared, and we have to
+
+2
+00:00:07,590 --> 00:00:09,660
+make this line of code work.
+
+3
+00:00:09,690 --> 00:00:12,260
+So let's first try it out in the calculator.
+
+4
+00:00:12,480 --> 00:00:17,150
+Let's say that we first try to square our height which is 1.8 meters.
+
+5
+00:00:17,160 --> 00:00:21,920
+So on a calculator we can simply write 1.8 times 1.8.
+
+6
+00:00:22,200 --> 00:00:25,420
+So 1.8 squared is equal to 3.24.
+
+7
+00:00:25,530 --> 00:00:30,540
+So now we can divide 65 by 3.24. 65
+
+8
+00:00:30,540 --> 00:00:37,290
+divide by 3.24 and we get 20.0617 something something something.
+
+9
+00:00:37,290 --> 00:00:43,230
+All right. So now that we know that this is how we would calculate it on a calculator, then we can simply
+
+10
+00:00:43,230 --> 00:00:50,100
+copy all of this starting code, and open up our Chrome Developer Tools, and paste it into our Snippets
+
+11
+00:00:50,100 --> 00:00:50,640
+tool.
+
+12
+00:00:50,640 --> 00:00:53,860
+So now, we're going to create our function below this line.
+
+13
+00:00:54,120 --> 00:00:58,520
+And the first step to creating any sort of function is the function keyword,
+
+14
+00:00:58,530 --> 00:01:05,290
+right? Then we're going to give our function a name, which we said has to be the name bmiCalculator,
+
+15
+00:01:05,370 --> 00:01:07,350
+so we're going to use that name.
+
+16
+00:01:07,380 --> 00:01:13,430
+Next step is some parentheses, and whether we're going to add some inputs in here.
+
+17
+00:01:13,440 --> 00:01:19,140
+So in this case we're saying that put the input weight first and then put the input height.
+
+18
+00:01:19,200 --> 00:01:23,660
+So our inputs are going to be weight and height.
+
+19
+00:01:23,670 --> 00:01:29,960
+Now we get to open up our curly braces and specify everything that this function is going to do.
+
+20
+00:01:31,970 --> 00:01:36,090
+So this function has to calculate the value of bmi.
+
+21
+00:01:36,290 --> 00:01:40,670
+Remember that the formula is the weight divided by height squared.
+
+22
+00:01:40,670 --> 00:01:50,230
+So bmi is going to equal to the weight input divided by the height input multiplied by itself.
+
+23
+00:01:50,570 --> 00:01:56,990
+And remember, in the previous lesson we talked about Javascrpit numbers, that in order to specify the
+
+24
+00:01:57,080 --> 00:02:03,500
+order of your calculations then you can use the parentheses to set precedence.
+
+25
+00:02:03,500 --> 00:02:10,100
+So by putting those two parentheses there then we say that calculate height times height first and then
+
+26
+00:02:10,100 --> 00:02:12,790
+divide weight by that value.
+
+27
+00:02:13,160 --> 00:02:21,530
+So now in order to get value bmi out of this function, we have to use the return keyword, and we can say
+
+28
+00:02:21,530 --> 00:02:23,410
+return bmi.
+
+29
+00:02:23,780 --> 00:02:31,220
+So now, if we take all of this code and we go back to our exercise here, we paste it in here, and now if
+
+30
+00:02:31,220 --> 00:02:35,150
+I hit Check solution, then you can see that it will pass.
+
+31
+00:02:35,150 --> 00:02:39,310
+Now there's a number of different ways of writing this function.
+
+32
+00:02:39,350 --> 00:02:41,120
+Some of you might have wondered,
+
+33
+00:02:41,360 --> 00:02:45,460
+I don't really want to multiply the height by height in order to get it squared.
+
+34
+00:02:45,500 --> 00:02:48,810
+Why can’t I just raise height to the power of 2?
+
+35
+00:02:49,040 --> 00:02:51,300
+How would I do that in Javascript?
+
+36
+00:02:51,350 --> 00:02:56,970
+Well, as with any query regarding programming, the solution is only a quick google away.
+
+37
+00:02:57,080 --> 00:03:03,290
+So if we search for ‘raise a number to a power’ and we add the keyword Javascript, then you can see that the
+
+38
+00:03:03,290 --> 00:03:10,330
+MDN docs come up with the Math.pow function, and it shows us how to use it.
+
+39
+00:03:10,360 --> 00:03:12,460
+It says that we can simply say Math.
+
+40
+00:03:12,490 --> 00:03:13,330
+pow,
+
+41
+00:03:13,630 --> 00:03:18,550
+and the first number is the base and the second number is the exponent.
+
+42
+00:03:18,620 --> 00:03:24,110
+So this is your squared which will be 2 or cubed which will be 3.
+
+43
+00:03:24,350 --> 00:03:26,570
+And this is how you would use it.
+
+44
+00:03:26,570 --> 00:03:27,680
+So let's try it out
+
+45
+00:03:27,680 --> 00:03:30,710
+in our case. Instead of writing height times height,
+
+46
+00:03:30,950 --> 00:03:32,490
+what if we did Math.
+
+47
+00:03:32,520 --> 00:03:40,660
+pow, set of parentheses, and then we said height, 2, so height to the power of 2?
+
+48
+00:03:41,030 --> 00:03:47,240
+Now, if we check our solution, you can see that our function is still working exactly as we expect it
+
+49
+00:03:47,240 --> 00:03:47,630
+to,
+
+50
+00:03:47,780 --> 00:03:50,230
+but it's now perhaps a little bit more elegant.
+
+51
+00:03:50,420 --> 00:03:56,840
+Now, if you run this code as it is right now, for example we're calculating the BMI from 65 kilograms
+
+52
+00:03:56,870 --> 00:04:01,040
+and 1.8, and then we're logging that BMI into the console,
+
+53
+00:04:01,190 --> 00:04:03,480
+then you can see that we're getting a really long number,
+
+54
+00:04:03,500 --> 00:04:08,660
+20.0672839 etc..
+
+55
+00:04:08,870 --> 00:04:11,820
+Now usually with BMI we're working with whole numbers.
+
+56
+00:04:11,870 --> 00:04:18,230
+So how can we turn this long number with loads of decimal places to simply a whole number?
+
+57
+00:04:18,230 --> 00:04:20,070
+Well again Google is your friend.
+
+58
+00:04:20,269 --> 00:04:26,720
+And if you search for ‘Javascript round a number to the nearest whole number’ or something around there, then
+
+59
+00:04:26,780 --> 00:04:33,320
+the first result that you get is from W3 Schools, and it tells you about the round method, which you can
+
+60
+00:04:33,320 --> 00:04:41,090
+use by saying Math.round, and is similar to the floor method, which simply rounded down your decimal
+
+61
+00:04:41,090 --> 00:04:41,630
+place.
+
+62
+00:04:41,630 --> 00:04:44,500
+But Math.round is more mathematically correct.
+
+63
+00:04:44,690 --> 00:04:48,380
+So if it's 2.5 it will round it to 3, and if it's 2.4
+
+64
+00:04:48,420 --> 00:04:49,690
+it’ll round it to 2.
+
+65
+00:04:49,940 --> 00:04:52,950
+So let's try using this in our solution.
+
+66
+00:04:53,000 --> 00:05:03,050
+So if, instead of returning bmi, we returned Math.round, and inside the parentheses we enclosed our
+
+67
+00:05:03,050 --> 00:05:06,190
+bmi, as a number with decimal places.
+
+68
+00:05:06,200 --> 00:05:12,460
+Now if we run our code you can see that we only get 20 back which is exactly what we wanted.
+
+69
+00:05:12,680 --> 00:05:20,400
+And if you change our solution to this updated one inside our testing suite, then you can see that our solution
+
+70
+00:05:20,560 --> 00:05:21,880
+also passes.
+
+71
+00:05:22,100 --> 00:05:26,600
+So I hope that was interesting and we've got a few more of these challenges coming up for you.
+
+72
+00:05:26,750 --> 00:05:27,990
+So keep your eyes peeled.
+
+73
+00:05:28,040 --> 00:05:32,630
+But in the next lesson, we're going to dive deeper into Javascript, and we're going to learn all about
+
+74
+00:05:32,630 --> 00:05:33,770
+control flow.
+
+75
+00:05:34,040 --> 00:05:36,990
+So you have all of that and more to look forward to.
+
+76
+00:05:37,100 --> 00:05:38,600
+So I'll see you on the next module.
+

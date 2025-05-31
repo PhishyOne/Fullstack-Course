@@ -1,0 +1,680 @@
+1
+00:00:00,120 --> 00:00:06,689
+Hey guys in this lesson we're going to level up our knowledge around React components and to do that
+
+2
+00:00:06,689 --> 00:00:12,630
+we're going to learn about something called props. So head over to the starting code sandbox and go ahead
+
+3
+00:00:12,720 --> 00:00:16,650
+and fork it. And once you have it
+
+4
+00:00:16,650 --> 00:00:23,140
+feel free to download it to use in your local environment or follow along with me in code sandbox.
+
+5
+00:00:23,160 --> 00:00:32,040
+So here I've got a really simple contacts app. So I've got three people that I supposedly know their names,
+
+6
+00:00:32,040 --> 00:00:38,820
+a picture of them that I found on the Internet, some fake phone numbers and fake emails. As you can see
+
+7
+00:00:38,910 --> 00:00:47,850
+if we look inside our inde.js, this is pretty repetitive and it's also very long. And this is
+
+8
+00:00:48,000 --> 00:00:55,080
+one of the perfect use cases for React components because we have these repetitive elements that is
+
+9
+00:00:55,170 --> 00:01:00,530
+cluttering up our code making it very long and very complex unnecessarily.
+
+10
+00:01:01,560 --> 00:01:07,350
+So let's go ahead and extract each of these contacts as a brand new component.
+
+11
+00:01:07,470 --> 00:01:12,100
+I'm going to create it just inside my index.js so you can see quite easily
+
+12
+00:01:12,570 --> 00:01:15,870
+both the component and the rendering side by side.
+
+13
+00:01:16,020 --> 00:01:22,590
+And I'm going to call this component a new card like a contact card, and it's going to return
+
+14
+00:01:22,590 --> 00:01:24,630
+each of these contact items.
+
+15
+00:01:24,630 --> 00:01:30,030
+So I'm just going to cut Beyonce out of there and I'm going to insert her into a div.
+
+16
+00:01:30,030 --> 00:01:38,480
+So now this h2 image and two paragraph elements are now being returned from my card function.
+
+17
+00:01:38,520 --> 00:01:45,340
+Now I'm actually just gonna go ahead and take out these other guys from my render function and I'm gonna
+
+18
+00:01:45,360 --> 00:01:47,950
+keep my website as simple as I can
+
+19
+00:01:48,030 --> 00:01:50,490
+so you can see easily what's happening.
+
+20
+00:01:50,640 --> 00:01:57,750
+So instead of having all of those divs, I can now create maybe three cards instead
+
+21
+00:01:57,750 --> 00:01:58,050
+right?
+
+22
+00:01:58,230 --> 00:02:07,530
+So I've got three cards like so, and once it reloads you can see that yes I do have three cards which
+
+23
+00:02:07,860 --> 00:02:12,790
+all have an h2 image and two paragraphs but they're all of Beyonce.
+
+24
+00:02:12,900 --> 00:02:14,660
+So that's not what I want.
+
+25
+00:02:14,700 --> 00:02:21,750
+Instead I want to have different pieces of information in each of these reusable card components. With
+
+26
+00:02:21,750 --> 00:02:23,550
+the knowledge that we've gotten so far,
+
+27
+00:02:23,850 --> 00:02:31,770
+it's actually very difficult to make these components reusable. And it's because we haven't got any ability
+
+28
+00:02:32,130 --> 00:02:40,840
+to send these card components some custom data so that each of the cards gets rendered differently.
+
+29
+00:02:41,030 --> 00:02:45,930
+Now let's think about how this problem is solved in plain old HTML.
+
+30
+00:02:46,340 --> 00:02:52,640
+So if we had over to the index.html and let's just go ahead and delete all of our cards from here so
+
+31
+00:02:52,640 --> 00:03:00,130
+that we clear up our screen. And right below my root div where we know our React components are going
+
+32
+00:03:00,130 --> 00:03:01,240
+to be rendered,
+
+33
+00:03:01,340 --> 00:03:07,040
+I'm gonna go ahead and create just a plain HTML element. And remember that when you're creating a React
+
+34
+00:03:07,040 --> 00:03:09,990
+app you're not limited to just using React.
+
+35
+00:03:10,130 --> 00:03:16,910
+You can just insert it any way you like using a div with a particular id. And the rest of the file
+
+36
+00:03:16,940 --> 00:03:21,430
+can still be worked like a regular JavaScript or HTML file.
+
+37
+00:03:21,500 --> 00:03:28,370
+So that means if you have an existing website, it's really easy to just insert a root div and then start
+
+38
+00:03:28,490 --> 00:03:32,390
+adding React code into that particular position.
+
+39
+00:03:32,390 --> 00:03:38,720
+So I'm going to create a plain HTML element which is going to be an input element and I'm going to
+
+40
+00:03:38,720 --> 00:03:40,820
+make itself closing as well.
+
+41
+00:03:40,820 --> 00:03:48,970
+And you can see that it shows up in here as a little text box. Now this input element has attributes
+
+42
+00:03:49,030 --> 00:03:52,950
+right? Attributes which I can set with custom values.
+
+43
+00:03:53,050 --> 00:03:57,580
+For example, I could change the id of this input.
+
+44
+00:03:57,580 --> 00:03:59,820
+Let's call it fName
+
+45
+00:03:59,890 --> 00:04:05,860
+so like a field to input your first name, and then I can also give it a placeholder.
+
+46
+00:04:05,950 --> 00:04:11,020
+So I could say that enter your first name.
+
+47
+00:04:11,020 --> 00:04:16,010
+And once we refresh you can see the place holder goes up in gray.
+
+48
+00:04:16,300 --> 00:04:21,290
+And I can even set the value even before the users had a chance to interact with it.
+
+49
+00:04:21,310 --> 00:04:28,230
+So let's just say I'm going to put my own name in there and you can see that I've now got an input field
+
+50
+00:04:28,620 --> 00:04:33,030
+with a value that's already pre-existing inside.
+
+51
+00:04:33,060 --> 00:04:37,460
+And if I delete it and make it empty, then you'll get to see my placeholder text.
+
+52
+00:04:38,280 --> 00:04:47,040
+So this is kind of a way for us to pass custom pieces information via these attributes to a particular
+
+53
+00:04:47,210 --> 00:04:48,360
+HTML element
+
+54
+00:04:48,390 --> 00:04:49,360
+right?
+
+55
+00:04:49,410 --> 00:04:57,060
+And if we go ahead and take a look at this app in a separate tab and I open up my Chrome developer tools
+
+56
+00:04:57,540 --> 00:05:04,530
+then I can actually access this element by just grabbing hold of document.getElementById and we
+
+57
+00:05:04,530 --> 00:05:06,680
+call it fName.
+
+58
+00:05:06,690 --> 00:05:11,010
+So this should actually get hold of this particular input element.
+
+59
+00:05:11,010 --> 00:05:16,380
+And I'm going to save it into a variable. I'll just call it input and then hit enter.
+
+60
+00:05:16,380 --> 00:05:22,960
+So now I've got this input value stored then I can actually access all of its values.
+
+61
+00:05:22,980 --> 00:05:29,950
+I can say input.placeholder to print out the value of the placeholder attribute.
+
+62
+00:05:30,000 --> 00:05:38,160
+I can also say something like input.value to print out the current value of the inputs and I can even
+
+63
+00:05:38,160 --> 00:05:39,270
+change this right?
+
+64
+00:05:40,560 --> 00:05:50,010
+So effectively we're using these attributes from our HTML elements to use and custom pieces of data to
+
+65
+00:05:50,010 --> 00:05:51,750
+that particular element.
+
+66
+00:05:51,750 --> 00:05:58,950
+And over here when we tap into that element using get element by id and we have a reference to it, then
+
+67
+00:05:58,950 --> 00:06:05,790
+you can see it's almost like as if we have the input as an object and we're accessing each of its properties
+
+68
+00:06:05,820 --> 00:06:10,190
+like .placeholder or .value.
+
+69
+00:06:10,200 --> 00:06:18,330
+Now these attributes are predetermined and there are lists of them in the MDN docs but we can't
+
+70
+00:06:18,330 --> 00:06:21,140
+go beyond what is actually here.
+
+71
+00:06:21,300 --> 00:06:24,320
+We can't define our own custom attribute
+
+72
+00:06:24,330 --> 00:06:25,160
+right?
+
+73
+00:06:25,170 --> 00:06:32,720
+If I created something called, I don't know, just angela and I tried to give it a value.
+
+74
+00:06:33,390 --> 00:06:42,360
+And I go into my React app and I try to tap into input.angela, that doesn't actually work. But if
+
+75
+00:06:42,360 --> 00:06:51,840
+you think about your React components almost as a custom HTML element then we can define these attributes.
+
+76
+00:06:52,470 --> 00:06:59,460
+And in the React component world, those attributes are called properties and you'll usually hear them
+
+77
+00:06:59,460 --> 00:07:09,670
+referred to as props. Let's say that I decided to create a new card component from my card function. And
+
+78
+00:07:09,670 --> 00:07:17,980
+what happens behind the scenes is it's almost like I'm calling this function card and it returns a custom
+
+79
+00:07:18,100 --> 00:07:27,270
+HTML element based on my instructions. But when we take a look at these custom React components, we can
+
+80
+00:07:27,270 --> 00:07:33,390
+pass properties using very similar syntax to what you saw over here.
+
+81
+00:07:33,810 --> 00:07:41,520
+So if I go ahead and cut this input out of my index.html and I paste it down here just below my
+
+82
+00:07:41,520 --> 00:07:48,640
+card, you can see that with our card component we can do exactly the same thing.
+
+83
+00:07:48,660 --> 00:07:58,440
+So I can pass my card a value, for example name, and I can set that equal to Beyonce for example. And
+
+84
+00:07:58,500 --> 00:08:07,110
+when this card component gets created, it will have a property called name that's set to equal to Beyonce
+
+85
+00:08:07,110 --> 00:08:14,910
+And we can get hold of it by adding a name to the inputs to access those things that are sent over.
+
+86
+00:08:15,480 --> 00:08:23,250
+And it's customary to call this props. For example inside this function I can console log the value of
+
+87
+00:08:23,250 --> 00:08:30,270
+props and if I hit save and we take a look in our console, you can see that it receives an object.
+
+88
+00:08:30,270 --> 00:08:36,429
+And currently the object just has one property with a value set to Beyonce.
+
+89
+00:08:37,020 --> 00:08:45,540
+So what this means is that in fact, we can actually completely remove all of these hard coded parts of
+
+90
+00:08:45,600 --> 00:08:52,700
+our React Components and instead rely on inserting the values of these props.
+
+91
+00:08:52,740 --> 00:09:00,770
+So I could say props.name which I know to be the property that I sent over and it's equal to 
+
+92
+00:09:00,770 --> 00:09:01,650
+Beyonce.
+
+93
+00:09:02,100 --> 00:09:10,320
+And now what I can do is I can for example copy the source and add that as a property. So I'll create
+
+94
+00:09:10,320 --> 00:09:19,210
+a new property called image and set it to equal the URL of that image. I will create a property called
+
+95
+00:09:19,360 --> 00:09:28,920
+tel for telephone and I'll set it equal to that number. And I'll also create a property called
+
+96
+00:09:28,930 --> 00:09:33,990
+email which I'll set equal to that made up email.
+
+97
+00:09:33,990 --> 00:09:42,300
+So now inside our card component I can access that object called props which has all of these properties
+
+98
+00:09:42,300 --> 00:09:49,900
+passed in as an object and I can tap into each of these properties as long as I know what they are called.
+
+99
+00:09:49,950 --> 00:09:56,940
+So the source was stored inside a property called img, so I can write props.img.
+
+100
+00:09:57,600 --> 00:10:04,800
+But remember that this is Javascript and we're inside an beyondelement inside our JSX file.
+
+101
+00:10:04,890 --> 00:10:13,050
+So be sure to enclose it in a set of curly braces if you want it to be interpreted as Javascript.
+
+102
+00:10:13,050 --> 00:10:16,670
+Next I've got my props.
+
+103
+00:10:16,710 --> 00:10:23,260
+tel and my props.email.
+
+104
+00:10:23,470 --> 00:10:27,700
+So I've ended up with exactly the same card as before
+
+105
+00:10:27,700 --> 00:10:34,840
+but the crucial difference is that this card no longer contains any Beyonce specific information.
+
+106
+00:10:34,840 --> 00:10:43,440
+And what I can do now is I can create as many of these cards as I need with different pieces of information.
+
+107
+00:10:43,720 --> 00:10:51,850
+And I want to pose this as a challenge to you. Go ahead and try to create another card with an imaginary
+
+108
+00:10:51,850 --> 00:10:58,180
+contact if you wish or a real contact even, and see if you can add a second card to our website.
+
+109
+00:10:58,180 --> 00:11:03,640
+That second card should appear just below Beyonce but it should have a different name, a different
+
+110
+00:11:03,700 --> 00:11:10,210
+image, email and phone number. Pause the video now and see if you can successfully reuse our custom card
+
+111
+00:11:10,210 --> 00:11:14,410
+component.
+
+112
+00:11:14,660 --> 00:11:14,960
+All right.
+
+113
+00:11:14,990 --> 00:11:20,170
+So I'm going to create another card and this is a self closing tag with no children.
+
+114
+00:11:20,390 --> 00:11:23,540
+And I'm going to add some properties.
+
+115
+00:11:23,630 --> 00:11:31,300
+And remember that because inside our card function it's looking for these properties name, image,
+
+116
+00:11:31,310 --> 00:11:35,540
+tel, email. We have to keep it consistent in between the cards.
+
+117
+00:11:35,630 --> 00:11:39,580
+So let's say that name is Jack Bauer.
+
+118
+00:11:39,620 --> 00:11:45,460
+Img is equal to some sort of image that I find online.
+
+119
+00:11:45,680 --> 00:11:54,500
+And then we've got tel which will set equal to some random numbers and email we'll set equal to
+
+120
+00:11:58,360 --> 00:11:59,130
+so perfect.
+
+121
+00:11:59,140 --> 00:12:07,750
+We've now got two cards with completely different information and we're able to reuse this card component
+
+122
+00:12:08,110 --> 00:12:11,550
+with all of its structure as well as styling if you wish.
+
+123
+00:12:11,560 --> 00:12:18,330
+So these could actually have class names associated with them or inline styling if you wish
+
+124
+00:12:18,430 --> 00:12:26,890
+but all we need to do here in our render function is to provide the customized pieces of data and everything
+
+125
+00:12:26,890 --> 00:12:31,900
+that stays the same lives inside this card component.
+
+126
+00:12:31,990 --> 00:12:39,070
+So now as you can imagine, if you wanted a contact list with many many people, you can simply just reuse
+
+127
+00:12:39,130 --> 00:12:41,780
+your card component.
+
+128
+00:12:42,140 --> 00:12:44,090
+And this brings us to a good point.
+
+129
+00:12:44,150 --> 00:12:51,170
+If you remember previously, I said that if you had a style let's say let's just give it a class name
+
+130
+00:12:51,630 --> 00:13:00,860
+let's just call it my style, and all it does is changes the text color to red and we save that CSS file
+
+131
+00:13:01,160 --> 00:13:04,610
+and we go back into our React code,
+
+132
+00:13:04,610 --> 00:13:10,460
+you can see that if I was to add that class to my div for example.
+
+133
+00:13:10,550 --> 00:13:19,070
+So I'll say className = "my-style" and I hit save and refresh my websites,
+
+134
+00:13:19,130 --> 00:13:28,100
+all the text inside that div has been changed to red right? But I can't do the same thing inside my custom
+
+135
+00:13:28,160 --> 00:13:29,620
+card component.
+
+136
+00:13:29,690 --> 00:13:36,920
+I can't for example add the class name attribute and then apply my-style. Even if I refresh a million
+
+137
+00:13:36,920 --> 00:13:37,370
+times
+
+138
+00:13:37,370 --> 00:13:38,510
+it's still not going to work.
+
+139
+00:13:39,080 --> 00:13:46,730
+And this is because inside our custom components, it sees each of these as a custom property.
+
+140
+00:13:46,730 --> 00:13:52,280
+So it thinks that you're making up a name called className and you would like to access it inside this
+
+141
+00:13:52,370 --> 00:13:59,990
+card component under the props object instead of seeing it as an HTML attribute.
+
+142
+00:13:59,990 --> 00:14:08,210
+So whenever you're using HTML predetermined attributes, they always have to go into the HTML elements which
+
+143
+00:14:08,270 --> 00:14:12,450
+are highlighted in different color and also they're in lower case.
+
+144
+00:14:12,470 --> 00:14:19,730
+So this is the reason why we can't do that. But inside our custom components, we can create any name we
+
+145
+00:14:19,730 --> 00:14:24,050
+want and associate it with any value we need.
+
+146
+00:14:24,050 --> 00:14:32,750
+So it's almost like we're calling this card function and passing over an object through the input called
+
+147
+00:14:32,750 --> 00:14:33,500
+props.
+
+148
+00:14:33,680 --> 00:14:42,500
+And then inside the function we, use those inputs to customize this HTML element and then we return
+
+149
+00:14:42,500 --> 00:14:50,980
+it and output it into our DOM to be seen on the website. In summary with HTML attributes,
+
+150
+00:14:51,040 --> 00:14:58,870
+we have the HTML tag and then we have a space and we get to use these predetermined fixed name attributes
+
+151
+00:14:58,870 --> 00:15:01,390
+such as id or place holder or value.
+
+152
+00:15:01,480 --> 00:15:05,810
+And these of course depend on the actual element that we're using.
+
+153
+00:15:06,160 --> 00:15:12,160
+And when we use these attributes, we can pass in some custom data. And that data can then be accessed
+
+154
+00:15:12,250 --> 00:15:20,650
+on the element by tapping into say the .id or .placeholder or .value properties.
+
+155
+00:15:20,650 --> 00:15:25,390
+Now when it comes to React, what we have is a very similar structure.
+
+156
+00:15:25,450 --> 00:15:33,850
+So we have our custom components and we can create as many of these properties or props as we wish, we
+
+157
+00:15:33,850 --> 00:15:35,950
+can name them anything we like.
+
+158
+00:15:35,950 --> 00:15:36,970
+They're not fixed.
+
+159
+00:15:37,000 --> 00:15:39,370
+Nobody has defined them ahead of time.
+
+160
+00:15:39,400 --> 00:15:47,110
+In fact you are the one that's creating this custom card element and you get to specify which attributes
+
+161
+00:15:47,140 --> 00:15:48,570
+or properties they should have.
+
+162
+00:15:49,060 --> 00:15:55,810
+But these values for each of these properties then gets passed along when this card component is created.
+
+163
+00:15:55,870 --> 00:16:04,780
+And when we output this HTML element we can incorporate those properties into the creation of that element.
+
+164
+00:16:04,780 --> 00:16:08,780
+And it's usually via an input called props.
+
+165
+00:16:09,070 --> 00:16:15,190
+So the easiest way to imagine it is just simply that you're creating a new Javascript object with these
+
+166
+00:16:15,250 --> 00:16:22,960
+key and value pairs and then that whole object gets sent over as the props object and then you can tap
+
+167
+00:16:22,960 --> 00:16:25,270
+into it using .name, .telephone,
+
+168
+00:16:25,270 --> 00:16:31,300
+as long as they match up with the names in your component element. In the next lesson, we're going to
+
+169
+00:16:31,300 --> 00:16:37,480
+test out your understanding of props and you're going to be using everything you learn here to complete
+
+170
+00:16:37,570 --> 00:16:43,950
+a challenge and build out a fully fledged contacts app. So for all of that and more, I'll see you there.
+

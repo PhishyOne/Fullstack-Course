@@ -1,0 +1,120 @@
+1
+00:00:00,850 --> 00:00:01,170
+All right.
+
+2
+00:00:01,180 --> 00:00:06,430
+We're going to get started by building our first Defi or decentralized finance app.
+
+3
+00:00:07,030 --> 00:00:12,610
+And in the process, we're going to learn how to program for the Internet computer using the Motoko
+
+4
+00:00:12,610 --> 00:00:13,170
+language.
+
+5
+00:00:14,140 --> 00:00:20,200
+The project that we're going to be building is somewhat inspired by the compound protocol, which is
+
+6
+00:00:20,200 --> 00:00:25,780
+what's called a money market protocol. Basically compound that allows people to lend and borrow their
+
+7
+00:00:25,780 --> 00:00:26,440
+tokens.
+
+8
+00:00:26,590 --> 00:00:32,800
+So, for example, people can supply their ether and earn a little bit of interest on it, or people
+
+9
+00:00:32,800 --> 00:00:38,950
+can borrow a token, say the chainlink token, and bet that the tokens price will have gone down by
+
+10
+00:00:38,950 --> 00:00:40,420
+the time they repay their loan.
+
+11
+00:00:40,870 --> 00:00:45,910
+Essentially, compound will collect the interest paid by the borrowers and pay out that interest to
+
+12
+00:00:45,910 --> 00:00:49,930
+the lenders of that token while also taking a small fee for the service.
+
+13
+00:00:50,470 --> 00:00:55,210
+So for our first project, we're going to write the code to earn interest on a token balance in the
+
+14
+00:00:55,210 --> 00:00:55,630
+token.
+
+15
+00:00:56,290 --> 00:00:58,330
+So what is Motoko?
+
+16
+00:00:59,110 --> 00:01:01,480
+Nope, we're not talking about Ghost in the Shell here.
+
+17
+00:01:01,480 --> 00:01:07,150
+We're actually talking about a programming language that was designed and created by the Dfinity team,
+
+18
+00:01:07,480 --> 00:01:12,700
+led by Andreas Rossberg, who was one of the original co-creators of Webassembly.
+
+19
+00:01:13,210 --> 00:01:19,150
+Motoko was designed to be a modern, general purpose programming language, and it's a language that
+
+20
+00:01:19,150 --> 00:01:24,580
+you can use specifically to create Internet computer smart contracts.
+
+21
+00:01:24,850 --> 00:01:31,210
+And as we start using it, you'll notice that there's a lot of similarities to other programming languages
+
+22
+00:01:31,210 --> 00:01:38,410
+that you might already know for example, JavaScript or Swift or TypeScript or C# or Java.
+
+23
+00:01:38,950 --> 00:01:45,490
+And as we start building more applications using Motoko, you can see that it's pretty easy to switch
+
+24
+00:01:45,490 --> 00:01:48,820
+over from whichever programming language you've learned before.
+
+25
+00:01:49,270 --> 00:01:54,940
+And hey, as programmers, there's constantly new programming languages, new programming paradigms
+
+26
+00:01:54,940 --> 00:01:56,140
+that we have to pick up on.
+
+27
+00:01:56,500 --> 00:02:03,490
+And it's a great exercise in your program, the flexibility to be able to learn new languages quickly
+
+28
+00:02:03,490 --> 00:02:04,330
+and adapt to them.
+
+29
+00:02:04,840 --> 00:02:10,630
+Once you're ready, head over to the next lesson and we're going to get started learning all about Motoko
+
+30
+00:02:10,630 --> 00:02:16,000
+and how to build our very own decentralized application on ICP.
+

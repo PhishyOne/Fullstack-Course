@@ -1,0 +1,376 @@
+1
+00:00:00,390 --> 00:00:06,540
+All right, I hope you gave this challenge a good go before coming over to the solution. And it's because
+
+2
+00:00:06,540 --> 00:00:11,750
+you only really learn when you try and fail and go through challenges like this.
+
+3
+00:00:12,180 --> 00:00:15,150
+So if you haven't given enough time, stop.
+
+4
+00:00:15,270 --> 00:00:16,070
+Think about it.
+
+5
+00:00:16,230 --> 00:00:17,880
+Wait. Come back to it.
+
+6
+00:00:18,300 --> 00:00:24,290
+And only if you get really stuck, then come over here and check through the solution with me.
+
+7
+00:00:24,690 --> 00:00:30,450
+Now, I'm going to be working off the flowchart that I showed you previous to the challenge.
+
+8
+00:00:30,780 --> 00:00:34,650
+So we're going to be converting all of this logic into code.
+
+9
+00:00:35,220 --> 00:00:40,180
+So to begin, we start out with an output that's equal to an empty array.
+
+10
+00:00:40,860 --> 00:00:42,690
+So let's write that in our code.
+
+11
+00:00:43,050 --> 00:00:50,400
+So let's create some sort of variable called output and we can set that to an empty array with nothing
+
+12
+00:00:50,400 --> 00:00:50,970
+inside.
+
+13
+00:00:51,750 --> 00:00:57,480
+Now, the next step is we have to check whether if n is equal to 1. And if so, we're going to give
+
+14
+00:00:57,480 --> 00:00:59,270
+the output as 0.
+
+15
+00:00:59,820 --> 00:01:08,550
+So to do that, we'll use an if statement to check if this n that's being passed in is equal to 1.
+
+16
+00:01:09,090 --> 00:01:16,600
+And if so, then we're going to say that output is going to be equal to just [0].
+
+17
+00:01:16,860 --> 00:01:23,640
+So this is the first item in the sequence and then we can go ahead and return the output.
+
+18
+00:01:24,330 --> 00:01:30,840
+Now, the next step in our flowchart is, well, if it wasn't equal to 1, then is it equal to 2?
+
+19
+00:01:31,380 --> 00:01:35,390
+And if so, then the output should be [0, 1].
+
+20
+00:01:35,940 --> 00:01:44,100
+So we can represent this logic by using an else if. Remember that else if only gets checked if the first
+
+21
+00:01:44,100 --> 00:01:45,600
+one was false.
+
+22
+00:01:46,290 --> 00:01:47,730
+So now we can check
+
+23
+00:01:47,740 --> 00:01:51,000
+well, if it's not equal to 1, well, is it equal to 2?
+
+24
+00:01:51,690 --> 00:01:59,940
+So if it is, then we're going to set the output to equal [0, 1] stored inside an array, and
+
+25
+00:01:59,940 --> 00:02:02,490
+again, it will be returned at the end.
+
+26
+00:02:03,240 --> 00:02:10,650
+Now, finally, if it's not 1 and it's not 2, well, then we have to sum the last two values in
+
+27
+00:02:10,650 --> 00:02:16,250
+the output. So we can catch that final condition using an else statement.
+
+28
+00:02:16,800 --> 00:02:24,780
+And inside here, we're going to set the output to equal to [0, 1]  to begin, because this is
+
+29
+00:02:24,780 --> 00:02:26,220
+the start of our sequence,
+
+30
+00:02:26,790 --> 00:02:30,030
+and then we're going to sum the last two values.
+
+31
+00:02:30,540 --> 00:02:37,340
+And we can do that by reaching into the outputs and getting hold of the first value,
+
+32
+00:02:37,350 --> 00:02:46,680
+so output [0], which is this one. And then we add that to the output[1].
+
+33
+00:02:47,550 --> 00:02:56,190
+So now we're basically adding this first item to the second item and this should equal 1, and that
+
+34
+00:02:56,190 --> 00:03:00,290
+should be somehow added to the end of this existing array.
+
+35
+00:03:00,900 --> 00:03:07,560
+And if you remember from previous lessons on arrays, we can do that by saying output.push. And
+
+36
+00:03:07,560 --> 00:03:16,380
+we can wrap this calculation inside parentheses and we will end up adding this solution to the existing
+
+37
+00:03:16,380 --> 00:03:16,860
+array.
+
+38
+00:03:17,160 --> 00:03:26,430
+And at this point, the output should now look like [0, 1, 1] and it will get returned.
+
+39
+00:03:26,880 --> 00:03:32,240
+Now we have to check whether if n equals the number of items in the output.
+
+40
+00:03:32,730 --> 00:03:41,640
+So we could do this using another if statement, and we could say if n triple equals output length, then
+
+41
+00:03:41,640 --> 00:03:45,420
+we can go ahead and return the output.
+
+42
+00:03:45,690 --> 00:03:52,830
+But otherwise, we have to continue to add the last two items together.
+
+43
+00:03:53,100 --> 00:04:01,890
+So how could we change our code here so that instead of manually saying it's the item from the
+
+44
+00:04:01,890 --> 00:04:09,540
+output array position 0, this one, plus the item at position 1, this one.
+
+45
+00:04:10,020 --> 00:04:16,350
+How can we say instead that we want to get the last item plus the second from the last item?
+
+46
+00:04:17,160 --> 00:04:19,700
+Well, we could use the length.
+
+47
+00:04:20,040 --> 00:04:23,810
+So in this case, output.length is going to be equal to 2.
+
+48
+00:04:24,330 --> 00:04:29,820
+So if we wanted this to be 1, then we could say output.length
+
+49
+00:04:31,040 --> 00:04:40,160
+- 1, and then we have our second from the end, which is going to be output.length - 2.
+
+50
+00:04:41,330 --> 00:04:43,640
+So this still works exactly the same
+
+51
+00:04:44,060 --> 00:04:52,190
+but now this line of code can work no matter the size of our array. Because even if it was this long,
+
+52
+00:04:52,520 --> 00:04:55,880
+output.length at this point is going to be equal to 4.
+
+53
+00:04:56,390 --> 00:04:59,410
+So 4 - 1 is going to be 3
+
+54
+00:04:59,780 --> 00:05:02,120
+so this becomes 3.
+
+55
+00:05:02,570 --> 00:05:08,830
+And if we look at the item at position 3 in our array, it's 0, 1, 2, 3
+
+56
+00:05:08,840 --> 00:05:18,220
+so it's this last item. And - 2 makes it 2, and 0, 1, 2 becomes the second from the last item.
+
+57
+00:05:18,230 --> 00:05:20,220
+So we're adding 1 + 2 here.
+
+58
+00:05:20,780 --> 00:05:28,060
+So this line of code now makes it dynamic and we could now use it inside our else statement.
+
+59
+00:05:28,250 --> 00:05:32,020
+But notice how these two lines of code are now repeating.
+
+60
+00:05:32,480 --> 00:05:39,230
+And also when we get to the end of the else statement, we have no way of going back to the beginning to
+
+61
+00:05:39,230 --> 00:05:41,900
+check if the n is equal to output.length
+
+62
+00:05:41,900 --> 00:05:44,380
+again, like what is required here.
+
+63
+00:05:44,780 --> 00:05:51,050
+Given how much this looks like a circle, it should remind you that we need to use a loop.
+
+64
+00:05:51,560 --> 00:05:56,570
+So instead of writing all of this, we could just simply create a loop.
+
+65
+00:05:57,200 --> 00:06:01,460
+And the type of loop that I'm going to create in this case is a for loop.
+
+66
+00:06:01,970 --> 00:06:09,080
+So I'm going to say let's create a variable inside the for loop that's set to equal 2, so the existing
+
+67
+00:06:09,080 --> 00:06:11,090
+number of items in our output.
+
+68
+00:06:11,870 --> 00:06:21,230
+And then we're going to use a semicolon and say that while i is less than n, the total number of items
+
+69
+00:06:21,230 --> 00:06:28,040
+we need in our output, continue to increase i by 1. And every single time
+
+70
+00:06:28,430 --> 00:06:36,230
+what you want to do is to do this to get the last item from the outputs, to get the second from the
+
+71
+00:06:36,230 --> 00:06:45,110
+last item from the output, add them together and then push it onto our array. And finally return the
+
+72
+00:06:45,110 --> 00:06:45,620
+output.
+
+73
+00:06:46,130 --> 00:06:52,240
+So now let's take our fibonacciGenerator and then paste it into our Repl.it playground.
+
+74
+00:06:52,850 --> 00:06:58,820
+And now let's go ahead and try to run our code by calling the fibonacciGenerator.
+
+75
+00:06:59,120 --> 00:07:01,160
+And let's just start off with something quite simple.
+
+76
+00:07:01,160 --> 00:07:03,530
+Let's start with n = 1.
+
+77
+00:07:04,280 --> 00:07:07,980
+Now, if I hit run in the output, I get [0].
+
+78
+00:07:08,810 --> 00:07:14,090
+If I change this to 2 in the output, I get [0, 1].
+
+79
+00:07:14,810 --> 00:07:23,480
+And if I change this to 5 in the output, I get a five-item sequence in an array.
+
+80
+00:07:24,140 --> 00:07:30,290
+So now that we've confirmed that our code works, let's go ahead and click check solution to see if
+
+81
+00:07:30,290 --> 00:07:30,980
+we got it right.
+
+82
+00:07:31,400 --> 00:07:31,790
+Brilliant.
+
+83
+00:07:31,820 --> 00:07:33,730
+So now we've passed this challenge.
+
+84
+00:07:34,400 --> 00:07:36,160
+How did you get on with this challenge?
+
+85
+00:07:36,560 --> 00:07:44,000
+Did you struggle with maybe using some of the array methods or did you remember to use a loop so that
+
+86
+00:07:44,000 --> 00:07:47,610
+it goes around and around and does the same action repeatedly?
+
+87
+00:07:48,230 --> 00:07:52,010
+Now, remember that there's many, many ways of solving this challenge.
+
+88
+00:07:52,010 --> 00:07:53,660
+You could have used a while loop,
+
+89
+00:07:54,020 --> 00:07:58,460
+you could have done something fancy instead of using many ifs and else ifs.
+
+90
+00:07:58,910 --> 00:08:00,560
+There's a lot of ways.
+
+91
+00:08:00,710 --> 00:08:06,950
+But as long as your output satisfies the criteria that we set out in the challenge, then it doesn't
+
+92
+00:08:06,950 --> 00:08:08,410
+matter which way you chose.
+
+93
+00:08:08,990 --> 00:08:15,290
+In fact, at this stage, as long as your solution makes sense to you, then that will be the perfect
+
+94
+00:08:15,290 --> 00:08:15,950
+solution.
+

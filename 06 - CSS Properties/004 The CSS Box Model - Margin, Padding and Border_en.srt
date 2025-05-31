@@ -1,0 +1,920 @@
+1
+00:00:00,350 --> 00:00:00,980
+Hey, guys.
+
+2
+00:00:00,980 --> 00:00:07,190
+In this lesson, we're going to talk about some other really important properties and they're ones that
+
+3
+00:00:07,190 --> 00:00:12,140
+you might have already seen if you've been doing a little bit of inspection around the Internet.
+
+4
+00:00:12,140 --> 00:00:19,670
+And these are margin, padding, and the border properties and these three properties, along with width
+
+5
+00:00:19,670 --> 00:00:25,760
+and height, form a really important CSS concept known as the box model.
+
+6
+00:00:25,760 --> 00:00:27,830
+So what exactly is it?
+
+7
+00:00:27,860 --> 00:00:33,110
+Well, if you think about a typical website here, I've created one called I Love Bacon,
+
+8
+00:00:33,140 --> 00:00:38,000
+then you've got different components that are on screen, different HTML elements.
+
+9
+00:00:38,000 --> 00:00:46,820
+And even though we can't really see it, effectively each element is a box in itself, and we can change
+
+10
+00:00:46,820 --> 00:00:51,110
+the dimensions of those boxes by changing things such as width and height.
+
+11
+00:00:51,110 --> 00:00:54,230
+So in this case, I've made my bacon much, much bigger.
+
+12
+00:00:54,230 --> 00:01:00,290
+And that invisible box around the element describes how it would be laid out on screen.
+
+13
+00:01:00,290 --> 00:01:06,980
+If we have an element that has a height of 300 pixels, we can change that height to allow our element
+
+14
+00:01:06,980 --> 00:01:10,100
+to take up more vertical spacing on the web page.
+
+15
+00:01:10,130 --> 00:01:18,020
+And when this happens, it pushes the box of any other elements lower on the web page.
+
+16
+00:01:18,380 --> 00:01:24,470
+Now, similarly, we can also change the width of an element to allow it to take up more space horizontally,
+
+17
+00:01:24,470 --> 00:01:31,280
+a nd we can either do this using pixels as defined here or we can use percentages.
+
+18
+00:01:31,280 --> 00:01:38,390
+So in this case, we've gotten our blue element to take up the entire width of the website and that
+
+19
+00:01:38,390 --> 00:01:43,580
+can be done using percentages. In addition to width and height,
+
+20
+00:01:43,610 --> 00:01:48,500
+we can also set a border on each of the HTML elements.
+
+21
+00:01:48,500 --> 00:01:55,250
+If you imagine, again each HTML element being a box, then this would be the border of the box.
+
+22
+00:01:55,970 --> 00:02:01,950
+And the way that the border property works is a little bit different from what you might have seen before.
+
+23
+00:02:02,070 --> 00:02:07,650
+It can take three values separated by a space.
+
+24
+00:02:07,860 --> 00:02:13,680
+The first value that you should provide is the thickness of the border,
+
+25
+00:02:14,190 --> 00:02:18,510
+and this, as you can see here, is the thickness of this line.
+
+26
+00:02:18,510 --> 00:02:21,720
+If I made it thicker, then it would look like this.
+
+27
+00:02:21,720 --> 00:02:26,910
+And so we can provide a pixel value for the thickness as the first item.
+
+28
+00:02:27,090 --> 00:02:31,140
+Now, the second item is the style of the border.
+
+29
+00:02:31,170 --> 00:02:37,440
+You can have, for example, solid, but you can also have a dashed line, in which case the border
+
+30
+00:02:37,440 --> 00:02:43,710
+would look something like this instead of a solid line as we've gotten here.
+
+31
+00:02:44,700 --> 00:02:52,500
+And finally, we've got the color of the border in which you can set to any named color or hex color
+
+32
+00:02:52,500 --> 00:02:59,400
+as we've covered in the color properties lesson. These are three items together determine what the
+
+33
+00:02:59,400 --> 00:03:01,790
+border should look like.
+
+34
+00:03:01,790 --> 00:03:09,380
+So if I was to change the border from 10px to 30px, then we would get a lot thicker of a
+
+35
+00:03:09,380 --> 00:03:10,040
+border,
+
+36
+00:03:10,040 --> 00:03:18,350
+but remember, the important thing is that the height and the width of your HTML element, your box
+
+37
+00:03:18,350 --> 00:03:19,840
+does not change.
+
+38
+00:03:19,850 --> 00:03:23,870
+It's exactly the same as what it was before.
+
+39
+00:03:23,870 --> 00:03:28,580
+So this border actually goes outwards rather than inwards
+
+40
+00:03:28,580 --> 00:03:31,100
+and that's the important thing to remember here.
+
+41
+00:03:32,030 --> 00:03:38,780
+Now, once you've defined a border, you can further modify it with more specific rules.
+
+42
+00:03:38,780 --> 00:03:46,430
+So, for example, in this case, I've got a around 30px solid black border around my element.
+
+43
+00:03:46,430 --> 00:03:53,270
+But then afterwards on the next line and this is very important where this line goes, it has to go
+
+44
+00:03:53,270 --> 00:03:55,730
+after the point where we've created the border.
+
+45
+00:03:56,240 --> 00:04:02,550
+In this case, I'm saying I want the top of that border to be 0px instead.
+
+46
+00:04:02,550 --> 00:04:09,030
+Well, the way that these rules are evaluated is first they will look at this line creating this
+
+47
+00:04:09,030 --> 00:04:11,970
+border, which is 30 pixels all around,
+
+48
+00:04:11,970 --> 00:04:18,480
+but then once it lands on the next line, it evaluates this rule and sees that actually I should amend
+
+49
+00:04:18,510 --> 00:04:21,570
+the top of the border to have zero pixels.
+
+50
+00:04:21,570 --> 00:04:25,770
+So effectively getting rid of the border at the top here.
+
+51
+00:04:26,520 --> 00:04:33,270
+This border width works similarly to the way that the border property works, namely that it can take
+
+52
+00:04:33,270 --> 00:04:35,970
+a maximum of four values.
+
+53
+00:04:36,000 --> 00:04:45,570
+The first value is the top, the second is the right, third is the bottom, and the fourth is the left.
+
+54
+00:04:45,600 --> 00:04:48,930
+It goes in a clockwise direction.
+
+55
+00:04:49,110 --> 00:04:54,690
+In addition, you can also just provide two values for the border width.
+
+56
+00:04:54,720 --> 00:04:59,790
+And what that does is it sets one and three,
+
+57
+00:05:00,040 --> 00:05:03,460
+and then it sets two and four.
+
+58
+00:05:03,700 --> 00:05:12,940
+For example, if my border width, I had set to 0px and 20px, then what that would do
+
+59
+00:05:12,940 --> 00:05:19,720
+is it would set two and four, which is the left and right, to 20px , and then it would set one
+
+60
+00:05:19,720 --> 00:05:21,700
+and three to 0px.
+
+61
+00:05:21,730 --> 00:05:24,850
+This then becomes top and bottom.
+
+62
+00:05:26,190 --> 00:05:29,730
+And then we've got our left and right.
+
+63
+00:05:31,560 --> 00:05:37,530
+Now, another property I want to talk about in regards to the box model is something called padding.
+
+64
+00:05:37,530 --> 00:05:41,760
+And this is most easily seen when we have content such as text.
+
+65
+00:05:41,850 --> 00:05:48,210
+So in this case, imagine that this blue box is a paragraph element.
+
+66
+00:05:48,300 --> 00:05:53,460
+And in the paragraph element we've got "Hello world" repeated many, many times.
+
+67
+00:05:53,610 --> 00:06:02,070
+This paragraph element has got a border property and it's a solid black border, measuring 30px
+
+68
+00:06:02,070 --> 00:06:03,120
+wide all around.
+
+69
+00:06:04,160 --> 00:06:14,030
+If at this point I add a padding property to this element, then what would happen is it would push
+
+70
+00:06:14,030 --> 00:06:18,770
+my border out by 20px.
+
+71
+00:06:18,770 --> 00:06:23,900
+And in this case, I'm pushing it by 20 on all sides.
+
+72
+00:06:24,260 --> 00:06:33,260
+And notice how, again, in this situation, the height and the width of this box does not change,
+
+73
+00:06:33,260 --> 00:06:34,690
+it's still the same.
+
+74
+00:06:34,700 --> 00:06:43,190
+The padding simply adds this padding or space between the element and the border.
+
+75
+00:06:43,880 --> 00:06:48,180
+In addition to the padding, there's also something known as a margin.
+
+76
+00:06:48,200 --> 00:06:54,330
+And the margin is actually the part that's outside of the border.
+
+77
+00:06:54,350 --> 00:07:03,170
+So here again is the border, in between the border and the width and height of the element,
+
+78
+00:07:03,860 --> 00:07:12,680
+is the padding and the part between the border and any other content that's on the screen is the margin.
+
+79
+00:07:12,680 --> 00:07:18,410
+So in this case, we've added a margin of 10px  on all four sides.
+
+80
+00:07:19,010 --> 00:07:27,170
+If you imagine, we had two elements, each with the same padding, margin and border, then this margin
+
+81
+00:07:27,170 --> 00:07:35,060
+or this distance between the two elements in this case will actually be 20px because it's 10px
+
+82
+00:07:35,060 --> 00:07:37,700
+from this side and 10px from this side.
+
+83
+00:07:37,700 --> 00:07:43,390
+And it adds this spacing between elements that you would not get with the padding.
+
+84
+00:07:43,400 --> 00:07:45,980
+So that is the main difference.
+
+85
+00:07:47,020 --> 00:07:56,530
+In your CSS inspection, you might have seen the box model already shown in the CSS inspector, and it shows
+
+86
+00:07:56,530 --> 00:08:01,090
+you the margin, the border, the padding and the width and height.
+
+87
+00:08:01,180 --> 00:08:05,330
+So that's what all of these different colors represent.
+
+88
+00:08:05,350 --> 00:08:13,450
+And when you take a look at the box model on inspection, then you can actually change each of these
+
+89
+00:08:13,450 --> 00:08:18,460
+values to see how it would look differently. If you head over to this address,
+
+90
+00:08:18,490 --> 00:08:25,960
+appbrewery.github.io/box-model/, and then we go ahead and open up the Developer tools
+
+91
+00:08:25,960 --> 00:08:34,690
+and we select on the first image here, which shows a daytime world and we go into the box model that's
+
+92
+00:08:34,690 --> 00:08:36,390
+under the Styles tab.
+
+93
+00:08:36,400 --> 00:08:43,720
+If I go ahead and add a margin right here, let's say, I don't know, 100 pixels, then it's going
+
+94
+00:08:43,720 --> 00:08:45,220
+to add that gap.
+
+95
+00:08:45,220 --> 00:08:50,630
+Did you see it just now? That gap between that image and anything that's below it.
+
+96
+00:08:50,780 --> 00:09:00,470
+And similarly, if I add a little bit of a margin above, say, 100 pixels, then you can see it adds
+
+97
+00:09:00,470 --> 00:09:05,840
+a gap between that image and the next element above, which is that paragraph tag.
+
+98
+00:09:05,930 --> 00:09:14,720
+However, if I added the padding as 100 pixels, then you'll see it add the space as well
+
+99
+00:09:14,720 --> 00:09:19,520
+but it's actually inside the border of the image.
+
+100
+00:09:20,030 --> 00:09:30,200
+If this element actually had a border which will set as a 10px solid black, then you can see
+
+101
+00:09:30,200 --> 00:09:35,060
+how that padding goes to a different place versus where the border goes.
+
+102
+00:09:35,060 --> 00:09:41,960
+And this box model is going to come really, really handy when you start to try and lay out different
+
+103
+00:09:41,960 --> 00:09:48,290
+items on your website determining how they look and where they're placed relative to each other.
+
+104
+00:09:48,620 --> 00:09:57,350
+The final thing I wanted to mention is that padding and margin, similar to what we saw for the border
+
+105
+00:09:57,680 --> 00:10:07,460
+and also the border-width, function in that same way where we've got one, two, three and four values
+
+106
+00:10:07,460 --> 00:10:16,190
+that we can provide and if we provide a different value for each of them, so 0, 10, 20 and 30
+
+107
+00:10:16,190 --> 00:10:22,490
+pixels, then this will determine how it looks on all four sides.
+
+108
+00:10:22,490 --> 00:10:30,830
+And you have to remember that this is where the first value is, second, and it goes around in a clockwise
+
+109
+00:10:30,830 --> 00:10:31,790
+direction.
+
+110
+00:10:32,240 --> 00:10:37,460
+Again, with the border-width, you can change to only provide two values.
+
+111
+00:10:37,460 --> 00:10:47,390
+So say 10px and 40px, then this is going to be applied to the top and the bottom and also
+
+112
+00:10:47,390 --> 00:10:49,490
+the left and the right.
+
+113
+00:10:49,910 --> 00:10:57,980
+So this is just a particular way of how these three properties can accept multiple values.
+
+114
+00:10:57,980 --> 00:11:06,140
+If you only set one value, say 10px, then that's going to affect all sides. In addition to the
+
+115
+00:11:06,140 --> 00:11:13,670
+boxes that are created by elements, we can actually create our own boxes independent of that, and
+
+116
+00:11:13,670 --> 00:11:19,460
+that's really useful when we want to group different bits of content together so that we can style it
+
+117
+00:11:19,460 --> 00:11:20,030
+together,
+
+118
+00:11:20,030 --> 00:11:22,250
+or maybe we want to lay it out together.
+
+119
+00:11:22,250 --> 00:11:31,100
+For example, here we have an image and maybe I would want the image to have a caption and I would probably
+
+120
+00:11:31,100 --> 00:11:38,390
+want to style these two bits together so I can wrap a box around these two elements.
+
+121
+00:11:38,510 --> 00:11:46,130
+And the way that I would create these artificial boxes is through the use of a HTML element, which
+
+122
+00:11:46,130 --> 00:11:48,980
+is called the "Content Division Element."
+
+123
+00:11:48,980 --> 00:11:55,300
+There was no point in learning about the div element before we could learn about CSS because these are
+
+124
+00:11:55,300 --> 00:12:04,960
+completely invisible unless you apply CSS style to it and the whole purpose is to act as an invisible
+
+125
+00:12:04,990 --> 00:12:12,100
+box that can contain content in between the opening and the closing tags.
+
+126
+00:12:12,250 --> 00:12:20,290
+In the middle, we can put as many elements as we want and we can group them into separate boxes known
+
+127
+00:12:20,290 --> 00:12:21,640
+as "divs."
+
+128
+00:12:22,540 --> 00:12:30,640
+So here I've got the HTML code from that website I showed you earlier with the two versions of our world,
+
+129
+00:12:30,640 --> 00:12:32,980
+the Morning and the Evening View.
+
+130
+00:12:32,980 --> 00:12:38,620
+And it's really simple and I've only just taken the body section of the HTML.
+
+131
+00:12:38,620 --> 00:12:45,610
+But here notice that we've got a paragraph tag and an image tag and they're grouped together through
+
+132
+00:12:45,610 --> 00:12:46,060
+the use
+
+133
+00:12:46,260 --> 00:12:52,800
+of this div element and notice that the div element doesn't really do anything else other than act as
+
+134
+00:12:52,800 --> 00:13:00,690
+a container to group this section together so that it's separated from other content
+
+135
+00:13:00,690 --> 00:13:03,240
+for example, this section right here.
+
+136
+00:13:04,290 --> 00:13:11,400
+And now, we've not only added meaning to our HTML by saying this is one section of content and this is
+
+137
+00:13:11,400 --> 00:13:17,070
+another section of content, but in addition we can style them differently in CSS.
+
+138
+00:13:17,700 --> 00:13:21,210
+When we run our code, this is what the website would look like.
+
+139
+00:13:21,240 --> 00:13:29,220
+You would not see any of these div elements, but if we were able to see them then they would look like
+
+140
+00:13:29,220 --> 00:13:29,640
+this,
+
+141
+00:13:29,640 --> 00:13:35,010
+grouping our elements together because these divs are invisible,
+
+142
+00:13:35,010 --> 00:13:41,010
+sometimes it can be really hard to debug them and understand what's going on or more likely what's going
+
+143
+00:13:41,010 --> 00:13:42,690
+wrong with your CSS.
+
+144
+00:13:42,900 --> 00:13:50,640
+So there's a free Chrome extension that I recommend you download to make this process of debugging a
+
+145
+00:13:50,640 --> 00:13:54,510
+little bit easier and hence that's why it's called "Pesticide."
+
+146
+00:13:54,540 --> 00:13:57,630
+We're going to use it to get rid of bugs in our CSS.
+
+147
+00:13:58,200 --> 00:14:05,410
+I'll add a link to this Chrome extension and all you have to do is click, "Add to Chrome" and then "Add
+
+148
+00:14:05,410 --> 00:14:06,430
+extension."
+
+149
+00:14:06,430 --> 00:14:12,910
+And once you've got it, then you should be able to look inside your extensions and then open it up
+
+150
+00:14:12,910 --> 00:14:14,410
+to activate it.
+
+151
+00:14:14,440 --> 00:14:16,000
+Now what does it do?
+
+152
+00:14:16,030 --> 00:14:17,320
+Well, let's demo it.
+
+153
+00:14:17,410 --> 00:14:23,800
+In addition to the suite of developer tools you've got now, you've also got the Pesticide working for
+
+154
+00:14:23,800 --> 00:14:24,300
+you.
+
+155
+00:14:24,310 --> 00:14:32,950
+And once you activate it, you can see these div boxes now show up on screen and you can also see the
+
+156
+00:14:32,950 --> 00:14:38,890
+different elements highlighted in boxes and it really helps you diagnose what's wrong with your box
+
+157
+00:14:38,890 --> 00:14:40,750
+model when it does go wrong.
+
+158
+00:14:40,840 --> 00:14:46,360
+In addition, if you close down the Chrome developer tools and hold down the control key, when you
+
+159
+00:14:46,390 --> 00:14:53,980
+hover on each of these boxes down at the bottom of the screen, you can see how it tells you which node
+
+160
+00:14:53,980 --> 00:14:55,360
+you're actually hovering on.
+
+161
+00:14:55,360 --> 00:15:02,200
+So in this case, I'm inside a div and it shows you if there are any classes or IDs on that div as well.
+
+162
+00:15:02,200 --> 00:15:09,070
+And then here I'm hovering on an image element and here I'm hovering on a paragraph element and this
+
+163
+00:15:09,070 --> 00:15:15,850
+can be really helpful for you to see exactly what's on screen and almost like put on night vision goggles
+
+164
+00:15:15,850 --> 00:15:21,010
+so that we can see our divs, and our elements, and their alignment, and their sizing.
+
+165
+00:15:21,640 --> 00:15:27,090
+Finally, we're going to use everything that we've learned and put it all together in this exercise.
+
+166
+00:15:27,230 --> 00:15:30,070
+We're going to write some code and apply our knowledge.
+
+167
+00:15:30,250 --> 00:15:37,300
+Go ahead and download this zipped file from this current lesson, extract it and open it inside VS Code.
+
+168
+00:15:37,630 --> 00:15:43,930
+Now, once you've done that, open up the index.html and you should see a bunch of TODOs.
+
+169
+00:15:44,110 --> 00:15:50,800
+I want you to follow each of the steps one by one, just as if you were a web developer following client
+
+170
+00:15:50,800 --> 00:15:51,790
+instructions,
+
+171
+00:15:51,790 --> 00:15:57,250
+and we're going to use everything you've learned so far in order to create something that looks like
+
+172
+00:15:57,250 --> 00:15:57,860
+this.
+
+173
+00:15:57,880 --> 00:16:03,420
+Now, I've marked up this page a little bit so I can show you the important parts of the requirements.
+
+174
+00:16:03,430 --> 00:16:11,050
+For example, notice that here I've said 20 pixel padding, and that applies to the distance between
+
+175
+00:16:11,050 --> 00:16:14,110
+that paragraph tag and the border.
+
+176
+00:16:14,620 --> 00:16:20,740
+And then here I've said it should have a 20px border at the top and at the bottom, but then only
+
+177
+00:16:20,740 --> 00:16:23,560
+a 10px border on the left and the right.
+
+178
+00:16:23,680 --> 00:16:27,270
+And notice that the layout is very specific here.
+
+179
+00:16:27,280 --> 00:16:31,330
+Each of these boxes should be touching corner to corner.
+
+180
+00:16:31,330 --> 00:16:37,570
+So you're going to have to figure out how to use the margin property in order to push these boxes around
+
+181
+00:16:37,570 --> 00:16:42,400
+so that they're literally aligned right up to each other on the same pixel.
+
+182
+00:16:42,850 --> 00:16:50,200
+I'm going to leave you to pause the video and go through each of these requirements and hopefully you
+
+183
+00:16:50,200 --> 00:16:54,730
+will be able to create a website that looks like the goal image.
+
+184
+00:16:54,850 --> 00:16:58,930
+Pause the video now and complete this challenge.
+
+185
+00:17:01,460 --> 00:17:01,850
+All right.
+
+186
+00:17:01,850 --> 00:17:04,230
+So let's go through the solution together.
+
+187
+00:17:04,250 --> 00:17:12,319
+Now, the first thing you'll notice is we've created three divs and I've added a paragraph tag into
+
+188
+00:17:12,319 --> 00:17:16,490
+the first div so that we can see our padding a bit more easily.
+
+189
+00:17:16,790 --> 00:17:23,569
+The next thing is we've set each of the divs, a height and width to a pixel size, namely 200px.
+
+190
+00:17:23,900 --> 00:17:31,400
+Next I've added a paragraph element inside the first div so that we can see any padding that gets added
+
+191
+00:17:31,400 --> 00:17:32,600
+very easily.
+
+192
+00:17:32,810 --> 00:17:40,280
+And I've set the first div to have 20px of padding all around with a black px border and
+
+193
+00:17:40,280 --> 00:17:42,860
+that you can see under here.
+
+194
+00:17:42,950 --> 00:17:50,780
+Now notice how I've used different IDs for the different boxes or divs, and this way I can uniquely
+
+195
+00:17:50,780 --> 00:17:54,440
+identify each div and set different styling to them.
+
+196
+00:17:55,510 --> 00:17:56,410
+Next step,
+
+197
+00:17:56,410 --> 00:18:03,460
+I've targeted the paragraph element so that I remove any of the margins that go on it, because if we
+
+198
+00:18:03,460 --> 00:18:13,240
+preview our solution and open this up inside Chrome, you can see that by default, each paragraph element
+
+199
+00:18:13,240 --> 00:18:17,800
+actually gets 1em of margin at the start and the end.
+
+200
+00:18:17,800 --> 00:18:23,650
+So if I cancel this, you can see how it pushes that away from the containing div.
+
+201
+00:18:23,680 --> 00:18:29,380
+So we wanted to add the zero margin so that we would have it centered and it would not be affected by
+
+202
+00:18:29,380 --> 00:18:30,750
+its default styling.
+
+203
+00:18:30,760 --> 00:18:38,230
+Next, we had you set the second div to have a 20px border, top and bottom and 10px border, left
+
+204
+00:18:38,230 --> 00:18:39,250
+and right.
+
+205
+00:18:39,250 --> 00:18:46,510
+And if you remember from the lesson this is achieved through that multi-value method of setting
+
+206
+00:18:46,510 --> 00:18:46,870
+border-width.
+
+207
+00:18:46,870 --> 00:18:50,110
+So the first value is top and bottom.
+
+208
+00:18:50,110 --> 00:18:53,890
+And then after space we have the second value for the left and right.
+
+209
+00:18:53,890 --> 00:18:59,900
+And even if you hover over this, usually the code is quite helpful for pulling up the MDN reference on
+
+210
+00:18:59,900 --> 00:19:02,570
+this and it tells you how the rules work.
+
+211
+00:19:02,570 --> 00:19:03,980
+So that's a quick tip.
+
+212
+00:19:04,670 --> 00:19:11,900
+Finally, we set the third div to have a ten pixel border and I wanted you to set the margins so that
+
+213
+00:19:11,900 --> 00:19:14,360
+they would each touch corner to corner.
+
+214
+00:19:14,390 --> 00:19:18,020
+Now that could be done either by trial and error.
+
+215
+00:19:18,050 --> 00:19:24,290
+Alternatively, you can also work it out, because if you think about this first div right here, it's
+
+216
+00:19:24,290 --> 00:19:29,990
+got a width of 200px, so this part is 200.
+
+217
+00:19:29,990 --> 00:19:35,420
+But in addition, it's also got a border of 10px all around.
+
+218
+00:19:35,420 --> 00:19:39,590
+So then we have to add 10 and 10 here.
+
+219
+00:19:39,770 --> 00:19:42,590
+Now that takes us up to 220.
+
+220
+00:19:42,590 --> 00:19:47,060
+But in addition, remember that we added 20px of padding all around.
+
+221
+00:19:47,060 --> 00:19:51,080
+So then there's 20 here and 20 here.
+
+222
+00:19:51,080 --> 00:20:00,710
+So then if we add it all up, 200+20+20+10+10, that ends up with 260px.
+
+223
+00:20:00,710 --> 00:20:08,630
+So then we know that we have to push the second div over by 260px and we can do that using the
+
+224
+00:20:08,630 --> 00:20:13,610
+margin-left setting, which is how we manage to push this box over.
+
+225
+00:20:13,610 --> 00:20:19,340
+And in a similar way, we can work out how much to push this third box as well.
+
+226
+00:20:20,300 --> 00:20:26,330
+I hope this challenge was sufficiently challenging enough for you, but don't worry if it's not 'cause
+
+227
+00:20:26,330 --> 00:20:31,430
+there's way more challenging layouts are coming up in the rest of the course and you're going to be
+
+228
+00:20:31,460 --> 00:20:37,010
+able to flex your box model muscles in the coming sections as well.
+
+229
+00:20:37,040 --> 00:20:42,740
+But once you're ready and you've reviewed your code and fixed any errors, head over to the next lesson
+
+230
+00:20:42,740 --> 00:20:45,590
+where we've got the final project for the section.
+

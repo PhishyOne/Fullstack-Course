@@ -1,0 +1,940 @@
+1
+00:00:00,320 --> 00:00:01,220
+Hey, guys.
+
+2
+00:00:01,220 --> 00:00:07,610
+In this module that we're about to begin, we're going to be learning all about APIs, the technology
+
+3
+00:00:07,610 --> 00:00:12,320
+that powers communication between software on the Internet.
+
+4
+00:00:12,590 --> 00:00:13,910
+What is an API?
+
+5
+00:00:14,090 --> 00:00:21,860
+Well, it stands for an Application Programming Interface, and it's essentially a set of rules and
+
+6
+00:00:21,860 --> 00:00:27,230
+protocols that define how different software can interact with each other.
+
+7
+00:00:27,260 --> 00:00:30,320
+Now, what does that mean in real life?
+
+8
+00:00:30,860 --> 00:00:37,310
+I remember reading an article by Marc Andreessen, the founder of A16z, one of the most famous venture
+
+9
+00:00:37,310 --> 00:00:44,420
+capital firms in Silicon Valley, and I remember him writing an article about, "Why software is eating
+
+10
+00:00:44,420 --> 00:00:45,200
+the world." 
+
+11
+00:00:45,200 --> 00:00:49,780
+And it's still incredibly relevant in today's day and age.
+
+12
+00:00:49,790 --> 00:00:55,550
+But one of the things that he started out was the statement that "software is eating the world."
+
+13
+00:00:55,730 --> 00:01:02,160
+And he reflects on the fact that books are now bought on Amazon instead of bookstores.
+
+14
+00:01:02,190 --> 00:01:09,330
+TV has been taken over by Netflix and so on and so forth, and essentially the whole world runs on software.
+
+15
+00:01:09,450 --> 00:01:15,390
+But one of the things you have to think about with so many different pieces of software existing out
+
+16
+00:01:15,390 --> 00:01:21,270
+there on the Internet or on your computer or on different places or even in your fridge, you have to
+
+17
+00:01:21,270 --> 00:01:25,230
+think about the communication between those pieces of software.
+
+18
+00:01:25,410 --> 00:01:32,580
+Let's say we had a program called Program A, and we had another one called Program B, if we wanted
+
+19
+00:01:32,580 --> 00:01:38,370
+program A and program B to talk to each other because they provide different pieces of functionality
+
+20
+00:01:38,370 --> 00:01:43,770
+and we want them to work together, then we would need them to be able to communicate to each other.
+
+21
+00:01:43,770 --> 00:01:49,200
+But unfortunately, in our case, program A speaks Chinese and Program B speaks Japanese.
+
+22
+00:01:49,200 --> 00:01:53,910
+So what can we do for them to be able to interact with each other?
+
+23
+00:01:53,940 --> 00:02:00,300
+Well, we would need an interface in between these two programs.
+
+24
+00:02:00,300 --> 00:02:06,660
+So that they know how to interact with each other through this bridge in the middle.
+
+25
+00:02:07,020 --> 00:02:10,169
+And that is essentially what an API does.
+
+26
+00:02:10,259 --> 00:02:14,850
+It bridges the communication between different pieces of software.
+
+27
+00:02:15,030 --> 00:02:17,610
+Now let's take some concrete examples.
+
+28
+00:02:17,640 --> 00:02:24,900
+Maybe you're building a diary website where the user can jot down an entry for each day in their life.
+
+29
+00:02:25,020 --> 00:02:27,690
+In addition to all the text that they get to write,
+
+30
+00:02:27,720 --> 00:02:36,480
+you also want to add a little icon at the beginning of each entry that shows the weather for that day.
+
+31
+00:02:36,510 --> 00:02:43,200
+You can, of course, get the user to look it up and pick a weather icon, but it's much better if this
+
+32
+00:02:43,200 --> 00:02:44,760
+was automated.
+
+33
+00:02:44,790 --> 00:02:50,610
+Now, while you're building your website, you look around and you see that there is a company called
+
+34
+00:02:50,610 --> 00:02:58,740
+OpenWeather that stores and captures weather data and they have that weather data available in their
+
+35
+00:02:58,740 --> 00:03:04,550
+database. And it's updated frequently and it's available for all the locations in the world,
+
+36
+00:03:04,550 --> 00:03:06,020
+and you think, wow, perfect,
+
+37
+00:03:06,020 --> 00:03:07,830
+that's exactly what I need.
+
+38
+00:03:07,850 --> 00:03:14,720
+I need to be able to talk to these servers to bring their weather data into my website.
+
+39
+00:03:14,810 --> 00:03:16,670
+So how do you do that?
+
+40
+00:03:16,700 --> 00:03:20,270
+You don't know what their database is written in.
+
+41
+00:03:20,300 --> 00:03:23,570
+It could be some sort of programming language you've never heard of.
+
+42
+00:03:23,600 --> 00:03:27,200
+You don't know how to access their backend servers.
+
+43
+00:03:27,200 --> 00:03:30,560
+You don't know what the rules are that governs those servers.
+
+44
+00:03:30,560 --> 00:03:38,060
+You basically have absolutely no idea of how this website or their data storage works, and that is
+
+45
+00:03:38,060 --> 00:03:41,150
+when the API comes in to save you.
+
+46
+00:03:41,180 --> 00:03:48,850
+So in this case, OpenWeather creates an API that tells you how you can interact with their services.
+
+47
+00:03:48,860 --> 00:03:50,810
+If you want data from them,
+
+48
+00:03:50,810 --> 00:03:53,790
+then there are these and these things that you can access.
+
+49
+00:03:53,810 --> 00:04:00,230
+For example, if you pass in the latitude and longitude of the location you're interested in, well
+
+50
+00:04:00,230 --> 00:04:03,250
+they can give you the weather for that location.
+
+51
+00:04:03,270 --> 00:04:06,000
+They can tell you how that weather is structured.
+
+52
+00:04:06,000 --> 00:04:11,640
+For example, maybe there is something called temperature that gives you the temperature in degrees
+
+53
+00:04:11,640 --> 00:04:12,570
+Celsius.
+
+54
+00:04:12,600 --> 00:04:17,459
+Maybe there is an icon for the weather type.
+
+55
+00:04:17,459 --> 00:04:21,300
+So maybe it would be cloudy that you would get back.
+
+56
+00:04:21,630 --> 00:04:29,280
+All you have to do then is to make a request from your website through this API to say, well, these
+
+57
+00:04:29,280 --> 00:04:36,930
+are the things that I want and because you now have this interface to know how to interact with their
+
+58
+00:04:36,930 --> 00:04:41,850
+services, you're able to get this data back and populate it into your website.
+
+59
+00:04:42,150 --> 00:04:49,290
+Now this is almost a simpler problem because essentially what you're doing is you're making a GET request
+
+60
+00:04:49,290 --> 00:04:59,730
+to get some data from OpenWeather map and in the response they send back some data. And the
+
+61
+00:05:00,120 --> 00:05:07,880
+simply tells you how you can make these requests and how the data that's coming back is structured.
+
+62
+00:05:08,450 --> 00:05:10,760
+Now let's think about a different problem.
+
+63
+00:05:10,760 --> 00:05:17,570
+Let's say that you want to have a website where you want to let people sign up for your newsletter.
+
+64
+00:05:17,990 --> 00:05:24,440
+You're writing a newsletter every week and you want all of your fans and all of your friends to sign
+
+65
+00:05:24,440 --> 00:05:25,920
+up to this newsletter.
+
+66
+00:05:25,940 --> 00:05:30,980
+Well, so you might have an email collection box, but where does that get stored?
+
+67
+00:05:31,010 --> 00:05:38,480
+Well, what if you wanted to send your email using Mailchimp and you want to be able to send this email
+
+68
+00:05:38,480 --> 00:05:44,330
+that you collect each time on your website into a database on your MailChimp account,
+
+69
+00:05:44,360 --> 00:05:45,920
+how would you do this?
+
+70
+00:05:45,950 --> 00:05:48,830
+Well, again, through an API.
+
+71
+00:05:48,860 --> 00:05:56,720
+MailChimp could define an API that tells you how you should structure your POST requests so that you
+
+72
+00:05:56,720 --> 00:06:03,600
+can send over the data to your email database on your Mailchimp account.
+
+73
+00:06:03,600 --> 00:06:11,410
+And they in turn can respond with whether if the process was successful or if there were errors.
+
+74
+00:06:11,430 --> 00:06:19,530
+So in this case, the Mailchimp API defines a structure for the data you want to send, and also it
+
+75
+00:06:19,530 --> 00:06:24,360
+tells you what kind of responses you can expect in which kind of situations.
+
+76
+00:06:24,960 --> 00:06:28,710
+Now let's take a look at an even more extreme example.
+
+77
+00:06:28,710 --> 00:06:38,970
+Let's say you want to build a program on your computer where you can send a tweet over to a plant that
+
+78
+00:06:38,970 --> 00:06:46,050
+you have at home where every time you tweet @ your plant account, then you've got some sort of Arduino
+
+79
+00:06:46,050 --> 00:06:50,340
+or IoT devices that's going to water your plant.
+
+80
+00:06:50,700 --> 00:06:52,410
+So how would this work?
+
+81
+00:06:52,440 --> 00:06:58,140
+Again, through an API, you could create an API for your hardware,
+
+82
+00:06:58,140 --> 00:07:04,110
+in this case, the watering device, and you could get it to listen for requests coming through the
+
+83
+00:07:04,110 --> 00:07:05,820
+internet from your program.
+
+84
+00:07:05,820 --> 00:07:13,110
+And when you monitor the account of your cacti or other plant, when it sends a request to a particular
+
+85
+00:07:13,110 --> 00:07:21,480
+path, say /water, and when it sees that request, then it's going to start watering your little plant
+
+86
+00:07:21,480 --> 00:07:25,850
+and releasing the valve that allows your plant to live
+
+87
+00:07:25,860 --> 00:07:32,070
+even if you just decided that you no longer want to live in a cold climate and you want to go and move
+
+88
+00:07:32,070 --> 00:07:36,720
+halfway across the world. At least your plant is taken care of.
+
+89
+00:07:36,960 --> 00:07:45,900
+And an example of a response from this API could be how much water was released or what is the moisture
+
+90
+00:07:45,900 --> 00:07:50,590
+content of the soil and so on and so forth.
+
+91
+00:07:50,610 --> 00:07:57,930
+So I've shown you three different examples of APIs in use in very different situations, and there are
+
+92
+00:07:57,930 --> 00:07:59,970
+many, many other situations,
+
+93
+00:07:59,970 --> 00:08:07,080
+but essentially what they have in common is the fact that they are an interface between two pieces of
+
+94
+00:08:07,080 --> 00:08:08,040
+software.
+
+95
+00:08:08,310 --> 00:08:17,400
+And by defining a protocol or a set of rules that you can follow, then the different pieces of software
+
+96
+00:08:17,430 --> 00:08:24,480
+know how to interact with each other and what they should expect when they do interact with the other
+
+97
+00:08:24,480 --> 00:08:25,320
+service.
+
+98
+00:08:26,490 --> 00:08:35,760
+You might have heard of some of the different types of APIs such as GraphQL, SOAP, REST, gRPC and
+
+99
+00:08:35,760 --> 00:08:37,110
+a whole bunch more.
+
+100
+00:08:37,140 --> 00:08:41,520
+Essentially, what these are is they are architectural styles
+
+101
+00:08:41,850 --> 00:08:51,330
+just as maybe you would create a house and you decide that you wanted for some reason Ionic columns
+
+102
+00:08:51,480 --> 00:08:54,420
+in the front of your house.
+
+103
+00:08:54,450 --> 00:08:57,810
+This is an architectural style, right?
+
+104
+00:08:58,200 --> 00:09:01,710
+And this is how you decide to design your home,
+
+105
+00:09:01,980 --> 00:09:08,590
+but somebody else might decide that they want to build their house with a different type of column.
+
+106
+00:09:08,610 --> 00:09:17,040
+Maybe they want to have Doric columns that have these fancy little squiggles at the top and it looks
+
+107
+00:09:17,040 --> 00:09:26,050
+super duper fancy and they want to impress all of their neighbors with these beautiful columns.
+
+108
+00:09:26,050 --> 00:09:28,930
+And I've definitely seen houses that look like this.
+
+109
+00:09:29,110 --> 00:09:32,890
+Pretty crazy, but this is a different architectural style.
+
+110
+00:09:32,980 --> 00:09:40,210
+So similarly, we've got different architectural styles for creating an API because essentially an API
+
+111
+00:09:40,210 --> 00:09:46,120
+is just a set of rules and they each decide different rule sets for creating APIs.
+
+112
+00:09:46,210 --> 00:09:52,870
+Now which one do we choose to learn or do we learn all of them and spend our entire life trying out
+
+113
+00:09:52,870 --> 00:09:55,030
+all the different types of APIs?
+
+114
+00:09:55,060 --> 00:09:56,050
+No.
+
+115
+00:09:56,170 --> 00:10:02,350
+As always, my belief in terms of learning is just in time learning.
+
+116
+00:10:02,350 --> 00:10:07,930
+So learn what you need in the moment because that is the best way that you're going to get to grips
+
+117
+00:10:07,930 --> 00:10:10,300
+with it because you have a strong motivation.
+
+118
+00:10:10,480 --> 00:10:17,470
+In our case, when it comes to web development, there is one type of API that rules them all and it
+
+119
+00:10:17,470 --> 00:10:19,570
+is the REST API.
+
+120
+00:10:19,840 --> 00:10:27,280
+This is the most popular, most commonly used and most important type of API to know if you are going
+
+121
+00:10:27,280 --> 00:10:29,170
+to work with the web.
+
+122
+00:10:30,220 --> 00:10:32,950
+What is a RESTful API?
+
+123
+00:10:32,980 --> 00:10:35,500
+It's not APIs that make you sleepy.
+
+124
+00:10:35,620 --> 00:10:39,430
+It's APIs that follow a particular set of rules.
+
+125
+00:10:39,610 --> 00:10:46,150
+But the most important rule of the mall is the fact that you use the HTTP Protocol to interact with
+
+126
+00:10:46,150 --> 00:10:47,140
+the API.
+
+127
+00:10:47,320 --> 00:10:52,960
+And lucky for us, we've already learnt about all of these HTTP Protocols:
+
+128
+00:10:52,990 --> 00:10:55,760
+GET, POST, PUT,  PATCH and DELETE.
+
+129
+00:10:55,780 --> 00:11:01,750
+If you skipped over past lessons, search through the curriculum and take a look back at the different
+
+130
+00:11:01,960 --> 00:11:03,340
+HTTP Protocols.
+
+131
+00:11:03,430 --> 00:11:05,080
+So what does this mean for us?
+
+132
+00:11:05,080 --> 00:11:11,530
+It means that we've already got a leg up on understanding how REST works and how to use it in order
+
+133
+00:11:11,530 --> 00:11:15,160
+to make requests and access different APIs.
+
+134
+00:11:15,400 --> 00:11:23,710
+So now let's go ahead and try an exercise where we make a request to an API and get some piece of information
+
+135
+00:11:23,710 --> 00:11:24,460
+back.
+
+136
+00:11:24,550 --> 00:11:28,210
+We're not going to be building a website for this API.
+
+137
+00:11:28,240 --> 00:11:30,970
+We're going to interact with it using Postman.
+
+138
+00:11:31,680 --> 00:11:33,160
+And let me set the scene here.
+
+139
+00:11:33,280 --> 00:11:35,050
+You're staring at the night sky,
+
+140
+00:11:35,050 --> 00:11:43,990
+it's a beautiful cloudless night, and you see thousands upon thousands of stars in the sky and you
+
+141
+00:11:43,990 --> 00:11:45,430
+can see the Milky Way,
+
+142
+00:11:45,430 --> 00:11:48,490
+and it's just incredibly beautiful.
+
+143
+00:11:48,670 --> 00:11:55,660
+Now you see these flashes of light going across the sky and you say to your companion, "Wow, it's a
+
+144
+00:11:55,660 --> 00:11:56,750
+shooting star."
+
+145
+00:11:56,770 --> 00:12:01,360
+And your companion tells you, actually, it's probably a satellite.
+
+146
+00:12:01,990 --> 00:12:07,570
+And today, at any given moment, when you look at the night sky and you see something that moves,
+
+147
+00:12:07,570 --> 00:12:10,540
+it's most likely to be a satellite.
+
+148
+00:12:10,780 --> 00:12:16,810
+Now, one of the most famous satellites is the ISS, the International Space Station.
+
+149
+00:12:16,840 --> 00:12:26,140
+And luckily for us, there is an API called, "Where the ISS at?" that gives you real-time ISS location, so
+
+150
+00:12:26,140 --> 00:12:31,570
+that the next time when you look up at the night sky and you see some sort of object moving like it's
+
+151
+00:12:31,570 --> 00:12:37,840
+a shooting star, you can check to see if it's the International Space Station and if there's actually
+
+152
+00:12:37,840 --> 00:12:42,100
+astronauts right above your head floating around eating space food.
+
+153
+00:12:42,430 --> 00:12:50,800
+When you look at the documentation for an API such as the one for, "Where the ISS at?" you will see it
+
+154
+00:12:50,800 --> 00:12:53,660
+almost looks a bit like a menu.
+
+155
+00:12:53,680 --> 00:13:03,220
+It tells you what is the URL that you need to access in order to interact with the API, and it tells
+
+156
+00:13:03,220 --> 00:13:10,390
+you what kind of response you can expect to get back. And it gives you a little bit of data on each of
+
+157
+00:13:10,390 --> 00:13:17,440
+these endpoints and depending on what it is you want from the API, you can figure out by looking at
+
+158
+00:13:17,440 --> 00:13:20,110
+the database how you should access it.
+
+159
+00:13:20,500 --> 00:13:25,690
+When we access an API such as one like this where we're just
+
+160
+00:13:25,710 --> 00:13:32,010
+getting some data back, such as the latitude and longitude of the ISS,
+
+161
+00:13:32,040 --> 00:13:38,310
+then we can simply make a GET request to the URL that they specify.
+
+162
+00:13:38,850 --> 00:13:44,340
+You can imagine our API documentation like a lunch menu where you pick,
+
+163
+00:13:44,340 --> 00:13:45,030
+"What do I want?"
+
+164
+00:13:45,060 --> 00:13:48,240
+"Well, I want some bread and I want some calamari."
+
+165
+00:13:48,240 --> 00:13:56,460
+And then you make the request using HTTP and depending on the type of request maybe you need to make
+
+166
+00:13:56,460 --> 00:14:00,690
+a POST request or maybe you need to make a GET request.
+
+167
+00:14:00,720 --> 00:14:05,400
+Once you've looked through the menu of options, you can decide what you need.
+
+168
+00:14:05,550 --> 00:14:11,070
+In our case, what we're trying to do is we're going to locate the live location of the International
+
+169
+00:14:11,070 --> 00:14:12,080
+Space Station.
+
+170
+00:14:12,090 --> 00:14:13,380
+That's the goal.
+
+171
+00:14:13,380 --> 00:14:20,310
+And once you've located it using the API, you're going to check the latitude and longitude and you're
+
+172
+00:14:20,310 --> 00:14:23,390
+going to type it in to Google Maps.
+
+173
+00:14:23,400 --> 00:14:30,760
+The first number that comes is Latitude and the second is longitude, and you separate them with a single
+
+174
+00:14:30,760 --> 00:14:38,320
+comma, such as how I've written it over here. And you can paste that into the search bar in Google Maps,
+
+175
+00:14:38,320 --> 00:14:47,680
+and Google Map will drop a pin on the location that is the live location of the International Space
+
+176
+00:14:47,680 --> 00:14:48,340
+Station.
+
+177
+00:14:48,340 --> 00:14:50,410
+So that's pretty cool.
+
+178
+00:14:50,410 --> 00:14:52,660
+And that's the goal of this exercise.
+
+179
+00:14:53,560 --> 00:15:03,670
+Open up Postman and take a look at the API documentation for, Where the ISS at? at this URL location and
+
+180
+00:15:03,670 --> 00:15:11,290
+see if you can figure out how to make a GET request in order to get the live latitude and longitude
+
+181
+00:15:11,290 --> 00:15:13,030
+of the ISS.
+
+182
+00:15:14,050 --> 00:15:15,130
+Pause the video.
+
+183
+00:15:15,130 --> 00:15:16,120
+Give this a go.
+
+184
+00:15:18,990 --> 00:15:21,150
+All right, let's run through the solution together.
+
+185
+00:15:21,300 --> 00:15:26,640
+When you take a look at the documentation, as I mentioned, it looks a bit like a menu.
+
+186
+00:15:26,670 --> 00:15:30,380
+Now we want to read through the menu to see what we're going to get.
+
+187
+00:15:30,390 --> 00:15:32,860
+Are we going to get salad or are we going to get bacon?
+
+188
+00:15:32,880 --> 00:15:39,180
+It's very important because it would be really sad if you ordered bacon and you got salad instead.
+
+189
+00:15:39,690 --> 00:15:47,100
+If we take a look at the different endpoints that we've got here, one will show us the different satellites
+
+190
+00:15:47,100 --> 00:15:48,090
+that they track.
+
+191
+00:15:48,120 --> 00:15:53,400
+This is not so interesting because in the future they want to track lots of different satellites.
+
+192
+00:15:53,400 --> 00:15:57,930
+But right now, apparently they only have the International Space Station that's tracked.
+
+193
+00:15:58,050 --> 00:16:01,350
+This is not the endpoint that we want.
+
+194
+00:16:01,380 --> 00:16:03,930
+Let's take a look at the next one.
+
+195
+00:16:03,960 --> 00:16:11,010
+It says that it returns the position velocity and other related information about a particular satellite.
+
+196
+00:16:11,160 --> 00:16:18,640
+And in order to get hold of that data, you have to give it the ID of the satellite that you want,
+
+197
+00:16:18,640 --> 00:16:22,210
+and given they only have one satellite, which is the ISS,
+
+198
+00:16:22,240 --> 00:16:25,240
+they tell you what is the ID of that satellite.
+
+199
+00:16:25,240 --> 00:16:32,230
+And they have an example where they've shown you how to access that particular API endpoint using this
+
+200
+00:16:32,260 --> 00:16:33,040
+URL.
+
+201
+00:16:33,040 --> 00:16:39,010
+And they also show you what is the structure of the data that you can expect to get back.
+
+202
+00:16:39,130 --> 00:16:44,080
+And if we take a look here, it has the most important pieces of information that we want,
+
+203
+00:16:44,110 --> 00:16:46,420
+latitude and longitude.
+
+204
+00:16:46,840 --> 00:16:51,080
+So we're now ready to go ahead and make this request using Postman.
+
+205
+00:16:51,100 --> 00:16:57,880
+If you remember from before, Postman is a really useful tool for us to be able to make HTTP requests
+
+206
+00:16:57,880 --> 00:17:01,360
+without needing to have a frontend or a backend.
+
+207
+00:17:01,390 --> 00:17:08,050
+Instead of having to create a website and then make these requests and install express and all of that,
+
+208
+00:17:08,079 --> 00:17:12,430
+we can avoid all of it when we want to test a particular request.
+
+209
+00:17:12,550 --> 00:17:18,640
+We know that we want to get some data, so we're going to use a get request and we're going to copy
+
+210
+00:17:18,640 --> 00:17:27,130
+the example resource URL in here to hit up this particular endpoint, which is /satellites
+
+211
+00:17:27,130 --> 00:17:30,190
+/the  ID of the satellite.
+
+212
+00:17:30,260 --> 00:17:34,510
+So the ID of the ISS is 25544 on this API.
+
+213
+00:17:34,750 --> 00:17:42,640
+And if I go ahead and hit Send, then it's going to send that request and return me some live data.
+
+214
+00:17:43,420 --> 00:17:49,090
+Now we've got the important pieces of information that we're after, the latitude and longitude, and
+
+215
+00:17:49,090 --> 00:17:55,210
+we can go into Google Maps and paste in the data that we got back. Going into Postman,
+
+216
+00:17:55,210 --> 00:17:57,670
+let's go ahead and copy our latitude.
+
+217
+00:17:57,700 --> 00:18:04,330
+Paste that in, add a comma and then paste in the longitude and make sure if there are any negative
+
+218
+00:18:04,330 --> 00:18:09,640
+signs in front of any of those numbers that you copy those as well.
+
+219
+00:18:09,730 --> 00:18:14,350
+Now that we've got our latitude and longitude structured for Google to be able to know where it is,
+
+220
+00:18:14,380 --> 00:18:20,050
+let's hit, Enter and let Google find us where the ISS is at.
+
+221
+00:18:20,080 --> 00:18:27,940
+So it seems right now, at some point in the North Pacific Ocean, somewhere between Hawaii and Mexico.
+
+222
+00:18:28,120 --> 00:18:33,010
+If you happen to be right around here in a boat somewhere and you look up, you're probably looking
+
+223
+00:18:33,010 --> 00:18:34,810
+up at the ISS.
+
+224
+00:18:35,110 --> 00:18:38,800
+Now, if when you type in your latitude and longitude, it doesn't work.
+
+225
+00:18:38,830 --> 00:18:45,910
+You can check out this Google support article where they tell you how to structure your coordinates
+
+226
+00:18:45,910 --> 00:18:53,140
+and the different types of structures that are accepted and what correct and incorrect coordinates look
+
+227
+00:18:53,140 --> 00:18:53,660
+like.
+
+228
+00:18:53,680 --> 00:18:58,570
+You can Google for this by searching for discover coordinates or search by latitude and longitude from
+
+229
+00:18:58,570 --> 00:18:59,470
+Google Maps.
+
+230
+00:18:59,470 --> 00:19:05,650
+But hopefully, you've managed to figure out where is the live location of the ISS at the current time
+
+231
+00:19:05,650 --> 00:19:06,790
+point for you.
+
+232
+00:19:07,210 --> 00:19:13,300
+Hopefully, you had fun learning a brief bit about APIs and giving it a quick go.
+
+233
+00:19:13,450 --> 00:19:20,020
+In the next lesson, we're going to dive in deeper and learn about more complex types of API requests,
+
+234
+00:19:20,020 --> 00:19:25,230
+and we're also going to see how we can make these different requests using our web server.
+
+235
+00:19:25,240 --> 00:19:27,820
+So for all of that and more, I'll see you there.
+

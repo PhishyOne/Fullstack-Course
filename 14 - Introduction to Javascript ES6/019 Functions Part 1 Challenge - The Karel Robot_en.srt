@@ -1,0 +1,424 @@
+1
+00:00:00,240 --> 00:00:06,240
+Now, as a challenge, I want you to write your own functions, but not inside the Chrome Developer Tools.
+
+2
+00:00:06,360 --> 00:00:09,470
+I want to introduce you to something called Karel the robot.
+
+3
+00:00:09,570 --> 00:00:15,390
+And Karel is a very simple robot that takes very simple instructions.
+
+4
+00:00:15,390 --> 00:00:22,860
+So let's first change the world to a five by five to make it a little bit smaller and easier to work
+
+5
+00:00:22,860 --> 00:00:23,840
+with.
+
+6
+00:00:23,850 --> 00:00:28,650
+Now the next thing that you'll notice is that you have this thing called function main.
+
+7
+00:00:28,770 --> 00:00:35,470
+And in this case everything that you put into here will get executed when you click the run button.
+
+8
+00:00:35,580 --> 00:00:42,690
+And Karel the robot, as you can see here, is able to take a certain number of commands, including move,
+
+9
+00:00:42,810 --> 00:00:47,310
+which moves it forward in the direction it's facing, turn left,
+
+10
+00:00:47,310 --> 00:00:50,190
+put down a beeper, or pick up a beeper.
+
+11
+00:00:50,280 --> 00:00:52,670
+So those are the basic commands that we're going to work with.
+
+12
+00:00:52,680 --> 00:00:54,990
+And let me just demo some of these to you.
+
+13
+00:00:55,290 --> 00:01:03,510
+So, if we call the function move on Karel, you can see it moves by a single space, and we can obviously
+
+14
+00:01:03,510 --> 00:01:05,580
+repeat this a few times.
+
+15
+00:01:05,580 --> 00:01:14,190
+So now if we reset and we hit run, Karel will move by three spaces, because we wrote the move command three
+
+16
+00:01:14,190 --> 00:01:15,080
+times.
+
+17
+00:01:15,120 --> 00:01:20,250
+So everything you place into this function main will get called when you hit run.
+
+18
+00:01:20,250 --> 00:01:22,890
+But you can create more than one function.
+
+19
+00:01:22,890 --> 00:01:31,230
+So, for example, I know that I can make Karel turn left by simply writing turn left, run, and she turns
+
+20
+00:01:31,230 --> 00:01:31,800
+left.
+
+21
+00:01:31,800 --> 00:01:38,150
+Now if I wanted her to go around in a circle then I can simply create a function called
+
+22
+00:01:38,190 --> 00:01:48,110
+goInCircle, and inside this function I can say maybe move one step,
+
+23
+00:01:48,270 --> 00:01:58,870
+turn left, then move, then turn left, then move.
+
+24
+00:01:58,870 --> 00:02:07,360
+And now I can go into this function main and I can say goInCircle, calling that function that I just
+
+25
+00:02:07,360 --> 00:02:14,730
+created down here, which of course will execute all of the code that's inside the curly braces.
+
+26
+00:02:14,740 --> 00:02:21,650
+So now if I reset and I hit run you can see that Karel goes in a half circle.
+
+27
+00:02:21,700 --> 00:02:28,270
+So if I want her all the way back to the beginning then I can simply call this function again, making
+
+28
+00:02:28,270 --> 00:02:34,630
+sure that I spelt it exactly the same way as I did when I created that function.
+
+29
+00:02:34,630 --> 00:02:43,720
+So now, if I reset and hit run, you can see that it turns a full circle, and I can write as many of these
+
+30
+00:02:43,720 --> 00:02:48,400
+as I like in order for Karel to run my code repeatedly.
+
+31
+00:02:48,550 --> 00:02:57,040
+So, as a challenge, I want you to write a little bit of code that moves Karel all the way to the right
+
+32
+00:02:57,130 --> 00:03:00,310
+corner on a five by five world.
+
+33
+00:03:00,310 --> 00:03:05,790
+So, inside the resources of this lesson, you'll find a link to the Stanford Karel.
+
+34
+00:03:05,800 --> 00:03:08,630
+So I want you to set the world to five by five,
+
+35
+00:03:08,650 --> 00:03:14,740
+delete what's currently inside function main, and to write some code that gets Karel from the bottom
+
+36
+00:03:14,740 --> 00:03:17,120
+left corner to the top right corner,
+
+37
+00:03:17,320 --> 00:03:21,770
+remembering that you can always take a look at the reference to see what commands
+
+38
+00:03:21,770 --> 00:03:24,100
+Karel is able to use.
+
+39
+00:03:24,100 --> 00:03:27,450
+So pause the video now and give that a go.
+
+40
+00:03:27,940 --> 00:03:28,290
+All right.
+
+41
+00:03:28,300 --> 00:03:30,930
+So that shouldn't have been too difficult.
+
+42
+00:03:31,030 --> 00:03:34,410
+And there's many many ways of solving this challenge.
+
+43
+00:03:34,540 --> 00:03:42,190
+So it doesn't matter which way you used as long as Karel ended up over here when you hit run.
+
+44
+00:03:42,190 --> 00:03:49,480
+So, one way of doing this would be getting Karel to go one, two, three, four, four steps forward.
+
+45
+00:03:49,480 --> 00:03:52,420
+So that would be move four times
+
+46
+00:03:56,990 --> 00:04:01,530
+and then to turn left and then move four times again.
+
+47
+00:04:07,140 --> 00:04:12,670
+So now if we hit run you can see Karel ends up in the top right corner.
+
+48
+00:04:12,690 --> 00:04:16,490
+Now some of you might have realized that move is repeated here.
+
+49
+00:04:16,560 --> 00:04:22,470
+So you might have created a function that's called maybe moveFourTimes,
+
+50
+00:04:25,670 --> 00:04:30,390
+and inside this function you've placed four of these move commands.
+
+51
+00:04:30,410 --> 00:04:39,930
+So now instead of all this repeated code, you can say moveFourTimes here, and also moveFourTimes
+
+52
+00:04:41,340 --> 00:04:42,250
+here.
+
+53
+00:04:42,870 --> 00:04:49,560
+So this does exactly the same, as we can see if we reset it, but it's now a little bit shorter and a little
+
+54
+00:04:49,560 --> 00:04:50,810
+bit less repetitive.
+
+55
+00:04:50,940 --> 00:04:56,700
+So using this principle of keeping your code dry we can use functions to do that.
+
+56
+00:04:56,700 --> 00:05:04,320
+It allows us to remove repetition into these modules of code which makes our code shorter and allows
+
+57
+00:05:04,320 --> 00:05:06,370
+us to identify problems
+
+58
+00:05:06,540 --> 00:05:07,670
+if it does occur.
+
+59
+00:05:07,740 --> 00:05:14,820
+So, for example, if we’ve accidentally written the code wrong and Karel only moved three steps each time, 
+
+60
+00:05:15,240 --> 00:05:20,550
+then we would know that we can identify the function that's meant to move four times, and figure out
+
+61
+00:05:20,550 --> 00:05:22,560
+what the problem was.
+
+62
+00:05:22,560 --> 00:05:27,090
+So the next thing I want you to use is the command putBeeper.
+
+63
+00:05:27,480 --> 00:05:34,220
+So Karel is able to put down this thing called a beeper, which is kind of just like a square.
+
+64
+00:05:34,320 --> 00:05:41,650
+And I want you to write some code that commands her to put down the beeper in a specific pattern.
+
+65
+00:05:41,790 --> 00:05:50,400
+So the first slightly easier challenge is, can you get her to put a diagonal line of beepers all the
+
+66
+00:05:50,400 --> 00:05:54,580
+way from the bottom left corner to the top right corner.
+
+67
+00:05:54,600 --> 00:06:01,440
+So that should be five beepers in total and I want you to try and write your code in the least repetitive
+
+68
+00:06:01,500 --> 00:06:04,840
+way possible using functions.
+
+69
+00:06:05,400 --> 00:06:09,500
+So pause the video now and see if you can complete this challenge.
+
+70
+00:06:10,470 --> 00:06:10,870
+OK.
+
+71
+00:06:10,880 --> 00:06:19,160
+So let's break down the problem. Essentially, Karel will start in the bottom left corner and she can move
+
+72
+00:06:19,160 --> 00:06:22,590
+forwards, turn left, move,
+
+73
+00:06:22,700 --> 00:06:23,760
+put down beeper.
+
+74
+00:06:23,870 --> 00:06:35,060
+So, one way of doing this would be writing move forwards, turn left, move forwards, put beeper, turn right,
+
+75
+00:06:36,820 --> 00:06:44,110
+move forwards, turn left, move forwards, and put beeper.
+
+76
+00:06:44,110 --> 00:06:50,860
+So, if we run our code as is, you can see that she's begun on her journey, but you might also notice that
+
+77
+00:06:50,890 --> 00:06:55,270
+there's a lot of repeated code in here, especially something like,
+
+78
+00:06:58,360 --> 00:07:03,900
+for example, move, turn left, move, put beeper, move, turn left, move,
+
+79
+00:07:03,910 --> 00:07:04,670
+put beeper.
+
+80
+00:07:04,780 --> 00:07:07,560
+So there's a lot of things that are repeated.
+
+81
+00:07:07,570 --> 00:07:17,690
+So what if we could put all of that into a function? So, we can create a function diagonalMoveAndBeeper.
+
+82
+00:07:17,920 --> 00:07:22,900
+Now of course you can name your functions whatever it is that makes sense to you but in this case I've
+
+83
+00:07:22,900 --> 00:07:28,030
+just called it diagonalMoveAndBeeper, because I'm going to get it to move diagonally and then put
+
+84
+00:07:28,030 --> 00:07:29,020
+down a beeper.
+
+85
+00:07:29,440 --> 00:07:36,640
+And that involves moving, turning left, moving, putting down beeper, and turning right.
+
+86
+00:07:36,790 --> 00:07:44,680
+So if I take this chunk of code and put it into my function then instead of calling all of these steps
+
+87
+00:07:44,770 --> 00:07:50,760
+I can simply say diagonalMoveAndBeeper, diagonalMoveAndBeeper.
+
+88
+00:07:50,800 --> 00:07:57,580
+And if we do this four times then you can see that Karel will go all the way to the end, and the only
+
+89
+00:07:57,580 --> 00:08:04,660
+one that's missing is the one in the beginning, the putBeeper before we do any of these other diagonal
+
+90
+00:08:04,660 --> 00:08:05,710
+moves.
+
+91
+00:08:05,770 --> 00:08:12,880
+So if we hit run now we've managed to solve our solution by getting Karel to repeat the diagonal move
+
+92
+00:08:12,940 --> 00:08:14,720
+and put down beeper function.
+
+93
+00:08:15,010 --> 00:08:20,830
+Now you might have solved this challenge in a variety of different ways and that's fine as long as you
+
+94
+00:08:20,830 --> 00:08:24,320
+got Karel to perform this functionality.
+
+95
+00:08:24,320 --> 00:08:27,480
+Then you have succeeded in completing the challenge.
+
+96
+00:08:27,580 --> 00:08:30,870
+Now for the final optional challenge, if you want,
+
+97
+00:08:31,030 --> 00:08:37,360
+I'd like you to challenge yourself to see if you can get Karel to create a chessboard pattern like
+
+98
+00:08:37,360 --> 00:08:38,690
+what we have here,
+
+99
+00:08:38,860 --> 00:08:43,100
+so alternating tiles of beepers essentially.
+
+100
+00:08:43,240 --> 00:08:44,920
+So this is completely optional.
+
+101
+00:08:44,920 --> 00:08:46,110
+It's just a bit of fun
+
+102
+00:08:46,150 --> 00:08:52,150
+and to test your understanding of functions. I will post the code of the solution in the resources section
+
+103
+00:08:52,210 --> 00:08:54,080
+of this lesson, so you can check it
+
+104
+00:08:54,190 --> 00:08:59,650
+once you're done trying out the challenge. In the next lesson I want to talk about a more advanced form
+
+105
+00:08:59,650 --> 00:09:05,200
+of functions and those are functions that allow you to specify an input.
+
+106
+00:09:05,200 --> 00:09:08,530
+So for all of that and more, I'll see you on the next lesson.
+

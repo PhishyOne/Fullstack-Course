@@ -1,0 +1,320 @@
+1
+00:00:00,320 --> 00:00:06,510
+Alright guys. it's time to flex your React programming muscles and put into practice everything
+
+2
+00:00:06,510 --> 00:00:08,690
+that you learned in the previous lesson.
+
+3
+00:00:08,700 --> 00:00:15,330
+The idea here is to use conditional rendering to show different components depending on a particular
+
+4
+00:00:15,330 --> 00:00:22,110
+variable. And that variable is one called userIsRegistered which lives inside the App.js.
+
+5
+00:00:22,410 --> 00:00:28,440
+So the idea here is that when the user tries to authenticate themselves with your website and they enter
+
+6
+00:00:28,440 --> 00:00:35,220
+their username and password, it might be that the database recognizes that username and password in
+
+7
+00:00:35,220 --> 00:00:37,860
+which case this becomes true.
+
+8
+00:00:38,130 --> 00:00:43,290
+But it might also be that they don't actually exist on our database and they've never registered before
+
+9
+00:00:43,350 --> 00:00:49,500
+so userIsRegistered becomes false. And depending on the value of this condition we want to do a couple
+
+10
+00:00:49,500 --> 00:00:50,630
+of things.
+
+11
+00:00:50,760 --> 00:00:57,510
+If the user is indeed registered, then we want to show them a login screen. But if they're not registered
+
+12
+00:00:57,510 --> 00:01:00,880
+on our database then we want to show them a register screen.
+
+13
+00:01:00,900 --> 00:01:07,980
+Now if we're showing them the register screen, then we actually want to show them this confirm password
+
+14
+00:01:07,980 --> 00:01:13,260
+field because when they register, they should probably type their password twice in order to validate
+
+15
+00:01:13,260 --> 00:01:13,810
+it.
+
+16
+00:01:13,980 --> 00:01:19,250
+But if it's just the login screen, then we don't actually want to show this.
+
+17
+00:01:19,260 --> 00:01:24,570
+So this is the final functionality you're aiming for. When the userIsRegistered is set to false,
+
+18
+00:01:24,600 --> 00:01:31,470
+you see a register screen with username, password confirm password and the button says register. When
+
+19
+00:01:31,470 --> 00:01:38,250
+the userIsRegistered is set to true, then you see a login screen with just username, password and the
+
+20
+00:01:38,250 --> 00:01:40,530
+buttons as login.
+
+21
+00:01:40,710 --> 00:01:42,100
+Go ahead and fork
+
+22
+00:01:42,120 --> 00:01:48,900
+the starting project for this challenge and try to go through the steps and complete it. Pause the video
+
+23
+00:01:48,900 --> 00:01:52,620
+now and come back if you need to see me walk through the solution with you.
+
+24
+00:01:56,130 --> 00:01:56,340
+All right.
+
+25
+00:01:56,350 --> 00:02:01,740
+So the first thing we're trying to do is to show the word login as the button text
+
+26
+00:02:01,900 --> 00:02:08,889
+If userIsRegistered  is true. At the moment if we look inside our form.jsx, we've got this text
+
+27
+00:02:08,889 --> 00:02:17,080
+here saying register and we want to switch up that text depending on the value of our userIsRegistered 
+
+28
+00:02:17,200 --> 00:02:25,790
+variable. But unfortunately this lives inside App.js and I mentioned that you can't move that variable.
+
+29
+00:02:25,870 --> 00:02:28,270
+So how do you get it over to the form?
+
+30
+00:02:28,270 --> 00:02:35,470
+Well, you can of course pass it over as a prop. So let's create a prop called isRegistered and we'll set
+
+31
+00:02:35,470 --> 00:02:38,620
+it to equal the value of this variable,
+
+32
+00:02:38,740 --> 00:02:45,640
+userIsRegistered. So frequently when you're rendering things conditionally, you're going to be doing
+
+33
+00:02:45,640 --> 00:02:48,730
+it via props that have been passed over.
+
+34
+00:02:48,730 --> 00:02:55,300
+So now inside our form component, we can receive those props and check for it in order to render something
+
+35
+00:02:55,300 --> 00:02:57,500
+different inside our button.
+
+36
+00:02:57,610 --> 00:03:06,290
+In this case what we want to do is we want to check to see if props.isRegistered, to make sure
+
+37
+00:03:06,290 --> 00:03:13,620
+that I spell it right, is true. And if so we're going to show the word login, but otherwise we're going
+
+38
+00:03:13,620 --> 00:03:19,970
+to show the word register. And this is not being highlighted properly because we haven't yet wrapped
+
+39
+00:03:19,970 --> 00:03:22,640
+it inside a set of curly braces.
+
+40
+00:03:22,640 --> 00:03:30,890
+Now when we go back to our App.js and we switch this variable from false to true, you'll see that
+
+41
+00:03:31,100 --> 00:03:33,820
+that goes to login and then when it's false
+
+42
+00:03:33,860 --> 00:03:36,600
+and when we go back, it goes back to register.
+
+43
+00:03:36,710 --> 00:03:39,620
+So that's step 1 completed.
+
+44
+00:03:39,710 --> 00:03:44,450
+Now step 2 is to only show the confirm password input,
+
+45
+00:03:44,450 --> 00:03:50,780
+so this one, if the userIsRegistered variable is false.
+
+46
+00:03:50,780 --> 00:03:56,150
+Remember that when we have a register screen, we want to have the confirm password input.
+
+47
+00:03:56,150 --> 00:04:01,310
+But when we have a login screen, we don't want to have that field showing at all.
+
+48
+00:04:01,310 --> 00:04:02,760
+How can we do this?
+
+49
+00:04:02,780 --> 00:04:04,370
+Well we know that we receive
+
+50
+00:04:04,370 --> 00:04:09,630
+this isRegistered value as a prop inside our form.
+
+51
+00:04:09,860 --> 00:04:14,750
+So we can determine whether if this input actually gets rendered or not.
+
+52
+00:04:14,860 --> 00:04:19,180
+And the most efficient way of doing this is through using the AND operator.
+
+53
+00:04:19,760 --> 00:04:29,330
+Let's open up a set of parentheses and check if props.isRegistered is equal to false. And if so
+
+54
+00:04:29,360 --> 00:04:34,490
+so two ampersands, then we're going to render this input component.
+
+55
+00:04:35,300 --> 00:04:43,070
+But if it's not false i.e. if this is true, then we're not going to render anything at all.
+
+56
+00:04:43,070 --> 00:04:45,660
+Now let's go ahead and test this out.
+
+57
+00:04:45,680 --> 00:04:52,130
+So when this is false, we see the register screen with that extra confirm password field. But if this
+
+58
+00:04:52,130 --> 00:04:59,410
+is true, then we see the login screen without that extra input. There's quite a few ways that you could
+
+59
+00:04:59,410 --> 00:05:00,310
+have done this.
+
+60
+00:05:00,310 --> 00:05:04,690
+You could have for example used a ternary operator instead.
+
+61
+00:05:04,690 --> 00:05:12,490
+So you can add a question mark here to check this condition, render this if it's true and then render
+
+62
+00:05:12,490 --> 00:05:13,030
+null
+
+63
+00:05:13,030 --> 00:05:19,900
+if it's not true. And this gives you the same effect. But of course if you're after the shortest possible
+
+64
+00:05:19,900 --> 00:05:26,800
+way of creating this kind of conditional rendering, then it's going to be through the use of the ampersand
+
+65
+00:05:26,830 --> 00:05:32,560
+operator. And that means we get to delete the null and all of the extra syntax.
+
+66
+00:05:32,560 --> 00:05:39,060
+And in fact you can even change this prop.iRregistered equals to false to a more simple form
+
+67
+00:05:39,070 --> 00:05:42,520
+just adding an exclamation mark in front.
+
+68
+00:05:42,520 --> 00:05:47,860
+So this basically turns this value to the opposite of what it used to be
+
+69
+00:05:48,010 --> 00:05:52,600
+and it's effectively the same as checking if isRegistered is false.
+
+70
+00:05:53,730 --> 00:05:59,900
+And then we end up with a one line statement that does everything we want.
+
+71
+00:06:00,160 --> 00:06:02,320
+Did you manage to get this challenge right?
+
+72
+00:06:02,380 --> 00:06:06,520
+If not be sure to head back to your own code and try to complete it
+
+73
+00:06:06,520 --> 00:06:11,920
+now that you've watched the video. We're going to be using this concept of conditional rendering a lot
+
+74
+00:06:11,980 --> 00:06:13,200
+in the coming lessons
+
+75
+00:06:13,390 --> 00:06:19,120
+and it's a really fundamental part of React. So be sure that you're really comfortable with it before
+
+76
+00:06:19,120 --> 00:06:20,930
+you move on.
+
+77
+00:06:20,950 --> 00:06:21,400
+All right.
+
+78
+00:06:21,400 --> 00:06:28,930
+In the next lesson, we're going to be talking about a big topic which is state and how we can track and
+
+79
+00:06:28,930 --> 00:06:31,060
+change state in our apps.
+
+80
+00:06:31,090 --> 00:06:33,430
+So for all of that and more, I'll see you there.
+

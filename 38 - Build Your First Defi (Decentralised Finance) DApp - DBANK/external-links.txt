@@ -1,0 +1,27 @@
+
+001 Compound
+https://app.compound.finance/
+
+002 Motoko-Language-Style-Guide
+https://smartcontracts.org/docs/language-guide/style.html
+
+002 DEBUG
+https://smartcontracts.org/docs/base-libraries/Debug.html
+
+003 Hello-Example-Code
+https://github.com/dfinity/examples/tree/master/motoko/hello
+
+003 Candid-Concepts
+https://smartcontracts.org/docs/candid-guide/candid-concepts.html
+
+003 GitLab-API-Docs
+https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml
+
+005 Query-Update-Docs
+https://smartcontracts.org/docs/developers-guide/concepts/canisters-code.html#query-update
+
+007 Time-Docs
+https://smartcontracts.org/docs/base-libraries/Time.html
+
+009 Namecheap-Logo-Maker
+https://www.namecheap.com/logo-maker/

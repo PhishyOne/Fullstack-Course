@@ -1,0 +1,1028 @@
+1
+00:00:00,470 --> 00:00:01,070
+Hi guys.
+
+2
+00:00:01,070 --> 00:00:04,280
+Welcome to another lesson on CSS.
+
+3
+00:00:04,310 --> 00:00:11,570
+In this lesson, we're going to be talking about CSS selectors, and this is going to help us choose
+
+4
+00:00:11,570 --> 00:00:14,150
+where to apply our CSS.
+
+5
+00:00:14,480 --> 00:00:21,220
+We've seen previously that we can create CSS rules by simply specifying two things.
+
+6
+00:00:21,230 --> 00:00:31,400
+One is the property we want to change and after a colon we get to specify the value to change that property
+
+7
+00:00:31,400 --> 00:00:31,990
+to.
+
+8
+00:00:32,210 --> 00:00:38,900
+In this case, what we're saying is we want to change the text color into a blue color.
+
+9
+00:00:39,320 --> 00:00:45,110
+Now we've come across some of these rules already and I'll be showing you in a later lesson in the next
+
+10
+00:00:45,110 --> 00:00:48,230
+section how to find out more about these rules.
+
+11
+00:00:48,230 --> 00:00:54,680
+But more importantly, in this lesson, what I want to talk about is the part outside of these rules.
+
+12
+00:00:54,680 --> 00:00:57,860
+It's the part that comes right here.
+
+13
+00:00:57,860 --> 00:01:02,280
+And this is known as a CSS selector.
+
+14
+00:01:02,550 --> 00:01:04,769
+What is a CSS selector?
+
+15
+00:01:04,769 --> 00:01:14,190
+Well, it's the part that selects the HTML in order to apply whichever rules go in between these curly
+
+16
+00:01:14,190 --> 00:01:15,120
+braces.
+
+17
+00:01:15,330 --> 00:01:20,910
+How do we know which part of our HTML file to make the text color blue?
+
+18
+00:01:20,940 --> 00:01:25,650
+Well, we look at this part and we can see we're targeting the h1.
+
+19
+00:01:25,740 --> 00:01:30,750
+Now, this style of selector is one of the simplest CSS selectors,
+
+20
+00:01:30,780 --> 00:01:32,640
+it's called an "element selector".
+
+21
+00:01:32,640 --> 00:01:38,070
+And all it does is it selects a particular HTML tag.
+
+22
+00:01:38,070 --> 00:01:42,000
+So in this case it's targeting all h1's.
+
+23
+00:01:42,000 --> 00:01:49,710
+If your HTML is any good, you should only have a single h1, but it will be different for other tags.
+
+24
+00:01:49,710 --> 00:01:57,150
+If you had anchor tags or if you had paragraph tags or h2's or any of the other HTML tags,
+
+25
+00:01:57,150 --> 00:02:07,430
+then when you select each of these in your CSS, it means apply to all elements that have that particular
+
+26
+00:02:07,430 --> 00:02:08,240
+tag.
+
+27
+00:02:08,360 --> 00:02:12,260
+Let's see this in action. Here,
+
+28
+00:02:12,260 --> 00:02:13,910
+I've got two files,
+
+29
+00:02:13,910 --> 00:02:18,890
+one is the index.html, and another is our stylesheet.
+
+30
+00:02:18,980 --> 00:02:26,450
+And inside our index.html we've just got 3 h2's: red, green and blue,
+
+31
+00:02:26,450 --> 00:02:30,140
+and when displayed or run they will look like this.
+
+32
+00:02:30,140 --> 00:02:31,520
+Three headings.
+
+33
+00:02:31,520 --> 00:02:40,640
+Now if we go ahead and add a little bit of CSS and target our h2 element, in this case, we're using
+
+34
+00:02:40,640 --> 00:02:45,260
+an element selector which is simply the name of the tag,
+
+35
+00:02:45,260 --> 00:02:50,870
+and then after the curly braces, we can define whichever CSS rules we want.
+
+36
+00:02:50,900 --> 00:02:54,590
+In this case, turning the color of the text red.
+
+37
+00:02:54,680 --> 00:03:00,230
+If we go ahead and run this code, I want you to imagine what you expect to happen.
+
+38
+00:03:00,230 --> 00:03:03,010
+Which of these texts will turn red?
+
+39
+00:03:03,030 --> 00:03:04,950
+So let's go and run the code.
+
+40
+00:03:04,950 --> 00:03:10,920
+And once this change is incorporated, this is what we see Red, Green and Blue all turn red because
+
+41
+00:03:10,920 --> 00:03:13,020
+they are all h2's.
+
+42
+00:03:13,020 --> 00:03:18,750
+And this element selector here selects all of the h2's turning them red.
+
+43
+00:03:18,750 --> 00:03:20,670
+So pretty simple so far.
+
+44
+00:03:20,790 --> 00:03:25,710
+Now let's look at another type of selector, a "class selector".
+
+45
+00:03:25,770 --> 00:03:30,540
+This requires a special symbol, which is the dot.
+
+46
+00:03:30,570 --> 00:03:39,750
+And then after that dot immediately with no spaces right here, then you have the name of the class.
+
+47
+00:03:39,750 --> 00:03:45,150
+So this is the actual name of the class that we're selecting.
+
+48
+00:03:45,150 --> 00:03:47,670
+In this case, I've called it red-heading.
+
+49
+00:03:47,790 --> 00:03:52,890
+And then after the curly braces again, we have the same CSS rule to apply,
+
+50
+00:03:52,920 --> 00:03:55,050
+change the text color to red.
+
+51
+00:03:55,830 --> 00:03:58,230
+Now, what is a class?
+
+52
+00:03:58,230 --> 00:04:05,490
+Well, a class is something that we can add as an attribute to any HTML element.
+
+53
+00:04:05,880 --> 00:04:14,130
+And this attribute is kind of like saying, well, let's group these particular elements into a class.
+
+54
+00:04:14,130 --> 00:04:21,779
+So it's used for grouping elements in your HTML file to apply the same CSS rule to all of them.
+
+55
+00:04:21,779 --> 00:04:29,910
+So in this case, we've only got one h2 that has a class and the class is set to "red-text."
+
+56
+00:04:30,090 --> 00:04:39,390
+Now, when I go ahead and write some CSS and I target the class, which remember requires the dot and
+
+57
+00:04:39,390 --> 00:04:45,420
+then the name of the class, which is this, and it has to be spelled exactly the same.
+
+58
+00:04:45,420 --> 00:04:47,760
+These two cannot have any differences.
+
+59
+00:04:47,760 --> 00:04:53,970
+So you can't have, for example, a capital R or a capital T, This will not work.
+
+60
+00:04:54,510 --> 00:04:59,820
+Instead, what we have is our class selector and our CSS rule.
+
+61
+00:05:00,460 --> 00:05:07,900
+What do you expect will happen when the code is run in the browser? When this CSS gets applied?
+
+62
+00:05:07,930 --> 00:05:10,360
+Well, it'll look like this.
+
+63
+00:05:10,390 --> 00:05:16,990
+It selects the only element that has that class and turns the text color red.
+
+64
+00:05:17,470 --> 00:05:22,330
+Now what if we had multiple elements with the same class?
+
+65
+00:05:22,330 --> 00:05:27,640
+So here you can see we've actually got two different types of HTML elements.
+
+66
+00:05:27,670 --> 00:05:32,800
+One is an h2 and another is a paragraph element.
+
+67
+00:05:32,920 --> 00:05:38,470
+Even though these two are completely different elements, we can tag them using the same class.
+
+68
+00:05:38,470 --> 00:05:43,900
+We're saying the h2 should have the class of "red-text," as should the paragraph.
+
+69
+00:05:44,020 --> 00:05:54,070
+Now if we write our CSS and we select again all the classes that have "red-text", then what do you think
+
+70
+00:05:54,070 --> 00:05:55,110
+will happen?
+
+71
+00:05:55,120 --> 00:06:01,850
+Well, in this case, it doesn't matter if it's an h2 or if it's a paragraph,
+
+72
+00:06:01,850 --> 00:06:08,870
+as long as they've got that class, they've been converted into red text and the style has been applied
+
+73
+00:06:08,870 --> 00:06:11,900
+to these two HTML elements.
+
+74
+00:06:12,380 --> 00:06:16,520
+As you can see, the class selector is really versatile.
+
+75
+00:06:16,520 --> 00:06:22,430
+It allows you to group different parts of your HTML file into having the same styling.
+
+76
+00:06:22,430 --> 00:06:28,010
+And this can be really, really useful on multi-page websites with lots of different elements,
+
+77
+00:06:28,010 --> 00:06:32,840
+and you don't just want to select a particular type of HTML element.
+
+78
+00:06:33,650 --> 00:06:39,800
+The next one I want to show you is called the "ID Selector" and the ID Selector,
+
+79
+00:06:39,800 --> 00:06:47,300
+it has its own special symbol, which is a pound sign or a hashtag (#), and you put that pound sign and
+
+80
+00:06:47,300 --> 00:06:57,320
+again, no spaces in between the pound sign and the actual name of the ID, and this selects all elements
+
+81
+00:06:57,320 --> 00:07:00,590
+with a particular ID attribute.
+
+82
+00:07:00,590 --> 00:07:07,190
+This is what an ID attribute looks like, it's simply the words "id", and then after the equal sign,
+
+83
+00:07:07,190 --> 00:07:14,870
+we can give it a particular ID. And it works similarly to the class selector, because if I go ahead
+
+84
+00:07:14,870 --> 00:07:24,770
+and select this ID of main and I apply these CSS changes, then you can see it will add the styling and
+
+85
+00:07:24,770 --> 00:07:28,520
+apply it to the only element that has that ID.
+
+86
+00:07:29,120 --> 00:07:35,160
+So then what is the difference between the ID and the class selector?
+
+87
+00:07:35,180 --> 00:07:44,390
+Well, the class selector can be applied to many elements, whereas the ID should be only applied to
+
+88
+00:07:44,390 --> 00:07:52,220
+one element in a single HTML file. In a single HTML file like our index.html,
+
+89
+00:07:52,250 --> 00:07:58,490
+there should only be one ID of this particular name,  main.
+
+90
+00:07:58,490 --> 00:08:04,090
+It should be completely unique and this is the difference.
+
+91
+00:08:04,090 --> 00:08:13,840
+If you had say three h2's you can't select all of them using the element selector like this because
+
+92
+00:08:13,840 --> 00:08:17,530
+that would select all of the h2's.
+
+93
+00:08:17,560 --> 00:08:27,610
+Instead you apply the ID to the unique element that you want to apply your style to and it selects it
+
+94
+00:08:27,610 --> 00:08:29,590
+in the HTML file.
+
+95
+00:08:30,310 --> 00:08:38,530
+Again, remember, IDs are unique only one element per file and classes, you can put on as many elements
+
+96
+00:08:38,530 --> 00:08:40,690
+as you like to group them together.
+
+97
+00:08:41,440 --> 00:08:49,060
+Another way that you can select parts of your HTML is using the attribute selector so we know that we
+
+98
+00:08:49,060 --> 00:08:54,850
+can create a HTML tag and add as many attributes as we like.
+
+99
+00:08:54,850 --> 00:09:09,670
+So we had attributes such as ID, or class, or draggable, or source for the images or href for the anchor
+
+100
+00:09:09,670 --> 00:09:17,110
+tags or alt for the images and a whole bunch more that will get to see in the future as well.
+
+101
+00:09:17,380 --> 00:09:26,020
+Now we can select these elements that have particular attributes or particular attributes values by
+
+102
+00:09:26,020 --> 00:09:27,910
+using this notation.
+
+103
+00:09:27,940 --> 00:09:39,010
+Notice the first part here is the HTML element that you want to select, and then using a set of square
+
+104
+00:09:39,010 --> 00:09:41,380
+brackets, these ones right here,
+
+105
+00:09:41,410 --> 00:09:46,390
+then inside we can include the attribute that you want to select.
+
+106
+00:09:46,630 --> 00:09:57,640
+What this entire selector says is select all paragraph elements with the attribute draggable and then
+
+107
+00:09:57,640 --> 00:09:59,680
+apply this CSS style
+
+108
+00:09:59,820 --> 00:10:00,270
+to it.
+
+109
+00:10:00,750 --> 00:10:03,860
+What does this look like in HTML code?
+
+110
+00:10:03,870 --> 00:10:10,680
+Well, here we've got three paragraph tags, but only one of them has the attribute draggable set to
+
+111
+00:10:10,710 --> 00:10:11,370
+true.
+
+112
+00:10:11,490 --> 00:10:21,780
+If we go ahead and apply the CSS style where we select the paragraph element with the draggable attribute
+
+113
+00:10:21,780 --> 00:10:31,020
+and give it this CSS style, then when this CSS is applied to our HTML, this is what will happen.
+
+114
+00:10:31,020 --> 00:10:37,260
+It will find the unique paragraph tag with that particular attribute.
+
+115
+00:10:37,290 --> 00:10:41,130
+Now you can go one step further with attribute selectors.
+
+116
+00:10:41,310 --> 00:10:47,980
+You can actually select the value of the attribute that you want to apply your CSS to.
+
+117
+00:10:48,000 --> 00:10:54,840
+So in this case, you can see we've got all three paragraphs with the same attribute.
+
+118
+00:10:54,870 --> 00:10:59,070
+All the draggable attributes are set, but the set to different values.
+
+119
+00:10:59,170 --> 00:11:03,320
+So the first one is set to true, and the other two are set to false.
+
+120
+00:11:03,340 --> 00:11:07,670
+So now we can actually write our CSS like this.
+
+121
+00:11:07,690 --> 00:11:16,470
+We can select all the paragraph elements which has an attribute of draggable set an equal to false.
+
+122
+00:11:16,480 --> 00:11:25,330
+And what this selector is going to do all of this is it's going to look inside our file and it's going
+
+123
+00:11:25,330 --> 00:11:35,590
+to find these two paragraph elements in order to select and apply the CSS. When this CSS is applied instead
+
+124
+00:11:35,590 --> 00:11:43,540
+of the first one, which previously was selected, we actually have the other two selected and turned
+
+125
+00:11:43,540 --> 00:11:44,290
+red.
+
+126
+00:11:44,620 --> 00:11:51,250
+This is again a really versatile way of applying CSS, but as you can see, it selects on different
+
+127
+00:11:51,250 --> 00:11:53,460
+things than what we've seen before.
+
+128
+00:11:53,470 --> 00:11:58,990
+The element, the ID, or the class selectors. The final selector
+
+129
+00:11:58,990 --> 00:12:01,960
+I want to talk about is the universal selector.
+
+130
+00:12:01,960 --> 00:12:03,580
+And it's really simple.
+
+131
+00:12:03,580 --> 00:12:05,470
+It's just an asterix (*).
+
+132
+00:12:05,470 --> 00:12:08,740
+And after the Asterix you have your CSS rules,
+
+133
+00:12:08,740 --> 00:12:12,460
+but what this means is it means select all.
+
+134
+00:12:12,910 --> 00:12:19,240
+And when you apply this, it doesn't matter what class you've got, what ID, what attribute set, which
+
+135
+00:12:19,240 --> 00:12:20,320
+different elements,
+
+136
+00:12:20,350 --> 00:12:27,610
+if you select all, it's going to apply the style to everything where the stylesheet is active.
+
+137
+00:12:27,610 --> 00:12:31,540
+And this is probably one of the simplest selectors to understand.
+
+138
+00:12:31,900 --> 00:12:38,530
+So now that we've seen all the different ways that we can apply our CSS to different parts of the HTML
+
+139
+00:12:38,560 --> 00:12:46,000
+using selectors, let's try an exercise where we experiment hands on and see if you've understood all
+
+140
+00:12:46,000 --> 00:12:47,830
+the concepts in this lesson.
+
+141
+00:12:48,130 --> 00:12:55,600
+Now, once you've downloaded and extracted the starting files and have it open in VS Code, then I want
+
+142
+00:12:55,600 --> 00:13:02,350
+you to go into the index.html file and here you'll notice a couple of things.
+
+143
+00:13:02,350 --> 00:13:09,400
+Firstly, we've already set up the stylesheet for you, so we've got an external stylesheet set up using
+
+144
+00:13:09,400 --> 00:13:14,590
+a link, and it's pointing to this file right here, the style.css.
+
+145
+00:13:15,100 --> 00:13:22,240
+The part that we want you to do is to revise what you've learned about CSS selectors.
+
+146
+00:13:22,240 --> 00:13:26,830
+And I've set up five TODO's for you and I want you to do them in order.
+
+147
+00:13:26,830 --> 00:13:31,120
+So start from one and then go to two and continue downwards.
+
+148
+00:13:31,390 --> 00:13:37,000
+What this is going to involve is for you to write actual CSS code.
+
+149
+00:13:37,030 --> 00:13:44,650
+I don't want you to actually touch anything inside the index.html because I don't want you to change
+
+150
+00:13:44,650 --> 00:13:48,970
+any of the HTML with the classes or values or IDs,
+
+151
+00:13:48,970 --> 00:13:51,340
+I want you to leave it exactly as it is.
+
+152
+00:13:51,370 --> 00:13:57,280
+And instead, your job is to write the selectors in the style.css.
+
+153
+00:13:57,430 --> 00:14:04,660
+Notice when you open up the style.css there's a little bit of CSS already here for you and I want you
+
+154
+00:14:04,660 --> 00:14:05,770
+to leave this alone.
+
+155
+00:14:05,800 --> 00:14:07,540
+Don't touch it, don't change it.
+
+156
+00:14:07,540 --> 00:14:13,780
+It's important so that the final styling looks right when we haven't covered all of the different CSS
+
+157
+00:14:13,780 --> 00:14:15,160
+styling rules.
+
+158
+00:14:15,160 --> 00:14:19,180
+In the next section, we're going to be talking about all of this in a lot more detail.
+
+159
+00:14:19,180 --> 00:14:22,480
+Where to find out about different rules and how to use them.
+
+160
+00:14:22,480 --> 00:14:27,640
+But for now, I want you to ignore this part and write your CSS below.
+
+161
+00:14:28,240 --> 00:14:34,780
+Similarly, I'm not expecting you to know which CSS rules to use because I'll provide all the rules
+
+162
+00:14:34,780 --> 00:14:36,730
+for you in TODO 1,
+
+163
+00:14:36,730 --> 00:14:42,640
+I want you to change the text color to red. In TODO 2, I want you to change the font size or change
+
+164
+00:14:42,640 --> 00:14:48,220
+the text align and this is all going to be provided for you completely formatted.
+
+165
+00:14:48,220 --> 00:14:53,590
+So it's got the property, the colon and the value I want you to set it to.
+
+166
+00:14:53,620 --> 00:14:59,710
+Now, the part that you need to think about and where your challenge comes in is how to select
+
+167
+00:14:59,940 --> 00:15:01,080
+the correct paths.
+
+168
+00:15:01,080 --> 00:15:07,860
+So how to select all the paragraphs, for example, or how to select parts with a class of this or an
+
+169
+00:15:07,860 --> 00:15:09,240
+ID of this?
+
+170
+00:15:09,240 --> 00:15:10,620
+So that is the challenge.
+
+171
+00:15:10,620 --> 00:15:14,040
+And this is what you need to do in this exercise.
+
+172
+00:15:14,490 --> 00:15:21,540
+And if you take a look at the preview right now, it's very plain, all black, no styling at all.
+
+173
+00:15:21,570 --> 00:15:27,630
+But if you take a look at the goal PNG, you'll see this is what the final outcome will look like.
+
+174
+00:15:27,630 --> 00:15:33,330
+It's going to be centered, it's going to have different colors and you can almost even use this website
+
+175
+00:15:33,330 --> 00:15:42,720
+as a revision tool because each of the bullet points are linked to a particular style of CSS selection.
+
+176
+00:15:43,020 --> 00:15:50,820
+This hopefully will be quite a fun challenge for you and if you get stuck, be sure to rewind a little
+
+177
+00:15:50,850 --> 00:15:56,280
+bit in the video to see how to do the different things as seen in the previous examples.
+
+178
+00:15:56,280 --> 00:16:01,750
+And I want you to really give it a good go before you continue and watch the solution.
+
+179
+00:16:02,410 --> 00:16:03,460
+Pause the video now.
+
+180
+00:16:03,460 --> 00:16:04,450
+Give this a go.
+
+181
+00:16:09,440 --> 00:16:09,860
+All right.
+
+182
+00:16:09,860 --> 00:16:14,210
+So the first thing we're going to do is we're going to pull up our preview to make sure we are doing
+
+183
+00:16:14,210 --> 00:16:15,470
+the right things.
+
+184
+00:16:15,470 --> 00:16:23,660
+And to begin the first TODO is to set the CSS for all paragraph tags to this color.
+
+185
+00:16:23,660 --> 00:16:29,750
+Now, remember, I said we're not writing any code or changing anything in the HTML side,
+
+186
+00:16:29,750 --> 00:16:37,730
+we're doing it all in our CSS, but it's still really important that we look at what's in our HTML code
+
+187
+00:16:37,730 --> 00:16:41,030
+in order to complete each of the steps of the challenge.
+
+188
+00:16:41,180 --> 00:16:42,350
+The first one's easy,
+
+189
+00:16:42,350 --> 00:16:47,180
+we're going to target all paragraph tags and we're going to apply this CSS style.
+
+190
+00:16:47,180 --> 00:16:54,140
+So let me copy the CSS style, paste it in, and now I've got an error because I haven't selected what
+
+191
+00:16:54,140 --> 00:16:56,030
+this style should be applied to.
+
+192
+00:16:56,240 --> 00:17:01,790
+In this case, we're applying it to all the paragraph elements, so we're using the element selector
+
+193
+00:17:01,790 --> 00:17:09,150
+and all we have to do there is simply add the name of the tag and then apply it and you can see the
+
+194
+00:17:09,150 --> 00:17:12,750
+first line of our bullet is now red.
+
+195
+00:17:13,170 --> 00:17:15,030
+That's TODO number one.
+
+196
+00:17:15,030 --> 00:17:15,569
+Done.
+
+197
+00:17:15,569 --> 00:17:17,910
+Let's move on to the next TODO so.
+
+198
+00:17:17,910 --> 00:17:26,430
+In this one, we want to set the CSS for all the elements with a class of this to this CSS rule.
+
+199
+00:17:26,430 --> 00:17:30,960
+So let me again copy the CSS rule and then paste it below,
+
+200
+00:17:31,140 --> 00:17:37,020
+and now we're going to use a class selector and select all the elements.
+
+201
+00:17:37,020 --> 00:17:42,270
+So notice how we've got many elements with the same class, even though they're applied to different
+
+202
+00:17:42,270 --> 00:17:46,680
+elements, but we can select across them using the class selector.
+
+203
+00:17:46,950 --> 00:17:52,530
+The class selector, if you remember, requires the dot, and then immediately afterwards we add in
+
+204
+00:17:52,530 --> 00:17:58,350
+the name of the class, and then we enclose our CSS rule in between the curly braces again.
+
+205
+00:17:58,350 --> 00:18:06,570
+And what this has done is it's applied a larger font size to all of the HTML elements that have that
+
+206
+00:18:06,570 --> 00:18:11,970
+class applied to them, which is all the bullets here, but not the h1 or h2's.
+
+207
+00:18:12,390 --> 00:18:14,610
+So that's TODO number two done.
+
+208
+00:18:14,640 --> 00:18:22,890
+Next one is to set the CSS for the element with a particular unique ID and the ID is this one.
+
+209
+00:18:22,890 --> 00:18:24,450
+So which one has that ID?
+
+210
+00:18:24,690 --> 00:18:31,710
+It's this particular list element and we're going to set it to have access rule to turn the color green.
+
+211
+00:18:33,660 --> 00:18:37,530
+With ID names or class names or attribute names, any of that,
+
+212
+00:18:37,530 --> 00:18:41,340
+it's very important that you don't make any spelling errors.
+
+213
+00:18:41,340 --> 00:18:48,090
+What I normally do is I normally just copy it and then paste it in so that I don't actually mistakenly
+
+214
+00:18:48,090 --> 00:18:52,470
+add a capitalized S or something else that I could write incorrectly.
+
+215
+00:18:52,470 --> 00:18:57,270
+So remember, the ID selector is a pound sign or a hashtag,
+
+216
+00:18:57,270 --> 00:19:05,490
+And once we enclose our rule inside that selector, you'll see bullet number three turn green, because
+
+217
+00:19:05,490 --> 00:19:11,610
+that is the only item and it should be only one item that has the same ID.
+
+218
+00:19:12,690 --> 00:19:21,480
+Now let's move on to TODO number four, which is to set the CSS for the "li" elements that have the value
+
+219
+00:19:21,480 --> 00:19:23,520
+attribute set to 4.
+
+220
+00:19:23,760 --> 00:19:32,610
+And notice now that all of the items in the ordered list, I've set a value attribute.
+
+221
+00:19:32,610 --> 00:19:42,210
+And what this does, if you take a look at the MDN Web docs for the list item element is this attribute
+
+222
+00:19:42,210 --> 00:19:46,290
+can indicate the current ordinal value of the list item.
+
+223
+00:19:46,290 --> 00:19:56,640
+When you have a list item inside an ordered list, by default, it starts numbering from 1 like so, this
+
+224
+00:19:56,640 --> 00:19:58,410
+is this list item.
+
+225
+00:19:58,410 --> 00:20:04,560
+But because I've got that paragraph tag above and I want to format this so that we have an interesting
+
+226
+00:20:04,560 --> 00:20:14,700
+CSS exercise, I've set the value attribute so that the list starts from 2, which is totally valid
+
+227
+00:20:14,700 --> 00:20:20,100
+and I've set it for all of the other items as well so that we continue the list.
+
+228
+00:20:21,420 --> 00:20:28,260
+In this case, we're going to use the attribute selector to select this value attribute and turn the
+
+229
+00:20:28,260 --> 00:20:29,520
+text blue.
+
+230
+00:20:29,610 --> 00:20:36,120
+Let's paste in the CSS rule and then remember, the way that we use the attribute inspector is we first
+
+231
+00:20:36,120 --> 00:20:42,420
+select the element in this case list item, and then we add some square brackets.
+
+232
+00:20:42,420 --> 00:20:48,540
+And inside the square brackets we add the attribute that we want to select, which in this case is called
+
+233
+00:20:48,540 --> 00:20:49,410
+value.
+
+234
+00:20:49,410 --> 00:20:57,150
+And if right now I already close these curly braces, so we select on that attribute, it's going to turn
+
+235
+00:20:57,150 --> 00:21:05,160
+all the list items that have a attribute of value set, which is basically all four of these.
+
+236
+00:21:05,190 --> 00:21:08,550
+Now, some of you might have noticed that bullet Number 3
+
+237
+00:21:08,610 --> 00:21:13,470
+remain green instead of turning blue like the rest of the list elements.
+
+238
+00:21:13,500 --> 00:21:19,650
+Now, if you're curious about why this is, this is to do with something called "CSS Specificity" relating
+
+239
+00:21:19,680 --> 00:21:22,380
+to how specific the rule is.
+
+240
+00:21:22,410 --> 00:21:28,560
+Now, we're going to be covering this in Section 7 for our Advanced CSS module.
+
+241
+00:21:28,560 --> 00:21:32,070
+So that's something you get to look forward to in the future.
+
+242
+00:21:32,700 --> 00:21:39,930
+Now, if we want to set the attribute that we want to select to a particular value, which in this case
+
+243
+00:21:39,930 --> 00:21:47,100
+is the one that's 4, then I have to go a little bit further and set this equal to 4.
+
+244
+00:21:47,280 --> 00:21:52,830
+And now you can see it's only selecting this fourth bullet and turning it blue.
+
+245
+00:21:54,380 --> 00:21:56,780
+Now attribute selectors can be a little bit tricky.
+
+246
+00:21:56,780 --> 00:22:02,450
+So if you didn't understand this at all, be sure to rewind in the video and watch that section of the
+
+247
+00:22:02,450 --> 00:22:08,000
+video again, just to make sure that you fully understand what's going on before you move on.
+
+248
+00:22:08,540 --> 00:22:11,510
+The final TODO is the easiest.
+
+249
+00:22:11,540 --> 00:22:17,480
+All we have to do is set all the elements to "text-align" to center.
+
+250
+00:22:17,810 --> 00:22:23,570
+When we want to select all the elements, we use our universal selector, which is the asterisks (*),
+
+251
+00:22:23,570 --> 00:22:31,490
+and then once we paste in this rule, you'll see now our preview looks exactly the same as what we wanted
+
+252
+00:22:31,490 --> 00:22:34,370
+for our goal. Everything center aligned.
+
+253
+00:22:34,400 --> 00:22:41,690
+There's lots of different styling being applied and we've now managed to achieve all of the TODO's
+
+254
+00:22:41,690 --> 00:22:44,030
+in our exercise.
+
+255
+00:22:44,450 --> 00:22:45,830
+So hope that made sense.
+
+256
+00:22:45,830 --> 00:22:49,680
+And it helped you review all the things we learned in this lesson.
+
+257
+00:22:49,700 --> 00:22:55,590
+Once you're ready, head over to the next lesson where we've got our final project for the section.
+

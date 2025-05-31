@@ -1,0 +1,1300 @@
+1
+00:00:00,060 --> 00:00:06,240
+We've been talking about all these applications that's built on the blockchain, but what exactly is
+
+2
+00:00:06,240 --> 00:00:09,030
+the blockchain and how does the technology work?
+
+3
+00:00:09,480 --> 00:00:14,070
+Now, the easiest way to think about this is the blockchain is just a ledger.
+
+4
+00:00:14,250 --> 00:00:15,300
+Now, what's a ledger?
+
+5
+00:00:15,690 --> 00:00:21,810
+Well, let's say that I went to lunch with my friend Jack and he paid for the bill.
+
+6
+00:00:22,020 --> 00:00:29,760
+Well, I could pull out a notepad and say, well, Jack gave Angela $10 for lunch, and now Angela owes
+
+7
+00:00:29,760 --> 00:00:30,690
+Jack $10.
+
+8
+00:00:31,110 --> 00:00:33,060
+So this is the beginning of my ledger.
+
+9
+00:00:33,540 --> 00:00:36,270
+Now, then I decide to buy Helena a coffee.
+
+10
+00:00:36,280 --> 00:00:38,670
+So Angela gives Helena $5.
+
+11
+00:00:39,240 --> 00:00:46,620
+And as I continue this ledger, it's basically just a record of who owes who, what amount, and just
+
+12
+00:00:46,620 --> 00:00:47,730
+a bunch of data.
+
+13
+00:00:47,880 --> 00:00:52,980
+Now, later on, when I want to figure out, well, how much do I owe Jack, then I can look at this
+
+14
+00:00:52,980 --> 00:00:55,920
+ledger and I could see, Oh, I owe him $10.
+
+15
+00:00:56,070 --> 00:00:57,540
+But there are two problems.
+
+16
+00:00:57,750 --> 00:01:03,780
+First, Jack, Helena and I all need to agree on which transactions should go into the ledger.
+
+17
+00:01:04,349 --> 00:01:09,450
+And second, we have to trust the person who's holding onto the ledger that they aren't just going to
+
+18
+00:01:09,450 --> 00:01:12,030
+modify the transactions that we already recorded.
+
+19
+00:01:12,750 --> 00:01:16,170
+What if we could just simply modify this ledger?
+
+20
+00:01:16,650 --> 00:01:24,150
+I could just go in there and add a zero, and now all of a sudden I'm receiving $100 instead of $10.
+
+21
+00:01:24,330 --> 00:01:29,370
+This kind of data tampering makes these kind of paper ledgers worthless to use.
+
+22
+00:01:29,820 --> 00:01:33,570
+And if we had this on the Internet, it would have the same problems.
+
+23
+00:01:34,020 --> 00:01:40,440
+What we need is to make the history of the transactions in this ledger immutable, basically lock it
+
+24
+00:01:40,440 --> 00:01:43,110
+so it can no longer be changed ever again.
+
+25
+00:01:43,470 --> 00:01:44,310
+How do we do that?
+
+26
+00:01:44,580 --> 00:01:46,550
+Well, we could do that with encryption.
+
+27
+00:01:46,560 --> 00:01:49,350
+And the simplest version is the Caesar cipher.
+
+28
+00:01:49,530 --> 00:01:54,870
+So when Julius Caesar wanted to communicate with his generals, and wanted to make sure that the messages
+
+29
+00:01:54,870 --> 00:01:57,420
+didn't get intercepted by a third party,
+
+30
+00:01:57,660 --> 00:02:00,600
+he turned his message into a cipher.
+
+31
+00:02:00,720 --> 00:02:05,700
+That means if somebody got hold of it, they wouldn't be able to work it out unless they knew how it
+
+32
+00:02:05,700 --> 00:02:06,510
+was encrypted.
+
+33
+00:02:06,930 --> 00:02:09,660
+And this was a very simple form of encryption.
+
+34
+00:02:09,690 --> 00:02:16,710
+All it did was it shifted the letters in the message by a pre-specified number of characters,
+
+35
+00:02:16,980 --> 00:02:20,970
+so maybe A becomes E and B becomes F, etc..
+
+36
+00:02:21,750 --> 00:02:26,910
+Now, if you wanted to try out the Caesar cipher for yourself, you can take a look at this Caesar cipher
+
+37
+00:02:26,910 --> 00:02:29,730
+demo, which I'll link to in the course resources.
+
+38
+00:02:30,630 --> 00:02:37,110
+Now here you can enter some plaintext and if you click on Encrypt, you can see that there's a shift
+
+39
+00:02:37,110 --> 00:02:37,620
+amount.
+
+40
+00:02:38,070 --> 00:02:43,980
+So what it's going to do is it's going to take each and every letter and shift it up by four.
+
+41
+00:02:44,580 --> 00:02:49,320
+So an E becomes an I, a L becomes a P, etc..
+
+42
+00:02:49,710 --> 00:02:54,090
+But you can see from looking at the ciphertext that there is a pattern here, right?
+
+43
+00:02:54,480 --> 00:03:02,370
+Because with the double L's, it's two P's and then with the both of these Us in Julius, they both
+
+44
+00:03:02,370 --> 00:03:04,050
+get encoded to Y.
+
+45
+00:03:04,560 --> 00:03:10,350
+And if you knew which cipher was being used, you could just go through all of the shifts, you know,
+
+46
+00:03:10,350 --> 00:03:15,510
+from 1 to 26, and you'll eventually figure out how to decrypt this message.
+
+47
+00:03:16,410 --> 00:03:20,430
+So if you click decrypt, you can see it goes back to Hello, Julius.
+
+48
+00:03:21,210 --> 00:03:26,910
+Now, the only thing that you need to know is what that shift number is in order to figure out how to
+
+49
+00:03:26,910 --> 00:03:28,200
+decrypt a message.
+
+50
+00:03:28,650 --> 00:03:34,650
+So here they've got an example message and if you try decrypt, you can see it's still not working.
+
+51
+00:03:34,980 --> 00:03:44,340
+And you change the shift number from 1 to 2 to 3 until eventually you'll get to the right shift number
+
+52
+00:03:44,790 --> 00:03:47,010
+and you'll figure out what the message is.
+
+53
+00:03:47,400 --> 00:03:48,390
+Try it out yourself.
+
+54
+00:03:49,020 --> 00:03:55,770
+The Caesar cipher is one means of encryption, but there are many, many different types of encryption.
+
+55
+00:03:56,250 --> 00:04:03,300
+But what they all do is they take a message and you encrypt it and you can turn it into a cipher, which
+
+56
+00:04:03,300 --> 00:04:06,300
+will be difficult to read for any normal human being
+
+57
+00:04:06,660 --> 00:04:08,940
+and you disguise the meaning of the message.
+
+58
+00:04:09,270 --> 00:04:16,019
+Now, the key thing about encryption, though, is that you can actually go forwards and backwards,
+
+59
+00:04:16,380 --> 00:04:18,959
+which means that you can take the same encryption
+
+60
+00:04:19,320 --> 00:04:26,760
+as long as you know the components of the encryption, you can decipher it and get the message back
+
+61
+00:04:26,760 --> 00:04:27,030
+out.
+
+62
+00:04:27,570 --> 00:04:32,430
+So this means on the other side, the Roman general will be able to read what Julius Caesar meant to
+
+63
+00:04:32,430 --> 00:04:36,240
+send him by knowing which form of encryption was used.
+
+64
+00:04:36,330 --> 00:04:43,740
+And this makes encryption a little bit less secure, because if there is a method to be able to back
+
+65
+00:04:43,740 --> 00:04:50,580
+out the original data by decrypting the cipher, then your cipher could be broken, such as in the case
+
+66
+00:04:50,580 --> 00:04:54,270
+of the famous encryption of the German enigma in World War II.
+
+67
+00:04:54,480 --> 00:04:59,820
+So if our ledger was secured using encryption, then there's always a way to
+
+68
+00:05:00,000 --> 00:05:04,410
+decrypt it, which means we can still alter the ledger illicitly.
+
+69
+00:05:04,620 --> 00:05:10,530
+So instead of using encryption, the blockchain actually uses something called hashing, which is very
+
+70
+00:05:10,530 --> 00:05:11,760
+similar to encryption
+
+71
+00:05:12,120 --> 00:05:14,340
+with a couple of notable differences.
+
+72
+00:05:14,940 --> 00:05:16,230
+Now, what's hashing?
+
+73
+00:05:16,440 --> 00:05:25,950
+Well, it's basically a mathematical formula that allows you to turn a message into a hash code by passing
+
+74
+00:05:25,950 --> 00:05:27,810
+the message through the hash function.
+
+75
+00:05:27,990 --> 00:05:33,000
+But unlike encryption, a hash is a bunch of mumbo jumbo,
+
+76
+00:05:33,330 --> 00:05:39,870
+but if you use the same hash function, no matter what message you put in, you will always get an output
+
+77
+00:05:39,870 --> 00:05:41,760
+with the same number of characters.
+
+78
+00:05:42,090 --> 00:05:46,740
+So if you hashed 123, you might get this top result.
+
+79
+00:05:47,100 --> 00:05:50,130
+And if you hashed abc, you might get this bottom result.
+
+80
+00:05:50,400 --> 00:05:53,550
+But they both have the same number of characters.
+
+81
+00:05:53,850 --> 00:05:57,450
+So let's try out a hash algorithm ourselves.
+
+82
+00:05:58,050 --> 00:06:01,680
+Now, again, in the course resources, you'll see a link to this demo.
+
+83
+00:06:02,340 --> 00:06:09,330
+And here we've got the SHA-256 hash algorithm, which is one of the most popular hash algorithms out
+
+84
+00:06:09,330 --> 00:06:09,630
+there.
+
+85
+00:06:10,350 --> 00:06:17,580
+And you can see here that you can type any sort of message into this box, and it will formulate a hash,
+
+86
+00:06:17,820 --> 00:06:21,270
+and it changes every single time you type anything.
+
+87
+00:06:21,270 --> 00:06:22,470
+So you can type of space,
+
+88
+00:06:22,470 --> 00:06:23,280
+it'll change it.
+
+89
+00:06:23,280 --> 00:06:25,200
+You can type numbers, it'll change it.
+
+90
+00:06:25,560 --> 00:06:32,880
+You can put the entire War and Peace into this message box, and it will still generate a hash with
+
+91
+00:06:32,880 --> 00:06:34,650
+64 characters.
+
+92
+00:06:34,860 --> 00:06:41,130
+And if you're interested, you can actually see below here for the source code of how the SHA-256 is
+
+93
+00:06:41,130 --> 00:06:41,910
+implemented.
+
+94
+00:06:43,140 --> 00:06:52,230
+But how is it possible that we can turn an input into a hash and be completely unable to work out what
+
+95
+00:06:52,230 --> 00:06:54,510
+the original input is from the hash?
+
+96
+00:06:55,200 --> 00:07:01,890
+Well, a really simplified example of a hash function is working out the factors of a number.
+
+97
+00:07:02,130 --> 00:07:07,260
+For example, 2 times 4 is 8, so 2 and 4 are
+
+98
+00:07:07,620 --> 00:07:14,640
+the factors of 8, because I can divide 8 by 4 and it will cleanly divide and I can divide
+
+99
+00:07:14,640 --> 00:07:19,110
+8 by 2, and it will also cleanly divide with no remainder.
+
+100
+00:07:19,980 --> 00:07:22,530
+So going forwards is very easy.
+
+101
+00:07:22,680 --> 00:07:25,320
+2 times 4 is 8, super easy.
+
+102
+00:07:25,740 --> 00:07:32,190
+Now, if I asked you to work out what are the factors of 8, which would be 1, 2, 4 and 8, that's
+
+103
+00:07:32,190 --> 00:07:33,570
+a little bit more difficult.
+
+104
+00:07:33,930 --> 00:07:37,590
+But what if I asked to work out the factors of 57?
+
+105
+00:07:37,710 --> 00:07:42,950
+Unless you already know what they are, you have to go through all the numbers.
+
+106
+00:07:42,960 --> 00:07:46,050
+So it will be 57 divided by 2,
+
+107
+00:07:46,470 --> 00:07:48,750
+57 divided by 3.
+
+108
+00:07:49,200 --> 00:07:56,790
+Now, here you would find that 57's factors are 3 and 19 because it can be cleanly divided
+
+109
+00:07:56,790 --> 00:07:59,280
+into 3 and into 19.
+
+110
+00:07:59,520 --> 00:08:02,400
+But what if I asked you, are there any other ones?
+
+111
+00:08:02,640 --> 00:08:06,660
+Well, you can't be sure unless you actually continued.
+
+112
+00:08:06,690 --> 00:08:09,240
+So you could say 57 divided by 4.
+
+113
+00:08:09,570 --> 00:08:12,270
+That doesn't cleanly divide because there's a remainder.
+
+114
+00:08:12,600 --> 00:08:16,710
+Then you do 57 divided by 5 and so on and so forth.
+
+115
+00:08:17,190 --> 00:08:23,430
+So essentially when we're multiplying two numbers together, it's almost like creating the hash from
+
+116
+00:08:23,430 --> 00:08:24,120
+the message.
+
+117
+00:08:24,240 --> 00:08:27,840
+And then the final result that we get is the hash.
+
+118
+00:08:28,530 --> 00:08:35,610
+But if you want to go from the hash to go back to the original message, you would have to brute force
+
+119
+00:08:35,610 --> 00:08:35,780
+it.
+
+120
+00:08:35,789 --> 00:08:42,659
+You would have to divide it by every single number from 1 to 57 to find out all of its factors, which
+
+121
+00:08:42,659 --> 00:08:49,320
+for humans takes a lot of time and for computers, takes a lot of energy and computing power, especially
+
+122
+00:08:49,320 --> 00:08:52,140
+when you're dealing with very, very large numbers.
+
+123
+00:08:52,650 --> 00:08:58,440
+You really saw how finding the factors of 57 was a lot more difficult than finding the factors of 8.
+
+124
+00:08:59,040 --> 00:09:03,510
+Now, real world cryptography uses numbers that are hundreds of digits long.
+
+125
+00:09:03,990 --> 00:09:10,920
+For example, in 2019, it took researchers 900 years of computing power to find the factors of a number
+
+126
+00:09:10,920 --> 00:09:12,450
+with 240 digits.
+
+127
+00:09:13,230 --> 00:09:20,520
+So this is kind of the underlying basis of cryptography; going forwards is very quick and easy, very
+
+128
+00:09:20,520 --> 00:09:21,540
+easy to calculate.
+
+129
+00:09:21,540 --> 00:09:29,610
+But going backwards is almost impossible using the current computation power that most people have access
+
+130
+00:09:29,610 --> 00:09:29,850
+to.
+
+131
+00:09:30,360 --> 00:09:33,000
+So how does this apply to blockchain anyways?
+
+132
+00:09:33,450 --> 00:09:38,100
+Remember that our problem with the ledger was that we wanted to make sure that no one can change our history
+
+133
+00:09:38,100 --> 00:09:38,970
+of transactions.
+
+134
+00:09:39,390 --> 00:09:41,850
+Let me show you how the Bitcoin ledger solves this problem.
+
+135
+00:09:42,630 --> 00:09:47,520
+Using what we know about one way functions, we can now take all transaction data and create a hash.
+
+136
+00:09:47,820 --> 00:09:55,500
+Some very clever people have figured out that you can encode a whole bunch of things and hash everything
+
+137
+00:09:55,500 --> 00:09:56,010
+together.
+
+138
+00:09:56,610 --> 00:10:03,090
+So for example, I could write a message and I could write which date it was written on.
+
+139
+00:10:03,090 --> 00:10:08,280
+So the 1st of January of 2023
+
+140
+00:10:08,760 --> 00:10:13,590
+and I could also say I am the person who wrote that my name is Angela.
+
+141
+00:10:14,070 --> 00:10:19,740
+I could put all of these information together and it will create a hash for me.
+
+142
+00:10:20,130 --> 00:10:24,810
+So this is essentially how a block in the blockchain is formed.
+
+143
+00:10:25,290 --> 00:10:34,080
+We have a piece of data, so let's say Angela owes Jack $10.
+
+144
+00:10:34,350 --> 00:10:35,750
+This is our piece of information.
+
+145
+00:10:35,760 --> 00:10:40,350
+This is our piece of data that we want to encode into a block.
+
+146
+00:10:41,610 --> 00:10:49,890
+Now, in order to add that into the block, we're going to have to generate a hash and the hash becomes
+
+147
+00:10:49,890 --> 00:10:51,810
+the identifier for this block.
+
+148
+00:10:52,020 --> 00:10:54,210
+It's kind of like the fingerprint of this block.
+
+149
+00:10:54,540 --> 00:10:57,330
+How can you know that this block is truly this block?
+
+150
+00:10:57,870 --> 00:11:03,000
+Well, you could look at my fingerprint, and it's probably different from yours because we are unique
+
+151
+00:11:03,000 --> 00:11:03,540
+people.
+
+152
+00:11:04,140 --> 00:11:08,100
+And you can look at this block and it'll probably be different from another block because it'll have
+
+153
+00:11:08,100 --> 00:11:08,970
+a different hash.
+
+154
+00:11:09,150 --> 00:11:18,450
+Now, in order for a block to be added to the blockchain, it has to satisfy some predetermined requirement.
+
+155
+00:11:19,470 --> 00:11:28,290
+And this requirement could be, for example, that the hash has to start out with three zeros.
+
+156
+00:11:28,860 --> 00:11:33,330
+Now you can see that as I start typing, the hash keeps on changing
+
+157
+00:11:33,330 --> 00:11:40,500
+and sometimes you might see that we get just purely by chance, a zero to show up.
+
+158
+00:11:40,710 --> 00:11:42,420
+Or in this case, even better two
+
+159
+00:11:42,510 --> 00:11:43,440
+zeroes to show up.
+
+160
+00:11:44,130 --> 00:11:52,980
+But if we wanted a hash that has to begin with three zeros, then we're going to have to keep modifying
+
+161
+00:11:52,980 --> 00:11:54,790
+our data, which is not what we want.
+
+162
+00:11:54,810 --> 00:12:00,510
+We want our data to be clean, or we can modify this thing, which is known as the nonce.
+
+163
+00:12:01,140 --> 00:12:03,660
+So the nonce is basically a number.
+
+164
+00:12:03,780 --> 00:12:09,330
+So we can start from 1 and you can see the hash change because the nonce is being combined with the
+
+165
+00:12:09,330 --> 00:12:10,950
+data to produce the hash.
+
+166
+00:12:11,670 --> 00:12:14,610
+Now 1 produces a hash that starts with 4,
+
+167
+00:12:15,000 --> 00:12:16,190
+so that doesn't work.
+
+168
+00:12:16,230 --> 00:12:20,490
+Well, 2, we can try 3, we can try 4, we can try 5.
+
+169
+00:12:20,910 --> 00:12:27,570
+And we can keep going through these numbers until we find a nonce that creates a hash that starts with
+
+170
+00:12:27,570 --> 00:12:28,290
+a zero.
+
+171
+00:12:28,710 --> 00:12:32,040
+But that's not enough for our block to be added to the chain.
+
+172
+00:12:32,430 --> 00:12:36,000
+We need it to be three zeros to begin with.
+
+173
+00:12:36,240 --> 00:12:42,690
+So you can continue changing this nonce to 7 to 8 to 9 until quite a while.
+
+174
+00:12:43,200 --> 00:12:47,010
+Trust me, I've tried it to find a hash that begins with three zeros.
+
+175
+00:12:47,280 --> 00:12:55,830
+Or you can simply use the computer, undo that for you to brute force the nonce until it finds from
+
+176
+00:12:55,830 --> 00:13:00,720
+1 all the way up, increasing by 1 each time, until it finds the right number
+
+177
+00:13:00,960 --> 00:13:03,030
+that's going to create a hash with three zeros.
+
+178
+00:13:03,570 --> 00:13:07,320
+And you can do that by simply clicking on the mine button in this website.
+
+179
+00:13:07,950 --> 00:13:18,690
+It took 0.1 seconds for my browser to figure it out, and it figured out that 3885 is the nonce that
+
+180
+00:13:18,690 --> 00:13:25,680
+I need in order to encode this data, to have a hash with three zeros to start with.
+
+181
+00:13:25,920 --> 00:13:28,140
+So this makes this block valid.
+
+182
+00:13:28,140 --> 00:13:33,990
+And you can see it turned green because it satisfies the requirements of the blockchain to have three
+
+183
+00:13:33,990 --> 00:13:34,980
+zeros to begin with.
+
+184
+00:13:35,430 --> 00:13:41,700
+Now, if I had a blockchain that had a little bit higher of a difficulty, well, I can change that
+
+185
+00:13:41,700 --> 00:13:45,360
+to four zero to start with or five zeros to start with.
+
+186
+00:13:45,780 --> 00:13:51,150
+So then it's going to have to iterate through all the nonces until it finds a number when combined
+
+187
+00:13:51,150 --> 00:13:56,430
+with this particular piece of data will produce a hash with five zeros to start with.
+
+188
+00:13:57,000 --> 00:14:03,810
+And you can see when I click mine, it's going to take a little bit longer, 0.6 seconds before it finds
+
+189
+00:14:03,810 --> 00:14:08,850
+the correct nonce, which happens to be 53,792.
+
+190
+00:14:09,510 --> 00:14:16,320
+But the important thing is that nonce only works to produce this hash with five zeros for this piece
+
+191
+00:14:16,320 --> 00:14:17,160
+of data.
+
+192
+00:14:17,430 --> 00:14:23,580
+As soon as I alter this piece of data, let's say that Jack decided that I actually owed him a bit more
+
+193
+00:14:23,580 --> 00:14:27,120
+money and he goes in and sneakily alters this data,
+
+194
+00:14:27,480 --> 00:14:33,120
+well, it's now become invalid because you can see the hash no longer starts with five zeros.
+
+195
+00:14:33,160 --> 00:14:40,320
+Well, this tells me that this block has been modified and it is not valid data.
+
+196
+00:14:40,650 --> 00:14:47,310
+So then what we're doing with our ledger is we're taking the data that we want to add into the ledger,
+
+197
+00:14:47,760 --> 00:14:55,320
+and we're putting it into each of these blocks by hashing the data with a nonce.
+
+198
+00:14:55,590 --> 00:14:58,800
+So this is where the block in the blockchain comes from.
+
+199
+00:14:58,800 --> 00:15:00,600
+But what about the chain part?
+
+200
+00:15:01,410 --> 00:15:07,170
+So if we go to the next tab of this demo, you can see we've got a whole bunch of blocks here, five
+
+201
+00:15:07,170 --> 00:15:10,380
+in total and each of the blocks,
+
+202
+00:15:11,600 --> 00:15:18,260
+in order to create the hash, it takes into account the hash of the previous block.
+
+203
+00:15:18,380 --> 00:15:19,850
+This is how they're chained together.
+
+204
+00:15:20,450 --> 00:15:26,690
+So here you'll see that the hash of the first block, which is called the Genesis block, because it
+
+205
+00:15:26,690 --> 00:15:30,260
+doesn't really have any previous blocks attached to it.
+
+206
+00:15:30,710 --> 00:15:33,500
+So that's just 64 zeros in this case.
+
+207
+00:15:34,190 --> 00:15:35,570
+Well, this has a hash, though.
+
+208
+00:15:36,450 --> 00:15:40,580
+And let's say that we decided to put in the data that
+
+209
+00:15:43,050 --> 00:15:45,180
+Angela owes Jack $10.
+
+210
+00:15:45,690 --> 00:15:54,510
+Now, in order for this block to be valid, it needs to have a nonce that combines the data with the
+
+211
+00:15:54,510 --> 00:15:57,360
+previous hash value, which in this case is zero,
+
+212
+00:15:57,750 --> 00:16:03,900
+to create a hash that starts with five zeros so we can click mine and we can get our computer to work
+
+213
+00:16:03,900 --> 00:16:05,100
+it out. There
+
+214
+00:16:05,100 --> 00:16:07,890
+it's found the nonce: 53,792.
+
+215
+00:16:08,370 --> 00:16:14,010
+And with this nonce and our data and the previous hash, all of these things combined creates a hash
+
+216
+00:16:14,010 --> 00:16:15,600
+with five zeros to begin with.
+
+217
+00:16:16,050 --> 00:16:18,960
+So this is now a valid block that's entered the chain.
+
+218
+00:16:19,680 --> 00:16:23,940
+Now, on the next block, let's say that I decide to--
+
+219
+00:16:25,920 --> 00:16:32,220
+I decide to give Jenny $5, and I want to record this into my blockchain ledger.
+
+220
+00:16:32,790 --> 00:16:33,870
+There's my data,
+
+221
+00:16:34,290 --> 00:16:41,700
+and now you can see this is going to be chained to the previous block because it's now got the previous
+
+222
+00:16:41,700 --> 00:16:44,850
+block's hash in this section.
+
+223
+00:16:45,330 --> 00:16:53,760
+And this plus this plus this is going to be combined to create this hash. When any of these things changes,
+
+224
+00:16:53,790 --> 00:17:02,250
+so, for example if I change the data, if I change the nonce, and I can't but if I did change the
+
+225
+00:17:02,250 --> 00:17:05,310
+previous hash, it will also change the hash here.
+
+226
+00:17:07,030 --> 00:17:10,329
+So these three things together create the hash.
+
+227
+00:17:10,990 --> 00:17:16,839
+Now, if I go ahead and mine it, you can see it'll figure out a nonce in order to satisfy my requirement,
+
+228
+00:17:16,839 --> 00:17:18,849
+which is five zeros to begin with.
+
+229
+00:17:20,240 --> 00:17:21,859
+Now, here's the interesting part.
+
+230
+00:17:22,670 --> 00:17:27,319
+If I decide to go back in time and alter something in the ledger.
+
+231
+00:17:28,010 --> 00:17:37,280
+So let's say that instead of me owing Jack $10, I decide to sneakily change it to Jack actually owes
+
+232
+00:17:37,370 --> 00:17:39,050
+me $10,
+
+233
+00:17:39,530 --> 00:17:42,320
+you can see what it's done is it's invalidated
+
+234
+00:17:42,560 --> 00:17:46,730
+not only this block, it's turned it red because it doesn't start with a zero,
+
+235
+00:17:47,150 --> 00:17:50,390
+it's also invalidated every subsequent block.
+
+236
+00:17:50,900 --> 00:17:57,560
+So because this block depends on this one and the previous hash function has changed, which means this
+
+237
+00:17:57,560 --> 00:17:58,280
+has changed
+
+238
+00:17:58,620 --> 00:18:05,000
+and because we said that these three things together create the final hash, it no longer starts with
+
+239
+00:18:05,000 --> 00:18:05,780
+five zeros.
+
+240
+00:18:06,200 --> 00:18:11,750
+So this means I can't change this data without people knowing about it.
+
+241
+00:18:12,980 --> 00:18:18,140
+And if I change the data back to the original form, you can see everything turns green because that
+
+242
+00:18:18,140 --> 00:18:20,300
+is the original state of the ledger.
+
+243
+00:18:20,630 --> 00:18:23,330
+And this is how the ledger stays immutable.
+
+244
+00:18:23,780 --> 00:18:30,350
+We can't change anything that goes into the blockchain, otherwise it's going to invalidate all of our
+
+245
+00:18:30,350 --> 00:18:33,950
+hashes and it's no longer going to satisfy the requirements.
+
+246
+00:18:34,310 --> 00:18:40,850
+So as you can imagine, if you had more data and you mine each piece of data
+
+247
+00:18:43,160 --> 00:18:47,810
+until you have this entire chain which is all linked to each other
+
+248
+00:18:47,990 --> 00:18:54,590
+because in order to create each block's hash, it takes into account the previous block's hash and
+
+249
+00:18:54,590 --> 00:18:56,900
+whenever the previous block's data changes,
+
+250
+00:18:56,900 --> 00:19:01,910
+it's going to change the hash and thus invalidate every subsequent block.
+
+251
+00:19:02,690 --> 00:19:06,530
+Then this is how we can have security in our blockchain.
+
+252
+00:19:06,650 --> 00:19:13,400
+We now have a ledger where every single time you change anything in a previous block, it's going to
+
+253
+00:19:13,400 --> 00:19:15,320
+invalidate every subsequent block.
+
+254
+00:19:15,890 --> 00:19:22,670
+And in order to make it valid, we have to re-mine every single one of these blocks which, depending
+
+255
+00:19:22,670 --> 00:19:27,590
+on the difficulty level, I haven't even set it that high, is going to take a lot of time because we're
+
+256
+00:19:27,590 --> 00:19:29,270
+going to have to go through each of them.
+
+257
+00:19:29,750 --> 00:19:37,700
+And in reality, in chains like Bitcoin or Ethereum, it would literally be impossible with the current
+
+258
+00:19:37,700 --> 00:19:42,290
+computation power to be able to go through each of the blocks and re-mine them.
+
+259
+00:19:42,500 --> 00:19:48,380
+And you can see, even in this case, which is very a simple one, my Chrome is already telling me that
+
+260
+00:19:48,500 --> 00:19:51,590
+it's hanging and it's not working and I should shut it down.
+
+261
+00:19:52,070 --> 00:19:55,170
+So this is how we ensure the integrity of the blockchain.
+
+262
+00:19:55,220 --> 00:20:03,230
+But blockchain actually goes even one step further in order to assure that the data that's stored is
+
+263
+00:20:03,230 --> 00:20:06,020
+absolutely correct and has not been tampered with.
+
+264
+00:20:06,560 --> 00:20:09,920
+And this is the distributed part of the blockchain.
+
+265
+00:20:10,280 --> 00:20:12,830
+This goes back to the first problem that we talked about.
+
+266
+00:20:13,220 --> 00:20:16,910
+How does Jack, Helena and I all agree on what's in the ledger?
+
+267
+00:20:17,780 --> 00:20:23,870
+So I'm going to make this a little bit easier on my computer and drop the requirement to only need four
+
+268
+00:20:23,870 --> 00:20:24,500
+zeros.
+
+269
+00:20:25,370 --> 00:20:28,610
+So you can see here, I've got a distributed blockchain.
+
+270
+00:20:28,850 --> 00:20:34,820
+So I've got three people with three computers Peer A, Peer B and Peer C.
+
+271
+00:20:35,300 --> 00:20:44,180
+And what happens is every time a new miner joins the blockchain, they're going to get a full copy of
+
+272
+00:20:44,240 --> 00:20:44,930
+the blockchain.
+
+273
+00:20:45,650 --> 00:20:52,610
+So this person's blockchain has the same data as this person's blockchain.
+
+274
+00:20:52,940 --> 00:20:57,620
+And you can see because if you look at the hash, they're all completely identical.
+
+275
+00:20:58,880 --> 00:21:06,440
+So now what this means is that three people have the same blockchain that they hold.
+
+276
+00:21:07,100 --> 00:21:13,220
+Now, if this first person, Peer A, decides, oh, I'm going to be a little bit cheeky and I'm going
+
+277
+00:21:13,220 --> 00:21:19,130
+to change the data in here, I'm going to say that, you know, in this block, actually, something
+
+278
+00:21:19,130 --> 00:21:19,940
+else happened.
+
+279
+00:21:20,570 --> 00:21:24,890
+Then you can see that they've invalidated all of their subsequent blocks.
+
+280
+00:21:25,580 --> 00:21:30,470
+Now, they could re mine each of these blocks in order to make it valid again.
+
+281
+00:21:31,700 --> 00:21:33,800
+Now because I've set the difficulty quite low.
+
+282
+00:21:34,070 --> 00:21:35,750
+That was relatively quick to do.
+
+283
+00:21:36,170 --> 00:21:40,170
+But now they no longer match up with the other blocks.
+
+284
+00:21:40,190 --> 00:21:45,760
+You can see this one is starts with four zeros, but then it's 347e.
+
+285
+00:21:46,640 --> 00:21:53,180
+But for the other two, they've got a88f, a88f.
+
+286
+00:21:53,480 --> 00:21:59,780
+And this is how the network can tell that this Peer A has become a bad player.
+
+287
+00:22:00,140 --> 00:22:06,590
+They're trying to mess with the system because their hashes don't match with anybody else's.
+
+288
+00:22:07,160 --> 00:22:15,980
+So by distributing the blockchain on multiple computers, we now have another way of ensuring the integrity
+
+289
+00:22:15,980 --> 00:22:23,060
+of our data to make sure that our data is absolutely correct and nobody has tampered with it.
+
+290
+00:22:23,420 --> 00:22:31,310
+And this is where the power of blockchain really comes in, because we now have a distributed trustless
+
+291
+00:22:31,310 --> 00:22:31,840
+ledger.
+
+292
+00:22:31,850 --> 00:22:33,650
+We don't have to trust anybody.
+
+293
+00:22:33,650 --> 00:22:40,610
+We don't have to believe that, you know, PayPal is storing my money and they are making sure that
+
+294
+00:22:40,610 --> 00:22:42,980
+all the transactions are correct.
+
+295
+00:22:43,400 --> 00:22:48,080
+Well, actually, we've got blockchain, which encodes all of these transactions.
+
+296
+00:22:48,500 --> 00:22:56,090
+And because of the underlying technology, the distributed nature of it, the blockchain part, it means
+
+297
+00:22:56,090 --> 00:22:59,690
+that we don't have to care who is storing these copies of the blockchain.
+
+298
+00:23:00,140 --> 00:23:09,530
+We can trust in the technology that our ledger is always, always going to be accurate and nobody is
+
+299
+00:23:09,530 --> 00:23:10,910
+going to be able to tamper with it.
+
+300
+00:23:11,300 --> 00:23:12,490
+Now, this is great
+
+301
+00:23:12,560 --> 00:23:19,220
+and this technology up to this point that we've described already allows us to have cryptocurrencies
+
+302
+00:23:19,220 --> 00:23:20,150
+like Bitcoin.
+
+303
+00:23:20,810 --> 00:23:27,440
+But the real cherry on top happened when Ethereum was conceptualized.
+
+304
+00:23:27,650 --> 00:23:37,280
+Now, the real breakthrough here is they realized that not only can we store data inside each of these
+
+305
+00:23:37,280 --> 00:23:41,180
+blocks, who owes who money or who has how much money,
+
+306
+00:23:41,720 --> 00:23:47,840
+we can create what's called smart contracts by storing code into the blocks.
+
+307
+00:23:48,230 --> 00:23:55,340
+So back in our blockchain demo, we could have code, for example, if we were running a Kickstarter
+
+308
+00:23:55,340 --> 00:24:03,170
+or a crowdfunding type of web3 decentralized application, then we could have the code that says, Well,
+
+309
+00:24:03,170 --> 00:24:13,430
+if the total amount was greater than, I don't know, whatever goal they set, so maybe $5,000,
+
+310
+00:24:13,790 --> 00:24:21,370
+well, then in that case, this code is going to execute and we're going to transfer the money.
+
+311
+00:24:21,380 --> 00:24:29,660
+So let's say Angela has an account and is going to get these $5,000.
+
+312
+00:24:29,870 --> 00:24:32,960
+We're going to increase Angela's account by 5000.
+
+313
+00:24:33,320 --> 00:24:41,750
+So this code then gets put into the block, which is going to create a hash, which means that it can
+
+314
+00:24:41,750 --> 00:24:43,760
+never be changed again.
+
+315
+00:24:44,510 --> 00:24:47,480
+And then a user can come along and execute this code
+
+316
+00:24:47,480 --> 00:24:53,330
+and the resulting transaction where Angela gets $5,000 will get saved onto the Ethereum blockchain.
+
+317
+00:24:54,170 --> 00:25:00,680
+So now instead of having a crowdfunding company like Kickstarter, who's going to escrow the funds or
+
+318
+00:25:00,680 --> 00:25:07,610
+who's going to make sure that you know the money once the goal is hit, gets transferred to the project
+
+319
+00:25:07,610 --> 00:25:08,090
+owner,
+
+320
+00:25:08,330 --> 00:25:12,890
+well, we've actually got all of that encapsulated in a few lines of code.
+
+321
+00:25:13,520 --> 00:25:21,830
+So when somebody decides to raise some money and they happen to reach their goal, then our code from
+
+322
+00:25:21,830 --> 00:25:28,700
+the block gets activated automatically and transfers the money to the recipient.
+
+323
+00:25:28,970 --> 00:25:33,000
+And this is where the real mindblowing part of blockchain comes in.
+
+324
+00:25:33,710 --> 00:25:39,230
+And that is exactly what we're going to learn in this module, how to create these decentralized applications
+
+325
+00:25:39,230 --> 00:25:44,570
+and getting our apps to do things automatically based on the code that's stored on the blockchain.
+

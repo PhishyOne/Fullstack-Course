@@ -1,0 +1,400 @@
+1
+00:00:00,450 --> 00:00:00,810
+All right.
+
+2
+00:00:00,810 --> 00:00:07,380
+So now that we're more or less done writing Motoko code and we've completed the back-end for this
+
+3
+00:00:07,380 --> 00:00:13,710
+decentralized finance or defi application, well, it's time to actually think about what the user is
+
+4
+00:00:13,710 --> 00:00:14,250
+going to see.
+
+5
+00:00:14,250 --> 00:00:16,950
+So namely the front end of this application.
+
+6
+00:00:17,550 --> 00:00:24,720
+Now you notice that by default, every single new project that you create on the ICP when you use
+
+7
+00:00:24,720 --> 00:00:34,860
+the template, it will generate a set of assets, including a Dfinity logo and also an index.
+
+8
+00:00:34,860 --> 00:00:36,870
+html and index.js.
+
+9
+00:00:37,440 --> 00:00:44,040
+And you can tell pretty much from this HTML code that this is just the same as the hello world example
+
+10
+00:00:44,040 --> 00:00:48,180
+that we saw when we first set up for ICP development.
+
+11
+00:00:49,470 --> 00:00:55,740
+And that means right now the frontend for our Dbank actually looks somewhat like this.
+
+12
+00:00:56,070 --> 00:01:02,250
+So this doesn't allow us to use any of the things that we've created in our back-end.
+
+13
+00:01:02,250 --> 00:01:07,170
+And so basically we have to get rid of the template and replace it with this.
+
+14
+00:01:07,680 --> 00:01:09,270
+This is what we're going to create today.
+
+15
+00:01:09,300 --> 00:01:16,440
+We're going to hook up this front-end with our Motoko back-end and get it to actually work and to update
+
+16
+00:01:16,440 --> 00:01:22,920
+the balance to top up, to withdraw and to be able to use our Motoko code.
+
+17
+00:01:23,100 --> 00:01:24,930
+So let's get started.
+
+18
+00:01:25,230 --> 00:01:30,330
+The first thing I want you to do is to go ahead and simply just delete everything that's inside the
+
+19
+00:01:30,330 --> 00:01:37,080
+index.html, the main.css and also the index.js.
+
+20
+00:01:37,110 --> 00:01:44,520
+We're going to delete all three parts of our frontend basically. And instead we're going to replace
+
+21
+00:01:44,520 --> 00:01:46,380
+it with some new code.
+
+22
+00:01:47,860 --> 00:01:53,650
+Now, if you go over to the course resources for this lesson, you'll be able to download a file called
+
+23
+00:01:53,650 --> 00:01:54,970
+Index and Main.
+
+24
+00:01:55,420 --> 00:02:03,670
+Now, instead of saving them as HTML files or CSS files, I've actually gotten rid of the extension and
+
+25
+00:02:03,670 --> 00:02:06,340
+just kept them as text files. This way
+
+26
+00:02:06,850 --> 00:02:12,100
+basically, when you double click on it to open on your computer, it won't try to open it in the browser
+
+27
+00:02:12,100 --> 00:02:14,680
+because it recognizes it's an HTML file.
+
+28
+00:02:15,460 --> 00:02:21,910
+But what I want you to do is to go ahead and simply just copy the index file and put it into the index
+
+29
+00:02:21,910 --> 00:02:22,900
+.html.
+
+30
+00:02:25,520 --> 00:02:28,460
+And then do the same thing for the CSS,
+
+31
+00:02:28,490 --> 00:02:36,290
+so the main file goes into the main.css. And now we've got some basic front-end code.
+
+32
+00:02:36,770 --> 00:02:43,040
+Now because we've done so much front-end work in this course already when we covered HTML CSS, I don't
+
+33
+00:02:43,040 --> 00:02:47,810
+want to type all of this out from scratch so that we can focus more on learning new things.
+
+34
+00:02:48,200 --> 00:02:53,570
+But I think it's a good idea always when you copy and paste code to just make sure that you understand
+
+35
+00:02:53,570 --> 00:02:55,250
+what's actually going on.
+
+36
+00:02:55,610 --> 00:03:01,280
+So in this case, all we've got here is a container that contains a logo.
+
+37
+00:03:01,820 --> 00:03:03,560
+Now, don't worry about this just yet.
+
+38
+00:03:03,590 --> 00:03:05,990
+I'm going to talk about it in just a second.
+
+39
+00:03:06,320 --> 00:03:08,870
+We're going to create this logo very soon.
+
+40
+00:03:09,530 --> 00:03:15,350
+And then you can see we've got this current balance which corresponds to this line.
+
+41
+00:03:15,830 --> 00:03:23,870
+And then we've got a form where we've got two inputs: a place where we can put the input amount and
+
+42
+00:03:23,870 --> 00:03:25,760
+a place where we can put the withdraw amount.
+
+43
+00:03:26,120 --> 00:03:33,050
+And then finally there's a submit button. And then the CSS basically just styles up all of those components.
+
+44
+00:03:33,470 --> 00:03:35,600
+And I've kept it pretty basic.
+
+45
+00:03:35,840 --> 00:03:41,930
+So now what we are going to code up, however, is the index.js. We're not just going to copy
+
+46
+00:03:41,930 --> 00:03:47,360
+and paste code in here because we actually have to understand how to hook up the frontend with the backend.
+
+47
+00:03:47,390 --> 00:03:48,440
+This is really important.
+
+48
+00:03:48,560 --> 00:03:54,470
+But what do we do if we want to be able to see this so that we can develop it as we go along?
+
+49
+00:03:55,040 --> 00:03:58,890
+Well, in this case, we're going to set up a new terminal.
+
+50
+00:03:59,270 --> 00:04:02,970
+And making sure that you are inside the dbank project,
+
+51
+00:04:02,990 --> 00:04:05,090
+you're going to run npm install.
+
+52
+00:04:05,660 --> 00:04:12,420
+And this is going to install all of the packages that are required for this to get up and going.
+
+53
+00:04:12,440 --> 00:04:16,769
+And if you take a look inside package.json, you can see what the dependencies are.
+
+54
+00:04:16,790 --> 00:04:17,959
+There shouldn't be too many.
+
+55
+00:04:17,990 --> 00:04:21,320
+Now, the next thing we're going to do is we're going to run dfx start.
+
+56
+00:04:21,350 --> 00:04:25,340
+And that means we've got our simulated Internet computer running locally.
+
+57
+00:04:25,940 --> 00:04:29,240
+And then in a new terminal, I'm going to run
+
+58
+00:04:29,240 --> 00:04:30,650
+dfx deploy.
+
+59
+00:04:31,730 --> 00:04:36,050
+You might have already done this before, so you might have already deployed your code into the canisters.
+
+60
+00:04:36,380 --> 00:04:41,060
+But because we've changed a whole bunch of files, it's usually a good idea to just deploy and update
+
+61
+00:04:41,060 --> 00:04:41,810
+our canisters.
+
+62
+00:04:42,500 --> 00:04:45,890
+Now, finally, I'm going to run the command npm
+
+63
+00:04:46,130 --> 00:04:46,400
+start.
+
+64
+00:04:46,640 --> 00:04:54,920
+And this is going to spin up our web server and it will allow us to view what our current website looks
+
+65
+00:04:54,920 --> 00:04:55,160
+like.
+
+66
+00:04:55,790 --> 00:05:00,530
+So as you can see, we've got a broken logo because we don't have it in yet,
+
+67
+00:05:00,830 --> 00:05:05,450
+but the CSS and HTML seem to be placed in correctly.
+
+68
+00:05:05,900 --> 00:05:10,070
+Now, none of this is going to work because of course, we don't have any JavaScript code to
+
+69
+00:05:10,070 --> 00:05:11,930
+tell it how it should behave.
+
+70
+00:05:12,350 --> 00:05:17,540
+But the first thing we need to fix is this logo. In order to add this logo,
+
+71
+00:05:17,630 --> 00:05:22,010
+I've again included it in the course resources, so you can simply download it.
+
+72
+00:05:22,580 --> 00:05:27,620
+And once you've downloaded it, all you have to do is drag and drop it into the assets folder.
+
+73
+00:05:27,950 --> 00:05:31,220
+So the same folder as where the logo.png is.
+
+74
+00:05:31,670 --> 00:05:34,280
+So let's go ahead and do that.
+
+75
+00:05:35,390 --> 00:05:39,260
+Now you can either delete this Dfinity logo or you can keep it.
+
+76
+00:05:39,290 --> 00:05:40,650
+It doesn't really matter.
+
+77
+00:05:40,670 --> 00:05:46,280
+I'm going to get rid of it just so that it's less confusing here so that we've only got one logo.
+
+78
+00:05:46,670 --> 00:05:52,490
+And you can see this is the logo that I've created for our current project.
+
+79
+00:05:52,880 --> 00:05:57,710
+If you want to create your own logo from scratch, then I'll show you how I made this.
+
+80
+00:05:58,010 --> 00:06:00,920
+I didn't actually design or do any work.
+
+81
+00:06:01,190 --> 00:06:04,070
+Instead, I use this free logo maker online.
+
+82
+00:06:04,160 --> 00:06:13,610
+I typed in the name of my product and then I just went through this selection process and chose fonts
+
+83
+00:06:13,610 --> 00:06:16,670
+and sizes and styles that I liked.
+
+84
+00:06:17,180 --> 00:06:19,220
+And then we get to pick our favorite color,
+
+85
+00:06:19,970 --> 00:06:26,180
+add a slogan if you want to, and then type in some related icons to our concept.
+
+86
+00:06:26,720 --> 00:06:32,000
+Now, in the end, I actually didn't choose to use a logo with any of these icons, but you might feel
+
+87
+00:06:32,000 --> 00:06:32,570
+differently.
+
+88
+00:06:33,200 --> 00:06:40,430
+So once you've chosen all of your icons, then it'll show you a bunch of automatically AI-generated logo
+
+89
+00:06:40,430 --> 00:06:45,770
+results and you can basically just go through these and pick one that you like.
+
+90
+00:06:46,070 --> 00:06:52,860
+And then once you're done, you can download it by signing up to this free service.
+
+91
+00:06:52,880 --> 00:06:54,800
+They just want an email password, I think.
+
+92
+00:06:55,160 --> 00:07:01,070
+Alternatively, if you don't want to sign up, you can also just take a screenshot of the logo that
+
+93
+00:07:01,070 --> 00:07:04,790
+you like and then crop it to the size that you want.
+
+94
+00:07:04,940 --> 00:07:09,260
+And this is how I basically ended up with this Dbank logo.
+
+95
+00:07:09,350 --> 00:07:13,760
+And then all we have to do is drag it into the assets folder and we're golden.
+
+96
+00:07:14,180 --> 00:07:22,370
+So now if we go ahead and hit save and go back to our local host and then go ahead and refresh, you
+
+97
+00:07:22,370 --> 00:07:23,840
+should see the logo show up.
+
+98
+00:07:25,000 --> 00:07:25,990
+So perfect.
+
+99
+00:07:26,020 --> 00:07:30,250
+Now, this HTML and CSS part is at least complete.
+
+100
+00:07:31,510 --> 00:07:35,290
+And what we need to do now is to hook it up with the JavaScript.
+

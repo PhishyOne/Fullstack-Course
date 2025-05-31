@@ -1,0 +1,1032 @@
+1
+00:00:00,380 --> 00:00:01,990
+Hey, guys, welcome back.
+
+2
+00:00:02,000 --> 00:00:08,900
+In this module, we're going to be learning all about EJS, which stands for Embedded JavaScript.
+
+3
+00:00:09,290 --> 00:00:17,600
+Why do we need EJS and why is it necessary to embed JavaScript into our HTML files?
+
+4
+00:00:17,780 --> 00:00:25,340
+Previously we saw that if we have an HTML website where we have a form with an input, if we want to
+
+5
+00:00:25,340 --> 00:00:33,590
+type something into that input, then it can be received in our index.js via the POST route and we can
+
+6
+00:00:33,590 --> 00:00:39,560
+use body-parser to tap into what was entered into that particular input.
+
+7
+00:00:39,650 --> 00:00:49,610
+This input has a name attribute that's set to "name", and ideally what we're trying to do is we're trying
+
+8
+00:00:49,610 --> 00:00:56,300
+to allow a user to put their name in here so that we can re-render the website and then greet them.
+
+9
+00:00:56,300 --> 00:01:04,260
+So whatever goes in here, for example, my name should hopefully be able to be rendered over here into
+
+10
+00:01:04,260 --> 00:01:05,430
+this h1.
+
+11
+00:01:05,610 --> 00:01:10,440
+You can imagine the first thing that happens is we have a page with our form,
+
+12
+00:01:10,440 --> 00:01:18,300
+when you type something into here and then you hit submit, it hits up our POST route in our server
+
+13
+00:01:18,300 --> 00:01:22,590
+and we receive that value via the req.body.
+
+14
+00:01:22,590 --> 00:01:31,110
+And then somehow we want to be able to send this information to a HTML file and insert it in there.
+
+15
+00:01:31,230 --> 00:01:39,660
+And then once we've inserted that into the HTML file, maybe right here, then we can render this entire
+
+16
+00:01:39,660 --> 00:01:46,080
+index.html file in our browser and it should say, "Hello something or other,"
+
+17
+00:01:46,080 --> 00:01:51,990
+and this is the whole process where we go from 1, 2, 3 and 4.
+
+18
+00:01:52,140 --> 00:01:56,970
+Now this is the part which is the question mark,
+
+19
+00:01:56,970 --> 00:01:59,340
+how do we actually do this?
+
+20
+00:01:59,430 --> 00:02:09,389
+How do we pass something from our server to be rendered in a HTML file? And that is done using templating.
+
+21
+00:02:09,509 --> 00:02:16,290
+You might think to yourself, well, why do we need this complex process of sending something from the
+
+22
+00:02:16,290 --> 00:02:20,280
+server into a file to render that file?
+
+23
+00:02:20,280 --> 00:02:27,570
+Well, the alternative, as you might have imagined, is to simply use res.send and insert whatever
+
+24
+00:02:27,570 --> 00:02:32,520
+it is we wanted to insert directly into the HTML using JavaScript.
+
+25
+00:02:32,580 --> 00:02:39,000
+This works in principle and also especially when it's such a simple situation like this,
+
+26
+00:02:39,000 --> 00:02:41,910
+but let's imagine a more complex situation.
+
+27
+00:02:41,910 --> 00:02:52,260
+Let's imagine we wanted to send a fully-fledged HTML page with Stylesheets, with things from Google fonts,
+
+28
+00:02:52,260 --> 00:02:54,510
+with a whole bunch of code basically.
+
+29
+00:02:54,510 --> 00:03:02,670
+And you can quickly imagine how cluttered our Index.js file is getting and all of this HTML, which
+
+30
+00:03:02,670 --> 00:03:10,500
+basically is related to structure, is now being embedded into a JavaScript file, which is our 
+
+31
+00:03:10,500 --> 00:03:14,220
+server-side code, which is meant to deal with function.
+
+32
+00:03:14,430 --> 00:03:16,920
+So this is not great.
+
+33
+00:03:17,040 --> 00:03:21,360
+Instead, what we want is this separation of concerns.
+
+34
+00:03:21,360 --> 00:03:29,010
+We want to separate the HTML and CSS from our JavaScript and also we want to separate the frontend,
+
+35
+00:03:29,010 --> 00:03:34,860
+so that way our structure and our style is separated from our functionality.
+
+36
+00:03:35,010 --> 00:03:41,760
+Also, that way we can separate our frontend from our backend as well.
+
+37
+00:03:41,790 --> 00:03:48,330
+This separation of concerns is really, really important as you start building bigger and more complex
+
+38
+00:03:48,330 --> 00:03:54,150
+projects because as things start sprawling out, you're going to start realizing that it's really nice
+
+39
+00:03:54,150 --> 00:03:59,820
+to be able to work on one small thing at a time and not have to hold the whole complexity of your website
+
+40
+00:03:59,820 --> 00:04:00,750
+in your brain.
+
+41
+00:04:01,710 --> 00:04:08,790
+In order to do this, the separation of concerns, we need to use something called a Templating Language.
+
+42
+00:04:08,790 --> 00:04:10,740
+And there are many, many out there.
+
+43
+00:04:10,770 --> 00:04:14,840
+There's handlebars, there's pug, Jinja, TWIG, EJS.
+
+44
+00:04:14,880 --> 00:04:17,040
+Now, some of these are for different languages.
+
+45
+00:04:17,040 --> 00:04:20,850
+For example, TWIG is for PHP, Jinja is for Python,
+
+46
+00:04:20,850 --> 00:04:28,080
+but out of the JavaScript ones, the most commonly used templating language with Express and Node is
+
+47
+00:04:28,150 --> 00:04:33,900
+EJS, which stands for Embedded JavaScript.
+
+48
+00:04:34,560 --> 00:04:36,960
+How does EJS work?
+
+49
+00:04:37,080 --> 00:04:46,080
+Well, essentially it's almost like having a little JavaScript module that can run JavaScript code inside
+
+50
+00:04:46,080 --> 00:04:53,280
+a HTML file, and it ends with the .ejs file extension.
+
+51
+00:04:53,280 --> 00:05:02,650
+And essentially all we've got is just HTML but with bits of JavaScript enclosed inside a special syntax.
+
+52
+00:05:02,950 --> 00:05:10,750
+So for example, in this case, we're able to insert a for loop into our HTML file which loops through
+
+53
+00:05:10,750 --> 00:05:11,830
+a bunch of items,
+
+54
+00:05:11,830 --> 00:05:16,060
+so an array that's been sent into this EJS file,
+
+55
+00:05:16,060 --> 00:05:23,380
+and for each of those items, we're basically creating a list item. Using this kind of dynamic JavaScript,
+
+56
+00:05:23,410 --> 00:05:29,770
+we're able to generate a website that looks like this, which means that these items can be generated
+
+57
+00:05:29,770 --> 00:05:36,520
+from our server side, sent to our EJS file and rendered onto screen like this.
+
+58
+00:05:37,150 --> 00:05:38,880
+So how do we do it?
+
+59
+00:05:38,890 --> 00:05:44,100
+Previously, I showed you how we might do it in theory, given what we know already.
+
+60
+00:05:44,110 --> 00:05:51,430
+We could take, for example, something in our POST request and then just pass it along when we use
+
+61
+00:05:51,430 --> 00:05:53,140
+our res.sendFile.
+
+62
+00:05:53,170 --> 00:06:00,970
+Now the only problem with this is that res.sendFile is strictly only for static files,
+
+63
+00:06:00,970 --> 00:06:09,280
+so files that don't change, and by definition, a template such as one using EJS does change because we're
+
+64
+00:06:09,280 --> 00:06:11,290
+having to insert things into it.
+
+65
+00:06:11,290 --> 00:06:15,160
+So we can't actually use res.send or res.sendFile.
+
+66
+00:06:15,160 --> 00:06:20,310
+Instead, we need a different method which is called res.render.
+
+67
+00:06:20,320 --> 00:06:28,240
+And what this allows us to do is to firstly specify the file that we want to render on screen, and
+
+68
+00:06:28,240 --> 00:06:37,000
+then we can add a JavaScript object to pass over some properties and it's a key/value pair.
+
+69
+00:06:37,000 --> 00:06:48,610
+So, in this case, I'm rendering Index.js, I'm passing it over an object with a key of "name" and a value
+
+70
+00:06:48,610 --> 00:06:58,090
+of what "came from that form inside the name input." On the Index.js side, the file that's being rendered,
+
+71
+00:06:58,090 --> 00:07:05,320
+we can now insert the thing that we sent over which is under a variable called name,
+
+72
+00:07:05,320 --> 00:07:14,230
+and notice how these two things match. The key that we used when we sent over this piece of data matches
+
+73
+00:07:14,230 --> 00:07:20,470
+the name that we're going to use in order to insert it into the destination rendered file.
+
+74
+00:07:20,740 --> 00:07:27,760
+Before we get started trying this out in practice, we need to install something called the EJS language
+
+75
+00:07:27,760 --> 00:07:34,360
+support plugin to our VS Code and this is going to allow our VS code to do syntax highlighting with
+
+76
+00:07:34,480 --> 00:07:38,440
+EJS and also have the correct autosuggest come up.
+
+77
+00:07:38,950 --> 00:07:45,340
+I want you to search for EJS in your plugins and I want you to find this one called EJS language support
+
+78
+00:07:45,340 --> 00:07:47,110
+by DigitalBrainStem.
+
+79
+00:07:47,110 --> 00:07:51,520
+And this is the most commonly downloaded EJS support.
+
+80
+00:07:51,550 --> 00:07:53,950
+You can see how many installs it's had.
+
+81
+00:07:53,950 --> 00:07:56,620
+And then let's go ahead and install this.
+
+82
+00:07:57,340 --> 00:08:06,010
+All right, so now that we've seen briefly how we can start using EJS to template our Express-based websites,
+
+83
+00:08:06,010 --> 00:08:09,790
+let's try an exercise where we actually put what we learned into practice.
+
+84
+00:08:09,790 --> 00:08:14,890
+And because we haven't built anything from scratch for a little while, I thought in this exercise we
+
+85
+00:08:14,890 --> 00:08:20,320
+could do that and refresh our memory of how to create Express-based servers, how to create files and
+
+86
+00:08:20,320 --> 00:08:26,530
+folders in the command line, and also use a bit of our JavaScript knowledge to build a very simple
+
+87
+00:08:26,530 --> 00:08:31,870
+website that gives you a little piece of advice based on which day of the week it is.
+
+88
+00:08:31,870 --> 00:08:38,830
+So what's going to happen when we go to our homepage on our localhost:3000 is we will get a little greeting
+
+89
+00:08:38,830 --> 00:08:39,940
+on this website.
+
+90
+00:08:40,030 --> 00:08:47,350
+The website will automatically know whether if it is currently today, a weekday or a weekend,
+
+91
+00:08:47,350 --> 00:08:54,640
+and based on that information which is going to be injected into this template, of course using EJS,
+
+92
+00:08:54,670 --> 00:08:57,430
+it's going to give us a little piece of advice.
+
+93
+00:08:57,430 --> 00:09:00,880
+So either it's time to work hard because it's a weekday or
+
+94
+00:09:00,910 --> 00:09:07,870
+it's time to have fun because it's the weekend. And we're going to do that using the JavaScript getDay() method
+
+95
+00:09:07,870 --> 00:09:12,490
+which can tell us which day of the week it is based on a number.
+
+96
+00:09:12,490 --> 00:09:20,770
+So it'll give us a 0 to 6, with 0 being Sunday, 1 being Monday, all the way to 6 being a Saturday.
+
+97
+00:09:20,980 --> 00:09:23,550
+These are the steps that we need to go through.
+
+98
+00:09:23,560 --> 00:09:31,000
+I'm going to clear the screen for you and I want you to go through each of these steps to figure out
+
+99
+00:09:31,000 --> 00:09:33,660
+how to create this website by yourself.
+
+100
+00:09:33,670 --> 00:09:34,900
+Now, a couple of things to note.
+
+101
+00:09:34,900 --> 00:09:42,190
+This is simply just an h1 and our website doesn't contain anything else other than just that h1 on a
+
+102
+00:09:42,340 --> 00:09:43,450
+HTML boilerplate.
+
+103
+00:09:43,480 --> 00:09:49,930
+And if you want to figure out how to use the getDay() method, I recommend using Google just like any
+
+104
+00:09:49,930 --> 00:09:55,690
+other developer would using the documentation to figure out how to get it to do what it is you want,
+
+105
+00:09:55,720 --> 00:10:03,170
+which is to allow you to figure out whether if currently the user is on a weekday or a weekend.
+
+106
+00:10:04,370 --> 00:10:08,540
+Pause the video and give this exercise a good go.
+
+107
+00:10:08,570 --> 00:10:11,390
+Now it involves some of the stuff that we learned before,
+
+108
+00:10:11,390 --> 00:10:16,490
+so if you forget or you can't remember, don't worry, just go back to the previous lesson and see how
+
+109
+00:10:16,490 --> 00:10:24,040
+to install Express, or how to create new folders, or how to initialize NPM, all of that stuff.
+
+110
+00:10:24,050 --> 00:10:27,410
+Afterwards, we'll come back and we'll run through the solution together.
+
+111
+00:10:27,410 --> 00:10:28,820
+So pause the video now.
+
+112
+00:10:32,800 --> 00:10:33,190
+All right.
+
+113
+00:10:33,190 --> 00:10:41,710
+So to start off, I'm going to create a new folder or a new directory in my Web Development Project
+
+114
+00:10:41,710 --> 00:10:44,590
+in the backend, and I'm just going to call it 4.0 EJS.
+
+115
+00:10:45,130 --> 00:10:46,840
+So it slots in nicely.
+
+116
+00:10:46,840 --> 00:10:56,590
+And then inside this folder I'm going to use the terminal to cd into it and then I'm going to initialize
+
+117
+00:10:56,620 --> 00:11:05,710
+npm using all options set to y, and then I'm going to install Express and EJS.
+
+118
+00:11:05,860 --> 00:11:12,940
+And once that's done, I'm going to go into the package.json and make sure that I change the type of
+
+119
+00:11:12,940 --> 00:11:17,710
+my project to use the ES6 module-based system.
+
+120
+00:11:17,980 --> 00:11:22,630
+Now that's all done and we've set up our basic project.
+
+121
+00:11:22,630 --> 00:11:31,510
+I'm going to create some index files. So I'm going to make a directory called "views", which is required
+
+122
+00:11:31,510 --> 00:11:40,940
+for me to be able to use my EJS templates and I'm going to use a semicolon (;) to create another command in
+
+123
+00:11:40,940 --> 00:11:41,980
+the same line.
+
+124
+00:11:41,990 --> 00:11:44,870
+Now this is just a command line hack.
+
+125
+00:11:44,900 --> 00:11:49,040
+It means that you can type out a bunch of commands all on one line and then hit enter and everything
+
+126
+00:11:49,040 --> 00:11:50,210
+happens in the background.
+
+127
+00:11:50,210 --> 00:11:55,010
+But remember, you can also just click on the folder, create a new folder, create a new file.
+
+128
+00:11:55,010 --> 00:12:00,140
+It doesn't have to be done like this, but I want to show you a quick and very easy way of doing this.
+
+129
+00:12:00,140 --> 00:12:07,940
+So I need an index.js and inside the views folder, I need an index.ejs file.
+
+130
+00:12:08,300 --> 00:12:16,310
+Now, what this line of command is saying is inside this directory you're in, 4.0 EJS, make a directory
+
+131
+00:12:16,310 --> 00:12:22,790
+called views, create a file called Index.js, which is going to go into where we are currently at,
+
+132
+00:12:22,790 --> 00:12:27,980
+but also create a file called Index.js under this directory.
+
+133
+00:12:27,980 --> 00:12:30,050
+So this is obviously a relative file path,
+
+134
+00:12:30,050 --> 00:12:36,410
+and then if I hit Enter, you'll see everything happen over here just as I intended.
+
+135
+00:12:36,440 --> 00:12:37,250
+Easy.
+
+136
+00:12:37,610 --> 00:12:39,860
+Maybe you can save yourself 1 or 2 seconds.
+
+137
+00:12:39,860 --> 00:12:41,600
+If it's confusing, don't worry about it,
+
+138
+00:12:41,600 --> 00:12:45,200
+just create things using the buttons and the UI,
+
+139
+00:12:45,200 --> 00:12:48,590
+but I like to feel like a hacker sometimes.
+
+140
+00:12:48,590 --> 00:12:49,280
+So...
+
+141
+00:12:50,960 --> 00:12:54,380
+And the command line is probably the only way I get to feel that way.
+
+142
+00:12:55,160 --> 00:13:02,060
+All right, so now that we've got all our files, first thing I'm going to do is to import express from
+
+143
+00:13:02,060 --> 00:13:12,920
+"express", and then I'm going to create a my app which is set to equal express() and then a set of brackets.
+
+144
+00:13:12,920 --> 00:13:23,090
+Let's set my port to, again, 3000 and I'm going to do app.listen(), and we're going to be listening on
+
+145
+00:13:23,090 --> 00:13:24,230
+our port.
+
+146
+00:13:24,320 --> 00:13:30,320
+And then once it's up and running, we're simply going to console log
+
+147
+00:13:32,000 --> 00:13:37,160
+Server running on port.
+
+148
+00:13:37,610 --> 00:13:40,310
+Insert our port in here.
+
+149
+00:13:40,850 --> 00:13:41,560
+Done. (console.log(`Server running on port ${port}`))
+
+150
+00:13:41,630 --> 00:13:45,060
+Now we've got our basic Express server set up.
+
+151
+00:13:45,080 --> 00:13:47,630
+Let's go ahead and create an app.get().
+
+152
+00:13:47,990 --> 00:13:52,100
+Now in the app.get(), we're going to target the home route,
+
+153
+00:13:52,100 --> 00:14:01,880
+so just a forward slash ("/") and then we need our req and res and our response is going to, instead of using
+
+154
+00:14:02,090 --> 00:14:09,560
+res.send, we're going to use res.render, which is required for us to render our template.
+
+155
+00:14:09,920 --> 00:14:22,340
+Now I'm going to put in the name of my EJS file in the view folder and in my case, it's called just index.ejs.
+
+156
+00:14:24,410 --> 00:14:29,920
+And then I get to add some options in the form of a JavaScript object.
+
+157
+00:14:29,930 --> 00:14:37,230
+So I'm going to pass over one option, which is called dayType.
+
+158
+00:14:37,380 --> 00:14:43,170
+And let's just set that to "a week day".
+
+159
+00:14:43,170 --> 00:14:48,180
+And then I've also got another one which is going to be called advice.
+
+160
+00:14:48,180 --> 00:14:53,220
+And on a weekday I will tell people, "it's time to work hard."
+
+161
+00:14:55,770 --> 00:14:57,420
+That's our res.render,
+
+162
+00:14:57,420 --> 00:15:02,880
+and now this object is going to be picked up inside our Index.ejs.
+
+163
+00:15:02,880 --> 00:15:05,310
+So let's create a HTML boilerplate.
+
+164
+00:15:05,520 --> 00:15:09,060
+Remember, you can do that with the exclamation mark (!).
+
+165
+00:15:09,070 --> 00:15:09,890
+Hit Enter.
+
+166
+00:15:09,900 --> 00:15:12,390
+That might have been a long time ago when you learned that.
+
+167
+00:15:12,390 --> 00:15:13,830
+So don't worry if you forgot.
+
+168
+00:15:13,830 --> 00:15:15,800
+But look at how far we've come.
+
+169
+00:15:15,810 --> 00:15:20,790
+We're building all these servers and websites and we still have to use our HTML knowledge.
+
+170
+00:15:20,790 --> 00:15:25,440
+So I'm going to call this a "Weekday Warrior."
+
+171
+00:15:26,010 --> 00:15:27,570
+Of course, your title can be anything,
+
+172
+00:15:27,570 --> 00:15:28,830
+it really doesn't matter.
+
+173
+00:15:28,860 --> 00:15:36,900
+The important thing is we have a h1 where we're going to say, "Hey, it's..." and then inside here is where
+
+174
+00:15:36,900 --> 00:15:39,990
+we're going to insert our EJS.
+
+175
+00:15:39,990 --> 00:15:44,220
+So hopefully you've already got the JS plugin installed,
+
+176
+00:15:44,350 --> 00:15:49,800
+EJS language support, which means that as soon as you start typing an angle bracket (<), it should start
+
+177
+00:15:49,800 --> 00:15:51,750
+suggesting to you what you need.
+
+178
+00:15:51,750 --> 00:15:54,180
+And the one that we need is this one.
+
+179
+00:15:54,180 --> 00:16:04,110
+The angle percent equals sign (<%= ) which allows us to output a value in between the open and closing EJS brackets.
+
+180
+00:16:04,320 --> 00:16:11,820
+Inside here we're going to pick up on that property we sent over, which is called dayType, and that's
+
+181
+00:16:11,820 --> 00:16:13,350
+what's going to go in here.
+
+182
+00:16:13,620 --> 00:16:21,840
+So it's going to say something like, "Hey, it's a weekday..." and then
+
+183
+00:16:21,840 --> 00:16:29,640
+I'm going to add a comma, and then I'm going to add another EJS bracket where it's going to say the advice.
+
+184
+00:16:29,640 --> 00:16:32,550
+And that at the very end, we have an exclamation mark.
+
+185
+00:16:32,670 --> 00:16:35,520
+This is all we need for our EJS side.
+
+186
+00:16:35,520 --> 00:16:41,610
+And then coming back to our Index.js, of course, we don't always want it to say weekday, we have
+
+187
+00:16:41,610 --> 00:16:42,780
+to figure out the next part.
+
+188
+00:16:42,780 --> 00:16:49,650
+But before we do that, let's just test so that we can see if everything is working as it should.
+
+189
+00:16:49,740 --> 00:16:56,460
+Let's run our index.js, go over to our localhost:3000 and look at that.
+
+190
+00:16:56,460 --> 00:16:58,590
+It's working perfectly.
+
+191
+00:16:59,070 --> 00:17:05,190
+It says, "Hey, it's a weekday...," and "it's time to work hard!" in our h1.
+
+192
+00:17:06,540 --> 00:17:14,280
+So now let's add a little bit more dynamism to our website and we're going to do that by using the
+
+193
+00:17:14,280 --> 00:17:16,890
+getDay() method in JavaScript.
+
+194
+00:17:16,920 --> 00:17:23,760
+So you can either use MDN Mozilla or W3 schools or look through all the different links to figure out how
+
+195
+00:17:23,760 --> 00:17:24,450
+this works.
+
+196
+00:17:24,450 --> 00:17:25,530
+But it's very simple,
+
+197
+00:17:25,530 --> 00:17:33,270
+essentially we create a new Date() object and this will give us today as a date object in JavaScript and
+
+198
+00:17:33,270 --> 00:17:42,990
+then we can use the getDay() method on that date object to get a number from 0 to 6, where 0 is Sunday,
+
+199
+00:17:42,990 --> 00:17:45,960
+Monday is 1 and then 6 is Saturday.
+
+200
+00:17:45,960 --> 00:17:53,340
+So I'm just going to straight up copy this code because I now understand it and I can use it in my app.get().
+
+201
+00:17:54,150 --> 00:17:59,940
+So I'm going to create a new const called today, which is set to a new Date() object,
+
+202
+00:18:00,090 --> 00:18:08,970
+and then I'm going to set the day as a const by using today.getDay().
+
+203
+00:18:09,660 --> 00:18:14,880
+Now let's go ahead and console.log that first just to make sure it does in fact work.
+
+204
+00:18:15,000 --> 00:18:21,390
+Coming back to our localhost, let's refresh and take a look inside our console.
+
+205
+00:18:21,390 --> 00:18:28,980
+So it's printing two because currently, it is Tuesday. That seems to be working and now I can comment
+
+206
+00:18:28,980 --> 00:18:31,260
+out my console log and
+
+207
+00:18:31,290 --> 00:18:38,340
+instead use this to modify the dayType and the advice.
+
+208
+00:18:39,300 --> 00:18:39,600
+All right.
+
+209
+00:18:39,600 --> 00:18:47,340
+So now let's make our website a little bit more dynamic by changing the dayType and advice based on
+
+210
+00:18:47,340 --> 00:18:49,980
+the day that it currently is.
+
+211
+00:18:50,100 --> 00:18:55,770
+I'm going to create a let, which is going to set the dayType.
+
+212
+00:18:55,770 --> 00:19:00,120
+So I'm going to call it type just so that you can see the difference.
+
+213
+00:19:00,120 --> 00:19:03,510
+And by default, it will be a weekday.
+
+214
+00:19:03,510 --> 00:19:12,030
+And then I'm going to create the advice which I'll use adv just again to set it apart from this property
+
+215
+00:19:12,060 --> 00:19:15,830
+name, and it's going to be set to this.
+
+216
+00:19:15,840 --> 00:19:25,860
+So now let's set the dayType to "type" and the advice to "adv" and now we can use an if-statement to
+
+217
+00:19:25,860 --> 00:19:40,000
+say, well if, actually, if the day is equal to zero (day === 0), in which case it's a Sunday, or (||) the day is equal to
+
+218
+00:19:40,000 --> 00:19:48,940
+six (day === 6), which is a Saturday, then in that case, let's go ahead and change the type of day and the advice.
+
+219
+00:19:48,940 --> 00:19:54,550
+So we're going to change the type to, say, "the weekend."
+
+220
+00:19:58,000 --> 00:20:00,390
+Just so that it works in our sentence structure.
+
+221
+00:20:00,400 --> 00:20:04,320
+"Hey, it's the weekend" or "Hey, it's a weekday."
+
+222
+00:20:04,330 --> 00:20:05,650
+This is just weird
+
+223
+00:20:05,650 --> 00:20:12,850
+peculiarities of the English language to make it grammatically correct, and instead of "it's time to work
+
+224
+00:20:12,850 --> 00:20:16,810
+hard", "it's time to have some fun."
+
+225
+00:20:17,230 --> 00:20:22,120
+All right, so now we've got an if-statement that changes the type and advice.
+
+226
+00:20:22,150 --> 00:20:29,320
+If it is the weekend, we've got a default type and advice, and that is what gets passed over as the
+
+227
+00:20:29,320 --> 00:20:35,860
+data to the property dataType and advice, which then gets picked up in our EJS right here.
+
+228
+00:20:35,860 --> 00:20:43,060
+So let's save everything and let's test things out because the day is tied to whatever day it is you
+
+229
+00:20:43,060 --> 00:20:44,140
+are currently in,
+
+230
+00:20:44,140 --> 00:20:48,970
+and if you cannot time travel, well, that's a shame for you, because I can.
+
+231
+00:20:49,270 --> 00:20:50,170
+No, not really.
+
+232
+00:20:50,170 --> 00:20:56,260
+What I can do, however, is I can change today to a new date.
+
+233
+00:20:56,290 --> 00:21:03,470
+If it is June 24th, 2023, then it is actually a Saturday.
+
+234
+00:21:03,500 --> 00:21:06,740
+Now this, today, becomes a Saturday.
+
+235
+00:21:06,740 --> 00:21:10,040
+So if I hit Save, go back refresh.
+
+236
+00:21:10,040 --> 00:21:14,030
+You can see, "Hey, it's the weekend, It's time to have fun."
+
+237
+00:21:14,030 --> 00:21:18,170
+And if I change this to a weekday, then you can see, "Hey, it's a weekday,
+
+238
+00:21:18,170 --> 00:21:19,580
+it's time to work hard!"
+
+239
+00:21:19,790 --> 00:21:25,160
+Depending on how you want that to be, you can test it out using that syntax.
+
+240
+00:21:26,810 --> 00:21:28,760
+And there you have it.
+
+241
+00:21:28,760 --> 00:21:36,350
+If you want, you can download this project in the current lesson as the solution and you can review
+
+242
+00:21:36,350 --> 00:21:37,610
+the code that I have.
+
+243
+00:21:37,640 --> 00:21:40,370
+There are so many ways of doing this logic,
+
+244
+00:21:40,370 --> 00:21:41,900
+don't worry if you did it differently,
+
+245
+00:21:41,900 --> 00:21:44,120
+as long as it works, it's perfectly fine.
+
+246
+00:21:44,120 --> 00:21:49,490
+You could have used an if-else, you could have used a switch statement to pass over the actual day of
+
+247
+00:21:49,490 --> 00:21:50,030
+the week,
+
+248
+00:21:50,060 --> 00:21:55,190
+you could have created a JavaScript object instead, you could have done so many different things.
+
+249
+00:21:55,190 --> 00:22:05,780
+But the point is that you understand how we pass data from our server over to our template file, the
+
+250
+00:22:05,930 --> 00:22:14,930
+EJS file using a JavaScript object with different properties and then the EJS file has to live in a views
+
+251
+00:22:14,930 --> 00:22:23,180
+folder and we use the EJS syntax to pick up those properties and insert them into our HTML.
+
+252
+00:22:23,210 --> 00:22:29,690
+That is the most important part of this lesson, if that all makes sense, then congratulations.
+
+253
+00:22:29,690 --> 00:22:32,540
+Pat yourself on the back and you're ready for the next lesson.
+
+254
+00:22:32,540 --> 00:22:39,530
+If that doesn't make sense, be sure to maybe rewatch parts of this video and hopefully you will get
+
+255
+00:22:39,530 --> 00:22:42,500
+there and see that it's actually pretty simple.
+
+256
+00:22:42,710 --> 00:22:48,470
+On the next lesson, we're going to be talking more about these different EJS brackets and we're going to
+
+257
+00:22:48,470 --> 00:22:51,740
+learn how to run JavaScript in HTML.
+
+258
+00:22:51,740 --> 00:22:54,230
+So for all of that and more, I'll see you there.
+

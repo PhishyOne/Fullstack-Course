@@ -1,0 +1,524 @@
+1
+00:00:00,590 --> 00:00:01,460
+Hey guys.
+
+2
+00:00:01,470 --> 00:00:10,680
+So in the last few lessons we saw that by using JSX, we were able to insert HTML into JavaScript.
+
+3
+00:00:11,220 --> 00:00:13,580
+And this ability came from JSX.
+
+4
+00:00:14,100 --> 00:00:21,660
+But JSX actually lets us go even further than that. It actually lets us add HTML inside a JavaScript
+
+5
+00:00:21,660 --> 00:00:26,960
+file and then insert JavaScript inside that HTML.
+
+6
+00:00:27,360 --> 00:00:33,420
+But in order to learn more about this we need to go deeper. Head over to the course resources
+
+7
+00:00:33,420 --> 00:00:40,200
+if you want to get the starting file for this lesson and work alongside with me. Starting out I've got
+
+8
+00:00:40,230 --> 00:00:47,910
+a very simple React app and I've imported React and ReactDOM and then I'm using ReactDOM to render a single
+
+9
+00:00:48,000 --> 00:00:51,520
+h1 onto the root div.
+
+10
+00:00:51,540 --> 00:00:57,390
+So from here let's say that I had a variable that I wanted to insert right?
+
+11
+00:00:57,700 --> 00:01:05,040
+Let's say I had a const called name and the data stored inside this constant is just my name.
+
+12
+00:01:05,250 --> 00:01:09,990
+Instead of saying "Hello World" what if I wanted to say "Hello Angela"?
+
+13
+00:01:09,990 --> 00:01:18,570
+Now I can't just simply use the name of this constant. I can't just say hello name because it's just
+
+14
+00:01:18,570 --> 00:01:24,890
+going to be interpreted as literally a string because we're inside a JSX file.
+
+15
+00:01:25,110 --> 00:01:32,460
+If we simply add the name of the variable or the constant inside as a child of an HTML Element, it's
+
+16
+00:01:32,460 --> 00:01:35,070
+just going to interpret it as a string.
+
+17
+00:01:36,240 --> 00:01:38,810
+So what do we have to do instead?
+
+18
+00:01:39,210 --> 00:01:40,050
+Let's think about this.
+
+19
+00:01:40,050 --> 00:01:48,780
+We're currently inside a JavaScript file index.js, and we can write JavaScript code which is pretty
+
+20
+00:01:48,780 --> 00:01:58,560
+reasonable. But then using JSX by installing the React module we were able to inject HTML inside
+
+21
+00:01:58,710 --> 00:02:00,690
+our JavaScript file.
+
+22
+00:02:00,720 --> 00:02:10,080
+Now if we wanted to insert JavaScript code inside the HTML inside the JavaScript file then what we have
+
+23
+00:02:10,080 --> 00:02:18,480
+to do is to simply wrap the JavaScript inside a set of curly braces. and notice how as soon as I did
+
+24
+00:02:18,480 --> 00:02:26,910
+that it knew that I was talking about the name constant rather than just the string name and it pulled
+
+25
+00:02:26,910 --> 00:02:35,030
+that data over from here and inserted it into my H1. So why don't you have a go at this? Create
+
+26
+00:02:35,120 --> 00:02:38,580
+a new constant with your lucky number,
+
+27
+00:02:38,750 --> 00:02:46,370
+so that could just be a simple value that you pick. And then create a paragraph that's going to be rendered
+
+28
+00:02:46,460 --> 00:02:54,140
+that says, 'Your lucky number is' and then insert that constant or variable into that paragraph element and
+
+29
+00:02:54,200 --> 00:02:56,290
+achieve something that looks a bit like this.
+
+30
+00:02:56,330 --> 00:02:58,280
+So pause video and give that a go.
+
+31
+00:03:02,560 --> 00:03:02,930
+All right.
+
+32
+00:03:02,990 --> 00:03:09,830
+So we've got a new constant that I'm gonna call num and I'm gonna set it to my lucky number.
+
+33
+00:03:09,830 --> 00:03:11,550
+Let's just say it's 7.
+
+34
+00:03:11,660 --> 00:03:13,440
+I actually think that all the numbers are pretty lucky.
+
+35
+00:03:13,460 --> 00:03:18,410
+But let's go ahead and add that number into a paragraph tag.
+
+36
+00:03:18,410 --> 00:03:22,960
+So your lucky number is this particular number constant.
+
+37
+00:03:23,060 --> 00:03:27,660
+Let's not worry about all the syntax errors we're getting, we're gonna be getting a lot of problems.
+
+38
+00:03:27,770 --> 00:03:29,550
+We're not quite done yet.
+
+39
+00:03:29,630 --> 00:03:34,920
+So the first issue that we have to solve is the fact that we've got two HTML elements right?
+
+40
+00:03:35,300 --> 00:03:40,170
+So in order for this to work, we of course need to wrap this inside a div.
+
+41
+00:03:40,430 --> 00:03:46,820
+So we end up with a single HTML div element that's being rendered onto the screen.
+
+42
+00:03:46,820 --> 00:03:52,640
+And if I hit save it'll nicely reformat this for me so I can see it a little bit better. But I don't
+
+43
+00:03:52,640 --> 00:04:00,060
+want it to read my lucky number is num, I want instead the actual constant's value to be rendered here.
+
+44
+00:04:00,110 --> 00:04:09,020
+So I'm going to wrap that constant name, which of course is JavaScript and not HTML, inside a set of curly
+
+45
+00:04:09,020 --> 00:04:09,850
+braces
+
+46
+00:04:09,920 --> 00:04:18,279
+in order to get my compiler to interpret this as actual JavaScript. Now you can go much further than
+
+47
+00:04:18,279 --> 00:04:25,240
+this because once you open up a set of curly braces, you can actually create any JavaScript expression.
+
+48
+00:04:25,240 --> 00:04:32,240
+So if instead of using a constant that doesn't change I could write some maths right?
+
+49
+00:04:32,260 --> 00:04:37,250
+3 + 4  is still 7 or 3 + 9  is 12.
+
+50
+00:04:37,300 --> 00:04:46,350
+I can get this code inside here to be evaluated and worked out and then inserted into my HTML. And if
+
+51
+00:04:46,350 --> 00:04:50,820
+you wanted to go even further, we could actually generate a random number here right?
+
+52
+00:04:50,820 --> 00:04:55,080
+We could use math.random and then add a set of parentheses.
+
+53
+00:04:55,080 --> 00:05:00,030
+We've got a random number which is very small so let's make it between 1 and 10
+
+54
+00:05:00,030 --> 00:05:08,510
+by multiplying it by 10 and then let's round it down using the floor method and then wrap that math.
+
+55
+00:05:08,550 --> 00:05:15,590
+random multiply 10 inside that, and we end up with a new random number.
+
+56
+00:05:15,630 --> 00:05:23,920
+And notice how every time I refresh this, I'll get a new number between 0 and 9.
+
+57
+00:05:23,930 --> 00:05:32,630
+Now remember that I said you can add any JavaScript expression in between these curly braces which is
+
+58
+00:05:32,630 --> 00:05:43,180
+injecting code into our HTML  elements in our JSX file. But we can't write JavaScript statements.
+
+59
+00:05:43,220 --> 00:05:44,440
+So what I mean by that?
+
+60
+00:05:44,540 --> 00:05:52,280
+I can't for example decide to write if name is equal to Angela
+
+61
+00:05:53,120 --> 00:05:57,990
+well then return 7 but
+
+62
+00:05:59,970 --> 00:06:10,190
+else if name is equal to Jack then return 12 or something like this
+
+63
+00:06:10,210 --> 00:06:10,730
+right?
+
+64
+00:06:10,750 --> 00:06:17,060
+This doesn't work because this is actually a statement rather than an expression.
+
+65
+00:06:17,110 --> 00:06:24,850
+And the big difference between expressions and statements is that an expression will be evaluated to
+
+66
+00:06:24,880 --> 00:06:26,260
+a value right?
+
+67
+00:06:26,260 --> 00:06:30,080
+Like it ends up, after all the code's been executed,
+
+68
+00:06:30,190 --> 00:06:40,960
+it ends up equaling something. But this instead is actually asking the computer to do some work to evaluate
+
+69
+00:06:40,960 --> 00:06:46,630
+this statement and then depending on that statement work out something.
+
+70
+00:06:46,660 --> 00:06:52,870
+Now if you want a bit more detail on expressions versus statements in JavaScript there's a really good
+
+71
+00:06:52,870 --> 00:06:54,370
+video that I recommend
+
+72
+00:06:54,430 --> 00:06:59,260
+and I've linked to it in the course resources. So take a look at this video
+
+73
+00:06:59,330 --> 00:07:05,580
+if you're still not quite clear on what is the difference between statements and expressions.
+
+74
+00:07:05,720 --> 00:07:14,240
+So let's go ahead and delete our JavaScript statement and then we can replace it with a value or with
+
+75
+00:07:14,330 --> 00:07:16,460
+an expression.
+
+76
+00:07:16,460 --> 00:07:18,640
+So let's think about another situation.
+
+77
+00:07:18,650 --> 00:07:22,200
+Let's say that I wanted this to say my full name
+
+78
+00:07:22,220 --> 00:07:22,920
+right?
+
+79
+00:07:22,970 --> 00:07:29,070
+I wanted to say my first name is equal to Angela but my last name is equal to Yu.
+
+80
+00:07:29,120 --> 00:07:31,570
+And I want this to write
+
+81
+00:07:31,580 --> 00:07:33,700
+Hello Angela
+
+82
+00:07:33,710 --> 00:07:40,610
+space Yu or whatever it is that your name might be that you've added in here. So pause a video and see
+
+83
+00:07:40,610 --> 00:07:45,320
+if you can work out how to do this.
+
+84
+00:07:45,670 --> 00:07:45,930
+All right.
+
+85
+00:07:45,970 --> 00:07:51,830
+So as with all of these challenges, there are a million and one ways of achieving the same outcome.
+
+86
+00:07:51,940 --> 00:07:56,230
+And as long as you achieve the goal then consider yourself successful.
+
+87
+00:07:56,230 --> 00:07:59,870
+So in this case I've got two constants instead of one.
+
+88
+00:08:00,040 --> 00:08:01,890
+I've got a first name and a last name
+
+89
+00:08:01,930 --> 00:08:05,540
+and I want them both to be rendered in my h1.
+
+90
+00:08:05,550 --> 00:08:15,880
+Now one of the ways you could do this is to add a fName as JavaScript and then use the plus sign to
+
+91
+00:08:15,880 --> 00:08:18,230
+concatenate a space
+
+92
+00:08:18,400 --> 00:08:22,780
+and then the plus sign to concatenate the lName onto here.
+
+93
+00:08:23,140 --> 00:08:25,240
+So this is all valid JavaScript.
+
+94
+00:08:25,240 --> 00:08:28,880
+This is something that you might see in any sort of JavaScript functional method.
+
+95
+00:08:29,110 --> 00:08:33,770
+And we end up with my full name added in here to the h1 with the space.
+
+96
+00:08:33,770 --> 00:08:38,100
+Now alternatively, you might have thought of some other ways of doing this.
+
+97
+00:08:38,230 --> 00:08:46,920
+You could, for example, use our curly braces to add our first name. And because everything inside out h
+
+98
+00:08:46,920 --> 00:08:53,020
+1 is interpreted as a string we could just add a space in here and then add another set of curly braces
+
+99
+00:08:53,350 --> 00:08:55,740
+and add our last name in here.
+
+100
+00:08:55,780 --> 00:08:57,830
+So that works just as well.
+
+101
+00:08:57,940 --> 00:09:04,800
+You're not limited to a single set of curly braces when you want to inject your JavaScript. And in ES6
+
+102
+00:09:04,810 --> 00:09:09,850
+we have something called template literals or if you come from another language you might know it as
+
+103
+00:09:09,850 --> 00:09:11,340
+string interpolation.
+
+104
+00:09:11,350 --> 00:09:16,530
+So basically injecting strings into a piece of JavaScript.
+
+105
+00:09:16,750 --> 00:09:23,110
+So the way we would do that is add a set of backticks and in between the backticks we can add a dollar
+
+106
+00:09:23,110 --> 00:09:26,130
+sign and then another set of curly braces
+
+107
+00:09:26,380 --> 00:09:34,930
+and inside here we can add a piece of JavaScript. So let's add our fName in here and then we can add a
+
+108
+00:09:34,930 --> 00:09:39,120
+space which is going to be interpreted as a normal string.
+
+109
+00:09:39,340 --> 00:09:43,540
+And then let's add another variable which is our last name.
+
+110
+00:09:43,660 --> 00:09:46,620
+And now we've got our template literal.
+
+111
+00:09:46,840 --> 00:09:55,270
+So let's just recap here. We've got this part interpreted as a string using the ES6 template literals
+
+112
+00:09:56,140 --> 00:10:06,910
+and then we've got that string being inserted in as JavaScript in these curly braces from JSX. And
+
+113
+00:10:06,910 --> 00:10:15,370
+then it's being inserted as a string into our h1 and then that's being inserted as JavaScript code
+
+114
+00:10:15,400 --> 00:10:17,280
+into a JavaScript file.
+
+115
+00:10:17,530 --> 00:10:21,850
+So I don't actually like this code very much because I think we're now at some sort of inception
+
+116
+00:10:21,850 --> 00:10:25,340
+level of depth and I think it's confusing.
+
+117
+00:10:25,450 --> 00:10:33,880
+The easiest way to achieve this task is probably just to add a space and add our last name and first name
+
+118
+00:10:33,910 --> 00:10:36,340
+in here like so.
+
+119
+00:10:36,680 --> 00:10:41,380
+But I wanted to run through some of the different options and catch some of the methods that you might
+
+120
+00:10:41,380 --> 00:10:42,630
+have tried.
+
+121
+00:10:42,670 --> 00:10:49,240
+So we're going to be getting a lot of practice with JSX and adding JavaScript expressions into
+
+122
+00:10:49,240 --> 00:10:54,910
+HTML, adding HTML into JavaScript and getting to grips with JSX.
+
+123
+00:10:55,060 --> 00:11:01,900
+But this is a good time to pause the video and have a mess around with this code
+
+124
+00:11:01,900 --> 00:11:08,680
+if there are parts that don't make sense. So perhaps have a go trying some of those different methods
+
+125
+00:11:08,680 --> 00:11:14,500
+that I mentioned in this lesson or have a go at trying to add some expressions in between the curly
+
+126
+00:11:14,500 --> 00:11:15,310
+braces.
+
+127
+00:11:15,490 --> 00:11:22,460
+But you've now got access to this completed code, the Javascript expressions in JSX completed
+
+128
+00:11:22,570 --> 00:11:28,060
+if you head over to the course resources and click on this link. But once you're ready and once you're
+
+129
+00:11:28,060 --> 00:11:31,760
+comfortable with this idea then head over to the next lesson
+
+130
+00:11:31,930 --> 00:11:40,330
+and I've got a challenge for you to be solved using JavaScript expressions in JSX. So for all of that
+
+131
+00:11:40,600 --> 00:11:41,760
+and more, I'll see you there.
+

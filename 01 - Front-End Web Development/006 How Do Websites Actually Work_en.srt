@@ -1,0 +1,432 @@
+1
+00:00:00,330 --> 00:00:02,370
+Hey, guys, it's your host, Angela, here.
+
+2
+00:00:02,400 --> 00:00:07,110
+Welcome to another episode in your favorite show that should really be on Netflix.
+
+3
+00:00:07,530 --> 00:00:13,200
+In this episode, we're going to learn exactly how websites actually work and understand the role of
+
+4
+00:00:13,200 --> 00:00:18,300
+the browser and the different files that it uses to render your favorite web pages.
+
+5
+00:00:18,780 --> 00:00:24,180
+Previously on the Complete Web Development Boot Camp, you learned that the Internet consists of a wire
+
+6
+00:00:24,180 --> 00:00:30,000
+that connects Client computers with Server computers, and you learned that there are special kinds of
+
+7
+00:00:30,000 --> 00:00:36,930
+server computers called Domain Name Service servers, which acts as a big old Yellow Pages phonebook
+
+8
+00:00:36,930 --> 00:00:41,400
+and can look up the IP address of any website you want to access.
+
+9
+00:00:41,400 --> 00:00:47,430
+And when you find out that IP address, you can directly hit up the server computer for the website
+
+10
+00:00:47,430 --> 00:00:53,790
+that you want to view and they'll send you all the files and data for your browser to be able to render
+
+11
+00:00:53,790 --> 00:00:55,020
+it on screen.
+
+12
+00:00:55,080 --> 00:01:02,460
+Now, the data that you receive from that server usually consists of three types of files HTML, CSS,
+
+13
+00:01:02,460 --> 00:01:03,600
+and JavaScript,
+
+14
+00:01:03,720 --> 00:01:08,820
+and it's very likely that you would have come across these types of files or these words before because
+
+15
+00:01:08,820 --> 00:01:12,860
+they're so common and they are so integral to how websites work.
+
+16
+00:01:12,870 --> 00:01:18,570
+But what exactly do they do and why are there so many different types of files?
+
+17
+00:01:18,570 --> 00:01:22,740
+Why can't we just have one file that's, you know, a website?
+
+18
+00:01:23,930 --> 00:01:26,690
+Well, they actually have very different jobs.
+
+19
+00:01:26,700 --> 00:01:32,510
+So, for example, the HTML code file is responsible for the content in your website.
+
+20
+00:01:32,510 --> 00:01:37,670
+So if a website was a house, then the HTML would be the actual bricks of the house.
+
+21
+00:01:37,670 --> 00:01:40,610
+It's the raw materials that makes up your house.
+
+22
+00:01:40,640 --> 00:01:46,850
+Similarly, the HTML file contains the content of your website, like the text content or the images
+
+23
+00:01:46,850 --> 00:01:48,500
+or buttons or links.
+
+24
+00:01:48,530 --> 00:01:55,070
+The second type of files are the CSS files, and these are responsible for styling your website like
+
+25
+00:01:55,070 --> 00:01:58,250
+the color of the walls or the shape of your door.
+
+26
+00:01:58,280 --> 00:02:01,480
+The CSS file determines how your website will look.
+
+27
+00:02:01,490 --> 00:02:07,340
+So what color will the background of the page be, or will the buttons have rounded corners?
+
+28
+00:02:07,430 --> 00:02:14,060
+It targets all the content in your website that you created using HTML, for example, the text or the
+
+29
+00:02:14,060 --> 00:02:17,900
+buttons and applies the styling to those elements.
+
+30
+00:02:17,900 --> 00:02:24,380
+So you could use CSS to make a button red and have rounded corners and the button text to have a particular
+
+31
+00:02:24,380 --> 00:02:25,030
+font.
+
+32
+00:02:25,040 --> 00:02:27,170
+That is what CSS is for.
+
+33
+00:02:27,830 --> 00:02:33,710
+Now the final component is the JavaScript code, and this is the code that allows your website to actually
+
+34
+00:02:33,710 --> 00:02:36,260
+do things, or have functionality.
+
+35
+00:02:36,350 --> 00:02:42,350
+So if you are building a house, this would be like adding light bulbs that can turn on and off or putting
+
+36
+00:02:42,350 --> 00:02:45,950
+in a cooker that can actually turn on a fire to heat your food.
+
+37
+00:02:45,980 --> 00:02:51,920
+It turns your house into a home, and the JavaScript code does exactly that for a website.
+
+38
+00:02:51,920 --> 00:02:58,310
+It turns a static website which just has pretty images or text into something that a user can actually
+
+39
+00:02:58,310 --> 00:02:59,240
+interact with.
+
+40
+00:02:59,270 --> 00:03:03,950
+For example, send an email in Gmail or post your breakfast on Instagram.
+
+41
+00:03:04,310 --> 00:03:09,920
+It allows your website to actually do things and become functional, not just something pretty to look
+
+42
+00:03:09,920 --> 00:03:10,130
+at.
+
+43
+00:03:10,160 --> 00:03:16,040
+So if we take the Google home page as an example, again, once we receive these three types of files
+
+44
+00:03:16,040 --> 00:03:23,180
+from the Google server, we can use our browser, which is a piece of software that specializes in dealing
+
+45
+00:03:23,180 --> 00:03:24,260
+with these files.
+
+46
+00:03:24,440 --> 00:03:29,830
+So when the browser loads up the HTML will get to see the content of the website.
+
+47
+00:03:29,840 --> 00:03:33,860
+So in this case, there's one image which has the Google logo.
+
+48
+00:03:33,890 --> 00:03:38,360
+There's two buttons and there's a text box where we can enter our search term.
+
+49
+00:03:38,690 --> 00:03:45,950
+Now when the browser then loads up the CSS files, then it will modify the appearance of those components,
+
+50
+00:03:46,040 --> 00:03:52,700
+so we don't get any extra buttons or images or anything with the CSS, but it will now look exactly
+
+51
+00:03:52,700 --> 00:03:54,770
+the way Google wanted it to.
+
+52
+00:03:54,830 --> 00:03:58,460
+The shape of that text box or the color of the buttons.
+
+53
+00:03:58,460 --> 00:04:05,280
+And finally, using the JavaScript file, the browser gives us the functionality of this website.
+
+54
+00:04:05,300 --> 00:04:09,800
+So we can type in a search term like Google in 1998.
+
+55
+00:04:09,800 --> 00:04:14,600
+And by the way, you should really try this in Google because when you hit search, it'll turn Google
+
+56
+00:04:14,600 --> 00:04:17,220
+into what it looked like in 1998.
+
+57
+00:04:17,240 --> 00:04:23,720
+So with all these three different files, we get the content, we get the styling, and finally we get
+
+58
+00:04:23,720 --> 00:04:25,790
+the functionality of the website.
+
+59
+00:04:25,790 --> 00:04:29,690
+And combined together is how we create modern websites.
+
+60
+00:04:29,720 --> 00:04:34,640
+Now, with all this knowledge that we've already acquired, we can already start messing around with
+
+61
+00:04:34,640 --> 00:04:36,500
+real websites on the internet.
+
+62
+00:04:36,500 --> 00:04:44,090
+So if you open up your browser and head over to Google.com, you can right-click on the button, which
+
+63
+00:04:44,090 --> 00:04:47,750
+is Google Search and click on Inspect.
+
+64
+00:04:48,720 --> 00:04:52,770
+Now, what this does is it brings up the Chrome Developer Tools.
+
+65
+00:04:52,860 --> 00:04:57,300
+Now, Chrome has one of the best tool suites for web developers like us.
+
+66
+00:04:57,330 --> 00:05:02,460
+This is why at the beginning of the course, I asked you to download the Chrome browser, even if you
+
+67
+00:05:02,460 --> 00:05:04,230
+normally use a different browser.
+
+68
+00:05:04,320 --> 00:05:08,760
+So if you haven't yet downloaded Chrome, be sure to do it now before you continue,
+
+69
+00:05:08,790 --> 00:05:12,750
+otherwise, some of the things that I say might not work. In the coming lessons,
+
+70
+00:05:12,750 --> 00:05:18,030
+we're going to be exploring the Chrome Developer Tools in a lot more detail, but for now we're just
+
+71
+00:05:18,030 --> 00:05:20,450
+going to use it to do something really simple.
+
+72
+00:05:20,460 --> 00:05:25,980
+So you can see that Chrome Developer Tools has automatically highlighted the part of the code that's
+
+73
+00:05:25,980 --> 00:05:31,170
+responsible for that button that I right-clicked on. That I wanted to inspect.
+
+74
+00:05:31,380 --> 00:05:37,920
+And if we look carefully, you can see that the title of the button, which says, "Google Search" is actually
+
+75
+00:05:37,920 --> 00:05:41,760
+in here and we can find it right here.
+
+76
+00:05:42,800 --> 00:05:44,980
+Just after the word value.
+
+77
+00:05:44,990 --> 00:05:50,000
+And if we double click on it, then we can actually edit this title for it to say something completely
+
+78
+00:05:50,000 --> 00:05:50,700
+different.
+
+79
+00:05:50,720 --> 00:05:54,320
+So instead of Google Search, let's call it Angela Search.
+
+80
+00:05:54,800 --> 00:05:58,820
+And then once I hit enter, you'll see that update over here.
+
+81
+00:06:00,000 --> 00:06:04,020
+Now, you'll notice there's also one called aria-label Google Search,
+
+82
+00:06:04,020 --> 00:06:08,100
+and this is actually only for text readers rather than for our browser.
+
+83
+00:06:08,130 --> 00:06:12,750
+You can change that too, but it just means that you won't really see it on screen.
+
+84
+00:06:13,050 --> 00:06:16,500
+It's updating something that's used behind the scenes.
+
+85
+00:06:16,950 --> 00:06:19,740
+So be sure to double-click on the correct thing.
+
+86
+00:06:20,100 --> 00:06:27,900
+Now, depending on what HTML content we're inspecting on, the part that we have to change might be different.
+
+87
+00:06:28,200 --> 00:06:34,260
+So for example, if you wanted to change the headlines on techcrunch.com, you can simply right-click
+
+88
+00:06:34,260 --> 00:06:40,470
+on one of those headlines, click, inspect and find the part that corresponds to this headline,
+
+89
+00:06:40,470 --> 00:06:45,870
+which is right here in black, and we can double-click on it to say something completely different.
+
+90
+00:06:49,620 --> 00:06:57,010
+And you can actually change the front page of TechCrunch or BBC News or any website you want to.
+
+91
+00:06:57,030 --> 00:07:02,430
+So this is a great way of pranking your friends, especially when they can see that you're on techcrunch.com
+
+92
+00:07:02,430 --> 00:07:08,570
+and the title or any of the other pieces of text can say whatever you want it to.
+
+93
+00:07:08,670 --> 00:07:14,490
+And this is a great joke to play on friends who are maybe not quite as technologically advanced as you,
+
+94
+00:07:14,490 --> 00:07:17,400
+because they haven't taken the course that you have.
+
+95
+00:07:17,670 --> 00:07:22,830
+Now, unfortunately, when I hit refresh on this website, you'll see that everything gets restored
+
+96
+00:07:22,830 --> 00:07:25,830
+to the original version of the website.
+
+97
+00:07:25,920 --> 00:07:32,610
+And the reason for this is because when we hit refresh, we're asking TechCrunch's servers to deliver
+
+98
+00:07:32,610 --> 00:07:41,100
+us the HTML, CSS and JavaScript files once again so that we can render the website on our browser.
+
+99
+00:07:41,250 --> 00:07:47,070
+But when we edit our website in the Chrome Developer Tools, effectively what we're changing is our
+
+100
+00:07:47,070 --> 00:07:48,480
+local version,
+
+101
+00:07:48,480 --> 00:07:51,190
+and this doesn't get saved when you hit refresh.
+
+102
+00:07:51,210 --> 00:07:55,020
+So of course then the website will update to the original content.
+
+103
+00:07:55,020 --> 00:08:01,650
+But in the coming lessons we're going to be working with HTML, CSS and JavaScript so that you can create
+
+104
+00:08:01,650 --> 00:08:08,520
+and host your own websites, live on the Internet and through learning how to code and how to build
+
+105
+00:08:08,520 --> 00:08:09,160
+websites,
+
+106
+00:08:09,180 --> 00:08:14,610
+you're going to be able to make websites that say anything you want it to, look the way that you want
+
+107
+00:08:14,610 --> 00:08:17,730
+it to, and have the functionality that you need.
+
+108
+00:08:17,760 --> 00:08:21,480
+So for all of that and more, I'll see you on the next lesson.
+

@@ -1,0 +1,152 @@
+1
+00:00:01,200 --> 00:00:07,620
+Now in the last lesson we looked at how we can use jQuery to manipulate text in our web page.
+
+2
+00:00:07,620 --> 00:00:12,720
+But in this lesson we're going to look at how we can also use it to manipulate attributes.
+
+3
+00:00:12,720 --> 00:00:19,050
+Now attributes are things such as, for example, if you had an image then it would have a source, right?
+
+4
+00:00:19,050 --> 00:00:22,700
+So, for example, drum.png.
+
+5
+00:00:22,840 --> 00:00:27,300
+And if you had a anchor tag, then that might be the href, right?
+
+6
+00:00:27,300 --> 00:00:32,250
+https://www.google.com.
+
+7
+00:00:32,369 --> 00:00:41,310
+So if we wanted to be able to get and set these attributes on the fly using Javascript and jQuery,
+
+8
+00:00:41,940 --> 00:00:45,670
+then we have a really simple method that we can tap into.
+
+9
+00:00:45,990 --> 00:00:52,790
+So we can select our image and we can use attr for the attribute method.
+
+10
+00:00:53,040 --> 00:00:59,100
+Then inside the parentheses, we're going to give the name of the attribute that we want.
+
+11
+00:00:59,100 --> 00:01:04,239
+So, for example, for our image that will be the src or the source.
+
+12
+00:01:04,290 --> 00:01:07,550
+And now I can console.log this result.
+
+13
+00:01:07,770 --> 00:01:15,870
+And if I hit save and go to our web site and refresh, you'll see that we failed to load our resource
+
+14
+00:01:16,320 --> 00:01:19,690
+because in our project we currently don't actually have an image.
+
+15
+00:01:19,800 --> 00:01:26,850
+But if we wanted to diagnose this then we could have simply used .attr to get our source printed
+
+16
+00:01:26,850 --> 00:01:32,690
+out, and we can see that it's a file called drum.png which we clearly do not have
+
+17
+00:01:32,730 --> 00:01:34,680
+in the current project folder.
+
+18
+00:01:35,010 --> 00:01:41,100
+Now in addition to getting the value of the attribute you could also set the value of the attribute.
+
+19
+00:01:41,100 --> 00:01:50,100
+So for example, let's select our anchor tag this time, and we're going to use the attr method, attribute method,
+
+20
+00:01:50,190 --> 00:01:56,490
+again, and this time we're going to get the value of the href attribute,
+
+21
+00:01:56,610 --> 00:01:59,050
+but we're also going to set it,
+
+22
+00:01:59,190 --> 00:02:02,460
+so that's the second input of this method.
+
+23
+00:02:02,460 --> 00:02:06,350
+If there is a second input then we're going to set it to that,
+
+24
+00:02:06,450 --> 00:02:10,229
+and if there isn't one then we're going to get the value of the attribute.
+
+25
+00:02:10,530 --> 00:02:18,570
+So let's say that we've decided that we want to look after the under dogs and we're going to direct
+
+26
+00:02:18,570 --> 00:02:23,290
+people towards yahoo.com instead of Google.
+
+27
+00:02:23,300 --> 00:02:28,200
+I'm not sure if anybody uses Yahoo anymore but let's give that a go .
+
+28
+00:02:28,290 --> 00:02:36,180
+So this code will select all of the anchor tags on our web site and change the href attribute to 
+
+29
+00:02:36,180 --> 00:02:37,240
+yahoo.com,
+
+30
+00:02:37,380 --> 00:02:44,850
+whereas previously it was google.com, and I’ll give that anchor tag a value of Search.
+
+31
+00:02:44,970 --> 00:02:52,940
+So now if we hit refresh and we click on our anchor tag then it should take us to Yahoo,
+
+32
+00:02:53,040 --> 00:02:59,670
+whereas without this line of code then it'll take us to the original destination which was 
+
+33
+00:02:59,670 --> 00:03:00,680
+google.com.
+
+34
+00:03:00,690 --> 00:03:06,180
+Now remember that a class is also an HTML attribute.
+
+35
+00:03:06,600 --> 00:03:15,090
+So that means that if we had our h1. Let’s just apply those awful styles again, big-title and margin-50.
+
+36
+00:03:15,150 --> 00:03:22,370
+So class = big-title and margin-50.
+
+37
+00:03:22,740 --> 00:03:34,590
+Then if we refresh our web site and go into our console and we select our h1 to get its class attribute,
+
+38
+00:03:35,300 --> 00:03:41,690
+then you can see that it'll print out all of the classes that are currently applied to the h1.
+

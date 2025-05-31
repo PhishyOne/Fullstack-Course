@@ -1,0 +1,112 @@
+1
+00:00:01,320 --> 00:00:07,710
+Now, one of the common things that I hear students say is, hey, why is it that when I go through
+
+2
+00:00:07,710 --> 00:00:13,200
+the tutorial, everything seems so easy and so obvious, but then when
+
+3
+00:00:13,200 --> 00:00:19,180
+I try to do something myself, like create a project myself or try to complete a code challenge
+
+4
+00:00:19,320 --> 00:00:23,970
+and it seems like almost as if I actually didn't learn anything at all.
+
+5
+00:00:24,690 --> 00:00:29,990
+Well, the reason is because that the learning comes from the practice.
+
+6
+00:00:30,390 --> 00:00:33,910
+So don't view watching the videos as learning.
+
+7
+00:00:34,050 --> 00:00:36,790
+That's just me introducing you to a concept.
+
+8
+00:00:37,200 --> 00:00:41,460
+It's only when you apply it yourself, then do you actually learn.
+
+9
+00:00:42,060 --> 00:00:49,140
+So always try to watch the video, see what's happening, what the gist is, maybe take down a few notes,
+
+10
+00:00:49,410 --> 00:00:56,520
+names of functions or things that you might need to use and then pause the video and try to complete
+
+11
+00:00:56,520 --> 00:00:57,150
+it yourself.
+
+12
+00:00:57,660 --> 00:01:04,680
+That way you're actually putting the skills into practice and you're actually learning instead of just
+
+13
+00:01:04,680 --> 00:01:06,000
+absorbing passively.
+
+14
+00:01:07,320 --> 00:01:14,550
+And one of the biggest learnings I've read and one of the most interesting things from psychology
+
+15
+00:01:14,550 --> 00:01:19,590
+studies is something called the Dunning Kruger effect, which is where when you first start learning
+
+16
+00:01:19,590 --> 00:01:23,220
+something, you can feel like, wow, I know so much.
+
+17
+00:01:23,220 --> 00:01:25,380
+I know everything there is to know about this topic.
+
+18
+00:01:25,770 --> 00:01:31,560
+But then as you gain more knowledge, you realize, oh, no, actually there's a lot more stuff out
+
+19
+00:01:31,560 --> 00:01:32,660
+there that I don't know.
+
+20
+00:01:32,850 --> 00:01:36,480
+And then you fall into a pit, which is called the Valley of Despair.
+
+21
+00:01:37,050 --> 00:01:43,470
+And this is also sometimes referred to as imposter syndrome, where even though you feel like you've
+
+22
+00:01:43,470 --> 00:01:49,830
+spent a lot of time learning the skill, you feel a bit like an imposter because you think people are
+
+23
+00:01:49,830 --> 00:01:52,040
+going to find out that I actually don't know anything.
+
+24
+00:01:52,560 --> 00:01:55,080
+And both of these are exaggerations.
+
+25
+00:01:55,110 --> 00:01:58,110
+You are somewhere in between both of those places.
+
+26
+00:01:58,470 --> 00:02:03,150
+And if you just keep persevering, keep practicing, keep putting what you've learned into action,
+
+27
+00:02:03,420 --> 00:02:04,850
+then you're going to get there in the end.
+
+28
+00:02:05,130 --> 00:02:06,300
+So keep going.
+

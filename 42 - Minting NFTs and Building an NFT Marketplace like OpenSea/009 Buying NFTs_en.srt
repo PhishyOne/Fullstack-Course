@@ -1,0 +1,1484 @@
+1
+00:00:00,510 --> 00:00:07,770
+The very last thing we need to do in order to complete NFT Marketplace Project is to enable the buying
+
+2
+00:00:07,800 --> 00:00:09,480
+of the NFT assets.
+
+3
+00:00:10,230 --> 00:00:20,520
+Now, what's going to happen is we're going to need to take the amount that a NFT costs from the buyer's
+
+4
+00:00:20,520 --> 00:00:28,620
+wallet and transfer it to the original owner of the NFT and then finally transfer the ownership over
+
+5
+00:00:28,620 --> 00:00:29,310
+to the buyer.
+
+6
+00:00:29,550 --> 00:00:34,590
+And in order to do this, we're actually going to tie it back to the token canister that we created
+
+7
+00:00:34,590 --> 00:00:41,220
+earlier on so that we can start charging these DANG tokens and actually using them for something practical,
+
+8
+00:00:41,220 --> 00:00:43,170
+like buying and selling NFTs.
+
+9
+00:00:43,470 --> 00:00:50,460
+At the moment, all that happened when I click on the buy button is the 'Buy was triggered' is console
+
+10
+00:00:50,460 --> 00:00:50,850
+logged.
+
+11
+00:00:51,180 --> 00:00:57,360
+And by the way, if you don't have a NFT that is available to buy here, make sure that you use the
+
+12
+00:00:57,360 --> 00:00:59,430
+creating NFT for testing section
+
+13
+00:00:59,700 --> 00:01:06,660
+to simply mint an NFT that can be bought by this user on the frontend.
+
+14
+00:01:07,380 --> 00:01:14,880
+If we take a look at our item.jsx, we've got this function that we set out called handleBuy and at
+
+15
+00:01:14,880 --> 00:01:17,700
+the moment all it does is console.log
+
+16
+00:01:17,760 --> 00:01:25,320
+the 'Buy was triggered' text which is not very useful, but we're going to update it so that we can
+
+17
+00:01:25,320 --> 00:01:27,090
+actually make it do something.
+
+18
+00:01:27,420 --> 00:01:32,550
+Now, the first thing we need to do is to get our token canister up and running.
+
+19
+00:01:32,820 --> 00:01:39,600
+And hopefully you would have completed the module where we built the token canister and the frontend
+
+20
+00:01:39,930 --> 00:01:41,550
+for managing tokens.
+
+21
+00:01:42,420 --> 00:01:48,480
+But because I know that a lot of you might have not deployed that and also the code might be a little
+
+22
+00:01:48,480 --> 00:01:50,070
+bit different or a little bit messy,
+
+23
+00:01:50,400 --> 00:01:54,150
+I want us to be all working with the same token canister.
+
+24
+00:01:54,600 --> 00:02:03,090
+So in this current Udemy lesson, you should be able to download the token local compressed zip file.
+
+25
+00:02:03,630 --> 00:02:11,250
+And once you've uncompressed it, then you can go ahead and drag that folder into where you've got your
+
+26
+00:02:11,250 --> 00:02:12,360
+ic-projects.
+
+27
+00:02:12,900 --> 00:02:20,850
+Now once it's in here, then I want you to go ahead and open up a new window in VSCode and open up
+
+28
+00:02:20,850 --> 00:02:21,930
+that folder.
+
+29
+00:02:23,090 --> 00:02:26,900
+So mine's in my ic-projects and it's called TOKEN-LOCAL.
+
+30
+00:02:28,920 --> 00:02:32,820
+So now let's expand it so that we can see what's inside.
+
+31
+00:02:33,600 --> 00:02:37,370
+If you remember, we had the token canister and the token asset,
+
+32
+00:02:37,380 --> 00:02:43,830
+so this is the frontend and this is the backend. And it's pretty simple in that it keeps track of everyone's
+
+33
+00:02:43,830 --> 00:02:44,760
+balances.
+
+34
+00:02:45,270 --> 00:02:48,570
+It allows you to query the balance of somebody,
+
+35
+00:02:48,870 --> 00:02:53,640
+it allows you to pay out from the faucet and also transfer to someone else.
+
+36
+00:02:54,330 --> 00:02:57,780
+This is going to be the function that we're going to be tapping into.
+
+37
+00:02:58,140 --> 00:03:00,720
+So you can imagine this is a live deployed project,
+
+38
+00:03:01,290 --> 00:03:07,770
+then this token canister will be available on the internet computer blockchain, and our OpenD will
+
+39
+00:03:07,770 --> 00:03:09,120
+also be on the blockchain.
+
+40
+00:03:09,450 --> 00:03:16,110
+And it's really important for us to learn how to get our canisters to talk to other canisters. Before
+
+41
+00:03:16,110 --> 00:03:20,010
+we go ahead and deploy this token project and use it,
+
+42
+00:03:20,370 --> 00:03:26,190
+I want you to take a look inside the read me and take a look at the deploy section.
+
+43
+00:03:26,940 --> 00:03:30,600
+So the first thing we want to do is to find out our principal ID.
+
+44
+00:03:31,170 --> 00:03:38,730
+So open up a new terminal inside TOKEN-LOCAL so that you're actually working with it here and then paste
+
+45
+00:03:38,730 --> 00:03:45,780
+in that command line command so that you've got hold of your current command line user principal.
+
+46
+00:03:46,380 --> 00:03:52,710
+And then I want you to go into the main.mo which is inside the token folder.
+
+47
+00:03:53,280 --> 00:04:01,620
+And I want you to replace the part where it says owner with your own principal ID,
+
+48
+00:04:01,830 --> 00:04:07,350
+so just simply copy it from the terminal and then paste it in here, making sure that it's inside a
+
+49
+00:04:07,350 --> 00:04:11,550
+set of double quotes, like I've got right here.
+
+50
+00:04:12,450 --> 00:04:17,970
+Now, next, we're going to go ahead and deploy this project with dfx deploy,
+
+51
+00:04:18,420 --> 00:04:25,320
+so making sure that your dfx start is hopefully running on your OpenD project.
+
+52
+00:04:26,670 --> 00:04:33,330
+Now once that's complete, we're going to continue in the next step of the Read Me, which is to go
+
+53
+00:04:33,330 --> 00:04:35,490
+ahead and start the frontend.
+
+54
+00:04:35,670 --> 00:04:38,070
+So I'm going to go ahead and run NPM start.
+
+55
+00:04:38,880 --> 00:04:48,540
+And notice that because we've got our OpenD project running on localhost 8080, automatically npm start
+
+56
+00:04:48,540 --> 00:04:56,700
+will assign this frontend for TOKEN-LOCAL to a different address so it becomes localhost 8081.
+
+57
+00:04:57,030 --> 00:05:01,260
+So you can either copy that or you can simply type it in to the command line.
+
+58
+00:05:01,320 --> 00:05:08,070
+And if you head over there, you'll see our familiar frontend for our token project. Now as we did before,
+
+59
+00:05:08,070 --> 00:05:15,600
+the first thing we need to do with our token project is to load up the token canister with some DANGs.
+
+60
+00:05:15,840 --> 00:05:20,040
+So we're going to check and set the canister ID to a local variable.
+
+61
+00:05:20,430 --> 00:05:25,470
+Go ahead and open up another terminal screen and paste that in there.
+
+62
+00:05:26,070 --> 00:05:32,400
+So now that we've got the principal ID of the token canister saved inside canister public key, we're
+
+63
+00:05:32,400 --> 00:05:38,550
+going to transfer half a billion tokens over by calling the token transfer function.
+
+64
+00:05:39,420 --> 00:05:46,350
+And once that's done, then we can claim the tokens from the faucet by going over here and clicking
+
+65
+00:05:46,350 --> 00:05:47,490
+on Gimme, Gimme.
+
+66
+00:05:48,720 --> 00:05:55,140
+And once that comes back as success, then our anonymous user who's operating the frontend should now
+
+67
+00:05:55,140 --> 00:05:56,130
+have 10,000
+
+68
+00:05:56,130 --> 00:05:56,470
+DANG.
+
+69
+00:05:56,850 --> 00:06:03,630
+And we're going to be using these 10,000 DANG in order to purchase NFTs on our OpenD website.
+
+70
+00:06:03,990 --> 00:06:09,450
+Now I've simplified the project a lot because none of these things are running through internet identity.
+
+71
+00:06:09,720 --> 00:06:11,280
+We don't have to do the login flow,
+
+72
+00:06:11,550 --> 00:06:17,880
+we don't have to deploy our canisters, and we're saving ourselves a lot of money because every time
+
+73
+00:06:17,880 --> 00:06:21,540
+we mint an NFT, that's going to cost us something like $5.
+
+74
+00:06:21,810 --> 00:06:27,270
+So we're doing a lot of testing for now, but everything that works here will work once we deploy it
+
+75
+00:06:27,270 --> 00:06:27,900
+online.
+
+76
+00:06:28,200 --> 00:06:34,440
+And we're just learning how to talk to other canisters that are live and deployed on the Internet computer.
+
+77
+00:06:35,130 --> 00:06:41,280
+Now that we've given our anonymous user our 10,000 DANG, we're going to call the transfer function.
+
+78
+00:06:41,730 --> 00:06:48,690
+We're going to use the functions in our faucet backend in order to transfer the money from the buyer
+
+79
+00:06:48,690 --> 00:06:58,290
+to the seller. In order to access the types and the functions that is in the token backend, we need
+
+80
+00:06:58,290 --> 00:07:02,670
+to copy the declaration file for our token canister.
+
+81
+00:07:03,240 --> 00:07:08,640
+Now if you are plugging into somebody else's live canister, they should provide you with this so that
+
+82
+00:07:08,640 --> 00:07:09,750
+you're able to work with it.
+
+83
+00:07:10,080 --> 00:07:15,420
+But because we made both of these ourselves, then it's pretty easy for us to simply just copy this
+
+84
+00:07:15,420 --> 00:07:15,900
+folder,
+
+85
+00:07:16,080 --> 00:07:21,740
+so right-click copy, and then head over to OpenD. Inside the declarations folder,
+
+86
+00:07:22,050 --> 00:07:24,120
+go ahead, right-click and paste.
+
+87
+00:07:24,570 --> 00:07:28,170
+And now you should see we've got our NFT canister, our
+
+88
+00:07:28,460 --> 00:07:32,060
+opend canister and are token canister.
+
+89
+00:07:32,720 --> 00:07:34,120
+Don't worry about it being red.
+
+90
+00:07:34,130 --> 00:07:37,940
+That's just related to the git commit and it doesn't affect us at all.
+
+91
+00:07:38,240 --> 00:07:40,120
+If you take a look inside the tokendid.
+
+92
+00:07:40,640 --> 00:07:40,950
+js,
+
+93
+00:07:41,420 --> 00:07:47,570
+you can see that we're creating an idlFactory here that defines which methods we can call on this
+
+94
+00:07:47,570 --> 00:07:52,220
+token canister and what data types it expects in the inputs and outputs.
+
+95
+00:07:52,730 --> 00:08:00,170
+This idlFactory is how we're going to be able to work with that canister in our item.js. Similar
+
+96
+00:08:00,170 --> 00:08:06,920
+to before, where we imported the idlFactory from our programmatically created NFT containers,
+
+97
+00:08:07,220 --> 00:08:11,880
+we're going to import the idlFactory from our token.did. 
+
+98
+00:08:12,350 --> 00:08:20,210
+So we're going to type import idlFactory from, and then the location is going to be ../
+
+99
+00:08:20,210 --> 00:08:24,410
+../../declarations/token.
+
+100
+00:08:24,980 --> 00:08:27,740
+In order for these two to not conflict with each other,
+
+101
+00:08:27,980 --> 00:08:29,600
+we're going to give this an alias.
+
+102
+00:08:29,600 --> 00:08:34,520
+So we're going to say import idlFactory as tokenIdlFactory.
+
+103
+00:08:37,480 --> 00:08:45,070
+This way we can use it and we'll know the difference. Down here in our handleBuy button,
+
+104
+00:08:45,460 --> 00:08:48,400
+we're going to create our token actor.
+
+105
+00:08:49,000 --> 00:08:55,870
+So we're going to use the same agent and local host as we have before, but we're going to use the create
+
+106
+00:08:55,870 --> 00:08:58,990
+actor to create our token canister.
+
+107
+00:08:59,920 --> 00:09:05,080
+So heading down here, we're going to create a new constant called tokenActor.
+
+108
+00:09:06,370 --> 00:09:09,070
+And we're going to set it to equal await
+
+109
+00:09:09,610 --> 00:09:10,300
+Actor.
+
+110
+00:09:10,570 --> 00:09:12,310
+create
+
+111
+00:09:12,310 --> 00:09:12,880
+Actor.
+
+112
+00:09:13,690 --> 00:09:19,210
+And inside here, we first are going to provide the token idlFactory.
+
+113
+00:09:19,720 --> 00:09:24,280
+And then we're going to provide a object with the agent,
+
+114
+00:09:24,430 --> 00:09:25,630
+and then comma,
+
+115
+00:09:25,990 --> 00:09:27,640
+and then the canister ID
+
+116
+00:09:29,590 --> 00:09:34,960
+which is going to be set to the actual ID of our token canister.
+
+117
+00:09:35,500 --> 00:09:40,630
+So let's get hold of the token canister for our token local project.
+
+118
+00:09:41,080 --> 00:09:46,510
+And all we have to do is type in dfx canister id token.
+
+119
+00:09:48,280 --> 00:09:56,710
+And hit enter and we should get back our token id, which we're going to go ahead and put into here.
+
+120
+00:09:56,710 --> 00:10:01,690
+So we're going to use the principal.fromText
+
+121
+00:10:03,370 --> 00:10:07,810
+and pass in this id as a string right here.
+
+122
+00:10:08,170 --> 00:10:15,040
+Now, we can use this token actor and tap into it in the same way that we've been using the OpenD,
+
+123
+00:10:15,040 --> 00:10:22,390
+so for example, calling the canister methods like so. The main thing that we're interested in is
+
+124
+00:10:22,390 --> 00:10:25,330
+transferring the money from the buyer to the seller.
+
+125
+00:10:25,810 --> 00:10:29,620
+So first we have to get hold of the seller's principal ID,
+
+126
+00:10:33,440 --> 00:10:35,380
+which I'm going to call the sellerId.
+
+127
+00:10:36,200 --> 00:10:43,850
+And we have a method of getting hold of the original owner of the NFT already in our main.mo,
+
+128
+00:10:44,240 --> 00:10:48,570
+which is called getOriginalOwner, passing in the ID of the NFT.
+
+129
+00:10:49,100 --> 00:10:50,560
+That's what we're going to be calling here.
+
+130
+00:10:50,570 --> 00:10:59,030
+So we're going to say await opend. and then I'm going to paste in that method and pass in the ID
+
+131
+00:10:59,210 --> 00:11:03,070
+of the NFT which is held inside props.id.
+
+132
+00:11:03,890 --> 00:11:10,700
+Now the next thing we need in order to make the transfer is to know the itemPrice, to know how much
+
+133
+00:11:10,730 --> 00:11:11,800
+money to transfer,
+
+134
+00:11:11,810 --> 00:11:12,140
+right?
+
+135
+00:11:12,650 --> 00:11:19,610
+And similarly in our main.mo, we've got a method called getListedNFTPrice and it takes the
+
+136
+00:11:19,610 --> 00:11:21,050
+ID of the NFT
+
+137
+00:11:21,080 --> 00:11:22,460
+so we can check that as well.
+
+138
+00:11:22,490 --> 00:11:28,960
+So await opend. paste in the method name and then pass in props.
+
+139
+00:11:28,970 --> 00:11:29,660
+id
+
+140
+00:11:30,110 --> 00:11:30,890
+once more.
+
+141
+00:11:33,200 --> 00:11:36,650
+Now finally, we're ready to make the actual transfer.
+
+142
+00:11:37,130 --> 00:11:46,190
+So now we can go ahead and use our await, tap into our token actor and call the method here
+
+143
+00:11:46,190 --> 00:11:50,210
+inside our token canister, which is called transfer.
+
+144
+00:11:51,050 --> 00:11:57,560
+Transfer takes a to, which is the first input and the amount as a natural number.
+
+145
+00:11:58,640 --> 00:12:07,130
+If we go ahead and call our transfer and the to is of course the sellerId because they're the ones
+
+146
+00:12:07,130 --> 00:12:09,620
+who should be benefiting from the sale.
+
+147
+00:12:10,250 --> 00:12:14,390
+And then the itemPrice is going to be the amount.
+
+148
+00:12:15,320 --> 00:12:22,220
+And because this transfer function actually returns a piece of text to let us know what's the result
+
+149
+00:12:22,220 --> 00:12:26,390
+of the transfer, we can actually console.log that as well.
+
+150
+00:12:29,240 --> 00:12:30,980
+Now let's try it out.
+
+151
+00:12:31,610 --> 00:12:36,920
+We know that our frontend user has this many DANGs.
+
+152
+00:12:37,430 --> 00:12:39,970
+And we know that this item costs 2
+
+153
+00:12:40,040 --> 00:12:40,420
+DANG.
+
+154
+00:12:40,850 --> 00:12:48,800
+So if I go ahead and click buy, then buy was triggered and hopefully once we get back success from the
+
+155
+00:12:48,800 --> 00:12:55,160
+result of the transfer, then we can head back over to our faucet, check the balance again and see
+
+156
+00:12:55,160 --> 00:12:59,240
+that 2 dang was subtracted from the balance.
+
+157
+00:12:59,840 --> 00:13:02,270
+So that is working as expected.
+
+158
+00:13:02,870 --> 00:13:08,690
+Now all that's left to do is to simply transfer over the ownership of the NFT
+
+159
+00:13:09,020 --> 00:13:17,570
+once this transfer result is successful. We can add an if statement and check that the result is equal
+
+160
+00:13:17,570 --> 00:13:18,780
+to success.
+
+161
+00:13:19,250 --> 00:13:24,380
+And then inside this if statement, we can transfer the ownership.
+
+162
+00:13:25,880 --> 00:13:28,430
+To do that, we have to head over to our main.
+
+163
+00:13:28,430 --> 00:13:28,880
+mo
+
+164
+00:13:29,270 --> 00:13:32,450
+and create a new public function.
+
+165
+00:13:33,560 --> 00:13:35,810
+So it's going to be public shared
+
+166
+00:13:38,580 --> 00:13:44,340
+(msg) func, and we're going to call this completePurchase.
+
+167
+00:13:47,710 --> 00:13:49,930
+It's going to take three inputs.
+
+168
+00:13:50,410 --> 00:13:54,880
+Firstly, is the id of the NFT that's in question,
+
+169
+00:13:55,390 --> 00:13:57,930
+second is the ownerId,
+
+170
+00:13:59,740 --> 00:14:03,040
+who we''re going to transfer it from,
+
+171
+00:14:03,550 --> 00:14:06,840
+and thirdly is the newOwner
+
+172
+00:14:06,850 --> 00:14:07,180
+Id.
+
+173
+00:14:12,530 --> 00:14:20,930
+And finally, we'll return a piece of text as the result, as usual. Adding the semicolon when needed,
+
+174
+00:14:21,680 --> 00:14:24,860
+we should end up with our function ready to go.
+
+175
+00:14:25,550 --> 00:14:29,990
+Now the first thing we have to pull up is the purchased NFT.
+
+176
+00:14:30,710 --> 00:14:37,730
+So we'll pull it out of our map of Nfts and we'll need to unwrap it from its optional type.
+
+177
+00:14:40,590 --> 00:14:48,060
+So I'm going to call this a purchasedNFT, which is going to have the data type of the NFTActorClass
+
+178
+00:14:48,090 --> 00:14:57,030
+.NFT and it's going to be equal to the switch using the mapOfNFTs
+
+179
+00:14:57,510 --> 00:15:09,780
+.get passing in the id. Now when the case is null, we're going to simply exit this function and
+
+180
+00:15:09,780 --> 00:15:16,380
+return a piece of text saying NFT does not exist.
+
+181
+00:15:17,550 --> 00:15:26,190
+But in the case where it does exist, we're going to unwrap the result and return it as the purchased
+
+182
+00:15:26,190 --> 00:15:26,850
+NFT.
+
+183
+00:15:27,210 --> 00:15:33,840
+Now, in order to get rid of all of these errors, I'm just going to add a return success at the end
+
+184
+00:15:34,680 --> 00:15:39,480
+just so that we can continue working on our function unharassed.
+
+185
+00:15:40,560 --> 00:15:49,350
+The next thing we're going to do is we're going to go ahead and transfer the NFT over to the new owner.
+
+186
+00:15:49,980 --> 00:15:55,500
+So we're going to call the transfer method on this particular NFT that we pulled up.
+
+187
+00:15:55,920 --> 00:15:59,850
+So I'm going to say purchasedNFT.
+
+188
+00:16:00,090 --> 00:16:06,480
+and then if we take a look inside our nft.mo, you can see we've got our transfer ownership method
+
+189
+00:16:06,480 --> 00:16:09,210
+that expects a new owner as an input.
+
+190
+00:16:10,140 --> 00:16:13,410
+So we're going to pass over the newOwner
+
+191
+00:16:14,650 --> 00:16:26,980
+Id as the transfer ownership input. And if the result that comes back from transferResult is success,
+
+192
+00:16:27,670 --> 00:16:37,420
+then we're going to continue with deleting this item from our mapOfListings and also removing it from
+
+193
+00:16:37,420 --> 00:16:42,330
+the previous owner's registered list of owned and NFTs.
+
+194
+00:16:43,030 --> 00:16:48,820
+So firstly, we're going to tap into our mapOfListings and we're going to call the delete function
+
+195
+00:16:49,000 --> 00:16:56,800
+that is available in a HashMaps, and we're going to pass over the id of the NFTto delete.
+
+196
+00:16:57,370 --> 00:17:04,780
+The next thing we're going to get hold of is the list of NFTs that the previous owner owned.
+
+197
+00:17:05,290 --> 00:17:08,410
+So we can delete it from that list.
+
+198
+00:17:09,099 --> 00:17:17,640
+So I'm going to create a variable called ownedNFTs which is going to be a list of principals.
+
+199
+00:17:18,310 --> 00:17:20,770
+So List.List, .
+
+200
+00:17:21,280 --> 00:17:28,480
+And we're going to need to use the switch statement in order fetch it from our mapOfOwners using the
+
+201
+00:17:28,480 --> 00:17:31,540
+get method and passing in the ownerId.
+
+202
+00:17:33,440 --> 00:17:36,430
+In the case where it is
+
+203
+00:17:36,440 --> 00:17:37,070
+null, 
+
+204
+00:17:37,610 --> 00:17:41,090
+then we are going to simply return an empty list.
+
+205
+00:17:41,570 --> 00:17:47,010
+So List.nil with the data type of Principal.
+
+206
+00:17:47,300 --> 00:17:49,310
+So this is just going to be an empty list,
+
+207
+00:17:49,700 --> 00:17:52,310
+and then add the parentheses to initialize that.
+
+208
+00:17:52,910 --> 00:17:58,400
+And then in the case where we can unwrap it, we are going to unwrap it.
+
+209
+00:18:02,920 --> 00:18:10,150
+Now the final thing we're going to do is we're going to take this list of NFT Ids that the previous
+
+210
+00:18:10,150 --> 00:18:14,830
+owner owned, and we're going to run a function called filter on it.
+
+211
+00:18:15,520 --> 00:18:20,010
+In the documentation, you can see that delete is pretty simple.
+
+212
+00:18:20,020 --> 00:18:22,900
+It simply deletes the entry with a particular key.
+
+213
+00:18:23,230 --> 00:18:25,690
+It doesn't do anything if the key doesn't exist.
+
+214
+00:18:26,200 --> 00:18:32,740
+And on the list data type, we've got something called filter, which will create a new list with
+
+215
+00:18:32,740 --> 00:18:37,840
+only the elements of the original list for which the given function returns
+
+216
+00:18:37,840 --> 00:18:38,290
+true.
+
+217
+00:18:38,710 --> 00:18:42,070
+So basically we can pass in a list and pass in a function.
+
+218
+00:18:42,550 --> 00:18:48,340
+And if that function returns true as it loops through each of the items in the list, then it's going
+
+219
+00:18:48,340 --> 00:18:51,160
+to add that item into the new list.
+
+220
+00:18:51,910 --> 00:18:54,580
+So I'll show you what it looks like in practice.
+
+221
+00:18:55,270 --> 00:18:57,760
+We're going to say List.filter,
+
+222
+00:18:57,940 --> 00:18:59,290
+that's the method call.
+
+223
+00:18:59,800 --> 00:19:06,990
+The first item that we pass in is the list that we want to filter through, which is our ownedNFTs.
+
+224
+00:19:07,480 --> 00:19:15,730
+Now the second input is going to take a function which loops through each of the NFT Ids, which I'm
+
+225
+00:19:15,730 --> 00:19:17,720
+going to call listItemId.
+
+226
+00:19:18,340 --> 00:19:21,670
+And these ids are going to be principal data types.
+
+227
+00:19:22,420 --> 00:19:30,190
+And for each of these ids, it's going to do some stuff checking to see if it matches the id of this
+
+228
+00:19:30,190 --> 00:19:31,570
+current NFT.
+
+229
+00:19:32,020 --> 00:19:34,030
+And if it doesn't, then we're going to return
+
+230
+00:19:34,030 --> 00:19:34,510
+true
+
+231
+00:19:34,810 --> 00:19:37,120
+which means it'll get added to the new list.
+
+232
+00:19:37,570 --> 00:19:39,190
+But if it does, then we'll return
+
+233
+00:19:39,190 --> 00:19:39,730
+false
+
+234
+00:19:40,000 --> 00:19:51,130
+and the simplest way to write this logic is to say return when the listItemId does not equal to the
+
+235
+00:19:51,130 --> 00:19:52,930
+id of the item.
+
+236
+00:19:54,130 --> 00:19:59,600
+So now we can assign this back into the ownedNFT list.
+
+237
+00:19:59,620 --> 00:20:04,420
+So we can say ownedNFTs :=
+
+238
+00:20:05,020 --> 00:20:08,890
+and that means that it will update to this filtered list.
+
+239
+00:20:09,880 --> 00:20:18,100
+So you can imagine that as it loops through all of the list items, for each of the list items they get
+
+240
+00:20:18,100 --> 00:20:18,610
+checked.
+
+241
+00:20:18,970 --> 00:20:26,830
+And if that list item does not equal the ID of the NFT that's being purchased, then we're going to
+
+242
+00:20:26,830 --> 00:20:27,220
+return
+
+243
+00:20:27,220 --> 00:20:27,670
+true.
+
+244
+00:20:28,000 --> 00:20:29,890
+Otherwise, we're going to return false.
+
+245
+00:20:30,790 --> 00:20:36,280
+When true is returned, then that particular NFT id will get added to the new list.
+
+246
+00:20:36,610 --> 00:20:41,110
+And if it returns false, then that particular id will be omitted from the new list.
+
+247
+00:20:41,710 --> 00:20:47,200
+And finally, we're going to add this to the ownership map of the new owner.
+
+248
+00:20:47,770 --> 00:20:53,440
+So we can use our method that we've really got here, which is called addToOwnership map passing in
+
+249
+00:20:53,440 --> 00:20:55,000
+the new owner and the ID.
+
+250
+00:21:02,990 --> 00:21:06,440
+And make sure that you've got that outside of this filter function.
+
+251
+00:21:06,860 --> 00:21:11,510
+Now, finally, once all of that is done, we're going to return success,
+
+252
+00:21:12,170 --> 00:21:14,030
+if it all went successfully.
+
+253
+00:21:14,510 --> 00:21:21,920
+And in the else statement, in case the transfer result was not success, we're simply going to return
+
+254
+00:21:21,920 --> 00:21:26,390
+the transferResult so that we can see what is the problem.
+
+255
+00:21:27,020 --> 00:21:33,830
+And taking a glance up here, I've got an error here that says type of Text does not have expected type
+
+256
+00:21:33,860 --> 00:21:35,030
+async text.
+
+257
+00:21:35,510 --> 00:21:42,770
+So the reason is because this is missing an await because we have to call this asynchronously.
+
+258
+00:21:43,550 --> 00:21:45,470
+And that should get rid of that error.
+
+259
+00:21:46,070 --> 00:21:53,150
+This error is because I've mistyped. It's actually called the newOwnerId rather than the newOwner.
+
+260
+00:21:54,080 --> 00:21:59,540
+And now I think we should be good to go so we can copy the name of this method,
+
+261
+00:21:59,930 --> 00:22:05,000
+go back to our item.jsx and actually perform the transfer.
+
+262
+00:22:05,690 --> 00:22:10,820
+So we're going to say opend. and then paste in the name of our method.
+
+263
+00:22:11,390 --> 00:22:14,570
+And let me just check the order of inputs.
+
+264
+00:22:14,570 --> 00:22:17,720
+It's the id, the ownerID and the newOwnerId.
+
+265
+00:22:18,740 --> 00:22:25,810
+So the id is props.id, the ownerId is this sellerId that we've got here.
+
+266
+00:22:27,860 --> 00:22:37,580
+And the newOwnerId is the current user id. And we're going to call this with an await and we're going
+
+267
+00:22:37,580 --> 00:22:39,380
+to capture the result.
+
+268
+00:22:44,140 --> 00:22:50,950
+Now finally I'm going to console.log this results with purchase...
+
+269
+00:22:55,650 --> 00:22:58,090
+And let's go ahead and try this out.
+
+270
+00:22:58,290 --> 00:23:02,310
+So I'm going to hit save and I'll need to redeploy.
+
+271
+00:23:02,340 --> 00:23:09,900
+So let's go way up to the top of our read me and copy the deploy code here,
+
+272
+00:23:11,980 --> 00:23:14,800
+paste that in there run our deploy.
+
+273
+00:23:17,620 --> 00:23:24,700
+Once everything's been deployed, we're going to need to mint an NFT from the command line in order
+
+274
+00:23:24,700 --> 00:23:25,480
+to buy it.
+
+275
+00:23:25,840 --> 00:23:32,710
+So I'm going to copy all of this code and then paste it in here and hopefully we'll get a success
+
+276
+00:23:32,710 --> 00:23:38,350
+back with the principal ID of the newly minted canister.
+
+277
+00:23:38,800 --> 00:23:45,670
+So I'm going to replace this with that principle, and then we're going to run this command to list
+
+278
+00:23:45,670 --> 00:23:46,660
+the item for sale.
+
+279
+00:23:48,640 --> 00:23:50,470
+Once that comes back as success,
+
+280
+00:23:50,470 --> 00:23:59,410
+I'm going to get hold of my OpenD's canister ID and I'm going to copy that and put it into this fourth
+
+281
+00:23:59,470 --> 00:24:00,340
+step here.
+
+282
+00:24:00,880 --> 00:24:04,870
+And it's going to be the part where it says principal something, something.
+
+283
+00:24:05,350 --> 00:24:12,210
+And I also have to copy this principal of the NFT canister and paste it into here where it says dfx
+
+284
+00:24:12,700 --> 00:24:13,840
+canister call.
+
+285
+00:24:14,350 --> 00:24:18,010
+So after all of that, let's go ahead and hit enter.
+
+286
+00:24:18,610 --> 00:24:21,010
+So now we're ready to test our code.
+
+287
+00:24:21,100 --> 00:24:24,100
+So I'm going to go ahead and click on the buy button.
+
+288
+00:24:27,900 --> 00:24:31,080
+And you can see that we get purchase success.
+
+289
+00:24:31,380 --> 00:24:38,940
+And now if I refresh this Discover page, it should have disappeared from this page.
+
+290
+00:24:39,390 --> 00:24:44,820
+And when I go into My NFTs, I should see that item listed in there.
+
+291
+00:24:45,420 --> 00:24:48,900
+Now, I've made quite a few purchases just testing this,
+
+292
+00:24:49,290 --> 00:24:55,890
+but you should, if you head over to the token frontend, be able to check the before and after token
+
+293
+00:24:55,890 --> 00:24:57,210
+balance of your account.
+
+294
+00:24:57,570 --> 00:25:04,290
+And it should go down by 2 each time when you try to purchase one of these NFTs depending on its cost.
+
+295
+00:25:04,680 --> 00:25:12,810
+Now the final thing we need to address is just some UI issues so that when we purchase our NFT, it disappears
+
+296
+00:25:12,810 --> 00:25:13,980
+from the Discover page.
+
+297
+00:25:14,400 --> 00:25:19,890
+And for the loader to show up when the purchase process is undergoing.
+
+298
+00:25:20,430 --> 00:25:24,360
+So we're going to be reusing some of the things that we had from before.
+
+299
+00:25:25,230 --> 00:25:33,900
+For example, when the handleBuy is triggered, we're going to set the loader hidden property to false
+
+300
+00:25:34,170 --> 00:25:35,970
+to bring up our loader.
+
+301
+00:25:36,660 --> 00:25:40,380
+And then it's going to go through all of this purchasing process.
+
+302
+00:25:40,920 --> 00:25:43,410
+And once it's completed,
+
+303
+00:25:44,720 --> 00:25:49,400
+then we're going to go ahead and set our loader to hidden once more.
+
+304
+00:25:51,090 --> 00:25:56,910
+The next thing I want to do is to make the NFT item disappear from the Discover page once it's been
+
+305
+00:25:56,910 --> 00:25:57,420
+bought.
+
+306
+00:25:58,230 --> 00:26:08,070
+So to do that, we're going to add a new style to our top-level div in our item.jsx.
+
+307
+00:26:08,670 --> 00:26:15,960
+Just before the class name of the first div, I'm going to add my style property, and inside here we're
+
+308
+00:26:15,960 --> 00:26:23,070
+going to use a little bit of JavaScript to determine whether or not this thing actually displays or
+
+309
+00:26:23,070 --> 00:26:23,340
+not.
+
+310
+00:26:23,970 --> 00:26:33,060
+There is a CSS property called display which we can set, and if we set this to none, then you'll
+
+311
+00:26:33,060 --> 00:26:36,960
+see that it will disappear, even though it's actually there
+
+312
+00:26:37,350 --> 00:26:44,400
+if we take a look inside the elements. If you go inside the route and inside our gallery view, you can
+
+313
+00:26:44,400 --> 00:26:52,920
+see that we've got our item and all of the divs that correspond to our item, but it doesn't show up
+
+314
+00:26:52,920 --> 00:26:55,530
+because we've set the display to be none.
+
+315
+00:26:56,280 --> 00:27:02,820
+You can either set this display to none or you can set it to inline, which will show it which is what
+
+316
+00:27:02,820 --> 00:27:04,920
+its original display setting is.
+
+317
+00:27:05,400 --> 00:27:12,870
+But we're going to use a ternary operator here for the display and we're going to use a variable called
+
+318
+00:27:12,930 --> 00:27:14,250
+shouldDisplay.
+
+319
+00:27:15,150 --> 00:27:23,400
+And if it is true, then we're going to use the inline property, and if it's false then we're going
+
+320
+00:27:23,400 --> 00:27:24,600
+to use none,
+
+321
+00:27:24,990 --> 00:27:32,040
+so n-o-n-e. And we're going to keep track of the shouldDisplay constant up here.
+
+322
+00:27:36,390 --> 00:27:38,580
+And setDisplay.
+
+323
+00:27:42,890 --> 00:27:46,700
+And we're going to set it to true to begin with.
+
+324
+00:27:46,940 --> 00:27:55,190
+So it should in fact display the item normally, but we're going to use the setDisplay once the purchase
+
+325
+00:27:55,190 --> 00:27:56,870
+has gone through successfully.
+
+326
+00:27:57,200 --> 00:28:04,160
+So down here in our handleBuy right at the very end, we're going to set the display to false and that's
+
+327
+00:28:04,160 --> 00:28:08,450
+going to make that item disappear once it's been purchased.
+
+328
+00:28:09,590 --> 00:28:19,730
+So we can test all of that out by going through our read me and minting our NFT, copying our principal over to
+
+329
+00:28:19,850 --> 00:28:20,540
+list it.
+
+330
+00:28:21,110 --> 00:28:30,680
+And finally, we're going to put this principal into here to call that canister and transfer the ownership
+
+331
+00:28:30,680 --> 00:28:34,370
+to my OpenD canister, which I hope has not changed.
+
+332
+00:28:35,180 --> 00:28:37,130
+So I'm going to go ahead and do that.
+
+333
+00:28:39,060 --> 00:28:45,180
+And now I will see my new NFT ready to be purchased.
+
+334
+00:28:45,300 --> 00:28:47,130
+And check out what happens this time.
+
+335
+00:28:47,520 --> 00:28:50,700
+So just to show you that the account actually does change,
+
+336
+00:28:51,090 --> 00:28:54,100
+currently I've got 9,988 DANG.
+
+337
+00:28:54,120 --> 00:28:55,770
+I'm going to click Buy.
+
+338
+00:28:56,160 --> 00:29:03,180
+I've got my loader showing up and once the purchase process goes through, that item is removed from
+
+339
+00:29:03,180 --> 00:29:03,840
+the gallery.
+
+340
+00:29:04,380 --> 00:29:07,830
+And if we check our faucet, you can see it went down by 2
+
+341
+00:29:07,830 --> 00:29:15,690
+DANG and I transferred the money to the original owner of the NFT and I should now be able to view my
+
+342
+00:29:15,690 --> 00:29:18,240
+NFT in the My NFTs section.
+
+343
+00:29:18,960 --> 00:29:24,300
+And we have now pretty much completed this entire project.
+
+344
+00:29:24,810 --> 00:29:30,810
+I can already think of many, many things that you could think about doing to improve the project.
+
+345
+00:29:31,110 --> 00:29:37,110
+But this has been a really, really long and very big project, which is why in each of the steps, I've
+
+346
+00:29:37,110 --> 00:29:42,570
+actually included the code that you can run in case you run into any problems.
+
+347
+00:29:42,840 --> 00:29:46,650
+While building this project, I had many, many, many bugs.
+
+348
+00:29:47,040 --> 00:29:52,830
+And I wanted to show you some of those bugs just so that in case you see those error messages, you'll
+
+349
+00:29:52,830 --> 00:29:56,220
+just think to yourself, ah, I saw that in the video and you'll know what to do.
+
+350
+00:29:56,670 --> 00:30:03,860
+But the truth is, working with the Motoko backend and the internet computer and plus React frontend,
+
+351
+00:30:03,870 --> 00:30:11,790
+it is a complex, complex project and I fully expect you to have many, many things to debug and to
+
+352
+00:30:11,790 --> 00:30:12,450
+figure out.
+
+353
+00:30:12,480 --> 00:30:16,230
+But hey, that's all the part of the fun of learning programming, right?
+
+354
+00:30:16,590 --> 00:30:23,460
+But at the end, once you persevere through, it's actually a pretty cool website. We're able to mint
+
+355
+00:30:23,460 --> 00:30:30,300
+NFTs, we're able to list them for sale, we're able to buy them and keep track of the NFTs that we
+
+356
+00:30:30,300 --> 00:30:39,480
+own and it has a lot of the core functionality of a digital marketplace like Opensea that is running on
+
+357
+00:30:39,480 --> 00:30:40,830
+the Internet computer.
+
+358
+00:30:41,460 --> 00:30:49,170
+Now, if you have a lot of money and you want to deploy this project, then feel free to do that.
+
+359
+00:30:49,680 --> 00:30:57,570
+But just a word of warning that every single time you mint an NFT and you test anything on the deployed
+
+360
+00:30:57,570 --> 00:31:03,930
+version, then it's going to cost real money and it actually can eat down your balance quite a lot.
+
+361
+00:31:04,350 --> 00:31:10,710
+Which is why I've tried to keep it in localhost so that we can all learn the things we need to learn
+
+362
+00:31:11,580 --> 00:31:14,100
+before we start putting up a big budget.
+
+363
+00:31:14,340 --> 00:31:18,810
+But remember that Dfinity has a really generous developer grant scheme.
+
+364
+00:31:18,810 --> 00:31:25,170
+So if you think of a project that you think would be really awesome on Dfinity, be sure to go through
+
+365
+00:31:25,230 --> 00:31:33,240
+the portal and submit a grant application where they can give you lots and lots of support and also
+
+366
+00:31:33,450 --> 00:31:41,880
+cycles to be able to develop something that is valuable to either people working with the Internet computer
+
+367
+00:31:42,240 --> 00:31:45,810
+or just as a standalone, decentralized app.
+
+368
+00:31:46,500 --> 00:31:52,410
+So I hope you enjoyed building this and many of the other projects along with me, and I look forward
+
+369
+00:31:52,410 --> 00:31:57,300
+to seeing all the great things that you're going to be creating with your imagination in the future.
+
+370
+00:31:57,750 --> 00:31:59,340
+So until next time.
+
+371
+00:31:59,940 --> 00:32:00,900
+That's all from me.
+

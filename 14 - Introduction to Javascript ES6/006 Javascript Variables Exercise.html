@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Assignment</title>
+
+    <style>
+      body {
+        font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto,
+          segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+          segoe ui emoji, segoe ui symbol;
+        font-weight: 400;
+        line-height: 22.4px;
+        font-size: 16px;
+      }
+      p, ul, ol {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+      .code-snippet {
+        background-color: #fff;
+        border: 1px solid #d1d7dc;
+        color: #b4690e;
+        font-size: 90%;
+        padding: 0.2rem 0.4rem;
+      }
+      .code-block {
+        background-color: #fff;
+        color: #b4690e;
+        font-size: 90%;
+      }
+      .black-block {
+        color: #000000;
+      }
+      .italic-text {
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <h1 id="coding-title"></h1>
+    <div>
+      <h2>Instructions</h2>
+      <div id="coding-instructions"></div>
+    </div>
+    <div>
+      <h2>Test(s)</h2>
+      <div id="coding-tests"></div>
+    </div>
+    <div>
+      <h2>Solution(s)</h2>
+      <div id="coding-solutions"></div>
+    </div>
+
+    <script>
+      const quizData = {"title": "006 Javascript Variables Exercise", "hasInstructions": true, "hasTests": true, "hasSolutions": true, "instructions": "<p>Given the existing code below, can you write some code so that their values are switched around?</p><pre class=\"prettyprint linenums\">var a = \"3\";\nvar b = \"8\";</pre><p>So that the variable <code>a</code> holds the value \"8\".</p><p>And the variable <code>b</code> holds the value \"3\".</p><p>When the code is run, it should output:</p><p><code>a is 8</code></p><p><code>b is 3</code></p><p>Do <strong>NOT</strong> change any of the existing code.</p><p>You are <strong>NOT</strong>&nbsp;allowed to type any numbers.</p><p>You should <strong>NOT</strong> redeclare the variables a and b. </p><p>Hint: Use <a href=\"https://repl.it/@appbrewery/JS-Variables-Exercise\">this code playground</a> to run your code and see if it matches your expectations. </p><p>Hint: The solution is just 3 lines of code.</p>", "tests": [{"file_name": "evaluate.js", "content": "describe('Test', function() {\n   it('a should be 8 and b should be 3', function() {\n    var stdout = '';\n\n    spyOn(console, 'log').and.callFake(function() {\n        stdout += Array.prototype.slice.call(arguments).join(' ') + '\\n';\n    });\n\n    test();\n\n    expect(stdout).toEqual('a is 8\\nb is 3\\n');\n    });\n});\n", "key": 0.2656958054270606}], "solutions": [{"file_name": "index.js", "content": "function test() {\n    var a = \"3\";\n    var b = \"8\";\n    \n/***********Do not change the code above \ud83d\udc46*******/\n//Write your code on lines 7 - 9:\n    var c = a;\n    a = b;\n    b = c;\n/***********Do not change the code below \ud83d\udc47*******/\n\n    console.log(\"a is \" + a);\n    console.log(\"b is \" + b);\n}\n", "key": 0.6499313601213372}]};
+
+      function renderCodeList(rootElement, codeList, className, titlePrefix) {
+        for (var i = 0; i < codeList.length; i++) {
+          var elem = codeList[i];
+          var jsElem = document.createElement("div");
+          jsElem.className = className;
+          var jsElemTitle = document.createElement("h3");
+          jsElemTitle.innerHTML = titlePrefix + " " + (i + 1);
+          var jsElemBody = document.createElement("code");
+          jsElemBody.className = "code-block black-block";
+          jsElemBody.innerHTML = "<pre>" + elem.content + "</pre>";
+          jsElem.appendChild(jsElemTitle);
+          jsElem.appendChild(jsElemBody);
+          rootElement.appendChild(jsElem);
+        }
+      }
+      
+      function main() {
+        // display the assignment
+        var codingTitle = document.getElementById("coding-title");
+        codingTitle.innerHTML = quizData.title;
+        
+        var codingInstructions = document.getElementById("coding-instructions");
+        if (quizData.hasInstructions) {
+          codingInstructions.innerHTML = quizData.instructions;
+        } else {
+          codingInstructions.innerHTML = "<span class=\"italic-text\">" + quizData.instructions
+            + "</span>";
+        }
+
+        // display the test(s)
+        var codingTests = document.getElementById("coding-tests");
+        if (!quizData.hasTests) {
+          codingTests.innerHTML = "<span class=\"italic-text\">" + quizData.tests + "</span>";
+        } else {
+          renderCodeList(codingTests, quizData.tests, "coding-test", "Test");
+        }
+        
+
+        // display the solution(s)
+        var codingSolutions = document.getElementById("coding-solutions");
+        if (!quizData.hasSolutions) {
+          codingSolutions.innerHTML = "<span class=\"italic-text\">" + quizData.solutions + "</span>";
+        } else {
+          renderCodeList(codingSolutions, quizData.solutions, "coding-solution", "Solution");
+        }
+      }
+    </script>
+  </body>
+</html>

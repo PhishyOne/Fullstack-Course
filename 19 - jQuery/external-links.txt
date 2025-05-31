@@ -1,0 +1,24 @@
+
+002 Download-Jquery
+https://jquery.com/
+
+002 Google-Hosted-Libraries
+https://developers.google.com/speed/libraries#jquery
+
+003 Minified-Jquery
+https://code.jquery.com/jquery-3.7.1.min.js
+
+003 minifier.org
+https://www.minifier.org/
+
+008 Events-and-Event-Listeners
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+010 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9
+
+010 jquery-Effect-Methods
+https://www.w3schools.com/jquery/jquery_ref_effects.asp
+
+010 jQuery-Animate-Slide
+https://api.jquery.com/slideDown/

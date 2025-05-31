@@ -1,0 +1,704 @@
+1
+00:00:00,360 --> 00:00:03,210
+So we've managed to get the majority of our website working.
+
+2
+00:00:03,480 --> 00:00:08,160
+However, there is one key downfall and you might have already realised this.
+
+3
+00:00:08,490 --> 00:00:16,680
+The problem is when we upgrade our canister here, then it's going to reset the state of our token canister
+
+4
+00:00:16,680 --> 00:00:17,550
+in our main.
+
+5
+00:00:17,550 --> 00:00:18,180
+mo file.
+
+6
+00:00:18,720 --> 00:00:19,890
+Let me show you what I mean.
+
+7
+00:00:20,220 --> 00:00:30,510
+If I set the local variable for my token canister into the canister public key variable, and then I
+
+8
+00:00:30,540 --> 00:00:36,630
+transfer half a billion tokens into that canister,
+
+9
+00:00:37,140 --> 00:00:46,350
+then in here, if I pass in my canister's id using dfx canister id token and paste that in here,
+
+10
+00:00:46,680 --> 00:00:49,200
+you can see my canister has half a billion DANG.
+
+11
+00:00:50,190 --> 00:00:59,310
+Now, if I claim some DANG tokens and check my DANG balance, then it has gone down.
+
+12
+00:00:59,880 --> 00:01:07,020
+Now if I actually change the code in my token canister, say just randomly add in a debug print,
+
+13
+00:01:10,380 --> 00:01:14,040
+something that doesn't really do anything, like just says hello.
+
+14
+00:01:14,580 --> 00:01:18,240
+It's important that it can't be a comment, so we actually have to change the code.
+
+15
+00:01:18,600 --> 00:01:20,250
+So a print statement will do it.
+
+16
+00:01:20,520 --> 00:01:24,000
+It will force our canister to upgrade.
+
+17
+00:01:24,450 --> 00:01:29,970
+We're going to run dfx deploy again to redeploy and upgrade our canisters.
+
+18
+00:01:31,400 --> 00:01:36,080
+And you can see our hello being printed out, which means that is now working.
+
+19
+00:01:36,500 --> 00:01:39,170
+But if I go back to my frontend
+
+20
+00:01:41,890 --> 00:01:44,550
+and I check the balance of my canister,
+
+21
+00:01:44,620 --> 00:01:47,620
+it has now reset back to zero DANG.
+
+22
+00:01:48,880 --> 00:01:55,360
+Now this is because our balance's HashMap is not stable across the upgrades.
+
+23
+00:01:55,840 --> 00:02:01,930
+So when our code gets deployed, actually several things happen behind the scenes.
+
+24
+00:02:02,290 --> 00:02:04,900
+The canister gets created, if it hasn't already been,
+
+25
+00:02:05,290 --> 00:02:09,940
+then it gets installed and it gets upgraded if there are changes in the code.
+
+26
+00:02:10,780 --> 00:02:17,050
+Now, when there are changes in the code and this upgrade happens, these variables which are not stable,
+
+27
+00:02:17,380 --> 00:02:24,520
+will get reset to their initial values, and because we're putting in the owner as well as the total supply
+
+28
+00:02:24,520 --> 00:02:25,180
+in here
+
+29
+00:02:25,210 --> 00:02:31,240
+then it's just going to be reset to these values, which, by the way, I've just noticed could actually
+
+30
+00:02:31,240 --> 00:02:35,770
+be constants instead, because we've never really changed them in our code.
+
+31
+00:02:37,180 --> 00:02:43,870
+Now, if we want this to be stable, you've seen that we can simply just add the stable keyword in front.
+
+32
+00:02:44,380 --> 00:02:51,100
+However, as soon as I do that, you'll notice that we get a red underline and it's telling us that
+
+33
+00:02:51,100 --> 00:02:54,640
+the HashMap is a non-stable type.
+
+34
+00:02:55,300 --> 00:02:56,620
+So what do we do?
+
+35
+00:02:57,100 --> 00:03:01,570
+Well, we can't use that keyword then with our balances variable.
+
+36
+00:03:01,840 --> 00:03:09,460
+But we really want to keep its features of having this key-value pair to note who is the owner and how
+
+37
+00:03:09,460 --> 00:03:11,020
+much token they own.
+
+38
+00:03:11,620 --> 00:03:13,630
+What can we do to get around this?
+
+39
+00:03:14,320 --> 00:03:22,420
+Well, a common pattern in Motoko is to do this through a temporary variable. And that temporary variable
+
+40
+00:03:22,420 --> 00:03:24,130
+will have a stable type
+
+41
+00:03:24,670 --> 00:03:31,600
+and then before the code gets upgraded, we transfer the data into the temporary variable and then after
+
+42
+00:03:31,600 --> 00:03:34,660
+the upgrade gets happened, we transfer the data back.
+
+43
+00:03:34,840 --> 00:03:37,570
+Now, why do we want to go through that process?
+
+44
+00:03:38,080 --> 00:03:43,210
+Well, it's because in this case, the stable type that we'll need to use is an array.
+
+45
+00:03:43,780 --> 00:03:50,230
+I'm going to create that array here, which will be a stable variable, which I'll call balanceEntries.
+
+46
+00:03:52,730 --> 00:03:59,930
+And this is going to be an array of tuples and a tuple, if you might remember from previous lessons,
+
+47
+00:03:59,930 --> 00:04:02,210
+is something that can contain different types.
+
+48
+00:04:02,780 --> 00:04:09,890
+The first type that it's going to contain is the Principal type, and the second is going to be a natural
+
+49
+00:04:09,890 --> 00:04:14,360
+number matching up with our HashMap key-value pair data types.
+
+50
+00:04:15,290 --> 00:04:19,550
+Now we're going to start this array off as an empty array.
+
+51
+00:04:20,029 --> 00:04:25,460
+But going back to this question of why can't we simply just not use a HashMap?
+
+52
+00:04:25,730 --> 00:04:27,980
+Why can't we just simply use this array?
+
+53
+00:04:28,550 --> 00:04:37,670
+So then balances is a stable array that contains principal and natural number types, and these tuples
+
+54
+00:04:37,670 --> 00:04:41,780
+then go into this array and can be saved in between upgrades.
+
+55
+00:04:42,530 --> 00:04:50,630
+Well, the reason is because this is a serialized data type and it's really expensive in terms of time
+
+56
+00:04:50,630 --> 00:04:58,430
+and in terms of the Internet computer that will be money and computation as well to try and get hold
+
+57
+00:04:58,430 --> 00:05:01,550
+of items in it. Because it's ordered in an array,
+
+58
+00:05:02,090 --> 00:05:08,090
+it's much easier if you knew which item of the array you wanted. But if you actually wanted to search
+
+59
+00:05:08,090 --> 00:05:14,090
+through it and find each principal and then check it against the one that we want, which is what we're
+
+60
+00:05:14,090 --> 00:05:19,010
+doing, very often we're doing balances.get or when we're doing balances.put.
+
+61
+00:05:19,430 --> 00:05:22,820
+This would be really, really inefficient using an array data type.
+
+62
+00:05:23,420 --> 00:05:29,030
+That's why we're only going to change it into an array in between the update and then change it back
+
+63
+00:05:29,030 --> 00:05:29,840
+once we're done.
+
+64
+00:05:30,440 --> 00:05:32,000
+So how do we actually do this?
+
+65
+00:05:32,090 --> 00:05:39,500
+Well, there's actually a example in the documentation where they also show you that here they have
+
+66
+00:05:39,500 --> 00:05:40,190
+a HashMap
+
+67
+00:05:40,430 --> 00:05:44,330
+and that map, unfortunately, is not stable.
+
+68
+00:05:44,480 --> 00:05:52,730
+And so we have to tap into the pre and post upgrade methods in order to shift it into an array similar
+
+69
+00:05:52,730 --> 00:05:56,210
+to what they've got here before the upgrade.
+
+70
+00:05:56,330 --> 00:05:59,720
+And then once the upgrade happens, we will then shift it back.
+
+71
+00:06:00,290 --> 00:06:02,810
+Let's go ahead and tap into these methods.
+
+72
+00:06:03,380 --> 00:06:10,220
+Now these methods are system methods, so you'll see that they have the keyword system in front of the
+
+73
+00:06:10,220 --> 00:06:11,300
+func keyword.
+
+74
+00:06:11,900 --> 00:06:15,350
+So there's system func
+
+75
+00:06:16,490 --> 00:06:17,630
+preupgrade...
+
+76
+00:06:19,770 --> 00:06:23,520
+And make sure you spell these right because they are system methods.
+
+77
+00:06:23,880 --> 00:06:30,510
+So if in doubt, just simply copy and paste. And let's add a semicolon there
+
+78
+00:06:30,510 --> 00:06:32,490
+so this will not error out.
+
+79
+00:06:32,940 --> 00:06:39,930
+And once we've created the preupgrade method, I'm just going to copy and paste and update it to turn
+
+80
+00:06:39,930 --> 00:06:42,420
+it into the postupgrade method.
+
+81
+00:06:43,440 --> 00:06:49,980
+Now we've got our two methods and we know that this is going to be triggered before the upgrade
+
+82
+00:06:50,280 --> 00:06:52,950
+and this is going to be triggered shortly after the upgrade,
+
+83
+00:06:53,280 --> 00:06:59,310
+then this is where we're going to write our code in order to transfer our balances into our balance
+
+84
+00:06:59,310 --> 00:07:01,530
+entries and vice versa.
+
+85
+00:07:02,190 --> 00:07:12,060
+In our preupgrade, we're going to set the balanceEntries array and remember we use that colon equal
+
+86
+00:07:12,060 --> 00:07:20,610
+sign in order to reassign it a new value, and we're going to assign it to what's inside the balances
+
+87
+00:07:20,970 --> 00:07:21,570
+HashMap.
+
+88
+00:07:22,200 --> 00:07:28,470
+Now, in order to turn this HashMap into an array, we're going to need to borrow a method from another
+
+89
+00:07:28,470 --> 00:07:31,080
+type, which is the iter or the iterator.
+
+90
+00:07:31,560 --> 00:07:40,290
+And this type has a method called fromArray and toArray, which allows us to iterate through our Hash
+
+91
+00:07:40,290 --> 00:07:44,160
+Hap and collect each of the elements into an array.
+
+92
+00:07:44,340 --> 00:07:46,590
+And this is sort of what it looks like.
+
+93
+00:07:47,250 --> 00:07:49,230
+So let's go ahead and import it.
+
+94
+00:07:55,940 --> 00:07:58,550
+And use it in our preupgrade.
+
+95
+00:07:58,550 --> 00:08:07,730
+So we're going to say iter.toArray and we're going to turn our balance into the array.
+
+96
+00:08:08,360 --> 00:08:11,900
+However, the balance itself is not iteratable.
+
+97
+00:08:12,290 --> 00:08:20,750
+So in order to make it iteratable, if you look in the docs for HashMap, the entries is a method which
+
+98
+00:08:20,750 --> 00:08:28,250
+is going to take what's inside the HashMap and return something that can be iterated over, so iteratable.
+
+99
+00:08:28,700 --> 00:08:32,120
+Lets tap into our balances HashMap.
+
+100
+00:08:32,600 --> 00:08:34,280
+Make sure that you spelt it right, again
+
+101
+00:08:34,280 --> 00:08:38,450
+I'm just going to copy and paste. And we're going to get the entries...
+
+102
+00:08:40,010 --> 00:08:46,100
+entries... and then because it's a method, we're going to call it with our parentheses.
+
+103
+00:08:46,640 --> 00:08:53,510
+And so this is going to take our balances HashMap and this method will iterate through each of the
+
+104
+00:08:53,510 --> 00:09:01,010
+items and give us something that we can use the iterator to turn it into an array, which we then save
+
+105
+00:09:01,010 --> 00:09:04,760
+inside balanceEntries. Once the preupgrade is done,
+
+106
+00:09:04,790 --> 00:09:10,010
+so we've shifted our entries from the HashMap into the array,
+
+107
+00:09:10,430 --> 00:09:17,990
+then the upgrade is going to happen which is going to clear this and reset it to an empty HashMap.
+
+108
+00:09:18,770 --> 00:09:25,430
+But because our balance entries is stable, then this data is going to be kept stable through that update.
+
+109
+00:09:26,090 --> 00:09:30,620
+And once that's done, we're going to go into the postupgrade where we shift it back.
+
+110
+00:09:31,250 --> 00:09:39,500
+To do that, we tap into our balances HashMap and we again use the colon equal sign to assign it a
+
+111
+00:09:39,500 --> 00:09:40,310
+new value.
+
+112
+00:09:41,150 --> 00:09:46,330
+And the new value is going to be a HashMap from Iter.
+
+113
+00:09:46,550 --> 00:09:51,110
+And then we need to define the data types of the key and the value pairs.
+
+114
+00:09:51,440 --> 00:09:57,170
+The key is going to be, again, the Principal type and the values are going to be natural numbers.
+
+115
+00:09:57,350 --> 00:10:03,620
+And then we can call this method from Iter. The first thing we need to give it is our array
+
+116
+00:10:04,220 --> 00:10:09,470
+that's called balanceEntries, but we can't just give it the actual array.
+
+117
+00:10:09,830 --> 00:10:12,290
+We have to give it something that is iterable.
+
+118
+00:10:12,290 --> 00:10:20,390
+So we have to tap into the balanceEntries.val and .val on the array
+
+119
+00:10:20,780 --> 00:10:25,490
+documentation as you'll find, is a way that we can get back
+
+120
+00:10:25,490 --> 00:10:32,690
+an Iter data type of all of the items which will be tuples inside our balance entries.
+
+121
+00:10:33,170 --> 00:10:38,990
+And then all we have to do is to supply the same arguments that we did when we created our HashMap,
+
+122
+00:10:40,160 --> 00:10:45,320
+which is the starting size, the quality checker, and also the hashing method.
+
+123
+00:10:45,980 --> 00:10:52,370
+Now we've pretty much completed our preupgrade and postupgrade dance to be able to move our HashMap
+
+124
+00:10:52,370 --> 00:10:59,660
+into our stable balance entries array and then to get the values back and put it back into the balances
+
+125
+00:10:59,660 --> 00:11:00,770
+after the upgrade.
+
+126
+00:11:01,250 --> 00:11:05,720
+Now there's just one more thing we need to fix, which is this balances.put.
+
+127
+00:11:06,260 --> 00:11:15,050
+Now we put this in here in order to assign the owner the total supply of tokens on the first time
+
+128
+00:11:15,050 --> 00:11:17,150
+when we create our balances ledger.
+
+129
+00:11:17,780 --> 00:11:24,500
+As you can imagine, every time the upgrade method runs, this code is going to be called and it's going
+
+130
+00:11:24,500 --> 00:11:33,470
+to reset the ledger to give the owner always the total supply, which is not a very good ledger because
+
+131
+00:11:33,470 --> 00:11:35,900
+it wouldn't be keeping track of what's happening.
+
+132
+00:11:36,290 --> 00:11:43,220
+So we can actually cut this from where we've got it inside our main token canister and place it inside
+
+133
+00:11:43,220 --> 00:11:44,510
+our postupgrade.
+
+134
+00:11:44,690 --> 00:11:53,540
+And in addition, we're going to add an if statement to check and see if the balances, which is our
+
+135
+00:11:53,540 --> 00:12:01,700
+HashMap, has a size of less than one, because in that case it means that we've basically got a empty
+
+136
+00:12:01,700 --> 00:12:02,420
+balance.
+
+137
+00:12:02,510 --> 00:12:09,770
+And if that is the case, then we're going to actually put the owner and the total supply as the only
+
+138
+00:12:09,770 --> 00:12:12,950
+keys and values inside our balances HashMap.
+
+139
+00:12:13,190 --> 00:12:21,350
+Once this is done, this means that the only way that our balances is modified is going to be through
+
+140
+00:12:21,350 --> 00:12:28,340
+the transfer method which takes care of the payOut and also any sort of balance transfers.
+
+141
+00:12:28,880 --> 00:12:35,080
+That's really the only method that should have access to this balances and be able to do balances.
+
+142
+00:12:35,090 --> 00:12:41,690
+put. So we can turn our balances HashMap into a private variable.
+
+143
+00:12:41,990 --> 00:12:47,810
+And this means that we'll only be able to modify this HashMap from within the token actor.
+
+144
+00:12:48,080 --> 00:12:52,250
+No other file or canister or class will be able to accidentally modify it.
+
+145
+00:12:53,090 --> 00:12:55,220
+This is probably a good time to make our
+
+146
+00:12:55,620 --> 00:13:02,310
+balanceEntries private as well, because also no other class has any need to modify it.
+
+147
+00:13:02,640 --> 00:13:08,040
+The only place where it should be modified or changed is in our pre and postupgrade.
+
+148
+00:13:09,340 --> 00:13:16,570
+So now with our preupgrade and postupgrade in place, we can try that experiment once again.
+
+149
+00:13:17,050 --> 00:13:26,500
+If I set my canister public key to dfx canister id token to save it as a variable, and then transfer
+
+150
+00:13:26,500 --> 00:13:29,590
+into my canister half a billion tokens.
+
+151
+00:13:30,220 --> 00:13:34,750
+And then let's just check this canister ID once more.
+
+152
+00:13:35,560 --> 00:13:42,640
+If I copy that ID and check its balance, then you can see it's got half a billion
+
+153
+00:13:42,640 --> 00:13:43,120
+DANG.
+
+154
+00:13:43,630 --> 00:13:50,230
+Now if I take some money out of it from the faucet and check its balance again, it will now be down
+
+155
+00:13:50,230 --> 00:13:50,920
+10,000
+
+156
+00:13:50,920 --> 00:13:51,310
+DANG.
+
+157
+00:13:52,420 --> 00:13:58,840
+So now let's try the same thing again where we randomly add a debug print
+
+158
+00:14:00,620 --> 00:14:01,280
+in here.
+
+159
+00:14:05,640 --> 00:14:07,700
+Hit, save and run.
+
+160
+00:14:08,250 --> 00:14:12,480
+Deploy once more in order for the changes to go through.
+
+161
+00:14:14,930 --> 00:14:23,690
+Now, if we go back into our localhost, even if I refresh the website, paste in the canister ID that
+
+162
+00:14:23,690 --> 00:14:25,160
+I had from previously.
+
+163
+00:14:25,640 --> 00:14:34,700
+Alternatively, simply running that dfx canister id token if you've lost your canister id and simply copying
+
+164
+00:14:34,700 --> 00:14:40,850
+that putting it in here, if you check your balance, you can see it's continued to keep track of the state
+
+165
+00:14:41,420 --> 00:14:44,570
+and you can see this time nothing has been lost through the upgrade.
+
+166
+00:14:44,840 --> 00:14:54,290
+We've managed to turn that ledger into a stable ledger across time and space, and now it's kept track
+
+167
+00:14:54,290 --> 00:14:55,520
+of our balances.
+
+168
+00:14:56,660 --> 00:15:04,250
+Now there's just one final thing that we need to fix with our code, which is it's great when we are
+
+169
+00:15:04,250 --> 00:15:08,750
+using pre and postupgrade in order to set the initial balance.
+
+170
+00:15:09,350 --> 00:15:16,090
+But if you downloaded this project as it is and you try to run it, it won't go through an upgrade.
+
+171
+00:15:16,100 --> 00:15:20,450
+It will go through the initial phase, which is create canister deploy canister.
+
+172
+00:15:21,700 --> 00:15:24,910
+Now we want there to be an initial balance and the owner
+
+173
+00:15:24,940 --> 00:15:30,670
+even if you haven't gone through upgrade. So we can actually copy this if statement and put it right
+
+174
+00:15:30,670 --> 00:15:35,080
+here below our balances just to cover that eventuality.
+
+175
+00:15:35,170 --> 00:15:41,530
+In case you're running this project and have never upgraded it, it will still give the owner some DANG
+
+176
+00:15:41,560 --> 00:15:42,340
+to work with.
+

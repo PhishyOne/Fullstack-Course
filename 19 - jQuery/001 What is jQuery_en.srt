@@ -1,0 +1,196 @@
+1
+00:00:00,510 --> 00:00:01,230
+All right guys.
+
+2
+00:00:01,230 --> 00:00:07,530
+Now in this module I want to introduce you to the most popular Javascript library and it's of course
+
+3
+00:00:07,760 --> 00:00:08,870
+jQuery.
+
+4
+00:00:09,120 --> 00:00:15,090
+Now there's thousands of Javascript libraries out there, and in later modules we're going to be exploring
+
+5
+00:00:15,090 --> 00:00:16,379
+some of these libraries,
+
+6
+00:00:16,620 --> 00:00:23,310
+but none of these libraries have been used or downloaded as often as jQuery.
+
+7
+00:00:23,430 --> 00:00:24,900
+So why is that?
+
+8
+00:00:25,020 --> 00:00:27,830
+Well let's take a look at some code that we've written before.
+
+9
+00:00:27,870 --> 00:00:33,690
+So if we break this code down, essentially what it's doing is it's looking inside the entire document
+
+10
+00:00:34,050 --> 00:00:39,450
+and it's querying for all the elements that have the selector of button,
+
+11
+00:00:39,450 --> 00:00:46,440
+so all of the HTML button elements. And then we're going to add an event listener that is going to detect
+
+12
+00:00:46,470 --> 00:00:52,470
+for clicks on the button. And when it does get detected then we're going to run the callback function
+
+13
+00:00:52,770 --> 00:00:58,980
+to again look through the document and query for the selector of h1, and then we're going to change
+
+14
+00:00:58,980 --> 00:01:06,720
+the style, namely the color of that h1 to the color red, and we're using a for loop to traverse through
+
+15
+00:01:06,930 --> 00:01:14,820
+all of the buttons on our web page in order to add this event listener and this behavior to all of those
+
+16
+00:01:14,820 --> 00:01:15,330
+buttons.
+
+17
+00:01:15,390 --> 00:01:17,810
+So we wrote this code in our drumkit.
+
+18
+00:01:18,000 --> 00:01:23,460
+And this is pure Javascript and it's actually a little bit crazy, if you really think about it, in order
+
+19
+00:01:23,460 --> 00:01:25,580
+to do something relatively simple,
+
+20
+00:01:25,590 --> 00:01:29,380
+why does it require so many lines of code,
+
+21
+00:01:29,520 --> 00:01:33,270
+and who's going to take care of all our joint pain from all this typing?
+
+22
+00:01:33,270 --> 00:01:37,770
+Now you know how sometimes you have these thoughts and you moan and complain about it a little bit and
+
+23
+00:01:37,770 --> 00:01:39,430
+then you kind of get over yourself, right?
+
+24
+00:01:39,720 --> 00:01:41,030
+But not this guy.
+
+25
+00:01:41,160 --> 00:01:49,190
+This is John Resig, and he was really unhappy with the way that Javascript worked in web development.
+
+26
+00:01:49,200 --> 00:01:55,590
+He was really frustrated by how unnecessarily complex and lengthy the code had to be.
+
+27
+00:01:55,590 --> 00:01:59,830
+So whereas most of us probably had that thought and we promptly forgot about it,
+
+28
+00:01:59,940 --> 00:02:06,840
+not this guy. John decided that he was going to write a library that would do exactly the same as all
+
+29
+00:02:06,900 --> 00:02:08,699
+of this Javascript code,
+
+30
+00:02:08,699 --> 00:02:12,480
+but it was as short and as sweet as this.
+
+31
+00:02:12,510 --> 00:02:14,580
+And so jQuery was born.
+
+32
+00:02:14,850 --> 00:02:16,260
+It's a library,
+
+33
+00:02:16,260 --> 00:02:23,130
+so a bunch of code that somebody else wrote that you can incorporate into your own projects and use to
+
+34
+00:02:23,130 --> 00:02:27,770
+improve your own projects or to make your life simply a lot easier.
+
+35
+00:02:27,780 --> 00:02:30,100
+Now we've come across libraries before.
+
+36
+00:02:30,210 --> 00:02:36,660
+Previously we created web sites and we incorporated the Bootstrap library in order to be able to incorporate
+
+37
+00:02:36,660 --> 00:02:44,760
+code that somebody else wrote in the Bootstrap library to make our lives much easier and make it much
+
+38
+00:02:44,760 --> 00:02:48,840
+quicker to improve the user interface of our Web site.
+
+39
+00:02:48,840 --> 00:02:54,510
+Now what jQuery allows you to do is take a line of code, say this, where we're looking through the
+
+40
+00:02:54,510 --> 00:03:00,490
+DOM of our web site, we're selecting the document and we're querying for the selector h1.
+
+41
+00:03:00,500 --> 00:03:03,280
+So we're looking for the h1 element in our web page.
+
+42
+00:03:03,330 --> 00:03:09,420
+Now if we were to use the jQuery library, then we can get rid of all of that and simply say 
+
+43
+00:03:09,690 --> 00:03:11,430
+jQuery("h1").
+
+44
+00:03:11,670 --> 00:03:18,080
+And if you want to be even shorter, the shorthand way to write jQuery is simply a dollar sign.
+
+45
+00:03:18,150 --> 00:03:28,230
+So $("h1") does exactly the same as document.querySelector
+
+46
+00:03:28,230 --> 00:03:29,910
+("h1").
+
+47
+00:03:29,940 --> 00:03:36,030
+And you can see that it's a lot lot shorter and that will make our Javascript code a lot easier to read,
+
+48
+00:03:36,360 --> 00:03:39,540
+a lot easier to debug and a lot faster to write,
+
+49
+00:03:39,720 --> 00:03:44,530
+so we don't have to end up breaking our fingers by typing so much Javascript code.
+

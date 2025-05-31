@@ -1,0 +1,752 @@
+1
+00:00:00,120 --> 00:00:07,680
+Hey guys. In this lesson I want to go over this concept of destructuring, so destructuring objects, destructuring
+
+2
+00:00:07,710 --> 00:00:08,610
+arrays.
+
+3
+00:00:08,790 --> 00:00:15,000
+And the goal of this lesson is to really make it clear in your mind how destructuring works in JavaScript
+
+4
+00:00:15,030 --> 00:00:19,080
+ES6 and get really used to the syntax.
+
+5
+00:00:19,080 --> 00:00:24,000
+Now if you're already pretty familiar with this concept of destructuring and you've already used it
+
+6
+00:00:24,390 --> 00:00:31,620
+and you have no problems using it at all, then feel free to simply just complete the challenge and if
+
+7
+00:00:31,620 --> 00:00:36,610
+you can complete it without any problems then feel free to skip this lesson.
+
+8
+00:00:36,630 --> 00:00:46,950
+So the idea is to uncomment all of the code below the challenge line and what we want to happen is to
+
+9
+00:00:46,950 --> 00:00:55,380
+render the stats that come from our practice.js file where there's a constant called cars. And
+
+10
+00:00:55,380 --> 00:00:57,880
+this is a relatively complex structure.
+
+11
+00:00:57,900 --> 00:01:02,310
+It's an array with two objects inside the object.
+
+12
+00:01:02,310 --> 00:01:07,380
+There's other nested objects and there's also other nested arrays.
+
+13
+00:01:08,250 --> 00:01:17,790
+So the idea is to not change any of this code here and try to use these names of variables to make this
+
+14
+00:01:17,790 --> 00:01:23,410
+work by destructuring the code from our practice.js file.
+
+15
+00:01:24,150 --> 00:01:28,020
+Here's what you should be able to achieve once you complete the challenge.
+
+16
+00:01:28,020 --> 00:01:35,550
+We have this table over here with the brand, the top speed and the top color. And all of this data is
+
+17
+00:01:35,550 --> 00:01:39,390
+being pulled out from our cars array.
+
+18
+00:01:39,420 --> 00:01:47,190
+The model corresponds to this first column and then the top speed corresponds to this property topSpeed
+
+19
+00:01:47,580 --> 00:01:52,250
+and the top color is the first color in the array.
+
+20
+00:01:52,260 --> 00:01:58,660
+Now don't worry if you see these errors in the console. It's not related to any of your code.
+
+21
+00:01:58,740 --> 00:02:03,320
+It's to do with how we're structuring our HTML that React doesn't like.
+
+22
+00:02:03,420 --> 00:02:07,890
+But I wanted to keep the table simple so we can focus on destructuring.
+
+23
+00:02:08,220 --> 00:02:14,220
+So the idea is to make the errors go away without touching any of the existing code and just adding
+
+24
+00:02:14,220 --> 00:02:19,530
+some code right here to destructure the array inside practice.js.
+
+25
+00:02:19,590 --> 00:02:25,170
+And if you can complete this without problems, then I'm happy for you to skip this lesson. But if you
+
+26
+00:02:25,180 --> 00:02:25,650
+are
+
+27
+00:02:25,640 --> 00:02:31,860
+not sure where to start or if you get stuck during the challenge, then I recommend watching this video
+
+28
+00:02:32,040 --> 00:02:38,100
+where I'm going to dive deeper into how to destructure nested arrays how to provide default values and
+
+29
+00:02:38,100 --> 00:02:39,330
+all of that.
+
+30
+00:02:39,510 --> 00:02:45,730
+So let's get started by forking a copy of the starting sandbox. And to start off
+
+31
+00:02:45,750 --> 00:02:48,560
+I'm actually going to ignore this entire challenge and
+
+32
+00:02:48,560 --> 00:02:54,360
+I'm just gonna make some space for myself inside the index.js. And we're not gonna be working
+
+33
+00:02:54,360 --> 00:02:56,970
+with the practice.js data yet.
+
+34
+00:02:56,970 --> 00:03:02,970
+We're going to start off using this file called data.js. And I want to quickly reiterate some
+
+35
+00:03:02,970 --> 00:03:08,100
+of the things I spoke about when I first introduced you to this concept of destructuring.
+
+36
+00:03:08,100 --> 00:03:16,420
+So here we have an array called animals and it has two objects as the first and second items.
+
+37
+00:03:16,470 --> 00:03:23,490
+Now the first thing I'm gonna do is I'm going to export this animals as the default export and then
+
+38
+00:03:23,490 --> 00:03:26,160
+I'm gonna import it into my index.js.
+
+39
+00:03:29,270 --> 00:03:29,610
+All right.
+
+40
+00:03:29,710 --> 00:03:37,620
+So I'm pulling animals that array in from my file data and now the first thing to do is I'm just going
+
+41
+00:03:37,620 --> 00:03:43,000
+to log what animals looks like because this is probably what you're going to be doing when you're looking
+
+42
+00:03:43,000 --> 00:03:50,140
+at data that's coming from another provider say an API or some sort of module or some sort of framework
+
+43
+00:03:50,140 --> 00:03:51,000
+like React.
+
+44
+00:03:51,340 --> 00:03:54,010
+So we notice that we've got two objects:
+
+45
+00:03:54,010 --> 00:03:55,540
+one is a cat and one is a dog.
+
+46
+00:03:56,140 --> 00:04:03,150
+So the first thing I'm gonna do is I'm going to destructure this array of animals into a variable so
+
+47
+00:04:03,200 --> 00:04:06,720
+I can hold the first object in a variable called cat
+
+48
+00:04:06,860 --> 00:04:09,450
+and the second object in a variable called dog.
+
+49
+00:04:09,490 --> 00:04:13,600
+So if you want to give that a go, pause the video now. All right.
+
+50
+00:04:13,620 --> 00:04:19,560
+So in order to destructure this, I'm going to create a new constant and because I'm destructuring an
+
+51
+00:04:19,560 --> 00:04:24,020
+array, the variable names go inside an array literal like this,
+
+52
+00:04:24,040 --> 00:04:31,660
+so two square brackets. Now the first item in that animal's array if we remember was a cat
+
+53
+00:04:31,830 --> 00:04:33,860
+and the second was a dog.
+
+54
+00:04:33,930 --> 00:04:41,790
+So I'm going to set these as the names of the first item and the second item from this animals array.
+
+55
+00:04:42,570 --> 00:04:49,050
+So now what my code has done is it reached inside this array of animals pulled out the first item and
+
+56
+00:04:49,050 --> 00:04:53,730
+assigned it a name of cat, pulled out a second item and assigned it a name of dog.
+
+57
+00:04:53,880 --> 00:05:02,010
+If I decide to log the value of cat, you can see it is just a single object with two properties.
+
+58
+00:05:02,010 --> 00:05:09,150
+So I've freed it from the array effectively. And this is pretty much the same as saying var cat =
+
+59
+00:05:09,270 --> 00:05:12,100
+animals[0].
+
+60
+00:05:12,120 --> 00:05:18,730
+It does exactly the same thing but obviously in a much more concise kind of syntax.
+
+61
+00:05:18,900 --> 00:05:25,410
+The other thing to remember is that when you destructure anything say an array or an object into
+
+62
+00:05:25,500 --> 00:05:27,760
+separate variable names,
+
+63
+00:05:27,930 --> 00:05:31,470
+these names need to be unique inside your file.
+
+64
+00:05:31,470 --> 00:05:37,440
+So for example, you can't destructure this animals array and pull out something to be held inside a variable
+
+65
+00:05:37,440 --> 00:05:44,280
+called cat and then create another variable called cat. You will get an error saying that identify cat
+
+66
+00:05:44,310 --> 00:05:48,590
+has already been used and declared. So these names
+
+67
+00:05:48,750 --> 00:05:56,560
+when you destructure must be unique. So now that we've destructured our array, let's think about how
+
+68
+00:05:56,560 --> 00:06:04,240
+we can destructure an object. So we know that our cat is now pulled out of animals and it is in fact
+
+69
+00:06:04,690 --> 00:06:05,860
+an object right?
+
+70
+00:06:06,250 --> 00:06:10,870
+So if we wanted to destructure this object, how would we go about it?
+
+71
+00:06:10,870 --> 00:06:18,220
+Well the syntax is very similar but this time because we're destructuring an object we're going to create
+
+72
+00:06:18,370 --> 00:06:26,290
+a object literal using a set of curly braces instead. And inside these curly braces we can pull out any
+
+73
+00:06:26,290 --> 00:06:34,560
+of the properties that we want from the object. So we know that the cat object has two properties, one
+
+74
+00:06:34,560 --> 00:06:37,210
+called name and the other is called sound.
+
+75
+00:06:37,210 --> 00:06:45,580
+So if we wanted to, we can pull out both of these properties, name and sound, and get it out of that cat
+
+76
+00:06:45,760 --> 00:06:47,010
+object.
+
+77
+00:06:47,020 --> 00:06:54,520
+Now we have a variable called name and a variable called sound which is equivalent to cat.name and
+
+78
+00:06:54,520 --> 00:06:55,780
+cat.sound.
+
+79
+00:06:57,130 --> 00:07:05,140
+And if I decide to log the value of say sound, you can see that I get the word 'meow' being printed out.
+
+80
+00:07:06,090 --> 00:07:13,330
+And this provides us a lot of convenience because going from this original array of animals, in order
+
+81
+00:07:13,330 --> 00:07:23,380
+to get this sound 'meow' logged, we would have had to say animals[0].sound and we would have
+
+82
+00:07:23,380 --> 00:07:31,120
+to do this every single time we needed the value inside this property. But remember that there's a crucial
+
+83
+00:07:31,120 --> 00:07:35,470
+difference when you're destructuring objects versus arrays.
+
+84
+00:07:35,470 --> 00:07:41,620
+Notice how in the array we could have basically called each of these destructured variables any name
+
+85
+00:07:41,620 --> 00:07:45,430
+we wanted. I could call this c and call this d.
+
+86
+00:07:46,180 --> 00:07:54,820
+And I decide to log c, notice how it is still going to log cat. But when you destructure an object, these
+
+87
+00:07:54,820 --> 00:08:01,460
+names that are going inside here have to match with the property names of that object.
+
+88
+00:08:01,510 --> 00:08:04,580
+This way it knows which one to actually pull out.
+
+89
+00:08:04,630 --> 00:08:08,490
+So these have to be the same as the keys that you see here.
+
+90
+00:08:08,590 --> 00:08:14,620
+Now notice how if I decide to change this to animalSound instead of sound which is what is actually
+
+91
+00:08:14,620 --> 00:08:21,310
+called, this no longer works and it prints undefined because it looks inside this object tries to find
+
+92
+00:08:21,310 --> 00:08:26,980
+the value for this key animalSound and clearly there is no key called animalSound.
+
+93
+00:08:27,010 --> 00:08:35,030
+So this comes back as undefined instead. Now destructuring can be useful for other things as well.
+
+94
+00:08:35,039 --> 00:08:42,809
+For example, if you wanted to actually give these variables a different name to what they were as the
+
+95
+00:08:42,809 --> 00:08:45,600
+properties of the object, you can do that.
+
+96
+00:08:45,690 --> 00:08:51,420
+You can simply add a colon and say this is going to be called catName
+
+97
+00:08:51,420 --> 00:08:56,610
+and this is going to be called catsound.
+
+98
+00:08:56,610 --> 00:09:03,230
+So now what happens is you no longer have access to these variable names sound and name.
+
+99
+00:09:03,270 --> 00:09:12,970
+Instead you've turned it into catSound which comes out as meow and catName which comes out as cat.
+
+100
+00:09:12,990 --> 00:09:19,560
+This is a way of providing an alternative name for the properties that come from an object.
+
+101
+00:09:19,740 --> 00:09:26,280
+And this is really useful especially when your getting hold of data from public APIs where you didn't
+
+102
+00:09:26,280 --> 00:09:31,130
+really get the chance to name the properties inside those JSONs.
+
+103
+00:09:31,170 --> 00:09:33,210
+Sometimes they make sense, sometimes they don't.
+
+104
+00:09:33,210 --> 00:09:38,160
+Sometimes they're very very short and and if you wanted to put your own touch then this is how you might
+
+105
+00:09:38,160 --> 00:09:39,780
+do it. Now
+
+106
+00:09:39,810 --> 00:09:44,780
+the other thing I wanted to show you is how you would provide a default value.
+
+107
+00:09:45,000 --> 00:09:53,940
+For example, if we were going to destructure our cats object again and we have our name and our sound
+
+108
+00:09:54,150 --> 00:09:56,070
+set to equal to cat,
+
+109
+00:09:56,550 --> 00:10:01,110
+but I wanted to give name and sound a custom value.
+
+110
+00:10:01,110 --> 00:10:02,930
+How might I do that?
+
+111
+00:10:02,940 --> 00:10:10,360
+Well you could simply just add in an equal sign, say name is equal to, let's call it I don't know,
+
+112
+00:10:10,500 --> 00:10:15,050
+Fluffy and sound is equal to Purr.
+
+113
+00:10:15,060 --> 00:10:17,100
+So now what happens when I log
+
+114
+00:10:17,100 --> 00:10:26,010
+name is that it comes out as cat because that is the value for name from this object cat.
+
+115
+00:10:26,100 --> 00:10:30,910
+But if it didn't have a name, let's say we go into the data
+
+116
+00:10:31,080 --> 00:10:37,000
+I delete the name and I come back, then notice how it's now being printed as fluffy.
+
+117
+00:10:37,050 --> 00:10:45,780
+So this basically says if name is undefined, then use this value instead. And this is also really helpful
+
+118
+00:10:45,810 --> 00:10:51,030
+because sometimes when you're getting data again from the Internet, a lot of these fields might not be
+
+119
+00:10:51,030 --> 00:10:51,610
+filled.
+
+120
+00:10:51,630 --> 00:10:55,050
+So you don't want your app or your website to just crash.
+
+121
+00:10:55,050 --> 00:11:00,920
+You want to give it some default value so that it will actually get displayed. Now
+
+122
+00:11:00,930 --> 00:11:06,900
+the final thing I want to show you regarding destructuring objects is what to do when you have a
+
+123
+00:11:06,900 --> 00:11:14,890
+nested object. So let's say that in addition to the properties name and sound, we had another property
+
+124
+00:11:14,890 --> 00:11:25,930
+called feedingRequirements. And this property is going to hold its own object and it has a property
+
+125
+00:11:25,930 --> 00:11:29,050
+called food and another one called water.
+
+126
+00:11:29,050 --> 00:11:34,450
+So let's say that food is two times a day and they have to be watered three times a day.
+
+127
+00:11:34,450 --> 00:11:40,460
+So in this case we've now got an object which has an object inside it.
+
+128
+00:11:41,050 --> 00:11:45,290
+So how would we destructure these nested objects?
+
+129
+00:11:45,310 --> 00:11:52,030
+Let's say that I wanted to log the number of times that I have to feed my cat.
+
+130
+00:11:52,030 --> 00:12:01,080
+So I want to be able to log the value of food that lives inside this cat object. Well we start out with
+
+131
+00:12:01,080 --> 00:12:07,720
+our const and our cat object remember has those two properties, name and sound.
+
+132
+00:12:07,800 --> 00:12:11,830
+So let's go ahead and destructure it down to name and sound.
+
+133
+00:12:12,240 --> 00:12:17,490
+But we've now got an extra one called feedingRequirements so let's add that in here as well.
+
+134
+00:12:20,670 --> 00:12:23,090
+So now let's set it to equal to cat
+
+135
+00:12:23,160 --> 00:12:28,710
+and if I go ahead and log the value of feedingRequirements
+
+136
+00:12:33,410 --> 00:12:36,820
+you can see that I get this object being logged right?
+
+137
+00:12:36,890 --> 00:12:39,890
+It's got food and water as properties.
+
+138
+00:12:39,890 --> 00:12:48,650
+Now I can if I want to get hold of food by simply writing feedingRequirements.food which is our
+
+139
+00:12:48,650 --> 00:12:49,640
+usual syntax.
+
+140
+00:12:49,910 --> 00:12:57,320
+But what if I wanted to get hold of just food by itself without having to use the dot syntax effectively
+
+141
+00:12:57,350 --> 00:13:00,080
+destructuring it again?
+
+142
+00:13:00,230 --> 00:13:01,100
+How would I do that?
+
+143
+00:13:01,670 --> 00:13:08,930
+Well, you can simply set this feedingRequirements instead of giving it an alternative name,
+
+144
+00:13:08,930 --> 00:13:14,060
+you open up a set of curly braces and you pull out the values inside.
+
+145
+00:13:14,330 --> 00:13:18,770
+So those things were called food and water.
+
+146
+00:13:18,770 --> 00:13:26,690
+So now if you console log food, you're going to get the number of times that the cat needs to be fed.
+
+147
+00:13:26,750 --> 00:13:31,360
+And this is done through a extensive destructuring.
+
+148
+00:13:31,490 --> 00:13:40,670
+So we got a hold of our object cat which is this one, we pulled out the feedingRequirements object and
+
+149
+00:13:40,670 --> 00:13:44,000
+then out of that object we further destructed it
+
+150
+00:13:44,030 --> 00:13:51,410
+so we had a variable called food which is set to the value of two and water which is set to the value
+
+151
+00:13:51,410 --> 00:13:52,550
+of three.
+
+152
+00:13:52,550 --> 00:13:56,120
+Now remember you can destructure as much or as little as you want.
+
+153
+00:13:56,120 --> 00:14:02,850
+So for example for our cat, if I only wanted the feeding requirements destructed, then I can do that.
+
+154
+00:14:02,870 --> 00:14:08,330
+You don't have to do it for all of the keys and values inside an object.
+
+155
+00:14:08,330 --> 00:14:15,500
+So hopefully that clears things up a little bit more and you've got some new ideas of how to destructure
+
+156
+00:14:15,920 --> 00:14:20,400
+arrays and how to destructure objects.
+
+157
+00:14:20,870 --> 00:14:29,720
+So the next thing I want to show you is a little bit about how the sets states function might look. If
+
+158
+00:14:29,870 --> 00:14:37,710
+inside our data.js let's say that we had a function and it was called useAnimals.
+
+159
+00:14:37,740 --> 00:14:41,750
+This sounds like some animal abuse but it's not.
+
+160
+00:14:41,840 --> 00:14:48,740
+No animals are going to be harmed in this function but what we are going to do is we're going to accept
+
+161
+00:14:48,830 --> 00:14:58,340
+an animal as an input to this function and we're going to return an array. This array has two values
+
+162
+00:14:58,430 --> 00:15:05,360
+only. It's going to be the animal.name and a function.
+
+163
+00:15:05,360 --> 00:15:15,260
+So this function is going to console log the animal.sound. So it's going to effectively make the
+
+164
+00:15:15,260 --> 00:15:15,990
+sound right?
+
+165
+00:15:17,290 --> 00:15:23,470
+Now that we've created this function called useAnimals and it returns an array with two items
+
+166
+00:15:23,470 --> 00:15:26,280
+one is a string the name of the animal,
+
+167
+00:15:26,440 --> 00:15:30,600
+and the other is a function which does something. When it's activated
+
+168
+00:15:30,610 --> 00:15:32,800
+it just makes a sound.
+
+169
+00:15:32,800 --> 00:15:42,300
+Now if we go ahead and export this function as well, useAnimals and we go back inside our index.
+
+170
+00:15:42,310 --> 00:15:47,740
+.js we can now import it in the same kind of syntax as we imported
+
+171
+00:15:47,740 --> 00:15:52,540
+our useState right? By tagging after the default
+
+172
+00:15:52,550 --> 00:16:01,050
+export like so. Now let's say that I decided to use this function called useAnimals and pass my animal
+
+173
+00:16:01,080 --> 00:16:03,810
+object cat inside.
+
+174
+00:16:03,810 --> 00:16:14,070
+Now if I go ahead and log the value of this useAnimals with cat, then you can see that what gets logged
+
+175
+00:16:14,220 --> 00:16:16,750
+is an array with two items.
+
+176
+00:16:16,920 --> 00:16:23,160
+The first item is the string cats and the second item is a function.
+
+177
+00:16:23,160 --> 00:16:29,130
+Now that I know that the output of this function is an array, well I can simply just destructure it right?
+
+178
+00:16:29,520 --> 00:16:37,050
+So I can create a const, add a set of square brackets to create an array literal, so the first item that
+
+179
+00:16:37,050 --> 00:16:43,770
+goes in here is gonna be the name of the first item of the array which I'll just call animal.
+
+180
+00:16:43,770 --> 00:16:48,080
+And the second item is going to be assigned the value of the function.
+
+181
+00:16:48,210 --> 00:16:55,700
+So I'll call the function makeSound. And then I'm gonna set it equal to the output of this function
+
+182
+00:16:55,710 --> 00:16:57,760
+useAnimals with cat.
+
+183
+00:16:57,780 --> 00:17:08,579
+Now if I console log animal, you can see that I'm going to get cat printed out. And if I go ahead and
+
+184
+00:17:08,579 --> 00:17:20,510
+get hold of makeSound and I call it, then you'll see it says 'meow'. So this would, I imagine, be very similar
+
+185
+00:17:20,540 --> 00:17:29,330
+to how useState would look. And I hope by deconstructing our own example you can better understand how
+
+186
+00:17:29,330 --> 00:17:33,560
+that code for useState actually works.
+
+187
+00:17:33,560 --> 00:17:40,630
+So now that you've learned a lot more about destructuring, it's time to complete this challenge.
+
+188
+00:17:40,780 --> 00:17:44,120
+Pause the video now and I'll show you the solution in the next lesson.
+

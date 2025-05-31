@@ -1,0 +1,15 @@
+
+001 Cycles-Computation-and-Storage-Costs
+https://smartcontracts.org/docs/current/developer-docs/updates/computation-and-storage-costs
+
+003 Cycles-Faucet
+https://faucet.dfinity.org
+
+003 Dfinity-Docs-How-to-get-free-cycles
+https://smartcontracts.org/docs/current/developer-docs/quickstart/cycles-faucet
+
+005 Coinmarketcap-Exchanges
+https://coinmarketcap.com/rankings/exchanges/
+
+005 Coingecko-Exchanges
+https://www.coingecko.com/en/exchanges

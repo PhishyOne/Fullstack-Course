@@ -1,0 +1,296 @@
+1
+00:00:00,270 --> 00:00:05,730
+All right, so now that we're ready and we're prepped, it's time to turn our locally developed and hosted,
+
+2
+00:00:06,030 --> 00:00:13,470
+dbank and put it onto the live Internet computer network where you'll see it gets a URL that ends
+
+3
+00:00:13,470 --> 00:00:15,090
+with ic0.app.
+
+4
+00:00:15,600 --> 00:00:22,500
+To get started, head over to faucet.dfinity.org and then click on the button to authorize
+
+5
+00:00:22,500 --> 00:00:24,510
+the faucet using your GitHub account.
+
+6
+00:00:24,810 --> 00:00:30,690
+So you'll need to log in on GitHub. Now in order to prevent people from abusing the cycles
+
+7
+00:00:30,690 --> 00:00:36,840
+faucet, because after all, you sort of getting free resources, they've added a limitation where the
+
+8
+00:00:36,840 --> 00:00:38,970
+GitHub account has to be aged.
+
+9
+00:00:38,970 --> 00:00:41,970
+So it has to have been created over 90 days ago.
+
+10
+00:00:42,300 --> 00:00:45,600
+That means you can't just create one now and be able to get more cycles.
+
+11
+00:00:45,900 --> 00:00:50,610
+And this is why I'm saying when we're doing the deploy, we have to be ultra-careful so we don't waste
+
+12
+00:00:50,610 --> 00:00:51,240
+our cycles.
+
+13
+00:00:51,600 --> 00:00:57,060
+In addition, the GitHub account has to be active over the last 30 days. And if you matched all of
+
+14
+00:00:57,060 --> 00:01:03,300
+that criteria and you log in, then you should be able to proceed to step two, where they want your principal
+
+15
+00:01:03,300 --> 00:01:03,600
+ID.
+
+16
+00:01:04,050 --> 00:01:07,440
+Now the principal is basically a generic identifier.
+
+17
+00:01:07,950 --> 00:01:13,230
+It will refer to an entity that can be authenticated by the Internet computer blockchain, so that
+
+18
+00:01:13,230 --> 00:01:16,890
+can be a user like yourself or simply a canister.
+
+19
+00:01:17,160 --> 00:01:22,710
+So the first time that you actually use the definitive canister SDK, it will automatically create a
+
+20
+00:01:22,710 --> 00:01:25,020
+default developer identity for you.
+
+21
+00:01:25,020 --> 00:01:26,970
+And this includes the principal.
+
+22
+00:01:27,390 --> 00:01:34,020
+So this principal ID or the principal identifier is basically associated with your developer identity.
+
+23
+00:01:34,110 --> 00:01:41,010
+It's used to identify you and allows you to control canisters or control applications that you build.
+
+24
+00:01:41,010 --> 00:01:45,600
+And in our case, it will be used to determine where these free cycles are going to go.
+
+25
+00:01:45,960 --> 00:01:52,290
+So in order to find the principal ID, let's go ahead and copy this command and paste it into a new
+
+26
+00:01:52,290 --> 00:01:52,860
+terminal.
+
+27
+00:01:53,490 --> 00:01:59,520
+Once you've gotten that ID back, then copy it entirely and paste it into the box there.
+
+28
+00:02:00,240 --> 00:02:03,810
+Next, we're going to generate a new cycles wallet.
+
+29
+00:02:03,840 --> 00:02:05,730
+So click on that and click Continue.
+
+30
+00:02:06,360 --> 00:02:11,190
+And then finally, it's going to take a few seconds to set up everything behind the scenes.
+
+31
+00:02:11,520 --> 00:02:16,110
+And then once that's done, it'll show you your balance in terms of terra cycles.
+
+32
+00:02:16,530 --> 00:02:22,230
+So this is 15 terra cycles that I've got, which currently is equivalent to about $20.
+
+33
+00:02:22,380 --> 00:02:25,830
+Now, remember that you can't actually convert this back to real money
+
+34
+00:02:25,830 --> 00:02:31,250
+unfortunately. It's not like a token, like the ICP token where it's freely exchanged and traded.
+
+35
+00:02:31,260 --> 00:02:35,970
+This can only be used to power our canisters on the internet computer blockchain.
+
+36
+00:02:36,390 --> 00:02:42,990
+So now that we've got our free cycles, the final thing to do is to copy this command and to set the ID
+
+37
+00:02:43,230 --> 00:02:44,400
+of our default wallet.
+
+38
+00:02:44,610 --> 00:02:50,490
+And in order for this to work, we first have to make sure that we cd over to our dbank project.
+
+39
+00:02:50,490 --> 00:02:57,960
+And then once you cded over, go ahead and simply paste that command into the terminal and then it should
+
+40
+00:02:57,960 --> 00:03:02,220
+do a bunch of things until it tells you that your wallet has been set successfully.
+
+41
+00:03:02,430 --> 00:03:05,850
+And now that you're all set, it's time to check our balance.
+
+42
+00:03:06,390 --> 00:03:13,260
+And to do this, we need to copy the ID that we got previously when we connected our wallet and then
+
+43
+00:03:13,260 --> 00:03:17,280
+we need to add .raw.ic0.app.
+
+44
+00:03:17,880 --> 00:03:21,900
+And once you head over there, it's going to ask you to authorize yourself.
+
+45
+00:03:22,500 --> 00:03:26,850
+And in order to do this, we have to create what's called an Internet identity anchor.
+
+46
+00:03:26,910 --> 00:03:32,400
+Basically, this is similar to a login with Google, a log in with Facebook, but in this case, we're
+
+47
+00:03:32,400 --> 00:03:34,560
+logging in with our Internet identity.
+
+48
+00:03:34,770 --> 00:03:40,950
+So in order to create this, let's first provide a name for our device, and then it's going to ask
+
+49
+00:03:40,950 --> 00:03:43,410
+us, how do you want to verify your identity?
+
+50
+00:03:43,530 --> 00:03:46,020
+If you have a USB security key, then choose that.
+
+51
+00:03:46,350 --> 00:03:48,240
+But otherwise just use this device.
+
+52
+00:03:48,690 --> 00:03:54,690
+And this way you will verify with the password that you used to log on. And once you confirm, it's going
+
+53
+00:03:54,690 --> 00:03:56,430
+to give you an internal identity
+
+54
+00:03:56,430 --> 00:04:02,280
+anchor, so make sure you write this down and keep a hold of this because you won't be able to get hold
+
+55
+00:04:02,280 --> 00:04:06,570
+of it if you lose it and you won't be able to authenticate yourself with your wallet with all your cycles.
+
+56
+00:04:06,840 --> 00:04:08,100
+So that could be a big problem.
+
+57
+00:04:08,130 --> 00:04:14,220
+So write it down now on a piece of paper, back it up, save it somewhere where you won't forget and
+
+58
+00:04:14,220 --> 00:04:15,870
+then you can click Continue.
+
+59
+00:04:16,140 --> 00:04:22,050
+It's a good idea to set up a recovery mechanism now in case you forget your anchor. So you can choose
+
+60
+00:04:22,050 --> 00:04:24,660
+the seed phrase if you don't have a security key.
+
+61
+00:04:25,080 --> 00:04:30,420
+And it's going to give you a whole bunch of words which you're going to need to write down again, maybe
+
+62
+00:04:30,420 --> 00:04:34,080
+offline, so that nobody can get access to it through the Internet.
+
+63
+00:04:34,200 --> 00:04:40,590
+Now, finally, once you're done with that, click the continue button and then we can register the
+
+64
+00:04:40,590 --> 00:04:41,250
+device.
+
+65
+00:04:41,250 --> 00:04:44,490
+So copy the code here and then type it into the terminal.
+
+66
+00:04:44,580 --> 00:04:50,430
+And once that's done, if you hit refresh, you should be able to see your cycles represented on this
+
+67
+00:04:50,430 --> 00:04:51,000
+website.
+
+68
+00:04:51,720 --> 00:04:57,990
+You can see at the moment I've got 14 terra cycles and it shows who are the principals who control
+
+69
+00:04:57,990 --> 00:04:59,880
+this wallet. And later on,
+
+70
+00:04:59,970 --> 00:05:04,500
+once we start deploying, you'll see the canisters that's created from this wallet as well.
+
+71
+00:05:05,040 --> 00:05:09,450
+That's all it takes to tap into the faucet and get some of these free cycles.
+
+72
+00:05:09,870 --> 00:05:15,930
+But now that we have our cycles, in the next lesson, we're going to use them to deploy our dbank application
+
+73
+00:05:16,140 --> 00:05:18,450
+to the live Internet computer blockchain.
+
+74
+00:05:18,630 --> 00:05:21,330
+So for all of that and more, I'll see you in the next lesson.
+

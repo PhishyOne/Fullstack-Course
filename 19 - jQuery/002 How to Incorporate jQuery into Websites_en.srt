@@ -1,0 +1,432 @@
+1
+00:00:00,630 --> 00:00:00,950
+All right.
+
+2
+00:00:00,960 --> 00:00:05,820
+So I've spoken so much about how awesome it is. How can we get it and incorporate jQuery into our
+
+3
+00:00:05,820 --> 00:00:09,110
+web sites to start benefiting from all of its awesomeness?
+
+4
+00:00:09,240 --> 00:00:14,340
+Well if you head over to jquery.com, you can see that, just like Bootstrap, you can download all the
+
+5
+00:00:14,340 --> 00:00:20,250
+jQuery code files through their download page, or you can simply use a CDN.
+
+6
+00:00:20,250 --> 00:00:27,120
+Now previously we explained what CDNs, or Content Delivery Networks, were and how they work.
+
+7
+00:00:27,120 --> 00:00:32,490
+So if you're at all confused about this then take a look back at the Bootstrap module when we talked
+
+8
+00:00:32,490 --> 00:00:34,020
+about this in detail.
+
+9
+00:00:34,050 --> 00:00:39,100
+Now the most popular option across the web is to use Google's CDN.
+
+10
+00:00:39,390 --> 00:00:46,540
+And, as we mentioned before, the beauty of using a popular CDN is that if a user has been to another web
+
+11
+00:00:46,540 --> 00:00:53,670
+site that uses the same CDN to fetch the jQuery library, then they'll likely have it already cached
+
+12
+00:00:53,760 --> 00:00:59,430
+and saved in their browser, which means that when they want to load up your web site they won't have
+
+13
+00:00:59,430 --> 00:01:01,880
+to fetch a fresh copy of jQuery,
+
+14
+00:01:02,040 --> 00:01:04,250
+they've already got it loaded and ready to go,
+
+15
+00:01:04,420 --> 00:01:10,550
+giving your web site a much faster load rate. So we're going to be using the latest version of jQuery, 
+
+16
+00:01:10,640 --> 00:01:11,600
+3.3.1.
+
+17
+00:01:11,790 --> 00:01:17,580
+Now at the time when you're watching this video it might just be that it'll be 3.3.2 or a larger
+
+18
+00:01:17,580 --> 00:01:18,120
+number,
+
+19
+00:01:18,300 --> 00:01:21,520
+but I want you to get the latest version with the script tag,
+
+20
+00:01:21,720 --> 00:01:26,080
+and we're going to copy it and we're going to create a new project.
+
+21
+00:01:26,100 --> 00:01:32,610
+Now I want you to go into your Web Development project folder and create a new project, and we're going
+
+22
+00:01:32,610 --> 00:01:37,890
+to call this jQuery, and then we're going to drag and drop this into Atom, and then we're going to
+
+23
+00:01:37,890 --> 00:01:40,320
+hit a in order to create a new file,
+
+24
+00:01:40,350 --> 00:01:41,920
+and this is going to be index.html
+
+25
+00:01:41,970 --> 00:01:50,080
+as well as styles.css and also our index.js.
+
+26
+00:01:50,110 --> 00:01:56,530
+All right. So we've got all three files lined up and now let's head into our HTML, put in our boiler plate,
+
+27
+00:01:56,950 --> 00:02:01,020
+and we're simply going to call our web site title just jQuery.
+
+28
+00:02:01,260 --> 00:02:02,510
+We're going to hit save,
+
+29
+00:02:02,530 --> 00:02:09,410
+and now I want you to pause the video and incorporate our CSS as well as Javascript into this HTML web
+
+30
+00:02:09,410 --> 00:02:10,250
+page.
+
+31
+00:02:10,289 --> 00:02:15,000
+So pause the video now and see if you remember how and where to do that.
+
+32
+00:02:16,000 --> 00:02:22,090
+As we said before our style sheets should go into the head section of our web page.
+
+33
+00:02:22,120 --> 00:02:28,510
+So in here just below the title I'm going to create a link that has a relationship of stylesheet, and
+
+34
+00:02:28,510 --> 00:02:32,290
+the href is going to be styles.css.
+
+35
+00:02:32,980 --> 00:02:38,920
+Now let's hit save and let's just test this to make sure that it's definitely working.
+
+36
+00:02:39,130 --> 00:02:43,560
+So we're just going to change the background color of our body to red.
+
+37
+00:02:43,750 --> 00:02:50,070
+And now if I copy the full path of my index.html and paste it in here,
+
+38
+00:02:50,320 --> 00:02:50,900
+there we go.
+
+39
+00:02:50,980 --> 00:02:57,970
+All right. So our CSS is working and linked up, next step is to include and link up our Javascript.
+
+40
+00:02:57,970 --> 00:03:01,020
+Now if you completed the last module then you would know that,
+
+41
+00:03:01,090 --> 00:03:07,900
+preferably, you should include your Javascript at the end of your web site just before the closing tag
+
+42
+00:03:07,990 --> 00:03:09,070
+of the body.
+
+43
+00:03:09,310 --> 00:03:15,720
+So over here we're going to include a script with an external source and the source is going to be index.js.
+
+44
+00:03:15,780 --> 00:03:18,040
+I'm going to hit save.
+
+45
+00:03:18,130 --> 00:03:23,020
+And we're going to include some Javascript code in here just to check that it's working,
+
+46
+00:03:23,380 --> 00:03:26,480
+and if so we'll just send an alert that says "Working".
+
+47
+00:03:26,530 --> 00:03:32,110
+So now if I hit refresh and I get an alert as well as my background being red,
+
+48
+00:03:32,260 --> 00:03:38,170
+so I know that everything is all linked up and I can safely delete these bits of code.
+
+49
+00:03:38,170 --> 00:03:43,850
+Now in our index.html I'm going to include a number of HTML elements.
+
+50
+00:03:44,050 --> 00:03:47,530
+So first I'm going to have an h1 that just says Hello.
+
+51
+00:03:47,830 --> 00:03:53,380
+And then I'm going to have a whole bunch of buttons and the buttons are just going to say Click Me, but
+
+52
+00:03:53,410 --> 00:04:00,090
+I'm going to copy this and paste it so that we have five buttons in total as well as an h1.
+
+53
+00:04:00,100 --> 00:04:06,280
+All right. So now let's hit save and I'm going to use the same code that I showed you in the last lesson
+
+54
+00:04:06,490 --> 00:04:07,810
+to write some jQuery
+
+55
+00:04:07,840 --> 00:04:12,430
+that's going to change the text color of each one to red.
+
+56
+00:04:12,760 --> 00:04:20,350
+So we're going to start off with the dollar sign which is short for jQuery, so you can either write
+
+57
+00:04:20,350 --> 00:04:22,720
+it like this or you can write it like this.
+
+58
+00:04:22,720 --> 00:04:29,290
+They both do exactly the same thing in jQuery. Almost everybody will be using the dollar sign, as a lot
+
+59
+00:04:29,290 --> 00:04:33,720
+of the reason why we're using jQuery is to shorten our code and do less typing.
+
+60
+00:04:33,880 --> 00:04:40,150
+OK. So I'm going to target the h1 in our document and I'm going to change its
+
+61
+00:04:40,150 --> 00:04:44,680
+CSS, namely the color property, to red.
+
+62
+00:04:44,680 --> 00:04:47,020
+All right. So now we've got our jQuery code.
+
+63
+00:04:47,050 --> 00:04:50,720
+We're going to be going through all of this code much much deeper later on.
+
+64
+00:04:50,740 --> 00:04:57,700
+But now all you need to know is that we're using this to select the h1 on our web page and we're changing
+
+65
+00:04:57,700 --> 00:04:58,280
+its
+
+66
+00:04:58,310 --> 00:05:01,710
+CSS, namely the color property, to red.
+
+67
+00:05:01,750 --> 00:05:07,550
+If I refresh my web site you'll see that nothing has happened because we need to incorporate jQuery
+
+68
+00:05:07,870 --> 00:05:14,200
+in order for this to be valid because right now if you open up the console you can see that it's telling
+
+69
+00:05:14,200 --> 00:05:19,720
+you that the dollar sign is not defined on Javascript line number two.
+
+70
+00:05:19,930 --> 00:05:23,800
+Now that's because the dollar sign, if you remember, is jQuery,
+
+71
+00:05:23,800 --> 00:05:27,650
+so if we don't have any jQuery then it's not really going to work.
+
+72
+00:05:27,820 --> 00:05:29,430
+So let's incorporate it.
+
+73
+00:05:29,500 --> 00:05:33,740
+Now head back to the Google Hosted Libraries page and copy the script tag,
+
+74
+00:05:33,910 --> 00:05:39,720
+and we're going to paste that above our Javascript script tag.
+
+75
+00:05:40,070 --> 00:05:47,290
+And now if you hit save and refresh then you can see that we have no more errors in our console and
+
+76
+00:05:47,290 --> 00:05:54,650
+the text is now being turned red using our jQuery code inside our index.js.
+
+77
+00:05:54,700 --> 00:06:01,900
+Now the position where you place your jQuery script tag is really important.
+
+78
+00:06:01,930 --> 00:06:10,780
+For example, if we placed it below our index.js, then you'll see that it no longer works,
+
+79
+00:06:10,960 --> 00:06:18,430
+and it no longer colors our text red, and we get the same problem that the dollar sign is not defined
+
+80
+00:06:18,610 --> 00:06:21,370
+in our index.js on line 2.
+
+81
+00:06:21,370 --> 00:06:27,340
+Now the reason is because if you remember the browser will read the code from top to bottom and the
+
+82
+00:06:27,340 --> 00:06:31,820
+first thing that it will try to process is are index.js.
+
+83
+00:06:31,990 --> 00:06:33,290
+So it heads over here,
+
+84
+00:06:34,270 --> 00:06:40,490
+and it tries to make sense and carry out the instructions in here, and when it sees that dollar sign at
+
+85
+00:06:40,490 --> 00:06:44,300
+this point it hasn't got a hold of the jQuery library yet,
+
+86
+00:06:44,420 --> 00:06:48,940
+so it still doesn't know what this dollar sign and all the short code is all about.
+
+87
+00:06:48,950 --> 00:06:55,010
+So that's why if you're going to use jQuery inside your Javascript code, then make sure that you
+
+88
+00:06:55,010 --> 00:07:00,000
+place the script tag above it so that by the time it gets into this file,
+
+89
+00:07:00,000 --> 00:07:05,080
+it already knows what the dollar sign is and how all of these shortening methods work.
+
+90
+00:07:05,090 --> 00:07:12,680
+Now the other way that it might mess up is that if you had both of the script tags inside the head section
+
+91
+00:07:12,800 --> 00:07:18,760
+of your web site, then when you refreshed your web site you'll notice that again it doesn't work.
+
+92
+00:07:18,770 --> 00:07:25,370
+And in this case it's not even giving you a proper error. And you have to be really careful about including
+
+93
+00:07:25,370 --> 00:07:32,870
+the CDN for our jQuery library in the head section of your web site, because what might happen is that
+
+94
+00:07:33,050 --> 00:07:40,730
+before we've actually finished loading up the entire jQuery library, our index.js might already be
+
+95
+00:07:40,730 --> 00:07:41,990
+trying to access it.
+
+96
+00:07:41,990 --> 00:07:50,030
+So one of the ways that you can safeguard against this is to check whether if our jQuery library is ready,
+
+97
+00:07:50,690 --> 00:08:00,800
+and we do that by using the dollar sign to select our document and then we use the ready method and
+
+98
+00:08:00,890 --> 00:08:03,820
+we have a callback function in here.
+
+99
+00:08:04,130 --> 00:08:10,290
+And that means that once our document is ready then it's going to call this code.
+
+100
+00:08:10,580 --> 00:08:17,980
+So now if we hit save and we refresh then you can see our code now works because we waited until our
+
+101
+00:08:18,020 --> 00:08:24,740
+jQuery library has finished loading and then we access the h1 to change its color.
+
+102
+00:08:24,740 --> 00:08:28,840
+Now when you come across web sites, you'll often see this line of code.
+
+103
+00:08:29,030 --> 00:08:37,450
+But another way of doing exactly the same thing is simply to include all scripts at the end of our web
+
+104
+00:08:37,450 --> 00:08:41,120
+site right before the closing body tag.
+
+105
+00:08:41,120 --> 00:08:45,510
+And this is exactly the same thing as this line of code.
+
+106
+00:08:45,710 --> 00:08:52,460
+So when you see me writing jQuery code in the coming lessons, then you'll notice that I don't use
+
+107
+00:08:52,460 --> 00:09:00,110
+that ready method because I always have my jQuery script at the end of my web site, and that way I only
+
+108
+00:09:00,110 --> 00:09:07,070
+try to tap into and manipulate my HTML element after they've been loaded up and rendered on screen.
+

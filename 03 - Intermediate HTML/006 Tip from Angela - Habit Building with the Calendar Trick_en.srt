@@ -1,0 +1,156 @@
+1
+00:00:00,930 --> 00:00:01,730
+Hey.
+
+2
+00:00:01,790 --> 00:00:04,710
+Well done for completing yet another module.
+
+3
+00:00:04,710 --> 00:00:06,180
+This is really exciting.
+
+4
+00:00:06,180 --> 00:00:08,940
+You're getting really into the course now.
+
+5
+00:00:08,940 --> 00:00:13,820
+Now I want to share with you one of my ways for building a good habit.
+
+6
+00:00:13,860 --> 00:00:20,860
+Because if we think about it learning to code, it requires daily, almost constant effort, right?
+
+7
+00:00:20,970 --> 00:00:28,320
+Ideally if you could spend 100 days and you spent one hour a day learning to code or coding something
+
+8
+00:00:28,500 --> 00:00:35,340
+of your own, then you're going to become so much better than if you just, you know, did it one weekend and then forgot
+
+9
+00:00:35,340 --> 00:00:35,740
+about it,
+
+10
+00:00:35,760 --> 00:00:36,500
+right?
+
+11
+00:00:36,570 --> 00:00:43,830
+So the difference between these two scenarios is if you're able to build a habit, and once we have a
+
+12
+00:00:43,830 --> 00:00:46,730
+habit, you almost don't have to think about it anymore,
+
+13
+00:00:46,760 --> 00:00:47,160
+right?
+
+14
+00:00:47,190 --> 00:00:52,180
+You don't think about in the morning like do I want to brush my teeth or not.
+
+15
+00:00:52,380 --> 00:00:53,510
+I don't know.
+
+16
+00:00:53,600 --> 00:00:58,860
+Is it one of those days where I brush or not? You don't think about that because it's a habit.
+
+17
+00:00:58,890 --> 00:01:00,810
+You just wake up, and you just do it.
+
+18
+00:01:01,260 --> 00:01:06,690
+So how can you make coding, or learning to code, a habit?
+
+19
+00:01:06,690 --> 00:01:15,270
+One of the things that really helps me is to mark a line in my calendar, and I think this
+
+20
+00:01:15,270 --> 00:01:20,510
+is actually something that came from Jerry Seinfeld, like the comedian dude, where he said that every
+
+21
+00:01:20,510 --> 00:01:30,270
+day he writes a new joke, he puts a line through, you know, his calendar, and, by continuing that line, at some point
+
+22
+00:01:30,900 --> 00:01:36,720
+you're not going to want to break the chain, because it's like, “Man, I've done like a 10 day streak.
+
+23
+00:01:36,720 --> 00:01:39,220
+How hard is it just to do one more day?”
+
+24
+00:01:39,640 --> 00:01:46,740
+And I don't know if it's because I'm kind of OCD like I just like seeing things like completed.
+
+25
+00:01:46,980 --> 00:01:53,220
+I sometimes just write to do's in my to do list that I've already done which I haven't written in my
+
+26
+00:01:53,220 --> 00:01:56,190
+list but just to be able to tick it off.
+
+27
+00:01:56,190 --> 00:01:58,420
+Yeah yeah let me know if you can relate.
+
+28
+00:01:58,440 --> 00:02:00,120
+But if you even if you can't.
+
+29
+00:02:01,260 --> 00:02:12,660
+Most people actually benefit from continuing a streak and by about 30 days or 40 days that thing that
+
+30
+00:02:12,660 --> 00:02:18,680
+you have to constantly think about, like, “Do I have time today to code?
+
+31
+00:02:19,020 --> 00:02:26,150
+Do I want to do it?” That kind of just becomes a habit and you just know, “Oh, this is the time where I get
+
+32
+00:02:26,300 --> 00:02:32,900
+sat down and I start coding.” And it doesn't actually take that much motivation anymore. So try and give
+
+33
+00:02:32,900 --> 00:02:35,750
+this a go and see if that helps you.
+
+34
+00:02:35,750 --> 00:02:39,050
+But the most important thing is to just keep going.
+
+35
+00:02:39,080 --> 00:02:44,720
+I keep saying it but at the end of the day if you show up if you do the work then you're gonna get the
+
+36
+00:02:44,720 --> 00:02:45,290
+results.
+
+37
+00:02:45,650 --> 00:02:47,950
+So I'm here cheering for you.
+
+38
+00:02:48,050 --> 00:02:49,480
+I'm sure other people are.
+
+39
+00:02:49,730 --> 00:02:52,090
+I think you're doing great and you're going to do even better.
+

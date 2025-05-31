@@ -1,0 +1,304 @@
+1
+00:00:00,390 --> 00:00:06,450
+So in the previous lesson, we looked at how we can create functions in Motoko and how we can actually
+
+2
+00:00:06,450 --> 00:00:09,900
+start modifying our variables using these functions.
+
+3
+00:00:10,560 --> 00:00:18,810
+Now we saw that the final function that we added was able to subtract whatever user-entered amount from
+
+4
+00:00:18,810 --> 00:00:20,610
+the currentValue variable.
+
+5
+00:00:21,210 --> 00:00:24,330
+Now there's just one problem here, and you might have already spotted it.
+
+6
+00:00:24,690 --> 00:00:30,930
+If current value is subtracted to a point where it's less than zero, then we're actually going to get
+
+7
+00:00:30,930 --> 00:00:32,430
+an error in this...
+
+8
+00:00:32,820 --> 00:00:38,940
+when we call this function. And I can show you that right here by just typing 999, so it's going to
+
+9
+00:00:38,940 --> 00:00:41,430
+subtract 999 from 100.
+
+10
+00:00:41,790 --> 00:00:45,360
+And we end up with an error that says natural subtraction underflow.
+
+11
+00:00:45,870 --> 00:00:52,350
+So what this is saying is that this is a natural number, the currentValue.
+
+12
+00:00:52,350 --> 00:00:56,610
+So it starts from zero and it goes up and it could only be positive.
+
+13
+00:00:57,180 --> 00:01:04,260
+So if we subtract it to below zero, if this amount happens to be very large, then it's going to under
+
+14
+00:01:04,260 --> 00:01:04,590
+flow.
+
+15
+00:01:05,190 --> 00:01:09,420
+And this is not allowed with this current data type.
+
+16
+00:01:09,870 --> 00:01:15,510
+So what we can do to prevent this from happening is to quickly add a if statement.
+
+17
+00:01:15,990 --> 00:01:21,960
+So I want to just show you that the conditionals and the control flow in Motoko looks pretty similar
+
+18
+00:01:21,960 --> 00:01:23,520
+to what you already know in JavaScript.
+
+19
+00:01:23,940 --> 00:01:33,360
+If the condition is the currentValue - amount is greater than or equal to zero,
+
+20
+00:01:33,690 --> 00:01:42,390
+then we're going to go ahead and carry out this function where we set the current value to be the previous
+
+21
+00:01:42,390 --> 00:01:45,870
+currentValue subtracting the amount, and then we're going to print it out.
+
+22
+00:01:46,380 --> 00:01:52,050
+Now you'll see this yellow squiggly line as soon as you write this and it gives you a warning, not
+
+23
+00:01:52,050 --> 00:01:58,350
+an error because its yellow. It says the operator may trap or inferred type Nat. So what this error is trying
+
+24
+00:01:58,350 --> 00:02:05,400
+to say is that due to the operation, it's unsure what the final data type will be after this operation,
+
+25
+00:02:05,400 --> 00:02:06,570
+in this case subtraction.
+
+26
+00:02:06,930 --> 00:02:12,570
+And then it may not be able to be compared in this if statement and it would lead to problems down the
+
+27
+00:02:12,570 --> 00:02:12,900
+line.
+
+28
+00:02:12,930 --> 00:02:20,040
+So to fix this, we basically just have to explicitly say what is the data type of the final value of
+
+29
+00:02:20,040 --> 00:02:20,940
+the calculation.
+
+30
+00:02:21,210 --> 00:02:26,880
+And we can either do that in line or we can split it out into a separate line and define the data type.
+
+31
+00:02:27,420 --> 00:02:33,300
+So we can create a new constant, because we won't need it for very long, and we'll just call it the temp
+
+32
+00:02:33,300 --> 00:02:38,730
+Value and we'll set that to equal the currentValue subtract the amount.
+
+33
+00:02:39,660 --> 00:02:49,380
+Now inside this constant, we can assign it a type. So we can use the semicolon, and then we can give
+
+34
+00:02:49,380 --> 00:02:55,950
+this tempValue a data type of int, which is an integer, which means it can be any whole number,
+
+35
+00:02:55,950 --> 00:02:57,600
+positive or negative.
+
+36
+00:02:58,110 --> 00:03:04,020
+And then we replace this line with our tempValue so that it will compare it against zero.
+
+37
+00:03:04,740 --> 00:03:12,090
+So now we have no ambiguities in terms of what data type is what, the input amount is data type
+
+38
+00:03:12,090 --> 00:03:15,990
+Nat, the currentValue is data type
+
+39
+00:03:15,990 --> 00:03:19,920
+Nat and this here is inferred, by the way.
+
+40
+00:03:19,920 --> 00:03:23,270
+So if you wanted to make it clear, you can actually do that.
+
+41
+00:03:23,280 --> 00:03:25,290
+You can just simply add this.
+
+42
+00:03:25,650 --> 00:03:31,530
+But by default, as long as you're giving it a positive number, automatically assign it a natural number
+
+43
+00:03:31,530 --> 00:03:32,190
+data type.
+
+44
+00:03:32,430 --> 00:03:34,650
+So let's just go ahead and finish off the statement.
+
+45
+00:03:34,950 --> 00:03:39,030
+If it does happen to be less than zero, we want to add an else statement to catch that.
+
+46
+00:03:39,240 --> 00:03:46,170
+Just pause the video and quickly add an else statement so that you instead debug print and tell at least
+
+47
+00:03:46,170 --> 00:03:48,420
+the developer that there's a problem here.
+
+48
+00:03:48,420 --> 00:03:49,170
+There's an issue.
+
+49
+00:03:49,950 --> 00:03:50,580
+Give that a go.
+
+50
+00:03:53,550 --> 00:03:53,880
+All right.
+
+51
+00:03:53,910 --> 00:03:56,130
+This is going to be pretty easy for you by now.
+
+52
+00:03:56,670 --> 00:04:02,700
+All we going to do is we're just going to add a Debug.print and then inside here, we're going to
+
+53
+00:04:03,060 --> 00:04:04,560
+just simply type...
+
+54
+00:04:06,210 --> 00:04:10,230
+Now, in this case, because we're not actually printing anything other than text,
+
+55
+00:04:10,260 --> 00:04:12,090
+we don't need the debug_show.
+
+56
+00:04:12,480 --> 00:04:14,480
+So we spoke about this an earlier lesson.
+
+57
+00:04:14,490 --> 00:04:16,800
+If you're not quite sure, be sure to review that.
+
+58
+00:04:17,040 --> 00:04:20,190
+So now let's just finally make sure that it actually works.
+
+59
+00:04:20,700 --> 00:04:28,470
+If we go ahead and withdraw again a large amount from our bank, you can see in this case it does not
+
+60
+00:04:28,470 --> 00:04:30,990
+fail; it actually goes through successfully.
+
+61
+00:04:31,500 --> 00:04:38,190
+And when we go back, you can see that we get our debug being triggered. Amount too large; currentValue
+
+62
+00:04:38,190 --> 00:04:39,060
+less than zero.
+
+63
+00:04:40,050 --> 00:04:43,470
+Our current value is not changed,
+
+64
+00:04:43,470 --> 00:04:45,870
+so this part of the if statement doesn't get triggered.
+
+65
+00:04:46,680 --> 00:04:53,700
+So now if we actually try to withdraw a more reasonable value like $10, you can see it succeeds and
+
+66
+00:04:53,700 --> 00:04:56,490
+it subtracts 10 from 100.
+
+67
+00:04:56,880 --> 00:04:57,840
+So there you have it.
+
+68
+00:04:58,350 --> 00:05:03,750
+So in this lesson, I just wanted to quickly demo that a lot of the language features in Motoko is the
+
+69
+00:05:03,750 --> 00:05:06,330
+same as other languages that you've come across.
+
+70
+00:05:06,510 --> 00:05:12,930
+There's only a couple of things that are a little bit different, like the type system and like how
+
+71
+00:05:12,960 --> 00:05:16,650
+you work with the cannisters, which I'm going to point out as we go along.
+
+72
+00:05:17,040 --> 00:05:18,570
+So hopefully this wasn't too hard.
+
+73
+00:05:18,930 --> 00:05:24,930
+And in the next lesson, I'm going to show you why it takes so long for some of these methods to call.
+
+74
+00:05:25,230 --> 00:05:30,930
+And what is the difference between a update method and a query method when it comes to cannisters and
+
+75
+00:05:30,930 --> 00:05:32,460
+the ICP. For all of that
+
+76
+00:05:32,460 --> 00:05:34,110
+and more, head over to the next lesson.
+

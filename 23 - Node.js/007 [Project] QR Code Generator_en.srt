@@ -1,0 +1,720 @@
+1
+00:00:00,740 --> 00:00:01,400
+All right, guys.
+
+2
+00:00:01,400 --> 00:00:07,400
+Now, you've been using the QR code for a little bit now in some of the quizzes, in the lessons in
+
+3
+00:00:07,400 --> 00:00:13,970
+the final project for this module today, we're going to be building ourselves a QR code generator and
+
+4
+00:00:13,970 --> 00:00:20,690
+we're going to be using Node.js packages to generate QR codes from any URL that we can come up with.
+
+5
+00:00:21,020 --> 00:00:23,300
+So you know what QR codes are.
+
+6
+00:00:23,330 --> 00:00:30,920
+It's kind of like a 2D bar code where you can scan with your phone in order to direct to any URL.
+
+7
+00:00:31,280 --> 00:00:36,980
+Now in order to create this project, we're going to be using two packages from NPM.
+
+8
+00:00:36,980 --> 00:00:44,360
+One is called "inquirer", and this is something that's going to allow us to get inputs from the user,
+
+9
+00:00:44,480 --> 00:00:53,090
+and another package called "qr-image", which is going to generate images as a PNG for us to save into
+
+10
+00:00:53,090 --> 00:00:54,800
+our local file system.
+
+11
+00:00:55,310 --> 00:01:02,280
+Go ahead and download the starting file for the QR Code Project, unzip the file and extract it to open
+
+12
+00:01:02,280 --> 00:01:04,019
+inside VS Code.
+
+13
+00:01:04,140 --> 00:01:10,440
+Now I'm going to open up the index.js file and you can see there's roughly three TODOs that you need
+
+14
+00:01:10,440 --> 00:01:19,080
+to complete in order to finish this project first, to use the inquirer NPM package to get user input
+
+15
+00:01:19,080 --> 00:01:23,580
+so that the user could type something into the terminal
+
+16
+00:01:23,580 --> 00:01:31,860
+when you run this project, and we're going to take whatever the user typed to generate a QR image and
+
+17
+00:01:31,860 --> 00:01:34,140
+we're going to save that image locally.
+
+18
+00:01:34,140 --> 00:01:43,230
+And then we're going to create a txt file using the native fs node module to save the user input so that
+
+19
+00:01:43,230 --> 00:01:51,390
+once we're done, our project will allow us to type in a URL and that URL will get generated into an
+
+20
+00:01:51,390 --> 00:01:54,210
+image file which will be saved into the same folder.
+
+21
+00:01:54,210 --> 00:02:01,130
+And along with that image file will be a txt file that contains whatever URL the user typed in.
+
+22
+00:02:01,130 --> 00:02:03,440
+Have a think about how you might achieve this.
+
+23
+00:02:03,470 --> 00:02:06,410
+Pause the video and give this project a go.
+
+24
+00:02:09,770 --> 00:02:10,190
+All right.
+
+25
+00:02:10,190 --> 00:02:15,830
+Hopefully you've given that a good try and you're here to run through the solution with me together.
+
+26
+00:02:16,160 --> 00:02:21,770
+We know the two NPM packages that we need are inquirer and qr-image.
+
+27
+00:02:21,770 --> 00:02:26,720
+Now you can either trust my spelling here or you can double check on npm.
+
+28
+00:02:27,200 --> 00:02:30,860
+So I always recommend to trust but verify.
+
+29
+00:02:30,890 --> 00:02:34,640
+And also it's important for you to see the documentation here
+
+30
+00:02:34,640 --> 00:02:43,430
+anyways. We need to install inquirer and we also need to install a package called qr-image.
+
+31
+00:02:43,430 --> 00:02:50,300
+Let's just make sure that it actually does what we expect it to do, which is a QR code generator.
+
+32
+00:02:50,300 --> 00:02:53,720
+So now let's go ahead and install these two packages.
+
+33
+00:02:53,720 --> 00:02:57,410
+So it's called inquirer and qr-image.
+
+34
+00:02:58,130 --> 00:03:04,760
+And remember previously, I told you that you can actually install more than one package by adding both
+
+35
+00:03:04,760 --> 00:03:10,140
+of their names after the install or i for short command.
+
+36
+00:03:10,350 --> 00:03:12,870
+So let's install inquirer first,
+
+37
+00:03:12,870 --> 00:03:17,640
+and this is an awkward spelling and I always need to double-check.
+
+38
+00:03:17,640 --> 00:03:18,690
+Let me just double check that
+
+39
+00:03:18,690 --> 00:03:23,160
+I've actually got that spelling right because I've made this error many times.
+
+40
+00:03:24,780 --> 00:03:27,030
+I-N-Q-U-I-R-E-R
+
+41
+00:03:27,060 --> 00:03:28,320
+Yeah, that looks right.
+
+42
+00:03:28,320 --> 00:03:33,900
+And then the next one is qr and then hyphen image, not underscore.
+
+43
+00:03:33,900 --> 00:03:35,970
+Okay, so I've got both my packages.
+
+44
+00:03:35,970 --> 00:03:36,780
+I've double checked<
+
+45
+00:03:36,780 --> 00:03:37,620
+they're correct.
+
+46
+00:03:37,620 --> 00:03:43,260
+Let's hit Enter and hopefully, I don't get any errors telling me that I've typed it wrong.
+
+47
+00:03:43,410 --> 00:03:43,950
+Great.
+
+48
+00:03:43,950 --> 00:03:51,450
+So it's added 50 packages and those packages are now safely inside this node modules folder.
+
+49
+00:03:51,690 --> 00:03:56,430
+Now you might be wondering why are there 50 packages when I just wanted to install two things.
+
+50
+00:03:56,430 --> 00:03:58,380
+Well, because there's cross dependencies.
+
+51
+00:03:58,380 --> 00:04:06,240
+So the module that we need is obviously qr-image and also inquirer, but they, in their package.json,
+
+52
+00:04:06,240 --> 00:04:09,570
+you can see actually have their own dependencies.
+
+53
+00:04:09,570 --> 00:04:15,060
+So one thing depends on another and by the end of it we end up with 50 modules.
+
+54
+00:04:15,060 --> 00:04:19,589
+But don't worry, it's all very lightweight, so it's not going to be a problem.
+
+55
+00:04:19,589 --> 00:04:24,510
+Everything added together is probably going to be smaller than our image that we generate.
+
+56
+00:04:24,600 --> 00:04:31,950
+Let's go ahead and do the first part, which is to use the inquirer NPM package to get some user input.
+
+57
+00:04:32,130 --> 00:04:38,430
+In order to figure out how to do this, we go to the documentation, so we need to import inquirer.
+
+58
+00:04:38,430 --> 00:04:45,540
+And you might remember this from before, but in order to use the import function, we have to change
+
+59
+00:04:45,540 --> 00:04:51,120
+our package.json to have the type set as module.
+
+60
+00:04:51,150 --> 00:04:57,090
+You'll notice that I'm also missing the rest of the default package.json information.
+
+61
+00:04:57,150 --> 00:04:58,770
+And the reason is because I forgot.
+
+62
+00:04:58,770 --> 00:05:07,620
+But also I wanted to show you this can be done after the fact. So you can either run "npm init - y"
+
+63
+00:05:07,650 --> 00:05:14,070
+initially, or you can actually do this after you've installed dependencies and it will still go ahead
+
+64
+00:05:14,070 --> 00:05:17,130
+and add all of the extra stuff that you need.
+
+65
+00:05:17,340 --> 00:05:23,250
+So remember the - y means I'm saying yes to every single question in that initialization script,
+
+66
+00:05:23,250 --> 00:05:28,740
+but if you didn't want to, you can remove that and you can set everything in the terminal if you wish.
+
+67
+00:05:28,740 --> 00:05:32,100
+But in my case, I'm actually just going to leave it as it is.
+
+68
+00:05:32,100 --> 00:05:37,830
+Maybe I'll add my name here as the author, but we can now safely go back to our index.js knowing that
+
+69
+00:05:37,830 --> 00:05:44,010
+this import is now going to work because we set the type of our project as module based.
+
+70
+00:05:44,730 --> 00:05:52,500
+Let's go back to the documentation to see how we should go ahead and get the user input.
+
+71
+00:05:52,740 --> 00:06:00,600
+This is their example code and we need to first pass a prompt to the user and then we wait for them
+
+72
+00:06:00,600 --> 00:06:06,270
+to give us an answer and then we see if there are any errors to catch and to handle.
+
+73
+00:06:06,840 --> 00:06:09,030
+If we scroll down, we'll see that
+
+74
+00:06:09,030 --> 00:06:17,820
+the question is actually an object containing various optional values, such as the message to print,
+
+75
+00:06:17,820 --> 00:06:24,270
+or the name to use when you're storing the answer and a lot of other things which are all optional.
+
+76
+00:06:24,390 --> 00:06:31,770
+And then the answer is a key/value hash containing the client answers in each of the prompts you pass.
+
+77
+00:06:31,770 --> 00:06:38,970
+So you can pass multiple questions, such as, in this case, where they've created a pizza-ordering
+
+78
+00:06:38,970 --> 00:06:39,840
+machine.
+
+79
+00:06:40,340 --> 00:06:47,300
+Let's go ahead and take this sample code and paste it into our index.js.
+
+80
+00:06:47,660 --> 00:06:55,100
+Now, first thing we need to figure out is how to pass a question into the prompt so we know that the
+
+81
+00:06:55,100 --> 00:06:59,840
+question is an object and it has a bunch of properties.
+
+82
+00:07:00,020 --> 00:07:06,860
+So the one that we definitely need is to have a message because this is the actual question that's going
+
+83
+00:07:06,860 --> 00:07:08,330
+to be printed.
+
+84
+00:07:08,480 --> 00:07:16,160
+Let's set the message property to say, "Type in your URL."
+
+85
+00:07:16,700 --> 00:07:24,050
+And because this is a JavaScript object, we need to have the curly braces around it.
+
+86
+00:07:24,590 --> 00:07:31,490
+And now we can define a name to use when we're storing the answer.
+
+87
+00:07:31,520 --> 00:07:34,820
+Maybe let's just call it "name".
+
+88
+00:07:34,820 --> 00:07:36,740
+Set it as "URL".
+
+89
+00:07:40,250 --> 00:07:42,600
+So we've got a question with two properties.
+
+90
+00:07:42,620 --> 00:07:46,310
+Set the message and the name and we only have one prompt.
+
+91
+00:07:46,310 --> 00:07:47,780
+So just one object.
+
+92
+00:07:47,810 --> 00:07:50,510
+Then we're going to get hold of the answers.
+
+93
+00:07:50,510 --> 00:07:54,050
+So let's just console log that and see what we get.
+
+94
+00:07:55,160 --> 00:08:01,730
+Now let's go into our terminal and let's make sure we cd over to the correct Project Folder.
+
+95
+00:08:01,730 --> 00:08:09,410
+So now that we're inside QR Code Project, let's go ahead and use node to run the index.js.
+
+96
+00:08:09,440 --> 00:08:16,430
+Remember that trick where I said write "in" or "ind" and then hit Tab just to make sure you're in the right
+
+97
+00:08:16,430 --> 00:08:17,210
+folder.
+
+98
+00:08:17,210 --> 00:08:23,900
+So if it does appear, then we are in the right folder and once I've hit Enter, I've got my question
+
+99
+00:08:23,900 --> 00:08:26,780
+here telling me to Type in my URL.
+
+100
+00:08:26,810 --> 00:08:33,320
+Let's try www.google.com. Hit Enter and the output,
+
+101
+00:08:33,320 --> 00:08:37,549
+the next line comes from my console log which is the "answers".
+
+102
+00:08:37,549 --> 00:08:46,230
+So this seems to be a JavaScript object with the data that I want stored inside the name URL, which
+
+103
+00:08:46,230 --> 00:08:48,060
+is what I defined up here.
+
+104
+00:08:48,150 --> 00:08:54,720
+So now that we know that we can actually get hold of that URL, so let's create a const, call it "url"
+
+105
+00:08:54,720 --> 00:08:59,280
+in lowercase and we'll set it to, "answers.URL".
+
+106
+00:08:59,850 --> 00:09:00,630
+There you have it.
+
+107
+00:09:00,630 --> 00:09:04,170
+So we've managed to get the first step completed.
+
+108
+00:09:04,560 --> 00:09:11,940
+The next step is to use the qr-image NPM package to turn the URL into a QR code image.
+
+109
+00:09:11,940 --> 00:09:13,380
+So we've got the URL,
+
+110
+00:09:13,410 --> 00:09:17,730
+let's work with the next package to turn it into an image.
+
+111
+00:09:17,850 --> 00:09:21,840
+First, we're going to need to "require" this package.
+
+112
+00:09:21,840 --> 00:09:26,370
+So I'm just going to paste it in here as it is from the documentation.
+
+113
+00:09:26,370 --> 00:09:31,080
+We can fix this to use the same import as we used previously.
+
+114
+00:09:31,770 --> 00:09:34,770
+Let's take a look through the documentation.
+
+115
+00:09:34,770 --> 00:09:41,190
+In order to create a QR image, we need to use an object called qr from the qr-image module.
+
+116
+00:09:41,190 --> 00:09:47,610
+And then we're going to use a method called image to turn a piece of text, which is the first input
+
+117
+00:09:47,790 --> 00:09:50,340
+into a QR image.
+
+118
+00:09:50,340 --> 00:09:58,440
+And the second part can take an object where we have a whole bunch of options, such as the type of image,
+
+119
+00:09:58,440 --> 00:10:01,350
+the size of the image, margin, etcetera.
+
+120
+00:10:01,470 --> 00:10:07,350
+And you can see that it actually defaults to create a PNG, which is what we want to create.
+
+121
+00:10:07,350 --> 00:10:11,130
+So we actually don't even need to provide this option.
+
+122
+00:10:12,250 --> 00:10:22,510
+And then we take this qr-image and then we use the fs module to write it into the file stream.
+
+123
+00:10:22,990 --> 00:10:30,370
+These two lines of code seem to pretty much do what we need, so let's copy it and paste it into the
+
+124
+00:10:30,370 --> 00:10:34,270
+part where we get hold of our answers from the user.
+
+125
+00:10:34,630 --> 00:10:40,630
+So the first thing we're going to do is I'm going to delete the options because it defaults to create
+
+126
+00:10:40,630 --> 00:10:41,980
+a PNG image.
+
+127
+00:10:41,980 --> 00:10:49,270
+And the text that we want to turn into the QR code is going to be our url from this step earlier.
+
+128
+00:10:49,480 --> 00:10:57,130
+Now, once we've done that, then we're going to write it into the file and I'm going to call it,
+
+129
+00:10:57,160 --> 00:11:00,460
+qr_img.png.
+
+130
+00:11:00,880 --> 00:11:07,390
+Now the next thing to do is you can see we've got our require("fs") module here, we've got our
+
+131
+00:11:07,390 --> 00:11:14,830
+require("qr-image") here and we can't actually mix the different ways of using import.
+
+132
+00:11:14,860 --> 00:11:22,940
+So we can either use the module-based project or the other option is to use CommonJS.
+
+133
+00:11:22,970 --> 00:11:28,430
+Now, because we've already selected module, let's go ahead and adapt our code to get rid of all these
+
+134
+00:11:28,430 --> 00:11:33,110
+var's and use the correct modern syntax.
+
+135
+00:11:33,110 --> 00:11:43,310
+So we're going to import something from the qr-image module and that something is going to be this object
+
+136
+00:11:43,310 --> 00:11:47,330
+that we're using right here and it's called qr.
+
+137
+00:11:47,360 --> 00:11:54,890
+So if I type "q", it should already show up because I'm now looking through this module for this particular
+
+138
+00:11:54,890 --> 00:11:55,700
+object.
+
+139
+00:11:55,700 --> 00:12:02,330
+And if you look inside the node modules and you open up qr-image, you'll see that in the library there
+
+140
+00:12:02,330 --> 00:12:10,900
+is something called qr.js and this is what we're tapping into in order to create our QR code.
+
+141
+00:12:10,910 --> 00:12:17,870
+So now that I've imported that, I can get rid of this line of code and down here I'm now importing
+
+142
+00:12:17,870 --> 00:12:21,470
+this qr straight from the module where it comes from.
+
+143
+00:12:21,770 --> 00:12:27,320
+Now this next part requires fs and we know we can change that.
+
+144
+00:12:27,350 --> 00:12:32,870
+We can use import to import from the fs native module
+
+145
+00:12:32,870 --> 00:12:38,030
+and the object that we want to get hold of is also called fs.
+
+146
+00:12:38,450 --> 00:12:44,690
+Now we can get rid of this "require" and simply say, "fs.CreateWriteStream."
+
+147
+00:12:44,990 --> 00:12:53,210
+And now let's go ahead and test our code to see if we can actually generate a QR image.
+
+148
+00:12:53,210 --> 00:12:58,850
+So let's use the node index.js command to start our code.
+
+149
+00:12:58,850 --> 00:13:01,670
+And here I'm actually going to type in the full URL,
+
+150
+00:13:01,670 --> 00:13:07,040
+So, https://www.google.com.
+
+151
+00:13:07,310 --> 00:13:11,270
+And the reason for this is because I need to verify that QR code,
+
+152
+00:13:11,270 --> 00:13:16,640
+I don't know if it's actually correct just by eye, so I'm going to need my phone to scan it in.
+
+153
+00:13:16,640 --> 00:13:23,570
+So either copy a URL from your browser where you know it's correctly typed or type it out fully like
+
+154
+00:13:23,570 --> 00:13:24,530
+we have here.
+
+155
+00:13:24,920 --> 00:13:31,190
+And you can see as soon as I hit Enter, we've got our QR image created, and it's called
+
+156
+00:13:31,190 --> 00:13:36,740
+qr_image.png, exactly how we wanted it and it's now showing our QR image.
+
+157
+00:13:36,740 --> 00:13:44,330
+And right now I've just checked this QR image and it takes me directly to Google.com.
+
+158
+00:13:45,200 --> 00:13:52,220
+Now all we have left is the final part where we're going to use the fs module to create a txt file
+
+159
+00:13:52,250 --> 00:13:54,350
+to save the user input.
+
+160
+00:13:54,710 --> 00:13:59,360
+We've already got hold of our fs module imported right up here,
+
+161
+00:13:59,360 --> 00:14:10,850
+so down here, in addition to our QR image, we can use the File system method of fs,writeFile to create
+
+162
+00:14:10,850 --> 00:14:12,380
+our new txt file.
+
+163
+00:14:13,040 --> 00:14:21,500
+I'm just going to copy this sample code over here and I'm going to paste it right below the other lines
+
+164
+00:14:21,500 --> 00:14:22,350
+of code.
+
+165
+00:14:22,370 --> 00:14:28,980
+So we're going to need fs. to call the writeFile method from the File system.
+
+166
+00:14:29,000 --> 00:14:34,400
+And then we're going to create a file called URL.txt.
+
+167
+00:14:34,490 --> 00:14:39,830
+And the data is going to be the url that we got over here.
+
+168
+00:14:40,370 --> 00:14:46,470
+Now let's go ahead and hit Save and hopefully, our final step should also work.
+
+169
+00:14:49,100 --> 00:14:56,300
+And once I hit Enter, we've got our QR image created, and we've got our URL.txt.
+
+170
+00:14:56,510 --> 00:15:00,220
+It's saved the text that we've typed in right here.
+
+171
+00:15:00,230 --> 00:15:08,090
+It's generated our QR image and we've now completed all three steps of the project right here.
+
+172
+00:15:09,440 --> 00:15:15,650
+Now, this project might have required you to do some digging around and getting used to reading documentation
+
+173
+00:15:15,650 --> 00:15:17,600
+and understanding how it works.
+
+174
+00:15:17,600 --> 00:15:21,620
+So if you got stuck, don't worry, it's all a part of the process,
+
+175
+00:15:21,620 --> 00:15:26,360
+as long as you understand everything we went through just now, and you're able to fix your code, and you
+
+176
+00:15:26,360 --> 00:15:33,500
+gave everything your best effort and your best try, then you are moving forward in your coding journey.
+
+177
+00:15:33,650 --> 00:15:35,660
+So that's the end to this module.
+
+178
+00:15:35,660 --> 00:15:41,330
+In the next module, we're going to be learning about a JavaScript framework called Express, and that
+
+179
+00:15:41,330 --> 00:15:46,130
+is going to be the first step to creating our backend using Node and JavaScript.
+
+180
+00:15:46,130 --> 00:15:48,840
+So for all of that and more, I'll see you there.
+

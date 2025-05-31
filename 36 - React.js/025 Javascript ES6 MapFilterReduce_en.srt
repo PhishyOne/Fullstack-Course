@@ -1,0 +1,892 @@
+1
+00:00:00,210 --> 00:00:09,240
+In the last lesson we started using the map function to loop through our data and map pieces of data
+
+2
+00:00:09,300 --> 00:00:11,790
+to our reusable components.
+
+3
+00:00:11,790 --> 00:00:18,060
+Now in this lesson I want to go through map in greater detail and also look at some of the related functions
+
+4
+00:00:18,120 --> 00:00:24,990
+that help us deal with arrays such as map, filter, reduce find, and find index.
+
+5
+00:00:24,990 --> 00:00:30,540
+So go ahead and get the starting code sandbox and then go ahead and fork your own copy.
+
+6
+00:00:32,520 --> 00:00:40,880
+All right so here I've got an array of numbers up at the top and what map allows us to do is to loop
+
+7
+00:00:40,910 --> 00:00:49,580
+through the array and create a new array by doing something with each item.
+
+8
+00:00:49,580 --> 00:00:56,420
+So as you saw the way that we call this is we need to get hold of an array in order to call map on it.
+
+9
+00:00:57,050 --> 00:01:03,650
+And inside this map function it's going to expect a function.
+
+10
+00:01:03,650 --> 00:01:06,660
+So we're passing a function into another function.
+
+11
+00:01:06,710 --> 00:01:13,760
+Now the function that we pass in will determine what we actually want to do with each item.
+
+12
+00:01:13,760 --> 00:01:20,420
+So let's say that I wanted to maybe double each of these items. So I could create a function that takes
+
+13
+00:01:20,420 --> 00:01:27,530
+an input x and simply just returns the value of x multiplied by 2.
+
+14
+00:01:27,530 --> 00:01:30,740
+So this is a doubling function and it's pretty simple.
+
+15
+00:01:30,950 --> 00:01:37,460
+If I pass this function double into my map function, then it's going to loop through my numbers array
+
+16
+00:01:37,730 --> 00:01:45,410
+and for each of the numbers in there it's going to put it as the input of this function and output a
+
+17
+00:01:45,410 --> 00:01:51,390
+new array with each item replaced with double the size of the previous one.
+
+18
+00:01:51,410 --> 00:02:00,240
+Let's go ahead and try it out. This method has an output and that output can be either captured, so let's
+
+19
+00:02:00,270 --> 00:02:10,090
+call it new numbers and we can go ahead and console log it so you can see in our console that we're
+
+20
+00:02:10,090 --> 00:02:18,640
+getting the values 6, 112, 4, 96 and 10, each of which are double the size of each of the items in our
+
+21
+00:02:18,640 --> 00:02:26,610
+numbers array. Now if you think about this, this is not exactly something that we couldn't do before right?
+
+22
+00:02:26,970 --> 00:02:34,940
+Because we already knew about the forEach and we've been using it to loop through arrays for a long
+
+23
+00:02:34,940 --> 00:02:36,470
+time now in the course.
+
+24
+00:02:36,480 --> 00:02:41,960
+So if we wanted to do this with forEach we could have done it like this.
+
+25
+00:02:42,120 --> 00:02:49,650
+We could have created a new variable called newNumbers and set it to an empty array and then we could
+
+26
+00:02:49,650 --> 00:02:54,460
+have gotten hold of our numbers array and then called forEach.
+
+27
+00:02:54,720 --> 00:02:59,090
+And then inside this forEach function it also expects a function
+
+28
+00:02:59,100 --> 00:02:59,750
+right?
+
+29
+00:02:59,790 --> 00:03:08,700
+So let's go ahead and create another double function which takes a number x and it gets hold of this
+
+30
+00:03:09,000 --> 00:03:17,880
+newNumbers array and pushes a new value which is going to be x multiplied by two into that newNumbers
+
+31
+00:03:17,970 --> 00:03:25,670
+array. And then we can pass that function double into this forEach loop.
+
+32
+00:03:25,690 --> 00:03:29,620
+So this is how we would do it using the forEach
+
+33
+00:03:29,620 --> 00:03:34,970
+rather than using map. So you can see that map is a lot more concise.
+
+34
+00:03:34,990 --> 00:03:40,390
+Now you might be thinking, "Well actually, when we've been using for each we don't actually define a separate
+
+35
+00:03:40,390 --> 00:03:41,560
+function right?"
+
+36
+00:03:41,620 --> 00:03:49,480
+So we could in fact make this a lot simpler by putting that function inside the forEach and making
+
+37
+00:03:49,480 --> 00:03:52,450
+it anonymous by removing its name.
+
+38
+00:03:52,450 --> 00:03:55,970
+So it would look something like this, a little bit simpler
+
+39
+00:03:55,990 --> 00:03:56,590
+right?
+
+40
+00:03:56,710 --> 00:04:00,850
+But equally we could have done the same with our map function.
+
+41
+00:04:00,850 --> 00:04:10,090
+We can also make that a lot simpler if we wanted to by simply putting this function inside the parentheses
+
+42
+00:04:10,540 --> 00:04:16,029
+and then removing its name and turning it anonymous. Which ever way you do it
+
+43
+00:04:16,029 --> 00:04:24,400
+you'll notice that it's more concise using map because this function itself actually returns an output
+
+44
+00:04:24,820 --> 00:04:26,890
+which is a new array.
+
+45
+00:04:27,250 --> 00:04:33,790
+So unlike forEach where we have to create a new empty array and then every time we do something with
+
+46
+00:04:33,850 --> 00:04:40,980
+each item inside the array we push to the new array. Instead with map
+
+47
+00:04:40,990 --> 00:04:43,060
+it just does it all by itself.
+
+48
+00:04:43,060 --> 00:04:51,870
+This is really really handy in React when we're creating custom components and mapping data to it. Now
+
+49
+00:04:51,890 --> 00:04:56,760
+another related and also quite a useful function is filter.
+
+50
+00:04:56,940 --> 00:05:00,360
+Let's say that we've still got our numbers array up here,
+
+51
+00:05:00,360 --> 00:05:02,630
+so let's just move it a bit closer.
+
+52
+00:05:02,910 --> 00:05:05,250
+And I wanted to filter on it.
+
+53
+00:05:05,370 --> 00:05:12,870
+Well as the name suggests, what it does is it's going to create a new array by keeping only the items
+
+54
+00:05:13,020 --> 00:05:14,990
+that return true.
+
+55
+00:05:15,000 --> 00:05:16,050
+What does that mean?
+
+56
+00:05:16,050 --> 00:05:17,680
+Well let me show you a demo.
+
+57
+00:05:18,060 --> 00:05:25,380
+Let's say that we have our numbers array and I call the filter method and inside here again it expects
+
+58
+00:05:25,440 --> 00:05:26,260
+a function.
+
+59
+00:05:26,760 --> 00:05:30,200
+Let me write it out. Instead of creating a separate function
+
+60
+00:05:30,210 --> 00:05:33,900
+I'm just going to create an anonymous function inside here.
+
+61
+00:05:33,960 --> 00:05:41,280
+This filter function is going to look through each of the numbers inside this numbers array and for
+
+62
+00:05:41,280 --> 00:05:48,940
+each of these numbers, it's going to return only the ones that meet a particular criteria.
+
+63
+00:05:49,140 --> 00:05:55,020
+So we could say something like return num > 10.
+
+64
+00:05:55,140 --> 00:06:01,370
+In this case, we're looking through this numbers array here and we're checking each of the numbers.
+
+65
+00:06:01,380 --> 00:06:03,940
+So we first start with 3 then 56.
+
+66
+00:06:04,080 --> 00:06:08,510
+And for each of these numbers, we're checking to see if they're greater than 10.
+
+67
+00:06:08,790 --> 00:06:15,100
+And if they are then we're going to add it to a new array which is going to be the output of this function.
+
+68
+00:06:15,120 --> 00:06:20,470
+So let's create a const called newNumbers and set it to equal this.
+
+69
+00:06:20,550 --> 00:06:27,050
+And then we can go ahead and console log it. And you can see we get 56 and 48
+
+70
+00:06:27,090 --> 00:06:33,800
+the only two numbers that are greater than 10. Now you can of course switch this up so make it create
+
+71
+00:06:33,800 --> 00:06:39,330
+an array where the numbers must be less than 10, in which case we get 3, 2, 5.
+
+72
+00:06:39,530 --> 00:06:46,910
+And this is basically a way of adding a filter to your array and providing a condition that you want
+
+73
+00:06:46,910 --> 00:06:47,920
+to check for.
+
+74
+00:06:48,020 --> 00:06:55,760
+And if that condition is met and then create a new array with those items that actually return true.
+
+75
+00:06:56,240 --> 00:07:03,050
+I find it quite helpful usually thinking about these methods map/filter/reduce in the context of a method
+
+76
+00:07:03,050 --> 00:07:07,320
+that you should already be pretty familiar with which is the forEach.
+
+77
+00:07:07,340 --> 00:07:13,910
+So let's think about how we might do this with a forEach loop. So we might create a new numbers array
+
+78
+00:07:13,910 --> 00:07:15,710
+which is going to be empty,
+
+79
+00:07:15,710 --> 00:07:22,520
+then let's get hold of our numbers and then call forEach on it and then inside here will add an anonymous
+
+80
+00:07:22,520 --> 00:07:27,920
+function which will loop through each of the numbers inside here.
+
+81
+00:07:27,920 --> 00:07:32,840
+So we have access to each of the numbers inside our numbers array and then we're going to check, we're
+
+82
+00:07:32,840 --> 00:07:35,630
+gonna say if num is,
+
+83
+00:07:35,630 --> 00:07:39,310
+so we were checking less than 10 up here, less than 10.
+
+84
+00:07:39,320 --> 00:07:48,500
+Well then in that case we're going to push this number which meets this criteria into our array of new
+
+85
+00:07:48,500 --> 00:07:49,060
+numbers.
+
+86
+00:07:49,280 --> 00:07:55,640
+So newNumbers.push and we're going to push num in there.
+
+87
+00:07:55,670 --> 00:08:01,940
+Now when we log new numbers, you can see it's still the same but it obviously took a lot more effort
+
+88
+00:08:02,030 --> 00:08:06,050
+than simply just using the filter function.
+
+89
+00:08:06,050 --> 00:08:14,690
+Now the final one that sort of fits inside this set map/filter/reduce is the reduce function.
+
+90
+00:08:14,690 --> 00:08:22,160
+So the reduce function works by accumulating a value and doing something to each of the item in an
+
+91
+00:08:22,160 --> 00:08:22,840
+array.
+
+92
+00:08:22,910 --> 00:08:28,480
+So sounds a little bit confusing as well but it will be less confusing when we actually see it in action.
+
+93
+00:08:28,940 --> 00:08:34,760
+Let's say that I wanted to add and sum up all of the items in my numbers array.
+
+94
+00:08:35,330 --> 00:08:42,260
+Well if I wanted to do that with forEach then I would have to say something like numbers.forEach.
+
+95
+00:08:42,320 --> 00:08:47,360
+And then let's create an anonymous function in here for each number in numbers.
+
+96
+00:08:47,510 --> 00:08:55,200
+We're going to create a new variable which will call newNumber and set it to 0.
+
+97
+00:08:55,610 --> 00:09:03,860
+And then inside this loop, we would have to get hold of a newNumber and add the value of the current
+
+98
+00:09:04,430 --> 00:09:06,900
+number in the array.
+
+99
+00:09:06,980 --> 00:09:15,970
+So it might help if I actually rename this currentNumber. What this loop does is it goes through all
+
+100
+00:09:15,970 --> 00:09:22,150
+of the numbers in this array and for each of the current number that it's looping through,
+
+101
+00:09:22,150 --> 00:09:27,420
+so the first time it'd 3, then it's going to add that number to our new number.
+
+102
+00:09:27,460 --> 00:09:31,360
+So 0 becomes 3 and then the next time it loops around
+
+103
+00:09:31,420 --> 00:09:39,430
+this is 3 and it becomes 59 etc. etc. until we end up with the final value so we can go ahead
+
+104
+00:09:39,520 --> 00:09:45,220
+and log newNumber which is equal to 114.
+
+105
+00:09:45,250 --> 00:09:48,090
+This is the roundabout way of doing it.
+
+106
+00:09:48,100 --> 00:09:52,030
+Now what if we wanted to do it using our reduce function?
+
+107
+00:09:52,030 --> 00:09:53,670
+Well it's actually a lot simpler.
+
+108
+00:09:53,710 --> 00:10:05,050
+So we could say numbers.reduce and then we can pass in a function which takes an accumulator as
+
+109
+00:10:05,050 --> 00:10:08,590
+well as the current number.
+
+110
+00:10:08,590 --> 00:10:13,800
+And this is going to be the equivalent of that previous variable.
+
+111
+00:10:13,990 --> 00:10:20,470
+And then this is going to be the number which is equal to each and every iteration through the array.
+
+112
+00:10:21,580 --> 00:10:24,160
+And then inside the reduce function
+
+113
+00:10:24,160 --> 00:10:33,400
+I'm going to return the accumulator plus the current number and if we go ahead and save this to a variable
+
+114
+00:10:33,400 --> 00:10:38,800
+called newNumber, because we're really console logging it down here, then you can see the result is the
+
+115
+00:10:38,800 --> 00:10:42,750
+same as the previous method using forEach.
+
+116
+00:10:42,820 --> 00:10:46,900
+Now it might help if you actually go ahead and just console log
+
+117
+00:10:46,900 --> 00:10:52,900
+the value of accumulator and current number every time the loop is run in order to understand how this
+
+118
+00:10:52,900 --> 00:10:59,140
+reduce function works. You can see that the first time the loop is run the accumulator is already set
+
+119
+00:10:59,200 --> 00:11:04,100
+as the first value and the current number gets set as the second value.
+
+120
+00:11:04,210 --> 00:11:08,910
+The next time it's run, the accumulator has already been added to the current number.
+
+121
+00:11:08,950 --> 00:11:14,890
+So it's now equal to 56 but the current number now moves onto the next item in the array and so on and
+
+122
+00:11:14,890 --> 00:11:22,680
+so forth until we get to the end of the array and we end up with our total value.
+
+123
+00:11:23,010 --> 00:11:29,100
+So those three functions are probably some of the most useful JavaScript functions that actually exist
+
+124
+00:11:29,190 --> 00:11:36,300
+even before ES6. If you take a look at the MDN and develop a docs for map, filter and reduce which
+
+125
+00:11:36,330 --> 00:11:42,780
+are linked to in the course resources, you can take a look at how they work and what parameters they
+
+126
+00:11:42,780 --> 00:11:48,530
+take but also notice how their compatibility is across all browsers.
+
+127
+00:11:48,540 --> 00:11:56,160
+This was introduced way before ES6 and you can safely use this code anywhere on any browser. But the
+
+128
+00:11:56,160 --> 00:12:02,160
+next two that I want to talk about, the find and find index, were actually introduced relatively recently.
+
+129
+00:12:02,880 --> 00:12:04,410
+So what are they useful for?
+
+130
+00:12:04,800 --> 00:12:11,330
+Well find is a function that's going to help you find the first item that matches in an array.
+
+131
+00:12:11,760 --> 00:12:22,020
+So for example inside our numbers array, we could go ahead and call numbers.find and again it expects
+
+132
+00:12:22,080 --> 00:12:23,240
+a function.
+
+133
+00:12:23,340 --> 00:12:32,190
+So let's loop through all the numbers in our numbers array and then go ahead and find the first value
+
+134
+00:12:32,310 --> 00:12:34,780
+that is greater than 10.
+
+135
+00:12:34,890 --> 00:12:44,230
+So return num greater than 10. What this does, unlike the filter, is it's not going to loop through the
+
+136
+00:12:44,230 --> 00:12:45,020
+entire array.
+
+137
+00:12:45,070 --> 00:12:52,600
+It's going to stop as soon as one of these returns true. If we go ahead and save this to a constant
+
+138
+00:12:55,300 --> 00:12:56,230
+and log it,
+
+139
+00:12:56,260 --> 00:13:01,780
+you can see that it loops through our array but it's stopped as soon as it found the first item that
+
+140
+00:13:01,780 --> 00:13:07,230
+was greater than 10. And find index works in a similar way.
+
+141
+00:13:07,260 --> 00:13:15,340
+But instead of finding the first item instead what it does is it finds the index of the first item that
+
+142
+00:13:15,340 --> 00:13:16,270
+matches.
+
+143
+00:13:16,270 --> 00:13:21,870
+So in this case if we change find to find index, you can see it works pretty much the same way
+
+144
+00:13:21,940 --> 00:13:28,630
+but now we're getting the index of that first number that matches the criteria which is of course the
+
+145
+00:13:28,630 --> 00:13:32,490
+index 1 because arrays start from 0.
+
+146
+00:13:32,750 --> 00:13:36,850
+So all of these functions are not for you to memorize.
+
+147
+00:13:36,890 --> 00:13:44,180
+It will be really hard to remember all of these. But instead I recommend really understanding what's
+
+148
+00:13:44,180 --> 00:13:48,580
+going on and what the goals are of each of these methods
+
+149
+00:13:48,590 --> 00:13:49,940
+map, filter, reduce,
+
+150
+00:13:49,940 --> 00:13:56,210
+find and find index so that when you actually have a need for something that one of these functions
+
+151
+00:13:56,210 --> 00:14:01,520
+might be able to help you achieve somewhere in the back of your mind you might have a light bulb go
+
+152
+00:14:01,520 --> 00:14:07,100
+off and think oh yeah there was a function somewhere whether it was ma, filter or reduce I can't remember
+
+153
+00:14:07,370 --> 00:14:13,760
+but one of these can probably do what it is that I need. and then go and have a look at the docs and
+
+154
+00:14:13,760 --> 00:14:19,940
+find the function that you actually need and then quickly look through the demo and the documentation
+
+155
+00:14:20,240 --> 00:14:24,280
+to see what it actually does and how to use it.
+
+156
+00:14:24,290 --> 00:14:31,670
+So as I always stress, memorization is not what we do in the post at Google world.
+
+157
+00:14:31,670 --> 00:14:36,710
+So in order to test your understanding, I've got a challenge for you.
+
+158
+00:14:36,710 --> 00:14:39,930
+Go ahead and comment out any code that you've already got.
+
+159
+00:14:40,310 --> 00:14:46,700
+And feel free to save it inside this code sandbox for future reference if you want. But you'll notice
+
+160
+00:14:46,700 --> 00:14:53,180
+I've also included the emojipedia file that came from our previous code challenge. And what I want
+
+161
+00:14:53,180 --> 00:15:01,790
+you to do is to go ahead and import the emojipedia constant from our ./emojipedia file. And
+
+162
+00:15:01,790 --> 00:15:08,560
+then you'll remember that the emojipedia constant is also an array right?
+
+163
+00:15:08,600 --> 00:15:16,610
+So when we log it you can see we've got an array of three objects and each of these have a property
+
+164
+00:15:16,640 --> 00:15:20,120
+called meaning which contains a whole bunch of text.
+
+165
+00:15:20,150 --> 00:15:28,370
+So your goal is to create a new array that just has the meaning text.
+
+166
+00:15:28,370 --> 00:15:31,640
+For example this one, this one and this one.
+
+167
+00:15:31,700 --> 00:15:41,430
+But here's the catch. You have to truncate the text so that it only has a maximum of 100 characters. Here's
+
+168
+00:15:41,430 --> 00:15:45,060
+what it would look like if you have completed the challenge successfully.
+
+169
+00:15:45,120 --> 00:15:50,430
+So here's my new array that I've created using some sort of function.
+
+170
+00:15:50,490 --> 00:15:58,500
+And it logs each of these emoji meanings but it caps them, if you notice, at a hundred characters.
+
+171
+00:15:58,590 --> 00:16:00,870
+So they are all equally long.
+
+172
+00:16:00,960 --> 00:16:02,100
+And this is kind of useful
+
+173
+00:16:02,100 --> 00:16:09,720
+a lot of times when we're creating websites where we want these sizes of cards or boxes to be even across
+
+174
+00:16:09,780 --> 00:16:17,340
+our entire page. And we might just do a truncation like what I've got here. As a hint, you will need to
+
+175
+00:16:17,340 --> 00:16:23,400
+use a another method which you might have come across ages ago in the Javascript section which is called
+
+176
+00:16:23,400 --> 00:16:27,690
+substring. I've linked to the documentation on this method
+
+177
+00:16:27,690 --> 00:16:28,590
+so have a look at it.
+
+178
+00:16:28,590 --> 00:16:34,990
+Have a think about this problem and see if you can achieve this outcome and complete the challenge. Pause
+
+179
+00:16:35,010 --> 00:16:36,300
+the video now and give it a go.
+
+180
+00:16:39,750 --> 00:16:40,120
+All right.
+
+181
+00:16:40,140 --> 00:16:49,380
+Our starting point is three objects in an array. So we know that the map function helps us create a new
+
+182
+00:16:49,380 --> 00:16:53,870
+array by doing something with each of the items.
+
+183
+00:16:53,910 --> 00:16:56,660
+And that kind of matches what we want right?
+
+184
+00:16:56,760 --> 00:17:01,220
+Because in our case we want to create a new array of meanings.
+
+185
+00:17:01,440 --> 00:17:08,400
+And the doing something is to truncate it to 100 characters and we're going to do that to each item
+
+186
+00:17:08,609 --> 00:17:11,490
+in this emojipedia array.
+
+187
+00:17:11,490 --> 00:17:15,170
+Now that we've settled on the map function, let's go ahead and call it.
+
+188
+00:17:15,200 --> 00:17:18,569
+So we'll say emojipedia.map.
+
+189
+00:17:18,569 --> 00:17:25,859
+Now inside this map function, it of course expects a function which is going to give us every single
+
+190
+00:17:26,130 --> 00:17:27,550
+emoji entry.
+
+191
+00:17:27,599 --> 00:17:29,940
+So let's just call it emojiEntry.
+
+192
+00:17:29,940 --> 00:17:34,050
+So we've got three emoji entries each are an object.
+
+193
+00:17:34,320 --> 00:17:39,150
+And the first time this loops through it, what do we want to do with the emoji entry?
+
+194
+00:17:39,150 --> 00:17:40,650
+What do we want to do with it?
+
+195
+00:17:40,650 --> 00:17:48,090
+Well we want to take the emoji entry, so let's just focus on the first object for now, the emotive entry's
+
+196
+00:17:48,150 --> 00:17:49,090
+meaning,
+
+197
+00:17:49,140 --> 00:17:57,480
+so we're going to be tapping into emojiEntry.meaning, and we're going to try and use substring to
+
+198
+00:17:57,510 --> 00:18:01,560
+cut it down to 100 characters. Based on this demo
+
+199
+00:18:01,560 --> 00:18:09,990
+you can see that these substring takes the string and cuts it between the index specified at the first
+
+200
+00:18:10,050 --> 00:18:11,790
+and the second positions.
+
+201
+00:18:11,790 --> 00:18:14,430
+So in this case 0 1.
+
+202
+00:18:14,460 --> 00:18:18,630
+So it starts from 0 and ends at 3.  2, 3.
+
+203
+00:18:18,630 --> 00:18:26,610
+So we end up with 'oz' printed out. In our case if we want 100 characters printed, we can simply
+
+204
+00:18:26,670 --> 00:18:33,000
+use these substring method and cut it from 0 to 100.
+
+205
+00:18:33,150 --> 00:18:38,760
+Now that we've got this newly formatted meaning, what are we going to do with it?
+
+206
+00:18:38,760 --> 00:18:41,040
+Well we're just going to return it.
+
+207
+00:18:41,040 --> 00:18:48,660
+And what this does is it's going to build a new array which we can save into a constant newEmoji
+
+208
+00:18:48,800 --> 00:18:58,530
+pedia and it's going to create it from the meanings in our emoji entries from our emojipedia with only
+
+209
+00:18:58,530 --> 00:19:00,480
+the first hundred characters.
+
+210
+00:19:00,480 --> 00:19:09,480
+So let's go ahead and log this new emojipedia. And you can see that I've now got this new array and I've
+
+211
+00:19:09,480 --> 00:19:12,590
+cut the meanings all at a hundred characters.
+
+212
+00:19:13,020 --> 00:19:15,290
+So they are now equally long.
+
+213
+00:19:15,480 --> 00:19:23,760
+And this is achieved by using our  map function which maps through this emojipedia array
+
+214
+00:19:24,060 --> 00:19:31,500
+and for each of the entries I've gotten hold of the meaning text and then I've cut it down to the first
+
+215
+00:19:31,500 --> 00:19:39,450
+hundred characters and then I've returned it to be added to this new array. If you didn't manage to complete
+
+216
+00:19:39,450 --> 00:19:45,990
+this challenge I recommend heading back to your code and trying to do this yourself from scratch and
+
+217
+00:19:45,990 --> 00:19:48,810
+play around with the code until it makes sense.
+
+218
+00:19:48,840 --> 00:19:55,260
+It's also worth having a quick read of each of these pieces of documentation which as usual is really
+
+219
+00:19:55,260 --> 00:20:01,700
+high quality and really helps you get even more understanding of each of these functions.
+
+220
+00:20:01,740 --> 00:20:08,760
+Now in the next lesson, we're going to learn about something that is ES6 specific and it's going
+
+221
+00:20:08,760 --> 00:20:13,160
+to help us to cut down on the length of our functions even more.
+
+222
+00:20:13,470 --> 00:20:20,170
+And that is the fat arrow also known as the Javascript arrow function. For all of that and more,
+
+223
+00:20:20,250 --> 00:20:20,840
+I'll see you there.
+

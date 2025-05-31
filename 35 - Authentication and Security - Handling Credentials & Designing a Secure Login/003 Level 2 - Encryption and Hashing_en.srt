@@ -1,0 +1,736 @@
+1
+00:00:00,170 --> 00:00:06,710
+In the last lesson, we looked at the most basic level of authentication, which is simply through the
+
+2
+00:00:06,710 --> 00:00:08,510
+use of an email and password.
+
+3
+00:00:08,510 --> 00:00:15,560
+And as we saw, this is perhaps a little bit lacking in security when we can very easily go into our
+
+4
+00:00:15,560 --> 00:00:19,610
+database and see any user's password in plain text.
+
+5
+00:00:19,610 --> 00:00:23,090
+This is very, very bad practice.
+
+6
+00:00:23,210 --> 00:00:30,770
+Every so often you might hear in the news a website or a company is somehow hacked and all their users
+
+7
+00:00:30,770 --> 00:00:33,950
+information is leaked into the wild.
+
+8
+00:00:33,950 --> 00:00:40,670
+So you might have heard of the Ashley Madison hack or the Experian hack, but lots of these websites
+
+9
+00:00:40,670 --> 00:00:47,900
+end up being prosecuted, in fact, and may have to pay a fine for not storing their user's data in
+
+10
+00:00:47,900 --> 00:00:49,340
+a secure fashion.
+
+11
+00:00:49,340 --> 00:00:52,370
+So it's not just about angry users,
+
+12
+00:00:52,370 --> 00:00:58,040
+there are also legal implications, which is why we need to think about these things very carefully.
+
+13
+00:00:58,830 --> 00:01:07,290
+If storing a user's password as plain text is the worst possible way of securing it,
+
+14
+00:01:07,290 --> 00:01:12,960
+I mean, it's not to say that this is immediately going to lead to problems, because if you're a normal
+
+15
+00:01:12,960 --> 00:01:19,920
+user accessing the website and you try to View page source or look through the code on the front end,
+
+16
+00:01:19,920 --> 00:01:25,410
+you won't be able to find anything because those things are stored on our back end on our servers,
+
+17
+00:01:25,410 --> 00:01:28,440
+and the database isn't easily accessed.
+
+18
+00:01:28,440 --> 00:01:33,540
+But still, there is enough precedent where this has happened, and we need to think about securing
+
+19
+00:01:33,540 --> 00:01:36,060
+those passwords more carefully.
+
+20
+00:01:36,600 --> 00:01:43,380
+That leads us to the topic of Encryption, which is something you might have heard of already.
+
+21
+00:01:43,500 --> 00:01:51,030
+It's defined in the dictionary as, "The process of converting information or data into a code..." which
+
+22
+00:01:51,030 --> 00:01:53,580
+can also be called a cipher.
+
+23
+00:01:53,580 --> 00:02:01,890
+And the main reason is to prevent unauthorized access so that people can't view that sensitive information
+
+24
+00:02:01,890 --> 00:02:02,730
+easily.
+
+25
+00:02:03,150 --> 00:02:10,139
+A really simple example of encryption is something called the Caesar Cipher, which is named after
+
+26
+00:02:10,139 --> 00:02:11,280
+Julius Caesar.
+
+27
+00:02:11,310 --> 00:02:20,130
+This is an extremely simple form of cipher where we take the alphabet and we have an encryption key.
+
+28
+00:02:20,130 --> 00:02:22,740
+So let's say that the key is 4.
+
+29
+00:02:22,770 --> 00:02:27,480
+What this means is we shift the letters by 4,
+
+30
+00:02:27,480 --> 00:02:33,900
+so that means that A becomes 1, 2, 3, 4, it becomes E.
+
+31
+00:02:33,930 --> 00:02:37,860
+So then the alphabet looks something like this.
+
+32
+00:02:39,060 --> 00:02:48,930
+That means if a user tried to type the secret which they wanted to encrypt, and this equaled A, B, C,
+
+33
+00:02:48,930 --> 00:02:58,260
+when this is encrypted using the Caesar cipher, then it becomes E, F, G.
+
+34
+00:02:58,470 --> 00:03:08,310
+So then this part is transported or it is stored on a database, or it is in Caesar's case, put into
+
+35
+00:03:08,310 --> 00:03:11,580
+a letter and passed through enemy territory,
+
+36
+00:03:11,580 --> 00:03:19,800
+and once it reaches the other end, because the recipient knows what the encryption key is, they can
+
+37
+00:03:19,830 --> 00:03:29,070
+then go back through that process and take the each letter and reverse it through four steps in order
+
+38
+00:03:29,070 --> 00:03:33,270
+to end up with the original message, which is A, B, C.
+
+39
+00:03:33,570 --> 00:03:40,680
+You can try this out yourself on a website called cryptii, and you can see how you can take plain text
+
+40
+00:03:40,680 --> 00:03:42,900
+and write something like, "Hello".
+
+41
+00:03:42,900 --> 00:03:50,760
+And once you get the code or the cipher text, you can see it has been automatically shifted by 4
+
+42
+00:03:50,760 --> 00:03:53,700
+in this case. This is the encryption key
+
+43
+00:03:53,700 --> 00:03:58,020
+and this is the important part that hopefully the recipient already knows.
+
+44
+00:03:58,020 --> 00:04:00,570
+So you can change this as much as you like,
+
+45
+00:04:00,570 --> 00:04:03,570
+and you can see that just by somebody looking at the ciphertext,
+
+46
+00:04:03,570 --> 00:04:05,460
+they might think this is a foreign language.
+
+47
+00:04:05,460 --> 00:04:08,580
+They might not know what the actual answer is.
+
+48
+00:04:08,580 --> 00:04:17,190
+But of course, there is a very simple way of decoding it by simply taking that key, that shift amount,
+
+49
+00:04:17,190 --> 00:04:19,470
+and applying it to the ciphertext.
+
+50
+00:04:19,500 --> 00:04:27,360
+We've already looked at encryption, so taking the user's password and securing it using an encryption
+
+51
+00:04:27,360 --> 00:04:35,340
+key, and then using a particular Cipher method, be it a Caesar cipher, or the Enigma cipher, or a
+
+52
+00:04:35,340 --> 00:04:37,290
+modern cipher method like AES.
+
+53
+00:04:37,290 --> 00:04:42,990
+No matter which way we chose, we always had a password, a key, and we ended up with some ciphertext,
+
+54
+00:04:42,990 --> 00:04:48,600
+which will make it hard for people to be able to immediately guess what our user's password is.
+
+55
+00:04:48,600 --> 00:04:54,870
+So for example, if we took a password like qwerty and we used the Caesar cipher method and we decided
+
+56
+00:04:54,870 --> 00:04:59,250
+to shift it by 1, then our encryption key is the number 1
+
+57
+00:04:59,250 --> 00:05:04,680
+and that creates the ciphertext, where every single letter is shifted up by 1.
+
+58
+00:05:04,680 --> 00:05:10,680
+Now, in order to decrypt this, all you have to do, as long as you know what the key is, then you
+
+59
+00:05:10,680 --> 00:05:17,760
+can simply shift all of the ciphertext down by 1, and you end up with the original password.
+
+60
+00:05:17,760 --> 00:05:22,830
+The Caesar cipher is a very, very weak encryption method.
+
+61
+00:05:22,830 --> 00:05:29,790
+It's incredibly easy to figure out what the original text was, even if you didn't have a key.
+
+62
+00:05:29,790 --> 00:05:35,940
+And just to illustrate what bad things can happen when you have a weak encryption system, I'm going
+
+63
+00:05:35,940 --> 00:05:42,600
+to tell you a story from history that tells us why we should not be using a weak encryption system.
+
+64
+00:05:42,600 --> 00:05:49,920
+So back in the 1500s, on this Island that we now call the United Kingdom, there used to be two large
+
+65
+00:05:49,920 --> 00:05:50,640
+areas.
+
+66
+00:05:50,640 --> 00:05:58,290
+One was Scotland and the other was England, and they were ruled over by two Queens.
+
+67
+00:05:58,530 --> 00:06:05,040
+Scotland was ruled by Mary, Queen of Scots, who was a Catholic, and England was ruled over by Queen
+
+68
+00:06:05,040 --> 00:06:06,480
+Elizabeth I.
+
+69
+00:06:06,510 --> 00:06:11,280
+Now these two ladies between them controlled the land that we now call the UK.
+
+70
+00:06:11,280 --> 00:06:15,150
+But they each wanted to have more power and more land,
+
+71
+00:06:15,180 --> 00:06:17,100
+so what did they do?
+
+72
+00:06:17,130 --> 00:06:25,110
+Well, Mary, Queen of Scots, who ruled over Scotland, decided to plot with her friend Lord Babington
+
+73
+00:06:25,110 --> 00:06:28,110
+to try and assassinate Queen Elizabeth,
+
+74
+00:06:28,140 --> 00:06:34,020
+that way, she would be the legitimate heir to both the English and Scottish throne.
+
+75
+00:06:34,020 --> 00:06:38,370
+And it was kind of a Game of Thrones kind of situation going on back then.
+
+76
+00:06:38,370 --> 00:06:45,030
+But in order to mobilize their forces or try to come up with some sort of secret plan, they decided
+
+77
+00:06:45,030 --> 00:06:48,990
+to send letters to each other using ciphertext.
+
+78
+00:06:48,990 --> 00:06:57,000
+So they came up with a system to encrypt their letters to each other such that if it fell into the wrong
+
+79
+00:06:57,000 --> 00:07:04,020
+hands, the subject of the letter wouldn't be revealed and they wouldn't end up being tried for treason.
+
+80
+00:07:04,020 --> 00:07:10,500
+But the problem was that the encryption method that they used, which was a letter substitution method
+
+81
+00:07:10,500 --> 00:07:19,110
+similar to the Caesar cipher, was a very weak form of encryption, and Queen Elizabeth had a chief
+
+82
+00:07:19,110 --> 00:07:27,450
+decoder who ended up deciphering their letters and figuring out what their encryption key was.
+
+83
+00:07:27,450 --> 00:07:35,550
+So he decided to take this encryption key and write a letter back to Lord Babington to try and get him
+
+84
+00:07:35,550 --> 00:07:38,820
+to reveal all of the co-conspirators.
+
+85
+00:07:38,820 --> 00:07:42,630
+And what was the end result of having their weak encryption system?
+
+86
+00:07:42,660 --> 00:07:50,010
+Well, Queen Elizabeth decided to accuse Mary, Queen of Scots, of treason, and hence she ended up
+
+87
+00:07:50,010 --> 00:07:51,690
+having her head chopped off.
+
+88
+00:07:51,690 --> 00:07:56,820
+So this is not what you want to happen to you or your website.
+
+89
+00:07:56,820 --> 00:08:03,570
+So weak encryption systems can end up putting user passwords at risk, and your company might end up
+
+90
+00:08:03,570 --> 00:08:09,720
+metaphorically decapitated, such as in the case of companies like TalkTalk or Equifax, where they
+
+91
+00:08:09,720 --> 00:08:13,470
+ended up getting hacked and lost a lot of the trust of their users.
+
+92
+00:08:13,500 --> 00:08:19,680
+Now, if you're interested in more stories like this and to learn more about cryptography and encryption,
+
+93
+00:08:19,680 --> 00:08:24,090
+there's a really great book recommendation that I would make called The Code Book by Simon Singh.
+
+94
+00:08:24,090 --> 00:08:27,600
+It contains stories like the one that I just told you and more.
+
+95
+00:08:27,600 --> 00:08:30,750
+So if you're interested in this, go ahead and read more about it.
+
+96
+00:08:31,050 --> 00:08:36,750
+In modern days, we use something far more secure, which is called AES 256,
+
+97
+00:08:36,750 --> 00:08:40,320
+And this has a whole bunch of math applied,
+
+98
+00:08:40,320 --> 00:08:44,340
+but at the end of the day, the essential process is still the same.
+
+99
+00:08:44,970 --> 00:08:51,780
+We have some plain text and then we have an encryption key, which is something that you keep top-secret
+
+100
+00:08:51,780 --> 00:08:54,810
+and you don't pass along with your text.
+
+101
+00:08:54,810 --> 00:09:02,160
+And we can go ahead and encrypt the string using AES, you can see that the result is much, much longer.
+
+102
+00:09:02,160 --> 00:09:09,480
+It's very hard to work out how many letters the original text had, but if you were somebody who's meant
+
+103
+00:09:09,480 --> 00:09:16,560
+to receive this message and you receive it, and then you know that the encryption key is, for example,
+
+104
+00:09:16,560 --> 00:09:22,140
+in this case TOPSECRET, then you can easily decrypt it into the original message.
+
+105
+00:09:23,380 --> 00:09:30,310
+Now there is just one weakness to this situation if we're thinking about storing passwords,
+
+106
+00:09:30,310 --> 00:09:38,980
+and that is the fact that this type of encryption or this type of obfuscation is symmetrical.
+
+107
+00:09:38,980 --> 00:09:48,970
+So it means that if somebody happens to get hold of this super important encryption key and you encrypt
+
+108
+00:09:48,970 --> 00:09:56,050
+everything in your database using this particular method, AES 256, so no matter how strong
+
+109
+00:09:56,050 --> 00:10:04,750
+it is, if they get hold of this particular thing, then everything else collapses and they can work
+
+110
+00:10:04,750 --> 00:10:06,280
+out everybody's secret.
+
+111
+00:10:06,280 --> 00:10:13,540
+They can work out everyone's password by simply decrypting it using that same key, which is not what
+
+112
+00:10:13,540 --> 00:10:14,230
+you want.
+
+113
+00:10:14,860 --> 00:10:17,890
+How can we make our password more secure?
+
+114
+00:10:17,920 --> 00:10:24,520
+At the moment, the biggest flaw in our authentication method is the fact that we need an encryption
+
+115
+00:10:24,520 --> 00:10:29,230
+key to encrypt our passwords and decrypt our passwords.
+
+116
+00:10:29,230 --> 00:10:36,640
+And chances are that if somebody is motivated enough to spend time and hack into your database, then
+
+117
+00:10:36,640 --> 00:10:43,780
+it's probably not that difficult for them to also be able to get your encryption key, even if you've
+
+118
+00:10:43,780 --> 00:10:48,250
+saved it in an environment variable or somewhere secure on your server.
+
+119
+00:10:48,250 --> 00:10:53,590
+So how can we address this weakest link the need for that encryption key?
+
+120
+00:10:53,590 --> 00:10:56,800
+Well, here is where Hashing comes into play.
+
+121
+00:10:56,800 --> 00:10:59,980
+Whereas previously with encryption we needed that encryption
+
+122
+00:10:59,980 --> 00:11:07,450
+key, hashing takes it away and no longer requires the need for an encryption key.
+
+123
+00:11:07,450 --> 00:11:14,020
+Well then you might ask, well, if we don't have an encryption key, how can we decrypt our password
+
+124
+00:11:14,020 --> 00:11:15,640
+back into plain text?
+
+125
+00:11:15,640 --> 00:11:18,430
+Well, the secret is you don't.
+
+126
+00:11:19,120 --> 00:11:25,180
+Let's say a user registers on our website and they enter a password to register with.
+
+127
+00:11:25,180 --> 00:11:31,060
+We use something called a Hash function to turn that password into a hash,
+
+128
+00:11:31,060 --> 00:11:34,330
+and we store that hash in our database.
+
+129
+00:11:34,450 --> 00:11:44,290
+Now, the problem is that hash functions are mathematical equations that are designed to make it almost
+
+130
+00:11:44,290 --> 00:11:53,620
+impossible to go backwards, so it's almost impossible to turn a hash back into a password.
+
+131
+00:11:53,620 --> 00:12:00,670
+How is this possible, you might ask, how is it possible that you can turn a password into a hash very
+
+132
+00:12:00,670 --> 00:12:06,970
+quickly and easily, but make it almost impossible to turn that hash back into a password?
+
+133
+00:12:07,180 --> 00:12:08,710
+Well, here's a question.
+
+134
+00:12:08,950 --> 00:12:10,060
+Let me ask you,
+
+135
+00:12:10,090 --> 00:12:16,420
+what are the factors of 377 other than 1 and 377?
+
+136
+00:12:16,420 --> 00:12:20,410
+So basically I'm saying 377 is not a prime number.
+
+137
+00:12:20,440 --> 00:12:29,590
+Not only can you divide 377 by 1 and 377, but there's also two other numbers that you can divide
+
+138
+00:12:29,590 --> 00:12:30,190
+it by.
+
+139
+00:12:30,220 --> 00:12:34,000
+Now it's your job to figure out what those numbers are.
+
+140
+00:12:34,630 --> 00:12:36,010
+So what might you do.
+
+141
+00:12:36,010 --> 00:12:38,470
+Well you might divide it by 2, okay
+
+142
+00:12:38,470 --> 00:12:40,690
+so that becomes 188.5.
+
+143
+00:12:40,690 --> 00:12:41,860
+That's not a whole number.
+
+144
+00:12:41,860 --> 00:12:43,630
+So 2 is not a factor.
+
+145
+00:12:43,630 --> 00:12:45,190
+What if you divide it by 3?
+
+146
+00:12:45,190 --> 00:12:50,920
+Well, that becomes 113.3 recurring which is also not a whole number,
+
+147
+00:12:50,920 --> 00:12:53,560
+so 3 is not a factor either.
+
+148
+00:12:53,560 --> 00:13:00,490
+And you might go through this process for a long time tediously going through number by number.
+
+149
+00:13:00,490 --> 00:13:08,410
+Well, then you might arrive at the point where you divide 377 by 13 and you end up with 29.
+
+150
+00:13:08,410 --> 00:13:13,330
+So 13 and 29 are the answers to this question.
+
+151
+00:13:13,330 --> 00:13:19,810
+They are the only factors of 377 other than 1 and 377.
+
+152
+00:13:19,900 --> 00:13:27,370
+And as you can see, that process of getting to this point of finding those two factors took us a while,
+
+153
+00:13:27,370 --> 00:13:27,730
+right?
+
+154
+00:13:27,730 --> 00:13:29,200
+It wasn't that easy.
+
+155
+00:13:29,200 --> 00:13:31,990
+But consider if I asked you a different question,
+
+156
+00:13:31,990 --> 00:13:35,680
+if I said to you, can you multiply 13 by 29?
+
+157
+00:13:35,680 --> 00:13:39,460
+Well, you would be able to do that really quickly and easily.
+
+158
+00:13:39,460 --> 00:13:44,740
+It would take you almost no time at all to figure out that the answer is 377.
+
+159
+00:13:45,370 --> 00:13:55,120
+So here is a very, very simplified version of a hash function going forward, multiplying 13 by 29
+
+160
+00:13:55,120 --> 00:14:03,100
+is really quick and easy, but going backwards, trying to get back those numbers 13 and 29 starting
+
+161
+00:14:03,100 --> 00:14:06,880
+from 377 is very, very time consuming.
+
+162
+00:14:06,880 --> 00:14:10,270
+This is essentially how a hash function works.
+
+163
+00:14:10,270 --> 00:14:15,400
+Just add a little bit more complexity and you end up with a real hash function.
+
+164
+00:14:15,400 --> 00:14:22,420
+They're designed to be calculated very quickly going forwards, but almost impossible to go back.
+
+165
+00:14:22,970 --> 00:14:30,470
+And by almost impossible, I simply mean that using current levels of computing power, it would take
+
+166
+00:14:30,470 --> 00:14:33,530
+far too long to make it worthwhile for the hacker.
+
+167
+00:14:33,530 --> 00:14:39,050
+So let's say that to calculate the hash going forwards, it takes a millisecond,
+
+168
+00:14:39,050 --> 00:14:41,780
+but to go backwards it takes two years,
+
+169
+00:14:41,780 --> 00:14:45,470
+then that hacker probably has better things to do with his time.
+
+170
+00:14:45,470 --> 00:14:52,310
+So when a user tries to register on our website, then we ask them for the registration password, which
+
+171
+00:14:52,310 --> 00:14:55,640
+we turn into a hash using our hash function,
+
+172
+00:14:55,640 --> 00:14:58,550
+and then we store that hash on our database.
+
+173
+00:14:58,550 --> 00:15:05,720
+Now, at a later point, when the user tries to log in and they type in their password, then we again
+
+174
+00:15:05,720 --> 00:15:13,910
+hash that password that they typed in to produce a hash, and then we compare it against the hash that
+
+175
+00:15:13,910 --> 00:15:16,430
+we have stored in our database.
+
+176
+00:15:16,430 --> 00:15:23,780
+And if those two hashes match, then that must mean that the login password is the same as the registration
+
+177
+00:15:23,780 --> 00:15:24,890
+password as well.
+
+178
+00:15:24,890 --> 00:15:30,260
+And at no point in this process do we have to store their password in plain text,
+
+179
+00:15:30,260 --> 00:15:36,110
+or are we able to reverse the process to figure out their original password.
+
+180
+00:15:36,110 --> 00:15:40,340
+The only person who knows their password is the user themselves.
+
+181
+00:15:40,370 --> 00:15:47,450
+Now, hashing also comes along with its own problems though, because as soon as you come up with a
+
+182
+00:15:47,450 --> 00:15:52,070
+problem, then some motivated hacker will come up with a solution.
+
+183
+00:15:52,070 --> 00:15:57,740
+And in the next lesson, I'm going to show you how we can hack our users passwords.
+
+184
+00:15:57,740 --> 00:16:00,560
+So for all of that and more, I'll see you there.
+

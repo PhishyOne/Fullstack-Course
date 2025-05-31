@@ -1,0 +1,12 @@
+
+001 Git-for-Windows-incl.Bash-
+https://gitforwindows.org/
+
+004 Course-Fixes-Report-an-Issue
+https://forms.gle/DNFNS8KgFdXtPvyY9
+
+004 Monday-Morning-Mistake
+https://serverfault.com/questions/587102/monday-morning-mistake-sudo-rm-rf-no-preserve-root
+
+004 Enough-Command-Line-to-be-dangerous
+https://www.learnenough.com/command-line-tutorial

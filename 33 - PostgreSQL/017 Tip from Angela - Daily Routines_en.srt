@@ -1,0 +1,144 @@
+1
+00:00:00,640 --> 00:00:02,950
+Hey you've completed another module.
+
+2
+00:00:02,980 --> 00:00:04,580
+Well done for that.
+
+3
+00:00:04,660 --> 00:00:11,470
+Now today I want to talk about the idea of having a routine and building a routine because when you
+
+4
+00:00:11,470 --> 00:00:14,980
+have a routine that's really helpful.
+
+5
+00:00:14,980 --> 00:00:21,250
+It means that you don't have to think so much about what do you have to do at each point of the
+
+6
+00:00:21,250 --> 00:00:21,700
+day.
+
+7
+00:00:22,420 --> 00:00:28,000
+So for example I have a morning routine, I actually have a daily routine which I try to stick to as much
+
+8
+00:00:28,000 --> 00:00:35,910
+as I can unless I'm traveling or I'm speaking or I'm teaching. So I tend to wake up around the same time about
+
+9
+00:00:36,100 --> 00:00:40,450
+7:30. And as soon as I wake up I jump out of bed,
+
+10
+00:00:40,450 --> 00:00:43,740
+I brush my teeth and I go for a walk.
+
+11
+00:00:43,780 --> 00:00:46,550
+Just getting some air into my brain.
+
+12
+00:00:46,690 --> 00:00:52,750
+For some reason I feel like just like I suffocate while I sleep or something, but moving along, getting the
+
+13
+00:00:52,750 --> 00:00:59,380
+blood flowing, getting some air into my lungs and then after like about a half an hour walk, I come back
+
+14
+00:00:59,860 --> 00:01:03,880
+and I try to do something difficult.
+
+15
+00:01:03,880 --> 00:01:11,020
+The first thing that I do during the day is usually something that I want to put off,
+
+16
+00:01:11,140 --> 00:01:13,440
+I don't really want to do
+
+17
+00:01:13,750 --> 00:01:15,220
+but it's something important, right?
+
+18
+00:01:15,220 --> 00:01:19,150
+It's not like you know like paying bills or taxes or something.
+
+19
+00:01:19,150 --> 00:01:20,730
+I mean those things do have to be done
+
+20
+00:01:20,770 --> 00:01:29,170
+but not like as important as building towards your goal or doing something that's going to further where
+
+21
+00:01:29,170 --> 00:01:30,040
+you are right now.
+
+22
+00:01:30,370 --> 00:01:38,110
+So I try to get that most disliked thing done first thing because once I've gotten that done then I have
+
+23
+00:01:38,110 --> 00:01:44,740
+this huge sense of achievement and if it's something that takes many days to do I'll try to get in at
+
+24
+00:01:44,740 --> 00:01:45,820
+least an hour of it.
+
+25
+00:01:46,810 --> 00:01:54,100
+So for you if you're learning to code and even putting off like a difficult module or difficult concept
+
+26
+00:01:54,190 --> 00:01:59,740
+or something you've been meaning to read up on but you just can't bring yourself to do it,
+
+27
+00:01:59,740 --> 00:02:01,900
+do that thing first thing in the morning.
+
+28
+00:02:02,270 --> 00:02:06,240
+And once you've gotten over that hurdle you'll feel so proud of yourself 
+
+29
+00:02:06,240 --> 00:02:08,100
+having done like the hardest thing of the day.
+
+30
+00:02:08,440 --> 00:02:10,389
+Everything else you'll just be able to knock out
+
+31
+00:02:10,430 --> 00:02:11,870
+easier. So
+
+32
+00:02:11,980 --> 00:02:17,210
+have a try at that trick. And have a think about what you want your daily routine to be like.
+
+33
+00:02:17,230 --> 00:02:22,510
+See if you can structure your morning and your day so that you don't have to think about it, but it
+
+34
+00:02:22,510 --> 00:02:24,940
+just happens automatically.
+
+35
+00:02:24,940 --> 00:02:28,030
+Let me know what your routines are and what has helped you.
+
+36
+00:02:28,390 --> 00:02:34,150
+And I hope that this will also help you build up towards a habit of learning to code every day.
+

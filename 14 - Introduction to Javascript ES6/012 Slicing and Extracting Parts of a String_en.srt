@@ -1,0 +1,440 @@
+1
+00:00:00,360 --> 00:00:00,990
+All right guys.
+
+2
+00:00:00,990 --> 00:00:08,160
+So, in keeping with our previous theme of creating the Twitter character count functionality, we want
+
+3
+00:00:08,160 --> 00:00:14,640
+to improve this a little bit, because, as nice as it may be telling the user that they have written 182
+
+4
+00:00:14,640 --> 00:00:21,060
+characters and that they've gone over by 42 characters, it would be a lot nicer if we simply enforced
+
+5
+00:00:21,060 --> 00:00:24,660
+this rule by removing the extra characters.
+
+6
+00:00:24,750 --> 00:00:31,170
+So, for example, if I head over here and I paste in a huge paragraph, then you can see that it gets cut
+
+7
+00:00:31,170 --> 00:00:36,870
+off at 280 characters, and all the rest is deleted.
+
+8
+00:00:37,080 --> 00:00:40,910
+So how can we implement this using Javascript?
+
+9
+00:00:41,040 --> 00:00:48,960
+Well, first we have to learn about a function called slice. And just as its name suggests, it basically
+
+10
+00:00:48,990 --> 00:00:55,500
+allows you to slice and dice your strings to separate them into individual characters.
+
+11
+00:00:55,500 --> 00:00:57,870
+Now let me show you how slice works.
+
+12
+00:00:57,870 --> 00:01:03,750
+So I'm going to go ahead and select these two lines, and I'm going to comment out all of them by holding
+
+13
+00:01:03,750 --> 00:01:06,540
+down the command key and hitting forward slash.
+
+14
+00:01:06,540 --> 00:01:10,620
+Now on Windows it's holding down control and hitting the forward slash,
+
+15
+00:01:10,650 --> 00:01:12,460
+but it does exactly the same thing.
+
+16
+00:01:12,510 --> 00:01:15,490
+It takes our code and turns it into a comment.
+
+17
+00:01:15,570 --> 00:01:20,220
+So let's say that I have a variable that's called name and it contains the string
+
+18
+00:01:20,220 --> 00:01:30,050
+‘Angela’. If I take the name variable and I slice it by writing .slice, then I can specify which slice
+
+19
+00:01:30,060 --> 00:01:32,070
+I would like out of this string.
+
+20
+00:01:32,100 --> 00:01:38,180
+So say if I only want the first character in the string then I can simply write 0,
+
+21
+00:01:38,790 --> 00:01:47,610
+1, and this means that I'm trying to take the slice out of this string called name from position 0
+
+22
+00:01:48,210 --> 00:01:52,020
+all the way to, but not including, position 1.
+
+23
+00:01:52,080 --> 00:01:55,600
+So that is equal to simply the first character.
+
+24
+00:01:55,730 --> 00:02:01,950
+And now if I hit run you can see that what we get is the capital letter A, which is the first letter
+
+25
+00:02:01,950 --> 00:02:02,990
+in this string.
+
+26
+00:02:03,000 --> 00:02:08,470
+So a really important thing to remember is that programmers always count from zero.
+
+27
+00:02:08,669 --> 00:02:13,890
+So the capital A is at position zero and not at position 1.
+
+28
+00:02:13,980 --> 00:02:22,680
+So that means that the last letter or the sixth letter is actually at position 5 because we go 0 1 2
+
+29
+00:02:22,680 --> 00:02:24,130
+3 4 5.
+
+30
+00:02:24,240 --> 00:02:29,670
+So in order to get the last letter of this variable then I would have to say give me the character at
+
+31
+00:02:29,670 --> 00:02:36,430
+position 5 and continue until but not including position 6.
+
+32
+00:02:36,510 --> 00:02:39,610
+And of course there is no character at position 6.
+
+33
+00:02:39,660 --> 00:02:46,380
+But by saying 5, 6,  we’re only grabbing the last character at position 5, which is of course
+
+34
+00:02:46,440 --> 00:02:48,310
+the lower case letter a.
+
+35
+00:02:48,360 --> 00:02:54,290
+Now I can also grab a bigger slice by having a larger range inside here.
+
+36
+00:02:54,300 --> 00:03:00,280
+So, for example, if I wrote name.slice(0,3),
+
+37
+00:03:00,300 --> 00:03:05,150
+can you predict what the output will be based on this code?
+
+38
+00:03:05,220 --> 00:03:13,970
+So the slice that starts off with the first character or the character position 0 and then ends before
+
+39
+00:03:14,070 --> 00:03:16,440
+the character position 3,
+
+40
+00:03:16,470 --> 00:03:20,610
+so remember 0 1 2 3,
+
+41
+00:03:20,670 --> 00:03:23,900
+that means that our output should be a n g.
+
+42
+00:03:24,150 --> 00:03:26,130
+And that's exactly what we get.
+
+43
+00:03:26,130 --> 00:03:33,180
+So a quick shortcut to know how many characters you're actually slicing is to simply take the upper
+
+44
+00:03:33,180 --> 00:03:35,610
+bound and minus the lower bound.
+
+45
+00:03:35,620 --> 00:03:38,050
+So say 3 - 0 is 3,
+
+46
+00:03:38,220 --> 00:03:41,110
+so that means you get three characters out.
+
+47
+00:03:41,130 --> 00:03:45,400
+If I wrote instead 1, 5, 5 - 1 is 4,
+
+48
+00:03:45,540 --> 00:03:49,830
+so I should be getting four characters out, and indeed that's what happens.
+
+49
+00:03:49,830 --> 00:03:56,820
+So let's say that we have a string abc, and we use the slice function on it. Then it allows us to separate
+
+50
+00:03:56,820 --> 00:03:58,870
+the string into separate characters.
+
+51
+00:03:58,920 --> 00:04:06,420
+But more importantly we can pick and choose which slices we would like out of this original string.
+
+52
+00:04:06,420 --> 00:04:15,630
+So for example if you write 0, 1, then you end up slicing at position 0 and then slicing at position
+
+53
+00:04:15,630 --> 00:04:16,440
+1.
+
+54
+00:04:16,470 --> 00:04:22,240
+So you end up with the first character of the string which in this case is a.
+
+55
+00:04:22,260 --> 00:04:27,420
+Now it's really important to remember that programmers always count from 0.
+
+56
+00:04:27,660 --> 00:04:32,540
+So the first character is always at position 0.
+
+57
+00:04:32,760 --> 00:04:38,340
+And that means that the third character, rather unintuitively, is actually at position 2.
+
+58
+00:04:38,340 --> 00:04:39,540
+Now what about this case?
+
+59
+00:04:39,540 --> 00:04:42,470
+What if we try to slice 1, 3?
+
+60
+00:04:42,510 --> 00:04:43,790
+What is the outcome?
+
+61
+00:04:43,890 --> 00:04:53,700
+Well, we start off at position 1, and we take the entire slice between position 1 and up to, but not including,
+
+62
+00:04:53,730 --> 00:05:02,070
+position 3, because you can see here we only have three items, one at 0, one at position 1, and the
+
+63
+00:05:02,070 --> 00:05:04,150
+last one at position 2.
+
+64
+00:05:04,440 --> 00:05:08,810
+So by slicing from 1 to 3, then we end up with the characters
+
+65
+00:05:08,880 --> 00:05:09,990
+b c.
+
+66
+00:05:10,110 --> 00:05:12,410
+So this is what the syntax looks like.
+
+67
+00:05:12,420 --> 00:05:18,760
+The function is called slice and you give it two numbers, the starting position and the ending position.
+
+68
+00:05:19,170 --> 00:05:21,410
+And you can't just write slice.
+
+69
+00:05:21,420 --> 00:05:28,950
+You also have to specify what you want to slice, so bread.slice, or, in our case, the name of a variable
+
+70
+00:05:29,070 --> 00:05:34,710
+.slice. And it's really important that you keep the syntax for your code to work.
+
+71
+00:05:34,860 --> 00:05:41,460
+Now, once you're comfortable with the slice function, I want you to implement this Twitter character counter
+
+72
+00:05:42,000 --> 00:05:45,690
+yourself by using what we learned about Javascript.
+
+73
+00:05:45,690 --> 00:05:51,420
+So you should be able to write some code that creates a prompt, and when you paste in a large paragraph of
+
+74
+00:05:51,420 --> 00:06:00,830
+text, then it should give you an alert that cuts your tweet down to only 140 characters.
+
+75
+00:06:00,840 --> 00:06:06,270
+So this will require what you've learned in this lesson about slice, as well as some of the knowledge from
+
+76
+00:06:06,270 --> 00:06:07,190
+previous lessons.
+
+77
+00:06:07,260 --> 00:06:12,350
+So pause the video now and see if you can complete this challenge.
+
+78
+00:06:12,350 --> 00:06:21,120
+All right. So let's delete these few lines of code, and let's uncomment our code here, which is exactly
+
+79
+00:06:21,120 --> 00:06:25,440
+the same as commenting, so command or control plus forward slash.
+
+80
+00:06:25,500 --> 00:06:29,670
+And this now becomes highlighted as code and treated as code.
+
+81
+00:06:29,820 --> 00:06:35,580
+So we've got a variable that's called tweet that gets bound to whatever the user enters in the prompt.
+
+82
+00:06:35,820 --> 00:06:44,790
+And then we want to write an alert that cuts down the tweet to 140 characters. So we can create a variable
+
+83
+00:06:44,790 --> 00:06:48,250
+called tweetUnder140.
+
+84
+00:06:48,270 --> 00:06:54,120
+And remember, we can't create variables with names that begin with numbers, but it can contain numbers
+
+85
+00:06:54,690 --> 00:06:59,980
+so tweetUnder140 is going to equal to tweet,
+
+86
+00:07:00,000 --> 00:07:07,760
+so that’s whatever the user put into the prompt, .slice, and then the all important numbers.
+
+87
+00:07:07,770 --> 00:07:14,720
+So, in order to get the first 140 characters we have to write 0, 140.
+
+88
+00:07:14,970 --> 00:07:19,710
+And, if we use that trick that we did before, which is where we try to calculate the range, then if we
+
+89
+00:07:19,710 --> 00:07:26,080
+take 140 - 0, that's 140 characters, starting from the first character.
+
+90
+00:07:26,340 --> 00:07:28,260
+So now let's put a semi-colon.
+
+91
+00:07:28,320 --> 00:07:33,310
+And in the alert we'll simply alert the tweetUnder140
+
+92
+00:07:33,390 --> 00:07:34,950
+back to the user.
+
+93
+00:07:35,040 --> 00:07:40,240
+So I'm going to go ahead and copy this long paragraph first and then I'm going to hit enter and run
+
+94
+00:07:40,240 --> 00:07:49,110
+our code, then I'm going to paste in that long paragraph, hit OK, and I get back 140 characters,
+
+95
+00:07:49,590 --> 00:07:52,950
+cutting it off at the 140th character.
+
+96
+00:07:53,070 --> 00:07:59,400
+And, if you want, you can go ahead and count this, or use the .length to get the computer to check it
+
+97
+00:07:59,400 --> 00:08:00,130
+for you.
+
+98
+00:08:00,140 --> 00:08:05,730
+Now, there might be a few variations on this solution, and that's totally fine. As long as it does exactly
+
+99
+00:08:05,730 --> 00:08:06,590
+the same thing,
+
+100
+00:08:06,640 --> 00:08:08,880
+then I'm happy that you've completed the challenge.
+
+101
+00:08:08,880 --> 00:08:14,730
+Now there's one way of dramatically cutting down these three lines of code into one, which some of you
+
+102
+00:08:14,730 --> 00:08:20,910
+guys might have done, and that is removing the need for these variables. So we can, for example, take the
+
+103
+00:08:20,910 --> 00:08:29,850
+value of this variable, tweetUnder140, and  replace it in here, in the alert, and that allows us to delete
+
+104
+00:08:29,910 --> 00:08:30,980
+this line.
+
+105
+00:08:30,980 --> 00:08:37,799
+And instead of having a variable called tweet, we can also simply take the value of that variable and replace
+
+106
+00:08:37,799 --> 00:08:42,250
+it in the code here, and that allows us to get rid of this first line.
+
+107
+00:08:42,390 --> 00:08:46,100
+And this will work exactly the same as before.
+
+108
+00:08:46,110 --> 00:08:51,210
+Now in the next lesson the final thing that we're going to explore with strings is how you can change
+
+109
+00:08:51,330 --> 00:08:53,310
+the case of your string.
+
+110
+00:08:53,310 --> 00:08:56,330
+So for all of that and more, I’ll see you on the next lesson.
+

@@ -1,0 +1,136 @@
+1
+00:00:00,710 --> 00:00:02,630
+Hey it's Angela here again.
+
+2
+00:00:02,719 --> 00:00:10,640
+And of course I'm here to congratulate you on completing yet another module. If you keep showing up like
+
+3
+00:00:10,640 --> 00:00:16,070
+this and if you keep just doing the work then I'm pretty sure you're going to get there and you're going
+
+4
+00:00:16,070 --> 00:00:20,520
+to be able to achieve those goals that you set out at the beginning of the course.
+
+5
+00:00:20,540 --> 00:00:29,660
+Now today I want to talk about a way of using sort of public judgment in your favor.
+
+6
+00:00:29,750 --> 00:00:36,680
+So the idea is that you know when you set out a goal for yourself and the only person that knows about
+
+7
+00:00:36,680 --> 00:00:38,050
+it is you,
+
+8
+00:00:38,210 --> 00:00:42,750
+it's very easy to say like ah, actually you know it doesn't really matter.
+
+9
+00:00:42,750 --> 00:00:49,210
+Like if I achieve it or not. Like I don't want to stress myself out too much it doesn't matter.
+
+10
+00:00:49,520 --> 00:00:52,720
+But if you actually declare it publicly
+
+11
+00:00:52,820 --> 00:00:59,570
+if you say to your friends like I am going to be able to build this thing that I want to build, I am
+
+12
+00:00:59,570 --> 00:01:05,940
+going to learn how to code, I am going to I don't know go to the gym every day,
+
+13
+00:01:05,940 --> 00:01:11,600
+then you have some accountability right? To other people not just yourself.
+
+14
+00:01:11,690 --> 00:01:20,450
+And I think as humans we find it much harder to deal with like public embarrassment or public scorn
+
+15
+00:01:20,690 --> 00:01:24,770
+when you declare that you're going to do something, like I'm going to quit smoking.
+
+16
+00:01:24,770 --> 00:01:28,350
+And then the next time they see you, you're like you know smoking away
+
+17
+00:01:28,360 --> 00:01:31,940
+it's-- it's much harder to do basically.
+
+18
+00:01:31,970 --> 00:01:39,950
+So one of the ways that you can use other people's help in motivating yourself is to just declare it
+
+19
+00:01:39,950 --> 00:01:40,300
+public.
+
+20
+00:01:40,300 --> 00:01:42,080
+Go on Facebook go on Twitter,
+
+21
+00:01:42,080 --> 00:01:49,730
+tell your friends like I am going to work one hour a day on learning how to code for 100 days and I'm
+
+22
+00:01:49,730 --> 00:01:53,020
+going to check in every day and post my progress.
+
+23
+00:01:53,060 --> 00:01:55,050
+In fact a lot of people already do this.
+
+24
+00:01:55,070 --> 00:02:01,430
+And so if you hang on to Twitter and you look at the hashtags #codingnewbie and #100DaysOfCode, you'll
+
+25
+00:02:01,430 --> 00:02:08,240
+see a lot of people document their journey like everything that they've done during the hour and they
+
+26
+00:02:08,240 --> 00:02:16,400
+post every day so that a) they have a track record of what they've done every day to learn to code.
+
+27
+00:02:16,400 --> 00:02:20,240
+But also you have loads of people cheering you on, you know like, it's hard.
+
+28
+00:02:20,270 --> 00:02:26,210
+Everybody knows that it's hard and everybody who's going-- going through it together will try to help
+
+29
+00:02:26,330 --> 00:02:27,020
+you out.
+
+30
+00:02:27,110 --> 00:02:36,770
+So try to declare publicly your intention, your goal and then go onto Twitter and use those hashtags
+
+31
+00:02:36,800 --> 00:02:46,070
+#codingnewbie, #100DaysOfCode to try and reach out basically to a community of really encouraging people
+
+32
+00:02:46,190 --> 00:02:50,350
+who will be there alongside me telling you that you can do it.
+
+33
+00:02:50,690 --> 00:02:54,270
+And I think it's really really powerful when you can tap into that resource.
+
+34
+00:02:54,320 --> 00:02:55,490
+So have a go at that.
+

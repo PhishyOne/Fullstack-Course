@@ -1,0 +1,12 @@
+
+001 Docs-Named-Colours
+https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
+
+001 RGB-Colour-Sliders
+https://www.csfieldguide.org.nz/en/interactives/rgb-mixer/
+
+003 Pesticide
+https://chrome.google.com/webstore/detail/pesticide-for-chrome/bakpbgckdnepkmkeaiomhmfcnejndkbi
+
+003 CSS-Inspection-Practice-Website
+https://appbrewery.github.io/css-inspection/

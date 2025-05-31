@@ -1,0 +1,168 @@
+1
+00:00:00,480 --> 00:00:00,800
+All right.
+
+2
+00:00:00,810 --> 00:00:06,090
+So in this module we're going to cover strings in more detail and we're going to fully get to grips
+
+3
+00:00:06,390 --> 00:00:08,550
+with this particular primitive data type.
+
+4
+00:00:08,550 --> 00:00:13,380
+So previously we saw that we can combine strings using the plus sign.
+
+5
+00:00:13,500 --> 00:00:18,780
+And this creates a single string using a special feature of programming called concatenation.
+
+6
+00:00:18,780 --> 00:00:24,810
+Now you have to imagine that you're joining together everything that's inside a quotation mark and ignoring
+
+7
+00:00:24,900 --> 00:00:25,820
+everything else.
+
+8
+00:00:25,830 --> 00:00:33,060
+So "a" + " " + "b" becomes "a b" concatenated into a single string.
+
+9
+00:00:33,060 --> 00:00:39,570
+Now let's try it out in practice. If we head over to Chrome and we open up our Developer Tools and we
+
+10
+00:00:39,570 --> 00:00:43,650
+head over to our Sources and our Snippets,
+
+11
+00:00:43,650 --> 00:00:52,550
+then we can start writing some code inside our index.js. So we can create an alert that says "hello"
+
+12
+00:00:54,360 --> 00:00:56,130
++ "world".
+
+13
+00:00:56,130 --> 00:01:02,880
+And this, when we run it, will show helloworld with no spaces in between. So we can add the space by either
+
+14
+00:01:02,910 --> 00:01:07,700
+including it inside a string, so a string with a single space,
+
+15
+00:01:07,700 --> 00:01:10,140
+and this would be "hello" " " "world",
+
+16
+00:01:10,350 --> 00:01:18,510
+or we can have it where we have a "hello" + " world", and remember that it's only the parts that are
+
+17
+00:01:18,630 --> 00:01:21,820
+inside the quotation marks that are combined.
+
+18
+00:01:22,470 --> 00:01:24,070
+All right. So this is pretty easy.
+
+19
+00:01:24,090 --> 00:01:31,120
+So I want to set you the challenge of creating a greeting message using variables and alerts.
+
+20
+00:01:31,260 --> 00:01:34,140
+So I want you to start off with two variables.
+
+21
+00:01:34,230 --> 00:01:41,190
+One is a message which is equal to Hello, and the other variable is called name,
+
+22
+00:01:41,190 --> 00:01:48,720
+and you can set it to either your name, or you can set it to whatever the user enters in a prompt.
+
+23
+00:01:48,780 --> 00:01:56,580
+Then I want you to write a single line of code where you can create a pop up or an alert that says something
+
+24
+00:01:56,580 --> 00:02:05,190
+like, that combines or concatenates these two variables into a single string using these two variables
+
+25
+00:02:05,280 --> 00:02:08,009
+rather than simply just typing the string out.
+
+26
+00:02:08,310 --> 00:02:12,490
+So pause the video and complete this quick challenge.
+
+27
+00:02:13,290 --> 00:02:13,590
+All right.
+
+28
+00:02:13,590 --> 00:02:15,200
+So that's pretty easy.
+
+29
+00:02:15,210 --> 00:02:17,790
+All we need to do is to create an alert.
+
+30
+00:02:17,940 --> 00:02:20,310
+We add the message.
+
+31
+00:02:20,310 --> 00:02:23,760
+Then we add some characters in between, so namely it'll be
+
+32
+00:02:23,820 --> 00:02:25,910
+Hello there,
+
+33
+00:02:26,100 --> 00:02:32,090
+and then we add the name that we are going to greet.
+
+34
+00:02:32,130 --> 00:02:34,650
+And finally we close off our alert.
+
+35
+00:02:34,710 --> 00:02:40,380
+Now the important thing here is that you remember to add the spaces between the message and the name
+
+36
+00:02:40,380 --> 00:02:41,370
+variables.
+
+37
+00:02:41,370 --> 00:02:46,210
+You could have done it this way or you could add another string that's simply a space as well.
+
+38
+00:02:46,230 --> 00:02:47,950
+So did you get that right?
+
+39
+00:02:47,970 --> 00:02:53,750
+If not, have a review of this lesson and have a play around with concatenation inside the Chrome Developer
+
+40
+00:02:53,760 --> 00:02:58,950
+Tools. And in the next lesson we're going to cover another cool feature of strings which is how we can
+
+41
+00:02:58,950 --> 00:03:03,650
+quickly find out the number of characters that are contained inside a single string.
+
+42
+00:03:03,870 --> 00:03:06,570
+So for all of that, I'll see you on the next lesson.
+

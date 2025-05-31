@@ -1,0 +1,744 @@
+1
+00:00:00,770 --> 00:00:01,600
+Hi, guys.
+
+2
+00:00:01,609 --> 00:00:09,470
+In this lesson, we're going to be learning about how to create Partials using EJS. And this whole world
+
+3
+00:00:09,470 --> 00:00:12,860
+of layouts, partials, templating.
+
+4
+00:00:12,860 --> 00:00:16,129
+What exactly is the difference between all of these different things?
+
+5
+00:00:16,129 --> 00:00:19,910
+That is what you're going to find out by the end of this lesson.
+
+6
+00:00:20,330 --> 00:00:27,170
+Now, one of the things that we haven't considered so far in our back end and server side development
+
+7
+00:00:27,170 --> 00:00:34,580
+is styling and all the great things we learn about the frontend, all of the adding stylesheets, adding
+
+8
+00:00:34,580 --> 00:00:41,330
+Bootstrap using Flexbox, basically adding all the stuff that makes our website look beautiful.
+
+9
+00:00:41,360 --> 00:00:48,470
+And if we want to build a website where there's animations, where there's beautiful styling, where
+
+10
+00:00:48,470 --> 00:00:56,330
+we have navbars from Bootstrap and Flexbox layouts and all of those great things that we learned in the
+
+11
+00:00:56,330 --> 00:00:58,100
+frontend section of the course,
+
+12
+00:00:58,130 --> 00:01:00,200
+what do we need to do?
+
+13
+00:01:00,200 --> 00:01:07,940
+Well, we would have to add quite a lot of code into the head section of our HTML files, adding in
+
+14
+00:01:07,940 --> 00:01:15,050
+all the stylesheets, we'd probably need to add a navbar and it's miles away from simply just doing
+
+15
+00:01:15,050 --> 00:01:20,180
+res.send and then sending over some sort of unstyled h1.
+
+16
+00:01:20,360 --> 00:01:28,340
+But if we simply go ahead and just add a whole bunch of stylesheets into the head section of our EJS
+
+17
+00:01:28,340 --> 00:01:31,880
+files, you'll notice that it doesn't actually work.
+
+18
+00:01:31,880 --> 00:01:38,240
+And the reason for this is because these files are what's known as static files.
+
+19
+00:01:38,270 --> 00:01:44,060
+The CSS or the images that you want to include on your website don't ever change,
+
+20
+00:01:44,090 --> 00:01:48,530
+unlike the files that are being generated dynamically from your backend.
+
+21
+00:01:48,530 --> 00:01:55,970
+For example, your HTML files in the form of EJS, which has to be interpreted and then rendered and
+
+22
+00:01:55,970 --> 00:01:59,300
+then converted into HTML to be sent to the browser.
+
+23
+00:01:59,720 --> 00:02:08,400
+Now, similarly, the JavaScript in your index.js needs to be run and it's used to determine the functionality
+
+24
+00:02:08,400 --> 00:02:10,199
+of your website.
+
+25
+00:02:10,500 --> 00:02:19,830
+Normally what happens with Node-based backends is we create a public folder where we add in all of our
+
+26
+00:02:19,830 --> 00:02:26,220
+static files, so maybe we can put our images in there, our styles in there, our favicons, basically
+
+27
+00:02:26,220 --> 00:02:28,140
+any file that doesn't change.
+
+28
+00:02:28,410 --> 00:02:35,310
+And then in order to tell Express that that is where our static files are located, we can use the middleware
+
+29
+00:02:35,340 --> 00:02:43,470
+express.static and then define the location or the name of our public folder.
+
+30
+00:02:43,650 --> 00:02:47,310
+Remember, this is the top level of the project.
+
+31
+00:02:47,310 --> 00:02:53,700
+At the top level, we've got our public folder and this is normally how these files are structured in
+
+32
+00:02:53,700 --> 00:02:55,680
+Node and Express projects.
+
+33
+00:02:55,740 --> 00:03:00,060
+If your public folder happened to be inside, I don't know, something else,
+
+34
+00:03:00,060 --> 00:03:08,280
+src/public, then of course you would change this path to correspond to the location.
+
+35
+00:03:08,400 --> 00:03:16,650
+But basically once we've told Express where our public folder is, it will treat everything inside as
+
+36
+00:03:16,650 --> 00:03:17,910
+a static file.
+
+37
+00:03:18,570 --> 00:03:26,880
+That means when we create our stylesheet links, the href will be relative to the location of the public
+
+38
+00:03:26,880 --> 00:03:27,660
+folder.
+
+39
+00:03:27,690 --> 00:03:36,870
+In this case, notice how the path to my stylesheet is /styles/layout.
+
+40
+00:03:36,870 --> 00:03:37,890
+css.
+
+41
+00:03:37,890 --> 00:03:48,900
+And this is because this layout.css is located in a folder called styles and it's inside this folder
+
+42
+00:03:48,900 --> 00:03:59,580
+where we've got our layout.css and then the styles folder is then located in the actual public folder.
+
+43
+00:03:59,580 --> 00:04:08,160
+So this is how our file is structured. Because we've already pointed towards the public folder as the
+
+44
+00:04:08,160 --> 00:04:10,770
+location of our static files,
+
+45
+00:04:10,770 --> 00:04:17,880
+then in order to define the location of any static files you want to use, say in your index.ejs, you
+
+46
+00:04:17,880 --> 00:04:24,570
+have to start the path from public and then you continue to the location.
+
+47
+00:04:24,570 --> 00:04:32,250
+And that's how we end up with /styles/layout.css. And the reason why we need
+
+48
+00:04:32,250 --> 00:04:39,300
+to tell Express the location of our public folder and to set these files as static is because the way
+
+49
+00:04:39,300 --> 00:04:47,370
+that file paths work in Node and Express for dynamic pages is a little bit different from static pages.
+
+50
+00:04:47,700 --> 00:04:55,260
+For example, if on our website we have some navigation links, just as I've got here, it's going to
+
+51
+00:04:55,260 --> 00:04:59,430
+different pages in my website and it's rendering different
+
+52
+00:04:59,950 --> 00:05:00,400
+EJS files.
+
+53
+00:05:00,790 --> 00:05:07,960
+But the way that I'm getting to these locations, is actually by sending GET requests to a particular
+
+54
+00:05:07,960 --> 00:05:08,800
+route.
+
+55
+00:05:08,890 --> 00:05:17,530
+These dynamic parts of our website are routed and their locations are generated dynamically, whereas
+
+56
+00:05:17,530 --> 00:05:25,690
+the static parts of our website, such as where our images are or where our CSS lives, doesn't need
+
+57
+00:05:25,690 --> 00:05:27,340
+to be generated dynamically,
+
+58
+00:05:27,340 --> 00:05:31,900
+and so we can simply specify the static folder that they live in.
+
+59
+00:05:32,590 --> 00:05:40,630
+Essentially, what all of this means for us is when you want to use a static file such as an image or
+
+60
+00:05:40,630 --> 00:05:48,460
+a CSS file, you place them inside a public folder which is at the topmost level of your project.
+
+61
+00:05:48,460 --> 00:05:57,580
+So directly in your project folder, you link to them in the EJS files relative to the location of your
+
+62
+00:05:57,580 --> 00:06:07,730
+public folder and then inside your server you can use app.use() to use the Express middleware that's
+
+63
+00:06:07,730 --> 00:06:13,490
+express.static() to specify the location of all of your static files.
+
+64
+00:06:14,060 --> 00:06:21,790
+So now that we know how we can add back all of our styling and frontend code to style our websites,
+
+65
+00:06:21,800 --> 00:06:30,560
+then you'll realize that in your EJS files, you end up with a lot of repeated code if you are going to
+
+66
+00:06:30,560 --> 00:06:36,830
+have a multi-page website because this part, the head and the header, especially if you have a navbar
+
+67
+00:06:36,860 --> 00:06:42,950
+or if you have a footer, they're going to be exactly the same across all of your pages.
+
+68
+00:06:42,980 --> 00:06:46,950
+The only part that really changes is the content.
+
+69
+00:06:46,970 --> 00:06:55,700
+So in order to not have a ton of repeated code like what we've got here in our index.ejs across all of
+
+70
+00:06:55,700 --> 00:07:03,320
+our different EJS files, maybe our about.ejs, our contacts.ejs, so that we don't have to repeat all of this
+
+71
+00:07:03,320 --> 00:07:07,540
+code and clutter up what's essentially our content pages,
+
+72
+00:07:07,550 --> 00:07:11,500
+what we can use is some of the features of EJS.
+
+73
+00:07:11,510 --> 00:07:20,170
+So we already know that we can use EJS for templating where we replace parts of our code using these EJS
+
+74
+00:07:20,270 --> 00:07:28,280
+tags in order to insert bits of dynamic content into the actual body of our code.
+
+75
+00:07:28,280 --> 00:07:38,300
+So maybe this part can have a dynamically generated year and maybe this part can have some sort of array
+
+76
+00:07:38,300 --> 00:07:41,170
+being sent over from the back-end.
+
+77
+00:07:41,180 --> 00:07:45,260
+So we're already aware that we can use EJS for templating.
+
+78
+00:07:45,260 --> 00:07:52,190
+But in this lesson I want to talk a bit more about how we can use EJS in order to reduce a whole bunch
+
+79
+00:07:52,190 --> 00:07:54,800
+of repeated code in our website.
+
+80
+00:07:54,800 --> 00:07:57,110
+And we can do that using Partials.
+
+81
+00:07:57,410 --> 00:08:06,860
+We can use the EJS tag that is angle bracket percentage sign minus (<%-) and then the keyword, "include."
+
+82
+00:08:06,860 --> 00:08:15,920
+So notice it's include not includes and then the name of the file that we want to include at this location.
+
+83
+00:08:15,950 --> 00:08:22,100
+Let's say we have a website where we have the main body of content, but at the beginning we want to
+
+84
+00:08:22,100 --> 00:08:28,550
+add a header and at the end we want to add a footer which is going to repeat across our entire website
+
+85
+00:08:28,550 --> 00:08:30,470
+and all of the different pages,
+
+86
+00:08:30,500 --> 00:08:39,289
+then what we can do is we can add the include header at the beginning of our file, say index.ejs,
+
+87
+00:08:40,010 --> 00:08:46,340
+and then at the end of our file, after all of the content, we can include our footer. So that just
+
+88
+00:08:46,340 --> 00:08:49,820
+slots those bits into the right positions
+
+89
+00:08:49,820 --> 00:08:55,580
+and all you have to focus on is what is going to change in terms of the content.
+
+90
+00:08:56,870 --> 00:09:02,720
+Let's go ahead and try an exercise and cement our knowledge by writing some code ourselves.
+
+91
+00:09:02,930 --> 00:09:06,530
+Download the 4.3 Partials zipped file.
+
+92
+00:09:07,010 --> 00:09:12,830
+As always, with all our node projects, the first thing you'll need to do is to run npm i to install
+
+93
+00:09:12,830 --> 00:09:20,030
+the node modules in the package.json and then once you've done that I want you to use Nodemon to start
+
+94
+00:09:20,030 --> 00:09:25,400
+up the solution.js so that you can see what it is that you're aiming for.
+
+95
+00:09:25,430 --> 00:09:29,120
+So go ahead and open up localhost:3000.
+
+96
+00:09:29,150 --> 00:09:37,400
+You should be able to see that you have a header with a navbar, you have a footer that has animations
+
+97
+00:09:37,400 --> 00:09:40,700
+and everything on the home page has beautiful styling.
+
+98
+00:09:40,700 --> 00:09:48,290
+Now when you go to the about pages or the contact pages, then that's when things start to break down
+
+99
+00:09:48,290 --> 00:09:57,260
+and it's your job to take a look inside the Index.js go through the steps I've listed here for you to
+
+100
+00:09:57,260 --> 00:09:59,590
+write some code and fix all of the parts
+
+101
+00:09:59,630 --> 00:10:00,410
+of the website.
+
+102
+00:10:01,670 --> 00:10:09,020
+Step 1. is to be able to render this home page, which is your index.ejs.
+
+103
+00:10:09,050 --> 00:10:15,710
+You know how to set up the GET route for the home route and make sure that this home page shows up.
+
+104
+00:10:15,740 --> 00:10:21,620
+Now, the home page is not going to show up with any styling until you write some code to make sure
+
+105
+00:10:21,620 --> 00:10:26,300
+that your static files, like your images and your CSS, actually show up.
+
+106
+00:10:26,420 --> 00:10:33,980
+And then step 3. is to add the routes to handle the render of the About and Contact pages.
+
+107
+00:10:34,190 --> 00:10:43,640
+If you take a look inside the header.ejs, you can see the href of each of these navigation links.
+
+108
+00:10:43,640 --> 00:10:48,050
+So this one is going to hit up /about.
+
+109
+00:10:48,080 --> 00:10:52,940
+Essentially, remember, a link is kind of just like a GET request, right?
+
+110
+00:10:52,940 --> 00:10:57,860
+And it's going to hit up this route and the contact page is going to hit up this route.
+
+111
+00:10:57,860 --> 00:11:07,020
+So have a think about how you might be able to detect that in your index.ejs and be able to render the
+
+112
+00:11:07,020 --> 00:11:09,030
+correct EJS pages.
+
+113
+00:11:09,660 --> 00:11:17,040
+The final step is to add the Partials to the About and Contact pages to show the header and footer and
+
+114
+00:11:17,070 --> 00:11:20,790
+of course the styling which comes in the header to those pages.
+
+115
+00:11:20,790 --> 00:11:27,990
+So instead of getting these broken pages, you have the same styling on the About and Contact pages.
+
+116
+00:11:28,590 --> 00:11:29,850
+This is your goal.
+
+117
+00:11:29,880 --> 00:11:32,670
+Pause the video and give this challenge a go.
+
+118
+00:11:35,110 --> 00:11:35,550
+All right.
+
+119
+00:11:35,560 --> 00:11:40,570
+Hopefully that was easy enough and you managed to go through all four of the steps achieving the end
+
+120
+00:11:40,570 --> 00:11:41,090
+goal.
+
+121
+00:11:41,110 --> 00:11:43,330
+Let's run through the solution code together.
+
+122
+00:11:43,570 --> 00:11:51,040
+Step one is to render the home page, the root route, which should render our index.ejs.
+
+123
+00:11:51,190 --> 00:11:57,670
+If we take a look inside the solution.js you can see all I've got is an app.get() hitting up the root
+
+124
+00:11:57,670 --> 00:12:04,810
+route so that when a browser or the client side makes a get request to that route, I'm going to res.render()
+
+125
+00:12:04,840 --> 00:12:07,090
+the index.ejs.
+
+126
+00:12:07,210 --> 00:12:14,490
+If we take a look inside the index.ejs, it already has the partial code in the beginning and the end,
+
+127
+00:12:14,500 --> 00:12:20,440
+so it's rendering the partials/header and the partials/footer.
+
+128
+00:12:20,680 --> 00:12:26,170
+Notice that these files are always relative to the views folder.
+
+129
+00:12:26,380 --> 00:12:33,100
+Just as when we render EJS files, we use the path relative to the views folder.
+
+130
+00:12:33,100 --> 00:12:42,080
+So for example, if index.ejs was inside another folder, let's say we had a folder called main and
+
+131
+00:12:42,080 --> 00:12:45,230
+that's where our index.ejs was located,
+
+132
+00:12:45,230 --> 00:12:49,970
+then we would have to render main/index.ejs.
+
+133
+00:12:50,000 --> 00:12:55,960
+So it's always relative to the location of the views folder when we do our res.render.
+
+134
+00:12:55,970 --> 00:13:02,990
+So let's go ahead and restore that and make sure that we get back to the same structure as before.
+
+135
+00:13:04,280 --> 00:13:12,650
+And so similarly, when we use the, include, EJS tag, we also are providing the location of the file
+
+136
+00:13:12,650 --> 00:13:18,470
+we want to include, the partial, in a file path that's relative to the views folder.
+
+137
+00:13:18,470 --> 00:13:25,190
+In our case, the header is located in the views folder inside the partials folder and the name of the
+
+138
+00:13:25,190 --> 00:13:27,050
+file is header.ejs.
+
+139
+00:13:27,050 --> 00:13:33,500
+So hopefully you've already spotted how that works, but if you haven't, this is a quick point just
+
+140
+00:13:33,500 --> 00:13:41,590
+to so you noticed that. Step 2. is to make sure that the static files are linked to and the CSS shows
+
+141
+00:13:41,590 --> 00:13:42,160
+up.
+
+142
+00:13:42,760 --> 00:13:50,380
+As I mentioned in the lesson previously, we need to use the Express Middleware, express.static() to specify
+
+143
+00:13:50,380 --> 00:13:57,030
+the location of our public folder so that Express knows where our static files are located.
+
+144
+00:13:57,040 --> 00:14:04,090
+If you look inside the header.ejs where we've got our links to our CSS files, you can see the href's here
+
+145
+00:14:04,120 --> 00:14:07,150
+are all relative to the public folder.
+
+146
+00:14:07,150 --> 00:14:13,390
+So it's public/styles/layout or /content.
+
+147
+00:14:13,420 --> 00:14:20,110
+By adding in this line of code, we tell Express where our static files are located and we can start
+
+148
+00:14:20,110 --> 00:14:28,690
+using them, using the links that have a relative file path, relative to the location that we specified
+
+149
+00:14:28,690 --> 00:14:29,410
+here.
+
+150
+00:14:31,030 --> 00:14:39,220
+And once you've added this line and you go to your home page, you should be able to see your home page
+
+151
+00:14:39,220 --> 00:14:43,720
+rendered with the header, with the footer and all of the styling.
+
+152
+00:14:44,290 --> 00:14:50,230
+The next step is to add the routes that handle the render of the About and Contact pages.
+
+153
+00:14:50,260 --> 00:14:58,420
+Now this is the first time that we've actually made a multi-page website with our backend server, but
+
+154
+00:14:58,420 --> 00:15:01,310
+the concept of all of this is very simple.
+
+155
+00:15:01,330 --> 00:15:07,330
+If you hover over the About link in the navbar, you can see right at the bottom left that it's trying
+
+156
+00:15:07,330 --> 00:15:10,780
+to hit up a route called /about.
+
+157
+00:15:10,960 --> 00:15:18,040
+If we inspect this, you can see this is a nav-link and it has the href of /about.
+
+158
+00:15:18,400 --> 00:15:25,120
+What that means is when I click on this, my browser is going to make a GET request to our localhost:
+
+159
+00:15:25,120 --> 00:15:31,370
+3000/about and we know all about routes and GET and POST requests,
+
+160
+00:15:31,370 --> 00:15:37,850
+so all we need to do is to make sure that our server knows how to handle that request.
+
+161
+00:15:37,970 --> 00:15:44,540
+When a GET request comes through to our server hitting up this route, we should be rendering the about.ejs
+
+162
+00:15:45,200 --> 00:15:51,490
+page. And when a GET request comes through to the contact route we should render the contact.ejs.
+
+163
+00:15:51,830 --> 00:15:59,150
+So a multi-page website with navigation links is as easy as a bunch of different GET requests.
+
+164
+00:16:00,080 --> 00:16:07,010
+Once you have added those get route handlers, then we should be able to navigate to the about page
+
+165
+00:16:07,010 --> 00:16:08,730
+and the contact page.
+
+166
+00:16:08,750 --> 00:16:14,360
+So the final thing we need to do in step4. is to add the partials to the about and contact pages
+
+167
+00:16:14,360 --> 00:16:20,060
+so that the header and footer shows up and the styling shows up just like on the home page.
+
+168
+00:16:20,270 --> 00:16:29,630
+All we need to do is to go in here and then add our header injecting it using the EJS angle bracket percentage
+
+169
+00:16:29,630 --> 00:16:36,350
+sign minus (<%-) and then "include" and then the "name of the file" that you want to include.
+
+170
+00:16:36,380 --> 00:16:40,100
+Again, the file is relative to the views folder.
+
+171
+00:16:40,100 --> 00:16:47,990
+So it will be partials/header.ejs and then let's close off our EJS bracket.
+
+172
+00:16:47,990 --> 00:16:53,810
+And then similarly at the bottom, we add in the partials/footer.ejs
+
+173
+00:16:54,140 --> 00:16:59,210
+If I hit Save, go back, now I go to my About page,
+
+174
+00:16:59,210 --> 00:17:02,660
+you can see all my styling header, footer, navigation bar,
+
+175
+00:17:02,660 --> 00:17:12,230
+it's all in place without me having to add any really real code to my EJS files. And look at how simple
+
+176
+00:17:12,230 --> 00:17:20,359
+it is to do this and also how succinct it makes our files instead of cluttering it up with a whole bunch
+
+177
+00:17:20,359 --> 00:17:27,829
+of code and these parts, the header, the footer or other parts can be reused and simply injected using
+
+178
+00:17:27,829 --> 00:17:28,700
+partials.
+
+179
+00:17:28,790 --> 00:17:37,100
+Now all we have to do is add this to the Contact page and then we are pretty much done and we have completed
+
+180
+00:17:37,100 --> 00:17:39,260
+the entire project.
+
+181
+00:17:39,860 --> 00:17:44,930
+Hopefully, that was an easy win but reinforced some of the things that we learned in this lesson about
+
+182
+00:17:44,930 --> 00:17:54,170
+Partials and how you can use partials in EJS and also how you can use static files to render CSS and
+
+183
+00:17:54,170 --> 00:17:58,130
+styling in your Express Node Web Apps.
+
+184
+00:17:58,580 --> 00:18:04,490
+In the next lesson, we've got our final project of the module coming up where we're going to be building
+
+185
+00:18:04,490 --> 00:18:06,650
+a Band Name Generator.
+
+186
+00:18:06,650 --> 00:18:08,780
+So for all of that and more, I'll see you there.
+

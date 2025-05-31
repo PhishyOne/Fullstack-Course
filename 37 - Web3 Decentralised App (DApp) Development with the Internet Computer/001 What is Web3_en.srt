@@ -1,0 +1,376 @@
+1
+00:00:00,780 --> 00:00:06,030
+Hi guys, and welcome to a brand new module in the Web Development Course.
+
+2
+00:00:06,630 --> 00:00:14,340
+Now, if you're wondering what to learn in 2022 and beyond, this is where this module comes in.
+
+3
+00:00:14,430 --> 00:00:20,640
+So we want to make sure that we're always getting you at the bleeding edge of technology.
+
+4
+00:00:20,940 --> 00:00:27,420
+So we're introducing this module in collaboration with the Dfinity Foundation, where we're going
+
+5
+00:00:27,420 --> 00:00:31,950
+to learn all about blockchain technology and how to develop with blockchain.
+
+6
+00:00:32,400 --> 00:00:38,670
+Now, a little while ago, I put out a tweet and I asked, "What are you most excited to learn in 2022
+
+7
+00:00:38,670 --> 00:00:39,360
+and beyond?"
+
+8
+00:00:39,720 --> 00:00:50,520
+And this poll was answered by 2,834 people, and it was pretty staggering just how big web3 and blockchain
+
+9
+00:00:50,940 --> 00:00:51,790
+has become.
+
+10
+00:00:51,840 --> 00:01:00,270
+And it came out on top with 44.6% of the votes as the technology that people are most excited to learn.
+
+11
+00:01:00,690 --> 00:01:07,590
+So what we're going to be doing in this module is the latest and greatest in the world of programming
+
+12
+00:01:07,590 --> 00:01:08,640
+and technology.
+
+13
+00:01:08,970 --> 00:01:11,100
+And if you're wondering why that is?
+
+14
+00:01:11,160 --> 00:01:19,230
+Well, this comes from a LinkedIn survey that showed that there was a 12X growth in the number of job
+
+15
+00:01:19,230 --> 00:01:22,200
+opportunities offered for machine learning engineers.
+
+16
+00:01:22,410 --> 00:01:29,820
+But the number of job opportunities for blockchain developers grew 33 times which is absolutely massive.
+
+17
+00:01:30,030 --> 00:01:37,410
+And part of this is because blockchain technology is growing at a rapid rate, and they need more blockchain
+
+18
+00:01:37,410 --> 00:01:38,670
+developers than ever.
+
+19
+00:01:39,150 --> 00:01:46,350
+Which means that the starting salary of somebody who is a junior blockchain developer is somewhere around
+
+20
+00:01:46,350 --> 00:01:53,700
+$120,000 in the U.S., which means if you're just starting out and you're wondering, should I become
+
+21
+00:01:53,700 --> 00:02:02,010
+a web developer, a mobile app developer, or a data scientist, it's going to be pretty hard to beat
+
+22
+00:02:02,010 --> 00:02:08,639
+this kind of starting salary if you become a blockchain developer because they are just so hot and
+
+23
+00:02:08,639 --> 00:02:11,250
+there's just not enough of them out there right now.
+
+24
+00:02:11,520 --> 00:02:20,580
+So right now, as of the beginning of 2022, there is a massive amount of growth in the number of active
+
+25
+00:02:20,580 --> 00:02:26,880
+blockchain developers or web3 developers, and that trend is probably going to continue for the next
+
+26
+00:02:26,880 --> 00:02:27,570
+five years.
+
+27
+00:02:28,050 --> 00:02:30,770
+So what exactly is all of this?
+
+28
+00:02:30,780 --> 00:02:33,330
+What exactly is Web3 anyways?
+
+29
+00:02:33,750 --> 00:02:36,150
+Well, it's basically the new internet.
+
+30
+00:02:36,750 --> 00:02:43,530
+If you were around in the late 1990s and you heard about all of this Internet fever, what is the Internet?
+
+31
+00:02:43,800 --> 00:02:44,960
+How does it work?
+
+32
+00:02:44,970 --> 00:02:47,700
+And why is everybody throwing lots of money at it?
+
+33
+00:02:48,090 --> 00:02:50,700
+Well, that's kind of where we're at with Web3 right now.
+
+34
+00:02:51,120 --> 00:02:57,150
+There is a massive amount of investment into Web3 technologies, and this is the moment where this technology
+
+35
+00:02:57,150 --> 00:03:03,000
+is really taking off in a way that is really similar to the beginning of the Internet age.
+
+36
+00:03:03,630 --> 00:03:05,820
+But what exactly is it anyways?
+
+37
+00:03:06,030 --> 00:03:14,730
+Well, Web 3.0 describes the third iteration or the third sort of stage of the Web.
+
+38
+00:03:15,480 --> 00:03:23,700
+Now, Web 1.0 was back in the nineties at the peak of the new Internet, where we were browsing with
+
+39
+00:03:23,700 --> 00:03:29,550
+Netscape and we were looking at these websites which were basically read-only,
+
+40
+00:03:29,550 --> 00:03:29,910
+right?
+
+41
+00:03:29,940 --> 00:03:31,470
+There was Geocities,
+
+42
+00:03:31,470 --> 00:03:32,790
+there was Yahoo!, 
+
+43
+00:03:33,120 --> 00:03:35,400
+there was Ask Jeeves
+
+44
+00:03:35,640 --> 00:03:38,280
+and this really is going to become a test of your age.
+
+45
+00:03:38,670 --> 00:03:44,010
+But in most of these websites, all you could do is read some information that somebody else put up,
+
+46
+00:03:44,370 --> 00:03:45,750
+and that's about it.
+
+47
+00:03:45,870 --> 00:03:47,610
+It was a read-only web.
+
+48
+00:03:48,360 --> 00:03:51,480
+Now, web 2.0 became interactive.
+
+49
+00:03:51,780 --> 00:03:55,170
+This is your Facebook, your Twitter, your Instagram.
+
+50
+00:03:55,740 --> 00:04:03,330
+All of these companies came out and built products that let you as the user, interact with them.
+
+51
+00:04:03,810 --> 00:04:08,010
+So inadvertently, you became the person who was creating the content.
+
+52
+00:04:08,280 --> 00:04:15,060
+And with all of the users across the world creating content, we built these social networks and we
+
+53
+00:04:15,060 --> 00:04:20,640
+built the content for all of these websites like TikTok or like Reddit.
+
+54
+00:04:21,180 --> 00:04:27,630
+And this is kind of the era that we're still in right now where we can read from websites, but we can
+
+55
+00:04:27,630 --> 00:04:28,380
+also write.
+
+56
+00:04:28,500 --> 00:04:31,440
+So we're interacting with these websites.
+
+57
+00:04:31,830 --> 00:04:33,840
+So what is Web 3.0?
+
+58
+00:04:34,470 --> 00:04:41,940
+Well, ever since 2018, people have started building websites and applications on the blockchain,
+
+59
+00:04:42,390 --> 00:04:45,600
+and this is the dawn of Web 3.0.
+
+60
+00:04:46,440 --> 00:04:52,950
+Now, you've already heard of Bitcoin and Ethereum and other cryptocurrencies, but we're not
+
+61
+00:04:52,950 --> 00:04:59,030
+here to talk about Bitcoin or Ethereum or or which cryptos to invest in.
+
+62
+00:04:59,040 --> 00:04:59,850
+There's plenty of that.
+
+63
+00:05:00,100 --> 00:05:05,320
+If you search for cryptocurrency on YouTube, you're going to get loads of people giving you dubious
+
+64
+00:05:05,320 --> 00:05:08,590
+recommendations about what to buy, what to not buy.
+
+65
+00:05:09,340 --> 00:05:13,510
+Now, if you think you can predict the future, then this is probably the path to go down.
+
+66
+00:05:13,990 --> 00:05:19,150
+But as developers, we can control the future, so we don't have to predict it.
+
+67
+00:05:19,690 --> 00:05:23,050
+Instead, we can build what Web3 will become.
+
+68
+00:05:23,620 --> 00:05:28,300
+And you can take a look at some of these awesome things that have been built on Web3.
+
+69
+00:05:28,810 --> 00:05:35,050
+For example, Helium is a really popular Web3 project, which is providing wireless internet to out
+
+70
+00:05:35,050 --> 00:05:42,670
+of the way places through individual people hosting their 5G network and owning cryptocurrency. Or Pool
+
+71
+00:05:42,670 --> 00:05:48,910
+Together, which lets you participate in no loss lotteries.
+
+72
+00:05:49,270 --> 00:05:54,760
+Now, even though it sounds like gambling, it's actually a very clever way of tricking you into saving
+
+73
+00:05:54,760 --> 00:05:55,180
+money.
+
+74
+00:05:55,840 --> 00:06:02,950
+This is a web3 application that takes everybody's money that they pledge and earns interest on the total
+
+75
+00:06:03,250 --> 00:06:06,220
+and then pays out the interest to one lucky winner.
+
+76
+00:06:06,580 --> 00:06:12,010
+But that means that the original money that you put in never gets lost, and you can withdraw your savings
+
+77
+00:06:12,010 --> 00:06:19,420
+at any time or build games on the blockchain like Axie Infinity, where people are actually giving up
+
+78
+00:06:19,420 --> 00:06:25,360
+their day jobs and playing this game where they're earning more than what they would in their local
+
+79
+00:06:25,360 --> 00:06:25,990
+currency.
+
+80
+00:06:26,350 --> 00:06:27,790
+So what is it anyways?
+
+81
+00:06:27,910 --> 00:06:35,530
+Well, Axie Infinity is a pokemon-like game, but the most important part is it allows you to buy and
+
+82
+00:06:35,530 --> 00:06:37,450
+sell and trade your axies.
+
+83
+00:06:38,290 --> 00:06:45,100
+And every single time one of these trades happen, the developers will take a 4.25% cut.
+
+84
+00:06:45,460 --> 00:06:51,910
+So if you look at the sales volumes, just for the last 24 hours, there's already been almost 3 million
+
+85
+00:06:51,910 --> 00:06:53,650
+worth of trades happening.
+
+86
+00:06:53,920 --> 00:07:00,910
+So if we calculate that, so that's 3 million times 0.0425,
+
+87
+00:07:01,330 --> 00:07:08,860
+so the developers have made somewhere around 127,000 in the last 24 hours, which is probably more than
+
+88
+00:07:08,860 --> 00:07:10,930
+some mainstream triple-A games.
+
+89
+00:07:11,260 --> 00:07:15,580
+And this really is just the beginning of what we're seeing in Web3.
+
+90
+00:07:15,700 --> 00:07:22,090
+The potential is huge, and this is one of the biggest opportunities in 2022 and beyond.
+
+91
+00:07:22,330 --> 00:07:27,790
+And this is something that I'm so excited to teach you about and we're going to learn about in the coming
+
+92
+00:07:27,790 --> 00:07:29,050
+lessons of this module.
+
+93
+00:07:29,470 --> 00:07:34,690
+But first, in order to make Web3 applications, we first have to understand how the blockchain works.
+
+94
+00:07:34,990 --> 00:07:37,570
+So for all of that and more, I'll see you in the next lesson.
+

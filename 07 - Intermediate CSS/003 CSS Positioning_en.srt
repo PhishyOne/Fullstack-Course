@@ -1,0 +1,1116 @@
+1
+00:00:00,260 --> 00:00:05,750
+Now, so far we've seen a lot of different intermediate concepts already in this section.
+
+2
+00:00:05,780 --> 00:00:12,050
+Now I want to talk about something that is related to the positioning of elements on screen.
+
+3
+00:00:12,050 --> 00:00:18,380
+And there are four different types that we're going to go through Relative, Absolute Fixed and Static
+
+4
+00:00:18,380 --> 00:00:19,310
+positioning.
+
+5
+00:00:19,580 --> 00:00:25,100
+When developers don't understand positioning or in this case, when building developers don't understand
+
+6
+00:00:25,100 --> 00:00:31,400
+positioning, something like this might happen either on your building, which is terrible, or on your
+
+7
+00:00:31,400 --> 00:00:33,410
+website, which is also not great.
+
+8
+00:00:33,410 --> 00:00:37,770
+So we're going to understand this concept in order for this to not happen.
+
+9
+00:00:37,790 --> 00:00:42,200
+Now, if you're doing renovation work in your builders are doing this, then I'm not sure this video
+
+10
+00:00:42,200 --> 00:00:47,360
+is going to help, but it's definitely going to help us position our items in our websites a lot better.
+
+11
+00:00:48,110 --> 00:00:54,070
+As I mentioned, there are four different values for that property position.
+
+12
+00:00:54,080 --> 00:00:57,680
+It's static, relative, absolute and fixed.
+
+13
+00:00:57,680 --> 00:01:03,240
+And I want to show you how each of these values work and consider when you would need them.
+
+14
+00:01:03,930 --> 00:01:09,660
+So the first one is Static positioning, and this is actually the HTML default.
+
+15
+00:01:09,690 --> 00:01:16,710
+As soon as you insert any piece of HTML by default, they're going to have this particular positioning
+
+16
+00:01:16,710 --> 00:01:17,790
+applied to them.
+
+17
+00:01:17,790 --> 00:01:23,400
+And this basically means that each item flows as they would in our HTML.
+
+18
+00:01:23,730 --> 00:01:31,830
+Now, if you head over to this website appbrewery.github.io/css-positioning, then you
+
+19
+00:01:31,830 --> 00:01:38,340
+can see that I've created a demo website for you to interactively see what each of these different styles
+
+20
+00:01:38,340 --> 00:01:39,930
+of positioning would look like.
+
+21
+00:01:39,960 --> 00:01:46,590
+Now, if the font here is too small because I needed to get enough space in here to scroll, feel free
+
+22
+00:01:46,590 --> 00:01:53,580
+to go to view and then click on zoom in and press the plus button until it fits whichever size your
+
+23
+00:01:53,580 --> 00:01:54,840
+eyes require.
+
+24
+00:01:55,260 --> 00:02:01,350
+Once you're here, you can click on the different styles of positioning, and the first style is static
+
+25
+00:02:01,350 --> 00:02:02,250
+positioning.
+
+26
+00:02:02,280 --> 00:02:09,840
+We can set the position property to a value of static, but we also don't have to,
+
+27
+00:02:09,840 --> 00:02:12,150
+this is just applied by default.
+
+28
+00:02:12,420 --> 00:02:18,630
+In this case, this is just what default HTML does when you add another item here,
+
+29
+00:02:18,660 --> 00:02:22,250
+so, in this case, I've got a div here which I've colored green,
+
+30
+00:02:22,260 --> 00:02:28,350
+once this has been added, it just goes at the bottom of whatever previous element there is and you
+
+31
+00:02:28,350 --> 00:02:33,600
+can see this quite easily if you've installed the pesticide Chrome plugin.
+
+32
+00:02:34,080 --> 00:02:39,990
+Previously I showed you how to get hold of the pesticide chrome extension and now if we hold down our
+
+33
+00:02:39,990 --> 00:02:46,740
+control key, you can see we've got an "h2" here, and then we've got a "code" element here,
+
+34
+00:02:46,800 --> 00:02:50,220
+and then finally we've got a div element here.
+
+35
+00:02:50,220 --> 00:02:55,530
+So notice how that div just goes right at the end of whatever previous element there is.
+
+36
+00:02:55,530 --> 00:03:04,830
+And we can also inspect the code here to see this is where it is, and it simply just continues in the
+
+37
+00:03:04,830 --> 00:03:05,730
+default positioning.
+
+38
+00:03:05,730 --> 00:03:06,930
+This is what static does.
+
+39
+00:03:06,930 --> 00:03:09,240
+It's just what you've seen so far.
+
+40
+00:03:09,780 --> 00:03:16,020
+Now what's more interesting are the other three different types and one of the most common ones you're
+
+41
+00:03:16,020 --> 00:03:20,280
+going to come across that you're probably going to use is Relative positioning.
+
+42
+00:03:20,310 --> 00:03:27,120
+And this is where an item gets positioned relative to its default position.
+
+43
+00:03:27,600 --> 00:03:34,680
+Remember, previously in our static positioning, I told you that HTML just makes your items go one on top
+
+44
+00:03:34,680 --> 00:03:38,820
+of the other with almost no space in between unless there is some sort of default.
+
+45
+00:03:38,850 --> 00:03:45,690
+Well, relative positioning, basically takes that original position and you can apply some changes to
+
+46
+00:03:45,690 --> 00:03:45,960
+it.
+
+47
+00:03:45,960 --> 00:03:49,800
+So you can move it relative to where it should be.
+
+48
+00:03:49,830 --> 00:03:55,890
+So in this case, where the purple box is, is where it should be and where the blue boxes, it's been
+
+49
+00:03:55,890 --> 00:03:59,850
+shifted to be pushed from the left and from the top.
+
+50
+00:03:59,850 --> 00:04:03,390
+So that gets this new relative position.
+
+51
+00:04:04,210 --> 00:04:10,360
+Again, coming back to our website, if we select relative positioning, notice how these two other
+
+52
+00:04:10,360 --> 00:04:12,110
+parts of our code now is relevant.
+
+53
+00:04:12,130 --> 00:04:16,279
+We've got a push from the left and a push from the top.
+
+54
+00:04:16,300 --> 00:04:23,210
+Whereas originally this box was supposed to be somewhere here-ish.
+
+55
+00:04:23,230 --> 00:04:28,990
+I'm just going to draw a dashed line for where it was when we had the static positioning.
+
+56
+00:04:28,990 --> 00:04:30,880
+This is where it's supposed to be.
+
+57
+00:04:30,940 --> 00:04:38,950
+Instead, we've moved it 50px from the left using this line, and then we've moved it 50px
+
+58
+00:04:38,950 --> 00:04:41,350
+from the top using this line.
+
+59
+00:04:41,350 --> 00:04:49,090
+And this works because it is positioned relative to the original supposed location.
+
+60
+00:04:49,780 --> 00:04:57,880
+So now if we select this box, you can see it has position, relative left 50px, top 50px.
+
+61
+00:04:57,880 --> 00:05:05,330
+And this box, if we select it, you can see it has position static, which means that the left and
+
+62
+00:05:05,330 --> 00:05:10,370
+the top, it doesn't actually do anything because it's static position.
+
+63
+00:05:10,370 --> 00:05:12,170
+So it's just default position.
+
+64
+00:05:12,200 --> 00:05:16,550
+It doesn't matter if you add these properties, which you can, it just doesn't do anything.
+
+65
+00:05:17,360 --> 00:05:20,330
+That's the difference between relative and static positioning.
+
+66
+00:05:20,330 --> 00:05:25,910
+Relative positioning takes the static position and then you can move it relative to that location.
+
+67
+00:05:26,390 --> 00:05:29,870
+Now, remember, relative does not mean relative to anything else,
+
+68
+00:05:29,870 --> 00:05:32,910
+it's relative to its supposed location.
+
+69
+00:05:32,930 --> 00:05:37,020
+Some people get that confused and they think it's relative to something else on screen,
+
+70
+00:05:37,070 --> 00:05:37,410
+no. No.
+
+71
+00:05:37,460 --> 00:05:40,910
+We're going to remember this when you use relative positioning.
+
+72
+00:05:41,450 --> 00:05:51,590
+Now, the next type is Absolute positioning, and this makes the position relative to the nearest positioned
+
+73
+00:05:51,590 --> 00:05:52,820
+ancestor.
+
+74
+00:05:52,850 --> 00:05:58,490
+Now, this sentence is a little bit confusing, but remember, in the previous lesson we spoke about
+
+75
+00:05:58,490 --> 00:05:59,800
+the ancestors.
+
+76
+00:05:59,810 --> 00:06:09,530
+So for example, if I had a div here that is a purple box and inside that purple box I put in another
+
+77
+00:06:09,530 --> 00:06:12,500
+div, which is a blue box.
+
+78
+00:06:12,890 --> 00:06:21,470
+Well, in this case the blue box is a descendant and the purple box is an ancestor.
+
+79
+00:06:22,310 --> 00:06:33,800
+If this particular div has the position property set, for example, if we set this as relative and
+
+80
+00:06:33,800 --> 00:06:44,520
+we set the blue box to have a position as absolute, then this blue box is then going to be positioned
+
+81
+00:06:44,520 --> 00:06:48,990
+relative to its positioned ancestor.
+
+82
+00:06:49,110 --> 00:06:51,050
+And notice the wording here,
+
+83
+00:06:51,060 --> 00:06:57,150
+the nearest ancestor, it could have multiple ancestors with position relative, but it's the nearest
+
+84
+00:06:57,150 --> 00:06:58,800
+one that matters.
+
+85
+00:06:59,250 --> 00:07:05,670
+If it doesn't have a positioned ancestor, then the second rule becomes valid,
+
+86
+00:07:05,700 --> 00:07:13,080
+where it gets positioned relative to the top left corner of the web page, which is right here.
+
+87
+00:07:14,370 --> 00:07:21,150
+Now, if you go and select the absolute positioning, notice how this box is now wildly weird in terms
+
+88
+00:07:21,150 --> 00:07:22,110
+of its position,
+
+89
+00:07:22,110 --> 00:07:29,790
+and this is because it has no ancestor that has the position property set.
+
+90
+00:07:30,330 --> 00:07:37,620
+If we select our div right here, you can see this is where it is, and its ancestor is this div.
+
+91
+00:07:37,620 --> 00:07:44,160
+And then going further up we've also got this "main" element which is also another ancestor and then we've
+
+92
+00:07:44,160 --> 00:07:45,970
+got the body, and then the HTML.
+
+93
+00:07:45,990 --> 00:07:49,920
+So this is the flow of how we get to this descendant.
+
+94
+00:07:49,950 --> 00:07:58,530
+Now, because neither this div, nor this "main" nor the body, nor the HTML have the position property
+
+95
+00:07:58,560 --> 00:08:05,190
+set, well then in that case, this box is positioned relative to the top left of the web page.
+
+96
+00:08:05,220 --> 00:08:08,070
+And what we said is position absolute,
+
+97
+00:08:08,100 --> 00:08:10,860
+top: 50px;
+
+98
+00:08:10,860 --> 00:08:12,120
+left: 50px;
+
+99
+00:08:12,240 --> 00:08:15,090
+And that's exactly what it has done for us.
+
+100
+00:08:15,120 --> 00:08:21,840
+It's pushed it from the top by 50px and it's pushed it from the left by 50px,
+
+101
+00:08:21,840 --> 00:08:26,880
+and this is relative to the top left corner of the web page.
+
+102
+00:08:27,690 --> 00:08:34,530
+Remember that the first part of the absolute positioning rule is that if it had a positioned ancestor,
+
+103
+00:08:34,530 --> 00:08:37,880
+then it would be positioned relative to that ancestor.
+
+104
+00:08:37,890 --> 00:08:45,600
+So we can actually change our code here inside the inspector for let's say we're going to take this
+
+105
+00:08:45,600 --> 00:08:45,990
+box.
+
+106
+00:08:45,990 --> 00:08:51,540
+So make sure you've actually selected the right box that has the absolute positioning, as you can see
+
+107
+00:08:51,540 --> 00:08:52,080
+here.
+
+108
+00:08:52,170 --> 00:08:54,090
+And let's find its ancestor.
+
+109
+00:08:54,120 --> 00:08:57,180
+The first one I can see is this one.
+
+110
+00:08:57,390 --> 00:09:01,360
+So we're going to select it and then we're going to add a CSS rule.
+
+111
+00:09:01,380 --> 00:09:07,020
+So we're going to go inside the element.style, which is going to add an inline style to this element
+
+112
+00:09:07,020 --> 00:09:12,360
+we've selected, and I'm going to set its position to relative.
+
+113
+00:09:12,600 --> 00:09:20,490
+Now notice how as soon as I've done that, our box has moved, and now what it's done is it's moved so
+
+114
+00:09:20,490 --> 00:09:25,530
+that these rules that we've applied to this box, namely push it down from the top and push it down
+
+115
+00:09:25,530 --> 00:09:34,140
+from the left, is now relative to its nearest positioned ancestor, which is this div right here.
+
+116
+00:09:34,530 --> 00:09:39,030
+And if you look at this, you can see it has followed that rule.
+
+117
+00:09:39,030 --> 00:09:47,520
+It's pushed it 50px from the top of this div and 50px from the left of this div.
+
+118
+00:09:47,910 --> 00:09:50,760
+And it makes this true.
+
+119
+00:09:50,760 --> 00:09:54,660
+And that's because we've got that code here on the box.
+
+120
+00:09:54,690 --> 00:10:02,910
+The tricky thing about the absolute positioning is you have to make sure if you want it positioned relative
+
+121
+00:10:02,910 --> 00:10:09,030
+to another item, you have to set that ancestor to have position relative because otherwise it's going
+
+122
+00:10:09,030 --> 00:10:13,170
+to default to positioning relative to the top left of the web page.
+
+123
+00:10:14,280 --> 00:10:21,360
+Now another aspect of absolute positioning that's important to mention while we're here is the z-index (Zed),
+
+124
+00:10:21,360 --> 00:10:26,610
+as we would say in the UK, or if you're American, it would be the z-index (Zee).
+
+125
+00:10:26,940 --> 00:10:35,100
+Now what this does is it determines which elements go on top of which in the Z-axis.
+
+126
+00:10:35,130 --> 00:10:41,040
+If we think of our web page as a graph where we have the Y-axis going this way,
+
+127
+00:10:41,320 --> 00:10:49,090
+the X-axis going horizontally this way, then we can also have a Z-axis, which actually goes in the
+
+128
+00:10:49,090 --> 00:10:52,600
+third dimension, and that's the Z-axis.
+
+129
+00:10:53,080 --> 00:10:57,010
+This basically just determines which one goes on top of which.
+
+130
+00:10:57,400 --> 00:11:02,060
+If A has a higher z-index, let's set it to 100
+
+131
+00:11:02,080 --> 00:11:04,870
+and B had a lower z-index,
+
+132
+00:11:04,870 --> 00:11:13,840
+let's say it was 50, then this one is going to come out trumps and A is going to sit on top of B.
+
+133
+00:11:13,840 --> 00:11:18,580
+And you can see this already happening with our absolute positioned box.
+
+134
+00:11:18,580 --> 00:11:21,310
+You can see it's sitting on top of everything else.
+
+135
+00:11:21,790 --> 00:11:27,610
+If we wanted to not do that, say we wanted to make this box go behind everything, well then we can
+
+136
+00:11:27,610 --> 00:11:33,220
+set this property called z-index and we can make it even negative if we wanted to.
+
+137
+00:11:33,310 --> 00:11:37,800
+Everything on screen has a default z-index of zero.
+
+138
+00:11:37,810 --> 00:11:44,960
+But notice how even if I set the z-index of this box to zero, it still doesn't fit in with everything
+
+139
+00:11:44,960 --> 00:11:45,380
+else,
+
+140
+00:11:45,380 --> 00:11:50,690
+and that's because when you set something with absolute position, it actually takes the element out
+
+141
+00:11:50,690 --> 00:11:54,710
+of the original HTML flow and puts it on another layer.
+
+142
+00:11:54,740 --> 00:12:01,880
+This is why we can quite easily change it to a negative z-index to push it behind or use the default,
+
+143
+00:12:01,880 --> 00:12:06,740
+which will take it above, but we can't actually have it inside the flow anymore.
+
+144
+00:12:06,740 --> 00:12:12,380
+For that to happen, we need to go back to static position or relative position.
+
+145
+00:12:14,380 --> 00:12:19,090
+Now, the final type of positioning I want to talk about today is Fixed positioning.
+
+146
+00:12:19,090 --> 00:12:26,360
+And this is a position that is going to be relative to the top left corner of the browser window.
+
+147
+00:12:26,380 --> 00:12:33,130
+Remember how absolute position defaults to the top left of the web page, But in this case, when it's
+
+148
+00:12:33,130 --> 00:12:37,060
+fixed, it's going to be defaulted to the browser.
+
+149
+00:12:37,060 --> 00:12:42,910
+And what that means is that even if you scroll up and down on the web page, it's still going to be
+
+150
+00:12:42,910 --> 00:12:47,380
+located in the same location relative to the browser.
+
+151
+00:12:47,380 --> 00:12:49,940
+So this is where a demo comes in really handy.
+
+152
+00:12:49,960 --> 00:12:56,500
+Let's go into fixed positioning and notice it looks the same as our absolute position until you start
+
+153
+00:12:56,500 --> 00:13:04,420
+scrolling and notice how it's just staying right there with 50px are pushed down from the top and
+
+154
+00:13:04,420 --> 00:13:05,500
+from the left.
+
+155
+00:13:05,710 --> 00:13:10,540
+And it doesn't matter where you scroll to, it's always going to hover right there.
+
+156
+00:13:10,540 --> 00:13:16,220
+Whereas with absolute positioning, you can see it's relative to the web page and it moves with the
+
+157
+00:13:16,220 --> 00:13:17,030
+web page.
+
+158
+00:13:17,030 --> 00:13:23,180
+So have a think about this when you're using these different position styles in terms of what you want.
+
+159
+00:13:24,020 --> 00:13:32,120
+Notice how in all four different positional values, I've set it to have a top and a left, and this is
+
+160
+00:13:32,120 --> 00:13:35,450
+how we position things in addition to that "position property."
+
+161
+00:13:35,450 --> 00:13:39,220
+So you can also change this and set it to instead of left.
+
+162
+00:13:39,230 --> 00:13:44,690
+You can change that to right and it would just move it to the right instead and have 50px from
+
+163
+00:13:44,690 --> 00:13:45,350
+the right.
+
+164
+00:13:45,350 --> 00:13:48,800
+But in addition, you can also add extra margin.
+
+165
+00:13:48,800 --> 00:13:54,650
+So notice how position actually goes outside of margin in the box model.
+
+166
+00:13:54,650 --> 00:14:00,170
+So I can add an extra 50px of margin and it will push it even further
+
+167
+00:14:00,170 --> 00:14:07,820
+over here. The position is actually separate from the margin, which in turn is separate from the padding,
+
+168
+00:14:07,820 --> 00:14:10,460
+which in turn is separate from the width and the height.
+
+169
+00:14:11,300 --> 00:14:17,030
+But the really nice thing about position is notice how it's calculating these other values for you so
+
+170
+00:14:17,030 --> 00:14:22,790
+that you maintain these positional values of 50 from the top and 50 from the right.
+
+171
+00:14:22,790 --> 00:14:26,780
+And as I move it around, you can see how it's reacting to it,
+
+172
+00:14:26,780 --> 00:14:31,820
+it's just changing the left side automatically to keep it in that position.
+
+173
+00:14:32,300 --> 00:14:37,280
+If all of that seemed a little bit confusing, don't worry, we're going to solidify our knowledge by
+
+174
+00:14:37,280 --> 00:14:40,760
+practicing it and writing it in code in an exercise.
+
+175
+00:14:40,760 --> 00:14:46,280
+So go ahead and download the exercise from this lesson, CSS Positioning and extract it.
+
+176
+00:14:46,550 --> 00:14:54,140
+And then once you open it, go ahead and open the index.html and then preview it on the right hand side
+
+177
+00:14:54,140 --> 00:14:55,010
+right here.
+
+178
+00:14:55,430 --> 00:15:02,570
+You'll notice that it's an absolutely blank page because all we have in the HTML is a single div that
+
+179
+00:15:02,570 --> 00:15:04,310
+contains another div.
+
+180
+00:15:04,310 --> 00:15:12,650
+But by the end of this exercise, what we're aiming to do is to create a rectangle with a circle inside.
+
+181
+00:15:13,550 --> 00:15:19,220
+Before you start, I first want to show you how you can create a circle using CSS.
+
+182
+00:15:19,250 --> 00:15:26,450
+This is something that we haven't seen yet, so if I go ahead and target this ".red-circle", using the class
+
+183
+00:15:26,450 --> 00:15:33,140
+selector, I can give it a background-color of red so that we can actually see it on screen.
+
+184
+00:15:33,140 --> 00:15:36,710
+And I'm also going to give it a width and a height.
+
+185
+00:15:36,710 --> 00:15:41,120
+So it's going to be 200px across and 200px high.
+
+186
+00:15:41,120 --> 00:15:44,930
+And once I've done that, you can see I've now got a square on the screen.
+
+187
+00:15:44,930 --> 00:15:50,900
+So without a width and a height, of course it's not visible and this is stuff that you should already
+
+188
+00:15:50,900 --> 00:15:51,110
+know.
+
+189
+00:15:51,110 --> 00:15:52,520
+So there's nothing new here.
+
+190
+00:15:52,550 --> 00:15:59,090
+But if I go ahead and add a border-radius which will define the radii of the outer border.
+
+191
+00:15:59,120 --> 00:16:00,530
+Notice what happens here.
+
+192
+00:16:00,530 --> 00:16:03,410
+Let's go ahead and give it a 5px border-radius,
+
+193
+00:16:03,440 --> 00:16:07,430
+makes the corners a little bit rounded. So we can extend this,
+
+194
+00:16:07,430 --> 00:16:10,010
+let's try 50px and you can see it now
+
+195
+00:16:10,040 --> 00:16:13,580
+looks like an app icon almost, a little rounded square.
+
+196
+00:16:13,580 --> 00:16:15,800
+But I can also use percentages.
+
+197
+00:16:15,800 --> 00:16:21,920
+So if I set it to have a 50% border radius, then I create a perfect circle.
+
+198
+00:16:21,920 --> 00:16:25,190
+And this is how we create circles in CSS.
+
+199
+00:16:25,280 --> 00:16:31,460
+Now that you've got this red circle, it's only a matter of time before you get to the final outcome,
+
+200
+00:16:31,460 --> 00:16:35,600
+which is a circle positioned on top of a rectangle.
+
+201
+00:16:35,600 --> 00:16:36,950
+Now notice some things here,
+
+202
+00:16:36,950 --> 00:16:46,190
+we want the rectangle to be 300px tall and 500px wide, and we also want it to be positioned
+
+203
+00:16:46,220 --> 00:16:52,880
+not using any margins, but using the position properties to be pushed down 200 from the top, 200 from
+
+204
+00:16:52,880 --> 00:16:53,660
+the left.
+
+205
+00:16:53,780 --> 00:17:04,280
+In addition, we want this circle to be positioned relative to the rectangle and 250 from the left,
+
+206
+00:17:04,280 --> 00:17:06,380
+150 from the top.
+
+207
+00:17:06,500 --> 00:17:11,810
+This is going to test what you've learned and if you can't figure out how to do it, I recommend instead
+
+208
+00:17:11,810 --> 00:17:13,089
+of going forwards and looking at
+
+209
+00:17:13,210 --> 00:17:20,339
+the solution, go backwards in the video and revise what we learned about positioning and you will eventually
+
+210
+00:17:20,339 --> 00:17:21,060
+be able to get there.
+
+211
+00:17:21,060 --> 00:17:25,950
+I promise you it's not too difficult, but you do have to do a little bit of thinking.
+
+212
+00:17:26,099 --> 00:17:29,250
+Pause the video and try to complete this challenge.
+
+213
+00:17:33,820 --> 00:17:34,150
+All right.
+
+214
+00:17:34,150 --> 00:17:35,620
+So let's go through the solution.
+
+215
+00:17:35,620 --> 00:17:41,440
+But before we do, I want to make sure you really try to understand the lesson, because pushing through
+
+216
+00:17:41,440 --> 00:17:45,310
+with the code is not going to help you unless you actually understand what you're doing.
+
+217
+00:17:45,310 --> 00:17:47,560
+Coding is all about thinking.
+
+218
+00:17:47,560 --> 00:17:49,030
+It's not about memorizing things,
+
+219
+00:17:49,030 --> 00:17:53,860
+tt's not about knowing the answer because you're going to get a different situation in the future and
+
+220
+00:17:53,860 --> 00:17:56,890
+you need to make sure you know why things happen,
+
+221
+00:17:56,890 --> 00:17:59,110
+and that requires a little bit of struggle.
+
+222
+00:17:59,470 --> 00:18:00,970
+Let's go through the solution.
+
+223
+00:18:00,970 --> 00:18:08,260
+So I'm going to create this rectangle which has a class of ".blue-box", and I'm going to give it a background-color
+
+224
+00:18:08,260 --> 00:18:16,750
+of blue, and we see it show up because it contains a child element that has a height and width.
+
+225
+00:18:16,750 --> 00:18:21,610
+So the parent obviously then has to have a height and width, but that's not the height and width that
+
+226
+00:18:21,610 --> 00:18:22,120
+we want.
+
+227
+00:18:22,150 --> 00:18:25,720
+We want it to be 300px  in height
+
+228
+00:18:28,900 --> 00:18:33,290
+and we want it to have 500px in width.
+
+229
+00:18:33,470 --> 00:18:38,150
+So now we have our rectangle and our circle correctly sized.
+
+230
+00:18:38,180 --> 00:18:40,040
+Now it's all about positioning.
+
+231
+00:18:40,250 --> 00:18:42,920
+Firstly, let's position this rectangle.
+
+232
+00:18:42,920 --> 00:18:47,300
+We want it 200px from the top, 200px from the left.
+
+233
+00:18:47,330 --> 00:18:53,900
+We can either do this using absolute positioning because it will be relative to the top left if we don't
+
+234
+00:18:53,900 --> 00:19:00,110
+set any of the other elements to have a position, or we can set it using relative positioning.
+
+235
+00:19:00,110 --> 00:19:05,660
+Because remember that the default location is also going to be at the top left corner.
+
+236
+00:19:05,900 --> 00:19:10,490
+I'm going to use relative positioning and you're going to see very quickly why.
+
+237
+00:19:10,580 --> 00:19:18,920
+But let's go ahead and set the position to relative and then let's set it to have a top of 200px
+
+238
+00:19:18,920 --> 00:19:28,520
+to push it down 200px here, and then let's give it a left of 200px so that it's pushed 200px
+
+239
+00:19:28,520 --> 00:19:29,690
+from the left.
+
+240
+00:19:29,690 --> 00:19:34,360
+And now we have this sort of image, which is already pretty close.
+
+241
+00:19:34,360 --> 00:19:40,570
+Now we just have to move the circle and this is where that relative positioning is going to come in
+
+242
+00:19:40,600 --> 00:19:45,880
+handy because we want to position this circle relative to the box.
+
+243
+00:19:45,910 --> 00:19:51,550
+Notice how all of these sizes I've given are relative to this blue box.
+
+244
+00:19:51,550 --> 00:19:55,900
+So 150px from the top, 250px from the left.
+
+245
+00:19:55,900 --> 00:20:06,190
+And this is easily achieved if we set the position to absolute and then we set the top to push down
+
+246
+00:20:06,190 --> 00:20:12,250
+by 150px and the left to push by 250px.
+
+247
+00:20:12,340 --> 00:20:17,530
+And now you can see we have exactly the same thing as our goal.
+
+248
+00:20:17,710 --> 00:20:24,400
+Now notice these numbers that I've given here 150px, 250px,
+
+249
+00:20:24,400 --> 00:20:28,990
+basically they are half, 250 is half of 500
+
+250
+00:20:28,990 --> 00:20:31,600
+and 150 is half of 300.
+
+251
+00:20:31,780 --> 00:20:39,920
+Essentially, I wanted the top left corner of this circle to be right in the middle of the rectangle.
+
+252
+00:20:39,930 --> 00:20:48,530
+Alternatively to setting these pixel values, you could have also set it to 50% from the top and 50%
+
+253
+00:20:48,530 --> 00:20:49,610
+from the left.
+
+254
+00:20:49,610 --> 00:20:52,940
+It would achieve exactly the same thing.
+
+255
+00:20:53,450 --> 00:20:59,630
+But notice how this doesn't place it in the middle of the rectangle, as some people would think, because
+
+256
+00:20:59,630 --> 00:21:08,960
+this is the point that we're defining the top left corner of this div now, even though the corners
+
+257
+00:21:08,990 --> 00:21:14,690
+are rounded, it doesn't mean that this div isn't a box, it's still a box.
+
+258
+00:21:14,690 --> 00:21:17,110
+It's the CSS box model.
+
+259
+00:21:17,120 --> 00:21:26,810
+All we've done is we've said the top left corner should be 50% of the width from the left of the rectangle
+
+260
+00:21:26,810 --> 00:21:31,250
+and 50% from the top of the rectangle.
+
+261
+00:21:31,700 --> 00:21:37,940
+So if you wanted this circle to be bang in the middle, you would actually have to specify different
+
+262
+00:21:37,940 --> 00:21:40,790
+values for the top and the left.
+
+263
+00:21:41,660 --> 00:21:45,500
+Now you could have actually solved this challenge in many different ways,
+
+264
+00:21:45,500 --> 00:21:49,520
+this didn't have to be relative and this didn't have to be absolute.
+
+265
+00:21:49,550 --> 00:21:54,860
+You could have, for example, set this position to be absolute because then it would make this blue
+
+266
+00:21:54,860 --> 00:22:01,400
+box relative to the top left corner because it doesn't have any other ancestors which have a position.
+
+267
+00:22:01,670 --> 00:22:06,800
+Alternatively, you could have set this to fixed because in this case we don't have any other content
+
+268
+00:22:06,800 --> 00:22:09,950
+on our website, so it doesn't actually scroll.
+
+269
+00:22:09,950 --> 00:22:13,520
+And so you won't see that movement relative to the browser.
+
+270
+00:22:14,150 --> 00:22:17,420
+As you can see, there's many ways of doing the same thing,
+
+271
+00:22:17,420 --> 00:22:24,500
+but the important thing is when your code gets more complex when there's more items in your HTML that
+
+272
+00:22:24,500 --> 00:22:30,920
+you understand what your CSS is doing and how to resolve any conflicts or when it's not doing what you
+
+273
+00:22:30,920 --> 00:22:31,940
+expect it to.
+
+274
+00:22:31,940 --> 00:22:32,210
+So
+
+275
+00:22:32,250 --> 00:22:36,240
+that you understand what code you're actually writing and how it's behaving.
+
+276
+00:22:36,420 --> 00:22:40,860
+Now that we know a little bit more about positioning, we can head over to the next lesson where I've
+
+277
+00:22:40,860 --> 00:22:46,920
+got a final project for this section where we're going to create the flag of Laos using everything we've
+
+278
+00:22:46,920 --> 00:22:48,000
+learned so far.
+
+279
+00:22:48,000 --> 00:22:50,040
+For all of that and more, I'll see you there.
+

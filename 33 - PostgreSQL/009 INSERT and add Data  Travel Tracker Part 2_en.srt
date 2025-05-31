@@ -1,0 +1,860 @@
+1
+00:00:00,290 --> 00:00:08,210
+In the last lesson, we're working on our travel tracker application, and we learned about how to use
+
+2
+00:00:08,210 --> 00:00:10,610
+select in PostgreSQL.
+
+3
+00:00:10,610 --> 00:00:16,550
+And we completed the first part of our application by applying the things that we learned.
+
+4
+00:00:16,580 --> 00:00:20,180
+So now let's do the second part of the application.
+
+5
+00:00:20,180 --> 00:00:27,350
+And in order to do that, we need to learn how to use insert in our PostgreSQL and node back end.
+
+6
+00:00:27,560 --> 00:00:33,470
+Again we're going to use the data from our rice and wheat production.
+
+7
+00:00:33,470 --> 00:00:39,500
+If at this point of the course you still don't know that I'm just obsessed with food, then I'm glad
+
+8
+00:00:39,500 --> 00:00:41,420
+I've hidden it well.
+
+9
+00:00:41,420 --> 00:00:43,910
+And by the way, how great is rice?
+
+10
+00:00:43,910 --> 00:00:46,040
+Just good rice.
+
+11
+00:00:47,810 --> 00:00:56,150
+And if you're not into food, a really good ball of sushi rice is surely going to change that.
+
+12
+00:00:56,150 --> 00:01:01,460
+In fact, sometimes I just snack on rice itself from the rice cooker.
+
+13
+00:01:01,670 --> 00:01:10,280
+But anyways, continuing with programming, we have our table of data from various countries and their
+
+14
+00:01:10,280 --> 00:01:19,850
+rice and wheat production, and we're going to use that table to learn to add data into the table.
+
+15
+00:01:19,940 --> 00:01:23,960
+The key word here is the insert command.
+
+16
+00:01:23,960 --> 00:01:28,490
+And you've seen this previously when we looked at SQL in the last module.
+
+17
+00:01:28,640 --> 00:01:33,890
+But essentially what I want you to do is to take that table that you've already got, which is called
+
+18
+00:01:33,890 --> 00:01:35,840
+world Food.
+
+19
+00:01:35,840 --> 00:01:41,690
+And I want you to insert a new row or a new record of data.
+
+20
+00:01:41,690 --> 00:01:43,850
+And the data is for Italy.
+
+21
+00:01:43,850 --> 00:01:45,380
+So that's the country name.
+
+22
+00:01:45,380 --> 00:01:52,460
+And then 1.46 is the number of million tons of rice production that happens in Italy, which is actually
+
+23
+00:01:52,460 --> 00:01:53,660
+surprisingly large.
+
+24
+00:01:53,660 --> 00:01:59,450
+So slightly obscure fact if you're based in Europe, most of the sushi rice that you're eating, produced
+
+25
+00:01:59,450 --> 00:02:05,900
+by all of the Japanese sushi rice companies, is actually produced in Italy.
+
+26
+00:02:05,900 --> 00:02:09,590
+They seem to be some sort of rice specialists of Europe.
+
+27
+00:02:09,590 --> 00:02:14,600
+And then this is the amount of million tons of wheat production they produce.
+
+28
+00:02:14,600 --> 00:02:18,170
+So we're going to insert that into our table.
+
+29
+00:02:18,170 --> 00:02:20,750
+And the pattern looks like this.
+
+30
+00:02:20,750 --> 00:02:24,860
+So we have insert into and then the name of the table.
+
+31
+00:02:24,860 --> 00:02:30,440
+And then after some parentheses the columns that we want to insert to.
+
+32
+00:02:30,440 --> 00:02:33,230
+And then finally we can add the values.
+
+33
+00:02:33,230 --> 00:02:36,050
+And the values are separated by commas.
+
+34
+00:02:36,050 --> 00:02:38,780
+And the columns are also separated by commas.
+
+35
+00:02:38,870 --> 00:02:44,870
+Before I reveal the solution I want you to have a go trying this out.
+
+36
+00:02:44,870 --> 00:02:48,260
+So pause the video and see if you can complete this.
+
+37
+00:02:50,480 --> 00:02:56,420
+All right, so let's go into our world food and let's view all our rows.
+
+38
+00:02:56,450 --> 00:03:01,190
+You can see it goes up to the ninth country United States.
+
+39
+00:03:01,190 --> 00:03:06,200
+And now we want to use our query tool to insert our data.
+
+40
+00:03:06,230 --> 00:03:09,320
+The keyword is insert into.
+
+41
+00:03:09,320 --> 00:03:13,490
+And then it's the name of our table which is world food.
+
+42
+00:03:13,490 --> 00:03:19,220
+And then we have a parentheses that sets which columns we want to insert into.
+
+43
+00:03:19,250 --> 00:03:23,000
+So we're going to leave the ID because that can be auto generated.
+
+44
+00:03:23,000 --> 00:03:31,220
+But we need to add the country the rice production and the wheat production.
+
+45
+00:03:32,930 --> 00:03:39,200
+The order here needs to match the order that you're going to add the values in.
+
+46
+00:03:39,590 --> 00:03:42,860
+The next stage is to add the values.
+
+47
+00:03:42,860 --> 00:03:45,080
+And again we need to set a parentheses.
+
+48
+00:03:45,080 --> 00:03:47,460
+And we're going to add in the values in order.
+
+49
+00:03:47,480 --> 00:03:50,330
+First is the name of the country which is Italy.
+
+50
+00:03:50,450 --> 00:03:55,670
+And remember to insert strings in SQL we need a single quote.
+
+51
+00:03:55,670 --> 00:04:03,320
+And then it's the number of million tonnes of rice production and wheat production, which is 1.46 and
+
+52
+00:04:03,320 --> 00:04:06,500
+7.3 respectively.
+
+53
+00:04:06,620 --> 00:04:09,920
+Now we've got our values, we've got our columns.
+
+54
+00:04:09,920 --> 00:04:14,110
+We can now go ahead and cap off this command with a semicolon.
+
+55
+00:04:14,120 --> 00:04:16,010
+So now let's hit run.
+
+56
+00:04:16,010 --> 00:04:19,550
+And hopefully everything went all right.
+
+57
+00:04:19,550 --> 00:04:23,030
+And we can now go ahead and view our data.
+
+58
+00:04:23,030 --> 00:04:30,980
+And you can see that we've managed to programmatically using SQL commands to insert that final row in
+
+59
+00:04:31,010 --> 00:04:31,550
+there.
+
+60
+00:04:32,120 --> 00:04:37,370
+Previously I showed you how we can use Pgadmin to insert rows like this.
+
+61
+00:04:37,370 --> 00:04:44,690
+But now we need to know how to do it using SQL because we're going to need to insert new data whenever
+
+62
+00:04:44,690 --> 00:04:47,780
+a user adds a new country they've been to.
+
+63
+00:04:47,780 --> 00:04:56,450
+And we're going to have to do that using programmatic methods in order to be able to continue and complete
+
+64
+00:04:56,450 --> 00:05:04,850
+our travel tracker application, we're going to create a new table that allows us to reference the country
+
+65
+00:05:04,850 --> 00:05:09,350
+name that a user types in with the country code of that country.
+
+66
+00:05:09,350 --> 00:05:16,190
+So for most users, they're not going to have the two letter country code memorized by heart.
+
+67
+00:05:16,190 --> 00:05:23,840
+So we should do that heavy lifting for them in the back end so that if somebody types in Angola, then
+
+68
+00:05:23,840 --> 00:05:28,880
+we should look up in this table to see what is the two letter code for Angola.
+
+69
+00:05:28,880 --> 00:05:37,010
+And it's a and then we can go ahead and save that code into the visited countries table.
+
+70
+00:05:37,580 --> 00:05:38,810
+That's the goal.
+
+71
+00:05:38,810 --> 00:05:45,020
+And the way we're going to do this is we're going to create a new table by importing some data into
+
+72
+00:05:45,020 --> 00:05:45,320
+it.
+
+73
+00:05:45,320 --> 00:05:51,080
+So if you take a look at the current lesson, you should be able to download a file that contains countries
+
+74
+00:05:51,080 --> 00:05:51,860
+dot CSV.
+
+75
+00:05:52,100 --> 00:05:56,630
+And that's the data that we're going to import into this table.
+
+76
+00:05:56,660 --> 00:06:00,530
+The table that you're going to create is called countries.
+
+77
+00:06:00,620 --> 00:06:04,880
+And you're going to create it inside your world database.
+
+78
+00:06:04,970 --> 00:06:10,070
+And you're going to create the columns looking at this header here.
+
+79
+00:06:10,070 --> 00:06:12,860
+So we've got our usual primary key ID.
+
+80
+00:06:12,860 --> 00:06:19,670
+And then we're going to create a country code which is just going to be a char two because there's only
+
+81
+00:06:19,670 --> 00:06:22,220
+ever going to be two characters fixed.
+
+82
+00:06:22,220 --> 00:06:28,610
+And then we have our country name which will be a Varchar 100 just to allow for very long country names
+
+83
+00:06:28,610 --> 00:06:32,660
+like the Democratic Republic of Congo, etcetera.
+
+84
+00:06:32,840 --> 00:06:40,010
+The CSV contains the ID, the country code and the country name, and you're going to create the table
+
+85
+00:06:40,010 --> 00:06:41,510
+using SQL.
+
+86
+00:06:41,510 --> 00:06:46,940
+And then you're going to go ahead and import the data from countries dot CSV.
+
+87
+00:06:47,390 --> 00:06:50,450
+Pause the video and complete this challenge.
+
+88
+00:06:53,010 --> 00:06:56,940
+All right, let's go ahead and do this together in Pgadmin.
+
+89
+00:06:56,940 --> 00:06:59,880
+I'm going to go ahead and go to my query tool.
+
+90
+00:06:59,880 --> 00:07:03,450
+And I'm going to write the create table.
+
+91
+00:07:03,480 --> 00:07:05,550
+Table name is countries.
+
+92
+00:07:05,550 --> 00:07:09,180
+And then I'm going to add three columns.
+
+93
+00:07:09,180 --> 00:07:13,110
+So the ID which is a serial primary key.
+
+94
+00:07:13,350 --> 00:07:18,870
+The next one is going to be the country code.
+
+95
+00:07:18,870 --> 00:07:22,560
+And this is going to be a fixed length char.
+
+96
+00:07:22,560 --> 00:07:24,480
+So just two characters.
+
+97
+00:07:24,480 --> 00:07:31,950
+And then we've got the country name which is going to be a variable character length varchar.
+
+98
+00:07:31,950 --> 00:07:34,110
+And we're going to set it to 100.
+
+99
+00:07:34,320 --> 00:07:39,090
+Now let's go ahead and run this code to create our table.
+
+100
+00:07:39,090 --> 00:07:45,330
+And then once we've got that table then we can go ahead and import some data into it.
+
+101
+00:07:45,330 --> 00:07:51,840
+And if you look inside your downloads or wherever you saved your countries dot CSV, let's go ahead
+
+102
+00:07:51,840 --> 00:07:53,850
+and use that as the import.
+
+103
+00:07:53,850 --> 00:07:57,000
+And then making sure that header is checked.
+
+104
+00:07:57,000 --> 00:07:59,910
+And all the columns this time have data.
+
+105
+00:07:59,920 --> 00:08:01,680
+So we're going to import all of them.
+
+106
+00:08:01,680 --> 00:08:03,210
+Let's click okay.
+
+107
+00:08:03,210 --> 00:08:11,610
+And once the process has completed we can take a look at all the countries we've got which is actually
+
+108
+00:08:11,610 --> 00:08:12,810
+quite a lot.
+
+109
+00:08:12,840 --> 00:08:17,130
+So we've got all the countries in the world listed in here.
+
+110
+00:08:17,130 --> 00:08:22,860
+And their corresponding country codes are matched up in the table.
+
+111
+00:08:23,010 --> 00:08:31,650
+Now let's go ahead and use this to create the final part of our application, which you can see a demo
+
+112
+00:08:31,650 --> 00:08:31,950
+of.
+
+113
+00:08:31,980 --> 00:08:39,090
+If you go ahead and use Nodemon to run solution two dot JS.
+
+114
+00:08:39,480 --> 00:08:44,159
+Now if we go to localhost 3000 we can type in a country.
+
+115
+00:08:44,159 --> 00:08:47,340
+So a country I've been to Japan is one of them.
+
+116
+00:08:47,340 --> 00:08:53,850
+So now if I click add that country will light up and get added to my travel tracker.
+
+117
+00:08:53,850 --> 00:08:56,160
+And this is pretty cool.
+
+118
+00:08:56,400 --> 00:09:02,070
+Recently I went to Canada and we can just keep adding these countries and you'll see the total count
+
+119
+00:09:02,070 --> 00:09:07,530
+go up, tracking all the places that you've been and keeping a record of it.
+
+120
+00:09:07,710 --> 00:09:08,850
+That's the goal.
+
+121
+00:09:08,880 --> 00:09:15,660
+But before I release you into the wild writing code, I just wanted to draw your attention to one thing,
+
+122
+00:09:15,660 --> 00:09:23,820
+which is that when we write SQL queries and we use the insert into command, this is how we insert values.
+
+123
+00:09:23,820 --> 00:09:29,820
+And the reason is because our values are hard coded, we already know what the values should be, and
+
+124
+00:09:29,820 --> 00:09:32,970
+we're putting it in a string, a number, etcetera.
+
+125
+00:09:33,000 --> 00:09:41,250
+But when we do this in our node back end, we're going to be using db query that comes from the pg npm
+
+126
+00:09:41,250 --> 00:09:42,090
+package.
+
+127
+00:09:42,090 --> 00:09:48,360
+And the way that this is structured is it allows us to insert two parameters.
+
+128
+00:09:48,360 --> 00:09:52,440
+So the first one is the SQL command.
+
+129
+00:09:52,440 --> 00:09:58,770
+And the second one are any values that we want to insert into the SQL command.
+
+130
+00:09:58,770 --> 00:10:04,830
+And what this allows us to do is to insert not just hard coded values like these strings and numbers,
+
+131
+00:10:04,830 --> 00:10:11,130
+but also maybe variables or constants or even a programming expression that you want to calculate on
+
+132
+00:10:11,130 --> 00:10:13,290
+the fly, like five times six.
+
+133
+00:10:13,350 --> 00:10:20,760
+And the way that we do this is we write our SQL command as you know it, but then we add in the dollar
+
+134
+00:10:20,760 --> 00:10:24,660
+placeholders for the values that we want to insert.
+
+135
+00:10:24,660 --> 00:10:30,900
+So in this case instead of values and then all the values I've got my values dollar one, dollar two
+
+136
+00:10:30,900 --> 00:10:32,460
+and dollar three.
+
+137
+00:10:32,610 --> 00:10:37,110
+The next part after the comma here is an array.
+
+138
+00:10:37,110 --> 00:10:43,470
+And inside the array we can add the corresponding expressions or variables that is going to be used
+
+139
+00:10:43,470 --> 00:10:47,040
+and replaced in these positions dollar $1 $2 three.
+
+140
+00:10:47,040 --> 00:10:50,850
+In the order that we put into the array.
+
+141
+00:10:50,850 --> 00:10:52,440
+So this will become dollar one.
+
+142
+00:10:52,470 --> 00:10:57,090
+This will become dollar two and this will be inserted in position of dollar three.
+
+143
+00:10:57,090 --> 00:10:59,460
+So this is just something to be aware of.
+
+144
+00:11:00,000 --> 00:11:08,070
+But once you're ready go ahead head into your index.js and continue writing the code that you have in
+
+145
+00:11:08,070 --> 00:11:13,680
+order to be able to handle the form entry that comes in here.
+
+146
+00:11:13,680 --> 00:11:22,050
+So remember, you can check in the index.js to see what action the form hits up and what method it uses
+
+147
+00:11:22,050 --> 00:11:28,080
+it, and then catch it inside your server and handle that request.
+
+148
+00:11:28,110 --> 00:11:34,230
+Remember, we've already got body parser installed and enabled, so you can get hold of the data that
+
+149
+00:11:34,230 --> 00:11:41,970
+comes in from the input, and then you're going to check the name of the country that the user typed
+
+150
+00:11:41,970 --> 00:11:49,380
+in against the countries table, so that you can get hold of the corresponding country code, and then
+
+151
+00:11:49,380 --> 00:11:51,210
+you're going to save that country code in.
+
+152
+00:11:51,370 --> 00:11:59,890
+Into the visited countries table, and then you can figure out how you're going to use that data in
+
+153
+00:11:59,890 --> 00:12:03,160
+the table in order to update the world map.
+
+154
+00:12:03,250 --> 00:12:10,900
+There's several programming challenges or conundrums, and if you like a bit of a puzzle, then this
+
+155
+00:12:10,900 --> 00:12:13,210
+one is definitely right for you.
+
+156
+00:12:13,820 --> 00:12:17,910
+Pause the video and give this a good attempt.
+
+157
+00:12:17,930 --> 00:12:24,470
+Again, I will say this is going to involve some thinking, some debugging, some dead ends, and some
+
+158
+00:12:24,470 --> 00:12:25,310
+trial and error.
+
+159
+00:12:25,310 --> 00:12:28,340
+But I believe in you, so give it a go.
+
+160
+00:12:31,110 --> 00:12:33,690
+All right, let's go through the solution together.
+
+161
+00:12:33,690 --> 00:12:40,980
+So if you take a look inside solution two, you'll see that we've made some modifications to the code
+
+162
+00:12:40,980 --> 00:12:42,360
+as we last saw it.
+
+163
+00:12:42,660 --> 00:12:47,880
+The first thing I did was to create a new route App.post.
+
+164
+00:12:47,880 --> 00:12:57,750
+And that's because inside index.js we've got a form that is going to post to our forward slash ad route.
+
+165
+00:12:57,990 --> 00:13:03,510
+We can catch that in here post and we address it to forward slash ad.
+
+166
+00:13:03,510 --> 00:13:06,180
+And then we've got our usual req res.
+
+167
+00:13:06,630 --> 00:13:15,030
+And then here we get hold of the input which is what the user typed in to the input in the form that
+
+168
+00:13:15,030 --> 00:13:19,470
+has a name equal to country.
+
+169
+00:13:20,280 --> 00:13:25,110
+This means we can basically just get hold of whatever they typed into that box.
+
+170
+00:13:25,590 --> 00:13:33,270
+Once we've gotten hold of whatever the user typed into the input, let's say for example, France,
+
+171
+00:13:33,780 --> 00:13:39,000
+then we want to use that input to make a query to our database.
+
+172
+00:13:39,000 --> 00:13:48,450
+So we use db query and we use the select keyword to look for a country code from our table of countries
+
+173
+00:13:48,450 --> 00:13:53,790
+where the country name is equal to whatever this placeholder is.
+
+174
+00:13:53,790 --> 00:13:58,410
+And that placeholder is of course going to be what's in the input.
+
+175
+00:13:58,590 --> 00:14:05,880
+This allows us to put an expression and insert it into our SQL in a dynamic way.
+
+176
+00:14:05,910 --> 00:14:11,880
+Now it's going to search our countries table to look for France, find the country code and then store
+
+177
+00:14:11,880 --> 00:14:12,710
+it inside.
+
+178
+00:14:12,720 --> 00:14:13,560
+Result.
+
+179
+00:14:13,620 --> 00:14:20,430
+You might remember from before, or if not, just do a console log and you'll see that result contains
+
+180
+00:14:20,430 --> 00:14:21,360
+a bunch of stuff.
+
+181
+00:14:21,360 --> 00:14:26,060
+But the only useful stuff that we care about is inside result dot rows.
+
+182
+00:14:26,070 --> 00:14:33,120
+And hopefully if all going well, we should get an array with only a single value, which is the code
+
+183
+00:14:33,120 --> 00:14:34,170
+for France.
+
+184
+00:14:34,650 --> 00:14:41,880
+However, if the result rows is actually completely empty, then that means we got a no match from this
+
+185
+00:14:41,880 --> 00:14:42,720
+query.
+
+186
+00:14:42,870 --> 00:14:50,430
+And if the length is not equal to zero, so there is some sort of result inside result dot rows, then
+
+187
+00:14:50,430 --> 00:14:57,990
+we continue and we grab hold of the data at the first position of the row, and we get the country code
+
+188
+00:14:57,990 --> 00:15:00,390
+that is inside that piece of data.
+
+189
+00:15:00,480 --> 00:15:02,580
+Now how could you figure out all of this?
+
+190
+00:15:02,580 --> 00:15:07,770
+You can either use documentation which is a little bit arduous, or just simply use a bunch of console
+
+191
+00:15:07,770 --> 00:15:15,510
+logs to look at the data each time and check to make sure that your assumptions matches reality, which,
+
+192
+00:15:15,510 --> 00:15:18,120
+you know, sometimes it does and sometimes it doesn't.
+
+193
+00:15:18,300 --> 00:15:20,490
+We can't predict everything correctly.
+
+194
+00:15:20,760 --> 00:15:28,080
+Once you've gotten hold of the country code that matches the country the user typed in, then we make
+
+195
+00:15:28,080 --> 00:15:35,970
+another query and this query allows us to use the insert into keyword that we looked at in this lesson.
+
+196
+00:15:35,970 --> 00:15:42,810
+And we're inserting into the visited countries table into the country code column.
+
+197
+00:15:42,810 --> 00:15:50,480
+And the value is going to be a dollar one replaced by the country code from this line of code here.
+
+198
+00:15:50,490 --> 00:15:54,450
+And then finally we go ahead and do a redirect.
+
+199
+00:15:54,480 --> 00:16:02,010
+Go back to the home page, which if you remember is going to query our database of visited countries.
+
+200
+00:16:02,010 --> 00:16:13,140
+And go ahead and look for all of the country codes from there to display inside our index.js, passing
+
+201
+00:16:13,140 --> 00:16:15,480
+it through here and here.
+
+202
+00:16:17,600 --> 00:16:23,540
+You'll notice that I've split off this function to check which countries have been visited, and then
+
+203
+00:16:23,540 --> 00:16:26,720
+use the output back into the app.get.
+
+204
+00:16:26,750 --> 00:16:28,610
+This is optional at this point.
+
+205
+00:16:28,610 --> 00:16:33,800
+This is something that's going to set us up for the future as we continue refining this app.
+
+206
+00:16:33,800 --> 00:16:37,970
+But if you have it all inside App.get, that's perfectly fine.
+
+207
+00:16:37,970 --> 00:16:40,130
+That's exactly how I would expect.
+
+208
+00:16:41,560 --> 00:16:42,190
+Now.
+
+209
+00:16:42,190 --> 00:16:48,040
+If we test our app then it should work to a large extent.
+
+210
+00:16:48,040 --> 00:16:50,530
+So let's enter a country name.
+
+211
+00:16:50,530 --> 00:16:52,000
+Let's try Germany.
+
+212
+00:16:52,030 --> 00:17:00,730
+You can see Germany light up right there and if we match our country names then it should always work.
+
+213
+00:17:00,730 --> 00:17:02,080
+So let's put in another place.
+
+214
+00:17:02,080 --> 00:17:09,579
+I've been to Colombia, which is a really beautiful place, and you can see it works exactly as we expected.
+
+215
+00:17:09,609 --> 00:17:11,980
+Step two is pretty much complete.
+

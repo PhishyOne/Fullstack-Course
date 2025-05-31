@@ -1,0 +1,524 @@
+1
+00:00:00,110 --> 00:00:00,440
+All right.
+
+2
+00:00:00,440 --> 00:00:05,840
+It's time to put all of our knowledge into action by building a project together.
+
+3
+00:00:05,840 --> 00:00:10,640
+And we're going to use everything we learned about Flexbox to build a pricing table.
+
+4
+00:00:10,670 --> 00:00:13,940
+You've probably seen pricing table out on the Internet before.
+
+5
+00:00:13,970 --> 00:00:21,080
+It's usually three categories small, medium, large, and it shows the customers which features they'll
+
+6
+00:00:21,080 --> 00:00:24,230
+get based on which tier they're going to subscribe to.
+
+7
+00:00:24,350 --> 00:00:29,020
+This is pretty much what we're going to build, although a little bit simplified.
+
+8
+00:00:29,030 --> 00:00:36,260
+And the great thing about our version, because we now know about Flexbox, is we can make the width
+
+9
+00:00:36,260 --> 00:00:42,500
+of each of these pricing cards change dynamically based on the width that's available.
+
+10
+00:00:42,500 --> 00:00:50,450
+And we can also make it responsive in the way that when the window goes below a certain size, it actually
+
+11
+00:00:50,450 --> 00:00:54,700
+stacks these vertically rather than having them horizontally.
+
+12
+00:00:54,740 --> 00:01:00,630
+You should have enough knowledge now to be able to complete this project.
+
+13
+00:01:00,780 --> 00:01:07,710
+Go ahead and download the starting files for our Pricing Table Project, extract it, and open it up inside
+
+14
+00:01:07,710 --> 00:01:08,640
+VS Code.
+
+15
+00:01:08,670 --> 00:01:14,550
+Now, once you're here, I want you to go ahead and look inside the index.html and show it in preview.
+
+16
+00:01:14,580 --> 00:01:20,640
+You can see that we've got all of the HTML for you, all of the text and all of the boring parts out
+
+17
+00:01:20,640 --> 00:01:21,350
+of the way,
+
+18
+00:01:21,360 --> 00:01:24,120
+but in the CSS it's a little bit lacking.
+
+19
+00:01:24,150 --> 00:01:31,050
+The only thing I've done is I've applied a Google font called "Sono" and it gives it this fun styling
+
+20
+00:01:31,050 --> 00:01:32,190
+for our font.
+
+21
+00:01:32,370 --> 00:01:38,310
+Now what you're aiming for is determined by the goal-large.
+
+22
+00:01:38,310 --> 00:01:45,120
+So this is what it should look like when it's large in terms of the width of your screen and when the
+
+23
+00:01:45,120 --> 00:01:48,780
+width of your screen is small, this is what it should look like.
+
+24
+00:01:49,020 --> 00:01:56,010
+Have a think about how you might do this, how you might apply the different types of CSS styling.
+
+25
+00:01:56,010 --> 00:02:03,480
+So things like background or maybe a corner radius or maybe getting rid of borders around the buttons
+
+26
+00:02:03,480 --> 00:02:11,820
+or thinking about how you might use Flexbox to achieve this kind of transition from large width to small
+
+27
+00:02:11,820 --> 00:02:15,570
+width and see how far you can get.
+
+28
+00:02:15,600 --> 00:02:18,360
+Again, remember, this is a project, so it's totally up to you.
+
+29
+00:02:18,360 --> 00:02:20,310
+You don't have to style it like this at all.
+
+30
+00:02:20,310 --> 00:02:22,770
+You can style it however you like,
+
+31
+00:02:22,770 --> 00:02:26,700
+but the most important thing is our Flexbox aspect.
+
+32
+00:02:26,700 --> 00:02:35,130
+I want you to make sure that these items are inside a Flexbox so that they adapt to the width and they
+
+33
+00:02:35,130 --> 00:02:38,100
+are responsive on mobile in this case.
+
+34
+00:02:38,100 --> 00:02:41,670
+So when the width is very small, they get stacked up one on top of the other.
+
+35
+00:02:41,700 --> 00:02:44,670
+That is the very simple criteria.
+
+36
+00:02:44,700 --> 00:02:46,740
+Everything else is totally up to you.
+
+37
+00:02:46,980 --> 00:02:52,380
+Now, there's one hint I'm going to add in here, which is a media query.
+
+38
+00:02:52,380 --> 00:03:01,770
+And I want you to think about what can you do using a media query and Flexbox to achieve this type of
+
+39
+00:03:01,770 --> 00:03:03,150
+responsiveness.
+
+40
+00:03:03,390 --> 00:03:07,620
+Pause the video and give this challenge a go.
+
+41
+00:03:07,650 --> 00:03:12,090
+Once you're done, you can come back and I'll run through my solution with you,
+
+42
+00:03:12,090 --> 00:03:17,040
+but remember, your solution is as good as mine as long as you're happy with it.
+
+43
+00:03:17,070 --> 00:03:19,900
+The important thing is to apply the skills that you've learned.
+
+44
+00:03:19,920 --> 00:03:21,330
+So pause the video.
+
+45
+00:03:21,330 --> 00:03:22,530
+Give that a go now.
+
+46
+00:03:27,100 --> 00:03:27,430
+All right.
+
+47
+00:03:27,430 --> 00:03:34,020
+I'm going to walk through my version of this pricing table that's in the solution.html.
+
+48
+00:03:34,030 --> 00:03:37,290
+And I'm going to walk through the code one section at a time.
+
+49
+00:03:37,300 --> 00:03:40,390
+The first section is our pricing container,
+
+50
+00:03:40,390 --> 00:03:49,030
+and this basically just applies Flexbox to each of our container items, makes it justified to the center,
+
+51
+00:03:49,030 --> 00:03:55,540
+so that's all grouped towards the center, and gives it a little bit of a gap between each item and sets
+
+52
+00:03:55,540 --> 00:03:59,290
+the height of the pricing container.
+
+53
+00:03:59,500 --> 00:04:07,630
+And then when we set the justify-content to center, align-items to center, and the height of this flexible
+
+54
+00:04:07,630 --> 00:04:09,430
+container to full height,
+
+55
+00:04:09,430 --> 00:04:14,590
+so 100vh, then it's going to make everything centered vertically and horizontally.
+
+56
+00:04:14,590 --> 00:04:21,279
+This is a really easy, almost cheats way of centering anything vertically and horizontally.
+
+57
+00:04:21,310 --> 00:04:23,050
+You might know this, you might not,
+
+58
+00:04:23,050 --> 00:04:31,730
+but using just normal CSS without Flexbox or Grid or one of the other frameworks is actually
+
+59
+00:04:31,730 --> 00:04:35,420
+not that simple to set something to the middle of the screen.
+
+60
+00:04:35,420 --> 00:04:38,540
+So this is an incredibly easy way of achieving that.
+
+61
+00:04:38,540 --> 00:04:42,680
+And I hope by this point you understand why it's able to do that.
+
+62
+00:04:43,130 --> 00:04:47,720
+The next thing we're going to do is to set our pricing plan.
+
+63
+00:04:47,750 --> 00:04:49,130
+Our pricing plan
+
+64
+00:04:49,130 --> 00:04:53,810
+corresponds to each of the items in our container,
+
+65
+00:04:53,810 --> 00:05:01,670
+and what I've done is I've set the flex to 1 so that they are equal in width and that they are allowed
+
+66
+00:05:01,670 --> 00:05:03,680
+to grow and shrink.
+
+67
+00:05:03,920 --> 00:05:11,690
+I've set the maximum width to 400 and this is probably a little bit easier to see on the full width
+
+68
+00:05:11,690 --> 00:05:12,470
+screen.
+
+69
+00:05:12,470 --> 00:05:15,620
+So that means that they don't go all the way.
+
+70
+00:05:15,620 --> 00:05:22,610
+And by setting that maximum width, basically I'm saying each of these cards should limit themselves
+
+71
+00:05:22,610 --> 00:05:27,200
+to that 400px size so that they don't take up the full width
+
+72
+00:05:27,200 --> 00:05:31,520
+and then our centering kind of becomes moot because it's taking up the full width.
+
+73
+00:05:31,520 --> 00:05:38,480
+And I think this just looks a little bit better in my opinion. And that's achieved using the max-width.
+
+74
+00:05:38,600 --> 00:05:44,600
+Now I've added a little bit of padding inside each of these boxes just so that they're not right up
+
+75
+00:05:44,600 --> 00:05:46,580
+to the edge on all sides.
+
+76
+00:05:46,580 --> 00:05:52,430
+And I've added a sort of gray background color to differentiate it from the background.
+
+77
+00:05:52,640 --> 00:05:58,430
+I've given it a border-radius of 5px, which just makes these corners a little bit rounded,
+
+78
+00:05:58,430 --> 00:05:59,780
+which I think looks nice.
+
+79
+00:05:59,780 --> 00:06:03,530
+And I've aligned the text to the center.
+
+80
+00:06:04,550 --> 00:06:08,960
+The next four sections are pretty much all just for styling.
+
+81
+00:06:08,960 --> 00:06:11,750
+Let's go ahead and talk through each of them.
+
+82
+00:06:11,750 --> 00:06:18,440
+The "plan-title" I've made super large, so I increased the font-size, made the font-weight bold, and
+
+83
+00:06:18,440 --> 00:06:25,070
+also set a little bit of margin at bottom to move everything away from it so that it's not sticking
+
+84
+00:06:25,070 --> 00:06:26,150
+right next to it.
+
+85
+00:06:26,150 --> 00:06:28,190
+This is all personal preference.
+
+86
+00:06:28,190 --> 00:06:29,420
+It depends on your eye,
+
+87
+00:06:29,450 --> 00:06:31,400
+whatever you think is right is right.
+
+88
+00:06:31,490 --> 00:06:38,840
+And then I've set the "plan-price" to an even bigger size so that it's really standout, tells people what
+
+89
+00:06:38,840 --> 00:06:45,020
+it's all about, set it to bold, also gave it a little bit of margin at the bottom. Then I've set the
+
+90
+00:06:45,020 --> 00:06:50,990
+"plan-features" and this one you might remember from previous lessons you might not you might have to Google
+
+91
+00:06:50,990 --> 00:06:59,660
+for this, but essentially what it does is it gets rid of those bullet points because we've got an unordered
+
+92
+00:06:59,660 --> 00:07:03,590
+list (ul) here, and list items by default have the bullet,
+
+93
+00:07:03,620 --> 00:07:08,750
+if we set that list-style to none, it gets rid of it, which is really nice.
+
+94
+00:07:09,020 --> 00:07:14,720
+Then I've set the padding and margin to get rid of the default padding and margin to get them all closer
+
+95
+00:07:14,720 --> 00:07:15,710
+to each other.
+
+96
+00:07:15,710 --> 00:07:23,150
+And finally, I've added a small margin-bottom at the bottom of this section so that it pushes the button
+
+97
+00:07:23,150 --> 00:07:24,530
+down a little bit.
+
+98
+00:07:24,890 --> 00:07:34,070
+And then I added some styling to the button, which turns it orange, makes the text white, makes the
+
+99
+00:07:34,070 --> 00:07:37,880
+border 5px, have the curved edges,
+
+100
+00:07:37,880 --> 00:07:43,880
+and then I got rid of the border, which is this sort of black or gray default thing, which I don't
+
+101
+00:07:43,880 --> 00:07:44,750
+really like the look of,
+
+102
+00:07:44,780 --> 00:07:48,140
+so I can set that border to simply none.
+
+103
+00:07:48,770 --> 00:07:55,670
+Now the final thing, which is quite interesting and I don't know if this is something that you actually
+
+104
+00:07:55,670 --> 00:08:02,000
+realized you could do, but this combines a lot of the things that we learned previously, which is
+
+105
+00:08:02,000 --> 00:08:04,520
+the use of a media query.
+
+106
+00:08:04,820 --> 00:08:13,970
+I said that when the width of the screen is under 1250px, I'm going to target the pricing container,
+
+107
+00:08:13,970 --> 00:08:17,570
+which remember is our Flexbox container,
+
+108
+00:08:17,660 --> 00:08:24,320
+and instead of having the flex-direction be a row by default, I'm going to change it to have a
+
+109
+00:08:24,320 --> 00:08:26,000
+flex-direction of column.
+
+110
+00:08:26,790 --> 00:08:35,190
+And what that does is when this gets under 1250px, then it goes into a vertical Flexbox, which
+
+111
+00:08:35,190 --> 00:08:36,030
+is really nice.
+
+112
+00:08:36,030 --> 00:08:39,150
+It makes more use of the space.
+
+113
+00:08:39,150 --> 00:08:47,130
+And I've set that height to 100% because remember previously, we had the height set to 100 viewport height,
+
+114
+00:08:47,130 --> 00:08:54,510
+which means the height of our container is going to try and be as high as our viewport, which is only
+
+115
+00:08:54,510 --> 00:09:02,850
+the space that we have here now because we have more content than viewport height, it's actually better
+
+116
+00:09:02,850 --> 00:09:06,840
+to set it to 100% so that it's not limited.
+
+117
+00:09:06,840 --> 00:09:10,680
+And I'll show you what happens if I don't have this.
+
+118
+00:09:10,710 --> 00:09:15,180
+You'll see that it's actually not quite right.
+
+119
+00:09:15,180 --> 00:09:19,140
+When you scroll to the top and the bottom, it actually cuts off a bunch of stuff.
+
+120
+00:09:19,650 --> 00:09:23,790
+That's the one final sort of modification that I've got.
+
+121
+00:09:24,960 --> 00:09:28,600
+I hope you managed to get somewhere close to this,
+
+122
+00:09:28,600 --> 00:09:35,560
+and if not, don't worry, be sure to review some of the previous content, like the lesson on media
+
+123
+00:09:35,560 --> 00:09:43,030
+queries or the lesson on Flexbox sizing, and just make sure that you understand at least all of the
+
+124
+00:09:43,030 --> 00:09:46,590
+code in the solution code and you understand what's going on.
+
+125
+00:09:46,600 --> 00:09:50,350
+It doesn't matter if you didn't manage to style it exactly the same.
+
+126
+00:09:50,350 --> 00:09:55,180
+You know, a lot of this stuff is kind of personal preference and maybe you've made something that's
+
+127
+00:09:55,180 --> 00:09:57,160
+even better than what I've got here.
+
+128
+00:09:57,160 --> 00:09:58,060
+If you have,
+
+129
+00:09:58,090 --> 00:10:01,000
+be sure to share a screenshot in the Q&A section,
+
+130
+00:10:01,000 --> 00:10:03,460
+I would love to see what you guys have created.
+
+131
+00:10:04,030 --> 00:10:07,870
+That's all from me for this section and I'll see you in the next section.
+
