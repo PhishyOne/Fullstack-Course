@@ -20,7 +20,7 @@ li.done {
     color: seagreen;
 }
 
-/* Combining Comination Selectors */
+/* Combining Combination Selectors */
 ul p.done {
     font-size: .5rem;
 }
