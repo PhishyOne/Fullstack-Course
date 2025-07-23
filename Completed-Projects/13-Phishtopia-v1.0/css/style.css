@@ -1,0 +1,57 @@
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #4cffc9, #1806dc);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.animated-text {
+  animation: text-color-animation 18s ease infinite;
+}
+
+@keyframes text-color-animation {
+  0% {
+    color: #00dfae; 
+  }
+  10% {
+    color: #00bfff;
+  }
+  25% {
+    color: #2270af; 
+  }
+  33% {
+    color: #1e00ff; 
+  }
+  50% {
+    color: #0c0073; 
+  }
+  55% {
+    color: #4d5fff; 
+  }
+  60% {
+    color: #8f94ff; 
+  }
+  75% {
+    color: #44eb01; 
+  }
+  100% {
+    color: #42e573;
+  }
+}
