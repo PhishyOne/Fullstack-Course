@@ -1,5 +1,5 @@
 .gradient-background {
-  background: linear-gradient(300deg, #00bfff, #4cffc9, #1806dc);
+  background: linear-gradient(300deg, #EF7E04, #05899E, #274744);
   background-size: 180% 180%;
   animation: gradient-animation 18s ease infinite;
 }
@@ -14,12 +14,6 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-.icon-square {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.75rem;
 }
 
 .animated-text {
@@ -43,15 +37,24 @@
     color: #0c0073; 
   }
   55% {
-    color: #4d5fff; 
+    color: #e6df0c; 
   }
   60% {
-    color: #8f94ff; 
+    color: #cc7400; 
   }
-  75% {
+  85% {
     color: #44eb01; 
   }
   100% {
     color: #42e573;
   }
+}
+
+.logo {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.main {
+  background: #05899E;
 }
