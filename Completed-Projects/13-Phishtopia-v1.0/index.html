@@ -4,9 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Favicon ⭕-->
-
+  <meta name="description" content="Phishtopia - Home of the improbable.">
+  <meta name="keywords"
+    content="Phishtopia, projects, artwork, software, engineering, food, community, prison, peace, sharing, showcase">
+  <meta name="author" content="PhishyOne">
+  <meta name="theme-color" content="#05899E">
   <title>Phishtopia</title>
+  <link rel="shortcut icon" href="./images/phishLogo.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/phishLogo.png">
+  <link rel="icon" href="./images/phishLogo.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
@@ -44,37 +50,84 @@
           </li>
         </ul>
       </div>
+
     </div>
   </nav>
 
-  <!-- Main Content ⭕-->
+  <!-- Main Content -->
   <div class="container-fluid main">
-  <div class=" container py-4">
-    <div class="bg-body-tertiary rounded-3 mb-3">
-      <div class="container-fluid py-3 ps-5">
-        <h1 class="display-5 fw-bold">phishtopia</h1>
-        <p class="col-md-8 fs-4">Home of the improbable.</p>
-      </div>
-    </div>
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>StoreCalc Online (Egg Stage)</h2>
-          <p>Coming Soon! StoreCalc helps prisoners total up their commissary items and keep records of their purchases.
-          </p>
-          <button class="btn btn-outline-light" type="button">Don't Click Here</button>
+    <!-- Hero Section -->
+    <div class=" container py-4">
+      <div class="bg-body-tertiary rounded-3 mb-3">
+        <div class="container-fluid gradient-background rounded-3 pt-4 pb-3 ps-5">
+          <h1 class="display-5 fw-bold gradient-text">phishtopia</h1>
+          <p class="col-md-8 fs-4">Home of the improbable.</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-          <h2>Projects</h2>
-          <p>phishtopia aims to create a peaceful atmosphere where projects and artwork of the underground can be
-            displayed for the world to see. This is a place where finish products can shine.</p>
-          <button class="btn btn-outline-secondary" type="button">Select</button>
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 dark-bg rounded-3">
+            <h2>StoreCalc Online (Egg Stage)</h2>
+            <p>Coming Soon! StoreCalc helps prisoners total up their commissary items and keep records of their
+              purchases.
+            </p>
+            <button class="btn btn-outline-light gradient-text button">Don't Click Here</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 orange-bg border-success rounded-3">
+            <h2>Projects</h2>
+            <p>phishtopia aims to create a peaceful atmosphere where projects and artwork of the underground can be
+              displayed for the world to see. This is a place where finish products can shine.</p>
+            <button class="btn btn-outline-dark gradient-text button">Select</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
   <!-- Footer -->
   <section id="footer">
@@ -90,7 +143,7 @@
         </ul>
         <a href="https://phishtopia.com"><img src="./images/phishLogo.png" alt="Phishtopia" class="logo mb-2" /></a>
         <a href="https://phishtopia.com">
-          <p class="animated-text text-center">©2025 Phishtopia</p>
+          <p class="gradient-text text-center">©2025 Phishtopia</p>
         </a>
 
       </footer>

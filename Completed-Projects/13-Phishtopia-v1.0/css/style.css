@@ -1,9 +1,11 @@
+/* CSS Styles for Phishtopia */
+
+/* Background Styles */
 .gradient-background {
   background: linear-gradient(300deg, #EF7E04, #05899E, #274744);
   background-size: 180% 180%;
   animation: gradient-animation 18s ease infinite;
 }
-
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
@@ -15,46 +17,62 @@
     background-position: 0% 50%;
   }
 }
-
-.animated-text {
-  animation: text-color-animation 18s ease infinite;
+.main {
+  background: #05899E;
+}
+.light-bg {
+  background-color: #19c4df;
+  color: #182e2c;
+}
+.dark-bg {
+  background-color: #274744;
+  color: #EF7E04;
+}
+.orange-bg {
+  background-color: #d16e04;
+  color: #182e2c;
 }
 
-@keyframes text-color-animation {
-  0% {
-    color: #00dfae; 
-  }
-  10% {
-    color: #00bfff;
-  }
-  25% {
-    color: #2270af; 
-  }
-  33% {
-    color: #1e00ff; 
-  }
-  50% {
-    color: #0c0073; 
-  }
-  55% {
-    color: #e6df0c; 
-  }
-  60% {
-    color: #cc7400; 
-  }
-  85% {
-    color: #44eb01; 
-  }
-  100% {
-    color: #42e573;
-  }
-}
-
+/* Image Styles */
 .logo {
   border-radius: 50%;
   width: 50px;
 }
 
-.main {
-  background: #05899E;
+/* Text Styles */
+.gradient-text {
+  animation: text-color-animation 18s ease infinite;
+}
+@keyframes text-color-animation {
+  0% {
+    color: #EF7E04; 
+  }
+  33% {
+    color: #05899E; 
+  }
+  66% {
+    color: #274744;
+  }
+  100% {
+    color: #EF7E04;
+  }
+}
+
+/* Button Styles */
+.btn-outline-light {
+  border-color: #331b01;
+  background-color: #ffb76a;
+}
+.btn-outline-dark {
+  border-color: #182e2c;
+  background-color: #1d2c28;
+}
+
+/* Border Styles */
+.navbar {
+  border-bottom: 3px solid #333;
+}
+
+#footer {
+  border-top: 3px solid #333;
 }
