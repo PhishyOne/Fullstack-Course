@@ -39,7 +39,25 @@
   width: 50px;
 }
 
+.carousel {
+    border-radius: 10px !important; 
+}
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Text Styles */
+h5 {
+  color: #331b01;
+}
+
+.carousel-caption > p {
+  color: #331b01;
+}
+
 .gradient-text {
   animation: text-color-animation 18s ease infinite;
 }
