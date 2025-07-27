@@ -10,15 +10,14 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
-}
-.main {
-  background: #05899E;
 }
 .light-bg {
   background-color: #19c4df;
@@ -39,38 +38,61 @@
   width: 50px;
 }
 
-.carousel {
-    border-radius: 10px !important; 
-}
-.carousel-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
-}
-
 /* Text Styles */
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 3rem;
+}
+h4 {
+  font-size: 2.5rem;
+}
 h5 {
+  font-size: 2.25rem;
   color: #331b01;
 }
-
-.carousel-caption > p {
+p {
+  font-size: 1.5rem;
   color: #331b01;
 }
-
+.pompiere-regular,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Pompiere", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.cormorant-garamond,
+p,
+button {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 .gradient-text {
   animation: text-color-animation 18s ease infinite;
 }
 @keyframes text-color-animation {
   0% {
-    color: #EF7E04; 
+    color: #EF7E04;
   }
+
   33% {
-    color: #05899E; 
+    color: #05899E;
   }
+
   66% {
     color: #274744;
   }
+
   100% {
     color: #EF7E04;
   }
@@ -86,11 +108,48 @@ h5 {
   background-color: #1d2c28;
 }
 
-/* Border Styles */
+/* Section Styles */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .navbar {
   border-bottom: 3px solid #333;
 }
-
+.main-grid {
+  background: #05899E;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  flex-grow: 1;
+}
+.hero-section {
+  grid-column: span 2;
+}
+.storecalc-section {
+  grid-column: 1 / 2;
+}
+.projects-section {
+  grid-column: 2 / 3;
+}
+.carousel-section {
+  grid-column: span 2;
+}
+.carousel-caption>p {
+  color: #331b01;
+}
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
 #footer {
+  margin-top: auto;;
+  grid-column: 1 / -1;
   border-top: 3px solid #333;
 }
