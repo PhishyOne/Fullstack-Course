@@ -126,15 +126,26 @@ body {
   gap: 20px;
   padding: 20px;
   flex-grow: 1;
+  align-items: start;
 }
 .hero-section {
   grid-column: span 2;
 }
-.storecalc-section {
-  grid-column: 1 / 2;
-}
+.storecalc-section,
 .projects-section {
-  grid-column: 2 / 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+  grid-column: span 1;
+}
+.storecalc-section > *,
+.projects-section > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+.storecalc-section p {
+  color: #d16e04;
 }
 .carousel-section {
   grid-column: span 2;
@@ -152,4 +163,16 @@ body {
   margin-top: auto;;
   grid-column: 1 / -1;
   border-top: 3px solid #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-section,
+  .storecalc-section,
+  .projects-section,
+  .carousel-section {
+    grid-column: span 1;
 }
