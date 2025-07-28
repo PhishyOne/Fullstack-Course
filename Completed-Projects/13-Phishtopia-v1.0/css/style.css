@@ -170,13 +170,13 @@ body {
 
 .carousel-section {
   grid-column: span 2;
-
 }
 
 .carousel-caption {
   color: #331b01;
   background-color: #19c5df94;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .carousel-item img {
@@ -188,10 +188,13 @@ body {
 
 #footer {
   margin-top: auto;
-  ;
   grid-column: 1 / -1;
   border-top: 3px solid #333;
 }
+
+.footer-links {
+  background-color: #19c4df94;
+  color: #182e2c}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
