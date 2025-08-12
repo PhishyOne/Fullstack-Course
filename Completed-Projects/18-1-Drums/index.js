@@ -31,6 +31,6 @@ for (i = 0; i < document.querySelectorAll("button").length; i++) {
 }
 
 function playSound(drum) {
-    var audio = new Audio("./sounds/" + drum + ".mp3");
-    audio.play();
+    var drum = new Audio("./sounds/" + drum + ".mp3");
+    drum.play();
 }
