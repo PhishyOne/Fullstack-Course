@@ -1,7 +1,19 @@
+
 for (i = 0; i < document.querySelectorAll("button").length; i++) {
     document.querySelectorAll("button")[i].addEventListener("click", function () {
+        var buttonInnerHTML = this.innerHTML;
+        whichSound(buttonInnerHTML);
+    });
+}
 
-        switch (this.innerHTML) {
+function checkKey() {
+    document.addEventListener("keydown", function (event) {
+        whichSound(event.key);
+    });
+}
+
+function whichSound(key) {
+    switch (key) {
             case "w":
                 playSound("kick-bass");
                 break;
@@ -25,9 +37,7 @@ for (i = 0; i < document.querySelectorAll("button").length; i++) {
                 break;
             default:
                 break;
-        }
-
-    });
+    }
 }
 
 function playSound(drum) {
