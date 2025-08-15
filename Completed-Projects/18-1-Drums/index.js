@@ -8,15 +8,15 @@ for (i = 0; i < document.querySelectorAll("button").length; i++) {
     });
 }
 
-function checkKey() {
     document.addEventListener("keydown", function (event) {
-        whichSound(event.key);
         currentKey = event.key;
+        console.log(currentKey);
+        whichSound(currentKey);
         buttonAnimation(currentKey);
     });
-}
 
 function whichSound(key) {
+    console.log(key);
     switch (key) {
         case "w":
             playSound("kick-bass");
