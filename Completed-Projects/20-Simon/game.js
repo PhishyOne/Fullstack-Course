@@ -6,7 +6,7 @@ var level = 0;
 
 function nextSequence() { 
   // Generate a random number between 0 and 3
-  randomNumber = Math.floor((Math.random() * 3));
+  randomNumber = Math.floor((Math.random() * 4));
   // Select a random color
   randomChosenColor = buttonColors[randomNumber];
   // Add each randomChosenColor to gamePattern
@@ -34,6 +34,35 @@ function animatePress(currentColor) {
   }, 100); 
 }
 
+function checkAnswer(currentLevel) {
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    console.log("success");
+    if (userClickedPattern.length === gamePattern.length) {
+      userClickedPattern = [];
+      setTimeout(function() {
+        nextSequence();
+      }, 1000);
+    }
+  } else {
+    console.log("wrong");
+    playSound("wrong");
+    $("body").addClass("game-over");
+    setTimeout(function() {
+      $("body").removeClass("game-over");
+    }, 200);
+    $("#level-title").text("Game Over, Press Any Key to Restart");
+    startOver();
+  }
+  console.log("User " + userClickedPattern);
+  console.log("Game " + gamePattern);
+}
+
+function startOver() {
+  level = 0;
+  gamePattern = [];
+  userClickedPattern = [];
+}
+
 // Detect when a button is clicked
 $(".btn").click(function() {
   // Store the id of the button that got clicked
@@ -43,6 +72,7 @@ $(".btn").click(function() {
   // Play sound for the button that got clicked
   playSound(userChosenColor);
   animatePress(userChosenColor);
+  checkAnswer(userClickedPattern.length - 1);
 });
 
 // Detect if key has been pressed for the first time
