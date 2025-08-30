@@ -1,37 +1,53 @@
+// Constants and Variables
+const buttonColors = ["red", "blue", "green", "yellow"];
+const soundFiles = {
+  red: "sounds/red.mp3",
+  blue: "sounds/blue.mp3",
+  green: "sounds/green.mp3",
+  yellow: "sounds/yellow.mp3",
+  wrong: "sounds/wrong.mp3",
+};
 
-var buttonColors = ["red", "blue", "green", "yellow"];
-var gamePattern = [];
-var userClickedPattern = [];
-var level = 0;
+let gamePattern = [];
+let userClickedPattern = [];
+let level = 0;
+let sounds = {};
+let started = false;
 
-function nextSequence() { 
+// Preload sounds
+for (const sound in soundFiles) {
+  sounds[sound] = new Audio(soundFiles[sound]);
+  sounds[sound].preload = 'auto';
+}
+
+// Function for playing sounds
+function playSound(name) {
+  sounds[name].currentTime = 0;
+  sounds[name].play();
+}
+
+function nextSequence() {
   // Generate a random number between 0 and 3
-  randomNumber = Math.floor((Math.random() * 4));
+  let randomNumber = Math.floor((Math.random() * 4));
   // Select a random color
-  randomChosenColor = buttonColors[randomNumber];
+  let randomChosenColor = buttonColors[randomNumber];
   // Add each randomChosenColor to gamePattern
   gamePattern.push(randomChosenColor);
   // Select the button with the same id as the randomChosenColor
   $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
   // Play the corresponding sound
   playSound(randomChosenColor);
-  // Increase the level by 1
-  level++;
   // Update the h1 with the new level
   $("#level-title").text("Level " + level);
-}
-
-// Function for playing sounds
-function playSound(name) {
-  var audio = new Audio("sounds/" + name + ".mp3");
-  audio.play();
+  // Increase the level by 1
+  level++;
 }
 
 function animatePress(currentColor) {
   $("#" + currentColor).addClass("pressed");
   setTimeout(function () {
     $("#" + currentColor).removeClass("pressed");
-  }, 100); 
+  }, 100);
 }
 
 function checkAnswer(currentLevel) {
@@ -39,7 +55,7 @@ function checkAnswer(currentLevel) {
     console.log("success");
     if (userClickedPattern.length === gamePattern.length) {
       userClickedPattern = [];
-      setTimeout(function() {
+      setTimeout(function () {
         nextSequence();
       }, 1000);
     }
@@ -47,10 +63,10 @@ function checkAnswer(currentLevel) {
     console.log("wrong");
     playSound("wrong");
     $("body").addClass("game-over");
-    setTimeout(function() {
+    setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press Start to Play Again");
     startOver();
   }
   console.log("User " + userClickedPattern);
@@ -58,28 +74,45 @@ function checkAnswer(currentLevel) {
 }
 
 function startOver() {
-  level = 0;
   gamePattern = [];
   userClickedPattern = [];
+  started = false;
+  $("#level-title").text("Press Start");
 }
 
 // Detect when a button is clicked
-$(".btn").click(function() {
-  // Store the id of the button that got clicked
-  var userChosenColor = $(this).attr("id");
-  // Add the contents of userChosenColor to a new array called userClickedPattern
-  userClickedPattern.push(userChosenColor);
-  // Play sound for the button that got clicked
-  playSound(userChosenColor);
-  animatePress(userChosenColor);
-  checkAnswer(userClickedPattern.length - 1);
-});
-
-// Detect if key has been pressed for the first time
-$(document).keypress(function() {
-  if (level === 0) {
-    $("#level-title").text("Level " + level);
-    nextSequence();
+$(".btn").click(function () {
+  if (started) {
+    // Store the id of the button that got clicked
+    let userChosenColor = $(this).attr("id");
+    // Add the contents of userChosenColor to a new array called userClickedPattern
+    userClickedPattern.push(userChosenColor);
+    // Play sound for the button that got clicked
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern.length - 1);
   }
 });
 
+// Detect if Start Button has been pressed for the first time
+$(document).keydown(function () {
+  if (!started) {
+    start();
+  }
+});
+
+$(".start-button").click(function () {
+  if (!started) {
+    start();
+  } else {
+    startOver();
+    start();
+  }
+});
+
+function start() {
+  started = true;
+  level = 1;
+  $("#level-title").text("Level " + level);
+  nextSequence();
+}
