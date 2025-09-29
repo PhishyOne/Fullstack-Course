@@ -1,0 +1,10 @@
+{
+    "name": "root-wrapper",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "cd server && npm start",
+      "heroku-postbuild": "cd server && npm install"
+    }
+  }
+  
