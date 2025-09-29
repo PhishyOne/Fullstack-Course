@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Click below to generate a random band name:</p>
+    <button onclick="generate()">Generate Band</button>
+    <p id="band"></p>
+    <a href="/">← Back to Dashboard</a>
+
+    <script>
+        async function generate() {
+            const res = await fetch("/project25/api/band");
+            const data = await res.json();
+            document.getElementById("band").textContent = data.band;
+        }
+    </script>
+</body>
+
+</html>
