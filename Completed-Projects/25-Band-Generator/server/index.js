@@ -12,9 +12,12 @@ app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
+// Root route
+app.get("/", (req, res) => {
+  res.send("<h1>Completed Projects Dashboard</h1><p><a href='/project25'>Project 25 - Band Generator</a></p>");
+});
+
 // Mount Project 25 router
 app.use("/project25", project25Routes);
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+app.listen(port, () => console.log(`Listening on port ${port}`));
