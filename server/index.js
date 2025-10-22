@@ -2,6 +2,7 @@ import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import project25Routes from "./routes/project25.js";
+import project28Routes from "./routes/project28.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -13,12 +14,15 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Mount Project 25 router
+// Mount Project routers
 app.use("/project25", project25Routes);
+app.use("/project28", project28Routes);
 
 // Root route
 app.get("/", (req, res) => {
-  res.send("<h1>Completed Projects Dashboard</h1><p><a href='/project25'>Project 25 - Band Generator</a></p>");
+  res.send("<h1>Completed Projects Dashboard</h1>" +
+    "<p><a href='/project25'>Project 25 - Band Generator</a></p>" +
+    "<p><a href='/project28'>Project 28 - Secrets</a></p>");
 });
 
 app.listen(port, () => {
