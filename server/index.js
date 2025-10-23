@@ -17,12 +17,14 @@ app.use(express.json());
 // Mount Project routers
 app.use("/project25", project25Routes);
 app.use("/project28", project28Routes);
+app.use("/project29", project29Routes);
 
 // Root route
 app.get("/", (req, res) => {
   res.send("<h1>Completed Projects Dashboard</h1>" +
     "<p><a href='/project25'>Project 25 - Band Generator</a></p>" +
-    "<p><a href='/project28'>Project 28 - Secrets</a></p>");
+    "<p><a href='/project28'>Project 28 - Secrets</a></p>" +
+    "<p><a href='/project29'>Project 29 - Capstone Project - Eve Echoes PlayInt</a></p>");
 });
 
 app.listen(port, () => {
