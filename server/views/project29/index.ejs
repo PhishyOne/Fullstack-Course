@@ -7,7 +7,127 @@
 </head>
 
 <body>
-    <h1>Eve Echoes Player Intelligence</h1>
+    <div class="container">
+        <h1>Eve Echoes Player Intelligence</h1>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <form id="playerForm" action="/project29/submit" method="GET">
+                <label for="playerInput">Enter Player Name:</label>
+                <input type="text" id="playerInput" name="name" placeholder="(Case Sensitive)" required />
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" style="display:none; text-align:center; margin-top:20px;">
+            <p>Fetching all kills and losses — this may take a few seconds...</p>
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Error -->
+        <% if (typeof error !=="undefined" && error) { %>
+            <p style="color:red;">
+                <%= error %>
+            </p>
+            <% } %>
+
+                <!-- Player Name -->
+                <% if (playerName) { %>
+                    <h2>Results for <%= playerName %>
+                    </h2>
+                    <% } %>
+
+                        <% function getColor(count, maxCount) { if (!maxCount) return '#00ff00' ; const ratio=count /
+                            maxCount; const r=Math.floor(255 * ratio); const g=Math.floor(255 * (1 - ratio)); const b=0;
+                            return `rgb(${r},${g},${b})`; } %>
+
+                            <!-- Collapsible Top Regions -->
+                            <% if (topRegions && topRegions.length) { %>
+                                <h3>Top 5 Regions (Entries)</h3>
+                                <ul class="tree">
+                                    <% topRegions.forEach(region=> { %>
+                                        <li>
+                                            <span class="caret">
+                                                <span class="color-dot"
+                                                    style="background-color:<%= getColor(region.count, Math.max(...topRegions.map(r=>r.count))) %>"></span>
+                                                <%= region.region %> (<%= region.count %>)
+                                            </span>
+                                            <ul class="nested">
+                                                <% region.constellations.forEach(con=> { %>
+                                                    <li>
+                                                        <span class="caret">
+                                                            <span class="color-dot"
+                                                                style="background-color:<%= getColor(con.count, region.maxConstellationCount) %>"></span>
+                                                            <%= con.name %> (<%= con.count %>)
+                                                        </span>
+                                                        <ul class="nested">
+                                                            <% con.systems.forEach(sys=> { %>
+                                                                <li>
+                                                                    <span class="color-dot"
+                                                                        style="background-color:<%= getColor(sys.count, maxSystemCount) %>"></span>
+                                                                    <%= sys.name %> - <%= sys.count %>
+                                                                </li>
+                                                                <% }) %>
+                                                        </ul>
+                                                    </li>
+                                                    <% }) %>
+                                            </ul>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } else { %>
+                                    <p>No region data available.</p>
+                                    <% } %>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const spinner = document.getElementById("loading");
+
+            if (spinner) spinner.style.display = "none";
+
+            const form = document.getElementById("playerForm");
+            if (form) {
+                form.addEventListener("submit", function () {
+                    if (spinner) spinner.style.display = "block";
+                });
+            }
+
+            // Collapsible tree: regions collapsed by default, expand all children when region opened
+            document.querySelectorAll('.tree > li > .caret').forEach(regionCaret => {
+                regionCaret.addEventListener('click', () => {
+                    const nestedRegion = regionCaret.parentElement.querySelector('.nested');
+                    if (!nestedRegion) return;
+
+                    nestedRegion.classList.toggle('show');
+                    regionCaret.classList.toggle('caret-down');
+
+                    // Expand all children
+                    if (nestedRegion.classList.contains('show')) {
+                        nestedRegion.querySelectorAll('.nested').forEach(child => {
+                            child.classList.add('show');
+                            const childCaret = child.parentElement.querySelector('.caret');
+                            if (childCaret) childCaret.classList.add('caret-down');
+                        });
+                    } else {
+                        nestedRegion.querySelectorAll('.nested').forEach(child => {
+                            child.classList.remove('show');
+                            const childCaret = child.parentElement.querySelector('.caret');
+                            if (childCaret) childCaret.classList.remove('caret-down');
+                        });
+                    }
+                });
+            });
+        });
+
+        window.addEventListener('pageshow', () => {
+            const spinner = document.getElementById("loading");
+            if (spinner) spinner.style.display = "none";
+        });
+    </script>
 </body>
 
 </html>

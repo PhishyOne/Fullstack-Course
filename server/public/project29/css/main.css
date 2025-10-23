@@ -1,0 +1,72 @@
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Tree styles */
+.tree,
+.tree ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: #1a73e8;
+    display: inline-block;
+    margin-right: 6px;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+}
+
+.nested.show {
+    display: block;
+}
+
+/* Color dot */
+.color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Spinner */
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #1a73e8;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
