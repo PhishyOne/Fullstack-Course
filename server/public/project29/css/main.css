@@ -1,64 +1,47 @@
-/* Container */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
+/* ===== Global & Layout ===== */
+body {
     font-family: Arial, sans-serif;
-}
-
-/* Tree styles */
-.tree,
-.tree ul {
-    list-style-type: none;
     margin: 0;
-    padding-left: 20px;
+    padding: 20px;
+    background: #f4f4f4;
 }
 
-.caret {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Search Box ===== */
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input[type="text"] {
+    padding: 6px;
+    font-size: 14px;
+    width: 250px;
+}
+
+.search-box input[type="submit"] {
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-left: 6px;
     cursor: pointer;
-    user-select: none;
-    font-weight: bold;
 }
 
-.caret::before {
-    content: "\25B6";
-    color: #1a73e8;
-    display: inline-block;
-    margin-right: 6px;
-    transform: rotate(0deg);
-    transition: transform 0.2s;
-}
-
-.caret-down::before {
-    transform: rotate(90deg);
-}
-
-.nested {
-    display: none;
-}
-
-.nested.show {
-    display: block;
-}
-
-/* Color dot */
-.color-dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-
-/* Spinner */
+/* ===== Spinner ===== */
 .spinner {
     border: 6px solid #f3f3f3;
     border-top: 6px solid #1a73e8;
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    margin: 10px auto;
     animation: spin 1s linear infinite;
-    margin: 0 auto;
 }
 
 @keyframes spin {
@@ -69,4 +52,91 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* ===== Collapsible Tree ===== */
+.tree {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tree li {
+    margin: 4px 0;
+}
+
+.tree .caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.tree .caret::before {
+    content: "\25B6";
+    /* right-pointing triangle */
+    display: inline-block;
+    margin-right: 6px;
+    transition: transform 0.2s;
+}
+
+.tree .caret-down::before {
+    transform: rotate(90deg);
+    /* point down when expanded */
+}
+
+.tree .nested {
+    display: none;
+    padding-left: 20px;
+}
+
+.tree .nested.show {
+    display: block;
+}
+
+/* ===== Color Dots ===== */
+.color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Indentation for nested lists */
+.tree ul ul {
+    padding-left: 25px;
+}
+
+.tree ul ul ul {
+    padding-left: 40px;
+}
+
+/* ===== Hourly Activity Chart ===== */
+#hourly-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 300px;
+    gap: 4px;
+    margin-top: 20px;
+}
+
+.hour-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.hour-bar {
+    background-color: #1a73e8;
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.hour-column:hover .hour-bar {
+    background-color: #ff6f00;
+}
+
+.hour-label {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 4px;
 }

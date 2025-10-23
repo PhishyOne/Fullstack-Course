@@ -27,7 +27,9 @@ router.get("/", (req, res) => {
         playerName: null,
         dataK: [],
         dataV: [],
-        topRegions: []
+        topRegions: [],
+        maxSystemCount: 0,
+        hourlyPercentages: []
     });
 });
 
@@ -41,7 +43,9 @@ router.get("/submit", async (req, res) => {
                 playerName: null,
                 dataK: [],
                 dataV: [],
-                topRegions: []
+                topRegions: [],
+                maxSystemCount: 0,
+                hourlyPercentages: []
             });
         }
 
@@ -52,6 +56,7 @@ router.get("/submit", async (req, res) => {
         ]);
 
         const allData = [...dataK, ...dataV];
+        const totalCount = allData.length;
 
         // Build hierarchical structure
         const regionMap = {};
@@ -77,19 +82,24 @@ router.get("/submit", async (req, res) => {
             }
         });
 
-        // Convert to topRegions array
+        // Convert to array for sorting & percentages
         const topRegions = Object.entries(regionMap)
             .map(([region, data]) => {
                 const constellations = Object.entries(data.constellations)
                     .sort((a, b) => b[1].count - a[1].count)
                     .slice(0, 5)
-                    .map(([constellation, constData]) => ({
-                        name: constellation,
-                        count: constData.count,
-                        systems: Object.entries(constData.systems)
+                    .map(([name, cData]) => ({
+                        name,
+                        count: cData.count,
+                        percent: ((cData.count / data.count) * 100).toFixed(1),
+                        systems: Object.entries(cData.systems)
                             .sort((a, b) => b[1] - a[1])
                             .slice(0, 5)
-                            .map(([system, count]) => ({ name: system, count }))
+                            .map(([sys, sysCount]) => ({
+                                name: sys,
+                                count: sysCount,
+                                percent: ((sysCount / cData.count) * 100).toFixed(1)
+                            }))
                     }));
 
                 const maxConstellationCount = constellations.length ? Math.max(...constellations.map(c => c.count)) : 0;
@@ -97,14 +107,15 @@ router.get("/submit", async (req, res) => {
                 return {
                     region,
                     count: data.count,
+                    percent: ((data.count / totalCount) * 100).toFixed(1),
                     constellations,
                     maxConstellationCount
                 };
             })
             .sort((a, b) => b.count - a.count)
-            .slice(0, 5); // top 5 regions
+            .slice(0, 5);
 
-        // Compute global max system count
+        // Compute global max system count for coloring
         let maxSystemCount = 0;
         topRegions.forEach(r => {
             r.constellations.forEach(c => {
@@ -114,13 +125,35 @@ router.get("/submit", async (req, res) => {
             });
         });
 
+        // Initialize hourly data (0–23)
+        const hourlyCounts = Array.from({ length: 24 }, () => 0);
+
+        // Process all timestamps
+        allData.forEach(row => {
+            const dateStr = row.date_killed || row.date_created;
+            if (!dateStr) return;
+
+            const date = new Date(dateStr);
+            if (!isNaN(date)) {
+                const hour = date.getUTCHours(); // use UTC or local time
+                hourlyCounts[hour]++;
+            }
+        });
+
+        // Convert to percentages
+        const totalHourly = hourlyCounts.reduce((a, b) => a + b, 0);
+        const hourlyPercentages = hourlyCounts.map(count =>
+            totalHourly > 0 ? ((count / totalHourly) * 100).toFixed(1) : 0
+        );
+        
         res.render("project29/index", {
             error: null,
             playerName,
             dataK,
             dataV,
             topRegions,
-            maxSystemCount
+            maxSystemCount,
+            hourlyPercentages
         });
 
     } catch (error) {
@@ -131,7 +164,8 @@ router.get("/submit", async (req, res) => {
             dataK: [],
             dataV: [],
             topRegions: [],
-            maxSystemCount: 0
+            maxSystemCount: 0,
+            hourlyPercentages: []
         });
     }
 });

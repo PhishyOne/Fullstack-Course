@@ -38,47 +38,75 @@
                     </h2>
                     <% } %>
 
-                        <% function getColor(count, maxCount) { if (!maxCount) return '#00ff00' ; const ratio=count /
-                            maxCount; const r=Math.floor(255 * ratio); const g=Math.floor(255 * (1 - ratio)); const b=0;
-                            return `rgb(${r},${g},${b})`; } %>
+                        <% // Safe helper function function getColor(count, maxCount) { if (!maxCount) return '#00ff00'
+                            ; const ratio=count / maxCount; const r=Math.floor(255 * ratio); const g=Math.floor(255 * (1
+                            - ratio)); const b=0; return 'rgb(' + r + ',' + g + ',' + b + ')' ; } %>
 
                             <!-- Collapsible Top Regions -->
                             <% if (topRegions && topRegions.length) { %>
-                                <h3>Top 5 Regions (Entries)</h3>
+                                <h3>Top 5 Regions</h3>
                                 <ul class="tree">
-                                    <% topRegions.forEach(region=> { %>
-                                        <li>
-                                            <span class="caret">
-                                                <span class="color-dot"
-                                                    style="background-color:<%= getColor(region.count, Math.max(...topRegions.map(r=>r.count))) %>"></span>
-                                                <%= region.region %> (<%= region.count %>)
-                                            </span>
-                                            <ul class="nested">
-                                                <% region.constellations.forEach(con=> { %>
-                                                    <li>
-                                                        <span class="caret">
-                                                            <span class="color-dot"
-                                                                style="background-color:<%= getColor(con.count, region.maxConstellationCount) %>"></span>
-                                                            <%= con.name %> (<%= con.count %>)
-                                                        </span>
-                                                        <ul class="nested">
-                                                            <% con.systems.forEach(sys=> { %>
-                                                                <li>
-                                                                    <span class="color-dot"
-                                                                        style="background-color:<%= getColor(sys.count, maxSystemCount) %>"></span>
-                                                                    <%= sys.name %> - <%= sys.count %>
-                                                                </li>
-                                                                <% }) %>
-                                                        </ul>
-                                                    </li>
-                                                    <% }) %>
-                                            </ul>
-                                        </li>
-                                        <% }) %>
+                                    <% const maxRegionCount=Math.max(...topRegions.map(r=> r.count)); %>
+                                        <% topRegions.forEach(region=> {
+                                            const regionColor = getColor(region.count, maxRegionCount);
+                                            const maxConstellationCount = region.maxConstellationCount;
+                                            %>
+                                            <li>
+                                                <span class="caret">
+                                                    <span class="color-dot"
+                                                        style="background-color:<%= regionColor %>"></span>
+                                                    <%= region.region %> (<%= region.percent %>%)
+                                                </span>
+                                                <ul class="nested">
+                                                    <% region.constellations.forEach(con=> {
+                                                        const conColor = getColor(con.count, maxConstellationCount);
+                                                        %>
+                                                        <li>
+                                                            <span class="caret">
+                                                                <span class="color-dot"
+                                                                    style="background-color:<%= conColor %>"></span>
+                                                                <%= con.name %> (<%= con.percent %>%)
+                                                            </span>
+                                                            <ul class="nested">
+                                                                <% con.systems.forEach(sys=> {
+                                                                    const sysColor = getColor(sys.count,
+                                                                    maxSystemCount);
+                                                                    %>
+                                                                    <li>
+                                                                        <span class="color-dot"
+                                                                            style="background-color:<%= sysColor %>"></span>
+                                                                        <%= sys.name %> (<%= sys.percent %>%)
+                                                                    </li>
+                                                                    <% }) %>
+                                                            </ul>
+                                                        </li>
+                                                        <% }) %>
+                                                </ul>
+                                            </li>
+                                            <% }) %>
                                 </ul>
                                 <% } else { %>
                                     <p>No region data available.</p>
                                     <% } %>
+
+                                        <!-- Hourly Activity Chart -->
+                                        <% if (hourlyPercentages && hourlyPercentages.length) { %>
+                                            <h2>Activity by Hour</h2>
+                                            <div id="hourly-chart">
+                                                <% hourlyPercentages.forEach((percent, hour)=> {
+                                                    const barHeight = percent * 3;
+                                                    const paddedHour = String(hour).padStart(2, '0');
+                                                    %>
+                                                    <div class="hour-column">
+                                                        <div class="hour-bar" style="height:<%= barHeight %>px;"></div>
+                                                        <div class="hour-label">
+                                                            <%= paddedHour %>:00 UTC
+                                                        </div>
+                                                    </div>
+                                                    <% }) %>
+                                            </div>
+                                            <p>Each bar height represents % of total kills/losses for that hour.</p>
+                                            <% } %>
 
     </div>
 
