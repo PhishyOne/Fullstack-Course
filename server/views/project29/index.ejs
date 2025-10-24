@@ -7,17 +7,27 @@
 </head>
 
 <body>
+    <canvas id="stars-bg"></canvas>
     <div class="container">
-        <h1>Eve Echoes Player Intelligence</h1>
+        <div class="title-container">
+            <div class="logo-container">
+                <canvas id="gearCanvas"></canvas>
+                <img src="/project29/images/logo-bg.jpg" alt="Logo Background" class="logo-bg">
+            </div>
+            <h1 id="eve-title">Eve Echoes: INTM</h1>
+        </div>
+        
+        
+            <h2>Player Intelligence</h2>
 
         <!-- Search Box -->
-        <div class="search-box">
-            <form id="playerForm" action="/project29/submit" method="GET">
-                <label for="playerInput">Enter Player Name:</label>
-                <input type="text" id="playerInput" name="name" placeholder="(Case Sensitive)" required />
-                <input type="submit" value="Search" />
-            </form>
-        </div>
+            <div class="search-box">
+                <form id="playerForm" action="/project29/submit" method="GET">
+                    <label for="playerInput">Enter Player Name:</label>
+                    <input type="text" id="playerInput" name="name" placeholder="(Case Sensitive)" required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
 
         <!-- Loading Spinner -->
         <div id="loading" style="display:none; text-align:center; margin-top:20px;">
@@ -26,7 +36,7 @@
         </div>
 
         <!-- Error -->
-        <% if (typeof error !=="undefined" && error) { %>
+        <% if (error) { %>
             <p style="color:red;">
                 <%= error %>
             </p>
@@ -34,128 +44,133 @@
 
                 <!-- Player Name -->
                 <% if (playerName) { %>
-                    <h2>Results for <%= playerName %>
-                    </h2>
+                    <h3 id="result">Results for <%= playerName %></h3>
                     <% } %>
 
-                        <% // Safe helper function function getColor(count, maxCount) { if (!maxCount) return '#00ff00'
-                            ; const ratio=count / maxCount; const r=Math.floor(255 * ratio); const g=Math.floor(255 * (1
-                            - ratio)); const b=0; return 'rgb(' + r + ',' + g + ',' + b + ')' ; } %>
-
-                            <!-- Collapsible Top Regions -->
-                            <% if (topRegions && topRegions.length) { %>
-                                <h3>Top 5 Regions</h3>
-                                <ul class="tree">
-                                    <% const maxRegionCount=Math.max(...topRegions.map(r=> r.count)); %>
-                                        <% topRegions.forEach(region=> {
-                                            const regionColor = getColor(region.count, maxRegionCount);
-                                            const maxConstellationCount = region.maxConstellationCount;
-                                            %>
-                                            <li>
-                                                <span class="caret">
-                                                    <span class="color-dot"
-                                                        style="background-color:<%= regionColor %>"></span>
-                                                    <%= region.region %> (<%= region.percent %>%)
-                                                </span>
-                                                <ul class="nested">
-                                                    <% region.constellations.forEach(con=> {
-                                                        const conColor = getColor(con.count, maxConstellationCount);
-                                                        %>
-                                                        <li>
-                                                            <span class="caret">
+                        <!-- Top Regions Tree -->
+                        <% if (topRegions.length) { %>
+                            <h3>Top 5 Regions</h3>
+                            <ul class="tree">
+                                <% topRegions.forEach(region=> { %>
+                                    <li>
+                                        <span class="caret">
+                                            <span class="color-dot" style="background-color:<%= region.color %>"></span>
+                                            <%= region.name %> (<%= region.percent %>%)
+                                        </span>
+                                        <ul class="nested">
+                                            <% region.constellations.forEach(con=> { %>
+                                                <li>
+                                                    <span class="caret">
+                                                        <span class="color-dot"
+                                                            style="background-color:<%= con.color %>"></span>
+                                                        <%= con.name %> (<%= con.percent %>%)
+                                                    </span>
+                                                    <ul class="nested">
+                                                        <% con.systems.forEach(sys=> { %>
+                                                            <li>
                                                                 <span class="color-dot"
-                                                                    style="background-color:<%= conColor %>"></span>
-                                                                <%= con.name %> (<%= con.percent %>%)
-                                                            </span>
-                                                            <ul class="nested">
-                                                                <% con.systems.forEach(sys=> {
-                                                                    const sysColor = getColor(sys.count,
-                                                                    maxSystemCount);
-                                                                    %>
-                                                                    <li>
-                                                                        <span class="color-dot"
-                                                                            style="background-color:<%= sysColor %>"></span>
-                                                                        <%= sys.name %> (<%= sys.percent %>%)
-                                                                    </li>
-                                                                    <% }) %>
-                                                            </ul>
-                                                        </li>
-                                                        <% }) %>
-                                                </ul>
-                                            </li>
-                                            <% }) %>
-                                </ul>
-                                <% } else { %>
-                                    <p>No region data available.</p>
-                                    <% } %>
+                                                                    style="background-color:<%= sys.color %>"></span>
+                                                                <%= sys.name %> (<%= sys.percent %>%)
+                                                            </li>
+                                                            <% }) %>
+                                                    </ul>
+                                                </li>
+                                                <% }) %>
+                                        </ul>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                            <% } else { %>
+                                <p>No region data available.</p>
+                                <% } %>
 
-                                        <!-- Hourly Activity Chart -->
-                                        <% if (hourlyPercentages && hourlyPercentages.length) { %>
-                                            <h2>Activity by Hour</h2>
-                                            <div id="hourly-chart">
-                                                <% hourlyPercentages.forEach((percent, hour)=> {
-                                                    const barHeight = percent * 3;
-                                                    const paddedHour = String(hour).padStart(2, '0');
-                                                    %>
-                                                    <div class="hour-column">
-                                                        <div class="hour-bar" style="height:<%= barHeight %>px;"></div>
-                                                        <div class="hour-label">
-                                                            <%= paddedHour %>:00 UTC
-                                                        </div>
+                                    <!-- Hourly Chart -->
+                                    <% if (hourlyPercentages.length) { %>
+                                        <h3>Activity by Hour</h3>
+                                        <div class="hourly-chart-row">
+                                            <% hourlyPercentages.slice(0, 12).forEach(slot=> { %>
+                                                <div class="hour-column">
+                                                    <div class="hour-bar" style="--bar-height: <%= slot.height %>px;">
+                                                        <span class="hour-percent">
+                                                            <%= slot.percent.toFixed(1) %>%
+                                                        </span>
                                                     </div>
-                                                    <% }) %>
-                                            </div>
-                                            <p>Each bar height represents % of total kills/losses for that hour.</p>
-                                            <% } %>
-
+                                                    <div class="hour-label">
+                                                        <%= slot.hour %>:00 UTC
+                                                    </div>
+                                                </div>
+                                                <% }) %>
+                                        </div>
+                                        
+                                        <div class="hourly-chart-row">
+                                            <% hourlyPercentages.slice(12, 24).forEach(slot=> { %>
+                                                <div class="hour-column">
+                                                    <div class="hour-bar" style="--bar-height: <%= slot.height %>px;">
+                                                        <span class="hour-percent">
+                                                            <%= slot.percent.toFixed(1) %>%
+                                                        </span>
+                                                    </div>
+                                                    <div class="hour-label">
+                                                        <%= slot.hour %>:00 UTC
+                                                    </div>
+                                                </div>
+                                                <% }) %>
+                                        </div>
+                                        <p>Each bar height represents % of total kills/losses for that hour.</p>
+                                        <% } %>
     </div>
 
-    <!-- Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const spinner = document.getElementById("loading");
-
-            if (spinner) spinner.style.display = "none";
-
             const form = document.getElementById("playerForm");
+
+            // Show spinner on submit
             if (form) {
-                form.addEventListener("submit", function () {
+                form.addEventListener("submit", () => {
                     if (spinner) spinner.style.display = "block";
                 });
             }
 
-            // Collapsible tree: regions collapsed by default, expand all children when region opened
-            document.querySelectorAll('.tree > li > .caret').forEach(regionCaret => {
-                regionCaret.addEventListener('click', () => {
-                    const nestedRegion = regionCaret.parentElement.querySelector('.nested');
-                    if (!nestedRegion) return;
+            // Collapsible tree logic
+            document.querySelectorAll(".tree .caret").forEach(caret => {
+                caret.addEventListener("click", e => {
+                    const li = e.target.closest("li");
+                    if (!li) return;
 
-                    nestedRegion.classList.toggle('show');
-                    regionCaret.classList.toggle('caret-down');
+                    const nested = li.querySelector(":scope > .nested");
+                    if (!nested) return;
 
-                    // Expand all children
-                    if (nestedRegion.classList.contains('show')) {
-                        nestedRegion.querySelectorAll('.nested').forEach(child => {
-                            child.classList.add('show');
-                            const childCaret = child.parentElement.querySelector('.caret');
-                            if (childCaret) childCaret.classList.add('caret-down');
-                        });
-                    } else {
-                        nestedRegion.querySelectorAll('.nested').forEach(child => {
-                            child.classList.remove('show');
-                            const childCaret = child.parentElement.querySelector('.caret');
-                            if (childCaret) childCaret.classList.remove('caret-down');
-                        });
-                    }
+                    const isExpanding = !nested.classList.contains("show");
+
+                    // Toggle this node
+                    nested.classList.toggle("show");
+                    caret.classList.toggle("caret-down");
+
+                    // Expand or collapse all descendants recursively
+                    nested.querySelectorAll(".nested").forEach(childNested => {
+                        if (isExpanding) {
+                            childNested.classList.add("show");
+                            const childCaret = childNested.parentElement.querySelector(":scope > .caret");
+                            if (childCaret) childCaret.classList.add("caret-down");
+                        } else {
+                            childNested.classList.remove("show");
+                            const childCaret = childNested.parentElement.querySelector(":scope > .caret");
+                            if (childCaret) childCaret.classList.remove("caret-down");
+                        }
+                    });
                 });
             });
         });
 
-        window.addEventListener('pageshow', () => {
+        // Hide spinner if page is restored from cache
+        window.addEventListener("pageshow", () => {
             const spinner = document.getElementById("loading");
             if (spinner) spinner.style.display = "none";
         });
     </script>
+    <script src="/project29/js/stars-bg.js"></script>
+    <script src="/project29/js/intm-logo.js"></script>
 </body>
 
 </html>

@@ -4,36 +4,73 @@ import { parse } from "csv-parse/sync";
 
 const router = express.Router();
 
-// Helper function to fetch all pages for a player
-async function fetchAllPages(playerName, type) {
-    let page = 1;
-    let results = [];
-    while (true) {
-        const response = await axios.get(
-            `https://echoes.mobi/api/killmails?page=${page}&${type}_name=${encodeURIComponent(playerName)}`
-        );
-        const data = parse(response.data, { columns: true, skip_empty_lines: true });
-        if (data.length === 0) break; // stop if no more results
-        results = results.concat(data);
-        page++;
+/* ============================
+   Color Scaling Helper
+   ============================ */
+function getColor(count, maxCount) {
+    if (!maxCount || maxCount <= 0) return '#00ff00'; // green default
+    const ratio = Math.max(0, Math.min(1, count / maxCount));
+
+    // Green → Yellow → Red gradient
+    if (ratio <= 0.5) {
+        const t = ratio / 0.5; // 0..1
+        const r = Math.round(255 * t);
+        const g = 255;
+        return `rgb(${r},${g},0)`;
+    } else {
+        const t = (ratio - 0.5) / 0.5; // 0..1
+        const r = 255;
+        const g = Math.round(255 * (1 - t));
+        return `rgb(${r},${g},0)`;
     }
-    return results;
 }
 
-// Render main search page
+/* ============================
+   Utility to pick top N
+   ============================ */
+function topN(items, n) {
+    return items.sort((a, b) => b.count - a.count).slice(0, n);
+}
+
+/* ============================
+   Fetch all pages in parallel
+   ============================ */
+async function fetchAllPagesParallel(baseUrl) {
+    const MAX_PAGES = 10;
+    const promises = [];
+    for (let page = 1; page <= MAX_PAGES; page++) {
+        promises.push(axios.get(`${baseUrl}&page=${page}`));
+    }
+
+    const responses = await Promise.allSettled(promises);
+    let allData = [];
+
+    responses.forEach(r => {
+        if (r.status === 'fulfilled' && r.value.data) {
+            try {
+                const pageData = parse(r.value.data, { columns: true, skip_empty_lines: true });
+                allData = allData.concat(pageData);
+            } catch (err) {
+                console.warn("Parse error on page data:", err.message);
+            }
+        }
+    });
+
+    return allData;
+}
+
+/* ============================
+   ROUTES
+   ============================ */
 router.get("/", (req, res) => {
     res.render("project29/index", {
         error: null,
         playerName: null,
-        dataK: [],
-        dataV: [],
         topRegions: [],
-        maxSystemCount: 0,
         hourlyPercentages: []
     });
 });
 
-// Handle search + data processing
 router.get("/submit", async (req, res) => {
     try {
         const playerName = req.query.name?.trim();
@@ -41,130 +78,108 @@ router.get("/submit", async (req, res) => {
             return res.render("project29/index", {
                 error: "Please enter a player name.",
                 playerName: null,
-                dataK: [],
-                dataV: [],
                 topRegions: [],
-                maxSystemCount: 0,
                 hourlyPercentages: []
             });
         }
 
-        // Fetch all pages concurrently
-        const [dataV, dataK] = await Promise.all([
-            fetchAllPages(playerName, "victim"),
-            fetchAllPages(playerName, "killer")
+        // Fetch kills and losses in parallel
+        const [dataVictim, dataKiller] = await Promise.all([
+            fetchAllPagesParallel(`https://echoes.mobi/api/killmails?victim_name=${encodeURIComponent(playerName)}`),
+            fetchAllPagesParallel(`https://echoes.mobi/api/killmails?killer_name=${encodeURIComponent(playerName)}`)
         ]);
 
-        const allData = [...dataK, ...dataV];
-        const totalCount = allData.length;
+        const allData = [...dataVictim, ...dataKiller];
+        const totalCount = allData.length || 1;
 
-        // Build hierarchical structure
+        // Aggregate region → constellation → system
         const regionMap = {};
+        let maxSystemCount = 0;
+
         allData.forEach(row => {
-            const region = row.region?.trim();
-            const constellation = row.constellation?.trim();
-            const system = row.system?.trim();
-            if (!region) return;
+            const region = row.region || "Unknown Region";
+            const con = row.constellation || "Unknown Constellation";
+            const sys = row.system || "Unknown System";
 
             if (!regionMap[region]) regionMap[region] = { count: 0, constellations: {} };
             regionMap[region].count++;
 
-            if (constellation) {
-                if (!regionMap[region].constellations[constellation]) {
-                    regionMap[region].constellations[constellation] = { count: 0, systems: {} };
-                }
-                regionMap[region].constellations[constellation].count++;
+            if (!regionMap[region].constellations[con])
+                regionMap[region].constellations[con] = { count: 0, systems: {} };
+            regionMap[region].constellations[con].count++;
 
-                if (system) {
-                    regionMap[region].constellations[constellation].systems[system] =
-                        (regionMap[region].constellations[constellation].systems[system] || 0) + 1;
-                }
-            }
+            if (!regionMap[region].constellations[con].systems[sys])
+                regionMap[region].constellations[con].systems[sys] = { count: 0 };
+            regionMap[region].constellations[con].systems[sys].count++;
+
+            const sysCount = Number(regionMap[region].constellations[con].systems[sys].count);
+            if (sysCount > maxSystemCount) maxSystemCount = sysCount;
         });
 
-        // Convert to array for sorting & percentages
-        const topRegions = Object.entries(regionMap)
-            .map(([region, data]) => {
-                const constellations = Object.entries(data.constellations)
-                    .sort((a, b) => b[1].count - a[1].count)
-                    .slice(0, 5)
-                    .map(([name, cData]) => ({
-                        name,
-                        count: cData.count,
-                        percent: ((cData.count / data.count) * 100).toFixed(1),
-                        systems: Object.entries(cData.systems)
-                            .sort((a, b) => b[1] - a[1])
-                            .slice(0, 5)
-                            .map(([sys, sysCount]) => ({
-                                name: sys,
-                                count: sysCount,
-                                percent: ((sysCount / cData.count) * 100).toFixed(1)
-                            }))
-                    }));
-
-                const maxConstellationCount = constellations.length ? Math.max(...constellations.map(c => c.count)) : 0;
-
-                return {
-                    region,
-                    count: data.count,
-                    percent: ((data.count / totalCount) * 100).toFixed(1),
-                    constellations,
-                    maxConstellationCount
-                };
-            })
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 5);
-
-        // Compute global max system count for coloring
-        let maxSystemCount = 0;
-        topRegions.forEach(r => {
-            r.constellations.forEach(c => {
-                c.systems.forEach(s => {
-                    if (s.count > maxSystemCount) maxSystemCount = s.count;
+        // Build hierarchy with explicit numeric counts
+        const regionsArr = Object.entries(regionMap).map(([regionName, regionData]) => {
+            const regionCount = Number(regionData.count);
+            const constellations = Object.entries(regionData.constellations).map(([conName, conData]) => {
+                const conCount = Number(conData.count);
+                const systemsArr = Object.entries(conData.systems).map(([sysName, sysData]) => {
+                    const sysCount = Number(sysData.count);
+                    return {
+                        name: sysName,
+                        count: sysCount,
+                        percent: Number(((sysCount / totalCount) * 100).toFixed(1)),
+                        color: getColor(sysCount, maxSystemCount)
+                    };
                 });
+
+                const maxSysCountInCon = Math.max(...systemsArr.map(s => s.count), 0);
+                return {
+                    name: conName,
+                    count: conCount,
+                    percent: Number(((conCount / totalCount) * 100).toFixed(1)),
+                    color: getColor(conCount, maxSysCountInCon),
+                    systems: topN(systemsArr, 5)
+                };
             });
+
+            const maxConstCountInRegion = Math.max(...constellations.map(c => c.count), 0);
+            return {
+                name: regionName,
+                count: regionCount,
+                percent: Number(((regionCount / totalCount) * 100).toFixed(1)),
+                color: getColor(regionCount, Math.max(...Object.values(regionMap).map(r => Number(r.count)))),
+                constellations: topN(constellations, 5),
+                maxConstellationCount: maxConstCountInRegion
+            };
         });
 
-        // Initialize hourly data (0–23)
-        const hourlyCounts = Array.from({ length: 24 }, () => 0);
+        const topRegions = topN(regionsArr, 5);
 
-        // Process all timestamps
+        // Hourly chart
+        const MAX_BAR_PX = 300;
+        const hourlyCounts = Array(24).fill(0);
         allData.forEach(row => {
-            const dateStr = row.date_killed || row.date_created;
-            if (!dateStr) return;
-
-            const date = new Date(dateStr);
-            if (!isNaN(date)) {
-                const hour = date.getUTCHours(); // use UTC or local time
-                hourlyCounts[hour]++;
-            }
+            const date = new Date(row.date_killed || row.date_created || row.date_updated);
+            if (!isNaN(date)) hourlyCounts[date.getUTCHours()]++;
         });
 
-        // Convert to percentages
-        const totalHourly = hourlyCounts.reduce((a, b) => a + b, 0);
-        const hourlyPercentages = hourlyCounts.map(count =>
-            totalHourly > 0 ? ((count / totalHourly) * 100).toFixed(1) : 0
-        );
-        
+        const hourlyPercentages = hourlyCounts.map((count, hour) => ({
+            hour: String(hour).padStart(2, "0"),
+            height: Math.round((count / totalCount) * MAX_BAR_PX),
+            percent: Number(((count / totalCount) * 100).toFixed(1)),
+        }));
+
         res.render("project29/index", {
             error: null,
             playerName,
-            dataK,
-            dataV,
             topRegions,
-            maxSystemCount,
             hourlyPercentages
         });
-
-    } catch (error) {
-        console.error("Error:", error.message);
+    } catch (err) {
+        console.error("Error in /submit:", err);
         res.render("project29/index", {
-            error: "Failed to fetch data.",
+            error: "Failed to fetch or process data.",
             playerName: null,
-            dataK: [],
-            dataV: [],
             topRegions: [],
-            maxSystemCount: 0,
             hourlyPercentages: []
         });
     }
