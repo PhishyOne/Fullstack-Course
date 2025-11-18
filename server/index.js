@@ -1,9 +1,11 @@
+
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import project25Routes from "./routes/project25.js";
 import project28Routes from "./routes/project28.js";
 import project29Routes from "./routes/project29.js";
+import project29Routes from "./routes/project30.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -19,13 +21,15 @@ app.use(express.json());
 app.use("/project25", project25Routes);
 app.use("/project28", project28Routes);
 app.use("/project29", project29Routes);
+app.use("/project30", project30Routes);
 
 // Root route
 app.get("/", (req, res) => {
   res.send("<h1>Completed Projects Dashboard</h1>" +
     "<p><a href='/project25'>Project 25 - Band Generator</a></p>" +
     "<p><a href='/project28'>Project 28 - Secrets</a></p>" +
-    "<p><a href='/project29'>Project 29 - Capstone Project - Eve Echoes PlayInt</a></p>");
+    "<p><a href='/project29'>Project 29 - Capstone Project - Eve Echoes PlayInt</a></p>" +
+    "<p><a href='/project30'>Project 30 - Blog API</a></p>");
 });
 
 app.listen(port, () => {
