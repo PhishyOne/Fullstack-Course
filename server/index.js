@@ -22,6 +22,7 @@ app.use("/project25", project25Routes);
 app.use("/project28", project28Routes);
 app.use("/project29", project29Routes);
 app.use("/project30", project30Routes);
+app.use("/api", project30Routes);  
 
 // Root route
 app.get("/", (req, res) => {

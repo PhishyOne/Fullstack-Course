@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/project30/styles/main.css">
   <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 </head>
 
 <body>
   <div class="container">
     <h1>My Blog</h1>
-    <a id="newPostBtn" href="/new">New Post</a>
+    <a id="newPostBtn" href="/project30/new">New Post</a>
     <ul id="postsList">
       <% posts.forEach(post=> { %>
         <li>
@@ -26,8 +26,8 @@
             <%=post.content%>
           </p>
           <small>By: <%=post.author%> </small>
-          <a class="edit" href="/edit/<%= post.id %>">Edit</a>
-          <a class="delete" href="/api/posts/delete/<%= post.id %>">Delete</a>
+          <a class="edit" href="/project30/edit/<%= post.id %>">Edit</a>
+          <a class="delete" href="/project30/posts/delete/<%= post.id %>">Delete</a>
         </li>
         <% }); %>
     </ul>
