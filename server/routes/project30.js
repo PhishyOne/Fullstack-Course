@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
+const router = express.Router();
 const port = 4000;
 
 // In-memory data store
@@ -53,3 +54,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
     console.log(`API is running at http://localhost:${port}`);
 });
+
+export default router;
