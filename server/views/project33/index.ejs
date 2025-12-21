@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capital City Quiz</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/project33/styles/main.css">
 </head>
 
 <body id="app">
-  <form class="container" action="/submit" method="post">
+  <form class="container" action="/project33/submit" method="post">
     <div class="horizontal-container">
       <h3>
         Total Score:
@@ -40,7 +40,7 @@
     console.log(wasCorrect)
     if (wasCorrect === "false") {
       alert('Game over! Final best score: <%= locals.totalScore %>');
-      document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      document.getElementById("app").innerHTML = '<a href="/project33" class="restart-button">Restart</a>'
     }
 
 
