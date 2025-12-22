@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   max-width: 40%;
-  height: 300px;
+  height: 400px;
   margin: 15% auto;
   padding: 20px;
   background-color: #fff;
@@ -21,6 +21,7 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 5rem;
 }
 
 h3 {
@@ -48,7 +49,7 @@ button {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #ffca00;
+  background-color: #054b92;
   color: white;
   border: none;
   border-radius: 5px;
@@ -61,7 +62,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffd500;
+  background-color: #f88783;
 }
 
 #result {
@@ -98,6 +99,9 @@ button:hover {
 }
 
 .restart-button {
+  position: absolute;
+  top: 45%;
+  left: 47.5%;
   display: inline-block;
   background-color: #fff;
   color: #333;

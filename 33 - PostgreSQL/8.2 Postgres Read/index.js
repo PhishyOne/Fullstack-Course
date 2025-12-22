@@ -1,29 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
-
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "123456",
-  port: 5432,
-});
 
 const app = express();
 const port = 3000;
-
-db.connect();
-
-let quiz = [];
-db.query("SELECT * FROM capitals", (err, res) => {
-  if (err) {
-    console.error("Error executing query", err.stack);
-  } else {
-    quiz = res.rows;
-  }
-  db.end();
-});
 
 let totalCorrect = 0;
 
@@ -34,9 +13,9 @@ app.use(express.static("public"));
 let currentQuestion = {};
 
 // GET home page
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   totalCorrect = 0;
-  await nextQuestion();
+  nextQuestion();
   console.log(currentQuestion);
   res.render("index.ejs", { question: currentQuestion });
 });
@@ -59,7 +38,7 @@ app.post("/submit", (req, res) => {
   });
 });
 
-async function nextQuestion() {
+function nextQuestion() {
   const randomCountry = quiz[Math.floor(Math.random() * quiz.length)];
   currentQuestion = randomCountry;
 }

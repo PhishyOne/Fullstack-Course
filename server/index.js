@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
     "<p><a href='/project28'>Project 28 - Secrets</a></p>" +
     "<p><a href='/project29'>Project 29 - Capstone Project - Eve Echoes PlayInt</a></p>" +
     "<p><a href='/project30'>Project 30 - Blog API</a></p>" +
-  "<p><a href='/project33'>Project 33 - World Capitals Quiz</a></p>");
+  "<p><a href='/project33'>Project 33 - World Flags Quiz</a></p>");
 });
 
 app.listen(port, () => {
