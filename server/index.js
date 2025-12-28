@@ -6,7 +6,7 @@ import project25Routes from "./routes/project25.js";
 import project28Routes from "./routes/project28.js";
 import project29Routes from "./routes/project29.js";
 import project30Routes from "./routes/project30.js";
-import project33Routes from "./routes/project33.js";
+import project331Routes from "./routes/project33-1.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -24,7 +24,7 @@ app.use("/project28", project28Routes);
 app.use("/project29", project29Routes);
 app.use("/project30", project30Routes);
 app.use("/api", project30Routes);  
-app.use("/project33", project33Routes);
+app.use("/project33-1", project331Routes);
 
 // Root route
 app.get("/", (req, res) => {
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
     "<p><a href='/project28'>Project 28 - Secrets</a></p>" +
     "<p><a href='/project29'>Project 29 - Capstone Project - Eve Echoes PlayInt</a></p>" +
     "<p><a href='/project30'>Project 30 - Blog API</a></p>" +
-  "<p><a href='/project33'>Project 33 - World Flags Quiz</a></p>");
+    "<p><a href='/project33-1'>Project 33-1 - Travel Tracker</a></p>");
 });
 
 app.listen(port, () => {
