@@ -20,34 +20,66 @@ const db = new pg.Client({
 
 await db.connect();
 
+// GET route: display all visited countries and optional error
 router.get("/", async (req, res) => {
   try {
-    const count = 5;
-    const randomIds = Array.from({ length: count }, () =>
-      Math.floor(Math.random() * 247) + 1
-    );
     const result = await db.query(
-      "SELECT country_code FROM fullstack.countries_33_1 WHERE id = ANY($1::int[])",
-      [randomIds]
+      "SELECT country_code FROM fullstack.visited_countries_33_1"
     );
     const countries = result.rows.map(row => row.country_code);
-    console.log(countries);
+    const error = req.query.error || ""; // Get error message from query param
 
-    for (const code of countries) {
+    res.render("project33-1", {
+      countries,
+      total: countries.length,
+      error,
+    });
+  } catch (err) {
+    console.error("DB error:", err);
+    res.status(500).send("Database error");
+  }
+});
+
+// POST route: add a new country
+router.post("/add", async (req, res) => {
+  const typedCountry = req.body.country?.trim();
+  console.log("Typed country: " + typedCountry);
+
+  try {
+    // Find country code by name (case-insensitive, partial match)
+    const countryResult = await db.query(
+      "SELECT country_code FROM fullstack.countries_33_1 WHERE country_name ILIKE $1",
+      [`%${typedCountry}%`]
+    );
+
+    if (countryResult.rowCount === 0) {
+      console.log(`No country found for "${typedCountry}"`);
+      return res.redirect("/project33-1?error=Country not found");
+    }
+
+    const code = countryResult.rows[0].country_code;
+
+    // Insert country code (UNIQUE constraint prevents duplicates)
+    try {
       await db.query(
         "INSERT INTO fullstack.visited_countries_33_1 (country_code) VALUES ($1)",
         [code]
       );
       console.log(`Inserted country code: ${code}`);
+    } catch (err) {
+      if (err.code === "23505") { // Unique violation
+        console.log(`Country code ${code} already exists`);
+        return res.redirect("/project33-1?error=Country already added");
+      } else {
+        throw err;
+      }
     }
-    
-    res.render("project33-1", {
-      countries,
-      total: result.rowCount,
-    });
+
+    res.redirect("/project33-1");
+
   } catch (err) {
-    console.error("DB error:", err);
-    res.status(500).send("Database error");
+    console.error("DB error on insert:", err);
+    res.status(500).send("Database error on insert");
   }
 });
 
