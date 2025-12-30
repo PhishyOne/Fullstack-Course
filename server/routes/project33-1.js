@@ -83,4 +83,40 @@ router.post("/add", async (req, res) => {
   }
 });
 
+router.get("/search", async (req, res) => {
+  const query = req.query.q?.trim();
+
+  if (!query || query.length < 2) {
+    return res.json([]); // don't search on 1 character
+  }
+
+  try {
+    const result = await db.query(
+      `
+      SELECT country_name
+      FROM fullstack.countries_33_1
+      WHERE country_name ILIKE $1
+      ORDER BY country_name
+      LIMIT 10
+      `,
+      [`%${query}%`]
+    );
+
+    res.json(result.rows.map(row => row.country_name));
+  } catch (err) {
+    console.error("Search error:", err);
+    res.status(500).json([]);
+  }
+});
+
+router.post("/clear", async (req, res) => {
+  try {
+    await db.query("DELETE FROM fullstack.visited_countries_33_1");
+    console.log("Cleared all visited countries");
+    res.redirect("/project33-1");
+  } catch (err) {
+    console.error("DB error on clear:", err);
+    res.status(500).send("Database error on clear");
+  }
+});
 export default router;
