@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Tracker</title>
-  <link rel="stylesheet" href="/project33-2/styles/main.css">
+  <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
-  <form class="tab-view tab-view-height-auto" action="/project33-2/user" method="post">
+  <form class="tab-view tab-view-height-auto" action="/user" method="post">
     <% users.forEach(function(user) { %>
       <input type="submit" name="user" value="<%= user.id %>" id="<%= user.id %>">
       <label for="<%= user.id %>" style="background-color: <%= user.color %>;">
@@ -22,14 +22,9 @@
 
   </form>
 
-  <form action="/project33-2/add" method="post">
-    <input type="text" name="country" id="country-input" list="countries-list"
-      autocomplete="off" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
-    <datalist id="countries-list"></datalist>
-    <button type="submit" style="background-color: <%= users.color %>;">Add</button>
-  </form>
-  <form action="/project33-2/clear" method="post">
-    <button type="submit">Clear All</button>
+  <form action="/add" method="post">
+    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
+    <button type="submit" style="background-color: <%= color %>;">Add</button>
   </form>
 
   <section class="ag-canvas">
@@ -398,36 +393,6 @@
     country_codes.forEach(code => {
       document.getElementById(code).style.fill = "<%= color %>"
     });
-    // Autocomplete functionality
-      const input = document.getElementById("country-input");
-      const datalist = document.getElementById("countries-list");
-      let controller;
-      input.addEventListener("input", async () => {
-        const value = input.value.trim();
-        if (value.length < 2) {
-          datalist.innerHTML = "";
-          return;
-        }
-        // Cancel previous request if user types fast
-        if (controller) controller.abort();
-        controller = new AbortController();
-        try {
-          const res = await fetch(`/project33-2/search?q=${encodeURIComponent(value)}`, {
-            signal: controller.signal,
-          });
-          const countries = await res.json();
-          datalist.innerHTML = "";
-          countries.forEach(name => {
-            const option = document.createElement("option");
-            option.value = name;
-            datalist.appendChild(option);
-          });
-        } catch (err) {
-          if (err.name !== "AbortError") {
-            console.error("Autocomplete error:", err);
-          }
-        }
-      });
   </script>
 </body>
 
