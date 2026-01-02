@@ -26,23 +26,23 @@ let users = [
 ];
 
 async function checkVisisted() {
-  const result = await db.query("SELECT country_code FROM visited_countries");
+  const result = await db.query("SELECT country_code FROM fullstack.visited_countries_33_2");
   let countries = [];
   result.rows.forEach((country) => {
     countries.push(country.country_code);
   });
   return countries;
 }
-app.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   const countries = await checkVisisted();
-  res.render("index.ejs", {
+  res.render("project33-2/index.ejs", {
     countries: countries,
     total: countries.length,
     users: users,
     color: "teal",
   });
 });
-app.post("/add", async (req, res) => {
+router.post("/add", async (req, res) => {
   const input = req.body["country"];
 
   try {
@@ -58,7 +58,7 @@ app.post("/add", async (req, res) => {
         "INSERT INTO visited_countries (country_code) VALUES ($1)",
         [countryCode]
       );
-      res.redirect("/");
+      res.redirect("/project33-2");
     } catch (err) {
       console.log(err);
     }
@@ -66,9 +66,9 @@ app.post("/add", async (req, res) => {
     console.log(err);
   }
 });
-app.post("/user", async (req, res) => {});
+router.post("/user", async (req, res) => {});
 
-app.post("/new", async (req, res) => {
+router.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
   //https://www.postgresql.org/docs/current/dml-returning.html
 });
