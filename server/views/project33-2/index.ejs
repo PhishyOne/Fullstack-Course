@@ -24,10 +24,11 @@
 
   <form action="/project33-2/add" method="post">
     <input type="text" name="country" id="country-input" list="countries-list"
-      autocomplete="off" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
+      autocomplete="off" autofocus placeholder="<%= error ||  'Enter country name'%>">
     <datalist id="countries-list"></datalist>
-    <button type="submit" style="background-color: <%= users.color %>;">Add</button>
+    <button type="submit" style="background-color: <%= color %>;">Add</button>
   </form>
+
   <form action="/project33-2/clear" method="post">
     <button type="submit">Clear All</button>
   </form>
@@ -393,15 +394,24 @@
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
   <script>
-    const country_codes = "<%= countries %>".split(",")
-    console.log(typeof ("<%= countries %>"))
-    country_codes.forEach(code => {
-      document.getElementById(code).style.fill = "<%= color %>"
-    });
-    // Autocomplete functionality
+    document.addEventListener("DOMContentLoaded", () => {
+      // Safely get country codes from server
+      const country_codes = <%- JSON.stringify(countries || []) %>;
+      // Fill map countries
+      country_codes.forEach(code => {
+        const el = document.getElementById(code);
+        if (el) {
+          el.style.fill = "<%= color %>";
+        } else {
+          console.warn(`No SVG element found with id: ${code}`);
+        }
+      });
+
+      // Autocomplete setup
       const input = document.getElementById("country-input");
       const datalist = document.getElementById("countries-list");
       let controller;
+
       input.addEventListener("input", async () => {
         const value = input.value.trim();
         if (value.length < 2) {
@@ -428,7 +438,7 @@
           }
         }
       });
-  </script>
+    });
+  </script>    
 </body>
-
 </html>

@@ -4,7 +4,7 @@ import pg from "pg";
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
-router.use(express.static("public"));
+
 
 const db = new pg.Client({
   user: "ufp1ais6lj4me0",
@@ -33,6 +33,7 @@ async function checkVisisted() {
   });
   return countries;
 }
+
 router.get("/", async (req, res) => {
   try {
     const result = await db.query(
@@ -40,11 +41,13 @@ router.get("/", async (req, res) => {
     );
     const countries = result.rows.map(row => row.country_code);
     const error = req.query.error || ""; // Get error message from query param
-
+    let users = await db.query(
+      "SELECT * FROM fullstack.users_33_2"
+    );
     res.render("project33-2", {
       countries,
       total: countries.length,
-      users: users,
+      users: users.rows,
       color: "teal",
       error,
     });
@@ -53,6 +56,7 @@ router.get("/", async (req, res) => {
     res.status(500).send("Database error");
   }
 });
+
 router.post("/add", async (req, res) => {
   const typedCountry = req.body.country?.trim();
   console.log("Typed country: " + typedCountry);
@@ -98,6 +102,7 @@ router.post("/add", async (req, res) => {
 //Autocomplete Query of Countries
 router.get("/search", async (req, res) => {
   const query = req.query.q?.trim();
+  console.log("Query: " + query)
   if (!query || query.length < 2) {
     return res.json([]); // don't search on 1 character
   }
@@ -132,11 +137,49 @@ router.post("/clear", async (req, res) => {
   }
 });
 
-router.post("/user", async (req, res) => {});
+router.post("/user", async (req, res) => {
+  const userId = req.body.user;
+  console.log("User Clicked: " + userId);
+
+  try {
+    const result = await db.query(
+      `SELECT u.*, v.country_code
+       FROM fullstack.users_33_2 u
+       LEFT JOIN fullstack.visited_countries_33_2 v
+         ON u.id = v.user_id
+       WHERE u.id = $1`,
+      [userId]
+    );
+
+    console.log("Query result:", result.rows);
+
+    // Filter out null country codes
+    const countries = result.rows
+      .map(row => row.country_code)
+      .filter(code => code !== null);
+
+    // Get user info from the first row (all rows have the same user info)
+    const userInfo = result.rows[0] || {};
+
+    // Send data to template
+    res.render("project33-2", {
+      countries,
+      total: countries.length,
+      users: [userInfo], // only this user
+      color: userInfo.color || "teal",
+      error: "",
+    });
+  } catch (err) {
+    console.error("DB error:", err);
+    res.status(500).send("Database error");
+  }
+});
+
 
 router.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
   //https://www.postgresql.org/docs/current/dml-returning.html
 });
 
+router.use(express.static("public"));
 export default router;
