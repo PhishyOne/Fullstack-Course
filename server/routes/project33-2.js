@@ -34,21 +34,34 @@ async function checkVisisted() {
   return countries;
 }
 
+//Main Page Route
 router.get("/", async (req, res) => {
   try {
-    const result = await db.query(
-      "SELECT country_code FROM fullstack.visited_countries_33_2"
+    const usersResult = await db.query(
+      "SELECT * FROM fullstack.users_33_2 ORDER BY id"
     );
+
+    const currentUser = usersResult.rows.find(
+      u => u.id === currentUserId
+    );
+    
+    const result = await db.query(
+      `
+      SELECT country_code
+      FROM fullstack.visited_countries_33_2
+      WHERE user_id = $1
+      `,
+      [currentUserId]
+    );
+    
     const countries = result.rows.map(row => row.country_code);
     const error = req.query.error || ""; // Get error message from query param
-    let users = await db.query(
-      "SELECT * FROM fullstack.users_33_2"
-    );
+    
     res.render("project33-2", {
       countries,
       total: countries.length,
-      users: users.rows,
-      color: "teal",
+      users: usersResult.rows,
+      color: currentUser?.color || "teal",
       error,
     });
   } catch (err) {
@@ -57,12 +70,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Add Country to Visited Countries Db
 router.post("/add", async (req, res) => {
   const typedCountry = req.body.country?.trim();
-  console.log("Typed country: " + typedCountry);
+  console.log("Typed country:", typedCountry);
+
+  if (!typedCountry) {
+    return res.redirect("/project33-2?error=Please enter a country");
+  }
 
   try {
-    // Find country code by name (case-insensitive, partial match)
+    // 1️⃣ Find the country code
     const countryResult = await db.query(
       "SELECT country_code FROM fullstack.countries_33_1 WHERE country_name ILIKE $1",
       [`%${typedCountry}%`]
@@ -73,29 +91,41 @@ router.post("/add", async (req, res) => {
       return res.redirect("/project33-2?error=Country not found");
     }
 
-    const code = countryResult.rows[0].country_code;
+    const countryCode = countryResult.rows[0].country_code;
 
-    // Insert country code (UNIQUE constraint prevents duplicates)
-    try {
-      await db.query(
-        "INSERT INTO fullstack.visited_countries_33_2 (country_code) VALUES ($1)",
-        [code]
-      );
-      console.log(`Inserted country code: ${code}`);
-    } catch (err) {
-      if (err.code === "23505") { // Unique violation
-        console.log(`Country code ${code} already exists`);
-        return res.redirect("/project33-2?error=Country already added");
-      } else {
-        throw err;
-      }
+    // 2️⃣ Check if this user already added this country
+    const existsResult = await db.query(
+      `SELECT 1 FROM fullstack.visited_countries_33_2
+       WHERE user_id = $1 AND country_code = $2`,
+      [currentUserId, countryCode]
+    );
+
+    if (existsResult.rowCount > 0) {
+      console.log(`User ${currentUserId} already added country ${countryCode}`);
+      return res.redirect("/project33-2?error=Country already added");
     }
 
+    // 3️⃣ Insert the country for this user
+    await db.query(
+      `INSERT INTO fullstack.visited_countries_33_2 (user_id, country_code)
+       VALUES ($1, $2)`,
+      [currentUserId, countryCode]
+    );
+
+    console.log(`Inserted country ${countryCode} for user ${currentUserId}`);
     res.redirect("/project33-2");
 
   } catch (err) {
+    // Catch everything including UNIQUE constraint errors
     console.error("DB error on insert:", err);
-    res.status(500).send("Database error on insert");
+
+    // Check if it’s a UNIQUE violation just in case
+    if (err.code === "23505") {
+      return res.redirect("/project33-2?error=Country already added");
+    }
+
+    // Otherwise, generic database error
+    res.redirect("/project33-2?error=Database error");
   }
 });
 
@@ -127,58 +157,49 @@ router.get("/search", async (req, res) => {
 
 //Clear from Visited Countries Db
 router.post("/clear", async (req, res) => {
-  try {
-    await db.query("DELETE FROM fullstack.visited_countries_33_2");
-    console.log("Cleared all visited countries");
-    res.redirect("/project33-2");
-  } catch (err) {
-    console.error("DB error on clear:", err);
-    res.status(500).send("Database error on clear");
-  }
+  await db.query(
+    "DELETE FROM fullstack.visited_countries_33_2 WHERE user_id = $1",
+    [currentUserId]
+  );
+  res.redirect("/project33-2");
 });
 
-router.post("/user", async (req, res) => {
-  const userId = req.body.user;
-  console.log("User Clicked: " + userId);
-
-  try {
-    const result = await db.query(
-      `SELECT u.*, v.country_code
-       FROM fullstack.users_33_2 u
-       LEFT JOIN fullstack.visited_countries_33_2 v
-         ON u.id = v.user_id
-       WHERE u.id = $1`,
-      [userId]
-    );
-
-    console.log("Query result:", result.rows);
-
-    // Filter out null country codes
-    const countries = result.rows
-      .map(row => row.country_code)
-      .filter(code => code !== null);
-
-    // Get user info from the first row (all rows have the same user info)
-    const userInfo = result.rows[0] || {};
-
-    // Send data to template
-    res.render("project33-2", {
-      countries,
-      total: countries.length,
-      users: [userInfo], // only this user
-      color: userInfo.color || "teal",
-      error: "",
-    });
-  } catch (err) {
-    console.error("DB error:", err);
-    res.status(500).send("Database error");
-  }
+router.get("/new", (req, res) => {
+  res.render("project33-2/new");
 });
-
-
+//Create New User
 router.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
   //https://www.postgresql.org/docs/current/dml-returning.html
+  const name = req.body.name;
+  const color = req.body.color;
+  console.log("New User: " + name + " Color: " + color);
+
+  try {
+    const result = await db.query(
+      "INSERT INTO fullstack.users_33_2 (name, color) VALUES ($1, $2) RETURNING id",
+      [name, color]
+    );
+    const newUserId = result.rows[0].id;
+    currentUserId = newUserId;
+    console.log(`Inserted new user with ID: ${newUserId}`);
+    res.redirect("/project33-2");
+  } catch (err) {
+    console.error("DB error on new user:", err);
+    res.status(500).send("Database error on new user");
+  }
+});
+//Select User Tab
+router.post("/user", (req, res) => {
+  const userId = req.body.user;
+
+  // "Add New Family Member" button
+  if (!userId) {
+    return res.redirect("/project33-2/new");
+  }
+
+  currentUserId = Number(userId);
+  res.redirect("/project33-2");
 });
 
 router.use(express.static("public"));
