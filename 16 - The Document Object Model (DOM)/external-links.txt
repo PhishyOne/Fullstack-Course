@@ -1,9 +1,0 @@
-
-002 HTML-Tree-Generator-extension-
-https://chrome.google.com/webstore/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg
-
-005 DOM-Style-Javascript-property-names
-https://www.w3schools.com/jsref/dom_obj_style.asp
-
-008 Course-Fixes-Report-an-Issue
-https://forms.gle/DNFNS8KgFdXtPvyY9
